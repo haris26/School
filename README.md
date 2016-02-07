@@ -1,4 +1,5 @@
 # School
 Projects for Mistral School
 
-Here you can write cool things...
+Here you can write cool things during your work ...
+
