@@ -1,0 +1,13 @@
+sta je radnik radio
+ne zanimaju nas pojedinacni taskovi
+koji projekat, koliko sati koji deveolper i opis informativni
+developeri su na jednom projektu uglavnom
+iz kartona se vidi njihov engagement gdje se vidi na kojem projektu radi i njegov histori na kojim je radio
+uglavnom se radi na jednom, eventualno 2 projekta
+
+arhitekti(management) idu od projekta do projekta, mozda za njih posebna kategorija.
+
+as simple as possible
+
+alert za 15. i zadnji petak u mjesecu
+i metriku za management
