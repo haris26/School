@@ -1,0 +1,6 @@
+C:\Users\irma_\Desktop\WebApplication4\WebApplication4\bin\WebApplication4.dll.config
+C:\Users\irma_\Desktop\WebApplication4\WebApplication4\bin\WebApplication4.dll
+C:\Users\irma_\Desktop\WebApplication4\WebApplication4\bin\WebApplication4.pdb
+C:\Users\irma_\Desktop\WebApplication4\WebApplication4\obj\Debug\WebApplication4.csprojResolveAssemblyReference.cache
+C:\Users\irma_\Desktop\WebApplication4\WebApplication4\obj\Debug\WebApplication4.dll
+C:\Users\irma_\Desktop\WebApplication4\WebApplication4\obj\Debug\WebApplication4.pdb
