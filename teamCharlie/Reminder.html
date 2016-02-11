@@ -12,16 +12,16 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 	  
 
-    
   </head>
   <body>
-    <nav class="navbar navbar-inverse" id="navbar">
+    <nav class="navbar navbar-inverse " id="navbar">
   <div class="container-fluid">
-    <div class="navbar-header">
+    <div class="navbar-header" >
+
       <a class="navbar-brand" href="#"><img src="logo.png" id="logo"></a>
     </div>
   
-    <ul class="nav navbar-top-links navbar-right">
+    <ul class="nav navbar-top-links navbar-right ">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                        <span class="glyphicon glyphicon-envelope"></span> <i class="caret"></i>
@@ -161,14 +161,12 @@
 				
 				
 
-    <a id="link" class="dropdown-toggle" data-toggle="dropdown" href="index.html"> 
+    <a id="link" class="dropdown-toggle" data-toggle="dropdown" href="#">
 	<span class="glyphicon glyphicon-tasks">
 	</span> Procurement <span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a id="link" href="Requests.html"><span class="glyphicon glyphicon-plus"></span> Requests </a></li>
-      <li><a id="link" href="Service.html"><span class="glyphicon glyphicon-cog"></span> Service</a></li>
-	     
-
+      <li><a id="link" href="#"><span class="glyphicon glyphicon-cog"></span> Service</a></li>
      
     </ul>
   </li>
@@ -190,65 +188,66 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <div class="row">
+               <div class="container">
+    <div class="col-sm-6" style="height:130px;">
+        
 				
-				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="80%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Request</th>
-                <th>Status</th>
-				<th>Solve</th>
+<p> Upcoming employees...</p>
+
+
+                   <time>2016-02-13</time>
+					
+			
+					
+					
                 
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Request</th>
-                <th >Status</th>
-				<th>Solve</th>
-                
-            </tr>
-        </tfoot>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>new laptop</td>
-                <td id="new"> </td>
-				<td  onclick="window.location.href = 'Inventory.html';"><li>Assigne</li></td>
-                
-            </tr>
-          
-           
-            <tr>
-                <td>Jennifer Chang</td>
-                <td>something</td>
-                <td id="new" > </td>
-               <td onclick="window.location.href = 'Inventory.html';"><li>Assigne</li></td>
-            </tr>
-            <tr>
-                <td>Brenden Wagner</td>
-                <td>Something</td>
-                <td id="new" > </td>
-                <td onclick="window.location.href = 'Inventory.html';"><li>Assigne</li></td>
-           
-            <tr >
-                <td>Suki Burks</td>
-                <td>Something else</td>
-                <td id="new" > </td>
-               <td onclick="window.location.href = 'Inventory.html';"><li>Assigne</li></td>
-            </tr>
-          
-		  
-            
-            
-           
-            
-        </tbody>
-    </table>
-                    
-                </div>
+            </div>
+			
+			
+			<table class="table" >
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th > First Name</th>
+      <th>Last Name</th>
+      <th >  <span class="glyphicon glyphicon-calendar">
+                    </span>Date of arrival</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td><time>15-02-2016</time></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td><time>15-02-2016</time></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td><time>15-02-2016</time></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="checkbox">
+    <label>
+      <input type="checkbox" id="ch1"> Check me out
+    </label>
+	<label>
+      <input type="checkbox" id="ch2"> Check me out
+    </label>
+  </div>
+        </div>
+    </div>
+  
+</div>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
