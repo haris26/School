@@ -1,0 +1,10 @@
+GIT ADD
+Git commit -m "neki note"
+git pull
+git push
+
+git reset HEAD - undo changes, vraca na pocetak zadnjeg commita
+git rm fileName - brisanje sa staginga, diska i repositorija
+git rm fileName -cashed izbrisi iz cache
+
+git mv sourceName destinationName - preimenovanje file-a
