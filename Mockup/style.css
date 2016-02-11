@@ -1,0 +1,81 @@
+header{
+	background-color: #3475CD;
+	position: absolute;
+	width: 100%;
+	height: 50px;
+}
+
+.container-top {
+	padding-top: 60px;
+	position: 50px;
+}
+
+.navbar-default {
+	border: 0px;   
+	border-style: none;
+	box-shadow: none;                                              
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	background-color: #3475CD;
+	border-style:none;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-brand, .navbar-nav>li>a {
+    text-shadow: 0 0px 0 #337ab7;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #3475CD;
+}
+
+.bs-example-navbar-collapse-1 .collapse .navbar-collapse {
+	border: none;
+}
+
+#logo{
+	height: 50px;
+}
+
+.dropdown .dropdown-menu{
+	border: none;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+
+.notice {
+    padding: 15px;
+    background-color: #fafafa;
+    border-left: 6px solid #7f7f84;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+       -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+            box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+}
+
+.notice-rooms {
+    border-color: #45ABCD;
+	background-color: #f4f8fa;
+}
+.notice-rooms>strong {
+    color: #45ABCD;
+}
+.notice-devices {
+    border-color: #FEAF20;
+	background-color: #fcf8f2;
+}
+.notice-devices>strong {
+    color: #FEAF20;
+}
+
+#welcome-title{
+	text-align: center;
+	color: #3475CD;
+}
+
