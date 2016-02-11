@@ -2,8 +2,8 @@
      document.getElementById("thisWeek").style.color="#0000ff";
     
 }
- function test() {
-     document.getElementById("test1").style.backgroundColor = "#3475CD";
+ function test(id) {
+     document.getElementById(id).style.backgroundColor = "#3475CD";
  }
  function setDate() {
      var d = new Date();
