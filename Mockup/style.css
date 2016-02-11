@@ -79,3 +79,94 @@ header{
 	color: #3475CD;
 }
 
+#filterBtns{
+    margin:0 auto;
+    margin-bottom:5px;
+    width:40%;
+    height:40px;
+}
+
+ #filterBtns .btn {
+    border-radius:0px;
+    width:32%;
+    height:100%;
+    background-color:#3475CD;
+    color:white;
+   
+}
+
+ .dayName{
+	text-align:center;
+	justify-content: center;
+	align-items: center; 
+	background-color:transparent;
+	color:white;
+    display:inline-block;
+    float:left;
+    width:20%;
+    height:100%;
+    border:solid 1px white;
+ }
+ 
+ .tableContainer{
+    float:left;
+    width:100%;
+    height:auto;
+    display:table;
+ }
+ 
+ .roomName{
+    display:inline-block;
+    float:left;
+    background-color:deeppink;
+    width:20%;
+    height:100%;
+    border:solid 1px white;
+    text-align:center;
+	justify-content: center;
+	align-items: center; 
+	background-color:#d6e2f5;
+	color:#3475CD;
+ }
+ 
+ .timeSpan{
+    display:inline-block;
+    float:left;
+    width:10%;
+    height:100%;
+    background-color:transparent;
+    border:solid 1px white;
+    text-align:left;
+    padding-left:2px;
+    color:#3475CD;
+ }
+ 
+ .row1{
+    display:inline-block;
+    float:left;
+    width:100%;
+    display:table;  
+    background-color:transparent;
+	
+ }
+ 
+ .cell1{
+    display:inline-block;
+    float:left;
+    max-width:2.5%;
+    min-width:2.5%;
+    height:100%;
+    background-color:transparent;
+    border: 1px solid #e0e0d1;
+    overflow:no-content;
+ }
+ 
+.cell1:hover{
+    background-color:#ebf1fa;
+ }
+ 
+.popover-align{
+	display:inline-block;
+	margin-right:25px;
+}
+
