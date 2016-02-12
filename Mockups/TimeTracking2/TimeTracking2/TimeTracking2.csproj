@@ -94,7 +94,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="mockups\Login.html" />
     <Content Include="mockups\User.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">

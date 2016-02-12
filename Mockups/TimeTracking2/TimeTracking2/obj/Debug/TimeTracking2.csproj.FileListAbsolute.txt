@@ -31,3 +31,36 @@ c:\users\elma\documents\visual studio 2015\Projects\TimeTracking2\TimeTracking2\
 c:\users\elma\documents\visual studio 2015\Projects\TimeTracking2\TimeTracking2\obj\Debug\TimeTracking2.csprojResolveAssemblyReference.cache
 c:\users\elma\documents\visual studio 2015\Projects\TimeTracking2\TimeTracking2\obj\Debug\TimeTracking2.dll
 c:\users\elma\documents\visual studio 2015\Projects\TimeTracking2\TimeTracking2\obj\Debug\TimeTracking2.pdb
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\ApplicationInsights.config
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\roslyn\csc.exe
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\roslyn\System.Collections.Immutable.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\roslyn\vbc.exe
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\roslyn\VBCSCompiler.exe
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\roslyn\VBCSCompiler.exe.config
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\TimeTracking2.dll.config
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\TimeTracking2.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\TimeTracking2.pdb
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.AI.DependencyCollector.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.AI.Web.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.AI.WindowsServer.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.ApplicationInsights.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.AI.DependencyCollector.xml
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.AI.Web.xml
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.AI.WindowsServer.xml
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.ApplicationInsights.xml
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\obj\Debug\TimeTracking2.csprojResolveAssemblyReference.cache
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\obj\Debug\TimeTracking2.dll
+C:\Projects\school\Mockups\TimeTracking2\TimeTracking2\obj\Debug\TimeTracking2.pdb
