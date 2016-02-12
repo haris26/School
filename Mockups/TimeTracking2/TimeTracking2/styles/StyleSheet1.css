@@ -49,12 +49,16 @@ h2 {
     margin-top: 5px;
 }
 
-.navbar-nav #profile {
-    margin-left:600px;
+#profile {
+ 
     font-weight:bold;
     
 }
 #logout {
+    
 font-weight:bold;
+
 }
+
+
 

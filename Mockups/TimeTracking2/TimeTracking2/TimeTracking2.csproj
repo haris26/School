@@ -94,9 +94,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="mockups\AllProjects.html" />
     <Content Include="mockups\Login.html" />
     <Content Include="mockups\Management.html" />
+=======
+>>>>>>> 2b9ab01681458706acabbb5db18789a671e47c25
     <Content Include="mockups\User.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
