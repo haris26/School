@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Time Tracking</title>
+    <meta charset="utf-8" />
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/jquery-1.9.1.min.js"></script>
+    <link href="../styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="../styles/StyleSheet1.css" rel="stylesheet" />
+    <script src="../scripts/bootstrap.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <a class="navbar-brand" href="TeamLead.html"><img src="../images/logo_400x400.png" height="65" width="65" /></a>
+        <ul class="nav navbar-nav">
+            <li><a href="TeamLead.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Team Members <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="TeamMembersAll.html">View All</a></li>
+                    <li><a href="TeamMember.html">Team Member 1</a></li>
+                    <li><a href="TeamMember.html">Team Member 2</a></li>
+                    <li><a href="TeamMember.html">Team Member 3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">My Projects</a></li>
+            <li><a href="#">Report</a></li>
+            
+                <li id="profile"><a href="#"><span class="glyphicon glyphicon-user"> </span> Profile</a></li>
+                <li id="logout"><a href="Login.html"><span class="glyphicon glyphicon-log-out"> </span> Logout</a></li>
+          
+        </ul>
+    </nav>
+    <div class="row col-sm-offset-2">
+        <div class="container col-sm-8">
+
+            <div class="table-content" style="width:100%">
+                <div class="row" style="text-align:center">
+                    <h2><span class="glyphicon glyphicon-chevron-left" style="color:gray"></span>1 Jan - 7 Jan <span class="glyphicon glyphicon-chevron-right" style="color:gray"></span></h2>
+                </div>
+                <div class="row">
+
+                    <div class="col-sm-5">Task Description</div>
+                    <div class="col-sm-1">MON</div>
+                    <div class="col-sm-1">TUE</div>
+                    <div class="col-sm-1">WED</div>
+                    <div class="col-sm-1">THU</div>
+                    <div class="col-sm-1">FRI</div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5"><input class="form-control" type="text" style="width:90%" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-2">Total : 12  <span class="glyphicon glyphicon-remove-sign" style="color:red; float:right"></span></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5"><input class="form-control" type="text" style="width:90%" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-2">Total : 12  <span class="glyphicon glyphicon-remove-sign" style="color:red; float:right"></span></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5"><input class="form-control" type="text" style="width:90%" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-2">Total : 12  <span class="glyphicon glyphicon-remove-sign" style="color:red; float:right"></span></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5"><input class="form-control" type="text" style="width:90%" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-1"><input class="form-control" type="number" style="width: 50px;" /></div>
+                    <div class="col-sm-2">Total : 12  <span class="glyphicon glyphicon-remove-sign" style="color:red; float:right"></span></div>
+                </div>
+                <div class="row total-row">
+                    <div class="col-sm-5"><button class="btn btn-info" style="margin-top:10px">Add new row</button></div>
+                    <div class="col-sm-1">Total: 8</div>
+                    <div class="col-sm-1">Total: 8</div>
+                    <div class="col-sm-1">Total: 8</div>
+                    <div class="col-sm-1">Total: 8</div>
+                    <div class="col-sm-1">Total: 8</div>
+                    <div class="col-sm-2" style="font-weight:bold;font-size:16px;margin-top:18px;">Total: 40</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
