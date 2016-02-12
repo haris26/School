@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <title>Mistral RSS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="devicesStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="devicesJava.js"></script>
+</head>
+<body>
+    <div id="myNavbar">
+        <nav class="navbar navbar-default">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="nav navbar-nav navbar-left" href="index.html">
+                    <img src="images/mistral.png" id="logo" />
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Resources <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Rooms</a></li>
+                            <li><a href="devicesMain.html">Devices</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reservations <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Show active reservation</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </div>
+    <div id="container">
+        <div class="deviceTitle">Devices Reservations</div>
+        <div class="typeContainer">
+            <div class="type"><p>Type:</p></div>
+            <div class="form-group">
+                <select class="form-control">
+                    <option>Android</option>
+                    <option>IOS</option>
+                    <option>Windows Phone</option>
+                    <option>Equipment</option>
+                </select>
+            </div>
+            <div class="type" style="margin-left:20px"><p>Model:</p></div>
+            <div class="form-group">
+                <select class="form-control">
+                    <option>Galaxy Note 4 - LollyPop</option>
+                    <option>Samsung S3 - JellyBean</option>
+                    <option>Samsung S6 - KitKat</option>
+                </select>
+
+            </div>
+            <div class="btn-primary1"><button type="button" class="btn btn-primary">Show Calendar</button></div>
+
+        </div>
+
+
+    </div>
+    <div class="container container-top">
+        <div class="tableContainer">
+            <div class="row1">
+                <div class="roomName">Day/Hours</div>
+                <div class="timeSpan">09:00</div>
+                <div class="timeSpan">10:00</div>
+                <div class="timeSpan">11:00</div>
+                <div class="timeSpan">12:00</div>
+                <div class="timeSpan">13:00</div>
+                <div class="timeSpan">14:00</div>
+                <div class="timeSpan">15:00</div>
+                <div class="timeSpan">16:00</div>
+            </div>
+            <div class="row1">
+                <div class="roomName">Monday</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div data-toggle="popover" title="Haris Brackovic" class="timeSpan" style="background-color:red">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+            </div>
+            <div class="row1">
+                <div class="roomName">Tuesday</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan" style="background-color:red">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+            </div>
+            <div class="row1">
+                <div class="roomName">Wednesday</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div data-toggle="popover" title="Irhad Ljubcic" class="timeSpan" style="background-color:red">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+            </div>
+            <div class="row1">
+                <div class="roomName">Thursday</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div data-toggle="popover" title="Martina Vistica" class="timeSpan" style="background-color:red"></div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+            </div>
+            <div class="row1">
+                <div class="roomName">Friday</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+                <div class="timeSpan">&nbsp;</div>
+            </div>
+        </div>
+        </div>
+
+        <div class="endTimeContainer">
+            <div class="type">Event End:</div>
+            <div class="form-group">
+                <form>
+                    <input class="form-control" type="date">
+                </form>
+            </div>
+            <div class="type" style="margin-left:10px">End Time:</div>
+            <div class="form-group">
+                <form>
+                    <input class="form-control" type="time">
+                </form>
+            </div>
+            <div class="btn-primary1"><button type="button" class="btn btn-primary" onclick="alert('Your reservation was successful')">Submit</button></div>
+        </div>
+
+</body>
+</html>
