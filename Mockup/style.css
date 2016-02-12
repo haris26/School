@@ -216,3 +216,10 @@ header{
 	margin-right:25px;
 }
 
+.modal-body{
+	height:150px;
+}
+
+.alert{
+	display: none;
+}
