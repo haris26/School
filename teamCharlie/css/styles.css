@@ -19,7 +19,8 @@
  }
  
  .badge{
- background-color:red;}
+ background-color:red;
+ }
  
  .checkbox{
  margin-left:85%;
@@ -37,6 +38,7 @@ background-color:red;}
 
 #link{
 	color: white;
+	margin-left:-20px;
 }
 
 #login{
@@ -92,6 +94,9 @@ background-color:red;}
     width: 100%;
     position: absolute;
     padding: 15px;
+
+
+
 
 }
 
@@ -625,3 +630,4 @@ bottom: 0;
     display: block;
     margin-top: 10px;
 }
+
