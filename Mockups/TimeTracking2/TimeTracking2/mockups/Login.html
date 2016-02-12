@@ -16,27 +16,33 @@
 </head>
 <body>
 
-    <div id="logo" class="row col-sm-offset-5">
-        <div class="container col-sm-4">
-            <img src="../images/logo.png" style="width:150px" ; height="150" />
+    <div class="container col-sm-offset-5">
+        <div id="logo" class="col-sm-2">
+            <div class="col-sm-offset-5">
+                <img src="../images/logo_400x400.png" style="width:150px" ; height="150" />
+            </div>
         </div>
     </div>
 
-    </ul>
-    </nav>
-    <div class="row">
-        <div class="wrapper">
-            <form class="form-signin">
-                <h2 class="form-signin-heading">Please login</h2>
-                <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-                <input type="password" class="form-control" name="password" placeholder="Password" required="" />
-                <label class="checkbox">
-                    <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-                </label>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-            </form>
+        <div class="container">
+            <div class="wrapper">
+                <div class="col-sm-4 col-lg-offset-4">
+                    <form action="" method="post" name="Login_Form" class="form-signin">
+                        <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+                        <hr class="colorgraph"><br>
+
+                        <input type="text" class="form-control" name="Username" placeholder="Username" required="" autofocus="" />
+                        <input type="password" class="form-control" name="Password" placeholder="Password" required="" />
+
+                        <a href="User.html" class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" role="button">Login</a>
+                    </form>
+                </div>
+
+            </div>
         </div>
-    </div>
+
+
+
 
 </body>
 </html>
