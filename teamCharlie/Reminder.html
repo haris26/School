@@ -19,6 +19,7 @@
     <div class="navbar-header" >
 
       <a class="navbar-brand" href="#"><img src="logo.png" id="logo"></a>
+	    
     </div>
   
     <ul class="nav navbar-top-links navbar-right ">
@@ -146,11 +147,11 @@
 			   <li class="sidebar-brand">
 			  
                   
-<div class="circle-avatar" style="background-image:url(http://placekitten.com/g/200/400)">
+<div class="circle-avatar" style="background-image:url(https://accrualnet.cancer.gov/sites/accrualnet.cancer.gov/themes/accrualnet/accrualnet-internals/images/avatars/female/Blue.png)">
 
 </div>
 
-
+<span class="label label-default" >Default Label</span>
 
 
                 </li>
@@ -190,21 +191,16 @@
             <div class="container-fluid">
                <div class="container">
     <div class="col-sm-6" style="height:130px;">
-        
-				
-<p> Upcoming employees...</p>
-
-
-                   <time>2016-02-13</time>
-					
-			
-					
-					
-                
-            </div>
+	<span class="label label-info">Reminder</span>
+	<p>3 employees still have an items they need</p>
+	
+	<br>
+	<span class="label label-success">Success Label</span>
+	<p>You have already finished an equipment distribution for 6 employees </p>
+ </div>
 			
 			
-			<table class="table" >
+			<table class="table table-bordered" >
   <thead class="thead-inverse">
     <tr>
       <th>#</th>
@@ -212,6 +208,9 @@
       <th>Last Name</th>
       <th >  <span class="glyphicon glyphicon-calendar">
                     </span>Date of arrival</th>
+					<th>Laptop</th>
+					<th>Table</th>
+					<th>Chair</th>
     </tr>
   </thead>
   <tbody>
@@ -220,32 +219,33 @@
       <td>Mark</td>
       <td>Otto</td>
       <td><time>15-02-2016</time></td>
+	  <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+	  <td> <span class="glyphicon glyphicon-remove" style="color:red"></span></td>
+	  <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
     </tr>
     <tr>
       <th scope="row">2</th>
       <td>Jacob</td>
       <td>Thornton</td>
       <td><time>15-02-2016</time></td>
+	  <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+	  <td><span class="glyphicon glyphicon-remove"style="color:red"></span></td>
+	    <td><span class="glyphicon glyphicon-remove"style="color:red"></span></td>
+	
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Larry</td>
       <td>the Bird</td>
       <td><time>15-02-2016</time></td>
+	  <td><span class="glyphicon glyphicon-remove" style="color:red"></span></td>
+	  <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+	  <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
     </tr>
   </tbody>
 </table>
 
-<div class="checkbox">
-    <label>
-      <input type="checkbox" id="ch1"> Check me out
-    </label>
-	<label>
-      <input type="checkbox" id="ch2"> Check me out
-    </label>
-  </div>
-        </div>
-    </div>
+
   
 </div>
             </div>
