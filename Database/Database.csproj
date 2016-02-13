@@ -50,11 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Category.cs" />
     <Compile Include="EnumCategory.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="Type.cs" />
     <Compile Include="Events.cs" />
+=======
+    <Compile Include="ProjectSkill.cs" />
+>>>>>>> a0519732185a7dacd5ecb7394ae8db04fd141c16
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
