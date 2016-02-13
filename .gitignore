@@ -5,7 +5,11 @@
 ReservationSystem.sln
 TimeTracking.sln
 ProcurementSystem.sln
+<<<<<<< HEAD
 WorkforceRoster.sln
+=======
+SkillsLibrary.sln
+>>>>>>> 7fee221a0a4caac126a2a9ee69c4d27c06d1b7aa
 
 # User-specific files
 *.suo
