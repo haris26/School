@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    class ProjectSkill
+    public class ProjectSkill
     {
         public int Id { get; set; }
         public int ToolId { get; set; }
