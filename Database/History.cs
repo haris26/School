@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    class History
+    public class History
     {
         public int ID { get; set; }
         public int AssetID { get; set; }
