@@ -2,13 +2,15 @@
 
 namespace Database
 {
-    class SchoolContext: DbContext
+    public class SchoolContext: DbContext
     {
         public SchoolContext(): base()
         { }
 
         public DbSet<Assets> Assets { get; set; }
+        public DbSet<Calendar> Calendar { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Details> Details { get; set; }
         public DbSet<Engagement> Engagements { get; set; }
         public DbSet<Events> Events{ get; set; }
         public DbSet<History> Histories { get; set; }

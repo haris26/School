@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    class Request
+    public class Request
     {
         public int Id { get; set; }
         public RequestType requestType { get; set; }

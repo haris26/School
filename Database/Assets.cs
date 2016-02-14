@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Database
 {
-    class Assets
+    public class Assets
     {
-        public int AssetID { get; set; }
+        [Key]
+        public int AssetId { get; set; }
         public string Description { get; set; }
         public string Vendor { get; set; }
         public double Price { get; set; }
