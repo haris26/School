@@ -50,10 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets.cs" />
     <Compile Include="Category.cs" />
-    <Compile Include="EnumCategory.cs" />
+    <Compile Include="Engagement.cs" />
+    <Compile Include="Enumerators.cs" />
+    <Compile Include="History.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Resources.cs" />
-    <Compile Include="Type.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="SchoolContext.cs" />
+    <Compile Include="Team.cs" />
     <Compile Include="Events.cs" />
     <Compile Include="ProjectSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
