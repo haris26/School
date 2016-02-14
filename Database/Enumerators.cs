@@ -45,4 +45,11 @@
         weekly = 2,
         monthly = 3
     }
+
+    public enum EntryStatus
+    {
+        Open = 1,
+        Locked = 2
+    }
+
 }
