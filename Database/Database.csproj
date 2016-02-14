@@ -51,7 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets.cs" />
+    <Compile Include="Calendar.cs" />
+    <Compile Include="Categories.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="Details.cs" />
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="History.cs" />
