@@ -14,6 +14,7 @@ namespace Database
         public DbSet<History> Histories { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<ProjectSkill> ProjectSkills { get; set; }
+        public DbSet<Request> Requests { get; set; }
         public DbSet<Resources> Resources { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Team> Teams{ get; set; }
