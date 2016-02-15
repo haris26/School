@@ -19,6 +19,8 @@ namespace DataSeed
                 Address = new Address("71000", "Sarajevo", "Milana Preloga 12/3"),
                 Category = Employment.Full,
                 Gender = Gender.Male,
+                BirthDate = new DateTime(1990, 9, 15),
+                StartDate = new DateTime(2014, 4, 20),
                 Status = Status.Active
             };
             context.People.Add(person);

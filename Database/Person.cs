@@ -32,8 +32,8 @@ namespace Database
         public string Image { get; set; }
         public string Phone { get; set; }
         public Address Address { get; set; }
-        public DateTime? BirthDate { get; set; }
-        public DateTime? StartDate { get; set; }
+        public DateTime BirthDate { get; set; }
+        public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public Status Status { get; set; }
 

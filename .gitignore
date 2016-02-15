@@ -7,6 +7,12 @@ TimeTracking.sln
 ProcurementSystem.sln
 WorkforceRoster.sln
 SkillsLibrary.sln
+Database/bin/
+Database/obj/
+DataSeed/bin/
+DataSeed/obj/
+Database/Properties/
+DataSeed/Properties/
 
 # User-specific files
 *.suo
