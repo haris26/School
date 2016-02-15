@@ -1,0 +1,10 @@
+C:\Users\irma_\Desktop\ProjectGit\school\TimeTracking\TimeTracking\bin\Debug\TimeTracking.dll
+C:\Users\irma_\Desktop\ProjectGit\school\TimeTracking\TimeTracking\bin\Debug\TimeTracking.pdb
+C:\Users\irma_\Desktop\ProjectGit\school\TimeTracking\TimeTracking\obj\Debug\TimeTracking.csprojResolveAssemblyReference.cache
+C:\Users\irma_\Desktop\ProjectGit\school\TimeTracking\TimeTracking\obj\Debug\TimeTracking.dll
+C:\Users\irma_\Desktop\ProjectGit\school\TimeTracking\TimeTracking\obj\Debug\TimeTracking.pdb
+C:\Users\irma_\Desktop\ProjectGit\school\TimeTracking\TimeTracking\bin\Debug\TimeTracking.dll.config
+C:\Users\irma_\Desktop\ProjectGit\school\TimeTracking\TimeTracking\bin\Debug\EntityFramework.dll
+C:\Users\irma_\Desktop\ProjectGit\school\TimeTracking\TimeTracking\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\irma_\Desktop\ProjectGit\school\TimeTracking\TimeTracking\bin\Debug\EntityFramework.xml
+C:\Users\irma_\Desktop\ProjectGit\school\TimeTracking\TimeTracking\bin\Debug\EntityFramework.SqlServer.xml
