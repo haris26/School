@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\irma_\Desktop\ProjectGit\school\Database\obj\Debug\Database.csprojResolveAssemblyReference.cache
 C:\Users\irma_\Desktop\ProjectGit\school\Database\bin\Debug\Database.dll.config
 C:\Users\irma_\Desktop\ProjectGit\school\Database\bin\Debug\Database.dll
@@ -8,3 +9,6 @@ C:\Users\irma_\Desktop\ProjectGit\school\Database\bin\Debug\EntityFramework.xml
 C:\Users\irma_\Desktop\ProjectGit\school\Database\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\irma_\Desktop\ProjectGit\school\Database\obj\Debug\Database.dll
 C:\Users\irma_\Desktop\ProjectGit\school\Database\obj\Debug\Database.pdb
+=======
+C:\Projects\school\Database\obj\Debug\Database.csprojResolveAssemblyReference.cache
+>>>>>>> ad74a13389f5541776c0fb2030757c9682155f87
