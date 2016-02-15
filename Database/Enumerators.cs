@@ -39,11 +39,11 @@
         Rooms = 2
     }
 
-    public enum Type
+    public enum TimeRepeat
     {
-        daily = 1,
-        weekly = 2,
-        monthly = 3
+        Daily = 1,
+        Weekly = 2,
+        Monthly = 3
     }
 
     public enum EntryStatus
