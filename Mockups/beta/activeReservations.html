@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mistral RSS</title>
+	<script src="library/angular.min.js"></script>
+	<script src="library/ui-bootstrap-tpls.min.js"></script>
+	<link href="styles/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header>
+		<div class="container-fluid">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header" style="border: 0px;">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="nav navbar-nav navbar-left" href="index.html"><img src="images/mistral.png"  id="logo"/>
+					</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:0px;">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" data-toggle="dropdown" class="dropdown-toggle">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu" style="border:none;">
+								<li><a href="Rooms.html">Rooms</a></li>
+								<li><a href="devicesMain.html">Devices</a></li>
+							</ul>
+						</li>
+				  
+						<li class="dropdown">
+							<a href="#" data-toggle="dropdown" class="dropdown-toggle">Reservations <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="activeReservations.html">Show active reservation</a></li>
+							</ul>
+						</li>
+						
+						<li class="dropdown">
+							<a href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="#">Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+
+	<div class="container container-top">
+	  
+		<h2 id="welcome-title"> Active reservations </h2>
+		<br>
+		
+        <!--Row with two equal columns-->
+        <div class="row">
+		
+			<div class="col-xs-6 col-sm-6 col-md-3">
+	          <div class="thumbnail">
+	            <img src="images/confRoom.png" >
+					<div class="caption">
+						<h4> Room 1 </h4>
+						<p>
+							<i class="glyphicon glyphicon-calendar"> </i>   11/02/2016 
+						</p>
+						<p>
+							<i class="glyphicon glyphicon-time"> </i>   12:00 - 12:15 h
+						</p>
+						<p> 				
+							<button  class="btn btn-danger btn-sm" data-toggle="modal" data-target="#cancelModal">Cancel</button>
+							<button  class="btn btn-info btn-sm" data-toggle="modal" data-target="#extendModal">Extend</button>
+						</p>
+					</div>
+	          </div>
+	        </div>      	
+						
+			<!-- Modal for Cancel-->
+			<div class="modal fade" id="cancelModal" role="dialog">
+				<div class="modal-dialog">
+				  <div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title ">Cancel Reservation</h4>
+					</div>
+					<div class="modal-body">
+						<p>Are you sure that you want cancel this reservation?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+
+					</div>
+				  </div>
+				  
+				</div>
+			</div>
+			
+			<!-- Modal for Extend-->
+			<div class="modal fade" id="extendModal" role="dialog">
+				<div class="modal-dialog">
+				  <div class="modal-content modal-size">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title ">Extend Reservation</h4>
+					</div>
+
+					<div class="modal-body">
+						<div class="col-xs-5">
+							<div class="type">Reservation End:</div>
+							<div class="form-group">
+								<form>
+									<input class="form-control col-xs-4" type="date">
+								</form>
+							</div>
+							<br>
+							<div class="type" style="margin-left:10px">End Time:</div>
+							<div class="form-group">
+								<form>
+									<input class="form-control" type="time">
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+					</div>
+				  </div>
+				  
+				</div>
+			</div>
+			
+			<div class="col-xs-6 col-sm-6 col-md-3">
+	          <div class="thumbnail">
+	            <img src="images/devices.png" >
+					<div class="caption">
+						<h4> Samsung Galaxy Tab 4 </h4>
+						<p>
+							<span class="glyphicon glyphicon-calendar"> </span>   16/02/2016 
+						</p>
+						<p>
+							<span class="glyphicon glyphicon-time"> </span>   14:00 h
+						</p>
+						<p> 				
+							<button  class="btn btn-danger btn-sm">Cancel</button>
+							<button  class="btn btn-info btn-sm">Extend</button>
+						</p>
+					</div>
+	          </div>
+	        </div> 
+			
+		</div>
+	</div>
+
+</body>
+</html>                                		
