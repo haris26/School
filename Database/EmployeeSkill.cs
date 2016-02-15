@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    class EmployeeSkill
+    public class EmployeeSkill
     {
         public int Id { get; set; }
         public int ToolId { get; set; }

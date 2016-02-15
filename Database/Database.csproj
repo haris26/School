@@ -55,6 +55,7 @@
     <Compile Include="Categories.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Details.cs" />
+    <Compile Include="EmployeeSkill.cs" />
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="History.cs" />
