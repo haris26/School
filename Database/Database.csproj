@@ -55,7 +55,6 @@
     <Compile Include="TimeCategory.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Detail.cs" />
-    <Compile Include="Details.cs" />
     <Compile Include="Education.cs" />
     <Compile Include="EmployeeEducation.cs" />
     <Compile Include="EmployeeSkill.cs" />
