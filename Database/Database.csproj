@@ -52,11 +52,18 @@
   <ItemGroup>
     <Compile Include="Assets.cs" />
     <Compile Include="Calendar.cs" />
+<<<<<<< HEAD
     <Compile Include="TimeCategory.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="Education.cs" />
     <Compile Include="EmployeeEducation.cs" />
+=======
+    <Compile Include="Categories.cs" />
+    <Compile Include="CategoryDetail.cs" />
+    <Compile Include="ResourceCategory.cs" />
+    <Compile Include="Details.cs" />
+>>>>>>> 96b8f1ddccaa828f263a98f4100c79502cea3156
     <Compile Include="EmployeeSkill.cs" />
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />

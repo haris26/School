@@ -1,4 +1,6 @@
-﻿namespace Database
+﻿using System.Security.Cryptography;
+
+namespace Database
 {
     public enum Employment
     {
@@ -52,11 +54,18 @@
         Locked = 2
     }
 
+<<<<<<< HEAD
     public enum EducationType
     {
         School = 1,
         Course = 2,
         Certificate = 3
+=======
+    public enum ReservationStatus
+    {
+        Available = 1,
+        Reserved = 2    
+>>>>>>> 96b8f1ddccaa828f263a98f4100c79502cea3156
     }
 
 }
