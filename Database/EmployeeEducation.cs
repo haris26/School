@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    class Categories
+    public class EmployeeEducation
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+
+        public virtual Person Employee { get; set; }
+        public virtual Education Education { get; set; }
     }
 }

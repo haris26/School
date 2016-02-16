@@ -41,18 +41,24 @@ namespace Database
         Rooms = 2
     }
 
-    public enum TimeRepeat
+    public enum Type
     {
-        Daily = 1,
-        Weekly = 2,
-        Monthly = 3
+        daily = 1,
+        weekly = 2,
+        monthly = 3
     }
 
     public enum EntryStatus
     {
-        Open = 1,
+        Unlocked = 1,
         Locked = 2
     }
+
+    public enum EducationType
+    {
+        School = 1,
+        Course = 2,
+        Certificate = 3
 
     public enum ReservationStatus
     {

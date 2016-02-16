@@ -9,8 +9,9 @@ namespace Database
     public class ProjectSkill
     {
         public int Id { get; set; }
-        public int ToolId { get; set; }
-        public int TeamId { get; set; }
         public int Level { get; set; }
+
+        public virtual Tool Tool { get; set; }
+        public virtual Team Team { get; set; }
     }
 }
