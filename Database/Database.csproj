@@ -57,7 +57,7 @@
     <Compile Include="EmployeeEducation.cs" />
     <Compile Include="EmployeeSkill.cs" />
     <Compile Include="Engagement.cs" />
-    <Compile Include="Enumerator.cs" />
+    <Compile Include="Enumerators.cs" />
     <Compile Include="History.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Request.cs" />

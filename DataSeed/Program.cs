@@ -24,6 +24,12 @@ namespace DataSeed
                 Status = Status.Active
             };
             context.People.Add(person);
+            Team team = new Team() { Name = "Intranet", Description = "Internal project for personal use", Type = Project.Internal };
+            context.Teams.Add(team);
+            
+            person.Teams.Add(team);
+            team.Members.Add(person);
+
             try
             {
                 context.SaveChanges();
