@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    public class Assets
+    public class Asset
     {
-        [Key]
+        
         public int AssetId { get; set; }
         public string Description { get; set; }
         public string Vendor { get; set; }

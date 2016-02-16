@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    public class ProjectSkill
+    public class EmployeeSkill
     {
         public int Id { get; set; }
         public int Level { get; set; }
+        public int Experience { get; set; }
 
         public virtual Tool Tool { get; set; }
-        public virtual Team Team { get; set; }
+        public virtual Person Employee { get; set; }
     }
 }
