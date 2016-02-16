@@ -9,12 +9,13 @@ namespace Database
 {
     public class Asset
     {
-        
+        [Key]
         public int AssetId { get; set; }
         public string Description { get; set; }
+        Dictionary<string, string> Characteristics = new Dictionary<string, string>();
         public string Vendor { get; set; }
         public double Price { get; set; }
-        public string EmployeeID { get; set; }
+        virtual public string  EmployeeID { get; set; }
         public enum Status { Active=1,Coming_soon=2, Out_of_order=3 }
     }
 }
