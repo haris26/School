@@ -1,4 +1,6 @@
-﻿namespace Database
+﻿using System.Security.Cryptography;
+
+namespace Database
 {
     public enum Employment
     {
@@ -39,7 +41,7 @@
         Rooms = 2
     }
 
-    public enum Type
+    public enum RepeatType
     {
         daily = 1,
         weekly = 2,
@@ -48,8 +50,21 @@
 
     public enum EntryStatus
     {
-        Open = 1,
+        Unlocked = 1,
         Locked = 2
+    }
+
+    public enum EducationType
+    {
+        School = 1,
+        Course = 2,
+        Certificate = 3
+    }
+
+    public enum ReservationStatus
+    {
+        Available = 1,
+        Reserved = 2    
     }
 
 }

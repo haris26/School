@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Database
 {
@@ -6,7 +7,9 @@ namespace Database
     {
         public Team()
         {
-            Roles = new List<Engagement>();
+            Roles = new Collection<Engagement>();
+            Members = new Collection<Person>();
+            ProjectSkills = new Collection<ProjectSkill>();
         }
 
         public int Id { get; set; }
@@ -14,6 +17,8 @@ namespace Database
         public string Description { get; set; }
         public Project Type { get; set; }
 
-        public IList<Engagement> Roles { get; set; }
+        public ICollection<Engagement> Roles { get; set; }
+        public ICollection<Person> Members { get; set; }
+        public ICollection<ProjectSkill> ProjectSkills { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Database
 {
@@ -20,7 +21,9 @@ namespace Database
     {
         public Person()
         {
-            Roles = new List<Engagement>();
+            Roles = new Collection<Engagement>();
+            Teams = new Collection<Team>();
+            EmployeeSkills = new Collection<EmployeeSkill>();
         }
 
         public int Id { get; set; }
@@ -32,11 +35,13 @@ namespace Database
         public string Image { get; set; }
         public string Phone { get; set; }
         public Address Address { get; set; }
-        public DateTime? BirthDate { get; set; }
-        public DateTime? StartDate { get; set; }
+        public DateTime BirthDate { get; set; }
+        public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public Status Status { get; set; }
 
-        public virtual IList<Engagement> Roles { get; set; }
+        public virtual ICollection<Engagement> Roles { get; set; }
+        public virtual ICollection<Team> Teams { get; set; }
+        public virtual ICollection<EmployeeSkill> EmployeeSkills { get; set; }
     }
 }
