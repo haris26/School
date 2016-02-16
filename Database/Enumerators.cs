@@ -41,7 +41,7 @@ namespace Database
         Rooms = 2
     }
 
-    public enum Type
+    public enum RepeatType
     {
         daily = 1,
         weekly = 2,
@@ -59,6 +59,7 @@ namespace Database
         School = 1,
         Course = 2,
         Certificate = 3
+    }
 
     public enum ReservationStatus
     {

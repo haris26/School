@@ -52,8 +52,9 @@
   <ItemGroup>
     <Compile Include="Assets.cs" />
     <Compile Include="Calendar.cs" />
+    <Compile Include="CategoryDetail.cs" />
+    <Compile Include="Event.cs" />
     <Compile Include="TimeCategory.cs" />
-    <Compile Include="Category.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="Education.cs" />
     <Compile Include="EmployeeEducation.cs" />

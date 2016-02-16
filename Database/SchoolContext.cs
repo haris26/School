@@ -10,7 +10,7 @@ namespace Database
         public DbSet<Assets> Assets { get; set; }
         public DbSet<Calendar> Calendar { get; set; }
         public DbSet<TimeCategory> TimeCategories { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<CategoryDetail> Categories { get; set; }
         public DbSet<Detail> Details { get; set; }
         public DbSet<EmployeeSkill> EmployeeSkills { get; set; }
         public DbSet<Engagement> Engagements { get; set; }
