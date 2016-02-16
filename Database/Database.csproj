@@ -69,7 +69,6 @@
     <Compile Include="SchoolContext.cs" />
     <Compile Include="SkillCategory.cs" />
     <Compile Include="Team.cs" />
-    <Compile Include="Event.cs" />
     <Compile Include="ProjectSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tool.cs" />
