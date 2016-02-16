@@ -15,5 +15,6 @@ namespace Database
         public Project Type { get; set; }
 
         public IList<Engagement> Roles { get; set; }
+        public IList<Person> Members { get; set; }
     }
 }

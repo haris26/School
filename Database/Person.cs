@@ -38,5 +38,6 @@ namespace Database
         public Status Status { get; set; }
 
         public virtual IList<Engagement> Roles { get; set; }
+        public virtual IList<Team> Teams { get; set; }
     }
 }

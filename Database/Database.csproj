@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="Assets.cs" />
     <Compile Include="Calendar.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TimeCategory.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Detail.cs" />
