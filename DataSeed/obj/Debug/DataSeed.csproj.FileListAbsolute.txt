@@ -1,0 +1,12 @@
+C:\Projects\school\DataSeed\obj\Debug\DataSeed.csprojResolveAssemblyReference.cache
+C:\Projects\school\DataSeed\bin\Debug\DataSeed.exe.config
+C:\Projects\school\DataSeed\bin\Debug\DataSeed.exe
+C:\Projects\school\DataSeed\bin\Debug\DataSeed.pdb
+C:\Projects\school\DataSeed\bin\Debug\Database.dll
+C:\Projects\school\DataSeed\bin\Debug\EntityFramework.dll
+C:\Projects\school\DataSeed\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\school\DataSeed\bin\Debug\Database.pdb
+C:\Projects\school\DataSeed\bin\Debug\EntityFramework.xml
+C:\Projects\school\DataSeed\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\school\DataSeed\obj\Debug\DataSeed.exe
+C:\Projects\school\DataSeed\obj\Debug\DataSeed.pdb
