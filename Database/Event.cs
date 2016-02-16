@@ -7,7 +7,7 @@ namespace Database
         public int Id { get; set; }
         public virtual Resource Resource { get; set; }
         public virtual Event ParentEvent { get; set; }
-        public Person User { get; set; }
+        public virtual Person User { get; set; }
         public string EventTitle { get; set; }
         public DateTime EventStart { get; set; }
         public DateTime EventEnd { get; set; }
