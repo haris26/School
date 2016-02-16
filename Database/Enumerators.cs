@@ -52,4 +52,11 @@
         Locked = 2
     }
 
+    public enum EducationType
+    {
+        School = 1,
+        Course = 2,
+        Certificate = 3
+    }
+
 }

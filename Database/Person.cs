@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Database
 {
@@ -21,6 +22,7 @@ namespace Database
         public Person()
         {
             Roles = new List<Engagement>();
+            EmployeeSkills = new Collection<EmployeeSkill>();
         }
 
         public int Id { get; set; }
@@ -38,6 +40,10 @@ namespace Database
         public Status Status { get; set; }
 
         public virtual IList<Engagement> Roles { get; set; }
+<<<<<<< HEAD
         public virtual IList<Team> Teams { get; set; }
+=======
+        public virtual ICollection<EmployeeSkill> EmployeeSkills { get; set; }
+>>>>>>> d0bb89dd3fc3a3487c01103da40786699bf28379
     }
 }

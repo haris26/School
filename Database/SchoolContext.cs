@@ -24,5 +24,8 @@ namespace Database
         public DbSet<Resources> Resources { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Team> Teams{ get; set; }
+        public DbSet<Education> Educations { get; set; }
+        public DbSet<EmployeeEducation> EmployeeEducations { get; set; }
+
     }
 }

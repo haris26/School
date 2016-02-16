@@ -54,7 +54,13 @@
     <Compile Include="Calendar.cs" />
     <Compile Include="TimeCategory.cs" />
     <Compile Include="Category.cs" />
+<<<<<<< HEAD
     <Compile Include="Detail.cs" />
+=======
+    <Compile Include="Details.cs" />
+    <Compile Include="Education.cs" />
+    <Compile Include="EmployeeEducation.cs" />
+>>>>>>> d0bb89dd3fc3a3487c01103da40786699bf28379
     <Compile Include="EmployeeSkill.cs" />
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
