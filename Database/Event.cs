@@ -5,9 +5,9 @@ namespace Database
     public class Event
     {
         public int Id { get; set; }
-        public int ResourceId { get; set; }
-        public int ParentId { get; set; }
-        public int EmployeeId { get; set; }
+        public virtual Resource Resource { get; set; }
+        public virtual  Event ParentEvent { get; set; }
+        public virtual Person User { get; set; }
         public string EventTitle { get; set; }
         public DateTime EventStart { get; set; }
         public DateTime EventEnd { get; set; }

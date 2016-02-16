@@ -53,7 +53,8 @@
     <Compile Include="Assets.cs" />
     <Compile Include="Calendar.cs" />
     <Compile Include="Categories.cs" />
-    <Compile Include="Category.cs" />
+    <Compile Include="CategoryDetail.cs" />
+    <Compile Include="ResourceCategory.cs" />
     <Compile Include="Details.cs" />
     <Compile Include="EmployeeSkill.cs" />
     <Compile Include="Engagement.cs" />
