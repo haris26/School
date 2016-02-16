@@ -51,5 +51,18 @@
         Open = 1,
         Locked = 2
     }
+    public enum RequestStatus
+    {
+        AvaitingForApprovale =1,
+        Cancelled = 2,
+        Approved = 3,
+        Completed = 4,
+        InProccess =5
+    }
+    public enum RequestType
+    {
+        NewEquipment = 1,
+        ServiceEqupment = 2
+    }
 
 }
