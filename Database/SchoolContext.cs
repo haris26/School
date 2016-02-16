@@ -9,7 +9,6 @@ namespace Database
 
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Calendar> Calendar { get; set; }
-        public DbSet<TimeCategory> TimeCategories { get; set; }
         public DbSet<CategoryDetail> Categories { get; set; }
         public DbSet<Detail> Details { get; set; }
         public DbSet<EmployeeSkill> EmployeeSkills { get; set; }
@@ -17,7 +16,6 @@ namespace Database
         public DbSet<Event> Events{ get; set; }
         public DbSet<History> Histories { get; set; }
         public DbSet<Person> People { get; set; }
-        public DbSet<SkillCategory> SkillCategories { get; set; }
         public DbSet<Tool> Tools { get; set; }
         public DbSet<ProjectSkill> ProjectSkills { get; set; }
         public DbSet<Request> Requests { get; set; }
