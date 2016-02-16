@@ -10,11 +10,11 @@ namespace Database
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public int EmployeeId { get; set; }
+        //public int EmployeeId { get; set; }
         double WorkTime { get; set; }
         double PtoTime { get; set; }
         public EntryStatus EntryStatus { get; set; }
-        public Person Person { get; set; }
+        public virtual Person Person { get; set; }
     }
 }
 

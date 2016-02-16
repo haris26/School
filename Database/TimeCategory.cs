@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    public class TimeCategory
+    public class TimeCategory //evaluate mozda i ne imati ovo.
     {
         public int Id { get; set; }
         public string Name { get; set; }
