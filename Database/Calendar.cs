@@ -13,7 +13,8 @@ namespace Database
         public int EmployeeId { get; set; }
         double WorkTime { get; set; }
         double PtoTime { get; set; }
-        public Status Status { get; set; }
+        public EntryStatus EntryStatus { get; set; }
+        public Person Person { get; set; }
     }
 }
 
