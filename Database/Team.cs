@@ -7,7 +7,8 @@ namespace Database
     {
         public Team()
         {
-            Roles = new List<Engagement>();
+            Roles = new Collection<Engagement>();
+            Members = new Collection<Person>();
             ProjectSkills = new Collection<ProjectSkill>();
         }
 
@@ -16,12 +17,8 @@ namespace Database
         public string Description { get; set; }
         public Project Type { get; set; }
 
-        public IList<Engagement> Roles { get; set; }
-<<<<<<< HEAD
-        public IList<Person> Members { get; set; }
-=======
+        public ICollection<Engagement> Roles { get; set; }
+        public ICollection<Person> Members { get; set; }
         public ICollection<ProjectSkill> ProjectSkills { get; set; }
-
->>>>>>> d0bb89dd3fc3a3487c01103da40786699bf28379
     }
 }

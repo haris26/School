@@ -21,7 +21,8 @@ namespace Database
     {
         public Person()
         {
-            Roles = new List<Engagement>();
+            Roles = new Collection<Engagement>();
+            Teams = new Collection<Team>();
             EmployeeSkills = new Collection<EmployeeSkill>();
         }
 
@@ -39,11 +40,9 @@ namespace Database
         public DateTime? EndDate { get; set; }
         public Status Status { get; set; }
 
-        public virtual IList<Engagement> Roles { get; set; }
-<<<<<<< HEAD
-        public virtual IList<Team> Teams { get; set; }
-=======
+        public virtual ICollection<Engagement> Roles { get; set; }
+        public virtual ICollection<Team> Teams { get; set; }
         public virtual ICollection<EmployeeSkill> EmployeeSkills { get; set; }
->>>>>>> d0bb89dd3fc3a3487c01103da40786699bf28379
+        public virtual ICollection<EmployeeSkill> EmployeeSkills { get; set; }
     }
 }
