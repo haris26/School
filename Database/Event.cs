@@ -2,7 +2,7 @@
 
 namespace Database
 {
-    public class Events
+    public class Event
     {
         public int Id { get; set; }
         public int ResourceId { get; set; }
