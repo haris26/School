@@ -7,7 +7,7 @@ namespace Database
         public int Id { get; set; }                                         // Identity[1]
         public string Name { get; set; }                                    // Name of the charasteristic
         public string Value { get; set; }                                   // Value of the characteristic
-        public virtual ResourceCategory ResourceCategory { get; set; }      // Navigation to the resource category
+        public virtual Resource Resource { get; set; }                      // Navigation to the resource 
 
     }
 }

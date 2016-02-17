@@ -10,6 +10,6 @@ namespace Database
     public class CharacteristicName
     {
         public virtual ResourceCategory ResourceCategory { get; set; }      //Navigation to the resource category
-        public virtual Characteristic Name { get; set; }                    // Navigation to the characteristics of resource category
+        public string Name { get; set; }                                    // Name of characteristics
     }
 }
