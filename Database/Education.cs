@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+// SKILLS LIBRARY
 namespace Database
 {
+//  Education table: school, courses, certificates...
     public class Education
     {
         public Education()
@@ -14,11 +12,11 @@ namespace Database
             EmployeeEducation = new Collection<EmployeeEducation>();
         }
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public EducationType Type { get; set; }
-        public string Reference { get; set; }
+        public int Id { get; set; }                 // Identity[1]
+        public string Name { get; set; }            // School (course, certificate) name
+        public EducationType Type { get; set; }     // Education type
+        public string Reference { get; set; }       // Reference (link)
 
-        public virtual ICollection<EmployeeEducation> EmployeeEducation { get; set; }
+        public virtual ICollection<EmployeeEducation> EmployeeEducation { get; set; }       // list of employees who achieved this
     }
 }

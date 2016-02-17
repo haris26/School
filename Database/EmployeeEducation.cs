@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿// SKILLS LIBRARY
 namespace Database
 {
+//  Collection of diplomas and certificates for employee
+//  Collection of employees who achieved particular school, course or certificate
     public class EmployeeEducation
     {
         public int Id { get; set; }
