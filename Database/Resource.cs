@@ -7,6 +7,6 @@ namespace Database
         public int Id { get; set; }             // Identity[1]
         public string Name { get; set; }        // Name
 
-        public int  CategoryId { get; set;}     // Category ??? We need a class here, but class is not defined yet
+        public virtual ResourceCategory  ResourceCategory { get; set;}     // Navigation to the resource category
     }
 }

@@ -42,12 +42,6 @@ namespace Database
 
 // Reservation System
 
-    public enum ResourceType
-    {
-        Device = 1,
-        Room = 2
-    }
-
     public enum RepeatType
     {
         Daily = 1,
