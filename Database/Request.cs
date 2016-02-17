@@ -1,27 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+// PROCUREMENT SYSTEM
 namespace Database
 {
+//  List of procurement/service requests
     public class Request
     {
-        public int Id { get; set; }
-        public RequestType requestType { get; set; }
-        public string RequestMessage { get; set; }
-        public DateTime RequestDate { get; set; }
-      //  public string RequestStatus { get; set; }
-        public RequestStatus RequestStatus { get; set; }
-        public int AssetId { get; set; }
-        public int EmployeeId { get; set; }
+        public int Id { get; set; }                                 // Identity[1]
+        public RequestType requestType { get; set; }                // Request type (procuration ot service)
+        public string RequestMessage { get; set; }                  // Description of the request
+        public DateTime RequestDate { get; set; }                   // Date of the request
+        public RequestStatus Status { get; set; }                   // Status
 
-        public List<Request> requests = new List<Request>();
+        //public int AssetId { get; set; }
+        public Asset Asset { get; set; }
+        //public int EmployeeId { get; set; }
+        public Person User { get; set; }
 
-
+        //public List<Request> requests = new List<Request>();
     }
-
-
-   
 }

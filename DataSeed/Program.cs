@@ -17,11 +17,19 @@ namespace DataSeed
                 FirstName = "John",
                 LastName = "Doe",
                 Address = new Address("71000", "Sarajevo", "Milana Preloga 12/3"),
-                Category = Employment.Full,
+                Category = EmploymentType.Full,
                 Gender = Gender.Male,
-                Status = Status.Active
+                BirthDate = new DateTime(1990, 9, 15),
+                StartDate = new DateTime(2014, 4, 20),
+                Status = EmploymentStatus.Active
             };
             context.People.Add(person);
+            Team team = new Team() { Name = "Intranet", Description = "Internal project for personal use", Type = ProjectType.Internal };
+            context.Teams.Add(team);
+            
+            person.Teams.Add(team);
+            team.Members.Add(person);
+
             try
             {
                 context.SaveChanges();

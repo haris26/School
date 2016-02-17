@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿// TIME TRACKING
 namespace Database
 {
+//  work details for each day
     public class Detail
     {
-        public int Id { get; set; }
-        public int CategoryId { get; set; }
-        public int CalendarId { get; set; }
-        public int ProjectId { get; set; }
-        public double WorkTime { get; set; }
-        public double BillTime { get; set; }
+        public int Id { get; set; }                         // Identity[1]
+        public virtual Calendar Calendar { get; set; }      // Navigation to Calendar class (date and person)
+        public double WorkTime { get; set; }                // Total work time
+        public double BillTime { get; set; }                // Total bill time
+        public string Description { get; set; }             // Description of the tasks performed
+        public virtual Team Team { get; set; }              // Navigation to Team class (related Project)
     }
 }

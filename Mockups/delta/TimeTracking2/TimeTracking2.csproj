@@ -16,6 +16,10 @@
     <RootNamespace>TimeTracking2</RootNamespace>
     <AssemblyName>TimeTracking2</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+<<<<<<< HEAD:Mockups/TimeTracking2/TimeTracking2/TimeTracking2.csproj
+ 
+
+=======
    
     
     
@@ -24,6 +28,7 @@
     
   
   
+>>>>>>> b3c93e0529be4dbba1b1299f6009d35e4dbc81a7:Mockups/delta/TimeTracking2/TimeTracking2.csproj
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -172,9 +177,13 @@
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+<<<<<<< HEAD:Mockups/TimeTracking2/TimeTracking2/TimeTracking2.csproj
+    
+=======
     <PropertyGroup>
       
     </PropertyGroup>
+>>>>>>> b3c93e0529be4dbba1b1299f6009d35e4dbc81a7:Mockups/delta/TimeTracking2/TimeTracking2.csproj
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
