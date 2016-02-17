@@ -1,0 +1,208 @@
+header{
+	background-color: #3475CD;
+	position: absolute;
+	width: 100%;
+	height: 50px;
+}
+
+.container-top {
+	padding-top: 60px;
+	position: 50px;
+}
+
+.navbar-default {
+	border: 0px;   
+	border-style: none;
+	box-shadow: none;                                              
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	background-color: #3475CD;
+	border-style:none;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-brand, .navbar-nav>li>a {
+    text-shadow: 0 0px 0 #337ab7;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #3475CD;
+}
+
+.bs-example-navbar-collapse-1 .collapse .navbar-collapse {
+	border: none;
+}
+
+#logo{
+	height: 50px;
+}
+
+.dropdown .dropdown-menu{
+	border: none;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+
+.notice {
+    padding: 15px;
+    background-color: #fafafa;
+    border-left: 6px solid #7f7f84;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+       -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+            box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+}
+
+.notice-rooms {
+    border-color: #45ABCD;
+	background-color: #f4f8fa;
+}
+.notice-rooms>strong {
+    color: #45ABCD;
+}
+.notice-devices {
+    border-color: #FEAF20;
+	background-color: #fcf8f2;
+}
+.notice-devices>strong {
+    color: #FEAF20;
+}
+
+#welcome-title{
+	text-align: center;
+	color: #3475CD;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+.deviceTitle{
+    font-family:Arial;
+    color:#3475CD;
+    font-size:25px;
+    width:300px;
+    margin:0 auto;
+    /*padding-top:40px;*/
+    margin-top:70px;
+    text-align:center;
+
+}
+.type{
+    font-family:Arial;
+    font-size:18px;
+    /*padding-left:400px;*/
+    margin:0 auto;
+    margin-top:25px;
+    display:inline-block;
+}
+.typeMenu{
+    font-family:Arial;
+    font-size:18px;
+    padding-left:10px;
+    display:inline-block;
+}
+.form-group{
+    display:inline-block;
+    padding-left:10px;
+}
+.btn-primary1{
+    display:inline-block;
+    padding-left:70px;
+}
+.btn-primary{
+    background:#3475CD;
+}
+.col-md-1{
+    border:solid;
+    border-width:1px;
+    border-color:black;
+    height:70px;
+}
+.row {
+    margin-top:0px;
+}
+.row-border{
+    border:solid;
+    border-width:1px;
+    border-color:black;
+}
+.typeContainer{
+    width:750px;
+    margin: 0 auto;
+    margin-top:10px;
+    margin-bottom:30px;
+}
+.dayName{
+ text-align:center;
+ justify-content: center;
+ align-items: center; 
+ background-color:transparent;
+ color:white;
+    display:inline-block;
+    float:left;
+    width:20%;
+    height:100%;
+    border:solid 1px white;
+ }
+.tableContainer{
+    float:left;
+    width:100%;
+    height:auto;
+    display:table;
+ }
+.roomName{
+    display:inline-block;
+    float:left;
+    background-color:deeppink;
+    width:20%;
+    height:40px;
+    border:solid 1px white;
+    text-align:center;
+ justify-content: center;
+ align-items: center; 
+ background-color:#d6e2f5;
+ color:#3475CD;
+ text-align:center;
+    vertical-align:middle;
+    line-height:40px;
+ 
+ }
+.timeSpan{
+    display:inline-block;
+    float:left;
+    width:10%;
+    height:40px;
+    background-color:transparent;
+    border:solid 1px #e0e0d1;
+    text-align:center;
+    padding-left:2px;
+    color:#3475CD;
+    text-align:center;
+    vertical-align:middle;
+    line-height:40px;
+    
+ }
+.row1{
+    display:inline-block;
+    float:left;
+    width:100%;
+    display:table;  
+    background-color:transparent;
+    min-height:40px;
+    height:auto;
+ }
+.endTimeContainer {
+    width:51%;
+    margin:0 auto;
+    margin-top:20px;
+}
+
+.alert{
+	display: none;
+}
