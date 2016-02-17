@@ -40,6 +40,15 @@ namespace Database
         Certificate = 3
     }
 
+    public enum Level
+    {
+        VeryLow = 1,
+        BasicCapability = 2,
+        Competent = 3,
+        DevelopedSkills = 4,
+        HighlySkilled = 5
+    }
+
 // Reservation System
 
     public enum ResourceType
