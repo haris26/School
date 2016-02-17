@@ -16,9 +16,8 @@ namespace Database
         public int Id { get; set; }
 
         public AssetType Type { get; set; }
-
-
-
+        public string Name { get; set; }
+        public int SerialNumber { get; set; }
         public string Description { get; set; }     // asset description [name]
         public string Vendor { get; set; }          // vendor - so far just description - maybe separate class in the future
         public double Price { get; set; }           // price
