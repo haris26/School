@@ -1,4 +1,12 @@
 ﻿// PROCUREMENT SYSTEM
+=======
+﻿using Database;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace Database
 {
 //  Basic assets data
@@ -16,5 +24,4 @@ namespace Database
         
         // public enum Status { Active=1,Coming_soon=2, Out_of_order=3 } we will put status to enumerators
         public AssetStatus Status { get; set; }
-    }
 }
