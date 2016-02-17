@@ -1,16 +1,21 @@
-﻿namespace Database
+﻿using System.Security.Cryptography;
+
+namespace Database
 {
-    public enum Employment
+// Workforce Roster
+
+    public enum EmploymentType
     {
         Full = 1,
         Part = 2,
         Student = 3
     }
 
-    public enum AssetType
+    public enum EmploymentStatus
     {
-        IT = 1,
-        Office = 2
+        Active = 1,
+        Leaver = 2,
+        ComingSoon = 3
     }
 
     public enum Gender
@@ -19,37 +24,83 @@
         Male = 2
     }
 
-    public enum Status
-    {
-        Active = 1,
-        Leaver = 2,
-        ComingSoon = 3
-    }
-
-    public enum Project
+    public enum ProjectType
     {
         External = 1,
         Internal = 2,
         Absence = 3
     }
 
-    public enum ResourceType
+// Skills Library
+
+    public enum EducationType
     {
-        Devices = 1,
-        Rooms = 2
+        School = 1,
+        Course = 2,
+        Certificate = 3
     }
 
-    public enum Type
+// Reservation System
+
+    public enum ResourceType
     {
-        daily = 1,
-        weekly = 2,
-        monthly = 3
+        Device = 1,
+        Room = 2
     }
+
+    public enum RepeatType
+    {
+        Daily = 1,
+        Weekly = 2,
+        Monthly = 3
+    }
+
+    public enum ReservationStatus
+    {
+        Available = 1,
+        Reserved = 2
+    }
+
+// Procurement System
+    
+    public enum AssetType
+    {
+        Device = 1,
+        Office = 2
+    }
+
+    public enum AssetStatus
+    {
+        Active = 1,
+        ComingSoon = 2,
+        OutOfOrder = 3
+    }
+
+    public enum HistoryStatus
+    {
+        Active = 1,
+        Inactive = 2
+    }
+
+    public enum RequestStatus
+    {
+        Waiting = 1,
+        Accepted = 2,
+        Refused = 3,
+        Done = 4
+    }
+
+    public enum RequestType
+    {
+        Equipment = 1,
+        Service = 2
+    }
+    
+// Time Tracking
 
     public enum EntryStatus
     {
         Unlocked = 1,
         Locked = 2
     }
-
 }
