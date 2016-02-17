@@ -59,9 +59,9 @@
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="History.cs" />
-    <Compile Include="Migrations\201602161137232_sule20160216.cs" />
-    <Compile Include="Migrations\201602161137232_sule20160216.Designer.cs">
-      <DependentUpon>201602161137232_sule20160216.cs</DependentUpon>
+    <Compile Include="Migrations\201602171541401_dalila001.cs" />
+    <Compile Include="Migrations\201602171541401_dalila001.Designer.cs">
+      <DependentUpon>201602171541401_dalila001.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
@@ -80,8 +80,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602161137232_sule20160216.resx">
-      <DependentUpon>201602161137232_sule20160216.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201602171541401_dalila001.resx">
+      <DependentUpon>201602171541401_dalila001.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

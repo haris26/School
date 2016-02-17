@@ -34,7 +34,7 @@ namespace DataSeed
                 Type = ProjectType.Internal
             };
             context.Teams.Add(team2);
-            
+
             person.Teams.Add(team);
             team.Members.Add(person);
 
