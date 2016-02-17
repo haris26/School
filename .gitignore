@@ -15,6 +15,7 @@ Migrations/
 *.sln.docstates
 
 # Build results
+Migrations/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
