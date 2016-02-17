@@ -51,8 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asset.cs" />
+    <Compile Include="CharacteristicName.cs" />
     <Compile Include="Day.cs" />
-    <Compile Include="CategoryDetail.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Education.cs" />
