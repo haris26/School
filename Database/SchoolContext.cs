@@ -6,9 +6,10 @@ namespace Database
     {
         public SchoolContext(): base("School")
         { }
+        
 
         public DbSet<Asset> Assets { get; set; }
-        public DbSet<Calendar> Calendar { get; set; }
+        public DbSet<Day> Days { get; set; }
         public DbSet<CategoryDetail> Categories { get; set; }
         public DbSet<Detail> Details { get; set; }
         public DbSet<EmployeeSkill> EmployeeSkills { get; set; }
