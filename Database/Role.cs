@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 
+// WORKFORCE ROSTER
 namespace Database
 {
+//  List of roles performed by people on projects
     public class Role
     {
         public Role()
@@ -9,10 +11,10 @@ namespace Database
             Roles = new List<Engagement>();
         }
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public bool Team { get; set; }
-        public bool System { get; set; }
+        public int Id { get; set; }                 // Identity[1]
+        public string Name { get; set; }            // Name of the role
+        public bool Team { get; set; }              // Is it team role? [like developer, qa, team lead...]
+        public bool System { get; set; }            // Is it system role? [like admin, user, team lead...]
 
         public IList<Engagement> Roles { get; set; }
     }
