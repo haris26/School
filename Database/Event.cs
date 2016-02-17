@@ -14,7 +14,7 @@ namespace Database
         public DateTime EventEnd { get; set; }              // Reservation to...
         
         // in case of reccuring event
-        public virtual Event? ParentEvent { get; set; }     // Parent event
+        public virtual Event ParentEvent { get; set; }     // Parent event
         public DateTime RepeatUntil { get; set; }           // Time/Date of the last event in the chain
         public RepeatType RepeatingType { get; set; }       // daily, weekly, monthly...
         public int Frequency { get; set; }                  // each day, two days etc
