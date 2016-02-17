@@ -1,4 +1,5 @@
 namespace Database.Migrations
+{
 
     using Database;
     using System;
