@@ -62,11 +62,6 @@
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="History.cs" />
-    <Compile Include="Migrations\201602161137232_sule20160216.cs" />
-    <Compile Include="Migrations\201602161137232_sule20160216.Designer.cs">
-      <DependentUpon>201602161137232_sule20160216.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="Resource.cs" />
@@ -82,11 +77,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602161137232_sule20160216.resx">
-      <DependentUpon>201602161137232_sule20160216.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
