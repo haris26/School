@@ -25,9 +25,12 @@ namespace DataSeed
             };
             context.People.Add(person);
             Team team = new Team() { Name = "Intranet", Description = "Internal project for personal use", Type = ProjectType.Internal };
+            Team team1 = new Team() { Name = "Intranet1", Description = "Internal project for personal use1", Type = ProjectType.Internal };
             context.Teams.Add(team);
-            
+            context.Teams.Add(team1);
+
             person.Teams.Add(team);
+            person.Teams.Add(team1);
             team.Members.Add(person);
 
             try
