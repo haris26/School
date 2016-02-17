@@ -1,18 +1,22 @@
 ﻿using System;
 
+// RESERVATION SYSTEM
 namespace Database
 {
+//  List of events (meetings, test process...)
     public class Event
     {
-        public int Id { get; set; }
-        public int ResourceId { get; set; }
-        public int ParentId { get; set; }
-        public int EmployeeId { get; set; }
-        public string EventTitle { get; set; }
-        public DateTime EventStart { get; set; }
-        public DateTime EventEnd { get; set; }
-        public DateTime RepeatUntil { get; set; }
-        public Type RepeatingType { get; set; }
-        public int Frequency { get; set; }
+        public int Id { get; set; }                         // Identity[1]
+        public virtual Resource Resource { get; set; }      // Navigation to resource 
+        public virtual Person User { get; set; }            // Person who made reservation
+        public string EventTitle { get; set; }              // Description of the event
+        public DateTime EventStart { get; set; }            // Reservation from...
+        public DateTime EventEnd { get; set; }              // Reservation to...
+        
+        // in case of reccuring event
+        public virtual Event ParentEvent { get; set; }     // Parent event
+        public DateTime RepeatUntil { get; set; }           // Time/Date of the last event in the chain
+        public RepeatType RepeatingType { get; set; }       // daily, weekly, monthly...
+        public int Frequency { get; set; }                  // each day, two days etc
     }
 }

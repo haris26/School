@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿// SKILLS LIBRARY
 namespace Database
 {
+//  List of skills in use on the particular project
     public class ProjectSkill
     {
-        public int Id { get; set; }
-        public int ToolId { get; set; }
-        public int TeamId { get; set; }
-        public int Level { get; set; }
+        public int Id { get; set; }                 // Identity[1]
+        public int Level { get; set; }              // Desired (or actual) Level [1-5]
+
+        public virtual Tool Tool { get; set; }      // Navigation to Tool
+        public virtual Team Team { get; set; }      // Navigation to Team
     }
 }
