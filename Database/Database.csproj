@@ -32,11 +32,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\SkillsLibrary\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\SkillsLibrary\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Asset.cs" />
     <Compile Include="Characteristic.cs" />
     <Compile Include="CharacteristicName.cs" />
@@ -58,6 +59,13 @@
     <Compile Include="Event.cs" />
     <Compile Include="Education.cs" />
     <Compile Include="EmployeeEducation.cs" />
+=======
+    <Compile Include="Assets.cs" />
+    <Compile Include="Calendar.cs" />
+    <Compile Include="Categories.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="Details.cs" />
+>>>>>>> master
     <Compile Include="EmployeeSkill.cs" />
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
