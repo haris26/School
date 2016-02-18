@@ -1,4 +1,4 @@
-﻿using Database;
+using Database;
 using System;
 using System.Data;
 using System.Data.OleDb;
@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DataSeed
 {
-    class AlfaSeed
+    class Program
     {
         static string sourceData = @"C:\Projects\school\alfa.xls";
         static SchoolContext context = new SchoolContext();
@@ -16,6 +16,10 @@ namespace DataSeed
             getEducation();
             getSkillCategory();
             getTool();
+            getEmployeeSkills();
+            getProjectSkills();
+            getEmployeeEducation();
+            Console.ReadKey();
         }
 
         static void getEducation()
@@ -33,6 +37,39 @@ namespace DataSeed
                 };
                 N++;
                 context.Educations.Add(education);
+            }
+            context.SaveChanges();
+            Console.WriteLine(N);
+        }
+
+        static void getEmployeeSkills()
+        {
+            Console.Write("EMPLOYEESKILLS: ");
+            DataTable rawData = OpenExcel(sourceData, "EmployeeSkill");
+            int N = 0;
+            foreach (DataRow row in rawData.Rows)
+            {
+                string toolName = getString(row, 2);
+                Tool tool = context.Tools.Where(x => x.Name == toolName).FirstOrDefault();
+
+                string employeeName = getString(row, 3);
+                Person employee = context.People.Where(x => x.FirstName == employeeName).FirstOrDefault();
+
+                int exp = getInteger(row, 1);
+
+                EmployeeSkill empSkill = new EmployeeSkill()
+                {
+                    Level = (Level)getInteger(row, 0),
+                    Experience = getInteger(row, 1),
+                    Tool = tool,
+                    Employee = employee
+                };
+
+                if (exp > 0)
+                    empSkill.Experience = exp;
+
+                N++;
+                context.EmployeeSkills.Add(empSkill);
             }
             context.SaveChanges();
             Console.WriteLine(N);
@@ -56,6 +93,33 @@ namespace DataSeed
             Console.WriteLine(N);
         }
 
+        static void getProjectSkills()
+        {
+            Console.Write("PROJECTSKILLS: ");
+            DataTable rawData = OpenExcel(sourceData, "ProjectSkill");
+            int N = 0;
+            foreach (DataRow row in rawData.Rows)
+            {
+                string teamName = getString(row, 2);
+                Team team = context.Teams.Where(x => x.Name == teamName).FirstOrDefault();
+
+                string toolName = getString(row, 1);
+                Tool tool = context.Tools.Where(x => x.Name == toolName).FirstOrDefault();
+
+                ProjectSkill projectSkill = new ProjectSkill()
+                {
+                    Level = (Level)getInteger(row, 0),
+                    Team = team,
+                    Tool = tool
+                };
+
+                N++;
+                context.ProjectSkills.Add(projectSkill);
+            }
+            context.SaveChanges();
+            Console.WriteLine(N);
+        }
+
         static void getTool()
         {
             Console.Write("TOOLS: ");
@@ -63,7 +127,7 @@ namespace DataSeed
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
-                string categoryName = getString(row, 0);
+                string categoryName = getString(row, 1);
                 SkillCategory category = context.SkillCategories.Where(x => x.Name == categoryName).FirstOrDefault();
 
                 Tool tool = new Tool()
@@ -74,12 +138,42 @@ namespace DataSeed
                 N++;
                 context.Tools.Add(tool);
             }
+
+            context.SaveChanges();
+            Console.WriteLine(N);
+        }
+
+        static void getEmployeeEducation()
+        {
+            Console.Write("EMPLOYEEEDUCATIONS: ");
+            DataTable rawData = OpenExcel(sourceData, "EmployeeEducation");
+            int N = 0;
+            foreach (DataRow row in rawData.Rows)
+            {
+                string empName = getString(row, 0);
+                Person employee = context.People.Where(x => x.FirstName == empName).FirstOrDefault();
+
+                string educationName = getString(row, 1);
+                Education education = context.Educations.Where(x => x.Name == educationName).FirstOrDefault();
+
+                EmployeeEducation empEducation = new EmployeeEducation()
+                {
+                    Employee = employee,
+                    Education = education
+                };
+
+                N++;
+                context.EmployeeEducations.Add(empEducation);
+
+            }
             context.SaveChanges();
             Console.WriteLine(N);
         }
 
 
         static DataTable OpenExcel(string path, string sheet)
+
+
         {
             var cs = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=Excel 8.0", path);
             OleDbConnection conn = new OleDbConnection(cs);
@@ -103,7 +197,12 @@ namespace DataSeed
 
         static int getInteger(DataRow row, int index)
         {
-            return Convert.ToInt32(row.ItemArray.GetValue(index).ToString());
+            string rowContent = row.ItemArray.GetValue(index).ToString();
+
+            if (rowContent != "")
+                return Convert.ToInt32(rowContent);
+            else
+                return -1;
         }
 
         static bool getBool(DataRow row, int index)
@@ -116,4 +215,8 @@ namespace DataSeed
             return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
         }
     }
+
 }
+
+
+
