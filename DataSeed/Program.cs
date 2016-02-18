@@ -9,7 +9,7 @@
 //{
 //    class Program
 //    {
-//        static string sourceData = @"C:\Projects\school\omega.xls";
+//        static string sourceData = @"C:\Projects\School\omega.xls";
 //        static SchoolContext context = new SchoolContext();
 
 //        static void Main(string[] args)

@@ -38,9 +38,24 @@ namespace DataSeed
 
             getAssets();
             getRequests();
+            getAssetCharNames();
+            getAssetChar();
+            getHistory();
+
 
             Console.ReadKey();
 
+        }
+
+
+
+        static string getString(DataRow row, int index)
+        {
+            return row.ItemArray.GetValue(index).ToString();
+        }
+        static DateTime getDate(DataRow row, int index)
+        {
+            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
         }
 
         static void getAssetCategories()
@@ -74,7 +89,7 @@ namespace DataSeed
             {
                 string catName = row.ItemArray.GetValue(7).ToString();
                 string userName = row.ItemArray.GetValue(8).ToString();
-                
+
                 AssetCategory category = context.AssetCategory.FirstOrDefault(x => x.CategoryName == catName);
 
                 Person user = context.People.FirstOrDefault(c => c.FirstName == userName);
@@ -98,6 +113,59 @@ namespace DataSeed
             Console.WriteLine(N);
         }
 
+        static void getAssetCharNames()
+        {
+            Console.Write("AssetCharNames: ");
+            DataTable rawData = OpenExcel(sourceData, "AssetCharacteristicNames");
+
+            int N = 0;
+            foreach (DataRow row in rawData.Rows)
+            {
+                string catName = row.ItemArray.GetValue(0).ToString();
+                AssetCategory asset = context.AssetCategory.FirstOrDefault(x => x.CategoryName == catName);
+
+                AssetCharacteristicNames names = new AssetCharacteristicNames()
+                {
+                    AssetCategory = asset,
+                    Name = row.ItemArray.GetValue(1).ToString()
+                };
+                N++;
+                context.AssetCharNames.Add(names);
+            }
+            context.SaveChanges();
+            Console.WriteLine(N);
+        }
+
+
+        static void getAssetChar()
+        {
+            Console.Write("AssetChars: ");
+            DataTable rawData = OpenExcel(sourceData, "AssetChar");
+
+            int N = 0;
+            foreach (DataRow row in rawData.Rows)
+            {
+                string name = row.ItemArray.GetValue(2).ToString();
+
+                Asset asset = context.Assets.FirstOrDefault(c => c.Name == name);
+                AssetChar assetChar = new AssetChar()
+                {
+
+                    Name = row.ItemArray.GetValue(0).ToString(),
+                    Value = row.ItemArray.GetValue(1).ToString(),
+                    Asset = asset,
+
+
+                };
+                N++;
+                context.AssetCharacteristics.Add(assetChar);
+
+            }
+            context.SaveChanges();
+            Console.WriteLine(N);
+        }
+
+
 
         static void getRequests()
         {
@@ -107,8 +175,13 @@ namespace DataSeed
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
-                //string catName = row.ItemArray.GetValue(1).ToString();
-                //AssetCategory category = context.AssetCategory.FirstOrDefault(x => x.CategoryName == catName);
+                string assetid = row.ItemArray.GetValue(4).ToString();
+                string userName = row.ItemArray.GetValue(5).ToString();
+
+
+                Asset asset = context.Assets.FirstOrDefault(c => c.Name == assetid);
+
+                Person user = context.People.FirstOrDefault(c => c.FirstName == userName);
 
                 Request requests = new Request()
                 {
@@ -116,8 +189,9 @@ namespace DataSeed
                     requestType = (RequestType)Enum.Parse(typeof(RequestType), row.ItemArray.GetValue(0).ToString()),
                     RequestMessage = row.ItemArray.GetValue(1).ToString(),
                     RequestDate = getDate(row, 2),
-                    Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), row.ItemArray.GetValue(3).ToString())
-
+                    Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), row.ItemArray.GetValue(3).ToString()),
+                    Asset = asset,
+                    User = user,
 
                 };
                 N++;
@@ -128,15 +202,38 @@ namespace DataSeed
             Console.WriteLine(N);
         }
 
-        static string getString(DataRow row, int index)
+
+
+        static void getHistory()
         {
-            return row.ItemArray.GetValue(index).ToString();
-        }
-        static DateTime getDate(DataRow row, int index)
-        {
-            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
+            Console.Write("History: ");
+            DataTable rawData = OpenExcel(sourceData, "Request");
+
+            int N = 0;
+            foreach (DataRow row in rawData.Rows)
+            {
+                DateTime RequestEnd = DateTime.Now;
+
+
+                History histories = new History()
+                {
+                    EventEnd = RequestEnd,
+                    EventBegin = getDate(row, 2), //uzima iz request tabele pocetak na mjestu 2
+                    Description = row.ItemArray.GetValue(1).ToString(), //uzima request message iz reguesta
+                    Status = (HistoryStatus)Enum.Parse(typeof(RequestStatus), row.ItemArray.GetValue(3).ToString()),
+                    //user id i asset id dodati - personId(row,4) i userId(row,5)
+
+
+                };
+                N++;
+                context.Histories.Add(histories);
+
+            }
+            context.SaveChanges();
+            Console.WriteLine(N);
         }
 
     }
 
 }
+
