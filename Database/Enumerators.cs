@@ -48,6 +48,10 @@ namespace Database
         DevelopedSkills = 4,
         HighlySkilled = 5
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> e13a93b48482273a78dc6caa86bea34cd0ef3635
 
 // Reservation System
 
