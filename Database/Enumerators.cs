@@ -51,12 +51,6 @@ namespace Database
 
 // Reservation System
 
-    public enum ResourceType
-    {
-        Device = 1,
-        Room = 2
-    }
-
     public enum RepeatType
     {
         Daily = 1,
@@ -91,12 +85,14 @@ namespace Database
         Inactive = 2
     }
 
+  
     public enum RequestStatus
     {
-        Waiting = 1,
-        Accepted = 2,
-        Refused = 3,
-        Done = 4
+        AvaitingForApprovale = 1,
+        Cancelled = 2,
+        Approved = 3,
+        Completed = 4,
+        InProccess = 5
     }
 
     public enum RequestType
