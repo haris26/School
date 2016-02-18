@@ -25,11 +25,11 @@ namespace DataSeed
             {
                 Detail detail = new Detail()
                 {
-                
-                WorkTime = Convert.ToDouble(row.ItemArray.GetValue(2).ToString()),
-                BillTime = Convert.ToDouble(row.ItemArray.GetValue(3).ToString()),
-                Description = row.ItemArray.GetValue(4).ToString(),
-                
+
+                    WorkTime = Convert.ToDouble(row.ItemArray.GetValue(2).ToString()),
+                    BillTime = Convert.ToDouble(row.ItemArray.GetValue(3).ToString()),
+                    Description = row.ItemArray.GetValue(4).ToString(),
+
                 };
                 string pName = row.ItemArray.GetValue(0).ToString();
                 Person person = context.People.Where(x => x.FirstName == pName).FirstOrDefault();
@@ -42,28 +42,28 @@ namespace DataSeed
 
 
                 N++;
-            context.Details.Add(detail);
-        }
-        context.SaveChanges();
+                context.Details.Add(detail);
+            }
+            context.SaveChanges();
             Console.WriteLine(N);
         }
 
 
-    static DataTable OpenExcel(string path, string sheet)
-    {
-        var cs = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=Excel 8.0", path);
-        OleDbConnection conn = new OleDbConnection(cs);
-        conn.Open();
+        static DataTable OpenExcel(string path, string sheet)
+        {
+            var cs = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=Excel 8.0", path);
+            OleDbConnection conn = new OleDbConnection(cs);
+            conn.Open();
 
-        OleDbCommand cmd = new OleDbCommand(string.Format("SELECT * FROM [{0}$]", sheet), conn);
-        OleDbDataAdapter da = new OleDbDataAdapter();
-        da.SelectCommand = cmd;
+            OleDbCommand cmd = new OleDbCommand(string.Format("SELECT * FROM [{0}$]", sheet), conn);
+            OleDbDataAdapter da = new OleDbDataAdapter();
+            da.SelectCommand = cmd;
 
-        System.Data.DataTable dt = new System.Data.DataTable();
-        da.Fill(dt);
-        conn.Close();
+            System.Data.DataTable dt = new System.Data.DataTable();
+            da.Fill(dt);
+            conn.Close();
 
-        return dt;
+            return dt;
+        }
     }
-}
 }

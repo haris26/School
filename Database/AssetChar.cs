@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    class AssetChar
+   public class AssetChar
     {
 
         public int Id { get; set; }                                         // Identity[1]
