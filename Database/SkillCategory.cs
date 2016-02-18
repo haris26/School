@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 // SKILLS LIBRARY
@@ -17,19 +16,5 @@ namespace Database
         public string Name { get; set; }                            // Category name
 
         public virtual ICollection<Tool> Tools { get; set; }        // List of tools
-=======
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Database
-{
-    class SkillCategory
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
->>>>>>> master
     }
 }
