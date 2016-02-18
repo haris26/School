@@ -49,7 +49,6 @@ namespace Database
         HighlySkilled = 5
     }
 
-
 // Reservation System
 
     public enum RepeatType
