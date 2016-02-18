@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿// SKILLS LIBRARY
+// SKILLS LIBRARY
 namespace Database
 {
 //  Skill list for one person / tool
