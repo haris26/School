@@ -7,6 +7,12 @@ namespace Database
 {
     public class Address
     {
+        public Address() {
+            ZipCode = "n/a";
+            Town = "n/a";
+            Road = "n/a";
+        }
+
         public Address(string _zip, string _town, string _road)
         {
             ZipCode = _zip;

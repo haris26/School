@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asset.cs" />
+    <Compile Include="Characteristic.cs" />
     <Compile Include="CharacteristicName.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Detail.cs" />
