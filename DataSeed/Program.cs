@@ -8,7 +8,9 @@
 //{
 //    class Program
 //    {
-//        static string sourceData = @"C:\Projects\school\omega.xls";
+
+//        static string sourceData = @"C:\MistralProjects\school\omega.xls";
+
 //        static SchoolContext context = new SchoolContext();
 
 //        static void Main(string[] args)
@@ -47,7 +49,6 @@
 //            DataTable rawData = OpenExcel(sourceData, "Roles");
 //            int N = 0;
 //            foreach (DataRow row in rawData.Rows)
-
 //            {
 //                Role role = new Role()
 //                {
@@ -118,6 +119,7 @@
 //            Console.WriteLine(N);
 //        }
 
+
 //        static DataTable OpenExcel(string path, string sheet)
 //        {
 //            var cs = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=Excel 8.0", path);
@@ -154,5 +156,12 @@
 //        {
 //            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
 //        }
+
+
+//        static double getDouble(DataRow row, int index)
+//        {
+//            return Convert.ToDouble(row.ItemArray.GetValue(index).ToString());
+//        }
 //    }
 //}
+
