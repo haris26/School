@@ -8,95 +8,30 @@ namespace DataSeed
 {
     class Seed
     {
-        static string sourceData = @"C:\Projects\school\day.xls";
+        static string sourceData = @"C:\Projects\school\delta1.xls";
         static SchoolContext context = new SchoolContext();
 
         static void Main(string[] args)
         {
-            //getRoles();
-            //getTeams();
-            //getPeople();
-            //getEngagement();
+
             getDays();
         }
 
-        static void getRoles()
-        {
-            Console.Write("ROLES: ");
-            DataTable rawData = OpenExcel(sourceData, "Roles");
-            int N = 0;
-            foreach (DataRow row in rawData.Rows)
-            {
-                Role role = new Role()
-                {
-                    Name = row.ItemArray.GetValue(1).ToString(),
-                };
-                N++;
-                context.Roles.Add(role);
-            }
-            context.SaveChanges();
-            Console.WriteLine(N);
-        }
 
-        static void getTeams()
-        {
-            Console.Write("TEAMS: ");
-            DataTable rawData = OpenExcel(sourceData, "Teams");
-            int N = 0;
-            foreach (DataRow row in rawData.Rows)
-            {
-                Team team = new Team()
-                {
-                    Name = row.ItemArray.GetValue(1).ToString(),
-                    Description = row.ItemArray.GetValue(2).ToString(),
-                    Type = (ProjectType)Convert.ToInt32(row.ItemArray.GetValue(3).ToString())
-                };
-                int type = Convert.ToInt32(row.ItemArray.GetValue(3).ToString());
-                switch (type)
-                {
-                    case 1: { team.Type = ProjectType.External; break; }
-                    case 2: { team.Type = ProjectType.Internal; break; }
-                    default: { team.Type = ProjectType.Absence; break; }
-                }
-                N++;
-                context.Teams.Add(team);
-            }
-            context.SaveChanges();
-            Console.WriteLine(N);
-        }
-
-        static void getPeople()
-        {
-            Console.Write("PEOPLE: ");
-            DataTable rawData = OpenExcel(sourceData, "People");
-            int N = 0;
-            foreach (DataRow row in rawData.Rows)
-            {
-                Person person = new Person()
-                {
-                    FirstName = row.ItemArray.GetValue(1).ToString(),
-                    LastName = row.ItemArray.GetValue(2).ToString()
-                };
-                N++;
-                context.People.Add(person);
-            }
-            context.SaveChanges();
-            Console.WriteLine(N);
-        }
 
         static void getDays()
         {
             Console.Write("DAYS: ");
-            DataTable rawData = OpenExcel(sourceData, "Days");
+            DataTable rawData = OpenExcel(sourceData, "Day");
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
                 Day day = new Day()
                 {
-                    Date = Convert.ToDateTime(row.ItemArray.GetValue(0).ToString()),
-                    WorkTime = Convert.ToDouble(row.ItemArray.GetValue(1).ToString()),
-                    PtoTime = Convert.ToDouble(row.ItemArray.GetValue(2).ToString()),
-                    EntryStatus = (EntryStatus)Convert.ToInt32(row.ItemArray.GetValue(3).ToString())
+                    Date = getDate(row,0),
+                    WorkTime = getDouble(row,1),
+                    PtoTime = getDouble(row, 2),
+                    EntryStatus = (EntryStatus)getInteger(row,3)
                 };
                 /*int status = Convert.ToInt32(row.ItemArray.GetValue(3).ToString());
                 switch (status)
@@ -108,8 +43,11 @@ namespace DataSeed
                 string pName = row.ItemArray.GetValue(4).ToString();
                 day.Person = context.People.Where(x => x.FirstName == pName).FirstOrDefault();
 
+               // DateTime date = getDate(row, 0);
+                //day.Details.Add(context.Details.Where(x => x.Day.Person.FirstName == pName && x.Day.Date == date).FirstOrDefault());
+
                 N++;
-                context.People.Add(day);
+                context.Days.Add(day);
             }
             context.SaveChanges();
             Console.WriteLine(N);
@@ -135,6 +73,29 @@ namespace DataSeed
             conn.Close();
 
             return dt;
+        }
+        static string getString(DataRow row, int index)
+        {
+            return row.ItemArray.GetValue(index).ToString();
+        }
+
+        static int getInteger(DataRow row, int index)
+        {
+            return Convert.ToInt32(row.ItemArray.GetValue(index).ToString());
+        }
+        static double getDouble(DataRow row, int index)
+        {
+            return Convert.ToDouble(row.ItemArray.GetValue(index).ToString());
+        }
+
+        static bool getBool(DataRow row, int index)
+        {
+            return (row.ItemArray.GetValue(index).ToString().ToLower() == "yes");
+        }
+
+        static DateTime getDate(DataRow row, int index)
+        {
+            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
         }
     }
 }
