@@ -5,7 +5,7 @@ namespace Database
     public class Detail
     {
         public int Id { get; set; }                         // Identity[1]
-        public virtual Calendar Calendar { get; set; }      // Navigation to Calendar class (date and person)
+        public virtual Day Day { get; set; }      // Navigation to Day class (date and person)
         public double WorkTime { get; set; }                // Total work time
         public double BillTime { get; set; }                // Total bill time
         public string Description { get; set; }             // Description of the tasks performed

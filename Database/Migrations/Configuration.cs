@@ -1,6 +1,5 @@
 namespace Database.Migrations
 {
-    using Database;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -10,7 +9,7 @@ namespace Database.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(SchoolContext context)
