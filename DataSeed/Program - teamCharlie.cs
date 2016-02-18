@@ -35,7 +35,8 @@ namespace DataSeed
         static void Main(string[] args)
         {
             getAssetCategories();
-
+            getAssetChar();
+            getAssetCharNames();
             getAssets();
             getRequests();
             getAssetCharNames();
@@ -76,6 +77,7 @@ namespace DataSeed
             context.SaveChanges();
             Console.WriteLine(N);
         }
+
 
 
 
@@ -167,6 +169,8 @@ namespace DataSeed
 
 
 
+
+
         static void getRequests()
         {
             Console.Write("Requests: ");
@@ -175,6 +179,7 @@ namespace DataSeed
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
+
                 string assetid = row.ItemArray.GetValue(4).ToString();
                 string userName = row.ItemArray.GetValue(5).ToString();
 
@@ -183,15 +188,24 @@ namespace DataSeed
 
                 Person user = context.People.FirstOrDefault(c => c.FirstName == userName);
 
+                
+
+
                 Request requests = new Request()
                 {
 
                     requestType = (RequestType)Enum.Parse(typeof(RequestType), row.ItemArray.GetValue(0).ToString()),
                     RequestMessage = row.ItemArray.GetValue(1).ToString(),
+
                     RequestDate = getDate(row, 2),
                     Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), row.ItemArray.GetValue(3).ToString()),
                     Asset = asset,
                     User = user,
+
+                    RequestDate = getDate(row,2),
+                    Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), row.ItemArray.GetValue(3).ToString())
+
+
 
                 };
                 N++;
@@ -204,14 +218,48 @@ namespace DataSeed
 
 
 
+
         static void getHistory()
         {
             Console.Write("History: ");
             DataTable rawData = OpenExcel(sourceData, "Request");
 
+        static void getAssetChar()
+        {
+            Console.Write("AssetChars: ");
+            DataTable rawData = OpenExcel(sourceData, "AssetChar");
+
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
+                
+                AssetChar assetChar = new AssetChar()
+                {
+                    
+                    Name = row.ItemArray.GetValue(0).ToString(),
+                    Value = row.ItemArray.GetValue(1).ToString(),
+                    
+                   
+                };
+                N++;
+                context.AssetCharacteristics.Add(assetChar);
+
+            }
+            context.SaveChanges();
+            Console.WriteLine(N);
+        }
+
+
+        static void getAssetCharNames()
+        {
+            Console.Write("AssetCharNames: ");
+            DataTable rawData = OpenExcel(sourceData, "AssetCharacteristicsNames");
+
+
+            int N = 0;
+            foreach (DataRow row in rawData.Rows)
+            {
+
                 DateTime RequestEnd = DateTime.Now;
 
 
@@ -223,15 +271,41 @@ namespace DataSeed
                     Status = (HistoryStatus)Enum.Parse(typeof(RequestStatus), row.ItemArray.GetValue(3).ToString()),
                     //user id i asset id dodati - personId(row,4) i userId(row,5)
 
+                //string catName = row.ItemArray.GetValue(1).ToString();
+                //AssetCategory category = context.AssetCategory.FirstOrDefault(x => x.CategoryName == catName);
+
+                AssetCharacteristicNames assetCharNames = new AssetCharacteristicNames()
+                {
+
+                    AssetCategory =(AssetCategory)Enum.Parse(typeof(AssetCategory), row.ItemArray.GetValue(0).ToString()),
+                    Name = row.ItemArray.GetValue(1).ToString(),
+
+
 
                 };
                 N++;
+
                 context.Histories.Add(histories);
+
+                context.AssetCharNames.Add(assetCharNames);
+
 
             }
             context.SaveChanges();
             Console.WriteLine(N);
         }
+
+
+
+        static string getString(DataRow row, int index)
+        {
+            return row.ItemArray.GetValue(index).ToString();
+        }
+        static DateTime getDate(DataRow row, int index)
+       {
+            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
+       }
+
 
     }
 
