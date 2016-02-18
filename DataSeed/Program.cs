@@ -27,33 +27,6 @@ namespace DataSeed
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
-<<<<<<< HEAD
-                FirstName = "John",
-                LastName = "Doe",
-                Address = new Address("71000", "Sarajevo", "Milana Preloga 12/3"),
-                Category = EmploymentType.Full,
-                Gender = Gender.Male,
-                BirthDate = new DateTime(1990, 9, 15),
-                StartDate = new DateTime(2014, 4, 20),
-                Status = EmploymentStatus.Active
-            };
-            context.People.Add(person);
-            Team team = new Team() { Name = "Intranet", Description = "Internal project for personal use", Type = ProjectType.Internal };
-            context.Teams.Add(team);
-
-            Team team2 = new Team()
-            {
-                Name = "Skills Library",
-                Description = "Library of employee skills",
-                Type = ProjectType.Internal
-            };
-            context.Teams.Add(team2);
-
-            person.Teams.Add(team);
-            team.Members.Add(person);
-
-            try
-=======
                 Team team = new Team()
                 {
                     Name = getString(row, 0),
@@ -73,7 +46,6 @@ namespace DataSeed
             DataTable rawData = OpenExcel(sourceData, "Roles");
             int N = 0;
             foreach (DataRow row in rawData.Rows)
->>>>>>> 2ac51a95ae3e842e7895c5d6981a52e83011c5ab
             {
                 Role role = new Role()
                 {

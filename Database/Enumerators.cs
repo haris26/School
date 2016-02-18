@@ -41,7 +41,6 @@ namespace Database
     }
 
     public enum Level
-<<<<<<< HEAD
     {
         VeryLow = 1,
         BasicCapability = 2,
@@ -50,18 +49,6 @@ namespace Database
         HighlySkilled = 5
     }
 
-// Reservation System
-
-    public enum ResourceType
-=======
->>>>>>> 2ac51a95ae3e842e7895c5d6981a52e83011c5ab
-    {
-        VeryLow = 1,
-        BasicCapability = 2,
-        Competent = 3,
-        DevelopedSkills = 4,
-        HighlySkilled = 5
-    }
 
 // Reservation System
 

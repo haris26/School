@@ -5,11 +5,7 @@ namespace Database
     public class SchoolContext: DbContext
     {
         public SchoolContext(): base()
-<<<<<<< HEAD
         { }
-=======
-        { }       
->>>>>>> 2ac51a95ae3e842e7895c5d6981a52e83011c5ab
 
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Day> Days { get; set; }
