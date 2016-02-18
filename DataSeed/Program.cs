@@ -13,9 +13,9 @@ namespace DataSeed
 
         static void Main(string[] args)
         {
-            //getTeams();
-            //getRoles();
-            //getPeople();
+            getTeams();
+            getRoles();
+            getPeople();
             getEngagements();
             Console.ReadKey();
         }
