@@ -37,6 +37,7 @@ namespace DataSeed
             getAssetCategories();
 
             getAssets();
+            getRequests();
 
             Console.ReadKey();
 
@@ -92,11 +93,45 @@ namespace DataSeed
             context.SaveChanges();
             Console.WriteLine(N);
         }
+
+
+        static void getRequests()
+        {
+            Console.Write("Requests: ");
+            DataTable rawData = OpenExcel(sourceData, "Request");
+
+            int N = 0;
+            foreach (DataRow row in rawData.Rows)
+            {
+                //string catName = row.ItemArray.GetValue(1).ToString();
+                //AssetCategory category = context.AssetCategory.FirstOrDefault(x => x.CategoryName == catName);
+
+                Request requests = new Request()
+                {
+
+                    requestType = (RequestType)Enum.Parse(typeof(RequestType), row.ItemArray.GetValue(0).ToString()),
+                    RequestMessage = row.ItemArray.GetValue(1).ToString(),
+                    RequestDate = getDate(row,2),
+                    Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), row.ItemArray.GetValue(3).ToString())
+
+
+                };
+                N++;
+                context.Requests.Add(requests);
+
+            }
+            context.SaveChanges();
+            Console.WriteLine(N);
+        }
+
         static string getString(DataRow row, int index)
         {
             return row.ItemArray.GetValue(index).ToString();
         }
-
+        static DateTime getDate(DataRow row, int index)
+       {
+            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
+       }
 
     }
 
