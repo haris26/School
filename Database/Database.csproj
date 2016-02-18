@@ -65,9 +65,9 @@
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="History.cs" />
-    <Compile Include="Migrations\201602181453070_irma.cs" />
-    <Compile Include="Migrations\201602181453070_irma.Designer.cs">
-      <DependentUpon>201602181453070_irma.cs</DependentUpon>
+    <Compile Include="Migrations\201602181557397_irma.cs" />
+    <Compile Include="Migrations\201602181557397_irma.Designer.cs">
+      <DependentUpon>201602181557397_irma.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
@@ -87,8 +87,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602181453070_irma.resx">
-      <DependentUpon>201602181453070_irma.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201602181557397_irma.resx">
+      <DependentUpon>201602181557397_irma.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

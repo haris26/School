@@ -72,9 +72,12 @@ namespace DataSeed
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
-                string catName = row.ItemArray.GetValue(1).ToString();
+                string catName = row.ItemArray.GetValue(7).ToString();
+                string userName = row.ItemArray.GetValue(8).ToString();
+                
                 AssetCategory category = context.AssetCategory.FirstOrDefault(x => x.CategoryName == catName);
 
+                Person user = context.People.FirstOrDefault(c => c.FirstName == userName);
                 Asset asset = new Asset()
                 {
                     AssetCategory = category,
@@ -85,6 +88,7 @@ namespace DataSeed
                     Vendor = row.ItemArray.GetValue(4).ToString(),
                     Price = Convert.ToDouble(row.ItemArray.GetValue(5).ToString()),
                     Status = (AssetStatus)Enum.Parse(typeof(AssetStatus), row.ItemArray.GetValue(6).ToString()),
+                    User = user,
                 };
                 N++;
                 context.Assets.Add(asset);
@@ -111,7 +115,7 @@ namespace DataSeed
 
                     requestType = (RequestType)Enum.Parse(typeof(RequestType), row.ItemArray.GetValue(0).ToString()),
                     RequestMessage = row.ItemArray.GetValue(1).ToString(),
-                    RequestDate = getDate(row,2),
+                    RequestDate = getDate(row, 2),
                     Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), row.ItemArray.GetValue(3).ToString())
 
 
@@ -129,9 +133,9 @@ namespace DataSeed
             return row.ItemArray.GetValue(index).ToString();
         }
         static DateTime getDate(DataRow row, int index)
-       {
+        {
             return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
-       }
+        }
 
     }
 
