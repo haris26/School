@@ -62,14 +62,6 @@
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="History.cs" />
-<<<<<<< HEAD
-    <Compile Include="Migrations\201602171541401_dalila001.cs" />
-    <Compile Include="Migrations\201602171541401_dalila001.Designer.cs">
-      <DependentUpon>201602171541401_dalila001.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-=======
->>>>>>> e13a93b48482273a78dc6caa86bea34cd0ef3635
     <Compile Include="Person.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="Resource.cs" />
@@ -86,14 +78,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-<<<<<<< HEAD
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602171541401_dalila001.resx">
-      <DependentUpon>201602171541401_dalila001.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-=======
->>>>>>> e13a93b48482273a78dc6caa86bea34cd0ef3635
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
