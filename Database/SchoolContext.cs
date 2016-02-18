@@ -5,11 +5,15 @@ namespace Database
     public class SchoolContext: DbContext
     {
         public SchoolContext(): base()
+<<<<<<< HEAD
         { }
+=======
+        { }       
+>>>>>>> 2ac51a95ae3e842e7895c5d6981a52e83011c5ab
 
         public DbSet<Asset> Assets { get; set; }
-        public DbSet<Calendar> Calendar { get; set; }
-        public DbSet<CategoryDetail> Categories { get; set; }
+        public DbSet<Day> Days { get; set; }
+        //public DbSet<CategoryDetail> Categories { get; set; }
         public DbSet<Detail> Details { get; set; }
         public DbSet<EmployeeSkill> EmployeeSkills { get; set; }
         public DbSet<Engagement> Engagements { get; set; }
@@ -24,5 +28,8 @@ namespace Database
         public DbSet<Team> Teams{ get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<EmployeeEducation> EmployeeEducations { get; set; }
+        public DbSet<Characteristic> CategoryCharacteristics { get; set; }
+        public DbSet<ResourceCategory> ResourceCategories { get; set; }
+        public DbSet<CharacteristicName> CharacteristicNames { get; set; }
     }
 }
