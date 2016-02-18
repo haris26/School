@@ -117,38 +117,6 @@
 //        }
 
 
-//        static void getDetail()
-//        {
-//            Console.WriteLine("DETAILS: ");
-//            DataTable rawData = OpenExcel(sourceData, "Details");
-//            int N = 0;
-//            foreach (DataRow row in rawData.Rows)
-//            {
-//                Detail detail = new Detail();
-
-
-//                detail.WorkTime = getDouble(row, 2); //Convert.ToDouble(row.ItemArray.GetValue(2).ToString());
-//                detail.BillTime = getDouble(row, 3); //Convert.ToDouble(row.ItemArray.GetValue(3).ToString());
-//                detail.Description = getString(row, 4); // row.ItemArray.GetValue(4).ToString();
-
-
-//                string pName = getString(row, 0); //row.ItemArray.GetValue(0).ToString();
-//                Person person = context.People.Where(x => x.FirstName == pName).FirstOrDefault();  //Migration exception
-
-//                DateTime dan = getDate(row, 1);  //Convert.ToDateTime(row.ItemArray.GetValue(1).ToString());
-//                detail.Day = context.Days.Where(x => x.Date == dan && x.Person == person).FirstOrDefault();
-
-//                string teamName = row.ItemArray.GetValue(5).ToString();
-//                detail.Team = context.Teams.Where(x => x.Name == teamName).FirstOrDefault();
-
-
-//                N++;
-//                context.Details.Add(detail);
-//            }
-//            context.SaveChanges();
-//            Console.WriteLine(N);
-//        }
-
 //        static DataTable OpenExcel(string path, string sheet)
 //        {
 //            var cs = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=Excel 8.0", path);
