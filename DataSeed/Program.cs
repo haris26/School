@@ -23,6 +23,11 @@ namespace DataSeed
                 StartDate = new DateTime(2014, 4, 20),
                 Status = EmploymentStatus.Active
             };
+
+            Asset Asset = new Asset()
+            {
+                SerialNumber = 1
+            };
             context.People.Add(person);
             Team team = new Team() { Name = "Intranet", Description = "Internal project for personal use", Type = ProjectType.Internal };
             Team team1 = new Team() { Name = "Intranet1", Description = "Internal project for personal use1", Type = ProjectType.Internal };
