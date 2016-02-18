@@ -12,7 +12,7 @@ namespace DataSeed
     class ProgramDelta
     {
 
-        static string sourceData = @"C:\Projects\delta.xls";
+        static string sourceData = @"C:\Projects\school\Delta.xls";
         static SchoolContext context = new SchoolContext();
 
         static void Main(string[] args)
@@ -25,7 +25,7 @@ namespace DataSeed
         static void getDetail()
         {
             Console.WriteLine("DETAILS: ");
-            DataTable rawData = OpenExcel(sourceData, "Details");
+            DataTable rawData = OpenExcel(sourceData, "Detail");
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
@@ -124,6 +124,7 @@ namespace DataSeed
         {
             return Convert.ToDouble(row.ItemArray.GetValue(index).ToString());
         }
+ 
     }
 }
 
