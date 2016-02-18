@@ -1,16 +1,15 @@
-﻿
-//using System;
+﻿//using System;
 //using Database;
 //using System.Data;
 //using System.Linq;
 //using System.Data.OleDb;
 
-//namespace DataSeed
-//{
-//    class Program
-//    {
-//        static string sourceData = @"C:\Projects\school\omega.xls";
-//        static SchoolContext context = new SchoolContext();
+namespace DataSeed
+{
+    class Program
+    {
+        static string sourceData = @"C:\Projects\school\omega.xls";
+        static SchoolContext context = new SchoolContext();
 
 //        static void Main(string[] args)
 //        {

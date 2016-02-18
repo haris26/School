@@ -38,6 +38,7 @@
 //            getCharacteristicNames();
 //            getResources();
 //            getCharacteristics();
+//            getEvents();
 //        }
 
 //        static void getResourceCategories()
@@ -50,7 +51,7 @@
 //            {
 //                ResourceCategory category = new ResourceCategory()
 //                {
-//                    CategoryName = row.ItemArray.GetValue(0).ToString()
+//                    CategoryName = getString(row, 0)
 //                };
 //                N++;
 //                context.ResourceCategories.Add(category);
@@ -67,13 +68,13 @@
 //            int N = 0;
 //            foreach (DataRow row in rawData.Rows)
 //            {
-//                string catName = row.ItemArray.GetValue(0).ToString();
+//                string catName = getString(row, 0);
 //                ResourceCategory resource = context.ResourceCategories.FirstOrDefault(x => x.CategoryName == catName);
 
 //                CharacteristicName characteristic = new CharacteristicName()
 //                {
 //                    ResourceCategory = resource,
-//                    Name = row.ItemArray.GetValue(1).ToString()
+//                    Name = getString(row, 1)
 //                };
 //                N++;
 //                context.CharacteristicNames.Add(characteristic);
@@ -90,14 +91,14 @@
 //            int N = 0;
 //            foreach (DataRow row in rawData.Rows)
 //            {
-//                string catName = row.ItemArray.GetValue(1).ToString();
+//                string catName = getString(row, 1);
 //                ResourceCategory category = context.ResourceCategories.FirstOrDefault(x => x.CategoryName == catName);
 
 //                Resource resource = new Resource()
 //                {
 //                    ResourceCategory = category,
-//                    Name = row.ItemArray.GetValue(0).ToString(),
-//                    Status = (ReservationStatus) Enum.Parse(typeof (ReservationStatus), row.ItemArray.GetValue(2).ToString())
+//                    Name = getString(row, 0),
+//                    Status = (ReservationStatus)Enum.Parse(typeof(ReservationStatus), getString(row, 2))
 //                };
 //                N++;
 //                context.Resources.Add(resource);
@@ -115,14 +116,14 @@
 //            int N = 0;
 //            foreach (DataRow row in rawData.Rows)
 //            {
-//                string resName = row.ItemArray.GetValue(2).ToString();
+//                string resName = getString(row, 2);
 //                Resource resource = context.Resources.FirstOrDefault(x => x.Name == resName);
 
 //                Characteristic characteristic = new Characteristic()
 //                {
 //                    Resource = resource,
-//                    Name = row.ItemArray.GetValue(0).ToString(),
-//                    Value = row.ItemArray.GetValue(1).ToString()
+//                    Name = getString(row, 0),
+//                    Value = getString(row, 1)
 //                };
 //                N++;
 //                context.CategoryCharacteristics.Add(characteristic);
@@ -130,6 +131,47 @@
 //            }
 //            context.SaveChanges();
 //            Console.WriteLine(N);
+//        }
+
+//        static void getEvents()
+//        {
+//            Console.Write("RESERVATION EVENTS: ");
+//            DataTable rawData = OpenExcel(sourceData, "Event");
+
+//            int N = 0;
+//            foreach (DataRow row in rawData.Rows)
+//            {
+//                string resName = getString(row, 0);
+//                Resource resource = context.Resources.FirstOrDefault(x => x.Name == resName);
+
+//                string userName = getString(row, 1);
+//                Person user = context.People.FirstOrDefault(x => x.FirstName == userName);
+
+
+//                Event resEvent = new Event()
+//                {
+//                    User = user,
+//                    Resource = resource,
+//                    EventTitle = getString(row, 2),
+//                    EventStart = getDate(row, 3),
+//                    EventEnd = getDate(row, 4)
+//                };
+//                N++;
+//                context.Events.Add(resEvent);
+//            }
+//            context.SaveChanges();
+//            Console.WriteLine(N);
+
+//        }
+
+//        static string getString(DataRow row, int index)
+//        {
+//            return row.ItemArray.GetValue(index).ToString();
+//        }
+
+//        static DateTime getDate(DataRow row, int index)
+//        {
+//            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
 //        }
 //    }
 //}
