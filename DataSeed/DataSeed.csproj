@@ -51,7 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
+    <Compile Include="Program - Alfa.cs" />
+    <Compile Include="Program - Beta.cs" />
+    <Compile Include="Program - Delta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seed.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

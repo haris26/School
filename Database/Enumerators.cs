@@ -40,13 +40,16 @@ namespace Database
         Certificate = 3
     }
 
-// Reservation System
-
-    public enum ResourceType
+    public enum Level
     {
-        Device = 1,
-        Room = 2
+        VeryLow = 1,
+        BasicCapability = 2,
+        Competent = 3,
+        DevelopedSkills = 4,
+        HighlySkilled = 5
     }
+
+// Reservation System
 
     public enum RepeatType
     {
