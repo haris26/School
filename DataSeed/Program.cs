@@ -3,118 +3,154 @@ using System;
 using System.Data;
 using System.Linq;
 using System.Data.OleDb;
+using System.Globalization;
 
 namespace DataSeed
 {
     class Program
     {
-        static string sourceData = @"C:\NTG\school\omega.xls";
+        static string sourceData = @"C:\MistralProjects\delta.xls";
         static SchoolContext context = new SchoolContext();
 
         static void Main(string[] args)
         {
-            getTeams();
-            getRoles();
-            getPeople();
-            getEngagements();
+            //getTeams();
+            //getRoles();
+            //getPeople();
+            //getEngagements();
+            getDetail();
             Console.ReadKey();
         }
 
-        static void getTeams()
+        //static void getTeams()
+        //{
+        //    Console.Write("TEAMS: ");
+        //    DataTable rawData = OpenExcel(sourceData, "Teams");
+        //    int N = 0;
+        //    foreach (DataRow row in rawData.Rows)
+        //    {
+        //        Team team = new Team()
+        //        {
+        //            Name = getString(row, 0),
+        //            Description = getString(row, 1),
+        //            Type = (ProjectType)getInteger(row, 2)
+        //        };
+        //        N++;
+        //        context.Teams.Add(team);
+        //    }
+        //    context.SaveChanges();
+        //    Console.WriteLine(N);
+        //}
+
+        //static void getRoles()
+        //{
+        //    Console.Write("ROLES: ");
+        //    DataTable rawData = OpenExcel(sourceData, "Roles");
+        //    int N = 0;
+        //    foreach (DataRow row in rawData.Rows)
+        //    {
+        //        Role role = new Role()
+        //        {
+        //            Name = getString(row, 0),
+        //            Team = getBool(row, 1),
+        //            System = getBool(row, 2)
+        //        };
+        //        N++;
+        //        context.Roles.Add(role);
+        //    }
+        //    context.SaveChanges();
+        //    Console.WriteLine(N);
+        //}
+
+        //static void getPeople()
+        //{
+        //    Console.Write("PEOPLE: ");
+        //    DataTable rawData = OpenExcel(sourceData, "People");
+        //    int N = 0;
+        //    foreach (DataRow row in rawData.Rows)
+        //    {
+        //        Person person = new Person()
+        //        {
+        //            FirstName = getString(row, 0),
+        //            LastName = getString(row, 1),
+        //            Email = getString(row, 2),
+        //            Category = (EmploymentType)getInteger(row, 3),
+        //            Gender = (Gender)getInteger(row, 4),
+        //            Image = getString(row, 5),
+        //            Phone = getString(row, 6),
+        //            Address = new Address(getString(row, 7), getString(row, 8), getString(row, 9)),
+
+        //            BirthDate = getDate(row, 10),
+        //            StartDate = getDate(row, 11),
+        //            Status = (EmploymentStatus)getInteger(row, 12)
+        //        };
+        //        N++;
+        //        context.People.Add(person);
+        //    }
+        //    context.SaveChanges();
+        //    Console.WriteLine(N);
+        //}
+
+        //static void getEngagements()
+        //{
+        //    Console.Write("ENGAGEMENTS: ");
+        //    DataTable rawData = OpenExcel(sourceData, "Engagements");
+        //    int N = 0;
+        //    foreach (DataRow row in rawData.Rows)
+        //    {
+        //        string personName = getString(row, 2);
+        //        Person person = context.People.Where(x => x.FirstName == personName).FirstOrDefault();
+        //        string roleName = getString(row, 3);
+        //        Role role = context.Roles.Where(x => x.Name == roleName).FirstOrDefault();
+        //        string teamName = getString(row, 4);
+        //        Team team = context.Teams.Where(x => x.Name == teamName).FirstOrDefault();
+        //        Engagement eng = new Engagement()
+        //        {
+        //            StartDate = getDate(row, 0),
+        //            Time = getInteger(row, 1),
+        //            Person = person,
+        //            Role = role,
+        //            Team = team
+        //        };
+        //        N++;
+        //        context.Engagements.Add(eng);
+        //    }
+        //    context.SaveChanges();
+        //    Console.WriteLine(N);
+        //}
+
+        static void getDetail()
         {
-            Console.Write("TEAMS: ");
-            DataTable rawData = OpenExcel(sourceData, "Teams");
+            Console.WriteLine("DETAILS: ");
+            DataTable rawData = OpenExcel(sourceData, "Details");
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
-                Team team = new Team()
-                {
-                    Name = getString(row, 0),
-                    Description = getString(row, 1),
-                    Type = (ProjectType)getInteger(row, 2)
-                };
+                Detail detail = new Detail();
+
+
+                detail.WorkTime = getDouble(row, 2); //Convert.ToDouble(row.ItemArray.GetValue(2).ToString());
+                detail.BillTime = getDouble(row, 3); //Convert.ToDouble(row.ItemArray.GetValue(3).ToString());
+                detail.Description = getString(row, 4); // row.ItemArray.GetValue(4).ToString();
+
+
+                string pName = getString(row, 0); //row.ItemArray.GetValue(0).ToString();
+                Person person = context.People.Where(x => x.FirstName == pName).FirstOrDefault();  //Migration exception
+
+                DateTime dan = getDate(row, 1);  //Convert.ToDateTime(row.ItemArray.GetValue(1).ToString());
+                detail.Day = context.Days.Where(x => x.Date == dan && x.Person == person).FirstOrDefault();
+
+                string teamName = row.ItemArray.GetValue(5).ToString();
+                detail.Team = context.Teams.Where(x => x.Name == teamName).FirstOrDefault();
+
+
                 N++;
-                context.Teams.Add(team);
+                context.Details.Add(detail);
             }
             context.SaveChanges();
             Console.WriteLine(N);
         }
 
-        static void getRoles()
-        {
-            Console.Write("ROLES: ");
-            DataTable rawData = OpenExcel(sourceData, "Roles");
-            int N = 0;
-            foreach (DataRow row in rawData.Rows)
-            {
-                Role role = new Role()
-                {
-                    Name = getString(row, 0),
-                    Team = getBool(row, 1),
-                    System = getBool(row, 2)
-                };
-                N++;
-                context.Roles.Add(role);
-            }
-            context.SaveChanges();
-            Console.WriteLine(N);
-        }
-
-        static void getPeople()
-        {
-            Console.Write("PEOPLE: ");
-            DataTable rawData = OpenExcel(sourceData, "People");
-            int N = 0;
-            foreach (DataRow row in rawData.Rows)
-            {
-                Person person = new Person()
-                {
-                    FirstName = getString(row, 0),
-                    LastName = getString(row, 1),
-                    Email = getString(row, 2),
-                    Category = (EmploymentType)getInteger(row, 3),
-                    Gender = (Gender)getInteger(row, 4),
-                    Image = getString(row, 5),
-                    Phone = getString(row, 6),
-                    Address = new Address(getString(row, 7), getString(row, 8), getString(row, 9)),
-                    BirthDate = getDate(row, 10),
-                    StartDate = getDate(row, 11),
-                    Status = (EmploymentStatus)getInteger(row, 12)
-                };
-                N++;
-                context.People.Add(person);
-            }
-            context.SaveChanges();
-            Console.WriteLine(N);
-        }
-
-        static void getEngagements()
-        {
-            Console.Write("ENGAGEMENTS: ");
-            DataTable rawData = OpenExcel(sourceData, "Engagements");
-            int N = 0;
-            foreach (DataRow row in rawData.Rows)
-            {
-                string personName = getString(row, 2);
-                Person person = context.People.Where(x => x.FirstName == personName).FirstOrDefault();
-                string roleName = getString(row, 3);
-                Role role = context.Roles.Where(x => x.Name == roleName).FirstOrDefault();
-                string teamName = getString(row, 4);
-                Team team = context.Teams.Where(x => x.Name == teamName).FirstOrDefault();
-                Engagement eng = new Engagement()
-                {
-                    StartDate = getDate(row, 0),
-                    Time = getInteger(row, 1),
-                    Person = person,
-                    Role = role,
-                    Team = team
-                };
-                N++;
-                context.Engagements.Add(eng);
-            }
-            context.SaveChanges();
-            Console.WriteLine(N);
-        }
 
         static DataTable OpenExcel(string path, string sheet)
         {
@@ -150,7 +186,15 @@ namespace DataSeed
 
         static DateTime getDate(DataRow row, int index)
         {
-            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
+            DateTime date = DateTime.Parse(row.ItemArray.GetValue(index).ToString(), "dd/MM/yyyy" , CultureInfo.InvariantCulture);
+            //DateTime dt = DateTime.Parse("dd/MM/yyyy");
+            //DateTime.Parse(row.ItemArray.GetValue(index).ToString()).ToString("yyyyMMdd");
+            return date;
+        }
+
+        static double getDouble(DataRow row, int index)
+        {
+            return Convert.ToDouble(row.ItemArray.GetValue(index).ToString());
         }
     }
 }
