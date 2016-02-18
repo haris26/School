@@ -27,5 +27,6 @@ namespace Database
         public DbSet<Characteristic> CategoryCharacteristics { get; set; }
         public DbSet<ResourceCategory> ResourceCategories { get; set; }
         public DbSet<CharacteristicName> CharacteristicNames { get; set; }
+        public DbSet<SkillCategory> SkillCategories { get; set; }
     }
 }
