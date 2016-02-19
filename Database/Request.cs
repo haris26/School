@@ -12,9 +12,10 @@ namespace Database
         public string RequestMessage { get; set; }                  // Description of the request
         public DateTime RequestDate { get; set; }                   // Date of the request
         public RequestStatus Status { get; set; }                   // Status
-
         public List<Request> requests = new List<Request>();
         public Asset Asset { get; set; }
         public Person User { get; set; }
     }
+
+
 }

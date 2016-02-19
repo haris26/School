@@ -216,6 +216,7 @@ namespace DataSeed
             foreach (DataRow row in rawData.Rows)
             {
 
+
                 string assetid = row.ItemArray.GetValue(4).ToString();
                 string userName = row.ItemArray.GetValue(5).ToString();
 
@@ -223,6 +224,7 @@ namespace DataSeed
 
                 Person user = context.People.FirstOrDefault(c => c.FirstName == userName);
                 DateTime RequestEnd = DateTime.Now;
+
 
                 History histories = new History()
                 {
@@ -233,11 +235,12 @@ namespace DataSeed
                     Asset = asset,
                     Person = user,
 
-                    //user id i asset id dodati - personId(row,4) i userId(row,5)
-                
+                    user id i asset id dodati - personId(row, 4) i userId(row, 5)
+
                 };
                 N++;
                 context.Histories.Add(histories);
+
 
             }
             context.SaveChanges();
@@ -245,6 +248,5 @@ namespace DataSeed
         }
 
     }
-
 }
 
