@@ -5,9 +5,7 @@ namespace Database
     public class SchoolContext: DbContext
     {
         public SchoolContext(): base()
-
-        { }       
-
+        { }
 
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Day> Days { get; set; }
@@ -32,5 +30,6 @@ namespace Database
         public DbSet<Characteristic> CategoryCharacteristics { get; set; }
         public DbSet<ResourceCategory> ResourceCategories { get; set; }
         public DbSet<CharacteristicName> CharacteristicNames { get; set; }
+        public DbSet<SkillCategory> SkillCategories { get; set; }
     }
 }
