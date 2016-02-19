@@ -70,12 +70,14 @@
     <Compile Include="Request.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCategory.cs" />
+    <Compile Include="ResourceUnit.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="SchoolContext.cs" />
     <Compile Include="SkillCategory.cs" />
     <Compile Include="Team.cs" />
     <Compile Include="ProjectSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Tool.cs" />
   </ItemGroup>
   <ItemGroup>
