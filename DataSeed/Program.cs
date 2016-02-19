@@ -2,14 +2,15 @@
 //using System;
 //using System.Data;
 //using System.Linq;
-
 //using System.Data.OleDb;
 
 //namespace DataSeed
 //{
 //    class Program
 //    {
+
 //        static string sourceData = @"C:\Projects\School\omega.xls";
+
 //        static SchoolContext context = new SchoolContext();
 
 //        static void Main(string[] args)
@@ -56,10 +57,6 @@
 //                };
 //                N++;
 //                context.Roles.Add(role);
-//            }
-//            context.SaveChanges();
-//            Console.WriteLine(N);
-//        }
 
 //        static void getPeople()
 //        {
@@ -152,6 +149,11 @@
 //        static DateTime getDate(DataRow row, int index)
 //        {
 //            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
+//        }
+
+//        static double getDouble(DataRow row, int index)
+//        {
+//            return Convert.ToDouble(row.ItemArray.GetValue(index).ToString());
 //        }
 //    }
 //}

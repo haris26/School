@@ -1,88 +1,179 @@
-﻿//using Database;
+//using Database;
 //using System;
 //using System.Data;
 //using System.Data.OleDb;
+//using System.Linq;
 
 //namespace DataSeed
 //{
-//    class AlfaSeed
+//    class Program
 //    {
-//        static string sourceData = @"C:\Projects\school\omega.xls";
+//        static string sourceData = @"C:\Projects\school\alfa.xls";
 //        static SchoolContext context = new SchoolContext();
 
 //        static void Main(string[] args)
 //        {
-//            getSkillCategories();
-//            getTeams();
-//            getPeople();
+//            getEducation();
+//            getSkillCategory();
+//            getTool();
+//            getEmployeeSkills();
+//            getProjectSkills();
+//            getEmployeeEducation();
+//            Console.ReadKey();
 //        }
 
-//        static void getSkillCategories()
+//        static void getEducation()
 //        {
-//            //Console.Write("ROLES: ");
-//            //DataTable rawData = OpenExcel(sourceData, "Roles");
-//            //int N = 0;
-//            //foreach (DataRow row in rawData.Rows)
-//            //{
-//            //    Role role = new Role()
-//            //    {
-//            //        Name = row.ItemArray.GetValue(1).ToString(),
-//            //    };
-//            //    N++;
-//            //    context.Roles.Add(role);
-//            //}
-//            //context.SaveChanges();
-//            //Console.WriteLine(N);
+//            Console.Write("EDUCATION: ");
+//            DataTable rawData = OpenExcel(sourceData, "Education");
+//            int N = 0;
+//            foreach (DataRow row in rawData.Rows)
+//            {
+//                Education education = new Education()
+//                {
+//                    Name = getString(row, 0),
+//                    Type = (EducationType)getInteger(row, 1),
+//                    Reference = getString(row, 2)
+//                };
+//                N++;
+//                context.Educations.Add(education);
+//            }
+//            context.SaveChanges();
+//            Console.WriteLine(N);
 //        }
 
-//        static void getTeams()
+//        static void getEmployeeSkills()
 //        {
-//            //Console.Write("TEAMS: ");
-//            //DataTable rawData = OpenExcel(sourceData, "Teams");
-//            //int N = 0;
-//            //foreach (DataRow row in rawData.Rows)
-//            //{
-//            //    Team team = new Team()
-//            //    {
-//            //        Name = row.ItemArray.GetValue(1).ToString(),
-//            //        Description = row.ItemArray.GetValue(2).ToString(),
-//            //        Type = (ProjectType)Convert.ToInt32(row.ItemArray.GetValue(3).ToString())
-//            //    };
-//            //    int type = Convert.ToInt32(row.ItemArray.GetValue(3).ToString());
-//            //    switch (type)
-//            //    {
-//            //        case 1: { team.Type = ProjectType.External; break; }
-//            //        case 2: { team.Type = ProjectType.Internal; break; }
-//            //        default: { team.Type = ProjectType.Absence; break; }
-//            //    }
-//            //    N++;
-//            //    context.Teams.Add(team);
-//            //}
-//            //context.SaveChanges();
-//            //Console.WriteLine(N);
+//            Console.Write("EMPLOYEESKILLS: ");
+//            DataTable rawData = OpenExcel(sourceData, "EmployeeSkill");
+//            int N = 0;
+//            foreach (DataRow row in rawData.Rows)
+//            {
+//                string toolName = getString(row, 2);
+//                Tool tool = context.Tools.Where(x => x.Name == toolName).FirstOrDefault();
+
+//                string employeeName = getString(row, 3);
+//                Person employee = context.People.Where(x => x.FirstName == employeeName).FirstOrDefault();
+
+//                int exp = getInteger(row, 1);
+
+//                EmployeeSkill empSkill = new EmployeeSkill()
+//                {
+//                    Level = (Level)getInteger(row, 0),
+//                    Experience = getInteger(row, 1),
+//                    Tool = tool,
+//                    Employee = employee
+//                };
+
+//                if (exp > 0)
+//                    empSkill.Experience = exp;
+
+//                N++;
+//                context.EmployeeSkills.Add(empSkill);
+//            }
+//            context.SaveChanges();
+//            Console.WriteLine(N);
 //        }
 
-//        static void getPeople()
+//        static void getSkillCategory()
 //        {
-//            //Console.Write("PEOPLE: ");
-//            //DataTable rawData = OpenExcel(sourceData, "People");
-//            //int N = 0;
-//            //foreach (DataRow row in rawData.Rows)
-//            //{
-//            //    Person person = new Person()
-//            //    {
-//            //        FirstName = row.ItemArray.GetValue(1).ToString(),
-//            //        LastName = row.ItemArray.GetValue(2).ToString()
-//            //    };
-//            //    N++;
-//            //    context.People.Add(person);
-//            //}
-//            //context.SaveChanges();
-//            //Console.WriteLine(N);
+//            Console.Write("SKILL CATEGORY: ");
+//            DataTable rawData = OpenExcel(sourceData, "SkillCategory");
+//            int N = 0;
+//            foreach (DataRow row in rawData.Rows)
+//            {
+//                SkillCategory skillcategory = new SkillCategory()
+//                {
+//                    Name = getString(row, 0),
+//                };
+//                N++;
+//                context.SkillCategories.Add(skillcategory);
+//            }
+//            context.SaveChanges();
+//            Console.WriteLine(N);
+//        }
+
+//        static void getProjectSkills()
+//        {
+//            Console.Write("PROJECTSKILLS: ");
+//            DataTable rawData = OpenExcel(sourceData, "ProjectSkill");
+//            int N = 0;
+//            foreach (DataRow row in rawData.Rows)
+//            {
+//                string teamName = getString(row, 2);
+//                Team team = context.Teams.Where(x => x.Name == teamName).FirstOrDefault();
+
+//                string toolName = getString(row, 1);
+//                Tool tool = context.Tools.Where(x => x.Name == toolName).FirstOrDefault();
+
+//                ProjectSkill projectSkill = new ProjectSkill()
+//                {
+//                    Level = (Level)getInteger(row, 0),
+//                    Team = team,
+//                    Tool = tool
+//                };
+
+//                N++;
+//                context.ProjectSkills.Add(projectSkill);
+//            }
+//            context.SaveChanges();
+//            Console.WriteLine(N);
+//        }
+
+//        static void getTool()
+//        {
+//            Console.Write("TOOLS: ");
+//            DataTable rawData = OpenExcel(sourceData, "Tool");
+//            int N = 0;
+//            foreach (DataRow row in rawData.Rows)
+//            {
+//                string categoryName = getString(row, 1);
+//                SkillCategory category = context.SkillCategories.Where(x => x.Name == categoryName).FirstOrDefault();
+
+//                Tool tool = new Tool()
+//                {
+//                    Name = getString(row, 0),
+//                    Category = category
+//                };
+//                N++;
+//                context.Tools.Add(tool);
+//            }
+
+//            context.SaveChanges();
+//            Console.WriteLine(N);
+//        }
+
+//        static void getEmployeeEducation()
+//        {
+//            Console.Write("EMPLOYEEEDUCATIONS: ");
+//            DataTable rawData = OpenExcel(sourceData, "EmployeeEducation");
+//            int N = 0;
+//            foreach (DataRow row in rawData.Rows)
+//            {
+//                string empName = getString(row, 0);
+//                Person employee = context.People.Where(x => x.FirstName == empName).FirstOrDefault();
+
+//                string educationName = getString(row, 1);
+//                Education education = context.Educations.Where(x => x.Name == educationName).FirstOrDefault();
+
+//                EmployeeEducation empEducation = new EmployeeEducation()
+//                {
+//                    Employee = employee,
+//                    Education = education
+//                };
+
+//                N++;
+//                context.EmployeeEducations.Add(empEducation);
+
+//            }
+//            context.SaveChanges();
+//            Console.WriteLine(N);
 //        }
 
 
 //        static DataTable OpenExcel(string path, string sheet)
+
+
 //        {
 //            var cs = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=Excel 8.0", path);
 //            OleDbConnection conn = new OleDbConnection(cs);
@@ -98,5 +189,34 @@
 
 //            return dt;
 //        }
+
+//        static string getString(DataRow row, int index)
+//        {
+//            return row.ItemArray.GetValue(index).ToString();
+//        }
+
+//        static int getInteger(DataRow row, int index)
+//        {
+//            string rowContent = row.ItemArray.GetValue(index).ToString();
+
+//            if (rowContent != "")
+//                return Convert.ToInt32(rowContent);
+//            else
+//                return -1;
+//        }
+
+//        static bool getBool(DataRow row, int index)
+//        {
+//            return (row.ItemArray.GetValue(index).ToString().ToLower() == "yes");
+//        }
+
+//        static DateTime getDate(DataRow row, int index)
+//        {
+//            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
+//        }
 //    }
+
 //}
+
+
+
