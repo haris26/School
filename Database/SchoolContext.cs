@@ -4,8 +4,8 @@ namespace Database
 {
     public class SchoolContext: DbContext
     {
-        public SchoolContext(): base()
-        { }       
+        public SchoolContext(): base("name=School")
+        { }
 
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Day> Days { get; set; }
@@ -24,10 +24,14 @@ namespace Database
         public DbSet<Resource> Resources { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Team> Teams{ get; set; }
+        public DbSet<AssetCategory> AssetCategory { get; set; }
+        public DbSet<AssetCharacteristicNames> AssetCharNames { get; set; }
+        public DbSet<AssetChar> AssetCharacteristics  { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<EmployeeEducation> EmployeeEducations { get; set; }
         public DbSet<Characteristic> CategoryCharacteristics { get; set; }
         public DbSet<ResourceCategory> ResourceCategories { get; set; }
         public DbSet<CharacteristicName> CharacteristicNames { get; set; }
+        public DbSet<SkillCategory> SkillCategories { get; set; }
     }
 }

@@ -16,38 +16,16 @@ namespace Database
         public int Id { get; set; }
 
         public AssetType Type { get; set; }
+        public virtual AssetCategory AssetCategory{ get; set; }
         public string Name { get; set; }
-        public int SerialNumber { get; set; }
+        public string SerialNumber { get; set; }
         public string Description { get; set; }     // asset description [name]
         public string Vendor { get; set; }          // vendor - so far just description - maybe separate class in the future
         public double Price { get; set; }           // price
 
 
 
-        public Dictionary<string, string> Characteristics = new Dictionary<string, string>();
-        public void Set(string key, string value)
-        {
-            if (Characteristics.ContainsKey(key))
-            {
-                Characteristics[key] = value;
-            }
-            else
-            {
-                Characteristics.Add(key, value);
-            }
-        }
-
-        public string Get(string key)
-        {
-            string result = null;
-
-            if (Characteristics.ContainsKey(key))
-            {
-                result = Characteristics[key];
-            }
-
-            return result;
-        }
+       
 
         // public string EmployeeID { get; set; } we will use navigation to person instead of simple foreign key
         public Person User { get; set; }            // person who use particular asset 

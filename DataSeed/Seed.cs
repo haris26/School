@@ -1,4 +1,5 @@
-﻿//using Database;
+
+//﻿using Database;
 //using System;
 //using System.Data;
 //using System.Data.OleDb;
@@ -8,54 +9,45 @@
 //{
 //    class Seed
 //    {
-//        static string sourceData = @"C:\Projects\school\delta1.xls";
+//        static string sourceData = @"C:\MistralProjects\delta.xls";
 //        static SchoolContext context = new SchoolContext();
 
-//        static void Main(string[] args)
+//        //static void Main(string[] args)
+//        //{
+//        //    getDetail();
+//        //}
+
+//        static void getDetail()
 //        {
-
-//            getDays();
-//        }
-
-
-
-//        static void getDays()
-//        {
-//            Console.Write("DAYS: ");
-//            DataTable rawData = OpenExcel(sourceData, "Day");
+//            Console.WriteLine("DETAILS: ");
+//            DataTable rawData = OpenExcel(sourceData, "Details");
 //            int N = 0;
 //            foreach (DataRow row in rawData.Rows)
 //            {
-//                Day day = new Day()
+//                Detail detail = new Detail()
 //                {
-//                    Date = getDate(row,0),
-//                    WorkTime = getDouble(row,1),
-//                    PtoTime = getDouble(row, 2),
-//                    EntryStatus = (EntryStatus)getInteger(row,3)
+
+//                    WorkTime = Convert.ToDouble(row.ItemArray.GetValue(2).ToString()),
+//                    BillTime = Convert.ToDouble(row.ItemArray.GetValue(3).ToString()),
+//                    Description = row.ItemArray.GetValue(4).ToString(),
+
 //                };
-//                /*int status = Convert.ToInt32(row.ItemArray.GetValue(3).ToString());
-//                switch (status)
-//                {
-//                    case 2: { status.EntryStatus = EntryStatus.Locked; break; }
-//                    default: { status.EntryStatus = EntryStatus.Unlocked; break; }
-//                }*/
+//                string pName = row.ItemArray.GetValue(0).ToString();
+//                Person person = context.People.Where(x => x.FirstName == pName).FirstOrDefault();
 
-//                string pName = row.ItemArray.GetValue(4).ToString();
-//                day.Person = context.People.Where(x => x.FirstName == pName).FirstOrDefault();
+//                DateTime dan = Convert.ToDateTime(row.ItemArray.GetValue(1).ToString());
+//                detail.Day = context.Days.Where(x => x.Date == dan && x.Person == person).FirstOrDefault();
 
-//               // DateTime date = getDate(row, 0);
-//                //day.Details.Add(context.Details.Where(x => x.Day.Person.FirstName == pName && x.Day.Date == date).FirstOrDefault());
+//                string teamName = row.ItemArray.GetValue(5).ToString();
+//                detail.Team = context.Teams.Where(x => x.Name == teamName).FirstOrDefault();
+
 
 //                N++;
-//                context.Days.Add(day);
+//                context.Details.Add(detail);
 //            }
 //            context.SaveChanges();
 //            Console.WriteLine(N);
-
-
 //        }
-
-
 
 
 //        static DataTable OpenExcel(string path, string sheet)
@@ -74,28 +66,6 @@
 
 //            return dt;
 //        }
-//        static string getString(DataRow row, int index)
-//        {
-//            return row.ItemArray.GetValue(index).ToString();
-//        }
-
-//        static int getInteger(DataRow row, int index)
-//        {
-//            return Convert.ToInt32(row.ItemArray.GetValue(index).ToString());
-//        }
-//        static double getDouble(DataRow row, int index)
-//        {
-//            return Convert.ToDouble(row.ItemArray.GetValue(index).ToString());
-//        }
-
-//        static bool getBool(DataRow row, int index)
-//        {
-//            return (row.ItemArray.GetValue(index).ToString().ToLower() == "yes");
-//        }
-
-//        static DateTime getDate(DataRow row, int index)
-//        {
-//            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
-//        }
 //    }
 //}
+
