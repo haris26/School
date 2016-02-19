@@ -9,15 +9,16 @@
 
 //namespace DataSeed
 //{
-//    class Program
+//    class ProgramDelta
 //    {
 
 //        static string sourceData = @"C:\MistralProjects\delta.xls";
 //        static SchoolContext context = new SchoolContext();
 
-//        static void Main (string[] args)
+//        static void Main(string[] args)
 //        {
-//        getDetail();
+//            getDetail();
+//            getDays();
 //        }
 
 
@@ -31,16 +32,16 @@
 //                Detail detail = new Detail();
 
 
-//                detail.WorkTime = Convert.ToDouble(row.ItemArray.GetValue(2).ToString());
-//                    detail.BillTime = Convert.ToDouble(row.ItemArray.GetValue(3).ToString());
-//                    detail.Description = row.ItemArray.GetValue(4).ToString();
+//                detail.WorkTime = getDouble(row, 2); //Convert.ToDouble(row.ItemArray.GetValue(2).ToString());
+//                detail.BillTime = getDouble(row, 3); //Convert.ToDouble(row.ItemArray.GetValue(3).ToString());
+//                detail.Description = getString(row, 4); // row.ItemArray.GetValue(4).ToString();
 
-                
-//                string pName = row.ItemArray.GetValue(0).ToString();
+
+//                string pName = getString(row, 0); //row.ItemArray.GetValue(0).ToString();
 //                Person person = context.People.Where(x => x.FirstName == pName).FirstOrDefault();  //Migration exception
 
-//                DateTime dan = Convert.ToDateTime(row.ItemArray.GetValue(1).ToString());
-//                detail.Day = context.Days.Where(x => x.Date == dan && x.Person == person).FirstOrDefault();
+//                DateTime dan = getDate(row, 1);  //Convert.ToDateTime(row.ItemArray.GetValue(1).ToString());
+//                detail.Day = context.Days.Where(x => x.Date == dan && x.Person.FirstName == pName).FirstOrDefault();
 
 //                string teamName = row.ItemArray.GetValue(5).ToString();
 //                detail.Team = context.Teams.Where(x => x.Name == teamName).FirstOrDefault();
@@ -51,6 +52,34 @@
 //            }
 //            context.SaveChanges();
 //            Console.WriteLine(N);
+//        }
+
+
+//        static void getDays()
+//        {
+//            Console.Write("DAYS: ");
+//            DataTable rawData = OpenExcel(sourceData, "Day");
+//            int N = 0;
+//            foreach (DataRow row in rawData.Rows)
+//            {
+//                Day day = new Day()
+//                {
+//                    Date = getDate(row, 0),
+//                    WorkTime = getDouble(row, 1),
+//                    PtoTime = getDouble(row, 2),
+//                    EntryStatus = (EntryStatus)getInteger(row, 3)
+//                };
+
+//                string pName = row.ItemArray.GetValue(4).ToString();
+//                day.Person = context.People.Where(x => x.FirstName == pName).FirstOrDefault();
+
+//                N++;
+//                context.Days.Add(day);
+//            }
+//            context.SaveChanges();
+//            Console.WriteLine(N);
+
+
 //        }
 
 
@@ -70,6 +99,31 @@
 
 //            return dt;
 //        }
-//    }
 
+//        static string getString(DataRow row, int index)
+//        {
+//            return row.ItemArray.GetValue(index).ToString();
+//        }
+
+//        static int getInteger(DataRow row, int index)
+//        {
+//            return Convert.ToInt32(row.ItemArray.GetValue(index).ToString());
+//        }
+
+//        static bool getBool(DataRow row, int index)
+//        {
+//            return (row.ItemArray.GetValue(index).ToString().ToLower() == "yes");
+//        }
+
+//        static DateTime getDate(DataRow row, int index)
+//        {
+//            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
+//        }
+
+//        static double getDouble(DataRow row, int index)
+//        {
+//            return Convert.ToDouble(row.ItemArray.GetValue(index).ToString());
+//        }
+//    }
 //}
+
