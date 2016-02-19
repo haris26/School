@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    public class Repository<Entity> where Entity : class 
+    public class Repository<Entity> where Entity : class
     {
         public SchoolContext context = new SchoolContext();
         public DbSet<Entity> dbSet;
@@ -17,38 +17,45 @@ namespace Database
             dbSet = context.Set<Entity>();
         }
 
+
         public IQueryable<Entity> Get()
         {
             return dbSet.AsQueryable();
+        }
 
-        }
-        public Entity Get(int id)
+        //find entity by id
+        public Entity Get(int Id)
         {
-            return dbSet.Find(id);
-            //return context.Teams.Where(x => x.Id == id).FirstOrDefault();
+            return dbSet.Find(Id);
         }
+
+        //insert entity in database 
         public virtual void Insert(Entity entity)
         {
             dbSet.Add(entity);
             context.SaveChanges();
         }
-        public void Update(Entity entity, int id)
+
+        public void Update(Entity entity, int Id)
         {
-            Entity oldEnt = Get(id);
-            if (oldEnt != null)
+            Entity oldEntity = Get(Id);
+            if (oldEntity != null)
             {
-                context.Entry(oldEnt).CurrentValues.SetValues(entity); //
+                context.Entry(oldEntity).CurrentValues.SetValues(entity);
                 context.SaveChanges();
             }
+
         }
-        public void Delete(int id)
+
+        public void Delete(int Id)
         {
-            Entity oldEnt = Get(id);
-            if (oldEnt != null)
+            Entity oldEntity = Get(Id);
+            if (oldEntity != null)
             {
-                dbSet.Remove(oldEnt);
+                dbSet.Remove(oldEntity);
                 context.SaveChanges();
             }
+
         }
     }
 }

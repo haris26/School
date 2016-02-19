@@ -33,7 +33,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\ProcurementSystem\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -51,12 +55,13 @@
     <Compile Include="Program - Alfa.cs" />
     <Compile Include="Program - Beta.cs" />
     <Compile Include="Program - Delta.cs" />
-    <Compile Include="ProgramHaris.cs" />
+    <Compile Include="ProgramMartina.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seed.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
+      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

@@ -75,6 +75,7 @@
     <Compile Include="Request.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCategory.cs" />
+    <Compile Include="ResourceUnit.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="SchoolContext.cs" />
     <Compile Include="SkillCategory.cs" />
