@@ -8,13 +8,11 @@
 //{
 //    class Program
 //    {
-<<<<<<< HEAD
-//        static string sourceData = @"C:\Projects\School\omega.xls";
-=======
 
 //        static string sourceData = @"C:\Projects\School\omega.xls";
 
->>>>>>> 82126b24f83effbcf81abba771c8426429651544
+
+
 //        static SchoolContext context = new SchoolContext();
 
 //        static void Main(string[] args)
