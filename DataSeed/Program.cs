@@ -9,23 +9,6 @@
 //    class Program
 //    {
 //        static Repository<Team> teamUnit = new Repository<Team>();
-<<<<<<< HEAD
-//        static SchoolContext context = new SchoolContext();
-
-//        static void Main(string[] args)
-//        {
-//            string choice = "x";
-//            do {
-                
-//                Console.WriteLine("Odaberi opciju: ");
-//                Console.WriteLine("1. Ispis timova");
-//                Console.WriteLine("2. Ispis jednog tima");
-//                Console.WriteLine("3. Otvaranje novog tima tima");
-//                Console.WriteLine("4. Brisanje tima");
-//                Console.WriteLine("5. Update tima");
-//                Console.WriteLine("9. Kraj programa");
-//                choice = Console.ReadLine();
-=======
 
 //        static void Main(string[] args)
 //        {
@@ -42,83 +25,10 @@
 //                Console.WriteLine("----------------------");
 //                choice = Console.ReadLine();
 
->>>>>>> 86c4b94cfc5a2b181af8e29c8b25ee4d892fa519
 //                switch (choice)
 //                {
 //                    case "1": { printAllTeams(); break; }
 //                    case "2": { printOneTeam(); break; }
-<<<<<<< HEAD
-//                    case "3": { insertTeam(); break; }
-//                    case "4": { deleteTeam(); break; }
-//                    case "5": { updateTeam(); break; }
-//                }
-
-                
-//            } while (choice != "9");
-//        }
-
-//        static void insertTeam()
-//        {
-//            Console.WriteLine();
-//            Console.Write("Naziv tima: ");
-//            string naziv = Console.ReadLine();
-//            if (naziv != "")
-//            {
-//                Console.Write("Tip [1, 2, 3]: ");
-//                string tip = Console.ReadLine();
-
-//                Team team = new Team()
-//                {
-//                    Name = naziv,
-//                    Type = (ProjectType)Convert.ToInt32(tip)
-//                };
-//                teamUnit.Insert(team);
-//            }
-//        }
-            
-//        static void printAllTeams()
-//        {
-//            var teams = teamUnit.Get().ToList();
-//            foreach (var team in teams)
-//            {
-//                Console.WriteLine(team.Id + ": " + team.Name);
-//            }
-//           // Console.ReadKey();
-//        }
-
-//        static void printOneTeam()
-//        {
-//            Console.WriteLine();
-//            Console.WriteLine("Upisi Id: ");
-//            string sid = Console.ReadLine();
-//            if(sid != "")
-//            {
-//                int id = Convert.ToInt32(sid);
-//                var team = teamUnit.Get(id);
-//                if (team != null)
-//                {
-//                    Console.WriteLine(team.Id + ":  " + team.Name);
-//                   // Console.ReadKey();
-//                }
-//            }
-//        }
-//        static void deleteTeam()
-//        {
-//            Console.WriteLine();
-//            Console.WriteLine("Unesi Id za brisanje: ");
-//            string sid = Console.ReadLine();
-//            if (sid != "")
-//            {
-//                int id = Convert.ToInt32(sid);
-//                teamUnit.Delete(id);  
-//            }
-//        }
-//        static void updateTeam()
-//        {
-//            Console.WriteLine();
-//            Console.WriteLine("Unesi id: ");
-//            string sid = Console.ReadLine();
-=======
 //                    case "3": { insertNewTeam(); break; }
 //                    case "4": { deleteTeam(); break; }
 //                    case "5": { updateTeam(); break; }
@@ -204,23 +114,10 @@
 //            Console.WriteLine("Team id: ");
 //            string sid = Console.ReadLine();
 
->>>>>>> 86c4b94cfc5a2b181af8e29c8b25ee4d892fa519
 //            if (sid != "")
 //            {
 //                int id = Convert.ToInt32(sid);
 //                var team = teamUnit.Get(id);
-<<<<<<< HEAD
-//                Console.WriteLine("Unesite novi naziv tima: ");
-//                string newName = Console.ReadLine();
-//                team.Name = newName;
-//                teamUnit.Update(team, id);
-//            }
-           
-//        }
-//    }
-//}
-
-=======
 //                if (team != null)
 //                {
 //                    Console.WriteLine("Edit team name: ");
@@ -243,5 +140,3 @@
 //    }
 
 //}
- 
->>>>>>> 86c4b94cfc5a2b181af8e29c8b25ee4d892fa519
