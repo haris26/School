@@ -12,7 +12,7 @@ namespace DataSeed
     class ProgramDelta
     {
 
-        static string sourceData = @"C:\Projects\school\Delta.xls";
+        static string sourceData = @"C:\Projects\school\delta.xls";
         static SchoolContext context = new SchoolContext();
 
         static void Main(string[] args)
