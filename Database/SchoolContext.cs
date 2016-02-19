@@ -4,8 +4,9 @@ namespace Database
 {
     public class SchoolContext: DbContext
     {
+
         public SchoolContext(): base()
-        { }
+        { }       
 
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Day> Days { get; set; }
