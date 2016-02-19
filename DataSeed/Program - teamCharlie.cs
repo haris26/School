@@ -204,26 +204,34 @@ namespace DataSeed
 
 
 
+
         static void getHistory()
         {
+
             Console.Write("History: ");
-            DataTable rawData = OpenExcel(sourceData, "Request");
+            DataTable rawData = OpenExcel(sourceData, "HistoryR");
 
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
-                DateTime RequestEnd = DateTime.Now;
+                string assetid = row.ItemArray.GetValue(4).ToString();
+                string userName = row.ItemArray.GetValue(5).ToString();
 
+                Asset asset = context.Assets.FirstOrDefault(c => c.Name == assetid);
+
+                Person user = context.People.FirstOrDefault(c => c.FirstName == userName);
+                DateTime RequestEnd = DateTime.Now;
 
                 History histories = new History()
                 {
                     EventEnd = RequestEnd,
-                    EventBegin = getDate(row, 2), //uzima iz request tabele pocetak na mjestu 2
-                    Description = row.ItemArray.GetValue(1).ToString(), //uzima request message iz reguesta
-                    Status = (HistoryStatus)Enum.Parse(typeof(RequestStatus), row.ItemArray.GetValue(3).ToString()),
+                    EventBegin = getDate(row, 0), //uzima iz request tabele pocetak na mjestu 2
+                    Description = row.ItemArray.GetValue(2).ToString(), //uzima request message iz reguesta
+                    Status = (HistoryStatus)Enum.Parse(typeof(HistoryStatus), row.ItemArray.GetValue(3).ToString()),
+                    Asset = asset,
+                    Person = user,
+
                     //user id i asset id dodati - personId(row,4) i userId(row,5)
-
-
                 };
                 N++;
                 context.Histories.Add(histories);
