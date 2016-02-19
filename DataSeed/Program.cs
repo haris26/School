@@ -58,10 +58,6 @@
 //                };
 //                N++;
 //                context.Roles.Add(role);
-//            }
-//            context.SaveChanges();
-//            Console.WriteLine(N);
-//        }
 
 //        static void getPeople()
 //        {
@@ -118,7 +114,6 @@
 //            context.SaveChanges();
 //            Console.WriteLine(N);
 //        }
-
 
 //        static DataTable OpenExcel(string path, string sheet)
 //        {
