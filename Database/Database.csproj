@@ -56,6 +56,7 @@
     <Compile Include="AssetCharacteristicNames.cs" />
     <Compile Include="Characteristic.cs" />
     <Compile Include="CharacteristicName.cs" />
+    <Compile Include="CharacteristicNameUnit.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="EngagementUnit.cs" />
@@ -66,10 +67,6 @@
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="History.cs" />
-    <Compile Include="Migrations\201602191455304_Haris002.cs" />
-    <Compile Include="Migrations\201602191455304_Haris002.Designer.cs">
-      <DependentUpon>201602191455304_Haris002.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Request.cs" />
@@ -88,11 +85,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602191455304_Haris002.resx">
-      <DependentUpon>201602191455304_Haris002.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

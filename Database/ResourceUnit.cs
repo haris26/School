@@ -9,7 +9,11 @@ namespace Database
 {
     public class ResourceUnit : Repository<Resource>
     {
-        public ResourceUnit(SchoolContext context) : base(context) { }
+
+        public ResourceUnit(SchoolContext context) : base(context)
+        {
+
+        }
 
         public override void Insert(Resource resource)
         {
