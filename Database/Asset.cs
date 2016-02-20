@@ -12,20 +12,20 @@ namespace Database
     //  Basic assets data
     public class Asset
     {
-        // public int AssetId { get; set; } instead of classId in all our projects we will use just Id (convention)
+        
         public int Id { get; set; }
 
-        public AssetType Type { get; set; }
-        public virtual AssetCategory AssetCategory{ get; set; }
+        public AssetType Type { get; set; }   //1-Device 2-Office
+        public virtual AssetCategory AssetCategory{ get; set; } //laptop,monitor,keyboard...
         public string Name { get; set; }
-        public string SerialNumber { get; set; }
-        public string Description { get; set; }     // asset description [name]
+        public string SerialNumber { get; set; }     //Serial/service number
+        public string Description { get; set; }     // asset description [name] (I- since we added name we don't need to show this field in database)
         public string Vendor { get; set; }          // vendor - so far just description - maybe separate class in the future
         public double Price { get; set; }           // price
+        public DateTime DateOfTrade { get; set; } //Date of trade in
 
 
 
-       
 
         // public string EmployeeID { get; set; } we will use navigation to person instead of simple foreign key
         public Person User { get; set; }            // person who use particular asset 

@@ -59,6 +59,7 @@
     <Compile Include="EngagementUnit.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Detail.cs" />
+    <Compile Include="EngagementUnit.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Education.cs" />
     <Compile Include="EmployeeEducation.cs" />
