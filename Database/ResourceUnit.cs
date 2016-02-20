@@ -9,11 +9,10 @@ namespace Database
 {
     public class ResourceUnit : Repository<Resource>
     {
-        public SchoolContext context = new SchoolContext();
+        public ResourceUnit(SchoolContext context) : base(context) { }
 
         public override void Insert(Resource resource)
         {
-
             context.Resources.Add(resource);
             context.Entry(resource.ResourceCategory).State = EntityState.Unchanged;
             context.SaveChanges();
