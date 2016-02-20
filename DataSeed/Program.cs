@@ -8,11 +8,17 @@ namespace DataSeed
 {
     class Program
     {
+        static string sourceData = @"C:\Projects\school\omega.xls";
+
         static Repository<Team> teamUnit = new Repository<Team>();
         static SchoolContext context = new SchoolContext();
 
         static void Main(string[] args)
         {
+            var person = context.People.Find(1);
+            var team = context.Teams.Find(1);
+            var role = context.Roles.Find(1);
+           // EngagementUnit engUnit = new EngagementUnit;
             string choice = "X";
 
             do

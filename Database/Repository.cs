@@ -30,7 +30,7 @@ namespace Database
          
         }
 
-        public void Insert(Entity entity)
+        public virtual void Insert(Entity entity)
         {
             dbSet.Add(entity);
             context.SaveChanges();
