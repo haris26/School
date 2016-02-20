@@ -58,6 +58,8 @@
     <Compile Include="CharacteristicName.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Detail.cs" />
+    <Compile Include="EmployeeEducationUnit.cs" />
+    <Compile Include="EmployeeSkillUnit.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Education.cs" />
     <Compile Include="EmployeeEducation.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="History.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="ProjectSkillUnit.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCategory.cs" />
@@ -76,7 +79,7 @@
     <Compile Include="Team.cs" />
     <Compile Include="ProjectSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TeamUnit.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Tool.cs" />
   </ItemGroup>
   <ItemGroup>
