@@ -10,12 +10,15 @@ namespace Database
     public class Repository<Entity>where Entity : class
     {
 
-        SchoolContext context = new SchoolContext();
-        DbSet<Entity> dbSet;
+        public SchoolContext context = new SchoolContext();
+        public DbSet<Entity> dbSet;
 
-        public Repository()
+
+        public Repository(SchoolContext _context)
         {
+            context = _context;
             dbSet = context.Set<Entity>();
+
 
         }
 
@@ -27,10 +30,10 @@ namespace Database
         public Entity Get(int id)
         {
             return dbSet.Find(id);
-         
+
         }
 
-        public void Insert(Entity entity)
+        public virtual void  Insert(Entity entity)
         {
             dbSet.Add(entity);
             context.SaveChanges();
