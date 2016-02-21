@@ -15,12 +15,7 @@ namespace Database
         public Repository(SchoolContext _context)
         {
             context = _context;
-            dbSet = context.Set<Entity>();
-        }
-
-        public Repository()
-        {
-            dbSet = context.Set<Entity>();
+            dbSet = _context.Set<Entity>();
         }
 
         public IQueryable<Entity> Get()
