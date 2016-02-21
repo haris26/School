@@ -53,7 +53,7 @@
 //        static void printAllTeams()
 //        {
 //            var teams = teamUnit.Get().ToList();
-//            foreach(var team in teams)
+//            foreach (var team in teams)
 //            {
 //                Console.WriteLine(team.Id + ": " + team.Name);
 //            }
@@ -77,5 +77,4 @@
 //            }
 //        }
 //    }
-// }
-
+//}

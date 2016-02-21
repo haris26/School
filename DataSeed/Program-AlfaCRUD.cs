@@ -740,7 +740,7 @@ namespace DataSeed
                 Console.WriteLine("2. Show one employee education");
                 Console.WriteLine("3. Add new education to employee");
                 Console.WriteLine("4. Delete employee education");
-                //Console.WriteLine("5. Update employee education");
+                Console.WriteLine("5. Update employee education");
                 Console.WriteLine("9. Return");
                 choice = Console.ReadLine();
 
@@ -750,7 +750,7 @@ namespace DataSeed
                     case "2": { printOneEmployeeEducation(); break; }
                     case "3": { insertEmployeeEducation(); break; }
                     case "4": { deleteEmployeeEducation(); break; }
-                        //case "5": { updateEmployeeEducation(); break; }
+                    case "5": { updateEmployeeEducation(); break; }
                 }
             } while (choice != "9");
         }
@@ -763,7 +763,7 @@ namespace DataSeed
                 var employeeEducations = employeeEducationUnit.Get().ToList();
                 foreach (var employeeEducation in employeeEducations)
                 {
-                    Console.WriteLine(employeeEducation.Id + " " + employeeEducation.Employee.FirstName + ": " + employeeEducation.Education.Name);
+                    Console.WriteLine(employeeEducation.Id + " " + employeeEducation.Employee.FirstName + ": " + employeeEducation.Education.Name +"   Reference:  "+employeeEducation.Reference);
                 }
             }
             Console.WriteLine("--------------------");
@@ -785,7 +785,7 @@ namespace DataSeed
                     var employeeEducation = employeeEducationUnit.Get(id);
                     if (employeeEducation != null)
                     {
-                        Console.WriteLine(employeeEducation.Id + " " + employeeEducation.Employee.FirstName + ": " + employeeEducation.Education.Name);
+                        Console.WriteLine(employeeEducation.Id + " " + employeeEducation.Employee.FirstName + ": " + employeeEducation.Education.Name + "   Reference:  " + employeeEducation.Reference);
                         Console.WriteLine("--------------------");
                         Console.ReadKey();
                     }
@@ -841,7 +841,8 @@ namespace DataSeed
                 EmployeeEducation empEdu = new EmployeeEducation()
                 {
                     Employee = employee,
-                    Education = education
+                    Education = education,
+                    Reference = "htttp://somereference"
                 };
 
                 employeeEducationUnit.Insert(empEdu);
@@ -870,39 +871,37 @@ namespace DataSeed
             }
         }
 
-        //static void updateEmployeeEducation()
-        //{
-        //    Console.WriteLine();
-        //    Console.Write("Insert identification of projectSkill you want to edit: ");
-        //    string sid = Console.ReadLine();
-        //    if (sid != "")
-        //    {
-        //        int id = Convert.ToInt32(sid);
+        static void updateEmployeeEducation()
+        {
+            Console.WriteLine();
+            Console.Write("Insert identification of employee education you want to edit: ");
+            string sid = Console.ReadLine();
+            if (sid != "")
+            {
+                int id = Convert.ToInt32(sid);
 
-        //        Console.WriteLine();
-        //        Console.Write("Insert new level for project skill " + sid + "  ");
-        //        string sLevel = Console.ReadLine();
+                Console.WriteLine();
+                Console.Write("Insert new reference for employee education " + sid + "  ");
+                string newReference = Console.ReadLine();
 
-        //        if (sLevel != "")
-        //        {
-        //            int level = Convert.ToInt32(sLevel);
+                if (newReference != "")
+                {
+                    using (SchoolContext context = new SchoolContext())
+                    {
+                        EmployeeEducationUnit empEduUnit = new EmployeeEducationUnit(context);
+                        var selectedEmpEdu = empEduUnit.Get(id);
 
-        //            using (SchoolContext context = new SchoolContext())
-        //            {
-        //                ProjectSkillUnit projectSkillUnit = new ProjectSkillUnit(context);
-        //                var selectedProjSkill = projectSkillUnit.Get(id);
+                        if (selectedEmpEdu != null)
+                        {
+                            selectedEmpEdu.Reference = newReference;
+                        }
 
-        //                if (selectedProjSkill != null)
-        //                {
-        //                    selectedProjSkill.Level = (Level)level;
-        //                }
-
-        //                projectSkillUnit.Update(selectedProjSkill, id);
-        //                Console.WriteLine("Edited!");
-        //                Console.ReadKey();
-        //            }
-        //        }
-        //    }
-        //}
+                        empEduUnit.Update(selectedEmpEdu, id);
+                        Console.WriteLine("Edited!");
+                        Console.ReadKey();
+                    }
+                }
+            }
+        }
     }
 }

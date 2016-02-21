@@ -9,5 +9,6 @@ namespace Database
 
         public virtual Person Employee { get; set; }
         public virtual Education Education { get; set; }
+        public string Reference { get; set; }       // Reference (link)
     }
 }

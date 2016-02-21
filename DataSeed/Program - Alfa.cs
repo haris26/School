@@ -32,8 +32,7 @@
 //                Education education = new Education()
 //                {
 //                    Name = getString(row, 0),
-//                    Type = (EducationType)getInteger(row, 1),
-//                    Reference = getString(row, 2)
+//                    Type = (EducationType)getInteger(row, 1)
 //                };
 //                N++;
 //                context.Educations.Add(education);
@@ -159,7 +158,8 @@
 //                EmployeeEducation empEducation = new EmployeeEducation()
 //                {
 //                    Employee = employee,
-//                    Education = education
+//                    Education = education,
+//                    Reference = getString(row, 2)
 //                };
 
 //                N++;
