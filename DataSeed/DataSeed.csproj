@@ -46,9 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program - Nedim.cs" />
     <Compile Include="Program - teamCharlie.cs" />
-    <Compile Include="Program-Dalila.cs" />
+    <Compile Include="Program-AlfaCRUD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Program - Alfa.cs" />
     <Compile Include="Program - Beta.cs" />
