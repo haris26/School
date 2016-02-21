@@ -8,8 +8,8 @@ namespace Database
 {
    public class AssetCategory
     {
-        public int Id { get; set; }                                                         //Identity[1]
-        public string CategoryName { get; set; }                                            //Name of the category
+        public int Id { get; set; }                       //Identity[1]
+        public string CategoryName { get; set; }          //Name of the category
         public virtual ICollection<AssetCharacteristicNames> AssetCharacteristicNames { get; set; }
     }
 }

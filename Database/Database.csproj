@@ -54,6 +54,7 @@
     <Compile Include="AssetCategory.cs" />
     <Compile Include="AssetChar.cs" />
     <Compile Include="AssetCharacteristicNames.cs" />
+    <Compile Include="AssetsUnit.cs" />
     <Compile Include="Characteristic.cs" />
     <Compile Include="CharacteristicName.cs" />
     <Compile Include="Day.cs" />

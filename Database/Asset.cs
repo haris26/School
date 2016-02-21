@@ -23,11 +23,7 @@ namespace Database
         public string Vendor { get; set; }          // vendor - so far just description - maybe separate class in the future
         public double Price { get; set; }           // price
         public DateTime DateOfTrade { get; set; } //Date of trade in
-
-
-
-
-        // public string EmployeeID { get; set; } we will use navigation to person instead of simple foreign key
+ // public string EmployeeID { get; set; } we will use navigation to person instead of simple foreign key
         public Person User { get; set; }            // person who use particular asset 
 
         // public enum Status { Active=1,Coming_soon=2, Out_of_order=3 } we will put status to enumerators
