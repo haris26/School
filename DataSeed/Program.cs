@@ -8,19 +8,21 @@
 //{
 //    class Program
 //    {
+
 //        static SchoolContext context = new SchoolContext();
 
 //        static void Main(string[] args)
 //        {
 
+
 //            using (SchoolContext context = new SchoolContext())
 //            {
-//                Repository<Team> teamUnit = new Repository<Team>(context);
-
-//                Repository<Person> people = new Repository<Person>(context);
-//                Repository<Team> teams = new Repository<Team>(context);
-//                Repository<Role> roles = new Repository<Role>(context);
-//                Repository<Engagement> engagements = new Repository<Engagement>(context);
+//                 Repository<Team> teamUnit = new Repository<Team>(context);
+                
+//                 Repository<Person> people = new Repository<Person>(context);
+//                 Repository<Team> teams = new Repository<Team>(context);
+//                 Repository<Role> roles = new Repository<Role>(context);
+//                 Repository<Engagement> engagements = new Repository<Engagement>(context);
 
 //                Engagement engagement = new Engagement()
 //                {
@@ -29,6 +31,9 @@
 //                    Role = roles.Get(1),
 //                    Time = 40,
 //                    StartDate = new DateTime(2016, 2, 1)
+//    }
+
+//    string choice = "X";
 
 //                };
 
@@ -37,12 +42,6 @@
 
 //        }
 
-
-
-
-//    }
-
-//    string choice = "X";
 
 //    do
 //    {
@@ -62,37 +61,11 @@
 //    while (choice != "9");
 
 
-//}
-
-//static void printAllTeams()
-//{
-//    var teams = teamUnit.Get().ToList();
-//    foreach (var team in teams)
-//    {
-//        Console.WriteLine(team.Id + ": " + team.Name);
-
-//    }
-//    Console.ReadKey();
-//}
-
-//static void printOneTeam()
-//{
-//    Console.WriteLine();
-//    Console.Write("Upisi ident: ");
-//    string sid = Console.ReadLine();
-//    if (sid != "")
-//    {
-//        int id = Convert.ToInt32(sid);
-//        var team = teamUnit.Get(id);
-//        if (team != null)
-//        {
-//            Console.WriteLine(team.Id + ":" + team.Name);
-//            Console.ReadKey();
-//        }
-//    }
-
 
 //}
+//}
+
+
 
 
 //static void insertTeam()
@@ -111,5 +84,33 @@
 //    teamUnit.Insert(team);
 //}
 
+////static void printAllTeams()
+////{
+////    var teams = teamUnit.Get().ToList();
+////    foreach (var team in teams)
+////    {
+////        Console.WriteLine(team.Id + ": " + team.Name);
 
+////    }
+////    Console.ReadKey();
+////}
+
+////static void printOneTeam()
+////{
+////    Console.WriteLine();
+////    Console.Write("Upisi ident: ");
+////    string sid = Console.ReadLine();
+////    if (sid != "")
+////    {
+////        int id = Convert.ToInt32(sid);
+////        var team = teamUnit.Get(id);
+////        if (team != null)
+////        {
+////            Console.WriteLine(team.Id + ":" + team.Name);
+////            Console.ReadKey();
+////        }
+////    }
+
+
+////}
 
