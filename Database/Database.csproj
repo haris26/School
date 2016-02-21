@@ -73,6 +73,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Request.cs" />
+    <Compile Include="RequestUnit.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCategory.cs" />
     <Compile Include="Role.cs" />

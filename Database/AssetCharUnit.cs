@@ -13,9 +13,6 @@ namespace Database
         {
 
         }
-
-   
-
         public override void Insert(AssetChar assetChar)
         {
             context.AssetCharacteristics.Add(assetChar);

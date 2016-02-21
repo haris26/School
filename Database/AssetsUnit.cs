@@ -14,12 +14,13 @@ namespace Database
 
         }
 
-        public SchoolContext context = new SchoolContext();
+       // public SchoolContext context = new SchoolContext();
 
         public override void Insert(Asset asset)
         {
             context.Assets.Add(asset);
-            context.Entry(asset.User).State = EntityState.Unchanged;
+            //context.Entry(asset.User).State = EntityState.Unchanged;
+            context.Entry(asset.AssetCategory).State = EntityState.Unchanged;
          
          context.SaveChanges();
 

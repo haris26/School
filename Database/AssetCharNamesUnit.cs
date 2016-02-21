@@ -12,8 +12,6 @@ namespace Database
         public AssetCharNamesUnit(SchoolContext context) : base(context)
         { }
 
-    
-
         public override void Insert(AssetCharacteristicNames assetCharName)
         {
          
