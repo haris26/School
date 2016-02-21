@@ -26,10 +26,41 @@ namespace DataSeed
                 {
                     case "1": { printAllDays(); break; }
                     case "2": { printOneDay(); break; }
-                   // case "3": { insertDay(); break; }
+                    case "3": { insertDay(); break; }
                 }
             }
             while (choice != "9");
+            //Engagement engagement = new Engagement()
+            //{
+            //    EndDate = DateTime.Now,
+            //    StartDate = DateTime.Now,
+            //    Time = 1,
+            //    Person = new Person()
+            //    {
+            //        FirstName = "Elma",
+            //        LastName = "Ramusovic",
+            //        Gender = Gender.Female,
+            //        Category = EmploymentType.Student,
+            //        BirthDate = DateTime.Now,
+            //        StartDate = DateTime.Now,
+            //        Status = EmploymentStatus.Active,
+            //        Address = new Address()
+            //    },
+            //    Team = new Team()
+            //    {
+            //        Name = "Gama",
+            //        Type = ProjectType.External
+            //    },
+            //    Role = new Role()
+            //    {
+            //        Name = "Test",
+            //        Team = false,
+            //        System = false
+            //    }
+            //};
+            //EngagementUnit repository = new EngagementUnit();
+            //repository.Insert(engagement);
+
         }
 
         static void printAllDays()
@@ -56,26 +87,28 @@ namespace DataSeed
             }
         }
 
-        
 
-        //static void insertTeam()
-        //{
-        //    Console.WriteLine();
-        //    Console.Write("Naziv tima:");
-        //    string naziv = Console.ReadLine();
-        //    if (naziv != "")
-        //    {
-        //        Console.WriteLine("Tip [1, 2, 3]: ");
-        //        string tip = Console.ReadLine();
 
-        //        Team team = new Team()
-        //        {
-        //            Name = naziv,
-        //            Type = (ProjectType)Convert.ToInt32(tip)
-        //        };
-        //        teamUnit.Insert(team);
-
-        //    }
-        //}
+        static void insertDay()
+        {
+            Day day = new Day();
+            Console.WriteLine();
+            Console.WriteLine("Date:");
+            string date = Console.ReadLine();
+            day.Date = Convert.ToDateTime(date);
+            Console.Write("Work time:");
+            day.WorkTime = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Pto time:");
+            day.PtoTime = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Entry Status [1,2]: ");
+            day.EntryStatus = (EntryStatus)Convert.ToInt32(Console.ReadLine());
+            Console.Write("PersonId: ");
+            int personId = Convert.ToInt32(Console.ReadLine());
+            Repository<Person> personRepository = new Repository<Person>();
+            day.Person = personRepository.Get(personId);
+            personRepository.Disconect();
+            Repository<Day> dayRepository = new Repository<Day>();
+            dayRepository.Insert(day);
+        }
     }
 }

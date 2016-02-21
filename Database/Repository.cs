@@ -50,6 +50,11 @@ namespace Database
 
         }
 
+        public void Disconect()
+        {
+            context.Dispose();
+        }
+
 
     }
 }
