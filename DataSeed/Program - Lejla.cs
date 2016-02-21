@@ -66,6 +66,7 @@
 
 //                Console.Write("Status [1 - Active, 2 - Inactive]: ");
 
+
 //                string status = Console.ReadLine();
 //                History history = new History()
 //                {
@@ -95,18 +96,22 @@
 //                    {
 //                        Console.Write("Edit History type: ");
 
-//                        Console.Write("Status [1 - Active, 2 - Inactive]: ");
-//                        HistoryStatus status = (HistoryStatus)Convert.ToInt32(Console.ReadLine());
-//                        history.Status = status;
-
-//                        historyUnit.Update(history, id);
-//                    }
-//                }
-//                Console.WriteLine("DONE!");
-//                Console.WriteLine("--------------------");
+         
+//                string status = Console.ReadLine();
+//                History history = new History()
+//                {
+//                    //nesto
+//                    Status = (HistoryStatus)Convert.ToInt32(status)
+//                };
+//                historyUnit.Insert(history);
 //            }
+//            Console.WriteLine("DONE!");
+//            Console.WriteLine("--------------------");
 //        }
 
+
+
+// 
 //        static void deleteHistory()
 //        {
 //            Console.WriteLine();
