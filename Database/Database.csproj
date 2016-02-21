@@ -57,6 +57,7 @@
     <Compile Include="Characteristic.cs" />
     <Compile Include="CharacteristicName.cs" />
     <Compile Include="CharacteristicNameUnit.cs" />
+    <Compile Include="CharacteristicUnit.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="EngagementUnit.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="EmployeeSkill.cs" />
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
+    <Compile Include="EventUnit.cs" />
     <Compile Include="History.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />

@@ -98,7 +98,6 @@
 //                Console.WriteLine(resource.Id + ": " + resource.Name + " | " + resource.ResourceCategory.CategoryName + " | " + resource.Status);
 //            }
 //            Console.WriteLine("----------------------------");
-//            Console.ReadKey();
 //        }
 
 //        static void showOneResource()
@@ -115,7 +114,6 @@
 //                    Console.WriteLine(resource.Id + ": " + resource.Name + " | " + resource.ResourceCategory.CategoryName + " | " + resource.Status);
 //                }
 //                Console.WriteLine("----------------------");
-//                Console.ReadKey();
 //            }
 //        }
 
@@ -142,7 +140,6 @@
 //                resources.Insert(resource);
 //            }
 //            Console.WriteLine("----------------------");
-//            Console.ReadKey();
 //        }
 
 //        static void deleteResource()
@@ -159,7 +156,6 @@
 //                Console.WriteLine("You deleted resource: " + resource.Name);
 //            }
 //            Console.WriteLine("----------------------");
-//            Console.ReadKey();
 //        }
 
 //        static void updateResource()
@@ -187,7 +183,6 @@
 //                    resources.Update(resource, resource.Id);
 //                }
 //                Console.WriteLine("----------------------");
-//                Console.ReadKey();
 //            }
 //        }
 
@@ -199,7 +194,6 @@
 //                Console.WriteLine(cat.Id + " - " + cat.CategoryName);
 //            }
 //            Console.WriteLine("----------------------");
-//            Console.ReadKey();
 //        }
 
 //        static void showOneCategory()
@@ -214,19 +208,26 @@
 //                if (cat != null)
 //                {
 //                    Console.WriteLine(cat.Id + ": " + cat.CategoryName);
-//                    var characteristics = characteristicsOfCat.Get().ToList();
-//                    var catCharacteristics = characteristics.Where(x => x.ResourceCategory.Id == cat.Id);
 //                    Console.WriteLine(cat.CategoryName + " characteristics: ");
-//                    foreach (var name in catCharacteristics)
-//                    {
-//                        Console.WriteLine("- " + name.Name);
-//                    }
+//                    getCatCharacteristicNames(cat.Id);
 //                }
 //                Console.WriteLine("----------------------");
-//                Console.ReadKey();
 //            }
 //        }
 
+//        static void getCatCharacteristicNames(int Id)
+//        {
+//            using (SchoolContext context = new SchoolContext())
+//            {
+//                Repository<CharacteristicName> characteristicsOfCat = new Repository<CharacteristicName>(context);
+//                var characteristics = characteristicsOfCat.Get().ToList();
+//                var catCharacteristics = characteristics.Where(x => x.ResourceCategory.Id == Id);
+//                foreach (var name in catCharacteristics)
+//                {
+//                    Console.WriteLine("- " + name.Name);
+//                }
+//            }
+//        }
 //        static void insertNewCategory()
 //        {
 //            Console.WriteLine();
@@ -242,7 +243,6 @@
 //                categories.Insert(cat);
 //            }
 //            Console.WriteLine("----------------------");
-//            Console.ReadKey();
 //        }
 
 //        static void updateCategory()
@@ -262,7 +262,6 @@
 //                    categories.Update(category, category.Id);
 //                }
 //                Console.WriteLine("----------------------");
-//                Console.ReadKey();
 //            }
 //        }
 
@@ -276,11 +275,10 @@
 //            {
 //                int id = Convert.ToInt32(sid);
 //                var cat = categories.Get(id);
-//                if (cat != null) resources.Delete(cat.Id);
+//                if (cat != null) categories.Delete(cat.Id);
 //                Console.WriteLine("You deleted category: " + cat.CategoryName);
 //            }
 //            Console.WriteLine("----------------------");
-//            Console.ReadKey();
 //        }
 //    }
 //}

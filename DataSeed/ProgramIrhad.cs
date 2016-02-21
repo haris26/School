@@ -32,7 +32,7 @@
 //                    case "3": { createNewCharacteristic(); break; }
 //                    case "4": { updateCharacteristic(); break; }
 //                    case "5": { deleteCharacteristic(); break; }
-                   
+
 //                }
 //            }
 //            while (choice != "9");
@@ -42,7 +42,7 @@
 //            var characteristics = characteristicsUnit.Get().ToList();
 //            foreach (var characteristic in characteristics)
 //            {
-//                Console.WriteLine("id: "+characteristic.Id+" name: " + characteristic.Name + " value: " + characteristic.Value +" resource: "+characteristic.Resource.Name);
+//                Console.WriteLine("id: " + characteristic.Id + " name: " + characteristic.Name + " value: " + characteristic.Value + " resource: " + characteristic.Resource.Name);
 //            }
 //            Console.ReadKey();
 //        }
@@ -51,9 +51,9 @@
 //            Console.WriteLine("Enter the id of the characteristic");
 //            int id = Convert.ToInt32(Console.ReadLine());
 //            var characteristic = characteristicsUnit.Get(id);
-         
-//                Console.WriteLine("id: " + characteristic.Id + " name: " + characteristic.Name + " value: " + characteristic.Value + " resource: " + characteristic.Resource.Name);
-            
+
+//            Console.WriteLine("id: " + characteristic.Id + " name: " + characteristic.Name + " value: " + characteristic.Value + " resource: " + characteristic.Resource.Name);
+
 //            Console.ReadKey();
 //        }
 //        static void createNewCharacteristic()
@@ -79,7 +79,7 @@
 //            Console.WriteLine("Enter the id of the charactaristic you want to update");
 //            int id = Convert.ToInt32(Console.ReadLine());
 //            var charac = characteristicsUnit.Get(id);
-//            if( charac != null)
+//            if (charac != null)
 //            {
 //                Console.WriteLine("Enter the name of the characteristic: ");
 //                string name = Console.ReadLine();
@@ -92,16 +92,16 @@
 //                characteristicsUnit.Update(charac, charac.Id);
 //            }
 //        }
-//       static void deleteCharacteristic()
+//        static void deleteCharacteristic()
 //        {
 //            Console.WriteLine();
-//                       Console.WriteLine("Enter the id of the characteristic you want to delete");
-//                       int id = Convert.ToInt32(Console.ReadLine());
-//                        var charc = characteristicsUnit.Get(id);
-//                        if (charc != null)
-//                        {
-//                           characteristicsUnit.Delete(charc.Id);
-//                       }
+//            Console.WriteLine("Enter the id of the characteristic you want to delete");
+//            int id = Convert.ToInt32(Console.ReadLine());
+//            var charc = characteristicsUnit.Get(id);
+//            if (charc != null)
+//            {
+//                characteristicsUnit.Delete(charc.Id);
+//            }
 //        }
 //    }
 //}
