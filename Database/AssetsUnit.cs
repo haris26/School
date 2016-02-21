@@ -20,10 +20,8 @@ namespace Database
         {
             context.Assets.Add(asset);
             context.Entry(asset.User).State = EntityState.Unchanged;
-        
-            
-            
-            context.SaveChanges();
+         
+         context.SaveChanges();
 
         }
 

@@ -14,6 +14,7 @@
 //        static void Main(string[] args)
 //        {
 
+
 //            using (SchoolContext context = new SchoolContext())
 //            {
 //                 Repository<Team> teamUnit = new Repository<Team>(context);
@@ -30,6 +31,9 @@
 //                    Role = roles.Get(1),
 //                    Time = 40,
 //                    StartDate = new DateTime(2016, 2, 1)
+//    }
+
+//    string choice = "X";
 
 //                };
 
@@ -39,30 +43,45 @@
 //        }
 
 
-
-
+//    do
+//    {
+//        Console.WriteLine("Odaberi opciju:");
+//        Console.WriteLine("1. Ispis timova");
+//        Console.WriteLine("2. Ispis jednog tima");
+//        Console.WriteLine("3. Otvaranje novog tima");
+//        Console.WriteLine("9. Kraj programa");
+//        choice = Console.ReadLine();
+//        switch (choice)
+//        {
+//            case "1": { printAllTeams(); break; }
+//            case "2": { printOneTeam(); break; }
+//            case "3": { insertTeam(); break; }
+//        }
 //    }
-
-//    //string choice = "X";
-
-//    //do
-//    //{
-//    //    Console.WriteLine("Odaberi opciju:");
-//    //    Console.WriteLine("1. Ispis timova");
-//    //    Console.WriteLine("2. Ispis jednog tima");
-//    //    Console.WriteLine("3. Otvaranje novog tima");
-//    //    Console.WriteLine("9. Kraj programa");
-//    //    choice = Console.ReadLine();
-//    //    switch (choice)
-//    //    {
-//    //        case "1": { printAllTeams(); break; }
-//    //        case "2": { printOneTeam(); break; }
-//    //        case "3": { insertTeam(); break; }
-//    //    }
-//    //}
-//    //while (choice != "9");
+//    while (choice != "9");
 
 
+
+//}
+//}
+
+
+
+
+//static void insertTeam()
+//{
+//    Console.WriteLine();
+//    Console.Write("Naziv tima: ");
+//    string naziv = Console.ReadLine();
+//    Console.Write("Tip[1, 2, 3]: ");
+//    string tip = Console.ReadLine();
+
+//    Team team = new Team()
+//    {
+//        Name = naziv,
+//        Type = (ProjectType)Convert.ToInt32(tip)
+//    };
+//    teamUnit.Insert(team);
 //}
 
 ////static void printAllTeams()
@@ -94,23 +113,4 @@
 
 
 ////}
-
-
-////static void insertTeam()
-////{
-////    Console.WriteLine();
-////    Console.Write("Naziv tima: ");
-////    string naziv = Console.ReadLine();
-////    Console.Write("Tip[1, 2, 3]: ");
-////    string tip = Console.ReadLine();
-
-////    Team team = new Team()
-////    {
-////        Name = naziv,
-////        Type = (ProjectType)Convert.ToInt32(tip)
-////};
-////    teamUnit.Insert(team);
-////}
-
-
 

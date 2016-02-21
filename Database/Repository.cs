@@ -27,7 +27,7 @@ namespace Database
         {
             return dbSet.AsQueryable();
         }
-
+      
         public Entity Get(int id)
         {
             return dbSet.Find(id);

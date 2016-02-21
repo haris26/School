@@ -29,7 +29,6 @@
 //            }
 //            while (choice != "9");
 //        }
-    
 
 
 //        public static void listHistory()
@@ -67,11 +66,13 @@
 //                }
 
 //                Console.Write("Status [1 - Active, 2 - Inactive]: ");
-         
+
+
+
 //                string status = Console.ReadLine();
 //                History history = new History()
 //                {
-//                    //nesto+
+//                    nesto
 //                    Status = (HistoryStatus)Convert.ToInt32(status)
 //                };
 //                historyUnit.Insert(history);
@@ -79,6 +80,39 @@
 //            Console.WriteLine("DONE!");
 //            Console.WriteLine("--------------------");
 //        }
+
+//        static void editHistory()
+//        {
+//            Console.WriteLine();
+//            Console.WriteLine("History ID: ");
+//            string hid = Console.ReadLine();
+//            if (hid != "")
+//            {
+//                int id = Convert.ToInt32(hid);
+
+//                using (SchoolContext context = new SchoolContext())
+//                {
+//                    Repository<History> historyUnit = new Repository<History>();
+//                    var history = historyUnit.Get(id);
+//                    if (history != null)
+//                    {
+//                        Console.Write("Edit History type: ");
+
+         
+//                string status = Console.ReadLine();
+//                History history = new History()
+//                {
+
+//                    //nesto
+
+//                    Status = (HistoryStatus)Convert.ToInt32(status)
+//                };
+//                historyUnit.Insert(history);
+//            }
+//            Console.WriteLine("DONE!");
+//            Console.WriteLine("--------------------");
+//        }
+
 
 //        static void editHistory()
 //        {
@@ -109,6 +143,7 @@
 //            }
 //        }
 
+
 //        static void deleteHistory()
 //        {
 //            Console.WriteLine();
@@ -120,7 +155,9 @@
 //                Repository<History> historyUnit = new Repository<History>();
 //                historyUnit.Delete(hid);
 //            }
+
 //            Console.WriteLine("You deleted history: " + id);
+//            
 //            Console.WriteLine("----------------------");
 //        }
 
