@@ -69,7 +69,6 @@
     <Compile Include="History.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="Repository.cs" />
     <Compile Include="ProjectSkillUnit.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="Resource.cs" />
