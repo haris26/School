@@ -66,10 +66,7 @@
     <Compile Include="Detail.cs" />
     <Compile Include="DetailUnit.cs" />
     <Compile Include="EngagementUnit.cs" />
-<<<<<<< HEAD
-    <Compile Include="EmployeeSkillUnit.cs" />
-=======
->>>>>>> delta
+
     <Compile Include="Event.cs" />
     <Compile Include="Education.cs" />
     <Compile Include="EmployeeEducation.cs" />
