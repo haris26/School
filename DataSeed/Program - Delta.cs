@@ -10,7 +10,7 @@
 //    class ProgramDelta
 //    {
 
-//        static string sourceData = @"C:\MistralProjects\school\delta.xls";
+//        static string sourceData = @"C:\MistralProjects\school\GigiSchool.xls";
 //        static SchoolContext context = new SchoolContext();
 
 //        static void Main(string[] args)

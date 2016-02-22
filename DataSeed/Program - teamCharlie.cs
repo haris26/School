@@ -11,7 +11,7 @@
 //{
 //    class Program
 //    {
-//        static string sourceData = @"C:\MistralProjects\school\Charlie.xls";
+//        static string sourceData = @"C:\MistralProjects\school\GigiSchool.xls";
 //        static SchoolContext context = new SchoolContext();
 
 //        static DataTable OpenExcel(string path, string sheet)
