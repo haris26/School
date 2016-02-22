@@ -1,10 +1,16 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Database
 {
-    public class EngagementUnit: Repository<Engagement>
+    class EngagementUnit : Repository<Engagement>
     {
-        public SchoolContext context = new SchoolContext();
+
+        public EngagementUnit(SchoolContext context) : base(context) { }
 
         public override void Insert(Engagement entity)
         {

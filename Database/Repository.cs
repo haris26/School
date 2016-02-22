@@ -16,7 +16,7 @@ namespace Database
         {
             context = _context;
             dbSet = _context.Set<Entity>();
-        }
+        } 
 
         public IQueryable<Entity> Get()
         {

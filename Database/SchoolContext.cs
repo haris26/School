@@ -4,6 +4,7 @@ namespace Database
 {
     public class SchoolContext: DbContext
     {
+
         public SchoolContext(): base()
         { }
 

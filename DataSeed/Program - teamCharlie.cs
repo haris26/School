@@ -100,9 +100,6 @@
 //            Console.WriteLine(N);
 //        }
 
-
-
-
 //        static void getRequests()
 //        {
 //            Console.Write("Requests: ");

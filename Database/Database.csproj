@@ -56,6 +56,8 @@
     <Compile Include="AssetCharacteristicNames.cs" />
     <Compile Include="Characteristic.cs" />
     <Compile Include="CharacteristicName.cs" />
+    <Compile Include="CharacteristicNameUnit.cs" />
+    <Compile Include="CharacteristicUnit.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="EngagementUnit.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="EmployeeSkill.cs" />
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
+    <Compile Include="EventUnit.cs" />
     <Compile Include="History.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
@@ -75,6 +78,7 @@
     <Compile Include="Request.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCategory.cs" />
+    <Compile Include="ResourceUnit.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="SchoolContext.cs" />
     <Compile Include="SkillCategory.cs" />
