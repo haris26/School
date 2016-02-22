@@ -64,7 +64,11 @@
     <Compile Include="Program - Alfa.cs" />
     <Compile Include="Program - Beta.cs" />
     <Compile Include="Program - Delta.cs" />
+<<<<<<< HEAD
     <Compile Include="ProgramBeta.cs" />
+=======
+    <Compile Include="ProgramDay.cs" />
+>>>>>>> delta
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seed.cs" />
   </ItemGroup>

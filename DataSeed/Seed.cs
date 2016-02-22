@@ -1,4 +1,4 @@
-﻿//using Database;
+﻿//﻿using Database;
 //using System;
 //using System.Data;
 //using System.Data.OleDb;
@@ -8,7 +8,7 @@
 //{
 //    class Seed
 //    {
-//        static string sourceData = @"C:\Projects\School\delta.xls";
+//        static string sourceData = @"C:\MistralProjects\delta.xls";
 //        static SchoolContext context = new SchoolContext();
 
 //        //static void Main(string[] args)

@@ -1,18 +1,16 @@
-﻿//using Database;
+
+//using Database;
 //using System;
-//using System.Collections.Generic;
 //using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
 //using System.Data.OleDb;
 //using System.Data;
 
 //namespace DataSeed
-//{
+//{ 
 //    class ProgramDelta
 //    {
 
-//        static string sourceData = @"C:\MistralProjects\delta.xls";
+//        static string sourceData = @"C:\Projects\school\delta.xls";
 //        static SchoolContext context = new SchoolContext();
 
 //        static void Main(string[] args)
@@ -126,4 +124,5 @@
 //        }
 //    }
 //}
+
 

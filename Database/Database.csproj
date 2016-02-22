@@ -62,9 +62,13 @@
     <Compile Include="CharacteristicNameUnit.cs" />
     <Compile Include="CharacteristicUnit.cs" />
     <Compile Include="Day.cs" />
+    <Compile Include="DayUnit.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="EngagementUnit.cs" />
+<<<<<<< HEAD
     <Compile Include="EmployeeSkillUnit.cs" />
+=======
+>>>>>>> delta
     <Compile Include="Event.cs" />
     <Compile Include="Education.cs" />
     <Compile Include="EmployeeEducation.cs" />
