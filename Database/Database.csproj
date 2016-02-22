@@ -66,9 +66,9 @@
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="History.cs" />
-    <Compile Include="Migrations\201602191706137_sule.cs" />
-    <Compile Include="Migrations\201602191706137_sule.Designer.cs">
-      <DependentUpon>201602191706137_sule.cs</DependentUpon>
+    <Compile Include="Migrations\201602222052038_sule.cs" />
+    <Compile Include="Migrations\201602222052038_sule.Designer.cs">
+      <DependentUpon>201602222052038_sule.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
@@ -89,8 +89,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602191706137_sule.resx">
-      <DependentUpon>201602191706137_sule.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201602222052038_sule.resx">
+      <DependentUpon>201602222052038_sule.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
