@@ -21,18 +21,44 @@ namespace DataSeed
                 Console.WriteLine("3. CHARACTERISTICS ");
                 Console.WriteLine("4. CHARACTERISTIC NAMES");
                 Console.WriteLine("5. EVENTS");
-                Console.WriteLine("6. End");
+                Console.WriteLine("6. EXTENDED EVENTS");
+                Console.WriteLine("7. End");
                 Console.WriteLine("--------------------------------------------");
                 enteredChoice = Console.ReadLine();
                 switch (enteredChoice)
                 {
-                    case "1": { doResources(); break; }
-                    case "2": { doResourceCategories(); break; }
-                    case "3": { doCharacteristics(); break; }
-                    case "4": { doCharacteristicNames(); break; }
-                    case "5": { doEvents(); break; }
+                    case "1":
+                    {
+                        doResources();
+                        break;
+                    }
+                    case "2":
+                    {
+                        doResourceCategories();
+                        break;
+                    }
+                    case "3":
+                    {
+                        doCharacteristics();
+                        break;
+                    }
+                    case "4":
+                    {
+                        doCharacteristicNames();
+                        break;
+                    }
+                    case "5":
+                    {
+                        doEvents();
+                        break;
+                    }
+                    case "6":
+                    {
+                        doExtendedEvents();
+                        break;
+                    }
                 }
-            } while (enteredChoice != "6");
+            } while (enteredChoice != "7");
             Console.Clear();
         }
 
@@ -53,11 +79,31 @@ namespace DataSeed
                 enteredChoice = Console.ReadLine();
                 switch (enteredChoice)
                 {
-                    case "1": { showAllResources(); break; }
-                    case "2": { showOneResource(); break; }
-                    case "3": { insertNewResource(); break; }
-                    case "4": { deleteResource(); break; }
-                    case "5": { updateResource(); break; }
+                    case "1":
+                    {
+                        showAllResources();
+                        break;
+                    }
+                    case "2":
+                    {
+                        showOneResource();
+                        break;
+                    }
+                    case "3":
+                    {
+                        insertNewResource();
+                        break;
+                    }
+                    case "4":
+                    {
+                        deleteResource();
+                        break;
+                    }
+                    case "5":
+                    {
+                        updateResource();
+                        break;
+                    }
                 }
             } while (enteredChoice != "6");
             Console.Clear();
@@ -80,11 +126,31 @@ namespace DataSeed
                 enteredChoice = Console.ReadLine();
                 switch (enteredChoice)
                 {
-                    case "1": { showAllCategories(); break; }
-                    case "2": { showOneCategory(); break; }
-                    case "3": { insertNewCategory(); break; }
-                    case "4": { deleteCategory(); break; }
-                    case "5": { updateCategory(); break; }
+                    case "1":
+                    {
+                        showAllCategories();
+                        break;
+                    }
+                    case "2":
+                    {
+                        showOneCategory();
+                        break;
+                    }
+                    case "3":
+                    {
+                        insertNewCategory();
+                        break;
+                    }
+                    case "4":
+                    {
+                        deleteCategory();
+                        break;
+                    }
+                    case "5":
+                    {
+                        updateCategory();
+                        break;
+                    }
                 }
             } while (enteredChoice != "6");
             Console.Clear();
@@ -107,11 +173,31 @@ namespace DataSeed
                 enteredChoice = Console.ReadLine();
                 switch (enteredChoice)
                 {
-                    case "1": { showAllCharacteristicNames(); break; }
-                    case "2": { showOneCharacteristicName(); break; }
-                    case "3": { insertNewCharacteristicName(); break; }
-                    case "4": { deleteCharacteristicName(); break; }
-                    case "5": { updateCharacteristicName(); break; }
+                    case "1":
+                    {
+                        showAllCharacteristicNames();
+                        break;
+                    }
+                    case "2":
+                    {
+                        showOneCharacteristicName();
+                        break;
+                    }
+                    case "3":
+                    {
+                        insertNewCharacteristicName();
+                        break;
+                    }
+                    case "4":
+                    {
+                        deleteCharacteristicName();
+                        break;
+                    }
+                    case "5":
+                    {
+                        updateCharacteristicName();
+                        break;
+                    }
                 }
             } while (enteredChoice != "6");
             Console.Clear();
@@ -134,11 +220,31 @@ namespace DataSeed
                 enteredChoice = Console.ReadLine();
                 switch (enteredChoice)
                 {
-                    case "1": { showAllCharacteristics(); break; }
-                    case "2": { showOneCharacteristic(); break; }
-                    case "3": { insertNewCharacteristic(); break; }
-                    case "4": { deleteCharacteristic(); break; }
-                    case "5": { updateCharacteristic(); break; }
+                    case "1":
+                    {
+                        showAllCharacteristics();
+                        break;
+                    }
+                    case "2":
+                    {
+                        showOneCharacteristic();
+                        break;
+                    }
+                    case "3":
+                    {
+                        insertNewCharacteristic();
+                        break;
+                    }
+                    case "4":
+                    {
+                        deleteCharacteristic();
+                        break;
+                    }
+                    case "5":
+                    {
+                        updateCharacteristic();
+                        break;
+                    }
                 }
             } while (enteredChoice != "6");
             Console.Clear();
@@ -161,15 +267,81 @@ namespace DataSeed
                 choice = Console.ReadLine();
                 switch (choice)
                 {
-                    case "1": { showAllEvents(); break; }
-                    case "2": { showOneEvent(); break; }
-                    case "3": { insertNewEvent(); break; }
-                    case "4": { updateEvent(); break; }
-                    case "5": { deleteEvent(); break; }
+                    case "1":
+                    {
+                        showAllEvents();
+                        break;
+                    }
+                    case "2":
+                    {
+                        showOneEvent();
+                        break;
+                    }
+                    case "3":
+                    {
+                        insertNewEvent();
+                        break;
+                    }
+                    case "4":
+                    {
+                        updateEvent();
+                        break;
+                    }
+                    case "5":
+                    {
+                        deleteEvent();
+                        break;
+                    }
 
                 }
-            }
-            while (choice != "6");
+            } while (choice != "6");
+        }
+
+        static void doExtendedEvents()
+        {
+            string choice = "X";
+            do
+            {
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine("EXTENDED EVENTS");
+                Console.WriteLine("1. Show all events ");
+                Console.WriteLine("2. Show one event ");
+                Console.WriteLine("3. Crate new event ");
+                Console.WriteLine("4. Update event ");
+                Console.WriteLine("5. Delete event ");
+                Console.WriteLine("6. End");
+                Console.WriteLine("--------------------------------------------");
+                choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "1":
+                    {
+                        showAllExtendedEvents();
+                        break;
+                    }
+                    case "2":
+                    {
+                        showOneExtendedEvent();
+                        break;
+                    }
+                    case "3":
+                    {
+                        insertNewExtendedEvent();
+                        break;
+                    }
+                    case "4":
+                    {
+                        updateExtendedEvent();
+                        break;
+                    }
+                    case "5":
+                    {
+                        deleteExtendedEvent();
+                        break;
+                    }
+
+                }
+            } while (choice != "6");
         }
 
         //CRUD methods for Resources
@@ -181,7 +353,8 @@ namespace DataSeed
                 var allResources = resources.Get().ToList();
                 foreach (var resource in allResources)
                 {
-                    Console.WriteLine(resource.Id + ": " + resource.Name + " | " + resource.ResourceCategory.CategoryName + " | " + resource.Status);
+                    Console.WriteLine(resource.Id + ": " + resource.Name + " | " +
+                                      resource.ResourceCategory.CategoryName + " | " + resource.Status);
                 }
                 Console.WriteLine("--------------------------------------------------");
             }
@@ -201,7 +374,8 @@ namespace DataSeed
                     var resource = resources.Get(id);
                     if (resource != null)
                     {
-                        Console.WriteLine(resource.Id + ": " + resource.Name + " | " + resource.ResourceCategory.CategoryName + " | " + resource.Status);
+                        Console.WriteLine(resource.Id + ": " + resource.Name + " | " +
+                                          resource.ResourceCategory.CategoryName + " | " + resource.Status);
                     }
                     Console.WriteLine("--------------------------------------------");
                 }
@@ -229,7 +403,7 @@ namespace DataSeed
                     Resource resource = new Resource()
                     {
                         Name = name,
-                        Status = (ReservationStatus)Convert.ToInt32(status),
+                        Status = (ReservationStatus) Convert.ToInt32(status),
                         ResourceCategory = cat
                     };
                     resources.Insert(resource);
@@ -257,7 +431,7 @@ namespace DataSeed
                         resource.Name = Console.ReadLine();
                         Console.WriteLine("Edit resource status [1 - available, 2 - reserved]: ");
                         string status = Console.ReadLine();
-                        resource.Status = (ReservationStatus)Convert.ToInt32(status);
+                        resource.Status = (ReservationStatus) Convert.ToInt32(status);
                         Console.WriteLine("Edit resource category: ");
                         showAllCategories();
                         int categoryId = Convert.ToInt32(Console.ReadLine());
@@ -317,7 +491,7 @@ namespace DataSeed
                 var catCharacteristics = characteristics.Where(x => x.ResourceCategory.Id == Id);
                 foreach (var name in catCharacteristics)
                 {
-                    Console.WriteLine("Edit characteristic name for " + name.Name + " : " );
+                    Console.WriteLine("Edit characteristic name for " + name.Name + " : ");
                     name.Name = Console.ReadLine();
                     characteristicsOfCat.Update(name, name.Id);
                 }
@@ -372,7 +546,7 @@ namespace DataSeed
                 Console.WriteLine("Category name: ");
                 string name = Console.ReadLine();
                 if (name != "")
-                {   
+                {
                     ResourceCategory cat = new ResourceCategory()
                     {
                         CategoryName = name,
@@ -408,7 +582,7 @@ namespace DataSeed
                     int id = Convert.ToInt32(enteredId);
                     var cat = categories.Get(id);
                     if (cat != null)
-                    {   
+                    {
                         //deleting characteristics of specific category
                         deleteCharcteristicNames(cat.Id);
                         categories.Delete(cat.Id);
@@ -491,7 +665,8 @@ namespace DataSeed
                 var charac = characteristicNames.Get().ToList();
                 foreach (var charName in charac)
                 {
-                    Console.WriteLine(charName.Id + " - " + charName.Name + " | " + charName.ResourceCategory.CategoryName);
+                    Console.WriteLine(charName.Id + " - " + charName.Name + " | " +
+                                      charName.ResourceCategory.CategoryName);
                 }
                 Console.WriteLine("--------------------------------------------");
             }
@@ -511,7 +686,8 @@ namespace DataSeed
                     var charName = characteristicNames.Get(id);
                     if (charName != null)
                     {
-                        Console.WriteLine(charName.Id + " - " + charName.Name + " | " + charName.ResourceCategory.CategoryName);
+                        Console.WriteLine(charName.Id + " - " + charName.Name + " | " +
+                                          charName.ResourceCategory.CategoryName);
                     }
                 }
                 Console.WriteLine("--------------------------------------------");
@@ -602,7 +778,8 @@ namespace DataSeed
                 var allCharacteristics = characteristics.Get().ToList();
                 foreach (var characteristic in allCharacteristics)
                 {
-                    Console.WriteLine(characteristic.Id + " - "  + characteristic.Name + " - " + characteristic.Value + " | " + characteristic.Resource.Name);
+                    Console.WriteLine(characteristic.Id + " - " + characteristic.Name + " - " + characteristic.Value +
+                                      " | " + characteristic.Resource.Name);
                 }
                 Console.WriteLine("--------------------------------------------");
             }
@@ -621,7 +798,8 @@ namespace DataSeed
                     var characteristic = characteristics.Get(id);
                     if (characteristic != null)
                     {
-                        Console.WriteLine(characteristic.Id + " - " + characteristic.Name + " - " + characteristic.Value + " | " + characteristic.Resource.Name);
+                        Console.WriteLine(characteristic.Id + " - " + characteristic.Name + " - " + characteristic.Value +
+                                          " | " + characteristic.Resource.Name);
                     }
                 }
                 Console.WriteLine("--------------------------------------------");
@@ -710,7 +888,8 @@ namespace DataSeed
                 {
                     string start = printDate(e.EventStart);
                     string end = printDate(e.EventEnd);
-                    Console.WriteLine(e.Id + " - " + e.EventTitle + " | " + e.User.FirstName + " | Resource: " + e.Resource.Name + " | Start: " + start + " | End: " + end);
+                    Console.WriteLine(e.Id + " - " + e.EventTitle + " | " + e.User.FirstName + " | Resource: " +
+                                      e.Resource.Name + " | Start: " + start + " | End: " + end);
                 }
                 Console.WriteLine("--------------------------------------------");
             }
@@ -736,7 +915,8 @@ namespace DataSeed
                     {
                         string start = printDate(e.EventStart);
                         string end = printDate(e.EventEnd);
-                        Console.WriteLine(e.Id + " - " + e.EventTitle + " | " + e.User.FirstName + " | Resource: " + e.Resource.Name + " | Start: " + start + " | End: " + end);
+                        Console.WriteLine(e.Id + " - " + e.EventTitle + " | " + e.User.FirstName + " | Resource: " +
+                                          e.Resource.Name + " | Start: " + start + " | End: " + end);
                     }
                 }
                 Console.WriteLine("--------------------------------------------");
@@ -825,14 +1005,157 @@ namespace DataSeed
             {
                 Repository<Event> events = new Repository<Event>(context);
                 Console.WriteLine();
-                Console.WriteLine("Enter the id of the Event you want to update");
+                Console.WriteLine("Event id: ");
                 int id = Convert.ToInt32(Console.ReadLine());
                 var e = events.Get(id);
                 if (e != null)
                 {
+                    deleteExtendedEvents(e.Id);
                     events.Delete(e.Id);
+                    Console.WriteLine("You deleted event: " + e.EventTitle);
                 }
                 Console.WriteLine("--------------------------------------------");
+            }
+        }
+
+        //CRUD methods for extended events
+
+        static void showAllExtendedEvents()
+        {
+            using (SchoolContext context = new SchoolContext())
+            {
+                Repository<ExtendedEvent> extendedEvents = new Repository<ExtendedEvent>(context);
+                Repository<Event> events = new Repository<Event>(context);
+                var allExEvents = extendedEvents.Get().ToList();
+                foreach (var e in allExEvents)
+                {
+                    string start = printDate(e.ParentEvent.EventStart);
+                    string end = printDate(e.RepeatUntil);
+                    Console.WriteLine(e.Id + " - " + e.ParentEvent.EventTitle + " | " + e.ParentEvent.User.FirstName +
+                                      " | Resource: " + e.ParentEvent.Resource.Name + " | Start: " + start + " | End: " +
+                                      end + " | Repeating type: " + e.RepeatingType + " | Frequency: " + e.Frequency);
+                }
+                Console.WriteLine("--------------------------------------------");
+            }
+        }
+
+        static void showOneExtendedEvent()
+        {
+            using (SchoolContext context = new SchoolContext())
+            {
+                Repository<ExtendedEvent> extendedEvents = new Repository<ExtendedEvent>(context);
+                Repository<Event> events = new Repository<Event>(context);
+                Console.WriteLine("Enter extended event id: ");
+                string enteredId = Console.ReadLine();
+                if (enteredId != "")
+                {
+                    int id = Convert.ToInt32(enteredId);
+                    var e = extendedEvents.Get(id);
+                    if (e != null)
+                    {
+                        string start = printDate(e.ParentEvent.EventStart);
+                        string end = printDate(e.RepeatUntil);
+                        Console.WriteLine(e.Id + " - " + e.ParentEvent.EventTitle + " | " + e.ParentEvent.User.FirstName +
+                                          " | Resource: " + e.ParentEvent.Resource.Name + " | Start: " + start +
+                                          " | End: " + end + " | Repeating type: " + e.RepeatingType + " | Frequency: " +
+                                          e.Frequency);
+                    }
+                }
+                Console.WriteLine("--------------------------------------------");
+            }
+        }
+
+        static void insertNewExtendedEvent()
+        {
+            using (SchoolContext context = new SchoolContext())
+            {
+                Repository<ExtendedEvent> extendedEvents = new Repository<ExtendedEvent>(context);
+                Repository<Event> events = new Repository<Event>(context);
+                Console.WriteLine();
+                Console.WriteLine("Enter parent event: ");
+                int idEvent = Convert.ToInt32(Console.ReadLine());
+                var parentEvent = events.Get(idEvent);
+                Console.WriteLine("Repeat event until: --format is mm/dd/yyyy");
+                DateTime until = Convert.ToDateTime(Console.ReadLine());
+                Console.WriteLine("Enter repeating type [1 - daily, 2 - weekly, 3 - monthly]: ");
+                string repeatingType = Console.ReadLine();
+                Console.WriteLine("Enter frequency of repeating (number): ");
+                int number = Convert.ToInt32(Console.ReadLine());
+                if (parentEvent != null)
+                {
+                    ExtendedEvent e = new ExtendedEvent()
+                    {
+                        ParentEvent = parentEvent,
+                        RepeatUntil = until,
+                        RepeatingType = (RepeatType) Convert.ToInt32(repeatingType),
+                        Frequency = number
+                    };
+                    extendedEvents.Insert(e);
+                }
+                Console.WriteLine("--------------------------------------------");
+            }
+        }
+
+        static void updateExtendedEvent()
+        {
+            using (SchoolContext context = new SchoolContext())
+            {
+                Repository<ExtendedEvent> extendedEvents = new Repository<ExtendedEvent>(context);
+                Repository<Event> events = new Repository<Event>(context);
+                Console.WriteLine();
+                Console.WriteLine("Enter extended event id: ");
+                int exEventId = Convert.ToInt32(Console.ReadLine());
+                var exEvent = extendedEvents.Get(exEventId);
+                if (exEvent != null)
+                {
+                    Console.WriteLine("Edit parent event: ");
+                    int idEvent = Convert.ToInt32(Console.ReadLine());
+                    var parentEvent = events.Get(idEvent);
+                    Console.WriteLine("Edit repeat date until: --format is mm/dd/yyyy");
+                    DateTime until = Convert.ToDateTime(Console.ReadLine());
+                    Console.WriteLine("Edit repeating type [1 - daily, 2 - weekly, 3 - monthly]: ");
+                    string repeatingType = Console.ReadLine();
+                    Console.WriteLine("Edit frequency of repeating (number): ");
+                    int number = Convert.ToInt32(Console.ReadLine());
+                    if (parentEvent != null) exEvent.ParentEvent = parentEvent;
+                    exEvent.RepeatUntil = until;
+                    exEvent.RepeatingType = (RepeatType) Convert.ToInt32(repeatingType);
+                    exEvent.Frequency = number;
+                    extendedEvents.Update(exEvent, exEvent.Id);
+                }
+                Console.WriteLine("--------------------------------------------");
+            }
+        }
+
+        static void deleteExtendedEvent()
+        {
+            using (SchoolContext context = new SchoolContext())
+            {
+                Repository<ExtendedEvent> extendedEvents = new Repository<ExtendedEvent>(context);
+                Console.WriteLine();
+                Console.WriteLine("Extended event id: ");
+                int id = Convert.ToInt32(Console.ReadLine());
+                var e = extendedEvents.Get(id);
+                if (e != null)
+                {
+                    extendedEvents.Delete(e.Id);
+                    Console.WriteLine("You deleted extended event: " + e.ParentEvent.EventTitle);
+                }
+                Console.WriteLine("--------------------------------------------");
+            }
+        }
+
+        static void deleteExtendedEvents(int Id)
+        {
+            using (SchoolContext context = new SchoolContext())
+            {
+                Repository<ExtendedEvent> extendedEvents = new Repository<ExtendedEvent>(context);
+                var allExEvents = extendedEvents.Get().ToList();
+                var events = allExEvents.Where(x => x.ParentEvent.Id == Id);
+                foreach (var e in events)
+                {
+                    extendedEvents.Delete(e.Id);
+                }
             }
         }
     }
