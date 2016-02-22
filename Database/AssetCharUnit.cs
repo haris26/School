@@ -14,9 +14,11 @@ namespace Database
 
         }
 
+
    
 
         public override void Insert(AssetChar entity)
+
         {
             context.AssetCharacteristics.Add(entity);
             context.Entry(entity.Asset).State = EntityState.Unchanged;

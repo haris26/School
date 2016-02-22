@@ -14,13 +14,15 @@ namespace Database
 
         }
 
-      
+
 
         public override void Insert(Asset entity)
         {
+
             context.Assets.Add(entity);
             context.Entry(entity.User).State = EntityState.Unchanged;
             context.Entry(entity.AssetCategory).State = EntityState.Unchanged;
+
 
          
          context.SaveChanges();

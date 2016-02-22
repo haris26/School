@@ -12,9 +12,11 @@ namespace Database
         public AssetCharNamesUnit(SchoolContext context) : base(context)
         { }
 
+
     
 
         public override void Insert(AssetCharacteristicNames entity)
+
         {
          
             context.AssetCharNames.Add(entity);

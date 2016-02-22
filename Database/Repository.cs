@@ -18,10 +18,7 @@ namespace Database
             dbSet = context.Set<Entity>();
         }
 
-        public Repository()
-        {
-            dbSet = context.Set<Entity>();
-        }
+    
 
         public IQueryable<Entity> Get()
         {
