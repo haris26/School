@@ -10,13 +10,41 @@ namespace DataSeed
     {
         static string sourceData = @"C:\NTG\school\omega.xls";
         static SchoolContext context = new SchoolContext();
+        static Repository<Person> people = new Repository<Person>(context);
+        static Repository<Team> teams = new Repository<Team>(context);
+        static Repository<Role> roles = new Repository<Role>(context);
+        static EngagementUnit engagements = new EngagementUnit(context);
 
         static void Main(string[] args)
         {
-            getTeams();
-            getRoles();
-            getPeople();
-            getEngagements();
+            //getTeams();
+            //getRoles();
+            //getPeople();
+            //getEngagements();
+
+            Engagement engagement = new Engagement()
+            {
+                Person = people.Get(1),
+                Team = teams.Get(1),
+                Role = roles.Get(1),
+                Time = 40,
+                StartDate = new DateTime(2016, 2, 1)
+            };
+
+            engagements.Insert(engagement);
+
+            engagement = new Engagement()
+            {
+                Id = 30,
+                Person = people.Get(7),
+                Role = roles.Get(3),
+                Team = teams.Get(3),
+                Time = 35,
+                StartDate = new DateTime(2016, 4, 10)
+            };
+            engagements.Update(engagement, 30);
+
+            Console.WriteLine("Ready...");
             Console.ReadKey();
         }
 
