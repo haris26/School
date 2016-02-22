@@ -11,7 +11,7 @@
 //{
 //    class Program
 //    {
-//        static string sourceData = @"C:\Projects\school\Charlie.xls";
+//        static string sourceData = @"C:\MistralProjects\school\GigiSchool.xls";
 //        static SchoolContext context = new SchoolContext();
 
 //        static void Main(string[] args)
@@ -359,8 +359,15 @@
 
 //                AssetCategory assetCategory = new AssetCategory()
 //                {
-
-//                    CategoryName = assetCategoryName
+//                    AssetCategory = category,
+//                    Type = (AssetType)Enum.Parse(typeof(AssetType), row.ItemArray.GetValue(0).ToString()),
+//                    Model = row.ItemArray.GetValue(1).ToString(),
+//                    SerialNumber = row.ItemArray.GetValue(2).ToString(),
+//                    Description = row.ItemArray.GetValue(3).ToString(),
+//                    Vendor = row.ItemArray.GetValue(4).ToString(),
+//                    Price = Convert.ToDouble(row.ItemArray.GetValue(5).ToString()),
+//                    Status = (AssetStatus)Enum.Parse(typeof(AssetStatus), row.ItemArray.GetValue(6).ToString()),
+//                    User = user,
 //                };
 //                assetCategoryUnit.Insert(assetCategory);
 //            }
@@ -410,36 +417,6 @@
 //            Console.ReadKey();
 //        }
 
-//        //__________________________________________________________________________________________________________________________________________________________________
-//        //AssetCharacteristics
-
-//        static void assetCharacteristic()
-//        {
-//            string choice = "X";
-//            do
-//            {
-//                Console.WriteLine("1. List all asset characteristics");
-//                Console.WriteLine("2. List one  asset characteristic");
-//                Console.WriteLine("3. Insert asset characteristic");
-//                Console.WriteLine("4. Edit assets characteristic");
-//                Console.WriteLine("5. Delete asset characteristic");
-
-//                Console.WriteLine("9. Return");
-//                choice = Console.ReadLine();
-
-//                switch (choice)
-//                {
-//                    case "1": { listAllAssetChar(); break; }
-//                    case "2": { printOneAssetChar(); break; }
-//                    case "3": { insertAssetChar(); break; }
-//                    case "4": { editAssetChar(); break; }
-//                    case "5": { deleteAssetChar(); break; }
-//                }
-//            }
-//            while (choice != "9");
-//        }
-
-//        static void listAllAssetChar()
 //        {
 //            using (SchoolContext context = new SchoolContext())
 //            {
@@ -461,25 +438,16 @@
 
 //            using (SchoolContext context = new SchoolContext())
 //            {
-//                AssetCharUnit assetCharUnit = new AssetCharUnit(context);
-//                Repository<Asset> assetUnit = new Repository<Asset>(context);
-
 //                do
 //                {
 //                    Console.WriteLine();
 //                    Console.Write("Asset Id: ");
 //                    int a_Id = Convert.ToInt32(Console.ReadLine());
 
-//                    asset = assetUnit.Get(a_Id);
-//                    if (asset == null)
-//                    {
-//                        Console.WriteLine("Asset with id " + a_Id + " does not exist, please enter another id.");
-//                    }
-//                    else
-//                    {
-//                        Console.WriteLine(asset.Vendor + " " + asset.Model + " " + asset.User.FirstName);
-//                    }
-//                } while (asset == null);
+//                    requestType = (RequestType)Enum.Parse(typeof(RequestType), row.ItemArray.GetValue(0).ToString()),
+//                    RequestMessage = row.ItemArray.GetValue(1).ToString(),
+//                    RequestDate = getDate(row, 2),
+//                    Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), row.ItemArray.GetValue(3).ToString())
 
 //                Console.WriteLine("Write name of the characteristic");
 //                string name = Console.ReadLine();
@@ -550,13 +518,16 @@
 //            string c_id = Console.ReadLine();
 //            if (c_id != "")
 //            {
-//                int id = Convert.ToInt32(c_id);
-
-//                using (SchoolContext context = new SchoolContext())
+//                AssetChar assetChar = new AssetChar()
 //                {
-//                    AssetCharUnit assetCharUnit = new AssetCharUnit(context);
-//                    var a_char = assetCharUnit.Get(id);
 
+//                    Name = row.ItemArray.GetValue(0).ToString(),
+//                    Value = row.ItemArray.GetValue(1).ToString(),
+
+
+//                };
+//                N++;
+//                context.AssetCharacteristics.Add(assetChar);
 //                    Console.WriteLine(a_char.Id + ": " + a_char.Name + " - " + a_char.Value + " " + a_char.Asset.Id);
 //                    Console.WriteLine("--------------------");
 //                    Console.ReadKey();
@@ -802,36 +773,8 @@
 //            Console.WriteLine("--------------------");
 //        }
 
-
-//        static void insertRequest()
-//        {
-//            using (SchoolContext context = new SchoolContext())
-//            {
-//                Repository<Request> requestUnit = new Repository<Request>(context);
-//                Console.WriteLine();
-//                Console.Write("New request: ");
-//                string requestType = Console.ReadLine();
-//                while (requestType == "")
-//                {
-//                    Console.Write("Please input the type of the request [1.ITRequest, 2.OfficeRequest] : ");
-//                    requestType = Console.ReadLine();
-//                }
-//                string requestMessage = Console.ReadLine();
-//                while (requestMessage == "")
-//                {
-//                    Console.Write("Please enter the request message : ");
-//                    requestMessage = Console.ReadLine();
-//                }
-
-
-
-
-
-
-//                Request request = new Request()
-//                {
-
-
+//                    AssetCategory = (AssetCategory)Enum.Parse(typeof(AssetCategory), row.ItemArray.GetValue(0).ToString()),
+//                    Name = row.ItemArray.GetValue(1).ToString(),
 //                };
 //                requestUnit.Insert(request);
 //            }
@@ -908,9 +851,6 @@
 //            }
 //            while (choice != "9");
 //        }
-
-    
-
 
 //    public static void listHistory()
 //{
