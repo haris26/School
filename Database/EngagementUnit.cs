@@ -1,24 +1,12 @@
-<<<<<<< HEAD
-﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-=======
-﻿using System.Data.Entity;
->>>>>>> delta
 
 namespace Database
 {
 <<<<<<< HEAD
     public class EngagementUnit : Repository<Engagement>
     {
-<<<<<<< HEAD
-        public EngagementUnit(SchoolContext context) : base(context)
-        { }
-=======
 
+<<<<<<< HEAD
         public SchoolContext context = new SchoolContext();
 >>>>>>> delta
 =======
@@ -27,6 +15,9 @@ namespace Database
 
         public EngagementUnit(SchoolContext context) : base(context) { }
 >>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
+=======
+        public EngagementUnit(SchoolContext context) : base(context) { }
+>>>>>>> dev
 
         public override void Insert(Engagement entity)
         {
@@ -37,11 +28,14 @@ namespace Database
             context.SaveChanges();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> delta
 =======
 >>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
+=======
+>>>>>>> dev
         }
     }
 }

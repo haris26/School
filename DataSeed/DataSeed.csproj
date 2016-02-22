@@ -58,12 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="Program - CharNames.cs" />
-
-
     <Compile Include="Program - Irma.cs" />
-
     <Compile Include="Program - Alen.cs" />
     <Compile Include="Program - Lejla.cs" />
     <Compile Include="Program - teamCharlie.cs" />
@@ -74,17 +70,22 @@
     <Compile Include="Program - Delta.cs" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="ProgramBeta.cs" />
 =======
+=======
+>>>>>>> dev
     <Compile Include="ProgramDay.cs" />
-<<<<<<< HEAD
     <Compile Include="ProgramDetail.cs" />
+<<<<<<< HEAD
 =======
 >>>>>>> delta
 >>>>>>> 5b9a0b4eebc14ef3dad363b1fae91bd1ec1f84d9
 =======
     <Compile Include="ProgramDeltaCRUD.cs" />
 >>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
+=======
+>>>>>>> dev
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seed.cs" />
   </ItemGroup>

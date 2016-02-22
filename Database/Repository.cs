@@ -11,19 +11,16 @@ namespace Database
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
-        public SchoolContext context = new SchoolContext();
-        public DbSet<Entity> dbSet;
-
-        public Repository(SchoolContext _context) {
-            context = _context;
-=======
 <<<<<<< HEAD
-        public SchoolContext context;
+=======
+>>>>>>> dev
+        public SchoolContext context = new SchoolContext();
         public DbSet<Entity> dbSet;
 
         public Repository(SchoolContext _context)
         {
             context = _context;
+<<<<<<< HEAD
 =======
         SchoolContext context = new SchoolContext();
         public DbSet<Entity> dbSet;
@@ -41,6 +38,9 @@ namespace Database
             context = _context;
             dbSet = _context.Set<Entity>();
 >>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
+=======
+            dbSet = _context.Set<Entity>();
+>>>>>>> dev
         }
 
         public Repository()
@@ -53,10 +53,14 @@ namespace Database
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       
 =======
 
 >>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
+=======
+
+>>>>>>> dev
         public Entity Get(int id)
         {
             return dbSet.Find(id);
@@ -64,6 +68,7 @@ namespace Database
 
         public virtual void Insert(Entity entity)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -75,10 +80,13 @@ namespace Database
 >>>>>>> delta
 =======
 >>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
+=======
+>>>>>>> dev
             dbSet.Add(entity);
             context.SaveChanges();
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         public void Update(Entity entity, int id)
@@ -93,32 +101,27 @@ namespace Database
         public void Update(Entity entity, int id)
         {
 >>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
+=======
+        public void Update(Entity entity, int id)
+        {
+>>>>>>> dev
             Entity oldEnt = Get(id);
             if (oldEnt != null)
             {
                 context.Entry(oldEnt).CurrentValues.SetValues(entity);
->>>>>>> delta
                 context.SaveChanges();
             }
         }
 
         public void Delete(int id)
         {
-<<<<<<< HEAD
-            Entity oldEntity = Get(id);
-            if (oldEntity != null)
-            {
-                dbSet.Remove(oldEntity);
-                context.SaveChanges();
-            }
-        }
-=======
             Entity oldEnt = Get(id);
             if (oldEnt != null)
             {
                 dbSet.Remove(oldEnt);
                 context.SaveChanges();
             }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         }
@@ -128,5 +131,8 @@ namespace Database
 =======
         }
 >>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
+=======
+        }
+>>>>>>> dev
     }
 }
