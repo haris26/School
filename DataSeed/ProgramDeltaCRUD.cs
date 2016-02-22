@@ -12,9 +12,16 @@ namespace DataSeed
 
         static void Main(string[] args)
         {
+            Entry();
+            
+        }
+
+        static void Entry()
+        {
             string choice = "x";
             do
             {
+                Console.Clear();
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("1. Days");
                 Console.WriteLine("2. Details");
@@ -34,12 +41,14 @@ namespace DataSeed
             string choice = "x";
             do
             {
+                Console.Clear();
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("1. List of days");
                 Console.WriteLine("2. Read one day");
                 Console.WriteLine("3. Insert one day");
                 Console.WriteLine("4. Delete one day");
                 Console.WriteLine("5. Update one day");
+                Console.WriteLine("6. Return to previous menu");
                 Console.WriteLine("9. End");
                 choice = Console.ReadLine();
                 switch (choice)
@@ -49,6 +58,7 @@ namespace DataSeed
                     case "3": { insertDay(); break; }
                     case "4": { deleteDay(); break; }
                     case "5": { updateDay(); break; }
+                    case "6": { Entry(); break; }
                 }
             }
             while (choice != "9");
@@ -93,7 +103,7 @@ namespace DataSeed
         {
             Day day = new Day();
             Console.WriteLine();
-            Console.WriteLine("Date:");
+            Console.WriteLine("Date: (FORMAT dd/MM/yyyy)");
             string date = Console.ReadLine();
             day.Date = Convert.ToDateTime(date);
             Console.Write("Work time:");
@@ -169,12 +179,14 @@ namespace DataSeed
             string choice = "x";
             do
             {
+                Console.Clear();
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("1. List of details");
                 Console.WriteLine("2. Read one detail");
                 Console.WriteLine("3. Insert one detail");
                 Console.WriteLine("4. Delete one detail");
                 Console.WriteLine("5. Update one detail");
+                Console.WriteLine("6. Return to previous menu");
                 Console.WriteLine("9. End");
                 choice = Console.ReadLine();
                 switch (choice)
@@ -184,6 +196,7 @@ namespace DataSeed
                     case "3": { insertDetail(); break; }
                     case "4": { deleteDetail(); break; }
                     case "5": { updateDetail(); break; }
+                    case "6": { Entry(); break; }
                 }
             }
             while (choice != "9");
