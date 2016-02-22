@@ -9,12 +9,13 @@ namespace Database
 {
     public class Repository<Entity> where Entity : class
     {
-        public SchoolContext context = new SchoolContext();
+        public SchoolContext context;
         public DbSet<Entity> dbSet;
 
-        public Repository()
+        public Repository(SchoolContext _context)
         {
-            dbSet = context.Set<Entity>();
+            context = _context;
+            dbSet = _context.Set<Entity>();
         }
 
         public IQueryable<Entity> Get()
@@ -22,7 +23,7 @@ namespace Database
             return dbSet.AsQueryable();
         }
 
-        public Entity Get(int id)
+        public Entity Get (int id)
         {
             return dbSet.Find(id);
         }
@@ -45,10 +46,10 @@ namespace Database
 
         public void Delete(int id)
         {
-            Entity oldEnt = Get(id);
-            if (oldEnt != null)
+            Entity oldEntity = Get(id);
+            if (oldEntity != null)
             {
-                dbSet.Remove(oldEnt);
+                dbSet.Remove(oldEntity);
                 context.SaveChanges();
             }
         }

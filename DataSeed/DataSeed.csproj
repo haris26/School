@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program - teamCharlie.cs" />
+    <Compile Include="Program-AlfaCRUD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Program - Alfa.cs" />
     <Compile Include="Program - Beta.cs" />
