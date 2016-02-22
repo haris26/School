@@ -28,35 +28,35 @@ namespace DataSeed
                 switch (enteredChoice)
                 {
                     case "1":
-                    {
-                        doResources();
-                        break;
-                    }
+                        {
+                            doResources();
+                            break;
+                        }
                     case "2":
-                    {
-                        doResourceCategories();
-                        break;
-                    }
+                        {
+                            doResourceCategories();
+                            break;
+                        }
                     case "3":
-                    {
-                        doCharacteristics();
-                        break;
-                    }
+                        {
+                            doCharacteristics();
+                            break;
+                        }
                     case "4":
-                    {
-                        doCharacteristicNames();
-                        break;
-                    }
+                        {
+                            doCharacteristicNames();
+                            break;
+                        }
                     case "5":
-                    {
-                        doEvents();
-                        break;
-                    }
+                        {
+                            doEvents();
+                            break;
+                        }
                     case "6":
-                    {
-                        doExtendedEvents();
-                        break;
-                    }
+                        {
+                            doExtendedEvents();
+                            break;
+                        }
                 }
             } while (enteredChoice != "7");
             Console.Clear();
@@ -80,30 +80,30 @@ namespace DataSeed
                 switch (enteredChoice)
                 {
                     case "1":
-                    {
-                        showAllResources();
-                        break;
-                    }
+                        {
+                            showAllResources();
+                            break;
+                        }
                     case "2":
-                    {
-                        showOneResource();
-                        break;
-                    }
+                        {
+                            showOneResource();
+                            break;
+                        }
                     case "3":
-                    {
-                        insertNewResource();
-                        break;
-                    }
+                        {
+                            insertNewResource();
+                            break;
+                        }
                     case "4":
-                    {
-                        deleteResource();
-                        break;
-                    }
+                        {
+                            deleteResource();
+                            break;
+                        }
                     case "5":
-                    {
-                        updateResource();
-                        break;
-                    }
+                        {
+                            updateResource();
+                            break;
+                        }
                 }
             } while (enteredChoice != "6");
             Console.Clear();
@@ -127,30 +127,30 @@ namespace DataSeed
                 switch (enteredChoice)
                 {
                     case "1":
-                    {
-                        showAllCategories();
-                        break;
-                    }
+                        {
+                            showAllCategories();
+                            break;
+                        }
                     case "2":
-                    {
-                        showOneCategory();
-                        break;
-                    }
+                        {
+                            showOneCategory();
+                            break;
+                        }
                     case "3":
-                    {
-                        insertNewCategory();
-                        break;
-                    }
+                        {
+                            insertNewCategory();
+                            break;
+                        }
                     case "4":
-                    {
-                        deleteCategory();
-                        break;
-                    }
+                        {
+                            deleteCategory();
+                            break;
+                        }
                     case "5":
-                    {
-                        updateCategory();
-                        break;
-                    }
+                        {
+                            updateCategory();
+                            break;
+                        }
                 }
             } while (enteredChoice != "6");
             Console.Clear();
@@ -174,30 +174,30 @@ namespace DataSeed
                 switch (enteredChoice)
                 {
                     case "1":
-                    {
-                        showAllCharacteristicNames();
-                        break;
-                    }
+                        {
+                            showAllCharacteristicNames();
+                            break;
+                        }
                     case "2":
-                    {
-                        showOneCharacteristicName();
-                        break;
-                    }
+                        {
+                            showOneCharacteristicName();
+                            break;
+                        }
                     case "3":
-                    {
-                        insertNewCharacteristicName();
-                        break;
-                    }
+                        {
+                            insertNewCharacteristicName();
+                            break;
+                        }
                     case "4":
-                    {
-                        deleteCharacteristicName();
-                        break;
-                    }
+                        {
+                            deleteCharacteristicName();
+                            break;
+                        }
                     case "5":
-                    {
-                        updateCharacteristicName();
-                        break;
-                    }
+                        {
+                            updateCharacteristicName();
+                            break;
+                        }
                 }
             } while (enteredChoice != "6");
             Console.Clear();
@@ -221,30 +221,30 @@ namespace DataSeed
                 switch (enteredChoice)
                 {
                     case "1":
-                    {
-                        showAllCharacteristics();
-                        break;
-                    }
+                        {
+                            showAllCharacteristics();
+                            break;
+                        }
                     case "2":
-                    {
-                        showOneCharacteristic();
-                        break;
-                    }
+                        {
+                            showOneCharacteristic();
+                            break;
+                        }
                     case "3":
-                    {
-                        insertNewCharacteristic();
-                        break;
-                    }
+                        {
+                            insertNewCharacteristic();
+                            break;
+                        }
                     case "4":
-                    {
-                        deleteCharacteristic();
-                        break;
-                    }
+                        {
+                            deleteCharacteristic();
+                            break;
+                        }
                     case "5":
-                    {
-                        updateCharacteristic();
-                        break;
-                    }
+                        {
+                            updateCharacteristic();
+                            break;
+                        }
                 }
             } while (enteredChoice != "6");
             Console.Clear();
@@ -268,30 +268,30 @@ namespace DataSeed
                 switch (choice)
                 {
                     case "1":
-                    {
-                        showAllEvents();
-                        break;
-                    }
+                        {
+                            showAllEvents();
+                            break;
+                        }
                     case "2":
-                    {
-                        showOneEvent();
-                        break;
-                    }
+                        {
+                            showOneEvent();
+                            break;
+                        }
                     case "3":
-                    {
-                        insertNewEvent();
-                        break;
-                    }
+                        {
+                            insertNewEvent();
+                            break;
+                        }
                     case "4":
-                    {
-                        updateEvent();
-                        break;
-                    }
+                        {
+                            updateEvent();
+                            break;
+                        }
                     case "5":
-                    {
-                        deleteEvent();
-                        break;
-                    }
+                        {
+                            deleteEvent();
+                            break;
+                        }
 
                 }
             } while (choice != "6");
@@ -315,30 +315,30 @@ namespace DataSeed
                 switch (choice)
                 {
                     case "1":
-                    {
-                        showAllExtendedEvents();
-                        break;
-                    }
+                        {
+                            showAllExtendedEvents();
+                            break;
+                        }
                     case "2":
-                    {
-                        showOneExtendedEvent();
-                        break;
-                    }
+                        {
+                            showOneExtendedEvent();
+                            break;
+                        }
                     case "3":
-                    {
-                        insertNewExtendedEvent();
-                        break;
-                    }
+                        {
+                            insertNewExtendedEvent();
+                            break;
+                        }
                     case "4":
-                    {
-                        updateExtendedEvent();
-                        break;
-                    }
+                        {
+                            updateExtendedEvent();
+                            break;
+                        }
                     case "5":
-                    {
-                        deleteExtendedEvent();
-                        break;
-                    }
+                        {
+                            deleteExtendedEvent();
+                            break;
+                        }
 
                 }
             } while (choice != "6");
@@ -403,7 +403,7 @@ namespace DataSeed
                     Resource resource = new Resource()
                     {
                         Name = name,
-                        Status = (ReservationStatus) Convert.ToInt32(status),
+                        Status = (ReservationStatus)Convert.ToInt32(status),
                         ResourceCategory = cat
                     };
                     resources.Insert(resource);
@@ -431,7 +431,7 @@ namespace DataSeed
                         resource.Name = Console.ReadLine();
                         Console.WriteLine("Edit resource status [1 - available, 2 - reserved]: ");
                         string status = Console.ReadLine();
-                        resource.Status = (ReservationStatus) Convert.ToInt32(status);
+                        resource.Status = (ReservationStatus)Convert.ToInt32(status);
                         Console.WriteLine("Edit resource category: ");
                         showAllCategories();
                         int categoryId = Convert.ToInt32(Console.ReadLine());
@@ -1087,7 +1087,7 @@ namespace DataSeed
                     {
                         ParentEvent = parentEvent,
                         RepeatUntil = until,
-                        RepeatingType = (RepeatType) Convert.ToInt32(repeatingType),
+                        RepeatingType = (RepeatType)Convert.ToInt32(repeatingType),
                         Frequency = number
                     };
                     extendedEvents.Insert(e);
@@ -1119,7 +1119,7 @@ namespace DataSeed
                     int number = Convert.ToInt32(Console.ReadLine());
                     if (parentEvent != null) exEvent.ParentEvent = parentEvent;
                     exEvent.RepeatUntil = until;
-                    exEvent.RepeatingType = (RepeatType) Convert.ToInt32(repeatingType);
+                    exEvent.RepeatingType = (RepeatType)Convert.ToInt32(repeatingType);
                     exEvent.Frequency = number;
                     extendedEvents.Update(exEvent, exEvent.Id);
                 }
