@@ -1,17 +1,11 @@
 ﻿@model Database.Person
 @{
-<<<<<<< HEAD
-    ViewBag.Title = "Person";
-   // Database.Person person = (Database.Person)ViewData["Person"];
-}
 
-<hr />
-=======
     ViewBag.Title = "PersonViewData";
     //Database.Person person = (Database.Person)ViewData["Person"];
 }
 
->>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
+
 
 <table>
     <tr><td align="right">Id: </td><td>@Html.DisplayFor(model => model.Id)</td></tr>
@@ -22,17 +16,10 @@
     <tr><td align="right">Gender: </td><td>@Html.DisplayFor(model => model.Gender)</td>
     <tr><td align="right">Image: <td>@Html.DisplayFor(model => model.Image)</td>
     <tr><td align="right">Phone: </td><td>@Html.DisplayFor(model => model.Phone)</td>
-<<<<<<< HEAD
     <tr><td align="right">Address: </td><td>@Html.DisplayFor(model => model.Address)</td>
     <tr><td align="right">Birth Date: </td><td>@Html.DisplayFor(model => model.BirthDate)</td>
     <tr><td align="right">Start Date: </td><td>@Html.DisplayFor(model => model.StartDate)</td>
     <tr><td align="right">End Date: </td><td>@Html.DisplayFor(model => model.EndDate)</td>
     <tr><td align="right">Status: </td><td>@Html.DisplayFor(model => model.Status)</td>
-=======
-    <tr><td align="right">Address: </td><td>@Html.DisplayFor(model => model.Address.ZipCode) @Html.DisplayFor(model => model.Address.Town), @Html.DisplayFor(model => model.Address.Road)</td>
-    <tr><td align="right">Birth Date: </td><td>@Html.DisplayFor(model => model.BirthDate)</td>
-    <tr><td align="right">Start Date: </td><td>@Html.DisplayFor(model => model.StartDate)</td>
-    <tr><td align="right">End Date: </td><td>@Html.DisplayFor(model => model.EndDate)</td>
-    <tr><td align="right">Status: </td><td>@Html.DisplayFor(model => model.FirstName)</td>
->>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
+
 </table>
