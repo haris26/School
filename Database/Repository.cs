@@ -9,11 +9,16 @@ namespace Database
 {
     public class Repository<Entity> where Entity : class
     {
-        SchoolContext context = new SchoolContext();
+        public SchoolContext context = new SchoolContext();
         public DbSet<Entity> dbSet;
 
-        public Repository() {
+        public Repository(SchoolContext _context) {
+            context = _context;
             dbSet = context.Set<Entity>();
+        }
+
+        public Repository()
+        {
         }
 
         public IQueryable<Entity> Get()
