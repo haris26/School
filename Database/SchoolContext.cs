@@ -13,6 +13,7 @@ namespace Database
         public DbSet<EmployeeSkill> EmployeeSkills { get; set; }
         public DbSet<Engagement> Engagements { get; set; }
         public DbSet<Event> Events{ get; set; }
+        public DbSet<ExtendedEvent> ExtendedEvents { get; set; }
         public DbSet<History> Histories { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<Tool> Tools { get; set; }
