@@ -10,6 +10,7 @@ namespace Database
     public class Repository<Entity> where Entity : class
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         public SchoolContext context = new SchoolContext();
         public DbSet<Entity> dbSet;
 
@@ -31,6 +32,15 @@ namespace Database
 >>>>>>> delta
 >>>>>>> 5b9a0b4eebc14ef3dad363b1fae91bd1ec1f84d9
             dbSet = context.Set<Entity>();
+=======
+        public SchoolContext context = new SchoolContext();
+        public DbSet<Entity> dbSet;
+
+        public Repository(SchoolContext _context)
+        {
+            context = _context;
+            dbSet = _context.Set<Entity>();
+>>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
         }
 
         public Repository()
@@ -42,7 +52,11 @@ namespace Database
             return dbSet.AsQueryable();
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
         public Entity Get(int id)
         {
             return dbSet.Find(id);
@@ -50,6 +64,7 @@ namespace Database
 
         public virtual void Insert(Entity entity)
         {
+<<<<<<< HEAD
 =======
 
         public Entity Get(int id) {
@@ -58,10 +73,13 @@ namespace Database
         }
        public virtual void Insert(Entity entity) {
 >>>>>>> delta
+=======
+>>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
             dbSet.Add(entity);
             context.SaveChanges();
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         public void Update(Entity entity, int id)
         {
@@ -71,6 +89,10 @@ namespace Database
                 context.Entry(oldEntity).CurrentValues.SetValues(entity);
 =======
         public void Update(Entity entity, int id) {
+=======
+        public void Update(Entity entity, int id)
+        {
+>>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
             Entity oldEnt = Get(id);
             if (oldEnt != null)
             {
@@ -97,10 +119,14 @@ namespace Database
                 dbSet.Remove(oldEnt);
                 context.SaveChanges();
             }
+<<<<<<< HEAD
 
         }
 
 
 >>>>>>> delta
+=======
+        }
+>>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
     }
 }

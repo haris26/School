@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Database
 {
+<<<<<<< HEAD
     public class EngagementUnit : Repository<Engagement>
     {
 <<<<<<< HEAD
@@ -20,6 +21,12 @@ namespace Database
 
         public SchoolContext context = new SchoolContext();
 >>>>>>> delta
+=======
+    public class EngagementUnit: Repository<Engagement>
+    {
+
+        public EngagementUnit(SchoolContext context) : base(context) { }
+>>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
 
         public override void Insert(Engagement entity)
         {
@@ -29,9 +36,12 @@ namespace Database
             context.Entry(entity.Role).State = EntityState.Unchanged;
             context.SaveChanges();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> delta
+=======
+>>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
         }
     }
 }

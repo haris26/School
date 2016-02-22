@@ -21,7 +21,6 @@ namespace Database
         public double PtoTime { get; set; }                    // Total PTO for that day
         public EntryStatus EntryStatus { get; set; }    // Flag: can person edit details or not
         public virtual Person Person { get; set; }      // Navigation to Person class
-
         // we need details for a day
         public virtual ICollection<Detail> Details { get; set; }    // work details for a day
     }

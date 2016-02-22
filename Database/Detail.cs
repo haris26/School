@@ -14,7 +14,6 @@ namespace Database
 
         public double WorkTime { get; set; }                // Total work time
         public double BillTime { get; set; }                // Total bill time
-        public bool Flag { get; set; }                      // fol de gol
         public string Description { get; set; }             // Description of the tasks performed
         public virtual Team Team { get; set; }              // Navigation to Team class (related Project)
 

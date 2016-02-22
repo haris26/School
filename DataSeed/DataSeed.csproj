@@ -33,12 +33,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+<<<<<<< HEAD
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
+=======
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+>>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -65,6 +73,7 @@
     <Compile Include="Program - Beta.cs" />
     <Compile Include="Program - Delta.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="ProgramBeta.cs" />
 =======
     <Compile Include="ProgramDay.cs" />
@@ -73,6 +82,9 @@
 =======
 >>>>>>> delta
 >>>>>>> 5b9a0b4eebc14ef3dad363b1fae91bd1ec1f84d9
+=======
+    <Compile Include="ProgramDeltaCRUD.cs" />
+>>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seed.cs" />
   </ItemGroup>
@@ -80,7 +92,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Database\Database.csproj">
