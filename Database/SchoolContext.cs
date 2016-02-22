@@ -9,19 +9,9 @@ namespace Database
 
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Day> Days { get; set; }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
         //public DbSet<CategoryDetail> Categories { get; set; }
 
->>>>>>> delta
-=======
->>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
-=======
-
->>>>>>> dev
         public DbSet<Detail> Details { get; set; }
         public DbSet<EmployeeSkill> EmployeeSkills { get; set; }
         public DbSet<Engagement> Engagements { get; set; }

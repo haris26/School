@@ -9,17 +9,12 @@ namespace Database
 {
     public class DetailUnit : Repository<Detail>
     {
-<<<<<<< HEAD
-        public DetailUnit(SchoolContext context): base(context) { }
-        
 
-        public override void Insert(Detail entity) 
-=======
         public DetailUnit(SchoolContext context) : base(context) { }
 
 
         public override void Insert(Detail entity)
->>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
+
         {
             context.Details.Add(entity);
             context.Entry(entity.Day).State = EntityState.Unchanged;
@@ -29,8 +24,4 @@ namespace Database
 
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea

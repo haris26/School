@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-﻿//﻿using Database;
-=======
-
-
-
 ﻿//using Database;
->>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
 //using System;
 //using System.Data;
 //using System.Data.OleDb;
@@ -73,9 +66,4 @@
 //            return dt;
 //        }
 //    }
-<<<<<<< HEAD
-//}
-=======
-//}
 
->>>>>>> e1cd4b7cd8f69542dd1ae3ce1cd6cc30dd0605ea
