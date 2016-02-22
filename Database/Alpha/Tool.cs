@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 // SKILLS LIBRARY
 namespace Database
 {
-//  Set of tools
     public class Tool
     {
         public Tool()

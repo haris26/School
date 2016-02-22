@@ -100,12 +100,6 @@
 //            Console.WriteLine(N);
 //        }
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> delta
 //        static void getRequests()
 //        {
 //            Console.Write("Requests: ");
@@ -123,10 +117,6 @@
 //                    RequestMessage = row.ItemArray.GetValue(1).ToString(),
 //                    RequestDate = getDate(row,2),
 //                    Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), row.ItemArray.GetValue(3).ToString())
-<<<<<<< HEAD
-=======
-
-
 //                };
 //                N++;
 //                context.Requests.Add(requests);
@@ -202,4 +192,3 @@
 //    }
 
 //}
->>>>>>> delta
