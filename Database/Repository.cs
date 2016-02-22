@@ -22,7 +22,7 @@ namespace Database
         {
             return dbSet.AsQueryable();
         }
-
+      
         public Entity Get(int id)
         {
             return dbSet.Find(id);
@@ -36,20 +36,20 @@ namespace Database
 
         public virtual void Update(Entity entity, int id)
         {
-            Entity oldEnt = Get(id);
-            if (oldEnt != null)
+            Entity oldEntity = Get(id);
+            if (oldEntity != null)
             {
-                context.Entry(oldEnt).CurrentValues.SetValues(entity);
+                context.Entry(oldEntity).CurrentValues.SetValues(entity);
                 context.SaveChanges();
             }
         }
 
         public void Delete(int id)
         {
-            Entity oldEnt = Get(id);
-            if (oldEnt != null)
+            Entity oldEntity = Get(id);
+            if (oldEntity != null)
             {
-                dbSet.Remove(oldEnt);
+                dbSet.Remove(oldEntity);
                 context.SaveChanges();
             }
         }

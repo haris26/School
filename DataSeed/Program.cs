@@ -22,6 +22,11 @@ namespace DataSeed
             //getPeople();
             //getEngagements();
 
+            var person = context.People.Find(1);
+            var team = context.Teams.Find(1);
+            var role = context.Roles.Find(1);
+
+            EngagementUnit engUnit = new EngagementUnit(context);
             Engagement engagement = new Engagement()
             {
                 Person = people.Get(1),
