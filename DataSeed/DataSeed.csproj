@@ -50,18 +50,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
+    <Compile Include="Program - CharNames.cs" />
+
+
+    <Compile Include="Program - Irma.cs" />
+
+    <Compile Include="Program - Alen.cs" />
+    <Compile Include="Program - Lejla.cs" />
     <Compile Include="Program - teamCharlie.cs" />
+    <Compile Include="Program-AlfaCRUD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Program - Alfa.cs" />
     <Compile Include="Program - Beta.cs" />
     <Compile Include="Program - Delta.cs" />
+<<<<<<< HEAD
+    <Compile Include="ProgramBeta.cs" />
+=======
     <Compile Include="ProgramDay.cs" />
+<<<<<<< HEAD
     <Compile Include="ProgramDetail.cs" />
+=======
+>>>>>>> delta
+>>>>>>> 5b9a0b4eebc14ef3dad363b1fae91bd1ec1f84d9
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seed.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
+      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

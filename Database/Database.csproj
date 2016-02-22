@@ -32,12 +32,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -54,25 +54,39 @@
     <Compile Include="AssetCategory.cs" />
     <Compile Include="AssetChar.cs" />
     <Compile Include="AssetCharacteristicNames.cs" />
+    <Compile Include="AssetCharNamesUnit.cs" />
+    <Compile Include="AssetCharUnit.cs" />
+    <Compile Include="AssetsUnit.cs" />
     <Compile Include="Characteristic.cs" />
     <Compile Include="CharacteristicName.cs" />
+    <Compile Include="CharacteristicNameUnit.cs" />
+    <Compile Include="CharacteristicUnit.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="DayUnit.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="DetailUnit.cs" />
     <Compile Include="EngagementUnit.cs" />
+<<<<<<< HEAD
+    <Compile Include="EmployeeSkillUnit.cs" />
+=======
+>>>>>>> delta
     <Compile Include="Event.cs" />
     <Compile Include="Education.cs" />
     <Compile Include="EmployeeEducation.cs" />
     <Compile Include="EmployeeSkill.cs" />
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
+    <Compile Include="EventUnit.cs" />
     <Compile Include="History.cs" />
+    <Compile Include="HistoryUnit.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="ProjectSkillUnit.cs" />
     <Compile Include="Request.cs" />
+    <Compile Include="RequestUnit.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCategory.cs" />
+    <Compile Include="ResourceUnit.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="SchoolContext.cs" />
     <Compile Include="SkillCategory.cs" />
@@ -81,6 +95,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Tool.cs" />
+    <Compile Include="ToolUnit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
