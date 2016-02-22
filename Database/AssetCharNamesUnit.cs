@@ -14,11 +14,11 @@ namespace Database
 
     
 
-        public override void Insert(AssetCharacteristicNames assetCharName)
+        public override void Insert(AssetCharacteristicNames entity)
         {
          
-            context.AssetCharNames.Add(assetCharName);
-            context.Entry(assetCharName.AssetCategory).State = EntityState.Unchanged;
+            context.AssetCharNames.Add(entity);
+            context.Entry(entity.AssetCategory).State = EntityState.Unchanged;
 
             context.SaveChanges();
 

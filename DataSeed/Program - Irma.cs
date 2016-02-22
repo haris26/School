@@ -45,7 +45,7 @@ namespace DataSeed
             do
             {
                 Console.WriteLine("1. List all assets");
-                Console.WriteLine("2.List one asset");
+                Console.WriteLine("2. List one asset");
                 Console.WriteLine("3. Insert asset");
                 Console.WriteLine("4. Edit asset");
                 Console.WriteLine("5. Delete asset");
@@ -72,7 +72,7 @@ namespace DataSeed
                 var assets = assetUnit.Get().ToList();
                 foreach (var asset in assets)
                 {
-                    ;
+                    
                     Console.WriteLine(asset.Id + ": " + asset.Vendor + " - " + asset.Type + ": " + asset.Status + ": " + asset.AssetCategory.CategoryName);
                 }
             }
@@ -110,7 +110,8 @@ namespace DataSeed
 
             using (SchoolContext context = new SchoolContext())
             {
-                AssetsUnit assetsUnit = new AssetsUnit(context);
+                Repository<Asset> assets = new Repository<Asset>(context);
+           
 
                 Repository<AssetCategory> assetCategory = new Repository<AssetCategory>(context);
 
@@ -129,8 +130,9 @@ namespace DataSeed
                 if (type == "1")
                 {
                     Console.Write("Category: ");
-                    int category = Convert.ToInt32(Console.ReadLine());
-                    AssetCategory newAssetCategory = assetCategory.Get(category);
+                    listAssetCat();
+                    int categoryId = Convert.ToInt32(Console.ReadLine());
+                    AssetCategory newAssetCategory = assetCategory.Get(categoryId);
 
                     Console.Write("Serial Number: ");
 
@@ -150,7 +152,8 @@ namespace DataSeed
                         Console.Write("Please enter model for the asset: ");
                         Model = Console.ReadLine();
                     }
-
+                  
+                  
 
                     Asset asset = new Asset()
                     {
@@ -162,7 +165,7 @@ namespace DataSeed
                         Model = Model,
 
                     };
-                    assetsUnit.Insert(asset);
+                    assets.Insert(asset);
 
                 }
 
@@ -191,7 +194,7 @@ namespace DataSeed
                         SerialNumber = SerialNumber,
 
                     };
-                    assetsUnit.Insert(asset);
+                    assets.Insert(asset);
 
                 }
 
@@ -298,25 +301,23 @@ namespace DataSeed
         }
         static void listOneAssetCat()
         {
-            Console.WriteLine();
+            using (SchoolContext context = new SchoolContext())
+            {
+                Repository<AssetCategory> assetCategoryUnit = new Repository<AssetCategory>(context);
+                Repository<AssetCharacteristicNames> assetChar = new Repository<AssetCharacteristicNames>(context);
+
+                Console.WriteLine();
             Console.Write("Enter category id: ");
             string a_Id = Console.ReadLine();
             if (a_Id != "")
             {
                 int id = Convert.ToInt32(a_Id);
-
-                using (SchoolContext context = new SchoolContext())
-                {
-
-                    Repository<AssetCategory> assetCategoryUnit = new Repository<AssetCategory>(context);
-                    var assetCategories = assetCategoryUnit.Get(id);
-
-
-                    if (assetCategories != null)
+                    var a_cat = assetCategoryUnit.Get(id);
+                    if (a_cat != null)
                     {
-                        Console.WriteLine(assetCategories.Id + ": " + assetCategories.CategoryName);
-                        Console.WriteLine(assetCategories.CategoryName + " Characteristics");
-                        getCharNames(assetCategories.Id);
+                        Console.WriteLine(a_cat.Id + ": " + a_cat.CategoryName);
+                        Console.WriteLine("Characteristics for "+ a_cat.CategoryName+ a_cat.CategoryName+ ": ");
+                        getCharNames(a_cat.Id);
                     }
 
 
@@ -346,43 +347,74 @@ namespace DataSeed
                 Repository<AssetCategory> assetCategoryUnit = new Repository<AssetCategory>(context);
 
                 Console.WriteLine();
-                Console.Write("Insert new category name: ");
+                Console.Write("Insert category name: ");
                 string assetCategoryName = Console.ReadLine();
-                while (assetCategoryName == "")
-                {
-                    Console.Write("Please enter name of the category for the asset: ");
-                    assetCategoryName = Console.ReadLine();
-                }
+               
 
                 AssetCategory assetCategory = new AssetCategory()
                 {
 
                     CategoryName = assetCategoryName
+
                 };
+
                 assetCategoryUnit.Insert(assetCategory);
+                Console.WriteLine("Number of characteristics for category: ");
+                string num = Console.ReadLine();
+                if (num != "")
+                {
+                    int number = Convert.ToInt32(num);
+                    for (int i = 0; i < number; i++)
+                    {
+                        assetCharacteristicsForCat(assetCategory.Id);
+                    }
+                }
             }
             Console.WriteLine("DONE!");
             Console.WriteLine("--------------------");
             Console.ReadKey();
         }
+        static void assetCharacteristicsForCat(int Id)
+        {
+            using (SchoolContext context = new SchoolContext())
+            {
+                Repository<AssetCharacteristicNames> assetCharNamesUnit = new Repository<AssetCharacteristicNames>(context);
+                Repository<AssetCategory> assetCategoryUnit = new Repository<AssetCategory>(context);
+                AssetCategory a_cat = assetCategoryUnit.Get(Id);
+                Console.WriteLine("Characteristic name: ");
+                string cName = Console.ReadLine();
+                if (cName != "")
+                {
+                    AssetCharacteristicNames cn = new AssetCharacteristicNames()
+                    {
+                       Name=cName,
+                         AssetCategory= a_cat,
+                    };
+                    assetCharNamesUnit.Insert(cn);
+                }
+            }
+        }
         static void editAssetCat()
         {
+            using (SchoolContext context = new SchoolContext())
+            { 
+                Repository<AssetCategory> assetCategoryUnit = new Repository<AssetCategory>(context);
 
 
-            Console.WriteLine();
+           Console.WriteLine();
             Console.WriteLine("Asset Category ID: ");
             string a_catId = Console.ReadLine();
             if (a_catId != "")
             {
                 int id = Convert.ToInt32(a_catId);
-                using (SchoolContext context = new SchoolContext())
-                {
-                    Repository<AssetCategory> assetCategoryUnit = new Repository<AssetCategory>(context);
+               
+                 
                     var assetCategory = assetCategoryUnit.Get(id);
                     if (assetCategory != null)
                     {
                         Console.Write("Edit Asset category name: ");
                         assetCategory.CategoryName = Console.ReadLine();
+                          //  updateAssetCharNames(assetCategory.Id);
                         assetCategoryUnit.Update(assetCategory, id);
                     }
                 }
@@ -393,21 +425,41 @@ namespace DataSeed
         }
         static void deleteAssetCat()
         {
-            Console.WriteLine();
-            Console.WriteLine("Asset Category ID: ");
-            string a_catId = Console.ReadLine();
-            int id = Convert.ToInt32(a_catId);
             using (SchoolContext context = new SchoolContext())
             {
                 Repository<AssetCategory> assetCategoryUnit = new Repository<AssetCategory>(context);
-                assetCategoryUnit.Delete(id);
+
+                Console.WriteLine();
+                Console.WriteLine("Asset Category ID: ");
+                string a_catId = Console.ReadLine();
+                if (a_catId != "")
+                {
+                    int id = Convert.ToInt32(a_catId);
+                    var cat = assetCategoryUnit.Get(id);
+                    if (cat != null)
+                    {
+                      deleteAssetCharNames(cat.Id);
+                        assetCategoryUnit.Delete(id);
+                    }
+
+                    Console.WriteLine("You deleted category: " + cat.CategoryName);
+                } Console.WriteLine("--------------------");
+                    Console.ReadKey();
+                }
             }
-            Console.WriteLine("You deleted skill category: " + id);
-            Console.WriteLine("--------------------");
-            Console.ReadKey();
+        static void deleteAssetCharNames(int Id)
+        {
+            using (SchoolContext context = new SchoolContext())
+            {
+                Repository<AssetCharacteristicNames> assetCharNames = new Repository<AssetCharacteristicNames>(context);
+                var characteristics = assetCharNames.Get().ToList();
+                var a_catCharacteristics = characteristics.Where(x => x.AssetCategory.Id == Id);
+                foreach (var name in a_catCharacteristics)
+                {
+                    assetCharNames.Delete(name.Id);
+                }
+            }
         }
-
-
 
 
 
@@ -422,7 +474,7 @@ namespace DataSeed
             do
             {
                 Console.WriteLine("1. List all asset characteristics");
-                Console.WriteLine("2. List one  asset characteristic");
+                Console.WriteLine("2. List specific asset characteristic");
                 Console.WriteLine("3. Insert asset characteristic");
                 Console.WriteLine("4. Edit assets characteristic");
                 Console.WriteLine("5. Delete asset characteristic");
@@ -447,9 +499,10 @@ namespace DataSeed
         {
             using (SchoolContext context = new SchoolContext())
             {
-                AssetCharUnit assetCharUnit = new AssetCharUnit(context);
-                var characteristics = assetCharUnit.Get().ToList();
-                foreach (var characteristic in characteristics)
+                Repository<AssetChar> characteristics = new Repository<AssetChar>(context);
+
+                var a_characteristics = characteristics.Get().ToList();
+                foreach (var characteristic in a_characteristics)
                 {
                     Console.WriteLine(characteristic.Id + ": " + characteristic.Name + " - " + characteristic.Value + " " + characteristic.Asset.Id);
                 }
@@ -470,7 +523,7 @@ namespace DataSeed
             {
                 AssetCharUnit assetCharUnit = new AssetCharUnit(context);
                 Repository<Asset> assetUnit = new Repository<Asset>(context);
-
+                
 
                 do
                 {
