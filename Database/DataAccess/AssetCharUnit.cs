@@ -13,10 +13,15 @@ namespace Database
         {
 
         }
-        public override void Insert(AssetChar assetChar)
+
+
+   
+
+        public override void Insert(AssetChar entity)
+
         {
-            context.AssetCharacteristics.Add(assetChar);
-            context.Entry(assetChar.Asset).State = EntityState.Unchanged;
+            context.AssetCharacteristics.Add(entity);
+            context.Entry(entity.Asset).State = EntityState.Unchanged;
 
             context.SaveChanges();
 

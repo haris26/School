@@ -4,7 +4,9 @@ namespace Database
 {
     public class SchoolContext: DbContext
     {
+
         public SchoolContext(): base("name=School")
+
         { }
 
         public DbSet<Asset> Assets { get; set; }

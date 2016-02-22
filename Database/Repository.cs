@@ -18,6 +18,7 @@ namespace Database
             dbSet = _context.Set<Entity>();
         }
 
+    
         public IQueryable<Entity> Get()
         {
             return dbSet.AsQueryable();
