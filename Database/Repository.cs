@@ -15,15 +15,15 @@ namespace Database
         public Repository(SchoolContext _context)
         {
             context = _context;
-            dbSet = _context.Set<Entity>();
-        } 
+            dbSet = context.Set<Entity>();
+        }
 
         public IQueryable<Entity> Get()
         {
             return dbSet.AsQueryable();
         }
-
-        public Entity Get (int id)
+      
+        public Entity Get(int id)
         {
             return dbSet.Find(id);
         }
@@ -36,10 +36,10 @@ namespace Database
 
         public void Update(Entity entity, int id)
         {
-            Entity oldEnt = Get(id);
-            if (oldEnt != null)
+            Entity oldEntity = Get(id);
+            if (oldEntity != null)
             {
-                context.Entry(oldEnt).CurrentValues.SetValues(entity);
+                context.Entry(oldEntity).CurrentValues.SetValues(entity);
                 context.SaveChanges();
             }
         }

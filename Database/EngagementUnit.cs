@@ -9,8 +9,8 @@ namespace Database
 {
     public class EngagementUnit : Repository<Engagement>
     {
-
-        public EngagementUnit(SchoolContext context) : base(context) { }
+        public EngagementUnit(SchoolContext context) : base(context)
+        { }
 
         public override void Insert(Engagement entity)
         {

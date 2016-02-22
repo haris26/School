@@ -54,6 +54,9 @@
     <Compile Include="AssetCategory.cs" />
     <Compile Include="AssetChar.cs" />
     <Compile Include="AssetCharacteristicNames.cs" />
+    <Compile Include="AssetCharNamesUnit.cs" />
+    <Compile Include="AssetCharUnit.cs" />
+    <Compile Include="AssetsUnit.cs" />
     <Compile Include="Characteristic.cs" />
     <Compile Include="CharacteristicName.cs" />
     <Compile Include="CharacteristicNameUnit.cs" />
@@ -61,7 +64,6 @@
     <Compile Include="Day.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="EngagementUnit.cs" />
-    <Compile Include="EmployeeEducationUnit.cs" />
     <Compile Include="EmployeeSkillUnit.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Education.cs" />
@@ -71,10 +73,12 @@
     <Compile Include="Enumerators.cs" />
     <Compile Include="EventUnit.cs" />
     <Compile Include="History.cs" />
+    <Compile Include="HistoryUnit.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="ProjectSkillUnit.cs" />
     <Compile Include="Request.cs" />
+    <Compile Include="RequestUnit.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCategory.cs" />
     <Compile Include="ResourceUnit.cs" />

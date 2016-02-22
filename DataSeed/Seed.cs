@@ -8,7 +8,7 @@
 //{
 //    class Seed
 //    {
-//        static string sourceData = @"C:\MistralProjects\delta.xls";
+//        static string sourceData = @"C:\Projects\School\delta.xls";
 //        static SchoolContext context = new SchoolContext();
 
 //        //static void Main(string[] args)

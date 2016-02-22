@@ -50,6 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
+    <Compile Include="Program - CharNames.cs" />
+
+
+    <Compile Include="Program - Irma.cs" />
+
+    <Compile Include="Program - Alen.cs" />
+    <Compile Include="Program - Lejla.cs" />
     <Compile Include="Program - teamCharlie.cs" />
     <Compile Include="Program-AlfaCRUD.cs" />
     <Compile Include="Program.cs" />
