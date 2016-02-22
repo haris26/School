@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 // TIME TRACKING
 namespace Database
@@ -23,7 +24,20 @@ namespace Database
         public virtual Person Person { get; set; }      // Navigation to Person class
         // we need details for a day
         public virtual ICollection<Detail> Details { get; set; }    // work details for a day
-    }
+
+        [NotMapped]
+        public double totalHoursForDay {
+            get {
+                foreach (Detail detail in Details) {
+                    totalHoursForDay += detail.WorkTime;
+                }
+                return totalHoursForDay;
+            }
+
+            set { totalHoursForDay = value; }
+
+        }
+}
 }
 
 
