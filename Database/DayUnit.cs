@@ -2,9 +2,9 @@
 
 namespace Database
 {
-    public class DayUnit : Repository<Day>
+    public class DayUnit: Repository<Day>
     {
-        public SchoolContext context = new SchoolContext();
+        public DayUnit(SchoolContext context) : base(context) { }
 
         public override void Insert(Day entity)
         {

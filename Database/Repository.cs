@@ -9,11 +9,13 @@ namespace Database
 {
     public class Repository<Entity> where Entity : class
     {
-        SchoolContext context = new SchoolContext();
+        public SchoolContext context = new SchoolContext();
         public DbSet<Entity> dbSet;
 
-        public Repository() {
-            dbSet = context.Set<Entity>();
+        public Repository(SchoolContext _context)
+        {
+            context = _context;
+            dbSet = _context.Set<Entity>();
         }
 
         public IQueryable<Entity> Get()
@@ -21,16 +23,19 @@ namespace Database
             return dbSet.AsQueryable();
         }
 
-        public Entity Get(int id) {
-            return dbSet.Find(id); //find po prim keyu return context.Teams.Where(x => x.Id == id).FirstOrDefault();
-                                     
+        public Entity Get(int id)
+        {
+            return dbSet.Find(id);
         }
-       public virtual void Insert(Entity entity) {
+
+        public virtual void Insert(Entity entity)
+        {
             dbSet.Add(entity);
             context.SaveChanges();
         }
 
-        public void Update(Entity entity, int id) {
+        public void Update(Entity entity, int id)
+        {
             Entity oldEnt = Get(id);
             if (oldEnt != null)
             {
@@ -47,14 +52,6 @@ namespace Database
                 dbSet.Remove(oldEnt);
                 context.SaveChanges();
             }
-
         }
-
-        public void Disconect()
-        {
-            context.Dispose();
-        }
-
-
     }
 }
