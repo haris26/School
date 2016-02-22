@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    class EngagementUnit : Repository<Engagement>
+    public class EngagementUnit : Repository<Engagement>
     {
 
         public EngagementUnit(SchoolContext context) : base(context) { }

@@ -22,7 +22,7 @@ namespace DataSeed
             var team = context.Teams.Find(1);
             var role = context.Roles.Find(1);
 
-            EngagementUnit engUnit = new EngagementUnit();
+            EngagementUnit engUnit = new EngagementUnit(context);
             Engagement engagement = new Engagement()
             {
                 Person = person,
@@ -32,7 +32,7 @@ namespace DataSeed
                 StartDate = new DateTime(2016, 2, 1)
             };
             engUnit.Insert(engagement);
-            Console.WriteLine("kkk");
+            Console.WriteLine("Ready...");
             Console.ReadKey();
         }
 
