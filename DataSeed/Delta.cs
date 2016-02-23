@@ -29,7 +29,7 @@ namespace DataSeed
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
-                string perName = Utility.getString(row, 0);
+                string perName = Utility.getString(row, 4);
                 Person person = context.People.FirstOrDefault(x => x.FirstName == perName);
                 Day day = new Day()
                 {

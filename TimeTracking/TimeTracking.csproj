@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EFA159DA-3C69-4F1A-9395-2009739AC238}</ProjectGuid>
+    <ProjectGuid>{0170F483-CE02-4633-A9C0-A6B329DD7F90}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -204,9 +204,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Test\Get.cshtml" />
+    <Content Include="Views\Test\People.cshtml" />
     <Content Include="Views\Test\Person.cshtml" />
     <Content Include="Views\Test\Person2.cshtml" />
-    <Content Include="Views\Test\People.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -242,7 +242,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>56358</DevelopmentServerPort>
+          <DevelopmentServerPort>64556</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:56358/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
