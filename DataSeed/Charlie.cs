@@ -11,7 +11,7 @@ namespace DataSeed
 {
     static class Charlie
     {
-        static string sourceData = Utility.sourceRoot + "charlie.xls";
+        static string sourceData = Utility.sourceRoot + "Charlie1.xls";
         static SchoolContext context = new SchoolContext();
 
         public static void Seed()
@@ -75,24 +75,25 @@ namespace DataSeed
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
-                string catName = Utility.getString(row, 7);
+                string catName = Utility.getString(row, 2);
                 AssetCategory category = context.AssetCategory.FirstOrDefault(x => x.CategoryName == catName);
-                string perName = Utility.getString(row, 8);
+                string perName = Utility.getString(row, 7);
                 Person person = context.People.Where(x => x.FirstName == perName).FirstOrDefault();
 
                 Asset resource = new Asset()
                 {
                     AssetCategory = category,
-                    Name = Utility.getString(row, 1),
-                    SerialNumber = Utility.getString(row, 2),
-                    Description = Utility.getString(row, 3),
-                    Vendor = Utility.getString(row, 4),
+                    Name = Utility.getString(row, 0),
+                    Vendor = Utility.getString(row, 1),
+                    Model = Utility.getString(row, 3),
+                    SerialNumber = Utility.getString(row, 4),
                     Price = Utility.getDouble(row, 5),
-                    Status = (AssetStatus)Utility.getInteger(row, 6),
+                    Status = (AssetStatus)Enum.Parse(typeof(AssetStatus), row.ItemArray.GetValue(6).ToString()),  
                     User = person,
-                    Model = "missing",
-                    DateOfTrade = DateTime.Today,
-                    Type = (AssetType)Utility.getInteger(row, 0)
+                   
+                    DateOfTrade = Utility.getDate(row,8),
+                   
+                    // Type = (AssetType)Utility.getInteger(row, 0)
                 };
                 N++;
                 context.Assets.Add(resource);

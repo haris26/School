@@ -10,7 +10,7 @@ namespace DataSeed
 {
     static class Utility
     {
-        public static string sourceRoot = @"C:\NTG\school\";
+        public static string sourceRoot = @"C:\Projects\School\";
 
         public static DataTable OpenExcel(string path, string sheet)
         {
@@ -51,7 +51,8 @@ namespace DataSeed
 
         public static double getDouble(DataRow row, int index)
         {
-            return Convert.ToDouble(row.ItemArray.GetValue(index).ToString());
+            Console.WriteLine(" " + row.ItemArray.GetValue(index).ToString());
+           return Convert.ToDouble(row.ItemArray.GetValue(index).ToString());
         }
     }
 }
