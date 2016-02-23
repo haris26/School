@@ -1,0 +1,27 @@
+﻿@model Database.Person
+@{
+        ViewBag.Title = "PersonViewBag";
+        //Database.Person person = (Database.Person)ViewBag.Person;
+        //Database.Person person = (Database.Person)ViewData["Person"];
+
+}
+
+<h2>@(Html.DisplayFor(model => model.FirstName) + " "+ Html.DisplayFor(model => model.LastName))</h2>
+<hr />
+
+<table>
+    <tr><td align="right">Id: </td><td>@Html.DisplayFor(model => model.Id)</td></tr>
+    <tr><td align="right">First Name: </td><td>@Html.DisplayFor(model => model.FirstName)</td></tr>
+    <tr><td align="right">Last Name: </td><td>@Html.DisplayFor(model => model.LastName)</td></tr>
+    <tr><td align="right">Email:</td><td>@Html.DisplayFor(model => model.Email)</td>
+    <tr><td align="right">Category: </td><td>@Html.DisplayFor(model => model.Category)</td>
+    @*<tr><td align="right">Gender: </td><td>@person.Gender</td>
+    <tr><td align="right">Image: <td>@person.Image</td>
+    <tr><td align="right">Phone: </td><td>@person.Phone</td>
+    <tr><td align="right">Address: </td><td>@person.Address.ZipCode @person.Address.Town, @person.Address.Road</td>
+    <tr><td align="right">Birth Date: </td><td>@person.BirthDate</td>
+    <tr><td align="right">Start Date: </td><td>@person.StartDate</td>
+    <tr><td align="right">End Date: </td><td>@person.EndDate</td>
+    <tr><td align="right">Status: </td><td>@person.Status</td>*@
+</table>
+
