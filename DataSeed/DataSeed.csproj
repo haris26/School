@@ -33,12 +33,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -50,19 +49,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program - teamCharlie.cs" />
+    <Compile Include="Alpha.cs" />
+    <Compile Include="Beta.cs" />
+    <Compile Include="Charlie.cs" />
+    <Compile Include="Delta.cs" />
+    <Compile Include="Omega.cs" />
+    <Compile Include="Archive\Program - CharNames.cs" />
+    <Compile Include="Archive\Program - Irma.cs" />
+    <Compile Include="Archive\Program - Alen.cs" />
+    <Compile Include="Archive\Program - Lejla.cs" />
+    <Compile Include="Archive\Program - teamCharlie.cs" />
+    <Compile Include="Archive\Program-AlfaCRUD.cs" />
     <Compile Include="Program.cs" />
+
     <Compile Include="Program - Alfa.cs" />
     <Compile Include="Program - Beta.cs" />
     <Compile Include="Program - Delta.cs" />
     <Compile Include="ProgramBeta.cs" />
+
+
+    <Compile Include="Archive\ProgramDetail.cs" />
+    <Compile Include="Archive\ProgramDeltaCRUD.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Seed.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

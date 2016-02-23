@@ -7,6 +7,12 @@ TimeTracking.sln
 ProcurementSystem.sln
 WorkforceRoster.sln
 SkillsLibrary.sln
+#School projects MVC
+ReservationSystem/
+TimeTracking/
+ProcurementSystem/
+WorkforceRoster/
+SkillsLibrary/
 
 # User-specific files
 *.vs
