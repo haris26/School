@@ -112,7 +112,10 @@ namespace DataSeed
             foreach (DataRow row in rawData.Rows)
             {
                 string resName = Utility.getString(row, 2);
-                Asset asset = context.Assets.FirstOrDefault(x => x.Name == resName);
+
+              //  int id = Utility.getInteger(row, 2);
+               // Asset asset = context.Assets.Where(x => x.Id == id).FirstOrDefault();
+                Asset asset = context.Assets.Where(x => x.Model == resName).FirstOrDefault();
 
                 AssetChar characteristic = new AssetChar()
                 {
