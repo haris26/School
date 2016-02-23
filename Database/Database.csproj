@@ -76,16 +76,9 @@
     <Compile Include="DataAccess\EmployeeEducationUnit.cs" />
     <Compile Include="Omega\Engagement.cs" />
     <Compile Include="Enumerators.cs" />
-
-    <Compile Include="EventUnit.cs" />
-    <Compile Include="ExtendedEvent.cs" />
-    <Compile Include="ExtendedEventUnit.cs" />
-    <Compile Include="History.cs" />
-
     <Compile Include="DataAccess\EventUnit.cs" />
     <Compile Include="Charlie\History.cs" />
     <Compile Include="DataAccess\HistoryUnit.cs" />
-
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Omega\Person.cs" />
     <Compile Include="DataAccess\ProjectSkillUnit.cs" />
