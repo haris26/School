@@ -11,7 +11,7 @@ namespace DataSeed
 {
     static class Omega
     {
-        static string sourceData = @"C:\NTG\school\omega.xls";
+        static string sourceData = @"C:\Projects\School\GigiSchool.xls";
         static SchoolContext context = new SchoolContext();
 
         public static void Seed()
