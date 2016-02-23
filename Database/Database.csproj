@@ -57,6 +57,7 @@
     <Compile Include="AssetCharNamesUnit.cs" />
     <Compile Include="AssetCharUnit.cs" />
     <Compile Include="AssetsUnit.cs" />
+    <Compile Include="CategoryPs.cs" />
     <Compile Include="Characteristic.cs" />
     <Compile Include="CharacteristicName.cs" />
     <Compile Include="CharacteristicNameUnit.cs" />
@@ -65,6 +66,8 @@
     <Compile Include="DayUnit.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="DetailUnit.cs" />
+    <Compile Include="EmployeeEducationUnit.cs" />
+    <Compile Include="EmployeeSkillUnit.cs" />
     <Compile Include="EngagementUnit.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Education.cs" />
