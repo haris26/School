@@ -68,6 +68,8 @@
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="EventUnit.cs" />
+    <Compile Include="ExtendedEvent.cs" />
+    <Compile Include="ExtendedEventUnit.cs" />
     <Compile Include="History.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
