@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "..\Database\Database.csproj", "{73D7E73E-3C79-4509-A8E9-20ED017471B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{73D7E73E-3C79-4509-A8E9-20ED017471B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSeed", "..\DataSeed\DataSeed.csproj", "{B7647363-7466-461D-99B4-32E502503513}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSeed", "DataSeed\DataSeed.csproj", "{B7647363-7466-461D-99B4-32E502503513}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationSystemMVC", "ReservationSystemMVC\ReservationSystemMVC.csproj", "{172344FC-AA99-41C6-94C7-09C2758E83CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationSystem", "ReservationSystem\ReservationSystem.csproj", "{172344FC-AA99-41C6-94C7-09C2758E83CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
