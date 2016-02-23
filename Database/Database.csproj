@@ -50,64 +50,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Asset.cs" />
-    <Compile Include="AssetCategory.cs" />
-    <Compile Include="AssetChar.cs" />
-    <Compile Include="AssetCharacteristicNames.cs" />
-    <Compile Include="AssetCharNamesUnit.cs" />
-    <Compile Include="AssetCharUnit.cs" />
-    <Compile Include="AssetsUnit.cs" />
-    <Compile Include="CategoryPs.cs" />
-    <Compile Include="Characteristic.cs" />
-    <Compile Include="CharacteristicName.cs" />
-    <Compile Include="CharacteristicNameUnit.cs" />
-    <Compile Include="CharacteristicUnit.cs" />
-    <Compile Include="Day.cs" />
-    <Compile Include="DayUnit.cs" />
-    <Compile Include="Detail.cs" />
-    <Compile Include="DetailUnit.cs" />
-    <Compile Include="EmployeeEducationUnit.cs" />
-    <Compile Include="EmployeeSkillUnit.cs" />
-    <Compile Include="EngagementUnit.cs" />
-    <Compile Include="Event.cs" />
-    <Compile Include="Education.cs" />
-    <Compile Include="EmployeeEducation.cs" />
-    <Compile Include="EmployeeSkill.cs" />
-    <Compile Include="Engagement.cs" />
+
+    <Compile Include="Charlie\Asset.cs" />
+    <Compile Include="Charlie\AssetCategory.cs" />
+    <Compile Include="Charlie\AssetChar.cs" />
+    <Compile Include="Charlie\AssetCharacteristicNames.cs" />
+    <Compile Include="DataAccess\AssetCharNamesUnit.cs" />
+    <Compile Include="DataAccess\AssetCharUnit.cs" />
+    <Compile Include="DataAccess\AssetsUnit.cs" />
+    <Compile Include="Beta\Characteristic.cs" />
+    <Compile Include="Beta\CharacteristicName.cs" />
+    <Compile Include="DataAccess\CharacteristicNameUnit.cs" />
+    <Compile Include="DataAccess\CharacteristicUnit.cs" />
+    <Compile Include="Delta\Day.cs" />
+    <Compile Include="DataAccess\DayUnit.cs" />
+    <Compile Include="Delta\Detail.cs" />
+    <Compile Include="DataAccess\EmployeeSkillUnit.cs" />
+    <Compile Include="DataAccess\EngagementUnit.cs" />
+    <Compile Include="Beta\Event.cs" />
+    <Compile Include="Alpha\Education.cs" />
+    <Compile Include="Alpha\EmployeeEducation.cs" />
+    <Compile Include="Alpha\EmployeeSkill.cs" />
+    <Compile Include="Beta\ExtendedEvent.cs" />
+    <Compile Include="DataAccess\ExtendedEventUnit.cs" />
+    <Compile Include="DataAccess\DetailUnit.cs" />
+    <Compile Include="DataAccess\EmployeeEducationUnit.cs" />
+    <Compile Include="Omega\Engagement.cs" />
+
     <Compile Include="Enumerators.cs" />
-    <Compile Include="EventUnit.cs" />
-    <Compile Include="History.cs" />
-    <Compile Include="HistoryUnit.cs" />
-    <Compile Include="Migrations\201602222054120_Dzanan.cs" />
-    <Compile Include="Migrations\201602222054120_Dzanan.Designer.cs">
-      <DependentUpon>201602222054120_Dzanan.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DataAccess\EventUnit.cs" />
+    <Compile Include="Charlie\History.cs" />
+    <Compile Include="DataAccess\HistoryUnit.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="ProjectSkillUnit.cs" />
-    <Compile Include="Repository.cs" />
-    <Compile Include="Request.cs" />
-    <Compile Include="RequestUnit.cs" />
-    <Compile Include="Resource.cs" />
-    <Compile Include="ResourceCategory.cs" />
-    <Compile Include="ResourceUnit.cs" />
-    <Compile Include="Role.cs" />
+    <Compile Include="Omega\Person.cs" />
+    <Compile Include="DataAccess\ProjectSkillUnit.cs" />
+    <Compile Include="Charlie\Request.cs" />
+    <Compile Include="DataAccess\RequestUnit.cs" />
+    <Compile Include="Beta\Resource.cs" />
+    <Compile Include="Beta\ResourceCategory.cs" />
+    <Compile Include="DataAccess\ResourceUnit.cs" />
+    <Compile Include="Omega\Role.cs" />
     <Compile Include="SchoolContext.cs" />
-    <Compile Include="SkillCategory.cs" />
-    <Compile Include="Team.cs" />
-    <Compile Include="ProjectSkill.cs" />
+    <Compile Include="Alpha\SkillCategory.cs" />
+    <Compile Include="Omega\Team.cs" />
+    <Compile Include="Alpha\ProjectSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tool.cs" />
-    <Compile Include="ToolUnit.cs" />
+    <Compile Include="DataAccess\Repository.cs" />
+    <Compile Include="Alpha\Tool.cs" />
+    <Compile Include="DataAccess\ToolUnit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602222054120_Dzanan.resx">
-      <DependentUpon>201602222054120_Dzanan.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

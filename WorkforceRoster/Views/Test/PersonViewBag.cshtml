@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "PersonViewBag";
+    Database.Person person = (Database.Person)ViewBag.Person;
+}
+
+<h2>@(person.FirstName + " " + person.LastName)</h2>
+<hr />
+
+<table>
+    <tr><td align="right">Id: </td><td>@person.Id</td></tr>
+    <tr><td align="right">First Name: </td><td>@person.FirstName</td></tr>
+    <tr><td align="right">Last Name: </td><td>@person.LastName</td></tr>
+    <tr><td align="right">Email:</td><td>@person.Email</td>
+    <tr><td align="right">Category: </td><td>@person.Category</td>
+    <tr><td align="right">Gender: </td><td>@person.Gender</td>
+    <tr><td align="right">Image: <td>@person.Image</td>
+    <tr><td align="right">Phone: </td><td>@person.Phone</td>
+    <tr><td align="right">Address: </td><td>@person.Address.ZipCode @person.Address.Town, @person.Address.Road</td>
+    <tr><td align="right">Birth Date: </td><td>@person.BirthDate</td>
+    <tr><td align="right">Start Date: </td><td>@person.StartDate</td>
+    <tr><td align="right">End Date: </td><td>@person.EndDate</td>
+    <tr><td align="right">Status: </td><td>@person.Status</td>
+</table>
+
