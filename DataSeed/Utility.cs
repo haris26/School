@@ -51,7 +51,7 @@ namespace DataSeed
 
         public static double getDouble(DataRow row, int index)
         {
-            Console.WriteLine(" " + row.ItemArray.GetValue(index).ToString());
+            
            return Convert.ToDouble(row.ItemArray.GetValue(index).ToString());
         }
     }

@@ -76,7 +76,7 @@ namespace DataSeed
             foreach (DataRow row in rawData.Rows)
             {
                 string catName = Utility.getString(row, 2);
-                AssetCategory category = context.AssetCategory.FirstOrDefault(x => x.CategoryName == catName);
+                AssetCategory category = context.AssetCategory.Where(x => x.CategoryName == catName).FirstOrDefault();
                 string perName = Utility.getString(row, 7);
                 Person person = context.People.Where(x => x.FirstName == perName).FirstOrDefault();
 
