@@ -4,18 +4,26 @@ namespace Database
 {
     public class SchoolContext: DbContext
     {
+<<<<<<< HEAD
         public SchoolContext(): base()
+=======
+        public SchoolContext(): base("name=School")
+>>>>>>> dev
         { }
 
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Day> Days { get; set; }
+<<<<<<< HEAD
 
         //public DbSet<CategoryDetail> Categories { get; set; }
 
+=======
+>>>>>>> dev
         public DbSet<Detail> Details { get; set; }
         public DbSet<EmployeeSkill> EmployeeSkills { get; set; }
         public DbSet<Engagement> Engagements { get; set; }
         public DbSet<Event> Events{ get; set; }
+        public DbSet<ExtendedEvent> ExtendedEvents { get; set; }
         public DbSet<History> Histories { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<Tool> Tools { get; set; }

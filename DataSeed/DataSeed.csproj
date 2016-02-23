@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Program - CharNames.cs" />
     <Compile Include="Program - Irma.cs" />
     <Compile Include="Program - Alen.cs" />
@@ -63,6 +64,28 @@
     <Compile Include="ProgramDetail.cs" />
     <Compile Include="ProgramDeltaCRUD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+=======
+    <Compile Include="Alpha.cs" />
+    <Compile Include="Beta.cs" />
+    <Compile Include="Charlie.cs" />
+    <Compile Include="Delta.cs" />
+    <Compile Include="Omega.cs" />
+    <Compile Include="Archive\Program - CharNames.cs" />
+    <Compile Include="Archive\Program - Irma.cs" />
+    <Compile Include="Archive\Program - Alen.cs" />
+    <Compile Include="Archive\Program - Lejla.cs" />
+    <Compile Include="Archive\Program - teamCharlie.cs" />
+    <Compile Include="Archive\Program-AlfaCRUD.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Archive\Program - Alfa.cs" />
+    <Compile Include="Archive\Program - Beta.cs" />
+    <Compile Include="Archive\Program - Delta.cs" />
+    <Compile Include="Archive\ProgramDay.cs" />
+    <Compile Include="Archive\ProgramDetail.cs" />
+    <Compile Include="Archive\ProgramDeltaCRUD.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility.cs" />
+>>>>>>> dev
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
