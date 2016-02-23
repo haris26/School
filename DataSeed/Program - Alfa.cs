@@ -8,7 +8,7 @@
 //{
 //    class Program
 //    {
-//        static string sourceData = @"C:\Projects\school\alfa.xls";
+//        static string sourceData = @"C:\MistralProjects\school\GigiSchool.xls";
 //        static SchoolContext context = new SchoolContext();
 
 //        static void Main(string[] args)
@@ -32,8 +32,7 @@
 //                Education education = new Education()
 //                {
 //                    Name = getString(row, 0),
-//                    Type = (EducationType)getInteger(row, 1),
-//                    Reference = getString(row, 2)
+//                    Type = (EducationType)getInteger(row, 1)
 //                };
 //                N++;
 //                context.Educations.Add(education);
@@ -159,7 +158,8 @@
 //                EmployeeEducation empEducation = new EmployeeEducation()
 //                {
 //                    Employee = employee,
-//                    Education = education
+//                    Education = education,
+//                    Reference = getString(row, 2)
 //                };
 
 //                N++;

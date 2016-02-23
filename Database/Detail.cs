@@ -6,6 +6,8 @@ namespace Database
 //  work details for each day
     public class Detail
     {
+
+    
         public int Id { get; set; }                         // Identity[1]
 
         public virtual Day Day { get; set; }                // Navigation to Day class (date and person)

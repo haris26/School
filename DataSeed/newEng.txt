@@ -1,0 +1,30 @@
+//Engagement engagement = new Engagement()
+            //{
+            //    EndDate = DateTime.Now,
+            //    StartDate = DateTime.Now,
+            //    Time = 1,
+            //    Person = new Person()
+            //    {
+            //        FirstName = "Elma",
+            //        LastName = "Ramusovic",
+            //        Gender = Gender.Female,
+            //        Category = EmploymentType.Student,
+            //        BirthDate = DateTime.Now,
+            //        StartDate = DateTime.Now,
+            //        Status = EmploymentStatus.Active,
+            //        Address = new Address()
+            //    },
+            //    Team = new Team()
+            //    {
+            //        Name = "Gama",
+            //        Type = ProjectType.External
+            //    },
+            //    Role = new Role()
+            //    {
+            //        Name = "Test",
+            //        Team = false,
+            //        System = false
+            //    }
+            //};
+            //EngagementUnit repository = new EngagementUnit();
+            //repository.Insert(engagement);

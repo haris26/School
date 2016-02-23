@@ -54,11 +54,17 @@
     <Compile Include="AssetCategory.cs" />
     <Compile Include="AssetChar.cs" />
     <Compile Include="AssetCharacteristicNames.cs" />
+    <Compile Include="AssetCharNamesUnit.cs" />
+    <Compile Include="AssetCharUnit.cs" />
+    <Compile Include="AssetsUnit.cs" />
     <Compile Include="Characteristic.cs" />
     <Compile Include="CharacteristicName.cs" />
+    <Compile Include="CharacteristicNameUnit.cs" />
+    <Compile Include="CharacteristicUnit.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="DayUnit.cs" />
     <Compile Include="Detail.cs" />
+    <Compile Include="DetailUnit.cs" />
     <Compile Include="EngagementUnit.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Education.cs" />
@@ -66,24 +72,39 @@
     <Compile Include="EmployeeSkill.cs" />
     <Compile Include="Engagement.cs" />
     <Compile Include="Enumerators.cs" />
+    <Compile Include="EventUnit.cs" />
     <Compile Include="History.cs" />
+    <Compile Include="HistoryUnit.cs" />
+    <Compile Include="Migrations\201602222054120_Dzanan.cs" />
+    <Compile Include="Migrations\201602222054120_Dzanan.Designer.cs">
+      <DependentUpon>201602222054120_Dzanan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="ProjectSkillUnit.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Request.cs" />
+    <Compile Include="RequestUnit.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCategory.cs" />
+    <Compile Include="ResourceUnit.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="SchoolContext.cs" />
     <Compile Include="SkillCategory.cs" />
     <Compile Include="Team.cs" />
     <Compile Include="ProjectSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
     <Compile Include="Tool.cs" />
+    <Compile Include="ToolUnit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602222054120_Dzanan.resx">
+      <DependentUpon>201602222054120_Dzanan.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

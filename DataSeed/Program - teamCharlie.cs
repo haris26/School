@@ -11,7 +11,7 @@
 //{
 //    class Program
 //    {
-//        static string sourceData = @"C:\Projects\school\Charlie.xls";
+//        static string sourceData = @"C:\MistralProjects\school\GigiSchool.xls";
 //        static SchoolContext context = new SchoolContext();
 
 //        static DataTable OpenExcel(string path, string sheet)
@@ -84,7 +84,7 @@
 //                {
 //                    AssetCategory = category,
 //                    Type = (AssetType)Enum.Parse(typeof(AssetType), row.ItemArray.GetValue(0).ToString()),
-//                    Name = row.ItemArray.GetValue(1).ToString(),
+//                    Model = row.ItemArray.GetValue(1).ToString(),
 //                    SerialNumber = row.ItemArray.GetValue(2).ToString(),
 //                    Description = row.ItemArray.GetValue(3).ToString(),
 //                    Vendor = row.ItemArray.GetValue(4).ToString(),
@@ -101,8 +101,6 @@
 //        }
 
 
-
-
 //        static void getRequests()
 //        {
 //            Console.Write("Requests: ");
@@ -111,15 +109,16 @@
 //            int N = 0;
 //            foreach (DataRow row in rawData.Rows)
 //            {
-                
+
 
 //                Request requests = new Request()
 //                {
 
 //                    requestType = (RequestType)Enum.Parse(typeof(RequestType), row.ItemArray.GetValue(0).ToString()),
 //                    RequestMessage = row.ItemArray.GetValue(1).ToString(),
-//                    RequestDate = getDate(row,2),
+//                    RequestDate = getDate(row, 2),
 //                    Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), row.ItemArray.GetValue(3).ToString())
+
 
 
 //                };
@@ -139,14 +138,14 @@
 //            int N = 0;
 //            foreach (DataRow row in rawData.Rows)
 //            {
-                
+
 //                AssetChar assetChar = new AssetChar()
 //                {
-                    
+
 //                    Name = row.ItemArray.GetValue(0).ToString(),
 //                    Value = row.ItemArray.GetValue(1).ToString(),
-                    
-                   
+
+
 //                };
 //                N++;
 //                context.AssetCharacteristics.Add(assetChar);
@@ -171,7 +170,7 @@
 //                AssetCharacteristicNames assetCharNames = new AssetCharacteristicNames()
 //                {
 
-//                    AssetCategory =(AssetCategory)Enum.Parse(typeof(AssetCategory), row.ItemArray.GetValue(0).ToString()),
+//                    AssetCategory = (AssetCategory)Enum.Parse(typeof(AssetCategory), row.ItemArray.GetValue(0).ToString()),
 //                    Name = row.ItemArray.GetValue(1).ToString(),
 
 
@@ -190,9 +189,9 @@
 //            return row.ItemArray.GetValue(index).ToString();
 //        }
 //        static DateTime getDate(DataRow row, int index)
-//       {
+//        {
 //            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
-//       }
+//        }
 
 //    }
 
