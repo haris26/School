@@ -74,6 +74,10 @@
     <Compile Include="DataAccess\ExtendedEventUnit.cs" />
     <Compile Include="DataAccess\DetailUnit.cs" />
     <Compile Include="DataAccess\EmployeeEducationUnit.cs" />
+    <Compile Include="Migrations\201602231038141_Haris002.cs" />
+    <Compile Include="Migrations\201602231038141_Haris002.Designer.cs">
+      <DependentUpon>201602231038141_Haris002.cs</DependentUpon>
+    </Compile>
     <Compile Include="Omega\Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="DataAccess\EventUnit.cs" />
@@ -100,6 +104,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602231038141_Haris002.resx">
+      <DependentUpon>201602231038141_Haris002.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
