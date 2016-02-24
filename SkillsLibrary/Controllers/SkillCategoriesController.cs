@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Database;
+using System.Collections;
+using SkillsLibrary.Models;
 
 namespace SkillsLibrary.Controllers
 {
@@ -17,18 +19,50 @@ namespace SkillsLibrary.Controllers
         // GET: SkillCategories
         public ActionResult Index()
         {
-            return View(skillCategories.Get().ToList());
+            IList<SkillCategoryModel> categoriesList = new List<SkillCategoryModel>();
+            var catCol = skillCategories.Get().ToList();
+
+            foreach (var category in catCol)
+            {
+                SkillCategoryModel categoryModel = new SkillCategoryModel()
+                {
+                    Id = category.Id,
+                    Name = category.Name,
+                };
+
+                foreach (var tool in category.Tools)
+                {
+                    categoryModel.Tools.Add(tool.Name);
+                }
+
+                categoriesList.Add(categoryModel);
+            }
+
+            return View(categoriesList);
         }
 
         // GET: SkillCategories/Details/5
         public ActionResult Details(int id)
         {
             SkillCategory skillCategory = skillCategories.Get(id);
+
             if (skillCategory == null)
             {
                 return HttpNotFound();
             }
-            return View(skillCategory);
+
+            SkillCategoryModel categoryModel = new SkillCategoryModel()
+            {
+                Id = skillCategory.Id,
+                Name = skillCategory.Name
+            };
+
+            foreach (var tool in skillCategory.Tools)
+            {
+                categoryModel.Tools.Add(tool.Name);
+            }
+
+            return View(categoryModel);
         }
 
         // GET: SkillCategories/Create

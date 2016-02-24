@@ -157,6 +157,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EducationsController.cs" />
+    <Compile Include="Controllers\EngagementsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SkillCategoriesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SkillCategoryModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -225,6 +227,11 @@
     <Content Include="Views\Educations\Details.cshtml" />
     <Content Include="Views\Educations\Edit.cshtml" />
     <Content Include="Views\Educations\Index.cshtml" />
+    <Content Include="Views\Engagements\Create.cshtml" />
+    <Content Include="Views\Engagements\Delete.cshtml" />
+    <Content Include="Views\Engagements\Details.cshtml" />
+    <Content Include="Views\Engagements\Edit.cshtml" />
+    <Content Include="Views\Engagements\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
