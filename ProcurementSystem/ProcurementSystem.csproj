@@ -227,9 +227,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Database\Database.csproj">
+    <ProjectReference Include="..\Database\Database.csproj">
       <Project>{73d7e73e-3c79-4509-a8e9-20ed017471b3}</Project>
       <Name>Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataSeed\DataSeed.csproj">
+      <Project>{b7647363-7466-461d-99b4-32e502503513}</Project>
+      <Name>DataSeed</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
