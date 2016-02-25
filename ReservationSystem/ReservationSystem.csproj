@@ -165,6 +165,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CharacteristicNameModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
@@ -231,7 +232,9 @@
     <Content Include="Views\Characteristics\Index.cshtml" />
     <Content Include="Views\CharacteristicNames\Create.cshtml" />
     <Content Include="Views\CharacteristicNames\Delete.cshtml" />
+    <Content Include="Views\Details.cshtml" />
     <Content Include="Views\CharacteristicNames\Details.cshtml" />
+    <Content Include="Views\Edit.cshtml" />
     <Content Include="Views\CharacteristicNames\Edit.cshtml" />
     <Content Include="Views\CharacteristicNames\Index.cshtml" />
   </ItemGroup>
