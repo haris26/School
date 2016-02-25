@@ -14,5 +14,17 @@ namespace Database
             context.Entry(entity.Tool).State = EntityState.Unchanged;
             context.SaveChanges();
         }
+
+        public override void Update(ProjectSkill entity, int id)
+        {
+            ProjectSkill oldEnt = Get(id);
+            if (oldEnt != null)
+            {
+                context.Entry(oldEnt).CurrentValues.SetValues(entity);
+                oldEnt.Team = entity.Team;
+                oldEnt.Tool = entity.Tool;
+                context.SaveChanges();
+            }
+        }
     }
 }

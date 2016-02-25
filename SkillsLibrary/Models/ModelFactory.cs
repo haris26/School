@@ -67,5 +67,19 @@ namespace SkillsLibrary.Models
                 Reference = empEdu.Reference
             };
         }
+
+        public ProjectSkillModel Create(ProjectSkill projSkill)
+        {
+            return new ProjectSkillModel()
+            {
+                Id = projSkill.Id,
+                Project = projSkill.Team.Id,
+                TeamName = projSkill.Team.Name,
+                ProjectName = projSkill.Team.Description,
+                Tool = projSkill.Tool.Id,
+                ToolName = projSkill.Tool.Name,
+                Level = projSkill.Level
+            };
+        }
     }
 }

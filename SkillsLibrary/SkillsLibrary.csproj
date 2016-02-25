@@ -161,6 +161,7 @@
     <Compile Include="Controllers\EmployeeSkillsController.cs" />
     <Compile Include="Controllers\EngagementsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjectSkillsController.cs" />
     <Compile Include="Controllers\SkillCategoriesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="Models\EngagementModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\ProjectSkillModel.cs" />
     <Compile Include="Models\SkillCategoryModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -249,6 +251,11 @@
     <Content Include="Views\EmployeeEducations\Details.cshtml" />
     <Content Include="Views\EmployeeEducations\Edit.cshtml" />
     <Content Include="Views\EmployeeEducations\Index.cshtml" />
+    <Content Include="Views\ProjectSkills\Create.cshtml" />
+    <Content Include="Views\ProjectSkills\Delete.cshtml" />
+    <Content Include="Views\ProjectSkills\Details.cshtml" />
+    <Content Include="Views\ProjectSkills\Edit.cshtml" />
+    <Content Include="Views\ProjectSkills\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
