@@ -1,11 +1,10 @@
 ﻿using Database;
-using SkillsLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WorkforceRoster.Models
+namespace SkillsLibrary.Models
 {
     public class ModelFactory
     {

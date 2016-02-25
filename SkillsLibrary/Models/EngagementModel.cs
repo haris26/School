@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WorkforceRoster.Models
+namespace SkillsLibrary.Models
 {
     public class EngagementModel
     {
