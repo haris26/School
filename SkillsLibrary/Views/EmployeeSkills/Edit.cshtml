@@ -1,4 +1,4 @@
-﻿@model Database.EmployeeSkill
+﻿@model SkillsLibrary.Models.EmployeeSkillModel
 
 @{
     ViewBag.Title = "Edit";
@@ -19,7 +19,7 @@
         <div class="form-group">
             <div class="control-label col-md-2">Employee</div>
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Employee.Id,
+                @Html.DropDownListFor(model => model.Employee,
                ViewBag.PeopleList as IEnumerable<SelectListItem>,
                new { @class = "form-control" })
             </div>
@@ -28,7 +28,7 @@
         <div class="form-group">
             <div class="control-label col-md-2">Tool</div>
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Tool.Id,
+                @Html.DropDownListFor(model => model.Tool,
                ViewBag.ToolsList as IEnumerable<SelectListItem>,
                new { @class = "form-control" })
             </div>

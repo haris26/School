@@ -40,5 +40,19 @@ namespace SkillsLibrary.Models
                 RoleName = engagement.Role.Name
             };
         }
+
+        public EmployeeSkillModel Create (EmployeeSkill empSkill)
+        {
+            return new EmployeeSkillModel()
+            {
+                Id = empSkill.Id,
+                Employee = empSkill.Employee.Id,
+                EmployeeName = empSkill.Employee.FirstName + " " + empSkill.Employee.LastName,
+                Tool = empSkill.Tool.Id,
+                ToolName = empSkill.Tool.Name,
+                Level = empSkill.Level,
+                Experience = empSkill.Experience
+            };
+        }
     }
 }

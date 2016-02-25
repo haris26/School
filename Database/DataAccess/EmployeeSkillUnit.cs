@@ -14,5 +14,17 @@ namespace Database
             context.Entry(entity.Tool).State = EntityState.Unchanged;
             context.SaveChanges();
         }
+
+        public override void Update(EmployeeSkill entity, int id)
+        {
+            EmployeeSkill oldEnt = Get(id);
+            if (oldEnt != null)
+            {
+                context.Entry(oldEnt).CurrentValues.SetValues(entity);
+                oldEnt.Employee = entity.Employee;
+                oldEnt.Tool = entity.Tool;
+                context.SaveChanges();
+            }
+        }
     }
 }

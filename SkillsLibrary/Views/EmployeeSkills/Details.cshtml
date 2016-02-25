@@ -1,4 +1,4 @@
-﻿@model Database.EmployeeSkill
+﻿@model SkillsLibrary.Models.EmployeeSkillModel
 
 @{
     ViewBag.Title = "Details";
@@ -7,9 +7,25 @@
 <h2>Details</h2>
 
 <div>
-    <h4>EmployeeSkill</h4>
+    <h4>Employee Skill</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            Employee 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeName)
+        </dd>
+
+        <dt>
+            Tool
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToolName)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Level)
         </dt>
