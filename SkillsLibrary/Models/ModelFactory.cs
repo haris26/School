@@ -54,5 +54,18 @@ namespace SkillsLibrary.Models
                 Experience = empSkill.Experience
             };
         }
+
+        public EmployeeEducationModel Create(EmployeeEducation empEdu)
+        {
+            return new EmployeeEducationModel()
+            {
+                Id = empEdu.Id,
+                Employee = empEdu.Employee.Id,
+                EmployeeName = empEdu.Employee.FirstName + " " + empEdu.Employee.LastName,
+                Education = empEdu.Education.Id,
+                EducationName = empEdu.Education.Name,
+                Reference = empEdu.Reference
+            };
+        }
     }
 }
