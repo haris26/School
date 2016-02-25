@@ -156,27 +156,21 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-
     <Compile Include="Controllers\CharacteristicNamesController.cs" />
     <Compile Include="Controllers\CharacteristicsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-
     <Compile Include="Controllers\EngagementsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
-
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-
     <Compile Include="Models\EngagementModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\ResourceModel.cs" />
-
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -226,7 +220,6 @@
     <Content Include="Views\Teams\Create.cshtml" />
     <Content Include="Views\Teams\Delete.cshtml" />
     <Content Include="Views\Teams\Details.cshtml" />
-
     <Content Include="Views\Teams\Edit.cshtml" />
     <Content Include="Views\Teams\Index.cshtml" />
     <Content Include="Views\Events\Create.cshtml" />
@@ -246,7 +239,6 @@
     <Content Include="Views\Edit.cshtml" />
     <Content Include="Views\CharacteristicNames\Edit.cshtml" />
     <Content Include="Views\CharacteristicNames\Index.cshtml" />
-
     <Content Include="Views\Resources\Delete.cshtml" />
     <Content Include="Views\Resources\Details.cshtml" />
     <Content Include="Views\Resources\Edit.cshtml" />
@@ -257,7 +249,6 @@
     <Content Include="Views\Engagements\Index.cshtml" />
     <Content Include="Views\Resources\Index.cshtml" />
     <Content Include="Views\Resources\Create.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
