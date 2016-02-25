@@ -16,11 +16,11 @@ namespace DataSeed
 
         public static void Seed()
         {
-            getCategories();            // assetCategory
-            getCharacteristicNames();   // assetCharacteristicNames
-            getAssets();                // assets
-            getCharacteristics();       // assetChar
-            getRequests();              // request
+            //getCategories();            // assetCategory
+            //getCharacteristicNames();   // assetCharacteristicNames
+            //getAssets();                // assets
+            //getCharacteristics();       // assetChar
+            //getRequests();              // request
             getHistory();               // historyR
             Console.ReadKey();
         }
@@ -83,7 +83,7 @@ namespace DataSeed
                 Asset resource = new Asset()
                 {
                     AssetCategory = category,
-                    Name = Utility.getString(row, 0),
+                   Name = Utility.getString(row, 0),
                     Vendor = Utility.getString(row, 1),
                     Model = Utility.getString(row, 3),
                     SerialNumber = Utility.getString(row, 4),
@@ -140,7 +140,7 @@ namespace DataSeed
             foreach (DataRow row in rawData.Rows)
             {
                 string asName = Utility.getString(row, 4);
-                Asset asset = context.Assets.FirstOrDefault(x => x.Name == asName);
+                Asset asset = context.Assets.FirstOrDefault(x => x.Model == asName);
                 string perName = Utility.getString(row, 5);
                 Person user = context.People.FirstOrDefault(x => x.FirstName == perName);
 
@@ -169,9 +169,10 @@ namespace DataSeed
             foreach (DataRow row in rawData.Rows)
             {
                 string asName = Utility.getString(row, 4);
-                Asset asset = context.Assets.FirstOrDefault(x => x.Name == asName);
+                Asset asset = context.Assets.Where(x => x.Model == asName).FirstOrDefault();
+    
                 string perName = Utility.getString(row, 5);
-                Person user = context.People.FirstOrDefault(x => x.FirstName == perName);
+                Person user = context.People.Where(x => x.FirstName == perName).FirstOrDefault();
 
                 History history = new History()
                 {
