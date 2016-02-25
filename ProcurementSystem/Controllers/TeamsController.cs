@@ -27,7 +27,7 @@ namespace ProcurementSystem.Controllers
         //        TeamModel model = factory.Create(team);
         //        teamList.Add(model);
         //    }
-       
+
         {
 
 
@@ -40,7 +40,7 @@ namespace ProcurementSystem.Controllers
             //}
 
             //return View(teamList);
-            
+
             return View(teams.Get().ToList().Select(x => factory.Create(x)).ToList());
         }
 
