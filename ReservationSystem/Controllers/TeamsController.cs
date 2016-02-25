@@ -13,7 +13,9 @@ namespace ReservationSystem.Controllers
 {
     public class TeamsController : Controller
     {
-        private Repository<Team> teams = new Repository<Team>(new SchoolContext());
+
+        private Repository<Team> teams = new Repository<Team>(new SchoolContext()); 
+
 
         // GET: Teams
         public ActionResult Index()
@@ -39,7 +41,6 @@ namespace ReservationSystem.Controllers
         // GET: Teams/Details/5
         public ActionResult Details(int id)
         {
-           
             Team team = teams.Get(id);
             if (team == null)
             {
@@ -66,14 +67,12 @@ namespace ReservationSystem.Controllers
                 teams.Insert(team);
                 return RedirectToAction("Index");
             }
-
             return View(team);
         }
 
         // GET: Teams/Edit/5
         public ActionResult Edit(int id)
         {
-            
             Team team = teams.Get(id);
             if (team == null)
             {
@@ -92,7 +91,6 @@ namespace ReservationSystem.Controllers
             if (ModelState.IsValid)
             {
                 teams.Update(team, team.Id);
-               
                 return RedirectToAction("Index");
             }
             return View(team);
@@ -101,7 +99,6 @@ namespace ReservationSystem.Controllers
         // GET: Teams/Delete/5
         public ActionResult Delete(int id)
         {
-            
             Team team = teams.Get(id);
             if (team == null)
             {
@@ -115,7 +112,6 @@ namespace ReservationSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            
             teams.Delete(id);
             return RedirectToAction("Index");
         }

@@ -156,13 +156,25 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CharacteristicNamesController.cs" />
+    <Compile Include="Controllers\CharacteristicsController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+
     <Compile Include="Controllers\RolesController.cs" />
+
+
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+
+    <Compile Include="Models\CharacteristicNameModel.cs" />
+    <Compile Include="Models\EntityParser.cs" />
+    <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\ModelFactory.cs" />
+
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -209,21 +221,29 @@
     <Content Include="Views\Test\Get.cshtml" />
     <Content Include="Views\Test\People.cshtml" />
     <Content Include="Views\Test\Person.cshtml" />
-    <Content Include="Views\Teams\Index.cshtml" />
-    <Content Include="Views\Teams\Edit.cshtml" />
-    <Content Include="Views\Teams\Delete.cshtml" />
     <Content Include="Views\Teams\Create.cshtml" />
+    <Content Include="Views\Teams\Delete.cshtml" />
     <Content Include="Views\Teams\Details.cshtml" />
-    <Content Include="Views\Teams1\Create.cshtml" />
-    <Content Include="Views\Teams1\Delete.cshtml" />
-    <Content Include="Views\Teams1\Details.cshtml" />
-    <Content Include="Views\Teams1\Edit.cshtml" />
-    <Content Include="Views\Teams1\Index.cshtml" />
-    <Content Include="Views\Roles\Create.cshtml" />
-    <Content Include="Views\Roles\Delete.cshtml" />
-    <Content Include="Views\Roles\Details.cshtml" />
-    <Content Include="Views\Roles\Edit.cshtml" />
-    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Teams\Edit.cshtml" />
+    <Content Include="Views\Teams\Index.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Characteristics\Create.cshtml" />
+    <Content Include="Views\Characteristics\Delete.cshtml" />
+    <Content Include="Views\Characteristics\Details.cshtml" />
+    <Content Include="Views\Characteristics\Edit.cshtml" />
+    <Content Include="Views\Characteristics\Index.cshtml" />
+    <Content Include="Views\CharacteristicNames\Create.cshtml" />
+    <Content Include="Views\CharacteristicNames\Delete.cshtml" />
+    <Content Include="Views\Details.cshtml" />
+    <Content Include="Views\CharacteristicNames\Details.cshtml" />
+    <Content Include="Views\Edit.cshtml" />
+    <Content Include="Views\CharacteristicNames\Edit.cshtml" />
+    <Content Include="Views\CharacteristicNames\Index.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

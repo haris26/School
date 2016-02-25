@@ -1,20 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace ReservationSystem.Models
 {
-    public class TeamModel
+    public class CharacteristicNameModel
     {
-        public TeamModel()
-        {
-
-            Members  = new List<string>();
-        }
-
         public int Id { get; set; }
         public string Name { get; set; }
-        public IList<string> Members { get; set; }
+        public int ResourceCategory { get; set; }
+        public string ResourceCategoryName { get; set; }
     }
 }
