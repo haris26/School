@@ -1,7 +1,4 @@
-
 ﻿@model IEnumerable<ProcurementSystem.Models.EngagementModel>
-
-
 
 @{
     ViewBag.Title = "Index";
@@ -20,18 +17,14 @@
         <th>
             @Html.DisplayNameFor(model => model.EndDate)
         </th>
-
-
         <th>Developer</th>
         <th>Role</th>
         <th>Team</th>
-
         <th>
             @Html.DisplayNameFor(model => model.Time)
         </th>
         <th></th>
     </tr>
-
 
 @foreach (var item in Model) {
     <tr>
@@ -41,6 +34,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.EndDate)
         </td>
+        <td>@Html.DisplayFor(modelItem => item.PersonName)</td>
+        <td>@Html.DisplayFor(modelItem => item.RoleName)</td>
+        <td>@Html.DisplayFor(modelItem => item.TeamName)</td>
         <td>
             @Html.DisplayFor(modelItem => item.Time)
         </td>
@@ -51,29 +47,5 @@
         </td>
     </tr>
 }
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>@Html.DisplayFor(modelItem => item.PersonName)</td>
-            <td>@Html.DisplayFor(modelItem => item.RoleName)</td>
-            <td>@Html.DisplayFor(modelItem => item.TeamName)</td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-
 
 </table>

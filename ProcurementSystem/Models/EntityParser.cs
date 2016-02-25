@@ -16,9 +16,12 @@ namespace ProcurementSystem.Models
         //    return new Engagement();
 
         //}
+
+        
+
         public Engagement Create(EngagementModel model, SchoolContext context)
         {
-         return   new Engagement()
+            return new Engagement()
 
             {
                 Id = model.Id,
@@ -43,6 +46,22 @@ namespace ProcurementSystem.Models
                 RequestDate = model.RequestDate,
                 Asset = context.Assets.Find(model.Asset),
                 User = context.People.Find(model.Person)
+
+            };
+        }
+
+        public History Create(HistoryModel history, SchoolContext context)
+        {
+            return new History()
+
+            {
+                Id = history.Id,
+                EventBegin = history.EventBegin,
+                EventEnd = history.EventEnd,
+                Description = history.Description,
+                Person = context.People.Find(history.Person),
+               
+                Asset = context.Assets.Find(history.Asset)
 
             };
         }

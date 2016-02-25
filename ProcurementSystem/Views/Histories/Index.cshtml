@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Database.History>
+﻿@model IEnumerable<ProcurementSystem.Models.HistoryModel>
+
+
 
 @{
     ViewBag.Title = "Index";
@@ -43,8 +45,8 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
 
-        <td>@Html.DisplayFor(modelItem => item.Person.FirstName)</td>
-        <td>@Html.DisplayFor(modelItem => item.Asset.Model)</td>
+        <td>@Html.DisplayFor(modelItem => item.PersonName)</td>
+        <td>@Html.DisplayFor(modelItem => item.AssetModel)</td>
 
         <td>
             @Html.DisplayFor(modelItem => item.Status)

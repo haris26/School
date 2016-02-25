@@ -1,7 +1,4 @@
-
-﻿@model Database.Engagement
-
-
+﻿@model ProcurementSystem.Models.EngagementModel
 
 @{
     ViewBag.Title = "Create";
@@ -9,13 +6,10 @@
 
 <h2>Create</h2>
 
-
-
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-
     <div class="form-horizontal">
         <h4>Engagement</h4>
         <hr />
@@ -37,7 +31,6 @@
         </div>
 
         <div class="form-group">
-
             <div class="control-label col-md-2">Person</div>
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Person, ViewBag.PeopleList as IEnumerable<SelectListItem>, new { @class = "form-control" })
@@ -59,7 +52,6 @@
         </div>
 
         <div class="form-group">
-
             @Html.LabelFor(model => model.Time, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" } })
@@ -78,9 +70,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
-

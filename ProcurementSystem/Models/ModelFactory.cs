@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using ProcurementSystem;
 
 namespace ProcurementSystem.Models
 
@@ -45,6 +45,7 @@ namespace ProcurementSystem.Models
             };
         }
 
+
         public RequestModel Create(Request request)
         {
             return new RequestModel()
@@ -61,5 +62,26 @@ namespace ProcurementSystem.Models
 
             };
         }
+
+        public HistoryModel Create(History history)
+        {
+            return new HistoryModel()
+            {
+                Id = history.Id,
+                EventBegin =history.EventBegin,
+                EventEnd = history.EventEnd,
+                Description =history.Description,
+                Person = history.Person.Id,
+                PersonName = history.Person.FirstName + " " + history.Person.LastName,
+                Asset=history.Asset.Id,
+                AssetModel=history.Asset.Model
+              
+
+            };
+        }
+
+
     }
+
+    
 }
