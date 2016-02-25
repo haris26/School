@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Beta\DateTimeFormat.cs" />
+    <Compile Include="Beta\EventTitleControl.cs" />
     <Compile Include="Charlie\Asset.cs" />
     <Compile Include="Charlie\AssetCategory.cs" />
     <Compile Include="Charlie\AssetChar.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Charlie\History.cs" />
     <Compile Include="DataAccess\HistoryUnit.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Omega\NameControl.cs" />
     <Compile Include="Omega\Person.cs" />
     <Compile Include="DataAccess\ProjectSkillUnit.cs" />
     <Compile Include="Charlie\Request.cs" />
