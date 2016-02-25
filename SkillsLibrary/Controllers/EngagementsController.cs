@@ -7,124 +7,87 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Database;
+using WorkforceRoster.Models;
+using SkillsLibrary.Models;
 
-namespace SkillsLibrary.Controllers
+namespace WorkforceRoster.Controllers
 {
     public class EngagementsController : Controller
     {
-        private SchoolContext db = new SchoolContext();
+        static SchoolContext context = new SchoolContext();
+        EngagementUnit engagements = new EngagementUnit(context);
+        Repository<Person> people = new Repository<Person>(context);
+        Repository<Team> teams = new Repository<Team>(context);
+        Repository<Role> roles = new Repository<Role>(context);
+        private ModelFactory factory = new ModelFactory();
+        private EntityParser parser = new EntityParser();
 
-        // GET: Engagements
         public ActionResult Index()
         {
-            return View(db.Engagements.ToList());
+            return View(engagements.Get().ToList().Select(x => factory.Create(x)).ToList());
         }
 
-        // GET: Engagements/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Engagement engagement = db.Engagements.Find(id);
-            if (engagement == null)
-            {
-                return HttpNotFound();
-            }
-            return View(engagement);
+            return View(factory.Create(engagements.Get(id)));
         }
 
-        // GET: Engagements/Create
         public ActionResult Create()
         {
+            FillBag();
             return View();
         }
 
-        // POST: Engagements/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,StartDate,EndDate,Time")] Engagement engagement)
+        public ActionResult Create(EngagementModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Engagements.Add(engagement);
-                db.SaveChanges();
+                engagements.Insert(parser.Create(model, context));
                 return RedirectToAction("Index");
             }
-
-            return View(engagement);
+            FillBag();
+            return View(model);
         }
 
-        // GET: Engagements/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Engagement engagement = db.Engagements.Find(id);
-            if (engagement == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.PeopleList = new SelectList(db.People.ToList(), "Id", "FirstName");
-            ViewBag.RolesList = new SelectList(db.Roles.ToList(), "Id", "Name");
-            ViewBag.TeamsList = new SelectList(db.Teams.ToList(), "Id", "Name");
-            return View(engagement);
+            FillBag();
+            return View(factory.Create(engagements.Get(id)));
         }
 
-        // POST: Engagements/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,StartDate,EndDate,Time")] Engagement engagement)
+        public ActionResult Edit(EngagementModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(engagement).State = EntityState.Modified;
-                db.SaveChanges();
+                engagements.Update(parser.Create(model, context), model.Id);
                 return RedirectToAction("Index");
             }
-            return View(engagement);
+            return View(model);
         }
 
-        // GET: Engagements/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Engagement engagement = db.Engagements.Find(id);
-            if (engagement == null)
-            {
-                return HttpNotFound();
-            }
-            return View(engagement);
+            Engagement engagement = engagements.Get(id);
+            return View(factory.Create(engagement));
         }
 
-        // POST: Engagements/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Engagement engagement = db.Engagements.Find(id);
-            db.Engagements.Remove(engagement);
-            db.SaveChanges();
+            engagements.Delete(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        void FillBag()
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            ViewBag.PeopleList = new SelectList(people.Get().ToList(), "Id", "FirstName");
+            ViewBag.RolesList = new SelectList(roles.Get().ToList(), "Id", "Name");
+            ViewBag.TeamsList = new SelectList(teams.Get().ToList(), "Id", "Name");
         }
     }
 }
