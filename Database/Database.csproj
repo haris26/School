@@ -50,8 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
     <Compile Include="Beta\DateTimeFormat.cs" />
     <Compile Include="Beta\EventTitleControl.cs" />
+
+    <Compile Include="Beta\ResourceControl.cs" />
+    <Compile Include="Beta\StatusControl.cs" />
+
     <Compile Include="Charlie\Asset.cs" />
     <Compile Include="Charlie\AssetCategory.cs" />
     <Compile Include="Charlie\AssetChar.cs" />

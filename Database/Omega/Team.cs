@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Database.Omega;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using Database.Omega;
+
+
 
 // WORKFORCE ROSTER
 namespace Database

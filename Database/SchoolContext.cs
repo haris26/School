@@ -31,5 +31,7 @@ namespace Database
         public DbSet<ResourceCategory> ResourceCategories { get; set; }
         public DbSet<CharacteristicName> CharacteristicNames { get; set; }
         public DbSet<SkillCategory> SkillCategories { get; set; }
+
+        //public System.Data.Entity.DbSet<ReservationSystem.Models.ResourceModel> ResourceModels { get; set; }
     }
 }
