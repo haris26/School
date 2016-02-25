@@ -162,13 +162,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
 
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RequestsController.cs" />
-    <Compile Include="Models\EngagementModel.cs" />
-    <Compile Include="Models\EntityParser.cs" />
-    <Compile Include="Models\ModelFactory.cs" />
+    
+   
+    
     <Compile Include="Models\RequestModel.cs" />
-    <Compile Include="Models\TeamModel.cs" />
+
 
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">

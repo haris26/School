@@ -40,8 +40,7 @@ namespace ProcurementSystem.Controllers
             //}
 
             //return View(teamList);
-
->>>>>>> c7a60bcd0e51fcc3ad44fac1de3e9139033c6a11
+            
             return View(teams.Get().ToList().Select(x => factory.Create(x)).ToList());
         }
 
