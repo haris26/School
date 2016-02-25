@@ -156,6 +156,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CharacteristicNamesController.cs" />
+    <Compile Include="Controllers\CharacteristicsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
@@ -222,6 +224,16 @@
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Characteristics\Create.cshtml" />
+    <Content Include="Views\Characteristics\Delete.cshtml" />
+    <Content Include="Views\Characteristics\Details.cshtml" />
+    <Content Include="Views\Characteristics\Edit.cshtml" />
+    <Content Include="Views\Characteristics\Index.cshtml" />
+    <Content Include="Views\CharacteristicNames\Create.cshtml" />
+    <Content Include="Views\CharacteristicNames\Delete.cshtml" />
+    <Content Include="Views\CharacteristicNames\Details.cshtml" />
+    <Content Include="Views\CharacteristicNames\Edit.cshtml" />
+    <Content Include="Views\CharacteristicNames\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

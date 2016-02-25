@@ -57,5 +57,17 @@ namespace ReservationSystem.Models
         //        RoleName = engagement.Role.Name
         //    };
         //}
+        //Irhad on ModelFactory
+        //public CharacteristicNameModel Create(CharacteristicName characteristicName)
+        //{
+        //    return new CharacteristicNameModel()
+        //    {
+        //        Id = characteristicName.Id,
+        //        Name = characteristicName.Name,
+        //        ResourceCategory = characteristicName.ResourceCategory.Id,
+        //        ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
+        //    };
+        //}
+  
     }
 }

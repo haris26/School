@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
+
 
 namespace Database
 {
@@ -18,6 +14,17 @@ namespace Database
             context.CharacteristicNames.Add(entity);
             context.Entry(entity.ResourceCategory).State = EntityState.Unchanged;
             context.SaveChanges();
+        }
+        public override void Update(CharacteristicName entity, int id)
+        {
+            CharacteristicName oldEntity = Get(id);
+            if (oldEntity != null)
+            {
+                context.Entry(oldEntity).CurrentValues.SetValues(entity);
+                oldEntity.ResourceCategory = entity.ResourceCategory;
+                context.SaveChanges();
+
+            }
         }
     }
 }
