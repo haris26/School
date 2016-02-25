@@ -44,5 +44,22 @@ namespace ProcurementSystem.Models
 
             };
         }
+
+        public RequestModel Create(Request request)
+        {
+            return new RequestModel()
+            {
+                Id = request.Id,
+                requestType = request.requestType,
+                RequestDescription = request.RequestDescription,
+                RequestMessage = request.RequestMessage,
+                RequestDate = request.RequestDate,
+                Asset = request.Asset.Id,
+                AssetModel = request.Asset.Model,
+                Person = request.User.Id,
+                PersonName = request.User.FirstName + " " + request.User.LastName
+
+            };
+        }
     }
 }

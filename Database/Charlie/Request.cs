@@ -15,7 +15,6 @@ namespace Database
         public RequestStatus Status { get; set; }                   // Status
         public List<Request> requests = new List<Request>();
         public virtual Asset Asset { get; set; }
-      
         public virtual Person User { get; set; }
     }
 

@@ -13,9 +13,11 @@ namespace ProcurementSystem.Models
         public string RequestDescription { get; set; }
         public string RequestMessage { get; set; }
         public DateTime RequestDate { get; set; }
-        public RequestStatus Status { get; set; }
-        
-        public virtual Asset Asset { get; set; }
-        public virtual Person User { get; set; }
+        public RequestStatus Status { get; set; }  
+        public int Asset { get; set; }
+        public string AssetModel { get; set; }
+        public int Person { get; set; }
+        public string PersonName { get; set; }
+
     }
 }
