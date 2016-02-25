@@ -44,5 +44,25 @@ namespace ProcurementSystem.Models
 
             };
         }
+
+        public HistoryModel Create(History history)
+        {
+            return new HistoryModel()
+            {
+                Id = history.Id,
+                EventBegin =history.EventBegin,
+                EventEnd = history.EventEnd,
+                Description =history.Description,
+                Person = history.Person.Id,
+                PersonName = history.Person.FirstName + " " + history.Person.LastName,
+                Asset=history.Asset.Id,
+                AssetModel=history.Asset.Model
+              
+
+            };
+        }
+
     }
+
+    
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    class HistoryUnit : Repository<History>
+    public class HistoryUnit : Repository<History>
     {
         public HistoryUnit(SchoolContext context) : base(context)
         {

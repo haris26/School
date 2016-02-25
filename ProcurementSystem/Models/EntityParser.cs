@@ -34,5 +34,21 @@ namespace ProcurementSystem.Models
 
 
         }
+
+        public History Create(HistoryModel history, SchoolContext context)
+        {
+            return new History()
+
+            {
+                Id = history.Id,
+                EventBegin = history.EventBegin,
+                EventEnd = history.EventEnd,
+                Description = history.Description,
+                Person = context.People.Find(history.Person),
+               
+                Asset = context.Assets.Find(history.Asset)
+
+            };
+        }
     }
 }

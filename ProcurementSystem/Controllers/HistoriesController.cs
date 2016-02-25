@@ -7,124 +7,102 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Database;
+using ProcurementSystem.Models;
 
 namespace ProcurementSystem.Controllers
 {
     public class HistoriesController : Controller
     {
-        private SchoolContext db = new SchoolContext();
+       
 
-        // GET: Histories
+        static SchoolContext context = new SchoolContext();
+        HistoryUnit histories = new HistoryUnit(context);
+        Repository<Asset> assets = new Repository<Asset>(context);
+        Repository<Person> people = new Repository<Person>(context);
+
+        private ModelFactory factory = new ModelFactory();
+        private EntityParser parser = new EntityParser();
+
         public ActionResult Index()
         {
-            return View(db.Histories.ToList());
+            return View(histories.Get().ToList().Select(x => factory.Create(x)).ToList());
         }
 
-        // GET: Histories/Details/5
-        public ActionResult Details(int? id)
+        // GET: Histories1/Details/5
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            History history = db.Histories.Find(id);
-            if (history == null)
-            {
-                return HttpNotFound();
-            }
-            return View(history);
+            return View(factory.Create(histories.Get(id)));
         }
 
-        // GET: Histories/Create
         public ActionResult Create()
         {
+            FillBag();
             return View();
         }
 
-        // POST: Histories/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,EventBegin,EventEnd,Description,Status")] History history)
+        public ActionResult Create(HistoryModel historymodel)
         {
             if (ModelState.IsValid)
             {
-                db.Histories.Add(history);
-                db.SaveChanges();
+
+                histories.Insert(parser.Create(historymodel, context));
                 return RedirectToAction("Index");
             }
-
-            return View(history);
+            FillBag();
+            return View(historymodel);
         }
 
-        // GET: Histories/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            History history = histories.Get(id);
+           HistoryModel historymodel = new HistoryModel()
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            History history = db.Histories.Find(id);
-            if (history == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.PeopleList = new SelectList(db.People.ToList(), "Id", "FirstName");
-            ViewBag.AssetList = new SelectList(db.Assets.ToList(), "Id", "Model");
+                Id = history.Id,
+                EventBegin = history.EventBegin,
+                EventEnd=history.EventBegin,
+                Description=history.Description,
+                Person = history.Person.Id,
             
-            return View(history);
+               Asset= history.Asset.Id
+            };
+            FillBag();
+            return View(historymodel);
         }
 
-        // POST: Histories/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,EventBegin,EventEnd,Description,Status")] History history)
+        public ActionResult Edit(HistoryModel historymodel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(history).State = EntityState.Modified;
-                db.SaveChanges();
+
+                histories.Update(parser.Create(historymodel, context), historymodel.Id);
                 return RedirectToAction("Index");
             }
-            return View(history);
+            return View(historymodel);
         }
 
-        // GET: Histories/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            History history = db.Histories.Find(id);
-            if (history == null)
-            {
-                return HttpNotFound();
-            }
-            return View(history);
+            History history = histories.Get(id);
+            return View(factory.Create(history));
         }
 
-        // POST: Histories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            History history = db.Histories.Find(id);
-            db.Histories.Remove(history);
-            db.SaveChanges();
+            histories.Delete(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        void FillBag()
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            ViewBag.PeopleList = new SelectList(people.Get().ToList(), "Id", "FirstName");
+            ViewBag.RolesList = new SelectList(assets.Get().ToList(), "Id", "Name");
+           
         }
     }
 }
