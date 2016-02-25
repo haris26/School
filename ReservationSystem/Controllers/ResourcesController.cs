@@ -11,98 +11,89 @@ using ReservationSystem.Models;
 
 namespace ReservationSystem.Controllers
 {
-    public class TeamsController : Controller
+    public class ResourcesController : Controller
     {
-        private Repository<Team> teams = new Repository<Team>(new SchoolContext());
+        static SchoolContext context = new SchoolContext();
+        ResourceUnit resources = new ResourceUnit(context);
+        private Repository<ResourceCategory> resourceCat = new Repository<ResourceCategory>(context);
         private ModelFactory factory = new ModelFactory();
+        private EntityParser parser = new EntityParser();
 
-        // GET: Teams
+        // GET: Resources
         public ActionResult Index()
         {
-            //List<TeamModel> teamList = new List<TeamModel>();
-            //var teamCol = teams.Get().ToList();
-            //foreach (var team in teamCol)
-            //{
-            //    TeamModel model = factory.Create(team);
-            //    teamList.Add(model);
-            //}
-            //return View(teamList);
-
-            return View(teams.Get().ToList().Select(x => factory.Create(x)).ToList());
+            return View(resources.Get().ToList().Select(x => factory.Create(x)).ToList());
         }
 
-        // GET: Teams/Details/5
+        // GET: Resources/Details/5
         public ActionResult Details(int id)
         {
-
-            return View(factory.Create(teams.Get(id)));
+            return View(factory.Create(resources.Get(id)));
         }
 
-        // GET: Teams/Create
+        // GET: Resources/Create
         public ActionResult Create()
         {
+            FillBag();
             return View();
         }
 
-        // POST: Teams/Create
+        // POST: Resources/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Type")] Team team)
+        public ActionResult Create(ResourceModel model)
         {
             if (ModelState.IsValid)
             {
-                teams.Insert(team);
+                resources.Insert(parser.Create(model, context));
                 return RedirectToAction("Index");
             }
-
-            return View(team);
+            FillBag();
+            return View(model);
         }
 
-        // GET: Teams/Edit/5
+        // GET: Resources/Edit/5
         public ActionResult Edit(int id)
         {
-            
-            Team team = teams.Get(id);
-            if (team == null)
-            {
-                return HttpNotFound();
-            }
-            return View(team);
+            FillBag();
+            return View(factory.Create(resources.Get(id)));
         }
 
-        // POST: Teams/Edit/5
+        // POST: Resources/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Type")] Team team)
+        public ActionResult Edit(ResourceModel model)
         {
             if (ModelState.IsValid)
             {
-                teams.Update(team, team.Id);
-               
+                resources.Update(parser.Create(model, context), model.Id);
                 return RedirectToAction("Index");
             }
-            return View(team);
+            return View(model);
         }
 
-        // GET: Teams/Delete/5
+        // GET: Resources/Delete/5
         public ActionResult Delete(int id)
         {
-
-            return View(teams.Get(id));
+            Resource resource = resources.Get(id);
+            return View(factory.Create(resource));
         }
 
-        // POST: Teams/Delete/5
+        // POST: Resources/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            
-            teams.Delete(id);
+            resources.Delete(id);
             return RedirectToAction("Index");
+        }
+        void FillBag()
+        {
+            ViewBag.ResourceCatList = new SelectList(resourceCat.Get().ToList(), "Id", "CategoryName");
         }
     }
 }
