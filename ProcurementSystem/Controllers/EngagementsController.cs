@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Database;
 using ProcurementSystem.Models;
 
+
 namespace ProcurementSystem.Controllers
 {
     public class EngagementsController : Controller
@@ -43,8 +44,10 @@ namespace ProcurementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-               
-                engagements.Insert(parser.Create(model,context));
+
+
+                engagements.Insert(parser.Create(model, context));
+
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -74,8 +77,10 @@ namespace ProcurementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-               
-                engagements.Update(parser.Create(model,context),model.Id);
+
+
+                engagements.Update(parser.Create(model, context), model.Id);
+
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -102,4 +107,6 @@ namespace ProcurementSystem.Controllers
             ViewBag.TeamsList = new SelectList(teams.Get().ToList(), "Id", "Name");
         }
     }
+
 }
+

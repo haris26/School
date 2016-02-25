@@ -4,14 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace ProcurementSystem.Models
 {
     public class EntityParser
     {
+
         public Engagement Create(EngagementModel model, SchoolContext context)
         {
 
             return new Engagement()
+
+
+        public Engagement Create(EngagementModel model, SchoolContext context)
+        {
+         return   new Engagement()
+
             {
                 Id = model.Id,
                 StartDate = model.StartDate,
@@ -22,6 +30,8 @@ namespace ProcurementSystem.Models
                 Role = context.Roles.Find(model.Role)
 
             };
+
+
         }
     }
 }

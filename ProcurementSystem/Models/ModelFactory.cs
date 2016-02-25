@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace ProcurementSystem.Models
+
 {
     public class ModelFactory
     {
@@ -37,7 +39,9 @@ namespace ProcurementSystem.Models
                 Team = engagement.Team.Id,
                 TeamName = engagement.Team.Name,
                 Role = engagement.Role.Id,
-                RoleName = engagement.Role.Name 
+
+                RoleName = engagement.Role.Name
+
             };
         }
     }
