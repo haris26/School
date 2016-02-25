@@ -16,12 +16,12 @@ namespace DataSeed
 
         public static void Seed()
         {
-            getCategories();            // assetCategory
-            getCharacteristicNames();   // assetCharacteristicNames
-            getAssets();                // assets
-            getCharacteristics();       // assetChar
+            //getCategories();            // assetCategory
+            //getCharacteristicNames();   // assetCharacteristicNames
+            //getAssets();                // assets
+            //getCharacteristics();       // assetChar
             getRequests();              // request
-            getHistory();               // historyR
+            //getHistory();               // historyR
             Console.ReadKey();
         }
 
@@ -139,9 +139,10 @@ namespace DataSeed
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
-                string asName = Utility.getString(row, 4);
-                Asset asset = context.Assets.FirstOrDefault(x => x.Name == asName);
-                string perName = Utility.getString(row, 5);
+
+                string asName = Utility.getString(row, 5);
+                Asset asset = context.Assets.FirstOrDefault(x => x.Model == asName);
+                string perName = Utility.getString(row, 6);
                 Person user = context.People.FirstOrDefault(x => x.FirstName == perName);
 
                 Request request = new Request()
@@ -150,8 +151,9 @@ namespace DataSeed
                     Asset = asset,
                     requestType = (RequestType)Utility.getInteger(row, 0),
                     RequestMessage = Utility.getString(row, 1),
-                    RequestDate = Utility.getDate(row, 2),
-                    Status = (RequestStatus)Utility.getInteger(row, 3)
+                    RequestDescription = Utility.getString(row,2),
+                    RequestDate = Utility.getDate(row, 3),
+                    Status = (RequestStatus)Utility.getInteger(row, 4)
                 };
                 N++;
                 context.Requests.Add(request);
@@ -169,7 +171,7 @@ namespace DataSeed
             foreach (DataRow row in rawData.Rows)
             {
                 string asName = Utility.getString(row, 4);
-                Asset asset = context.Assets.FirstOrDefault(x => x.Name == asName);
+                Asset asset = context.Assets.FirstOrDefault(x => x.Model == asName);
                 string perName = Utility.getString(row, 5);
                 Person user = context.People.FirstOrDefault(x => x.FirstName == perName);
 
