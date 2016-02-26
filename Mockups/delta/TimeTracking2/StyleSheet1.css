@@ -1,0 +1,50 @@
+﻿body {
+}
+
+.table-content {
+    text-align: center;
+    margin-top:10px;
+}
+
+    .table-content .row {
+        min-height: 32px;
+    }
+
+    .table-content .form-control {
+        height: 30px;
+        padding: 2px;
+        padding-left: 5px;
+    }
+    .table-content button {
+        background-color:#99BFE6;
+    }
+h2 {
+    color:#99BFE6;
+}
+.navbar-default {
+    background-color: #99BFE6;
+    text-decoration-color: black;
+    margin-top: 0px;
+}
+
+.navbar-nav {
+    margin-top: 12px;
+    padding-top: 0px;
+}
+
+.navbar-brand {
+    padding-top: 0px;
+}
+
+.navbar-nav li:hover {
+    background-color: #d3d3d3;
+}
+
+.container .table-content:nth-child(n+2) .row:first-child {
+    display: none;
+}
+
+.total-row .col-md-1{
+    padding: 0;
+    margin-top: 5px;
+}

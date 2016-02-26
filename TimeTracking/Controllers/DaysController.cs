@@ -78,7 +78,7 @@ namespace TimeTracking.Controllers
             if (ModelState.IsValid)
             {
 
-                days.Update(parser.Edit(model, context), model.Id);
+                days.Update(parser.Create(model, context), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);

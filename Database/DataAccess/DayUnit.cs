@@ -2,7 +2,7 @@
 
 namespace Database
 {
-    public class DayUnit: Repository<Day>
+    public class DayUnit : Repository<Day>
     {
         public DayUnit(SchoolContext context) : base(context) { }
 

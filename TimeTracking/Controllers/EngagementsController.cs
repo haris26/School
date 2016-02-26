@@ -12,7 +12,7 @@ using TimeTracking.Models;
 
 namespace TimeTracking.Controllers
 {
-    public class EngagementsController : BaseController
+    public class EngagementsController : Controller
     {
         static SchoolContext context = new SchoolContext();
         EngagementUnit engagements = new EngagementUnit(context);
@@ -24,10 +24,6 @@ namespace TimeTracking.Controllers
 
         public ActionResult Index()
         {
-            //EngagementUnit engagements = new EngagementUnit(context);
-            //var engList = engagements.Get().ToList();
-            //var modelList = engList.Select(x => Factory.Create(x)).ToList();
-            //return View(modelList);
             return View(engagements.Get().ToList().Select(x => factory.Create(x)).ToList());
         }
 

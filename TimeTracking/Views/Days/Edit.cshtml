@@ -1,5 +1,4 @@
-﻿@*@model Database.Day*@
-@model TimeTracking.Models.DayModel
+﻿@model Database.Day
 
 @{
     ViewBag.Title = "Edit";
@@ -16,13 +15,6 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
-
-        <div class="form-group">
-            <div class="control-label col-md-2"><b>Person</b></div>
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Person, ViewBag.PeopleList as IEnumerable<SelectListItem>, new { @class = "form-control" })
-            </div>
-        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })

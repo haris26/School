@@ -9,13 +9,6 @@ namespace TimeTracking.Models
 {
     public class ModelFactory
     {
-        private SchoolContext context;
-
-        public ModelFactory(SchoolContext ctx)
-        {
-            context = ctx;
-        }
-
         public TeamModel Create(Team team)
         {
             TeamModel model = new TeamModel()

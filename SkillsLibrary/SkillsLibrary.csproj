@@ -156,29 +156,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\EducationsController.cs" />
-    <Compile Include="Controllers\EmployeeEducationsController.cs" />
-    <Compile Include="Controllers\EmployeeSkillsController.cs" />
-    <Compile Include="Controllers\EngagementsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProjectSkillsController.cs" />
-    <Compile Include="Controllers\SkillCategoriesController.cs" />
-    <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
-    <Compile Include="Controllers\ToolsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmployeeEducationModel.cs" />
-    <Compile Include="Models\EmployeeSkillModel.cs" />
-    <Compile Include="Models\EngagementModel.cs" />
-    <Compile Include="Models\EntityParser.cs" />
-    <Compile Include="Models\ModelFactory.cs" />
-    <Compile Include="Models\ProjectSkillModel.cs" />
-    <Compile Include="Models\SkillCategoryModel.cs" />
-    <Compile Include="Models\TeamModel.cs" />
-    <Compile Include="Models\ToolModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -224,49 +206,10 @@
     <Content Include="Views\Test\Get.cshtml" />
     <Content Include="Views\Test\Person.cshtml" />
     <Content Include="Views\Test\People.cshtml" />
-    <Content Include="Views\Teams\Create.cshtml" />
-    <Content Include="Views\Teams\Delete.cshtml" />
-    <Content Include="Views\Teams\Details.cshtml" />
-    <Content Include="Views\Teams\Edit.cshtml" />
-    <Content Include="Views\Teams\Index.cshtml" />
-    <Content Include="Views\SkillCategories\Create.cshtml" />
-    <Content Include="Views\SkillCategories\Delete.cshtml" />
-    <Content Include="Views\SkillCategories\Details.cshtml" />
-    <Content Include="Views\SkillCategories\Edit.cshtml" />
-    <Content Include="Views\SkillCategories\Index.cshtml" />
-    <Content Include="Views\Educations\Create.cshtml" />
-    <Content Include="Views\Educations\Delete.cshtml" />
-    <Content Include="Views\Educations\Details.cshtml" />
-    <Content Include="Views\Educations\Edit.cshtml" />
-    <Content Include="Views\Educations\Index.cshtml" />
-    <Content Include="Views\Engagements\Create.cshtml" />
-    <Content Include="Views\Engagements\Delete.cshtml" />
-    <Content Include="Views\Engagements\Details.cshtml" />
-    <Content Include="Views\Engagements\Edit.cshtml" />
-    <Content Include="Views\Engagements\Index.cshtml" />
-    <Content Include="Views\EmployeeSkills\Create.cshtml" />
-    <Content Include="Views\EmployeeSkills\Delete.cshtml" />
-    <Content Include="Views\EmployeeSkills\Details.cshtml" />
-    <Content Include="Views\EmployeeSkills\Edit.cshtml" />
-    <Content Include="Views\EmployeeSkills\Index.cshtml" />
-    <Content Include="Views\EmployeeEducations\Create.cshtml" />
-    <Content Include="Views\EmployeeEducations\Delete.cshtml" />
-    <Content Include="Views\EmployeeEducations\Details.cshtml" />
-    <Content Include="Views\EmployeeEducations\Edit.cshtml" />
-    <Content Include="Views\EmployeeEducations\Index.cshtml" />
-    <Content Include="Views\ProjectSkills\Create.cshtml" />
-    <Content Include="Views\ProjectSkills\Delete.cshtml" />
-    <Content Include="Views\ProjectSkills\Details.cshtml" />
-    <Content Include="Views\ProjectSkills\Edit.cshtml" />
-    <Content Include="Views\ProjectSkills\Index.cshtml" />
-    <Content Include="Views\Tools\Create.cshtml" />
-    <Content Include="Views\Tools\Delete.cshtml" />
-    <Content Include="Views\Tools\Details.cshtml" />
-    <Content Include="Views\Tools\Edit.cshtml" />
-    <Content Include="Views\Tools\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

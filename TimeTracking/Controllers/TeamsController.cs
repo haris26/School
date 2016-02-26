@@ -19,7 +19,15 @@ namespace TimeTracking.Controllers
 
         public ActionResult Index()
         {
-           return View(teams.Get().ToList().Select(x => factory.Create(x)).ToList());
+            //List<TeamModel> teamList = new List<TeamModel>();
+            //var teamsCol = teams.Get().ToList();
+            //foreach(var team in teamsCol)
+            //{
+            //    TeamModel model = factory.Create(team);
+            //    teamList.Add(model);
+            //}
+            //return View(teamList);
+            return View(teams.Get().ToList().Select(x => factory.Create(x)).ToList());
         }
 
         public ActionResult Details(int id)
