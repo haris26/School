@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Database.Request>
+﻿@model IEnumerable<ProcurementSystem.Models.RequestModel>
 
 
 @{
@@ -54,10 +54,10 @@
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Asset.Model)
+            @Html.DisplayFor(modelItem => item.AssetModel)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.User.FirstName)
+            @Html.DisplayFor(modelItem => item.PersonName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

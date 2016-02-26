@@ -13,62 +13,55 @@ namespace ProcurementSystem.Controllers
 {
     public class RequestsController : Controller
     {
-        private Repository<Request> requests = new Repository<Request>(new SchoolContext());
+
+        static SchoolContext context = new SchoolContext();
+        RequestUnit requests = new RequestUnit(context);
+        Repository<Person> people = new Repository<Person>(context);
+        Repository<Asset> assets = new Repository<Asset>(context);
+        private ModelFactory factory = new ModelFactory();
+        private EntityParser parser = new EntityParser();
+
 
         // GET: Requests
         public ActionResult Index()
         {
-            IList<RequestModel> requestList = new List<RequestModel>();
-            var requestCol = requests.Get().ToList();
-            foreach(var request in requestCol)
-            {
-                RequestModel requestModel = new RequestModel()
-                {
-                    Id = request.Id,
-                    requestType = request.requestType,
-                    RequestDescription = request.RequestDescription,
-                    RequestMessage = request.RequestMessage,
-                    RequestDate = request.RequestDate,
-                    Asset = request.Asset,
-                    User = request.User
-                };
-            }
-            return View(requestCol);
+           
+           
+            return View(requests.Get().ToList().Select(x => factory.Create(x)).ToList());
         }
 
       //  GET: Requests/Details/5
         public ActionResult Details(int id)
         {
-          
-            Request request = requests.Get(id);
-            if (request == null)
-            {
-                return HttpNotFound();
-            }
-            return View(request);
+           
+           
+            return View(factory.Create(requests.Get(id)));
         }
 
       //  GET: Requests/Create
         public ActionResult Create()
         {
+            FillBag();
             return View();
         }
 
-      //  POST: Requests/Create
-      //  To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-      //   more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //  POST: Requests/Create
+        //  To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //   more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,requestType,RequestMessage,RequestDescription,RequestDate,Status")] Request request)
+        public ActionResult Create(RequestModel model)
         {
             if (ModelState.IsValid)
             {
-                requests.Insert(request);
+                requests.Insert(parser.Create(model, context));
                
                 return RedirectToAction("Index");
             }
-
-            return View(request);
+            FillBag();
+            return View(model);
         }
 
    //     GET: Requests/Edit/5
@@ -76,11 +69,19 @@ namespace ProcurementSystem.Controllers
         {
             
             Request request = requests.Get(id);
-            if (request == null)
+            RequestModel model = new RequestModel()
             {
-                return HttpNotFound();
-            }
-            return View(request);
+                Id = request.Id,
+                requestType = request.requestType,
+                RequestDescription = request.RequestDescription,
+                RequestMessage = request.RequestMessage,
+                RequestDate = request.RequestDate,
+                Asset = request.Asset.Id,  
+                Person = request.User.Id,
+              
+            };
+            FillBag();
+            return View(model);
         }
 
       //  POST: Requests/Edit/5
@@ -88,28 +89,27 @@ namespace ProcurementSystem.Controllers
       //   more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,requestType,RequestMessage,RequestDescription,RequestDate,Status")] Request request)
+        public ActionResult Edit( RequestModel model)
         {
             if (ModelState.IsValid)
             {
-                requests.Update(request, request.Id);
+                requests.Update(parser.Create(model, context), model.Id);
                 
                 return RedirectToAction("Index");
             }
-            return View(request);
+            return View(model);
         }
+
 
     //    GET: Requests/Delete/5
         public ActionResult Delete(int id)
         {
            
             Request request = requests.Get(id);
-            if (request == null)
-            {
-                return HttpNotFound();
-            }
-            return View(request);
+            return View(factory.Create(request));
         }
+
+
 
     //    POST: Requests/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -120,13 +120,10 @@ namespace ProcurementSystem.Controllers
             return RedirectToAction("Index");
         }
 
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        db.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
+        void FillBag()
+        {
+            ViewBag.PeopleList = new SelectList(people.Get().ToList(), "Id", "FirstName");
+            ViewBag.AssetsList = new SelectList(assets.Get().ToList(), "Id", "Model");
+        }
     }
 }

@@ -14,9 +14,11 @@ namespace ProcurementSystem.Models
         //{
 
         //    return new Engagement();
+
         //}
 
         
+
         public Engagement Create(EngagementModel model, SchoolContext context)
         {
             return new Engagement()
@@ -31,8 +33,21 @@ namespace ProcurementSystem.Models
                 Role = context.Roles.Find(model.Role)
 
             };
+        }
 
+        public Request Create(RequestModel model, SchoolContext context)
+        {
+            return new Request()
+            {
+                Id = model.Id,
+                requestType = model.requestType,
+                RequestDescription = model.RequestDescription,
+                RequestMessage = model.RequestMessage,
+                RequestDate = model.RequestDate,
+                Asset = context.Assets.Find(model.Asset),
+                User = context.People.Find(model.Person)
 
+            };
         }
 
         public History Create(HistoryModel history, SchoolContext context)

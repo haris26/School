@@ -41,6 +41,7 @@ namespace ProcurementSystem.Controllers
 
             //return View(teamList);
 
+
             return View(teams.Get().ToList().Select(x => factory.Create(x)).ToList());
         }
 
