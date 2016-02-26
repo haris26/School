@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿using Database.Delta;
+=======
+﻿using Database.Omega;
+>>>>>>> d91397fbf5ea5f54e285b8f436de6ec4907ef9c7
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;

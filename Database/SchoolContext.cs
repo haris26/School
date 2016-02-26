@@ -4,7 +4,11 @@ namespace Database
 {
     public class SchoolContext: DbContext
     {
+<<<<<<< HEAD
         public SchoolContext(): base(/*"name=School"*/)
+=======
+        public SchoolContext(): base()
+>>>>>>> d91397fbf5ea5f54e285b8f436de6ec4907ef9c7
         { }
 
         public DbSet<Asset> Assets { get; set; }
