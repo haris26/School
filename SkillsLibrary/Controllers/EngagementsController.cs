@@ -1,34 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using Database;
 using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Database;
 using SkillsLibrary.Models;
 
 namespace SkillsLibrary.Controllers
 {
-    public class EngagementsController : Controller
+    public class EngagementsController : BaseController
     {
-        static SchoolContext context = new SchoolContext();
-        EngagementUnit engagements = new EngagementUnit(context);
-        Repository<Person> people = new Repository<Person>(context);
-        Repository<Team> teams = new Repository<Team>(context);
-        Repository<Role> roles = new Repository<Role>(context);
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
-
         public ActionResult Index()
         {
-            return View(engagements.Get().ToList().Select(x => factory.Create(x)).ToList());
+            return View(new EngagementUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
         public ActionResult Details(int id)
         {
-            return View(factory.Create(engagements.Get(id)));
+            return View(Factory.Create(new EngagementUnit(Context).Get(id)));
         }
 
         public ActionResult Create()
@@ -43,7 +29,7 @@ namespace SkillsLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                engagements.Insert(parser.Create(model, context));
+                new EngagementUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -53,7 +39,7 @@ namespace SkillsLibrary.Controllers
         public ActionResult Edit(int id)
         {
             FillBag();
-            return View(factory.Create(engagements.Get(id)));
+            return View(Factory.Create(new EngagementUnit(Context).Get(id)));
         }
 
         [HttpPost]
@@ -62,7 +48,7 @@ namespace SkillsLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                engagements.Update(parser.Create(model, context), model.Id);
+                new EngagementUnit(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -70,23 +56,22 @@ namespace SkillsLibrary.Controllers
 
         public ActionResult Delete(int id)
         {
-            Engagement engagement = engagements.Get(id);
-            return View(factory.Create(engagement));
+            return View(Factory.Create(new EngagementUnit(Context).Get(id)));
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            engagements.Delete(id);
+            new EngagementUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
         void FillBag()
         {
-            ViewBag.PeopleList = new SelectList(people.Get().ToList(), "Id", "FirstName");
-            ViewBag.RolesList = new SelectList(roles.Get().ToList(), "Id", "Name");
-            ViewBag.TeamsList = new SelectList(teams.Get().ToList(), "Id", "Name");
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
+            ViewBag.RolesList = new SelectList(new Repository<Team>(Context).Get().ToList(), "Id", "Name");
+            ViewBag.TeamsList = new SelectList(new Repository<Role>(Context).Get().ToList(), "Id", "Name");
         }
     }
 }

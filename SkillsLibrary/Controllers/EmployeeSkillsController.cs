@@ -11,25 +11,19 @@ using SkillsLibrary.Models;
 
 namespace SkillsLibrary.Controllers
 {
-    public class EmployeeSkillsController : Controller
+    public class EmployeeSkillsController : BaseController
     {
-        static SchoolContext context = new SchoolContext();
-        EmployeeSkillUnit employeeSkills = new EmployeeSkillUnit(context);
-        Repository<Tool> tools = new Repository<Tool>(context);
-        Repository<Person> employees = new Repository<Person>(context);
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
 
         // GET: EmployeeSkills
         public ActionResult Index()
         {
-            return View(employeeSkills.Get().ToList().Select(x => factory.Create(x)).ToList());
+            return View(new EmployeeSkillUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
         // GET: EmployeeSkills/Details/5
         public ActionResult Details(int id)
         {
-            return View(factory.Create(employeeSkills.Get(id)));
+            return View(Factory.Create(new EmployeeSkillUnit(Context).Get(id)));
         }
 
         // GET: EmployeeSkills/Create
@@ -48,7 +42,7 @@ namespace SkillsLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                employeeSkills.Insert(parser.Create(model, context));
+                new EmployeeSkillUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -59,7 +53,7 @@ namespace SkillsLibrary.Controllers
         public ActionResult Edit(int id)
         {
             FillBag();
-            return View(factory.Create(employeeSkills.Get(id)));
+            return View(Factory.Create(new EmployeeSkillUnit(Context).Get(id)));
         }
 
         // POST: EmployeeSkills/Edit/5
@@ -71,7 +65,7 @@ namespace SkillsLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                employeeSkills.Update(parser.Create(model, context), model.Id);
+                new EmployeeSkillUnit(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -81,8 +75,8 @@ namespace SkillsLibrary.Controllers
         // GET: EmployeeSkills/Delete/5
         public ActionResult Delete(int id)
         {
-            EmployeeSkill employeeSkill = employeeSkills.Get(id);
-            return View(factory.Create(employeeSkill));
+            EmployeeSkill employeeSkill = new EmployeeSkillUnit(Context).Get(id);
+            return View(Factory.Create(employeeSkill));
         }
 
         // POST: EmployeeSkills/Delete/5
@@ -90,14 +84,14 @@ namespace SkillsLibrary.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            employeeSkills.Delete(id);
+            new EmployeeSkillUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
         void FillBag()
         {
-            ViewBag.PeopleList = new SelectList(employees.Get().ToList(), "Id", "FirstName");
-            ViewBag.ToolsList = new SelectList(tools.Get().ToList(), "Id", "Name");
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
+            ViewBag.ToolsList = new SelectList(new Repository<Tool>(Context).Get().ToList(), "Id", "Name");
         }
     }
 }

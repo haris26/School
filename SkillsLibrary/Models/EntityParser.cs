@@ -8,7 +8,17 @@ namespace SkillsLibrary.Models
 {
     public class EntityParser
     {
-        public Engagement Create(EngagementModel model, SchoolContext context)
+        private SchoolContext context;
+
+        public EntityParser()
+        { }
+
+        public EntityParser(SchoolContext ctx)
+        {
+            context = ctx;
+        }
+
+        public Engagement Create(EngagementModel model)
         {
             return new Engagement()
             {
@@ -22,7 +32,7 @@ namespace SkillsLibrary.Models
             };
         }
 
-        public EmployeeSkill Create (EmployeeSkillModel model, SchoolContext context)
+        public EmployeeSkill Create (EmployeeSkillModel model)
         {
             return new EmployeeSkill()
             {
@@ -34,7 +44,7 @@ namespace SkillsLibrary.Models
             };
         }
 
-        public EmployeeEducation Create(EmployeeEducationModel model, SchoolContext context)
+        public EmployeeEducation Create(EmployeeEducationModel model)
         {
             return new EmployeeEducation()
             {
@@ -45,7 +55,7 @@ namespace SkillsLibrary.Models
             };
         }
 
-        public ProjectSkill Create(ProjectSkillModel model, SchoolContext context)
+        public ProjectSkill Create(ProjectSkillModel model)
         {
             return new ProjectSkill()
             {
@@ -56,7 +66,7 @@ namespace SkillsLibrary.Models
             };
         }
 
-        public Tool Create(ToolModel model, SchoolContext context)
+        public Tool Create(ToolModel model)
         {
             return new Tool()
             {

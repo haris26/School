@@ -8,6 +8,16 @@ namespace SkillsLibrary.Models
 {
     public class ModelFactory
     {
+        private SchoolContext context;
+
+        public ModelFactory()
+        {}
+
+        public ModelFactory(SchoolContext ctx)
+        {
+            context = ctx;
+        }
+
         public TeamModel Create(Team team)
         {
             TeamModel model = new TeamModel()

@@ -11,25 +11,18 @@ using SkillsLibrary.Models;
 
 namespace SkillsLibrary.Controllers
 {
-    public class ProjectSkillsController : Controller
+    public class ProjectSkillsController : BaseController
     {
-        static SchoolContext context = new SchoolContext();
-        ProjectSkillUnit projectSkills = new ProjectSkillUnit(context);
-        Repository<Team> teams = new Repository<Team>(context);
-        Repository<Tool> tools = new Repository<Tool>(context);
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
-
         // GET: ProjectSkills
         public ActionResult Index()
         {
-            return View(projectSkills.Get().ToList().Select(x => factory.Create(x)).ToList());
+            return View(new ProjectSkillUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
         // GET: ProjectSkills/Details/5
         public ActionResult Details(int id)
         {
-            return View(factory.Create(projectSkills.Get(id)));
+            return View(Factory.Create(new ProjectSkillUnit(Context).Get(id)));
         }
 
         // GET: ProjectSkills/Create
@@ -48,7 +41,7 @@ namespace SkillsLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                projectSkills.Insert(parser.Create(model, context));
+                new ProjectSkillUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -59,7 +52,7 @@ namespace SkillsLibrary.Controllers
         public ActionResult Edit(int id)
         {
             FillBag();
-            return View(factory.Create(projectSkills.Get(id)));
+            return View(Factory.Create(new ProjectSkillUnit(Context).Get(id)));
         }
 
         // POST: ProjectSkills/Edit/5
@@ -71,7 +64,7 @@ namespace SkillsLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                projectSkills.Update(parser.Create(model, context), model.Id);
+                new ProjectSkillUnit(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -81,7 +74,7 @@ namespace SkillsLibrary.Controllers
         // GET: ProjectSkills/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(factory.Create(projectSkills.Get(id)));
+            return View(Factory.Create(new ProjectSkillUnit(Context).Get(id)));
         }
 
         // POST: ProjectSkills/Delete/5
@@ -89,14 +82,14 @@ namespace SkillsLibrary.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            projectSkills.Delete(id);
+            new ProjectSkillUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
         void FillBag()
         {
-            ViewBag.ProjectsList = new SelectList(teams.Get().ToList(), "Id", "Description");
-            ViewBag.ToolsList = new SelectList(tools.Get().ToList(), "Id", "Name");
+            ViewBag.ProjectsList = new SelectList(new Repository<Team>(Context).Get().ToList(), "Id", "Description");
+            ViewBag.ToolsList = new SelectList(new Repository<Tool>(Context).Get().ToList(), "Id", "Name");
         }
     }
 }
