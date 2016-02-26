@@ -13,7 +13,7 @@
 //        static void Main(string[] args)
 //        {
 //            Entry();
-            
+
 //        }
 
 //        static void Entry()
@@ -31,13 +31,14 @@
 //                {
 //                    case "1": { days(); break; }
 //                    case "2": { details(); break; }
-                    
+
 //                }
 //            }
 //            while (choice != "9");
 //        }
 
-//        static void days() { 
+//        static void days()
+//        {
 //            string choice = "x";
 //            do
 //            {
@@ -151,10 +152,12 @@
 //                Console.WriteLine();
 //                Console.WriteLine("Day id: ");
 //                string sid = Console.ReadLine();
-//                if (sid != "") {
+//                if (sid != "")
+//                {
 //                    int id = Convert.ToInt32(sid);
 //                    Day day = dayUnit.Get(id);
-//                    if (day != null) {
+//                    if (day != null)
+//                    {
 //                        Console.WriteLine("Date:");
 //                        string date = Console.ReadLine();
 //                        day.Date = Convert.ToDateTime(date);
@@ -168,7 +171,7 @@
 //                        int personId = Convert.ToInt32(Console.ReadLine());
 //                        day.Person = personRepository.Get(personId);
 
-//                        dayUnit.Update(day,id);
+//                        dayUnit.Update(day, id);
 //                    }
 //                }
 //            }
@@ -191,7 +194,7 @@
 //                choice = Console.ReadLine();
 //                switch (choice)
 //                {
-//                     case "1": { printAllDetails(); break; }
+//                    case "1": { printAllDetails(); break; }
 //                    case "2": { printOneDetail(); break; }
 //                    case "3": { insertDetail(); break; }
 //                    case "4": { deleteDetail(); break; }
@@ -200,12 +203,12 @@
 //                }
 //            }
 //            while (choice != "9");
-//    }
+//        }
 //        static void printAllDetails()
 //        {
 //            using (SchoolContext context = new SchoolContext())
 //            {
-//               DetailUnit detailUnit = new DetailUnit(context);
+//                DetailUnit detailUnit = new DetailUnit(context);
 //                var details = detailUnit.Get().ToList();
 //                foreach (var detail in details)
 //                {
@@ -217,21 +220,21 @@
 //        }
 //        static void printOneDetail()
 //        {
-//                Console.WriteLine();
-//                Console.Write("Enter id: ");
-//                string sid = Console.ReadLine();
-//                if (sid != "")
+//            Console.WriteLine();
+//            Console.Write("Enter id: ");
+//            string sid = Console.ReadLine();
+//            if (sid != "")
+//            {
+//                using (SchoolContext context = new SchoolContext())
 //                {
-//                    using (SchoolContext context = new SchoolContext())
-//                    {
-//                        DetailUnit detailUnit = new DetailUnit(context);
-//                        int id = Convert.ToInt32(sid);
-//                        var detail = detailUnit.Get(id);
-//                        Console.WriteLine(detail.Id + ": " + detail.Description);
-//                        Console.ReadKey();
-//                    }
+//                    DetailUnit detailUnit = new DetailUnit(context);
+//                    int id = Convert.ToInt32(sid);
+//                    var detail = detailUnit.Get(id);
+//                    Console.WriteLine(detail.Id + ": " + detail.Description);
+//                    Console.ReadKey();
 //                }
 //            }
+//        }
 //        static void insertDetail()
 //        {
 //            Detail detail = new Detail();

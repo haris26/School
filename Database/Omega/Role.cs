@@ -16,6 +16,6 @@ namespace Database
         public bool Team { get; set; }              // Is it team role? [like developer, qa, team lead...]
         public bool System { get; set; }            // Is it system role? [like admin, user, team lead...]
 
-        public IList<Engagement> Roles { get; set; }
+        public virtual IList<Engagement> Roles { get; set; }
     }
 }

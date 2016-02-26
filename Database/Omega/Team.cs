@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Database.Delta;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 
 // WORKFORCE ROSTER
 namespace Database
@@ -15,12 +17,13 @@ namespace Database
         }
 
         public int Id { get; set; }                         // Identity[1]
+        [NameControl]
         public string Name { get; set; }                    // Team (project) name
         public string Description { get; set; }             // Description
         public ProjectType Type { get; set; }               // Type (absence, internal, external)
 
-        public ICollection<Engagement> Roles { get; set; }
-        public ICollection<Person> Members { get; set; }
-        public ICollection<ProjectSkill> ProjectSkills { get; set; }
+        public virtual ICollection<Engagement> Roles { get; set; }
+        public virtual ICollection<Person> Members { get; set; }
+        public virtual ICollection<ProjectSkill> ProjectSkills { get; set; }
     }
 }

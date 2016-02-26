@@ -9,7 +9,6 @@ WorkforceRoster.sln
 SkillsLibrary.sln
 #School projects MVC
 ReservationSystem/
-TimeTracking/
 ProcurementSystem/
 WorkforceRoster/
 SkillsLibrary/
@@ -19,6 +18,7 @@ SkillsLibrary/
 *.suo
 *.user
 *.sln.docstates
+.vs
 
 # Build results
 [Dd]ebug/

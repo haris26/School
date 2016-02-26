@@ -12,5 +12,16 @@ namespace Database
             context.Entry(entity.Person).State = EntityState.Unchanged;
             context.SaveChanges();
         }
+
+        public override void Update(Day entity, int id)
+        {
+            Day oldEnt = Get(id);
+            if (oldEnt != null)
+            {
+                context.Entry(oldEnt).CurrentValues.SetValues(entity);
+                oldEnt.Person = entity.Person;
+                context.SaveChanges();
+            }
+        }
     }
 }

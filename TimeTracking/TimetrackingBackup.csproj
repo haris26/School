@@ -156,22 +156,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\DaysController.cs" />
-    <Compile Include="Controllers\DetailsController.cs" />
-    <Compile Include="Controllers\EngagementsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PeopleController.cs" />
-    <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DayModel.cs" />
-    <Compile Include="Models\EngagementModel.cs" />
-    <Compile Include="Models\EntityParser.cs" />
-    <Compile Include="Models\ModelFactory.cs" />
-    <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -215,37 +204,13 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Test\Get.cshtml" />
-    <Content Include="Views\Test\People.cshtml" />
     <Content Include="Views\Test\Person.cshtml" />
     <Content Include="Views\Test\Person2.cshtml" />
-    <Content Include="Views\Teams\Create.cshtml" />
-    <Content Include="Views\Teams\Delete.cshtml" />
-    <Content Include="Views\Teams\Details.cshtml" />
-    <Content Include="Views\Teams\Edit.cshtml" />
-    <Content Include="Views\Teams\Index.cshtml" />
-    <Content Include="Views\People\Create.cshtml" />
-    <Content Include="Views\People\Delete.cshtml" />
-    <Content Include="Views\People\Details.cshtml" />
-    <Content Include="Views\People\Edit.cshtml" />
-    <Content Include="Views\People\Index.cshtml" />
-    <Content Include="Views\Details\Create.cshtml" />
-    <Content Include="Views\Details\Delete.cshtml" />
-    <Content Include="Views\Details\Details.cshtml" />
-    <Content Include="Views\Details\Edit.cshtml" />
-    <Content Include="Views\Details\Index.cshtml" />
-    <Content Include="Views\Engagements\Create.cshtml" />
-    <Content Include="Views\Engagements\Delete.cshtml" />
-    <Content Include="Views\Engagements\Details.cshtml" />
-    <Content Include="Views\Engagements\Edit.cshtml" />
-    <Content Include="Views\Engagements\Index.cshtml" />
-    <Content Include="Views\Days\Create.cshtml" />
-    <Content Include="Views\Days\Delete.cshtml" />
-    <Content Include="Views\Days\Details.cshtml" />
-    <Content Include="Views\Days\Edit.cshtml" />
-    <Content Include="Views\Days\Index.cshtml" />
+    <Content Include="Views\Test\People.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -277,7 +242,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>64556</DevelopmentServerPort>
+          <DevelopmentServerPort>56358</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:56358/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
