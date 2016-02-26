@@ -55,5 +55,15 @@ namespace SkillsLibrary.Models
                 Level = model.Level
             };
         }
+
+        public Tool Create(ToolModel model, SchoolContext context)
+        {
+            return new Tool()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Category = context.SkillCategories.Find(model.Category)
+            };
+        }
     }
 }

@@ -165,6 +165,7 @@
     <Compile Include="Controllers\SkillCategoriesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\ToolsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,6 +177,7 @@
     <Compile Include="Models\ProjectSkillModel.cs" />
     <Compile Include="Models\SkillCategoryModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
+    <Compile Include="Models\ToolModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +258,11 @@
     <Content Include="Views\ProjectSkills\Details.cshtml" />
     <Content Include="Views\ProjectSkills\Edit.cshtml" />
     <Content Include="Views\ProjectSkills\Index.cshtml" />
+    <Content Include="Views\Tools\Create.cshtml" />
+    <Content Include="Views\Tools\Delete.cshtml" />
+    <Content Include="Views\Tools\Details.cshtml" />
+    <Content Include="Views\Tools\Edit.cshtml" />
+    <Content Include="Views\Tools\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

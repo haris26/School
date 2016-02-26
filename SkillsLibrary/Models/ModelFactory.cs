@@ -81,5 +81,16 @@ namespace SkillsLibrary.Models
                 Level = projSkill.Level
             };
         }
+
+        public ToolModel Create(Tool tool)
+        {
+            return new ToolModel()
+            {
+                Id = tool.Id,
+                Name = tool.Name,
+                Category = tool.Category.Id,
+                CategoryName = tool.Category.Name
+            };
+        }
     }
 }

@@ -13,5 +13,16 @@ namespace Database
             context.Entry(entity.Category).State = EntityState.Unchanged;
             context.SaveChanges();
         }
+
+        public override void Update(Tool entity, int id)
+        {
+            Tool oldEnt = Get(id);
+            if (oldEnt != null)
+            {
+                context.Entry(oldEnt).CurrentValues.SetValues(entity);
+                oldEnt.Category = entity.Category;
+                context.SaveChanges();
+            }
+        }
     }
 }
