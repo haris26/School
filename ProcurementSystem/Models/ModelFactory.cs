@@ -1,9 +1,13 @@
+﻿
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Database;
+
 namespace ProcurementSystem.Models
+
+
 {
     public class ModelFactory
     {
@@ -23,7 +27,8 @@ namespace ProcurementSystem.Models
             return model;
         }
 
-        public EngagementModel Create(Database.Engagement engagement)
+public EngagementModel Create(Engagement engagement)
+
         {
             return new EngagementModel()
             {
@@ -66,5 +71,44 @@ namespace ProcurementSystem.Models
                 
             };
         }
+  
+
+        public RequestModel Create(Request request)
+        {
+            return new RequestModel()
+            {
+                Id = request.Id,
+                requestType = request.requestType,
+                RequestDescription = request.RequestDescription,
+                RequestMessage = request.RequestMessage,
+                RequestDate = request.RequestDate,
+                Asset = request.Asset.Id,
+                AssetModel = request.Asset.Model,
+                Person = request.User.Id,
+                PersonName = request.User.FirstName + " " + request.User.LastName
+
+            };
+        }
+
+        public HistoryModel Create(History history)
+        {
+            return new HistoryModel()
+            {
+                Id = history.Id,
+                EventBegin =history.EventBegin,
+                EventEnd = history.EventEnd,
+                Description =history.Description,
+                Person = history.Person.Id,
+                PersonName = history.Person.FirstName + " " + history.Person.LastName,
+                Asset=history.Asset.Id,
+                AssetModel=history.Asset.Model
+              
+
+            };
+        }
+
+
     }
+
+   
 }

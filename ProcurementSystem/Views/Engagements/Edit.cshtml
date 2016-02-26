@@ -9,7 +9,11 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 4aba0e61c1f916665ccdcdd56a6e26477f960579
     <div class="form-horizontal">
         <h4>Engagement</h4>
         <hr />
@@ -33,7 +37,11 @@
         </div>
 
         <div class="form-group">
+<<<<<<< HEAD
             <div class="control-label col-md-2">Person</div>
+=======
+            <div class = "control-label col-md-2">Person</div>
+>>>>>>> 4aba0e61c1f916665ccdcdd56a6e26477f960579
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Person, ViewBag.PeopleList as IEnumerable<SelectListItem>, new { @class = "form-control" })
             </div>
@@ -45,7 +53,11 @@
                 @Html.DropDownListFor(model => model.Role, ViewBag.RolesList as IEnumerable<SelectListItem>, new { @class = "form-control" })
             </div>
         </div>
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 4aba0e61c1f916665ccdcdd56a6e26477f960579
         <div class="form-group">
             <div class="control-label col-md-2">Team</div>
             <div class="col-md-10">
