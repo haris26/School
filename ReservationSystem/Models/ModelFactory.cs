@@ -29,19 +29,18 @@ namespace ReservationSystem.Models
 
      
         //Irhad on ModelFactory
-        //public CharacteristicNameModel Create(CharacteristicName characteristicName)
-        //{
-        //    return new CharacteristicNameModel()
-        //    {
-        //        Id = characteristicName.Id,
-        //        Name = characteristicName.Name,
-        //        ResourceCategory = characteristicName.ResourceCategory.Id,
-        //        ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
-        //    };
-        //}
+        public CharacteristicNameModel Create(CharacteristicName characteristicName)
+        {
+            return new CharacteristicNameModel()
+            {
+                Id = characteristicName.Id,
+                Name = characteristicName.Name,
+                ResourceCategory = characteristicName.ResourceCategory.Id,
+               ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
+            };
+       }
   
-    }
-}
+
 
         public TeamModel Create(Team team)
         {
@@ -88,4 +87,5 @@ namespace ReservationSystem.Models
         }
     }
 }
+
 
