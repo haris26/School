@@ -8,7 +8,7 @@ using System.Web;
 namespace ReservationSystem.Models
 {
     public class ModelFactory
-    {
+    {       
 
         public EventModel Create(Event eEvent)
         {
@@ -83,6 +83,14 @@ namespace ReservationSystem.Models
                 Status = resource.Status,
                 ResourceCategory = resource.ResourceCategory.Id,
                 ResourceCategoryName = resource.ResourceCategory.CategoryName
+            };
+        }
+        public ResourceCategoryModel Create(ResourceCategory resourceCat)
+        {
+            return new ResourceCategoryModel
+            {
+                Id = resourceCat.Id,
+                CategoryName = resourceCat.CategoryName
             };
         }
     }
