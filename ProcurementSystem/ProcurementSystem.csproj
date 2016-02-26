@@ -160,12 +160,12 @@
     <Compile Include="Controllers\HistoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
-<<<<<<< HEAD
+
     <Compile Include="Controllers\RequestsController.cs" />
     <Compile Include="Models\ModelFactory.cs" />
-=======
+
     <Compile Include="Models\HistoryModel.cs" />
->>>>>>> a861c488298b330f7e1c4b05dc31f8104ebac0ff
+
     <Compile Include="Models\RequestModel.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
