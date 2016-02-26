@@ -50,10 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
 
->>>>>>> delta
+
+
     <Compile Include="Charlie\Asset.cs" />
     <Compile Include="Charlie\AssetCategory.cs" />
     <Compile Include="Charlie\AssetChar.cs" />
@@ -81,10 +80,7 @@
     <Compile Include="Delta\NameControl.cs" />
     <Compile Include="Delta\SymbolControl.cs" />
     <Compile Include="Omega\Engagement.cs" />
-<<<<<<< HEAD
-=======
 
->>>>>>> delta
     <Compile Include="Enumerators.cs" />
     <Compile Include="DataAccess\EventUnit.cs" />
     <Compile Include="Charlie\History.cs" />
