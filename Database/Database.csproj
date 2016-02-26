@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="Charlie\Asset.cs" />
     <Compile Include="Charlie\AssetCategory.cs" />
     <Compile Include="Charlie\AssetChar.cs" />
@@ -76,7 +75,6 @@
     <Compile Include="DataAccess\DetailUnit.cs" />
     <Compile Include="DataAccess\EmployeeEducationUnit.cs" />
     <Compile Include="Omega\Engagement.cs" />
-
     <Compile Include="Enumerators.cs" />
     <Compile Include="DataAccess\EventUnit.cs" />
     <Compile Include="Charlie\History.cs" />
