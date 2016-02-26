@@ -232,9 +232,7 @@
     <Content Include="Views\Characteristics\Index.cshtml" />
     <Content Include="Views\CharacteristicNames\Create.cshtml" />
     <Content Include="Views\CharacteristicNames\Delete.cshtml" />
-    <Content Include="Views\Details.cshtml" />
     <Content Include="Views\CharacteristicNames\Details.cshtml" />
-    <Content Include="Views\Edit.cshtml" />
     <Content Include="Views\CharacteristicNames\Edit.cshtml" />
     <Content Include="Views\CharacteristicNames\Index.cshtml" />
   </ItemGroup>

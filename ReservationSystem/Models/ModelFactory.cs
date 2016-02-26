@@ -25,21 +25,21 @@ namespace ReservationSystem.Models
             };
         }
 
-        //public TeamModel Create(Team team)
-        //{
-        //    TeamModel model = new TeamModel()
-        //    {
-        //        Id = team.Id,
-        //        Name = team.Name,
-        //        Description = team.Description,
-        //        Type = team.Type.ToString()
-        //    };
-        //    foreach (var person in team.Roles)
-        //    {
-        //        model.Members.Add(person.Person.FirstName + " " + person.Person.LastName);
-        //    }
-        //    return model;
-        //}
+        public TeamModel Create(Team team)
+        {
+            TeamModel model = new TeamModel()
+            {
+                Id = team.Id,
+                Name = team.Name,
+                Description = team.Description,
+                Type = team.Type.ToString()
+            };
+            foreach (var person in team.Roles)
+            {
+                model.Members.Add(person.Person.FirstName + " " + person.Person.LastName);
+            }
+            return model;
+        }
 
         //public EngagementModel Create(Engagement engagement)
         //{
@@ -58,16 +58,16 @@ namespace ReservationSystem.Models
         //    };
         //}
         //Irhad on ModelFactory
-        //public CharacteristicNameModel Create(CharacteristicName characteristicName)
-        //{
-        //    return new CharacteristicNameModel()
-        //    {
-        //        Id = characteristicName.Id,
-        //        Name = characteristicName.Name,
-        //        ResourceCategory = characteristicName.ResourceCategory.Id,
-        //        ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
-        //    };
-        //}
-  
+        public CharacteristicNameModel Create(CharacteristicName characteristicName)
+        {
+            return new CharacteristicNameModel()
+            {
+                Id = characteristicName.Id,
+                Name = characteristicName.Name,
+                ResourceCategory = characteristicName.ResourceCategory.Id,
+                ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
+            };
+        }
+
     }
 }
