@@ -1,5 +1,3 @@
-﻿// PROCUREMENT SYSTEM
-
 ﻿using Database;
 using System;
 using System.Collections.Generic;
@@ -23,9 +21,10 @@ namespace Database
         public double Price { get; set; }           // price
         public DateTime DateOfTrade { get; set; } //Date of trade in
         // public string EmployeeID { get; set; } we will use navigation to person instead of simple foreign key
-        public Person User { get; set; }            // person who use particular asset 
+        public virtual Person User { get; set; }            // person who use particular asset 
 
         // public enum Status { Active=1,Coming_soon=2, Out_of_order=3 } we will put status to enumerators
         public AssetStatus Status { get; set; }
+        public virtual ICollection<AssetCategory> AssetCategories { get; set; }
     }
 }

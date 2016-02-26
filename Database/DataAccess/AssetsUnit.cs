@@ -12,8 +12,8 @@ namespace Database
         public AssetsUnit(SchoolContext context) : base(context)
         {
 
-        }
 
+        }
 
 
         public override void Insert(Asset entity)
@@ -23,10 +23,20 @@ namespace Database
             context.Entry(entity.User).State = EntityState.Unchanged;
             context.Entry(entity.AssetCategory).State = EntityState.Unchanged;
 
-
          
          context.SaveChanges();
 
+        }
+        public override void Update(Asset entity, int id)
+        {
+            Asset oldEnt = Get(id);
+            if (oldEnt != null)
+            {
+                context.Entry(oldEnt).CurrentValues.SetValues(entity);
+                oldEnt.User = entity.User;
+                oldEnt.AssetCategory = entity.AssetCategory;
+                context.SaveChanges();
+            }
         }
 
     }
