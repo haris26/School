@@ -46,13 +46,13 @@ namespace SkillsLibrary.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EmployeeSkillModel model)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {
                 employeeSkills.Insert(parser.Create(model, context));
                 return RedirectToAction("Index");
-           // }
-           // FillBag();
-           // return View(model);
+            }
+            FillBag();
+            return View(model);
         }
 
         // GET: EmployeeSkills/Edit/5
