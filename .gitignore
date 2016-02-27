@@ -12,6 +12,7 @@ ReservationSystem/
 ProcurementSystem/
 WorkforceRoster/
 SkillsLibrary/
+test/
 
 # User-specific files
 *.vs

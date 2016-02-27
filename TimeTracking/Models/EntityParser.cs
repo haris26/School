@@ -8,7 +8,12 @@ namespace TimeTracking.Models
 {
     public class EntityParser
     {
+        private SchoolContext context;
 
+        public EntityParser(SchoolContext ctx)
+        {
+            context = ctx;
+        }
         public Engagement Create(EngagementModel model, SchoolContext context)
         {
             return new Engagement()

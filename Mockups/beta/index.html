@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mistral RSS</title>
+	<script src="library/angular.min.js"></script>
+	<script src="library/ui-bootstrap-tpls.min.js"></script>
+	<link href="styles/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="navbar-header" style="border: 0px;">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="nav navbar-nav navbar-left" href="index.html"><img src="images/mistral.png"  id="logo"/>
+				</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:0px;">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" data-toggle="dropdown" class="dropdown-toggle">Resources <b class="caret"></b></a>
+						<ul class="dropdown-menu" style="border:none;">
+							<li><a href="Rooms.html">Rooms</a></li>
+							<li><a href="devicesMain.html">Devices</a></li>
+						</ul>
+					</li>
+			  
+					<li class="dropdown">
+						<a href="#" data-toggle="dropdown" class="dropdown-toggle">Reservations <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="activeReservations.html">Show active reservation</a></li>
+						</ul>
+					</li>
+					
+					<li class="dropdown">
+						<a href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="#">Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	
+	<div class="container container-top">
+	  
+		<h2 id="welcome-title"> Welcome  User </h2>
+		<br>
+		
+        <!--Row with two equal columns-->
+        <div class="row">
+            <div class="col-sm-6">
+				<h3> Today Reservations </h3>
+				<br>
+				<p>
+					<span class="badge"> 2 </span>  reservations
+				</p>
+				<br>
+                <div class="notice notice-rooms">
+					You have reservation for<strong>  Room 1 </strong>   at <i class="glyphicon glyphicon-time"> </i>   15:45h
+				</div>
+				<div class="notice notice-rooms">
+					You have reservation for <strong>  Samsung  Galaxy Tab 4</strong>      <i class="glyphicon glyphicon-time"> </i>   09:00 - 10:00 h
+				</div>
+            </div>
+			
+            <div class="col-sm-6">
+				<h3> Upcoming Reservations </h3>
+				<br>
+				<p>
+					<span class="badge"> 1 </span>  reservation
+				</p>
+				<br>
+                <div class="notice notice-devices">
+					You have reservation for <strong>  Iphone 6s</strong>  on <i class="glyphicon glyphicon-calendar"> </i>   16/02/2016 <br>
+					<i class="glyphicon glyphicon-time"> </i>   12:00 - 17:00 h
+				</div>
+            </div>
+        </div>
+	</div>
+
+</body>
+</html>                                		
