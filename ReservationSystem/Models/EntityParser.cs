@@ -65,6 +65,14 @@ public Engagement Create(EngagementModel model, SchoolContext context)
                 ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
             };
         }
+        public ResourceCategory Create(ResourceCategoryModel model, SchoolContext context)
+        {
+            return new ResourceCategory()
+            {
+                Id = model.Id,
+                CategoryName = model.CategoryName
+            };
+        }
 
     }
 }

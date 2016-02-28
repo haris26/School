@@ -4,18 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ReservationSystem.Models;
 
 
 namespace ReservationSystem.Models
 {
     public class ModelFactory
-    {
-        private SchoolContext context;
 
-        public ModelFactory(SchoolContext ctx)
-        {
-            context = ctx;
-        }
 
         public EventModel Create(Event eEvent)
         {
@@ -43,9 +38,11 @@ namespace ReservationSystem.Models
                 Id = characteristicName.Id,
                 Name = characteristicName.Name,
                 ResourceCategory = characteristicName.ResourceCategory.Id,
+
                 ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
             };
         }
+
 
 
 
@@ -92,6 +89,15 @@ namespace ReservationSystem.Models
                 ResourceCategoryName = resource.ResourceCategory.CategoryName
             };
         }
+        public ResourceCategoryModel Create(ResourceCategory resourceCat)
+        {
+            return new ResourceCategoryModel
+            {
+                Id = resourceCat.Id,
+                CategoryName = resourceCat.CategoryName
+            };
+        }
     }
 }
+
 
