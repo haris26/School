@@ -11,12 +11,12 @@ using ReservationSystem.Models;
 
 namespace ReservationSystem.Controllers
 {
-    public class ResourceCategoriesController : Controller
+    public class ResourceCategoriesController : BaseController
     {
         static SchoolContext context = new SchoolContext();
         private Repository<ResourceCategory> resourceCat = new Repository<ResourceCategory>(context);
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
+        private ModelFactory factory = new ModelFactory(context);
+        private EntityParser parser = new EntityParser(context);
 
         // GET: ResourceCategories
         public ActionResult Index()

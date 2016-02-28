@@ -4,13 +4,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ReservationSystem.Models;
+
 
 
 namespace ReservationSystem.Models
 {
-    public class ModelFactory
+    
 
+    public class ModelFactory {
+
+        private SchoolContext context;
+
+        public ModelFactory(SchoolContext ctx)
+        {
+            context = ctx;
+        }
 
         public EventModel Create(Event eEvent)
         {
@@ -99,5 +107,6 @@ namespace ReservationSystem.Models
         }
     }
 }
+
 
 

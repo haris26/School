@@ -20,7 +20,7 @@ namespace ReservationSystem.Controllers
         private ModelFactory factory = new ModelFactory(context);
         private EntityParser parser = new EntityParser(context);
 
-=
+
         // GET: Resources
         public ActionResult Index()
         {
@@ -95,7 +95,7 @@ namespace ReservationSystem.Controllers
         }
         void FillBag()
         {
-            ViewBag.ResourceCatList = new SelectList(resourceCol.Get().ToList(), "Id", "CategoryName");
+            ViewBag.ResourceCatList = new SelectList(resourceCat.Get().ToList(), "Id", "CategoryName");
         }
     }
 }

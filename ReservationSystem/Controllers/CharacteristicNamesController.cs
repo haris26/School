@@ -16,7 +16,6 @@ namespace ReservationSystem.Controllers
     {
         
 
-    
         public ActionResult Index()
         {
             return View(new CharacteristicNameUnit(Context).Get().ToList().Select(x => Factory.Create(x)));
