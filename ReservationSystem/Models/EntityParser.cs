@@ -24,16 +24,16 @@ namespace ReservationSystem.Models
             };
         }
         //Irhad on EntityParser
-        //public CharacteristicNameModel Create(CharacteristicName characteristicName)
-        //{
-        //    return new CharacteristicNameModel()
-        //    {
-        //        Id = characteristicName.Id,
-        //        Name = characteristicName.Name,
-        //        ResourceCategory = characteristicName.ResourceCategory.Id,
-        //        ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
-        //    };
-        //}
+        public CharacteristicName Create(CharacteristicNameModel model, SchoolContext context)
+        {
+            return new CharacteristicName()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
+            };
+
+        }
 
 
         public Engagement Create(EngagementModel model, SchoolContext context)
@@ -57,6 +57,14 @@ namespace ReservationSystem.Models
                 Name = model.Name,
                 Status = model.Status,
                 ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
+            };
+        }
+        public ResourceCategory Create(ResourceCategoryModel model, SchoolContext context)
+        {
+            return new ResourceCategory()
+            {
+                Id = model.Id,
+                CategoryName = model.CategoryName
             };
         }
 

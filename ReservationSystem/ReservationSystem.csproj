@@ -156,10 +156,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CharacteristicNamesController.cs" />
     <Compile Include="Controllers\CharacteristicsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\EngagementsController.cs" />
+    <Compile Include="Controllers\ResourceCategoriesController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -171,6 +173,7 @@
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\ResourceCategoryModel.cs" />
     <Compile Include="Models\ResourceModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -250,9 +253,15 @@
     <Content Include="Views\Engagements\Index.cshtml" />
     <Content Include="Views\Resources\Index.cshtml" />
     <Content Include="Views\Resources\Create.cshtml" />
+    <Content Include="Views\ResourceCategories\Create.cshtml" />
+    <Content Include="Views\ResourceCategories\Delete.cshtml" />
+    <Content Include="Views\ResourceCategories\Details.cshtml" />
+    <Content Include="Views\ResourceCategories\Edit.cshtml" />
+    <Content Include="Views\ResourceCategories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

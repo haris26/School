@@ -9,7 +9,7 @@ using ReservationSystem.Models;
 namespace ReservationSystem.Models
 {
     public class ModelFactory
-    {
+    {       
 
         public EventModel Create(Event eEvent)
         {
@@ -30,19 +30,18 @@ namespace ReservationSystem.Models
 
      
         //Irhad on ModelFactory
-        //public CharacteristicNameModel Create(CharacteristicName characteristicName)
-        //{
-        //    return new CharacteristicNameModel()
-        //    {
-        //        Id = characteristicName.Id,
-        //        Name = characteristicName.Name,
-        //        ResourceCategory = characteristicName.ResourceCategory.Id,
-        //        ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
-        //    };
-        //}
+        public CharacteristicNameModel Create(CharacteristicName characteristicName)
+        {
+            return new CharacteristicNameModel()
+            {
+                Id = characteristicName.Id,
+                Name = characteristicName.Name,
+                ResourceCategory = characteristicName.ResourceCategory.Id,
+               ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
+            };
+       }
   
-    }
-}
+
 
         public TeamModel Create(Team team)
         {
@@ -87,6 +86,15 @@ namespace ReservationSystem.Models
                 ResourceCategoryName = resource.ResourceCategory.CategoryName
             };
         }
+        public ResourceCategoryModel Create(ResourceCategory resourceCat)
+        {
+            return new ResourceCategoryModel
+            {
+                Id = resourceCat.Id,
+                CategoryName = resourceCat.CategoryName
+            };
+        }
     }
 }
+
 
