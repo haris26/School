@@ -1,34 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data;
 using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Database;
 using ReservationSystem.Models;
 
 namespace ReservationSystem.Controllers
 {
-    public class TeamsController : Controller
+    public class TeamsController : BaseController
     {
         private Repository<Team> teams = new Repository<Team>(new SchoolContext());
-        private ModelFactory factory = new ModelFactory();
+        private ModelFactory factory = new ModelFactory(new SchoolContext());
 
 
         // GET: Teams
         public ActionResult Index()
         {
-            //List<TeamModel> teamList = new List<TeamModel>();
-            //var teamCol = teams.Get().ToList();
-            //foreach (var team in teamCol)
-            //{
-            //    TeamModel model = factory.Create(team);
-            //    teamList.Add(model);
-            //}
-            //return View(teamList);
-
+          
             return View(teams.Get().ToList().Select(x => factory.Create(x)).ToList());
         }
 

@@ -16,8 +16,8 @@ namespace ReservationSystem.Controllers
         static SchoolContext context = new SchoolContext();
         ResourceUnit resources = new ResourceUnit(context);
         private Repository<ResourceCategory> resourceCat = new Repository<ResourceCategory>(context);
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
+        private ModelFactory factory = new ModelFactory(context);
+        private EntityParser parser = new EntityParser(context);
 
         // GET: Resources
         public ActionResult Index()

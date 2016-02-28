@@ -1,4 +1,5 @@
 using Database;
+using ReservationSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,12 @@ namespace ReservationSystem.Models
 {
     public class ModelFactory
     {
+        private SchoolContext context;
+
+        public ModelFactory(SchoolContext ctx)
+        {
+            context = ctx;
+        }
 
         public EventModel Create(Event eEvent)
         {
@@ -40,8 +47,7 @@ namespace ReservationSystem.Models
             };
         }
 
-    }
-}
+
 
         public TeamModel Create(Team team)
         {

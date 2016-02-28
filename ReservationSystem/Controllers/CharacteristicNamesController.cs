@@ -12,25 +12,21 @@ using ReservationSystem.Models;
 
 namespace ReservationSystem.Controllers
 {
-    public class CharacteristicNamesController : Controller
+    public class CharacteristicNamesController : BaseController
     {
-        static SchoolContext context = new SchoolContext();
-        CharacteristicNameUnit characteristicNames = new CharacteristicNameUnit(context);
-        Repository<ResourceCategory> resouceCategory = new Repository<ResourceCategory>(context);
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
+        
 
     
         public ActionResult Index()
         {
-            return View(characteristicNames.Get().ToList().Select(x => factory.Create(x)));
+            return View(new CharacteristicNameUnit(Context).Get().ToList().Select(x => Factory.Create(x)));
         }
 
         
         public ActionResult Details(int id)
         {
 
-            return View(factory.Create(characteristicNames.Get(id)));
+            return View(Factory.Create(new CharacteristicNameUnit(Context).Get(id)));
         }
 
     
@@ -49,7 +45,7 @@ namespace ReservationSystem.Controllers
             if (ModelState.IsValid)
             {
 
-                characteristicNames.Insert(parser.Create(model, context));
+                new CharacteristicNameUnit(Context).Insert(Parser.Create(model, Context));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -59,7 +55,7 @@ namespace ReservationSystem.Controllers
         public ActionResult Edit(int id)
         {
             FillBag();
-            return View(factory.Create(characteristicNames.Get(id)));
+            return View(Factory.Create(new CharacteristicNameUnit(Context).Get(id)));
         }
 
      
@@ -70,7 +66,7 @@ namespace ReservationSystem.Controllers
             if (ModelState.IsValid)
             {
 
-                characteristicNames.Update(parser.Create(model, context), model.Id);
+                new CharacteristicNameUnit(Context).Update(Parser.Create(model, Context), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -79,8 +75,8 @@ namespace ReservationSystem.Controllers
      
         public ActionResult Delete(int id)
         {
-            CharacteristicName characteristicName = characteristicNames.Get(id);
-            return View(factory.Create(characteristicName));
+            CharacteristicName characteristicName = new CharacteristicNameUnit(Context).Get(id);
+            return View(Factory.Create(characteristicName));
         }
 
      
@@ -88,13 +84,13 @@ namespace ReservationSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            characteristicNames.Delete(id);
+            new CharacteristicNameUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
         void FillBag()
         {
-            ViewBag.ResourceCategoryList = new SelectList(resouceCategory.Get().ToList(), "Id", "CategoryName");
+            ViewBag.ResourceCategoryList = new SelectList(new Repository<ResourceCategory>(Context).Get().ToList(), "Id", "CategoryName");
 
         }
     }

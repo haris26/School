@@ -18,8 +18,8 @@ namespace ReservationSystem.Controllers
         EventUnit events = new EventUnit(context);
         Repository<Resource> resources = new Repository<Resource>(context); 
         Repository<Person> users = new Repository<Person>(context); 
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
+        private ModelFactory factory = new ModelFactory(context);
+        private EntityParser parser = new EntityParser(context);
 
         // GET: Events
         public ActionResult Index()

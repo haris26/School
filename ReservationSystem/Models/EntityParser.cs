@@ -10,6 +10,12 @@ namespace ReservationSystem.Models
 {
     public class EntityParser
     {
+        private SchoolContext context;
+
+        public EntityParser(SchoolContext ctx)
+        {
+            context = ctx;
+        }
 
         public Event Create(EventModel model, SchoolContext context)
         {
@@ -24,19 +30,19 @@ namespace ReservationSystem.Models
             };
         }
         //Irhad on EntityParser
-        //public CharacteristicNameModel Create(CharacteristicName characteristicName)
-        //{
-        //    return new CharacteristicNameModel()
-        //    {
-        //        Id = characteristicName.Id,
-        //        Name = characteristicName.Name,
-        //        ResourceCategory = characteristicName.ResourceCategory.Id,
-        //        ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
-        //    };
-        //}
+        public CharacteristicName Create(CharacteristicNameModel model, SchoolContext context)
+        {
+            return new CharacteristicName()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
+            };
+
+        }
 
 
-        public Engagement Create(EngagementModel model, SchoolContext context)
+public Engagement Create(EngagementModel model, SchoolContext context)
         {
             return new Engagement()
             {

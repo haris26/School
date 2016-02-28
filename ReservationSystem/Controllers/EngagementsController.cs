@@ -18,8 +18,8 @@ namespace ReservationSystem.Controllers
         Repository<Person> people = new Repository<Person>(context);
         Repository<Team> teams = new Repository<Team>(context);
         Repository<Role> roles = new Repository<Role>(context);
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
+        private ModelFactory factory = new ModelFactory(context);
+        private EntityParser parser = new EntityParser(context);
 
         public ActionResult Index()
         {
