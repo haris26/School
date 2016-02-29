@@ -156,9 +156,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-
     <Compile Include="Controllers\BaseController.cs" />
-
     <Compile Include="Controllers\DaysController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
     <Compile Include="Controllers\EngagementsController.cs" />
@@ -173,6 +171,9 @@
     <Compile Include="Models\EngagementModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\PersonDays.cs" />
+    <Compile Include="Models\PersonDetails.cs" />
+    <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -245,6 +246,9 @@
     <Content Include="Views\Days\Details.cshtml" />
     <Content Include="Views\Days\Edit.cshtml" />
     <Content Include="Views\Days\Index.cshtml" />
+    <Content Include="Views\People\Days.cshtml" />
+    <Content Include="Views\People\DayCreate.cshtml" />
+    <Content Include="Views\People\DayEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

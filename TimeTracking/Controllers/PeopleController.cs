@@ -7,101 +7,64 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Database;
+using TimeTracking.Models;
 
 namespace TimeTracking.Controllers
 {
-    public class PeopleController : Controller
+    public class PeopleController : BaseController
     {
-        private SchoolContext db = new SchoolContext();
-
-        // GET: People
         public ActionResult Index()
         {
-            return View(db.People.ToList());
+            return View(new Repository<Person>(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
-
-        // GET: People/Details/5
-        public ActionResult Details(int? id)
+        
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Person person = db.People.Find(id);
-            if (person == null)
-            {
-                return HttpNotFound();
-            }
-            return View(person);
+            return View(Factory.Create(new Repository<Person>(Context).Get(id)));
         }
 
-        // GET: People/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: People/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+ 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Email,Category,Gender,Image,Phone,Address,BirthDate,StartDate,EndDate,Status")] Person person)
+        public ActionResult Create(PersonModel model)
         {
             if (ModelState.IsValid)
             {
-                db.People.Add(person);
-                db.SaveChanges();
+                new Repository<Person>(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
-
-            return View(person);
+            
+            return View(model);
         }
 
-        // GET: People/Edit/5
-        public ActionResult Edit(int? id)
+        
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Person person = db.People.Find(id);
-            if (person == null)
-            {
-                return HttpNotFound();
-            }
-            return View(person);
+            return View(Factory.Create(new Repository<Person>(Context).Get(id)));
         }
 
-        // POST: People/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email,Category,Gender,Image,Phone,Address,BirthDate,StartDate,EndDate,Status")] Person person)
+        public ActionResult Edit(PersonModel model)
         {
+
             if (ModelState.IsValid)
             {
-                db.Entry(person).State = EntityState.Modified;
-                db.SaveChanges();
+                new Repository<Person>(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
-            return View(person);
+            return View(model);
         }
 
         // GET: People/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Person person = db.People.Find(id);
-            if (person == null)
-            {
-                return HttpNotFound();
-            }
-            return View(person);
+            return View(Factory.Create(new Repository<Person>(Context).Get(id)));
         }
 
         // POST: People/Delete/5
@@ -109,19 +72,47 @@ namespace TimeTracking.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Person person = db.People.Find(id);
-            db.People.Remove(person);
-            db.SaveChanges();
+            new Repository<Person>(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        public ActionResult Days (int id)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            PersonDays model = new PersonDays();
+            model.Person = new Repository<Person>(Context).Get(id);
+            model.Days = new DayUnit(Context)
+                               .Get().Where(x => x.Person.Id == id).ToList()
+                               .Select(x => Factory.Create(x)).ToList();
+            return View(model);
+        }
+
+        public ActionResult Detail(int id)
+        {
+            PersonDetails model = new PersonDetails();
+            model.Person = new Repository<Person>(Context).Get(id);
+            model.Details = new DayUnit(Context)
+                               .Get().Where(x => x.Person.Id == id).ToList()
+                               .Select(x => Factory.Create(x)).ToList();
+            return View(model);
+        }
+
+        public ActionResult DayCreate(int id)   // id = Person.Id
+        {
+            FillBag();
+            Person person = new Repository<Person>(Context).Get(id);
+            return View(new DayModel()
+            { Id = 0, Person = person.Id, PersonName = person.FirstName + " " + person.LastName });
+        }
+
+        public ActionResult DayEdit(int id)     // id = Egagement.Id
+        {
+            FillBag();
+            return View(Factory.Create(new Repository<Person>(Context).Get(id)));
+        }
+
+        void FillBag()
+        {
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
         }
     }
 }

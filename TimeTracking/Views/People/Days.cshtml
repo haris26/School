@@ -1,0 +1,42 @@
+﻿@model TimeTracking.Models.PersonDays
+@{
+    ViewBag.Title = "Day";
+}
+
+<h2>@Model.Person.FirstName @Model.Person.LastName</h2>
+
+<div>
+    <h4>Days</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-2">Date</div>
+        <div class="col-md-2">Work Time</div>
+        <div class="col-md-2">PTO Time</div>
+        <div class="col-md-2">Status</div>
+
+        <div class="col-md-2">
+            @Html.ActionLink("Create New", "DayCreate", new { id = Model.Person.Id })
+        </div>
+        <hr />
+    </div>
+</div>
+
+@foreach (var item in Model.Days)
+{
+    <div class="row">
+        <div class="col-md-2">@item.Date</div>
+        <div class="col-md-2">@item.WorkTime</div>
+        <div class="col-md-2">@item.PtoTime</div>
+        <div class="col-md-2">@item.EntryStatus</div>
+        
+        <div class="col-md-2">
+            <a href="/people/engedit/@item.Id">Edit</a> |
+            <a href="/people/engdelete/@item.Id">Delete</a>
+        </div>
+        <hr />
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

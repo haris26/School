@@ -41,5 +41,17 @@ namespace TimeTracking.Models
                 EntryStatus = model.EntryStatus
             };
         }
+
+        public Person Create(PersonModel model)
+        {
+            return new Person()
+            {
+                Id = model.Id,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Category = model.Category,
+                Status = model.Status
+            };
+        }
     }
 }
