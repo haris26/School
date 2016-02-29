@@ -9,29 +9,23 @@ using System.Web.Mvc;
 using Database;
 using TimeTracking.Models;
 
+
 namespace TimeTracking.Controllers
 {
-    public class DaysController : Controller
+    public class DaysController : BaseController
     {
-        static SchoolContext context = new SchoolContext();
-        DayUnit days = new DayUnit(context);
-        Repository<Person> people = new Repository<Person>(context);
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
-
-       
         public ActionResult Index()
         {
-            return View(days.Get().ToList().Select(x => factory.Create(x)).ToList());
+            return View(new DayUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
-        
+
         public ActionResult Details(int id)
         {
-            return View(factory.Create(days.Get(id)));
+            return View(Factory.Create(new DayUnit(Context).Get(id)));
         }
 
-        
+
         public ActionResult Create()
         {
             FillBag();
@@ -45,7 +39,7 @@ namespace TimeTracking.Controllers
         {
             if (ModelState.IsValid)
             {
-                days.Insert(parser.Create(model, context));
+                new DayUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -55,21 +49,12 @@ namespace TimeTracking.Controllers
         // GET: Days/Edit/5
         public ActionResult Edit(int id)
         {
-            Day day = days.Get(id);
-            DayModel model = new DayModel()
-            {
-                Id = day.Id,
-                Person = day.Person.Id,
-                Date = day.Date,
-                WorkTime = day.WorkTime,
-                PtoTime = day.PtoTime,
-                EntryStatus = day.EntryStatus
-            };
             FillBag();
-            return View(model);
+            return View(Factory.Create(new DayUnit(Context).Get(id)));
         }
 
-   
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(DayModel model)
@@ -77,8 +62,7 @@ namespace TimeTracking.Controllers
 
             if (ModelState.IsValid)
             {
-
-                days.Update(parser.Create(model, context), model.Id);
+                new DayUnit(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -87,8 +71,7 @@ namespace TimeTracking.Controllers
         // GET: Days/Delete/5
         public ActionResult Delete(int id)
         {
-            Day day = days.Get(id);
-            return View(factory.Create(day));
+            return View(Factory.Create(new DayUnit(Context).Get(id)));
         }
 
         // POST: Days/Delete/5
@@ -96,13 +79,19 @@ namespace TimeTracking.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            days.Delete(id);
+            new DayUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
-       void FillBag()
+
+        void FillBag()
         {
-            ViewBag.PeopleList = new SelectList(people.Get().ToList(), "Id", "FirstName");
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
         }
     }
 }
+
+
+
+
+
