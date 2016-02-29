@@ -62,6 +62,22 @@ namespace TimeTracking.Models
                 EntryStatus = day.EntryStatus
             };
 
+
+        }
+        public DetailModel Create (Detail detail)
+        {
+            return new DetailModel()
+            {
+                Id = detail.Id,
+                Day = detail.Day.Id,
+                Date = detail.Day.Date,
+                PersonName = detail.Day.Person.FirstName,
+                WorkTime = detail.WorkTime,
+                BillTime = detail.BillTime,
+                Description = detail.Description,
+                Team = detail.Team.Id,
+                TeamName = detail.Team.Name
+            };
         }
     }
 }
