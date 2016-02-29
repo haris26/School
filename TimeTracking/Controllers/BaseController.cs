@@ -1,8 +1,14 @@
 ﻿using Database;
 using System.Web.Mvc;
+<<<<<<< HEAD
+using WorkforceRoster.Models;
+
+namespace WorkforceRoster.Controllers
+=======
 using TimeTracking.Models;
 
 namespace TimeTracking.Controllers
+>>>>>>> delta
 {
     public class BaseController : Controller
     {
