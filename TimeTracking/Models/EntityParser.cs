@@ -14,7 +14,8 @@ namespace TimeTracking.Models
         {
             context = ctx;
         }
-        public Engagement Create(EngagementModel model, SchoolContext context)
+
+        public Engagement Create(EngagementModel model)
         {
             return new Engagement()
             {
@@ -28,7 +29,7 @@ namespace TimeTracking.Models
             };
         }
 
-        public Day Create(DayModel model, SchoolContext context)
+        public Day Create(DayModel model)
         {
             return new Day()
             {

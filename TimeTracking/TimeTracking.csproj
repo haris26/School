@@ -156,10 +156,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-<<<<<<< HEAD
-=======
+
     <Compile Include="Controllers\BaseController.cs" />
->>>>>>> delta
+
     <Compile Include="Controllers\DaysController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
     <Compile Include="Controllers\EngagementsController.cs" />
