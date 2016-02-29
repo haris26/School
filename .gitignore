@@ -20,6 +20,7 @@ test/
 *.user
 *.sln.docstates
 .vs
+.nuget
 
 # Build results
 [Dd]ebug/

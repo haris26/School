@@ -41,5 +41,18 @@ namespace TimeTracking.Models
                 EntryStatus = model.EntryStatus
             };
         }
+
+        public Detail Create(DetailModel model)
+        {
+            return new Detail()
+            {
+                Id = 0,
+                Day = context.Days.Find(model.Day),
+                WorkTime = model.WorkTime,
+                BillTime = model.BillTime,
+                Description = model.Description,
+                Team = context.Teams.Find(model.Team)
+            };
+        }
     }
 }
