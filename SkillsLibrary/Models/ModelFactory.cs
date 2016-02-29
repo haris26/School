@@ -102,5 +102,18 @@ namespace SkillsLibrary.Models
                 CategoryName = tool.Category.Name
             };
         }
+
+        public PersonModel Create (Person person)
+        {
+            return new PersonModel()
+            {
+                Id = person.Id,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Category = person.Category,
+                Phone = person.Phone,
+                Status = person.Status
+            };
+        }
     }
 }
