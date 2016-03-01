@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Database.Omega;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 
 // WORKFORCE ROSTER
 namespace Database
@@ -15,6 +17,8 @@ namespace Database
         }
 
         public int Id { get; set; }                         // Identity[1]
+        //[Required(ErrorMessage ="Please enter name of the team")]
+        [NameControl]
         public string Name { get; set; }                    // Team (project) name
         public string Description { get; set; }             // Description
         public ProjectType Type { get; set; }               // Type (absence, internal, external)
