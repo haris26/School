@@ -13,9 +13,7 @@ namespace TimeTracking.Controllers
 {
     public class DetailsController : BaseController
     {
-        private SchoolContext db = new SchoolContext();
-
-        // GET: Details
+       
         public ActionResult Index()
         {
             return View(new DetailUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
@@ -87,14 +85,6 @@ namespace TimeTracking.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
 
         void FillBag()
         {
