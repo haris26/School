@@ -93,5 +93,51 @@ namespace SkillsLibrary.Controllers
                                .Select(x => Factory.Create(x)).ToList();
             return View(model);
         }
+
+        public ActionResult EngCreate(int id)   // id = Person.Id
+        {
+            FillBag();
+            Person person = new Repository<Person>(Context).Get(id);
+            return View(new EngagementModel()
+            { Id = 0, Person = person.Id, PersonName = person.FirstName + " " + person.LastName });
+        }
+
+        public ActionResult EngEdit(int id)     // id = Egagement.Id
+        {
+            FillBag();
+            return View(Factory.Create(new EngagementUnit(Context).Get(id)));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EngCreate(EngagementModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Engagement engagement = Parser.Create(model);
+                new EngagementUnit(Context).Insert(engagement);
+                return RedirectToAction("Engagements/" + model.Person);
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EngEdit(EngagementModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Engagement engagement = Parser.Create(model);
+                new EngagementUnit(Context).Update(engagement, engagement.Id);
+                return RedirectToAction("Engagements/" + model.Person);
+            }
+            return View(model);
+        }
+
+        void FillBag()
+        {
+            ViewBag.RolesList = new SelectList(new Repository<Role>(Context).Get().ToList(), "Id", "Name");
+            ViewBag.TeamsList = new SelectList(new Repository<Team>(Context).Get().ToList(), "Id", "Name");
+        }
     }
 }

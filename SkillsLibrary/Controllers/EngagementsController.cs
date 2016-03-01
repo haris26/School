@@ -70,8 +70,8 @@ namespace SkillsLibrary.Controllers
         void FillBag()
         {
             ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
-            ViewBag.RolesList = new SelectList(new Repository<Team>(Context).Get().ToList(), "Id", "Name");
-            ViewBag.TeamsList = new SelectList(new Repository<Role>(Context).Get().ToList(), "Id", "Name");
+            ViewBag.RolesList = new SelectList(new Repository<Role>(Context).Get().ToList(), "Id", "Name");
+            ViewBag.TeamsList = new SelectList(new Repository<Team>(Context).Get().ToList(), "Id", "Name");
         }
     }
 }
