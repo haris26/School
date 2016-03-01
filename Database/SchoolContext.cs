@@ -1,10 +1,16 @@
 ﻿using System.Data.Entity;
 
+
+
 namespace Database
 {
     public class SchoolContext: DbContext
     {
+<<<<<<< HEAD
         public SchoolContext(): base()
+=======
+        public SchoolContext(): base(/*"name=School"*/)
+>>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
         { }
 
         public DbSet<Asset> Assets { get; set; }
@@ -31,5 +37,7 @@ namespace Database
         public DbSet<ResourceCategory> ResourceCategories { get; set; }
         public DbSet<CharacteristicName> CharacteristicNames { get; set; }
         public DbSet<SkillCategory> SkillCategories { get; set; }
+
+        //public System.Data.Entity.DbSet<TimeTracking.Models.DayModel> DayModels { get; set; }
     }
 }

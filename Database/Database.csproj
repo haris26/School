@@ -74,6 +74,8 @@
     <Compile Include="DataAccess\ExtendedEventUnit.cs" />
     <Compile Include="DataAccess\DetailUnit.cs" />
     <Compile Include="DataAccess\EmployeeEducationUnit.cs" />
+    <Compile Include="Delta\NameControl.cs" />
+    <Compile Include="Delta\SymbolControl.cs" />
     <Compile Include="Omega\Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="DataAccess\EventUnit.cs" />

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Database.Omega
 {
+<<<<<<< HEAD
     public class NameControl:ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext context)
@@ -21,6 +22,17 @@ namespace Database.Omega
             }
             return ValidationResult.Success;
 
+=======
+    public class NameControl: ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext context)
+        {
+            if (value.ToString().Contains("@"))
+            {
+                return new ValidationResult("");
+            }
+            return ValidationResult.Success;
+>>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
         }
     }
 }

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ﻿@model Database.Detail
+=======
+﻿@*@model Database.Detail*@
+@model TimeTracking.Models.DetailModel
+>>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
 
 @{
     ViewBag.Title = "Details";
@@ -7,9 +12,27 @@
 <h2>Details</h2>
 
 <div>
+<<<<<<< HEAD
     <h4>Detail</h4>
     <hr />
     <dl class="dl-horizontal">
+=======
+    <h4>Day</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.PersonName)</dt>
+        <dd>@Html.DisplayFor(model => model.PersonName)</dd>
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+
+>>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
         <dt>
             @Html.DisplayNameFor(model => model.WorkTime)
         </dt>
@@ -39,4 +62,8 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
+<<<<<<< HEAD
 </p>
+=======
+</p>
+>>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95

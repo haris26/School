@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿@model IEnumerable<Database.Detail>
+=======
+﻿@model IEnumerable<TimeTracking.Models.DetailModel>
+>>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
 
 @{
     ViewBag.Title = "Index";
@@ -11,9 +15,19 @@
 </p>
 <table class="table">
     <tr>
+<<<<<<< HEAD
         <th>Date</th>
         <th>Person</th>
         <th>Team</th>
+=======
+        <th>
+            Name
+        </th>
+        <th>
+            Team
+        </th>
+
+>>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
         <th>
             @Html.DisplayNameFor(model => model.WorkTime)
         </th>
@@ -23,6 +37,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
+<<<<<<< HEAD
         
         <th></th>
     </tr>
@@ -52,3 +67,34 @@
 }
 
 </table>
+=======
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.PersonName)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+>>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
