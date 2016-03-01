@@ -42,6 +42,7 @@ namespace TimeTracking.Models
             };
         }
 
+
         public Person Create(PersonModel model)
         {
             return new Person()
@@ -51,6 +52,20 @@ namespace TimeTracking.Models
                 LastName = model.LastName,
                 Category = model.Category,
                 Status = model.Status
+            };
+        }
+
+        public Detail Create(DetailModel model)
+        {
+            return new Detail()
+            {
+                Id = 0,
+                Day = context.Days.Find(model.Day),
+                WorkTime = model.WorkTime,
+                BillTime = model.BillTime,
+                Description = model.Description,
+                Team = context.Teams.Find(model.Team)
+
             };
         }
     }

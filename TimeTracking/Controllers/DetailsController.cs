@@ -7,37 +7,30 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Database;
+using TimeTracking.Models;
 
 namespace TimeTracking.Controllers
 {
-    public class DetailsController : Controller
+    public class DetailsController : BaseController
     {
         private SchoolContext db = new SchoolContext();
 
         // GET: Details
         public ActionResult Index()
         {
-            return View(db.Details.ToList());
+            return View(new DetailUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
         // GET: Details/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Detail detail = db.Details.Find(id);
-            if (detail == null)
-            {
-                return HttpNotFound();
-            }
-            return View(detail);
+            return View(Factory.Create(new DetailUnit(Context).Get(id)));
         }
 
         // GET: Details/Create
         public ActionResult Create()
         {
+            FillBag();
             return View();
         }
 
@@ -46,34 +39,22 @@ namespace TimeTracking.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,WorkTime,BillTime,Description")] Detail detail)
+        public ActionResult Create(DetailModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Details.Add(detail);
-                db.SaveChanges();
+                new DetailUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
-
-            return View(detail);
+            FillBag();
+            return View(model);
         }
 
         // GET: Details/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Detail detail = db.Details.Find(id);
-            if (detail == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.DaysList = new SelectList(db.Days.ToList(), "Id", "Date");
-            ViewBag.TeamsList = new SelectList(db.Teams.ToList(), "Id", "Name");
-            
-            return View(detail);
+            FillBag();
+            return View(Factory.Create(new DetailUnit(Context).Get(id)));
         }
 
         // POST: Details/Edit/5
@@ -81,31 +62,20 @@ namespace TimeTracking.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,WorkTime,BillTime,Description")] Detail detail)
+        public ActionResult Edit(DetailModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(detail).State = EntityState.Modified;
-                db.SaveChanges();
+                new DetailUnit(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
-
-            return View(detail);
+            return View(model);
         }
 
         // GET: Details/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Detail detail = db.Details.Find(id);
-            if (detail == null)
-            {
-                return HttpNotFound();
-            }
-            return View(detail);
+            return View(Factory.Create(new DetailUnit(Context).Get(id)));
         }
 
         // POST: Details/Delete/5
@@ -113,9 +83,7 @@ namespace TimeTracking.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Detail detail = db.Details.Find(id);
-            db.Details.Remove(detail);
-            db.SaveChanges();
+            new DetailUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -126,6 +94,13 @@ namespace TimeTracking.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        void FillBag()
+        {
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
+            ViewBag.TeamList = new SelectList(new Repository<Team>(Context).Get().ToList(), "Id", "TeamName");
+
         }
     }
 }

@@ -9,6 +9,9 @@ namespace TimeTracking.Controllers
 {
     public class DaysController : BaseController
     {
+
+        private SchoolContext db = new SchoolContext();
+
         public ActionResult Index()
         {
             return View(new DayUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
