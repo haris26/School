@@ -64,13 +64,12 @@ namespace TimeTracking.Models
 
 
         }
-        public DetailModel Create (Detail detail)
+        public DetailModel Create(Detail detail)
         {
             return new DetailModel()
             {
                 Id = detail.Id,
                 Day = detail.Day.Id,
-                Date = detail.Day.Date,
                 PersonName = detail.Day.Person.FirstName,
                 WorkTime = detail.WorkTime,
                 BillTime = detail.BillTime,
@@ -91,20 +90,5 @@ namespace TimeTracking.Models
                 Status = person.Status
             };
         }
-
-        public DetailModel Create(Detail detail)
-        {
-            return new DetailModel()
-            {
-                Id = detail.Id,
-                Day = detail.Day.Id,
-                PersonName = detail.Day.Person.FirstName,
-                WorkTime = detail.WorkTime,
-                BillTime = detail.BillTime,
-                Description = detail.Description,
-                Team = detail.Team.Id,
-                TeamName = detail.Team.Name
-            };
-            }
-    }
+}
 }
