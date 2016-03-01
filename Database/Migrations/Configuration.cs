@@ -9,7 +9,7 @@ namespace Database.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(SchoolContext context)
@@ -25,7 +25,7 @@ namespace Database.Migrations
             //      new Person { FullName = "Brice Lambson" },
             //      new Person { FullName = "Rowan Miller" }
             //    );
-            
+            //
         }
     }
 }

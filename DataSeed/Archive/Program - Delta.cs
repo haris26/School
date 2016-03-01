@@ -1,16 +1,16 @@
-
 //using Database;
 //using System;
 //using System.Linq;
 //using System.Data.OleDb;
 //using System.Data;
+//using System.Globalization;
 
 //namespace DataSeed
 //{
 //    class ProgramDelta
 //    {
 
-//        static string sourceData = @"C:\MistralProjects\school\GigiSchool.xls";
+//        static string sourceData = @"C:\MistralProjects\school\delta.xls";
 //        static SchoolContext context = new SchoolContext();
 
 //        static void Main(string[] args)
@@ -60,13 +60,14 @@
 //            int N = 0;
 //            foreach (DataRow row in rawData.Rows)
 //            {
-//                Day day = new Day()
-//                {
-//                    Date = getDate(row, 0),
-//                    WorkTime = getDouble(row, 1),
-//                    PtoTime = getDouble(row, 2),
-//                    EntryStatus = (EntryStatus)getInteger(row, 3)
-//                };
+//                Day day = new Day();
+
+//                //DateTime dan = DateTime.ParseExact (row.ItemArray.GetValue(0).ToString(), "yyyy/MM/dd", CultureInfo.InvariantCulture);
+//                day.Date = getDate(row, 0); //DateTime.Parse(row.ItemArray.GetValue(0).ToString(), CultureInfo.InvariantCulture);
+//                day.WorkTime = getDouble(row, 1);
+//                day.PtoTime = getDouble(row, 2);
+//                day.EntryStatus = (EntryStatus)getInteger(row, 3);
+
 
 //                string pName = row.ItemArray.GetValue(4).ToString();
 //                day.Person = context.People.Where(x => x.FirstName == pName).FirstOrDefault();

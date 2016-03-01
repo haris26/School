@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Database.Delta;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 
 // WORKFORCE ROSTER
 namespace Database
@@ -26,25 +28,33 @@ namespace Database
 
     public class Person
     {
-        public Person()
+       public Person()
         {
             Roles = new Collection<Engagement>();
             Teams = new Collection<Team>();
             EmployeeSkills = new Collection<EmployeeSkill>();
         }
 
+       
+
         public int Id { get; set; }
+        [SymbolControl]
         public string FirstName { get; set; }
+        [SymbolControl]
         public string LastName { get; set; }
+        [Required]
         public string Email { get; set; }
         public EmploymentType Category { get; set; }
         public Gender Gender { get; set; }
         public string Image { get; set; }
+        [Required]
         public string Phone { get; set; }
         public Address Address { get; set; }
+        [Required]
         public DateTime BirthDate { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
+        [Required]
         public EmploymentStatus Status { get; set; }
 
         public virtual ICollection<Engagement> Roles { get; set; }
