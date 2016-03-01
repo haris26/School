@@ -78,6 +78,16 @@ namespace TimeTracking.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Detail(int id)
+        {
+            DayDetail model = new DayDetail();
+            model.Day = new Repository<Day>(Context).Get(id);
+            model.Detail = new DetailUnit(Context)
+                               .Get().Where(x => x.Day.Id == id).ToList()
+                               .Select(x => Factory.Create(x)).ToList();
+            return View(model);
+        }
+
 
         void FillBag()
         {
