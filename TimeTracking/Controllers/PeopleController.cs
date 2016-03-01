@@ -17,7 +17,11 @@ namespace TimeTracking.Controllers
         {
             return View(new Repository<Person>(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> delta
         public ActionResult Details(int id)
         {
             return View(Factory.Create(new Repository<Person>(Context).Get(id)));
@@ -28,7 +32,11 @@ namespace TimeTracking.Controllers
             return View();
         }
 
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> delta
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PersonModel model)
@@ -38,11 +46,19 @@ namespace TimeTracking.Controllers
                 new Repository<Person>(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
+<<<<<<< HEAD
 
             return View(model);
         }
 
 
+=======
+            
+            return View(model);
+        }
+
+        
+>>>>>>> delta
         public ActionResult Edit(int id)
         {
             return View(Factory.Create(new Repository<Person>(Context).Get(id)));
@@ -76,7 +92,11 @@ namespace TimeTracking.Controllers
             return RedirectToAction("Index");
         }
 
+<<<<<<< HEAD
         public ActionResult Days(int id)
+=======
+        public ActionResult Days (int id)
+>>>>>>> delta
         {
             PersonDays model = new PersonDays();
             model.Person = new Repository<Person>(Context).Get(id);

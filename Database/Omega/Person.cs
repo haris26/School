@@ -28,13 +28,14 @@ namespace Database
 
     public class Person
     {
-        
-        public Person()
+       public Person()
         {
             Roles = new Collection<Engagement>();
             Teams = new Collection<Team>();
             EmployeeSkills = new Collection<EmployeeSkill>();
         }
+
+       
 
         public int Id { get; set; }
         [SymbolControl]

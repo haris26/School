@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data;
 using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Database;
 using TimeTracking.Models;
@@ -15,9 +10,7 @@ namespace TimeTracking.Controllers
 {
     public class DaysController : BaseController
     {
-
-        private SchoolContext db = new SchoolContext();
-
+        
         public ActionResult Index()
         {
             return View(new DayUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
@@ -85,6 +78,16 @@ namespace TimeTracking.Controllers
         {
             new DayUnit(Context).Delete(id);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Detail(int id)
+        {
+            DayDetail model = new DayDetail();
+            model.Day = new Repository<Day>(Context).Get(id);
+            model.Detail = new DetailUnit(Context)
+                               .Get().Where(x => x.Day.Id == id).ToList()
+                               .Select(x => Factory.Create(x)).ToList();
+            return View(model);
         }
 
 
