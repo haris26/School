@@ -151,9 +151,6 @@ namespace SkillsLibrary.Controllers
             return RedirectToAction("engagements/" + employee);
         }
 
-
-
-
         public ActionResult EmployeeSkills(int id)
         {
             PersonSkills model = new PersonSkills();

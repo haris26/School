@@ -180,6 +180,7 @@
     <Compile Include="Models\PersonEngagement.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\ProjectSkillModel.cs" />
+    <Compile Include="Models\ProjectSkills.cs" />
     <Compile Include="Models\SkillCategoryModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Models\ToolModel.cs" />
@@ -283,6 +284,11 @@
     <Content Include="Views\Shared\_SkillEdit.cshtml" />
     <Content Include="Views\People\SkillEdit.cshtml" />
     <Content Include="Views\People\SkillDelete.cshtml" />
+    <Content Include="Views\Teams\ProjectSkills.cshtml" />
+    <Content Include="Views\Teams\SkillEdit.cshtml" />
+    <Content Include="Views\Teams\SkillCreate.cshtml" />
+    <Content Include="Views\Teams\SkillDelete.cshtml" />
+    <Content Include="Views\Shared\_ProjectSkillEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
