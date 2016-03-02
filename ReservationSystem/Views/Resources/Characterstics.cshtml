@@ -1,0 +1,36 @@
+﻿@model ReservationSystem.Models.ResourceCharactersticModel
+@{
+    ViewBag.Title = "Characterstics";
+}
+
+<h2>@Model.Resource.Name</h2>
+
+<div>
+    <h4>Characterstics</h4>
+    <hr/>
+
+@foreach (var charName in Model.Characteristics)
+{
+    
+        <div class="col-md-2">@charName.Name</div>
+        
+    
+}
+    <hr/>
+
+</div>
+@foreach (var charName in Model.Characteristics)
+    {
+        
+            <div class="col-md-2">@charName.Value</div>
+            
+           
+
+}
+<div class="col-md-2">
+    <a href="/resources/charedit/@Model.Resource.Id">Edit</a>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

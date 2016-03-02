@@ -42,7 +42,7 @@ namespace ReservationSystem.Models
         }
 
 
-public Engagement Create(EngagementModel model, SchoolContext context)
+            public Engagement Create(EngagementModel model)
         {
             return new Engagement()
             {
@@ -55,7 +55,7 @@ public Engagement Create(EngagementModel model, SchoolContext context)
                 Role = context.Roles.Find(model.Role)
             };
         }
-        public Resource Create (ResourceModel model, SchoolContext context)
+        public Resource Create (ResourceModel model)
         {
             return new Resource()
             {
@@ -73,6 +73,28 @@ public Engagement Create(EngagementModel model, SchoolContext context)
                 CategoryName = model.CategoryName
             };
         }
-
+        public Person Create(PersonModel model)
+        {
+            return new Person()
+            {
+                Id = model.Id,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Category = model.Category,
+                Phone = model.Phone,
+                Status = model.Status
+            };
+        }
+        public Characteristic Create(CharacteristicModel model)
+        {
+            return new Characteristic()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Value = model.Value,
+                Resource = context.Resources.Find(model.Resource)
+            };
+        }
+        
     }
 }

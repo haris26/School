@@ -105,6 +105,29 @@ namespace ReservationSystem.Models
                 CategoryName = resourceCat.CategoryName
             };
         }
+        public PersonModel Create(Person person)
+        {
+            return new PersonModel
+            {
+                Id = person.Id,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Category = person.Category,
+                Phone = person.Phone,
+                Status = person.Status
+            };
+        }
+        public CharacteristicModel Create(Characteristic characteristic)
+        {
+            return new CharacteristicModel
+            {
+                Id = characteristic.Id,
+                Name = characteristic.Name,
+                Value = characteristic.Value,
+                Resource = characteristic.Resource.Id,
+                ResourceName = characteristic.Resource.Name
+            };
+        }
     }
 }
 
