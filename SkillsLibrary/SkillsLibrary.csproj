@@ -275,6 +275,8 @@
     <Content Include="Views\People\Engagements.cshtml" />
     <Content Include="Views\People\EngCreate.cshtml" />
     <Content Include="Views\People\EngEdit.cshtml" />
+    <Content Include="Views\Shared\_EngagementEdit.cshtml" />
+    <Content Include="Views\People\EngDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

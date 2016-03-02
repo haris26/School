@@ -134,6 +134,23 @@ namespace SkillsLibrary.Controllers
             return View(model);
         }
 
+        // GET: People/EngDelete/5
+        public ActionResult EngDelete(int id)
+        {
+            return View(Factory.Create(new EngagementUnit(Context).Get(id)));
+        }
+
+        // POST: People/EngDelete/5
+        [HttpPost, ActionName("EngDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EngDeleteConfirmed(int id)
+        {
+            EngagementUnit engagements = new EngagementUnit(Context);
+            int employee = engagements.Get(id).Person.Id;
+            engagements.Delete(id);
+            return RedirectToAction("engagements/"+employee);
+        }
+
         void FillBag()
         {
             ViewBag.RolesList = new SelectList(new Repository<Role>(Context).Get().ToList(), "Id", "Name");
