@@ -22,12 +22,19 @@
                 @Html.DropDownListFor(model => model.PersonName, ViewBag.PeopleList as IEnumerable<SelectListItem>, new { @class = "form-control" })
             </div>
         </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2"><b>Team</b></div>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.TeamName, ViewBag.TeamList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+            </div>
+        </div>
         
         <div class="form-group">
-            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Day, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Day, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Day, "", new { @class = "text-danger" })
             </div>
         </div>
 
