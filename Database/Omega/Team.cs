@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-﻿using Database.Omega;
-=======
+
 ﻿using Database.Delta;
->>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
+
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
@@ -21,10 +19,8 @@ namespace Database
         }
 
         public int Id { get; set; }                         // Identity[1]
-<<<<<<< HEAD
-        //[Required(ErrorMessage ="Please enter name of the team")]
-=======
->>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
+
+
         [NameControl]
         public string Name { get; set; }                    // Team (project) name
         public string Description { get; set; }             // Description

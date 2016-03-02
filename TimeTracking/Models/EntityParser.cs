@@ -8,21 +8,7 @@ namespace TimeTracking.Models
 {
     public class EntityParser
     {
-<<<<<<< HEAD
 
-        public Engagement Create(EngagementModel model, SchoolContext context) { 
-        return new Engagement()
-        {
-            Id = model.Id,
-            StartDate = model.StartDate,
-            EndDate = model.EndDate,
-            Time = model.Time,
-            Person = context.People.Find(model.Person),
-            Team = context.Teams.Find(model.Team),
-            Role = context.Roles.Find(model.Role)
-        };
-    }
-=======
         private SchoolContext context;
 
         public EntityParser(SchoolContext ctx)
@@ -83,6 +69,6 @@ namespace TimeTracking.Models
 
             };
         }
->>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
+
     }
 }

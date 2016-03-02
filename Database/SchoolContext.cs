@@ -6,11 +6,9 @@ namespace Database
 {
     public class SchoolContext: DbContext
     {
-<<<<<<< HEAD
-        public SchoolContext(): base()
-=======
+
         public SchoolContext(): base(/*"name=School"*/)
->>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
+
         { }
 
         public DbSet<Asset> Assets { get; set; }

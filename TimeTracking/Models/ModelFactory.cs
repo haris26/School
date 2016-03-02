@@ -3,18 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-<<<<<<< HEAD
 
-=======
 using TimeTracking.Models;
->>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
+
 
 namespace TimeTracking.Models
 {
     public class ModelFactory
     {
-<<<<<<< HEAD
-=======
+
         private SchoolContext context;
 
         public ModelFactory(SchoolContext ctx)
@@ -22,7 +19,7 @@ namespace TimeTracking.Models
             context = ctx;
         }
 
->>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
+
         public TeamModel Create(Team team)
         {
             TeamModel model = new TeamModel()
@@ -55,9 +52,7 @@ namespace TimeTracking.Models
                 RoleName = engagement.Role.Name
             };
         }
-<<<<<<< HEAD
-    }
-=======
+
 
         public DayModel Create(Day day)
         {
@@ -80,6 +75,7 @@ namespace TimeTracking.Models
             {
                 Id = detail.Id,
                 Day = detail.Day.Id,
+                Date=detail.Day.Date,
                 PersonName = detail.Day.Person.FirstName,
                 WorkTime = detail.WorkTime,
                 BillTime = detail.BillTime,
@@ -101,5 +97,5 @@ namespace TimeTracking.Models
             };
         }
 }
->>>>>>> 3362ff002d7c37b0137071d2af0f41ed31c55c95
+
 }
