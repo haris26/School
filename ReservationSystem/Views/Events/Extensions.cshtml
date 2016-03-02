@@ -1,0 +1,38 @@
+﻿@model ReservationSystem.Models.EventExtendModel
+@{
+    ViewBag.Title = "Extensions";
+}
+
+<h2>Extended Event </h2>
+
+<div>
+    <h4>Event</h4>
+    <hr/>
+    @Html.HiddenFor(model => model.Id)
+    <div class="row">
+        <div class="col-md-2">Repeat until date </div>
+        <div class="col-md-2">Repeating type</div>
+        <div class="col-md-2">Frequency</div>
+        <div class="col-md-2">
+            @Html.ActionLink("Create New", "ExtCreate")
+        </div>
+        <hr/>
+    </div>
+    @if (Model != null)
+    {
+        <div class="row">
+            <div class="col-md-2">@Html.DisplayFor(model => model.RepeatUntil) </div>
+            <div class="col-md-2">@Html.DisplayFor(model => model.RepeatingType)</div>
+            <div class="col-md-2">@Html.DisplayFor(model => model.Frequency)</div>
+            <div class="col-md-2">
+                <a href="/events/extedit/@Model.Id">Edit</a> |
+                <a href="/events/extdelete/@Model.Id">Delete</a>
+            </div>
+
+        </div>
+    }
+    
+</div>
+
+
+

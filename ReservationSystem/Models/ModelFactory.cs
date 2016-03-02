@@ -5,12 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-
-
 namespace ReservationSystem.Models
 {
     
-
     public class ModelFactory {
 
         private SchoolContext context;
@@ -37,8 +34,6 @@ namespace ReservationSystem.Models
             };
         }
 
-
-        //Irhad on ModelFactory
         public CharacteristicNameModel Create(CharacteristicName characteristicName)
         {
             return new CharacteristicNameModel()
@@ -50,9 +45,6 @@ namespace ReservationSystem.Models
                 ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
             };
         }
-
-
-
 
         public TeamModel Create(Team team)
         {
@@ -86,6 +78,7 @@ namespace ReservationSystem.Models
                 RoleName = engagement.Role.Name
             };
         }
+
         public ResourceModel Create(Resource resource)
         {
             return new ResourceModel()
@@ -97,12 +90,38 @@ namespace ReservationSystem.Models
                 ResourceCategoryName = resource.ResourceCategory.CategoryName
             };
         }
+
         public ResourceCategoryModel Create(ResourceCategory resourceCat)
         {
             return new ResourceCategoryModel
             {
                 Id = resourceCat.Id,
                 CategoryName = resourceCat.CategoryName
+            };
+        }
+
+        public PeopleModel Create(Person person)
+        {
+            return new PeopleModel
+            {
+                Id = person.Id,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Category = person.Category,
+                Phone = person.Phone,
+                Status = person.Status
+            };
+        }
+
+        public EventExtendModel Create(ExtendedEvent exEvent)
+        {
+            return new EventExtendModel()
+            {
+                Id = exEvent.Id,
+                ParentEvent = exEvent.ParentEvent,
+                RepeatUntil = exEvent.RepeatUntil,
+                RepeatingType = exEvent.RepeatingType,
+                Frequency = exEvent.Frequency
             };
         }
     }

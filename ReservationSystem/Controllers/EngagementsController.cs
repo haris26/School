@@ -43,7 +43,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                engagements.Insert(parser.Create(model, context));
+                engagements.Insert(parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -73,7 +73,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {                
-                engagements.Update(parser.Create(model, context), model.Id);
+                engagements.Update(parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);

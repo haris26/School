@@ -17,7 +17,7 @@ namespace ReservationSystem.Models
             context = ctx;
         }
 
-        public Event Create(EventModel model, SchoolContext context)
+        public Event Create(EventModel model)
         {
             return new Event()
             {
@@ -29,6 +29,7 @@ namespace ReservationSystem.Models
                 Resource = context.Resources.Find(model.Resource)
             };
         }
+
         //Irhad on EntityParser
         public CharacteristicName Create(CharacteristicNameModel model, SchoolContext context)
         {
@@ -41,8 +42,7 @@ namespace ReservationSystem.Models
 
         }
 
-
-public Engagement Create(EngagementModel model, SchoolContext context)
+        public Engagement Create(EngagementModel model)
         {
             return new Engagement()
             {
@@ -55,7 +55,8 @@ public Engagement Create(EngagementModel model, SchoolContext context)
                 Role = context.Roles.Find(model.Role)
             };
         }
-        public Resource Create (ResourceModel model, SchoolContext context)
+
+        public Resource Create(ResourceModel model, SchoolContext context)
         {
             return new Resource()
             {
@@ -65,6 +66,7 @@ public Engagement Create(EngagementModel model, SchoolContext context)
                 ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
             };
         }
+
         public ResourceCategory Create(ResourceCategoryModel model, SchoolContext context)
         {
             return new ResourceCategory()
@@ -74,5 +76,29 @@ public Engagement Create(EngagementModel model, SchoolContext context)
             };
         }
 
+        public Person Create(PeopleModel model)
+        {
+            return new Person()
+            {
+                Id = model.Id,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Category = model.Category,
+                Phone = model.Phone,
+                Status = model.Status
+            };
+        }
+
+        public ExtendedEvent Create(EventExtendModel model)
+        {
+            return new ExtendedEvent()
+            {
+                Id = model.Id,
+                ParentEvent = context.Events.Find(model.ParentEvent),
+                RepeatUntil = model.RepeatUntil,
+                RepeatingType = model.RepeatingType,
+                Frequency = model.Frequency
+            };
+        }
     }
 }
