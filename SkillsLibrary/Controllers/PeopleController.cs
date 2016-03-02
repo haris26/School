@@ -222,11 +222,85 @@ namespace SkillsLibrary.Controllers
             return RedirectToAction("EmployeeSkills/" + employee);
         }
 
+
+
+        public ActionResult EmployeeEducation(int id)
+        {
+            PersonEducation model = new PersonEducation();
+            model.Person = new Repository<Person>(Context).Get(id);
+            model.Education = new EmployeeEducationUnit(Context)
+                              .Get().Where(x => x.Employee.Id == id).ToList()
+                              .Select(x => Factory.Create(x)).ToList();
+            return View(model);
+        }
+
+        public ActionResult EduCreate(int id)  //Person id
+        {
+            FillBag();
+            Person person = new Repository<Person>(Context).Get(id);
+            return View(new EmployeeEducationModel()
+            {
+                Employee = person.Id,
+                EmployeeName = person.FirstName + " " + person.LastName
+            }
+            );
+        }
+
+        public ActionResult EduEdit(int id)
+        {
+            FillBag();
+            return View(Factory.Create(new EmployeeEducationUnit(Context).Get(id)));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EduCreate(EmployeeEducationModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                EmployeeEducation education = Parser.Create(model);
+                new EmployeeEducationUnit(Context).Insert(education);
+                return RedirectToAction("EmployeeEducation/" + model.Employee);
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EduEdit(EmployeeEducationModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                EmployeeEducation education = Parser.Create(model);
+                new EmployeeEducationUnit(Context).Update(education, education.Id);
+                return RedirectToAction("EmployeeEducation/" + model.Employee);
+            }
+            return View(model);
+        }
+
+        // GET: People/SkillDelete/5
+        public ActionResult EduDelete(int id)
+        {
+            return View(Factory.Create(new EmployeeEducationUnit(Context).Get(id)));
+        }
+
+        // POST: People/SkillDelete/5
+        [HttpPost, ActionName("EduDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EduDeleteConfirmed(int id)
+        {
+            EmployeeEducationUnit education = new EmployeeEducationUnit(Context);
+            int employee = education.Get(id).Employee.Id;
+            education.Delete(id);
+            return RedirectToAction("EmployeeEducation/" + employee);
+        }
+
         void FillBag()
         {
             ViewBag.RolesList = new SelectList(new Repository<Role>(Context).Get().ToList(), "Id", "Name");
             ViewBag.TeamsList = new SelectList(new Repository<Team>(Context).Get().ToList(), "Id", "Name");
             ViewBag.ToolsList = new SelectList(new Repository<Tool>(Context).Get().ToList(), "Id", "Name");
+            ViewBag.EducationList = new SelectList(new Repository<Education>(Context).Get().ToList(), "Id", "Name");
         }
     }
 }
