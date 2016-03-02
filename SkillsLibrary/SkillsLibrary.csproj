@@ -176,6 +176,7 @@
     <Compile Include="Models\EngagementModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\PersonSkills.cs" />
     <Compile Include="Models\PersonEngagement.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\ProjectSkillModel.cs" />
@@ -275,6 +276,13 @@
     <Content Include="Views\People\Engagements.cshtml" />
     <Content Include="Views\People\EngCreate.cshtml" />
     <Content Include="Views\People\EngEdit.cshtml" />
+    <Content Include="Views\Shared\_EngagementEdit.cshtml" />
+    <Content Include="Views\People\EngDelete.cshtml" />
+    <Content Include="Views\People\EmployeeSkills.cshtml" />
+    <Content Include="Views\People\SkillCreate.cshtml" />
+    <Content Include="Views\Shared\_SkillEdit.cshtml" />
+    <Content Include="Views\People\SkillEdit.cshtml" />
+    <Content Include="Views\People\SkillDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

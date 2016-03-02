@@ -1,0 +1,41 @@
+﻿@model SkillsLibrary.Models.PersonSkills
+
+@{
+    ViewBag.Title = "Employee Skills";
+}
+
+<h2>@Model.Person.FirstName @Model.Person.LastName</h2>
+
+<div>
+    <h4>Personal Skills</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-2">Tool</div>
+        <div class="col-md-2">Level</div>
+        <div class="col-md-2">Experience</div>
+        <div class="col-md-2">
+            @Html.ActionLink("Create New", "SkillCreate", new { id = Model.Person.Id })
+        </div>
+        <hr />
+    </div>
+</div>
+
+@foreach (var item in Model.Skills)
+{
+    <div class="row">
+        <div class="col-md-2">@item.ToolName</div>
+        <div class="col-md-2">@item.Level</div>
+        <div class="col-md-2">@item.Experience</div>
+        <div class="col-md-2">
+            <a href="/people/skilledit/@item.Id">Edit</a> |
+            <a href="/people/skilldelete/@item.Id">Delete</a>
+        </div>
+        <hr />
+    </div>
+}
+
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+
+</p>
