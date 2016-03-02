@@ -1,106 +1,77 @@
-//using System;
-//using System.Collections.Generic;
-//using System.Data;
-//using System.Data.Entity;
-//using System.Linq;
-//using System.Net;
-//using System.Web;
-//using System.Web.Mvc;
-//using Database;
-//using TimeTracking.Models;
+using Database;
+using System.Linq;
+using System.Web.Mvc;
+using TimeTracking.Models;
 
+namespace TimeTracking.Controllers
+{
+    public class EngagementsController : BaseController
+    {
+        public ActionResult Index()
+        {
+            return View(new EngagementUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
+        }
 
-//namespace TimeTracking.Controllers
-//{
-//    public class EngagementsController : Controller
-//    {
-//        static SchoolContext context = new SchoolContext();
-//        EngagementUnit engagements = new EngagementUnit(context);
-//        Repository<Person> people = new Repository<Person>(context);
-//        Repository<Team> teams = new Repository<Team>(context);
-//        Repository<Role> roles = new Repository<Role>(context);
- 
+        public ActionResult Details(int id)
+        {
+            return View(Factory.Create(new EngagementUnit(Context).Get(id)));
+        }
 
-//        public ActionResult Index()
-//        {
-//            return View(engagements.Get().ToList().Select(x => factory.Create(x)).ToList());
-//        }
+        public ActionResult Create()
+        {
+            FillBag();
+            return View();
+        }
 
-//        public ActionResult Details(int id)
-//        {
-//            return View(factory.Create(engagements.Get(id)));
-//        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(EngagementModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                new EngagementUnit(Context).Insert(Parser.Create(model));
+                return RedirectToAction("Index");
+            }
+            FillBag();
+            return View(model);
+        }
 
-//        public ActionResult Create()
-//        {
-//            FillBag();
-//            return View();
-//        }
+        public ActionResult Edit(int id)
+        {
+            FillBag();
+            return View(Factory.Create(new EngagementUnit(Context).Get(id)));
+        }
 
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult Create(EngagementModel model)
-//        {
-//            if (ModelState.IsValid)
-//            {
-                
-//                engagements.Insert(parser.Create(model));
-//                return RedirectToAction("Index");
-//            }
-//            FillBag();
-//            return View(model);
-//        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(EngagementModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                new EngagementUnit(Context).Update(Parser.Create(model), model.Id);
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
 
-//        public ActionResult Edit(int id)
-//        {
-//            Engagement engagement = engagements.Get(id);
-//            EngagementModel model = new EngagementModel()
-//            {
-//                Id = engagement.Id,
-//                StartDate = engagement.StartDate,
-//                EndDate = engagement.EndDate,
-//                Time = engagement.Time,
-//                Person = engagement.Person.Id,
-//                Team = engagement.Team.Id,
-//                Role = engagement.Role.Id
-//            };
-//            FillBag();
-//            return View(model);
-//        }
+        public ActionResult Delete(int id)
+        {
+            return View(Factory.Create(new EngagementUnit(Context).Get(id)));
+        }
 
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult Edit(EngagementModel model)
-//        {
-            
-//            if (ModelState.IsValid)
-//            {
-               
-//                engagements.Update(parser.Create(model), model.Id);
-//                return RedirectToAction("Index");
-//            }
-//            return View(model);
-//        }
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            new EngagementUnit(Context).Delete(id);
+            return RedirectToAction("Index");
+        }
 
-//        public ActionResult Delete(int id)
-//        {
-//            Engagement engagement = engagements.Get(id);
-//            return View(factory.Create(engagement));
-//        }
-
-//        [HttpPost, ActionName("Delete")]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult DeleteConfirmed(int id)
-//        {
-//            engagements.Delete(id);
-//            return RedirectToAction("Index");
-//        }
-
-//        void FillBag()
-//        {
-//            ViewBag.PeopleList = new SelectList(people.Get().ToList(), "Id", "FirstName");
-//            ViewBag.RolesList = new SelectList(roles.Get().ToList(), "Id", "Name");
-//            ViewBag.TeamsList = new SelectList(teams.Get().ToList(), "Id", "Name");
-//        }
-//    }
-//}
+        void FillBag()
+        {
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
+            ViewBag.RolesList = new SelectList(new Repository<Role>(Context).Get().ToList(), "Id", "Name");
+            ViewBag.TeamsList = new SelectList(new Repository<Team>(Context).Get().ToList(), "Id", "Name");
+        }
+    }
+}

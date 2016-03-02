@@ -10,6 +10,7 @@ namespace TimeTracking.Models
 
         public int Id { get; set; }
         public int Day { get; set; }
+        public DateTime Date { get; set; }
         public string PersonName { get; set; }
         public double WorkTime { get; set; }
         public double BillTime {get; set;}

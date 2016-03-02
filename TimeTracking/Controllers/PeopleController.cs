@@ -90,10 +90,10 @@ namespace TimeTracking.Controllers
 
         public ActionResult Detail(int id)
         {
-            PersonDetails model = new PersonDetails();
-            model.Person = new Repository<Person>(Context).Get(id);
-            model.Details = new DayUnit(Context)
-                               .Get().Where(x => x.Person.Id == id).ToList()
+            DayDetail model = new DayDetail();
+            model.Day = new DayUnit(Context).Get(id);
+            model.Detail = new DetailUnit(Context)
+                               .Get().Where(x => x.Day.Id == id).ToList()
                                .Select(x => Factory.Create(x)).ToList();
             return View(model);
         }

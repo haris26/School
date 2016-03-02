@@ -19,7 +19,7 @@ namespace TimeTracking.Models
         {
             return new Engagement()
             {
-                Id = 0,
+                Id = model.Id,
                 StartDate = model.StartDate,
                 EndDate = model.EndDate,
                 Time = model.Time,
@@ -33,7 +33,7 @@ namespace TimeTracking.Models
         {
             return new Day()
             {
-                Id = 0,
+                Id = model.Id,
                 Person = context.People.Find(model.Person),
                 Date = model.Date,
                 WorkTime = model.WorkTime,
@@ -59,7 +59,7 @@ namespace TimeTracking.Models
         {
             return new Detail()
             {
-                Id = 0,
+                Id = model.Id,
                 Day = context.Days.Find(model.Day),
                 WorkTime = model.WorkTime,
                 BillTime = model.BillTime,
