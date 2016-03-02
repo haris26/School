@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿@model IEnumerable<ReservationSystem.Models.PeopleModel>
+=======
+﻿@model IEnumerable<ReservationSystem.Models.PersonModel>
+>>>>>>> haris
 
 @{
     ViewBag.Title = "Index";
@@ -20,11 +24,17 @@
         <th>
             @Html.DisplayNameFor(model => model.Category)
         </th>
+<<<<<<< HEAD
         
         <th>
             @Html.DisplayNameFor(model => model.Phone)
         </th>
         
+=======
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+>>>>>>> haris
         <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
@@ -39,6 +49,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.LastName)
         </td>
+<<<<<<< HEAD
        
         <td>
             @Html.DisplayFor(modelItem => item.Category)
@@ -48,6 +59,14 @@
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
        
+=======
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+>>>>>>> haris
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
@@ -57,9 +76,14 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
         <td>
+<<<<<<< HEAD
             @Html.ActionLink("Engagements", "engagements", new { id = item.Id })
         </td>
 
+=======
+            @Html.ActionLink("Engagements", "engagements", new { id = item.Id})
+        </td>
+>>>>>>> haris
     </tr>
 }
 

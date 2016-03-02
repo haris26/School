@@ -1,4 +1,5 @@
 ﻿@model ReservationSystem.Models.EngagementModel
+<<<<<<< HEAD
 @{
     ViewBag.Title = "Delete";
 }
@@ -6,6 +7,15 @@
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
+=======
+
+@{
+    ViewBag.Title = "EngDelete";
+}
+
+<h2>EngDelete</h2>
+
+>>>>>>> haris
 <div>
     <h4>Engagement</h4>
     <hr />
@@ -35,6 +45,7 @@
         </dd>
 
     </dl>
+<<<<<<< HEAD
 
     @using (Html.BeginForm())
     {
@@ -47,3 +58,15 @@
     }
 
 </div>
+=======
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "People")
+    </div>
+}
+>>>>>>> haris

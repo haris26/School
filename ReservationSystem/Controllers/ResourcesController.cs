@@ -11,26 +11,18 @@ using ReservationSystem.Models;
 
 namespace ReservationSystem.Controllers
 {
-    public class ResourcesController : Controller
+    public class ResourcesController : BaseController
     {
-        static SchoolContext context = new SchoolContext();
-        ResourceUnit resources = new ResourceUnit(context);
-
-        private Repository<ResourceCategory> resourceCat = new Repository<ResourceCategory>(context);
-        private ModelFactory factory = new ModelFactory(context);
-        private EntityParser parser = new EntityParser(context);
-
-
         // GET: Resources
         public ActionResult Index()
         {
-            return View(resources.Get().ToList().Select(x => factory.Create(x)).ToList());
+            return View(new ResourceUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
         // GET: Resources/Details/5
         public ActionResult Details(int id)
         {
-            return View(factory.Create(resources.Get(id)));
+            return View(Factory.Create(new ResourceUnit(Context).Get(id)));
         }
 
         // GET: Resources/Create
@@ -49,7 +41,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                resources.Insert(parser.Create(model, context));
+                new ResourceUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -60,7 +52,7 @@ namespace ReservationSystem.Controllers
         public ActionResult Edit(int id)
         {
             FillBag();
-            return View(factory.Create(resources.Get(id)));
+            return View(Factory.Create(new ResourceUnit(Context).Get(id)));
         }
 
         // POST: Resources/Edit/5
@@ -72,7 +64,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                resources.Update(parser.Create(model, context), model.Id);
+                new ResourceUnit(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -81,8 +73,7 @@ namespace ReservationSystem.Controllers
         // GET: Resources/Delete/5
         public ActionResult Delete(int id)
         {
-            Resource resource = new ResourceUnit(context).Get(id);
-            return View(factory.Create(resource));
+            return View(Factory.Create(new ResourceUnit(Context).Get(id)));
         }
 
         // POST: Resources/Delete/5
@@ -90,12 +81,36 @@ namespace ReservationSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            resources.Delete(id);
+            new ResourceUnit(Context).Delete(id);
             return RedirectToAction("Index");
+        }
+        public ActionResult Characterstics(int id)
+        {
+            ResourceCharactersticModel model = new ResourceCharactersticModel();
+            model.Resource = new ResourceUnit(Context).Get(id);
+            model.Characteristics = new Repository<Characteristic>(Context).Get().Where(x => x.Resource.Id == id).ToList()
+                .Select(x => Factory.Create(x)).ToList();
+            return View(model);
+        }
+        public ActionResult CharEdit(int id)
+        {
+            return View(Factory.Create(new Repository<Characteristic>(Context).Get(id)));
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CharEdit(CharacteristicModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Characteristic charac = Parser.Create(model);
+                new Repository<Characteristic>(Context).Update(charac, charac.Id);
+                return RedirectToAction("Characterstics/" + model.Resource);
+            }
+            return View(model);
         }
         void FillBag()
         {
-            ViewBag.ResourceCatList = new SelectList(resourceCat.Get().ToList(), "Id", "CategoryName");
+            ViewBag.ResourceCatList = new SelectList(new Repository<ResourceCategory>(Context).Get().ToList(), "Id", "CategoryName");
         }
     }
 }
