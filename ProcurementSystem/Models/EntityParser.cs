@@ -9,13 +9,30 @@ using System.Web;
 namespace ProcurementSystem.Models
 {
     public class EntityParser
-    {        
+    {
 
-        public Engagement Create(EngagementModel model, SchoolContext context)
+        private SchoolContext context;
+
+        public EntityParser(SchoolContext ctx)
+        {
+            context = ctx;
+        }
+        public Person Create(PeopleModel model)
+        {
+            return new Person()
+            {
+                Id = model.Id,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Category = model.Category,
+                Phone = model.Phone,
+                Status = model.Status
+            };
+        }
+
+        public Engagement Create(EngagementModel model)
         {
             return new Engagement()
-
-
             {
                 Id = model.Id,
                 StartDate = model.StartDate,
@@ -26,7 +43,7 @@ namespace ProcurementSystem.Models
                 Role = context.Roles.Find(model.Role)
             };
         }
-        public Asset Create(AssetsModel model, SchoolContext context)
+        public Asset Create(AssetsModel model)
         {
             return new Asset()
             {
@@ -44,7 +61,7 @@ namespace ProcurementSystem.Models
                 Price = model.Price
             };
         }
-        public AssetCharacteristicNames Create(CharacteristicNameModel model, SchoolContext context)
+        public AssetCharacteristicNames Create(CharacteristicNameModel model)
         {
             return new AssetCharacteristicNames()
             {
@@ -54,7 +71,7 @@ namespace ProcurementSystem.Models
             };
         }
 
-        public Request Create(RequestModel model, SchoolContext context)
+        public Request Create(RequestModel model)
         {
             return new Request()
             {
@@ -69,7 +86,7 @@ namespace ProcurementSystem.Models
             };
         }
 
-        public History Create(HistoryModel history, SchoolContext context)
+        public History Create(HistoryModel history)
         {
             return new History()
 

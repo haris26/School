@@ -9,21 +9,21 @@ using System.Web.Mvc;
 using Database;
 using ProcurementSystem.Models;
 
-namespace ProcurementSystem.Models
+namespace ProcurementSystem.Controllers
 {
-    public class AssetsController : Controller
+    public class AssetsController : BaseController
     {
         static SchoolContext context = new SchoolContext();
         AssetsUnit assets = new AssetsUnit(context);
         private Repository<AssetCategory> assetCategories = new Repository<AssetCategory>(context);
         private Repository<Person> people = new Repository<Person>(context);
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
+     
 
+       
         // GET: Assets
         public ActionResult Index()
         {
-            return View(assets.Get().ToList().Select(x => factory.Create(x)).ToList());
+            return View(assets.Get().ToList().Select(x => Factory.Create(x)).ToList());
 
             
         }
@@ -32,7 +32,7 @@ namespace ProcurementSystem.Models
         public ActionResult Details(int id)
         {
 
-            return View(factory.Create(assets.Get(id)));
+            return View(Factory.Create(assets.Get(id)));
         }
 
         // GET: Assets/Create
@@ -51,7 +51,7 @@ namespace ProcurementSystem.Models
         {
             if (ModelState.IsValid)
             {
-                assets.Insert(parser.Create(model, context));
+                assets.Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -90,7 +90,7 @@ namespace ProcurementSystem.Models
         {
             if (ModelState.IsValid)
             {
-                assets.Update(parser.Create(model, context), model.Id);
+                assets.Update(Parser.Create(model), model.Id);
                 
                 return RedirectToAction("Index"); 
             }
@@ -102,7 +102,7 @@ namespace ProcurementSystem.Models
         public ActionResult Delete(int id)
         {
             Asset asset = assets.Get(id);
-            return View(factory.Create(asset));
+            return View(Factory.Create(asset));
         }
 
         // POST: Assets/Delete/5
@@ -122,5 +122,6 @@ namespace ProcurementSystem.Models
             ViewBag.CategoryList = new SelectList(assetCategories.Get().ToList(), "Id", "CategoryName");
             
         }
+
     }
 }

@@ -11,6 +11,24 @@ namespace ProcurementSystem.Models
 {
     public class ModelFactory
     {
+        private SchoolContext context;
+
+        public ModelFactory(SchoolContext ctx)
+        {
+            context = ctx;
+        }
+        public PeopleModel Create(Person person)
+        {
+            return new PeopleModel
+            {
+                Id = person.Id,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Category = person.Category,
+                Phone = person.Phone,
+                Status = person.Status
+            };
+        }
         public TeamModel Create(Team team)
         {
             TeamModel model = new TeamModel()
@@ -27,8 +45,7 @@ namespace ProcurementSystem.Models
             return model;
         }
 
-public EngagementModel Create(Engagement engagement)
-
+        public EngagementModel Create(Engagement engagement)
         {
             return new EngagementModel()
             {
@@ -44,6 +61,7 @@ public EngagementModel Create(Engagement engagement)
                 RoleName = engagement.Role.Name
             };
         }
+    
         public AssetsModel Create(Asset asset)
         {
             return new AssetsModel()

@@ -10,7 +10,7 @@ using Database;
 
 namespace ProcurementSystem.Controllers
 {
-    public class AssetCategoriesController : Controller
+    public class AssetCategoriesController : BaseController
     {
         private Repository<AssetCategory> assetCategories = new Repository<AssetCategory>(new SchoolContext());
        

@@ -11,26 +11,25 @@ using ProcurementSystem.Models;
 
 namespace ProcurementSystem.Controllers
 {
-    public class AssetCharacteristicNamesController : Controller
+    public class AssetCharacteristicNamesController : BaseController
     {
         static SchoolContext context = new SchoolContext();
         AssetCharNamesUnit characteristicNames = new AssetCharNamesUnit(context);
         Repository<AssetCategory> assetCategory = new Repository<AssetCategory>(context);
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
+      
 
 
 
         public ActionResult Index()
         {
-            return View(characteristicNames.Get().ToList().Select(x => factory.Create(x)));
+            return View(characteristicNames.Get().ToList().Select(x => Factory.Create(x)));
         }
 
 
         public ActionResult Details(int id)
         {
 
-            return View(factory.Create(characteristicNames.Get(id)));
+            return View(Factory.Create(characteristicNames.Get(id)));
         }
 
 
@@ -47,7 +46,7 @@ namespace ProcurementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                characteristicNames.Insert(parser.Create(model, context));
+                characteristicNames.Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -57,7 +56,7 @@ namespace ProcurementSystem.Controllers
         public ActionResult Edit(int id)
         {
             FillBag();
-            return View(factory.Create(characteristicNames.Get(id)));
+            return View(Factory.Create(characteristicNames.Get(id)));
         }
 
 
@@ -67,7 +66,7 @@ namespace ProcurementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                characteristicNames.Update(parser.Create(model, context), model.Id);
+                characteristicNames.Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -77,7 +76,7 @@ namespace ProcurementSystem.Controllers
         public ActionResult Delete(int id)
         {
            AssetCharacteristicNames characteristicName = characteristicNames.Get(id);
-            return View(factory.Create(characteristicName));
+            return View(Factory.Create(characteristicName));
         }
 
 

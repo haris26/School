@@ -11,15 +11,14 @@ using ProcurementSystem.Models;
 
 namespace ProcurementSystem.Controllers
 {
-    public class RequestsController : Controller
+    public class RequestsController : BaseController
     {
 
         static SchoolContext context = new SchoolContext();
         RequestUnit requests = new RequestUnit(context);
         Repository<Person> people = new Repository<Person>(context);
         Repository<Asset> assets = new Repository<Asset>(context);
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
+       
 
 
         // GET: Requests
@@ -27,7 +26,7 @@ namespace ProcurementSystem.Controllers
         {
            
            
-            return View(requests.Get().ToList().Select(x => factory.Create(x)).ToList());
+            return View(requests.Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
       //  GET: Requests/Details/5
@@ -35,7 +34,7 @@ namespace ProcurementSystem.Controllers
         {
            
            
-            return View(factory.Create(requests.Get(id)));
+            return View(Factory.Create(requests.Get(id)));
         }
 
       //  GET: Requests/Create
@@ -56,7 +55,7 @@ namespace ProcurementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                requests.Insert(parser.Create(model, context));
+                requests.Insert(Parser.Create(model));
                
                 return RedirectToAction("Index");
             }
@@ -93,7 +92,7 @@ namespace ProcurementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                requests.Update(parser.Create(model, context), model.Id);
+                requests.Update(Parser.Create(model), model.Id);
                 
                 return RedirectToAction("Index");
             }
@@ -106,7 +105,7 @@ namespace ProcurementSystem.Controllers
         {
            
             Request request = requests.Get(id);
-            return View(factory.Create(request));
+            return View(Factory.Create(request));
         }
 
 

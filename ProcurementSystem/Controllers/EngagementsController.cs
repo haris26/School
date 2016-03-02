@@ -11,24 +11,23 @@ using ProcurementSystem.Models;
 
 namespace ProcurementSystem.Controllers
 {
-    public class EngagementsController : Controller
+    public class EngagementsController : BaseController
     {
         static SchoolContext context = new SchoolContext();
         EngagementUnit engagements = new EngagementUnit(context);
         Repository<Person> people = new Repository<Person>(context);
         Repository<Team> teams = new Repository<Team>(context);
         Repository<Role> roles = new Repository<Role>(context);
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
+      
 
         public ActionResult Index()
         {
-            return View(engagements.Get().ToList().Select(x => factory.Create(x)).ToList());
+            return View(engagements.Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
         public ActionResult Details(int id)
         {
-            return View(factory.Create(engagements.Get(id)));
+            return View(Factory.Create(engagements.Get(id)));
         }
 
         public ActionResult Create()
@@ -44,7 +43,7 @@ namespace ProcurementSystem.Controllers
             if (ModelState.IsValid)
             {
 
-                engagements.Insert(parser.Create(model, context));
+                engagements.Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -75,7 +74,7 @@ namespace ProcurementSystem.Controllers
             if (ModelState.IsValid)
             {
 
-                engagements.Update(parser.Create(model, context), model.Id);
+                engagements.Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -84,7 +83,7 @@ namespace ProcurementSystem.Controllers
         public ActionResult Delete(int id)
         {
             Engagement engagement = engagements.Get(id);
-            return View(factory.Create(engagement));
+            return View(Factory.Create(engagement));
         }
 
         [HttpPost, ActionName("Delete")]

@@ -159,31 +159,28 @@
     <Compile Include="Controllers\AssetCategoriesController.cs" />
     <Compile Include="Controllers\AssetCharacteristicNamesController.cs" />
     <Compile Include="Controllers\AssetCharsController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EngagementsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AssetsController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Models\AssetsModel.cs" />
     <Compile Include="Models\CharacteristicNameModel.cs" />
     <Compile Include="Models\EngagementModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\PeopleModel.cs" />
+    <Compile Include="Models\PersonEngagement.cs" />
     <Compile Include="Models\TeamModel.cs" />
-  
     <Compile Include="Controllers\HistoriesController.cs" />
-    
     <Compile Include="Controllers\TeamsController.cs" />
-
     <Compile Include="Controllers\RequestsController.cs" />
-
     <Compile Include="Models\HistoryModel.cs" />
-
     <Compile Include="Models\RequestModel.cs" />
-
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-  
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -269,6 +266,15 @@
     <Content Include="Views\Engagements\Details.cshtml" />
     <Content Include="Views\Engagements\Edit.cshtml" />
     <Content Include="Views\Engagements\Index.cshtml" />
+    <Content Include="Views\People\Create.cshtml" />
+    <Content Include="Views\People\Delete.cshtml" />
+    <Content Include="Views\People\Details.cshtml" />
+    <Content Include="Views\People\Edit.cshtml" />
+    <Content Include="Views\People\Index.cshtml" />
+    <Content Include="Views\People\EngEdit.cshtml" />
+    <Content Include="Views\People\EngCreate.cshtml" />
+    <Content Include="Views\People\Engagements.cshtml" />
+    <Content Include="Views\People\EngDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

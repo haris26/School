@@ -26,30 +26,8 @@
         <th></th>
     </tr>
 
-<<<<<<< HEAD
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>@Html.DisplayFor(modelItem => item.PersonName)</td>
-            <td>@Html.DisplayFor(modelItem => item.RoleName)</td>
-            <td>@Html.DisplayFor(modelItem => item.TeamName)</td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-=======
+  
+
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -71,6 +49,6 @@
         </td>
     </tr>
 }
->>>>>>> 4aba0e61c1f916665ccdcdd56a6e26477f960579
+
 
 </table>

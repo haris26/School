@@ -11,7 +11,7 @@ using ProcurementSystem.Models;
 
 namespace ProcurementSystem.Controllers
 {
-    public class HistoriesController : Controller
+    public class HistoriesController : BaseController
     {
        
 
@@ -20,18 +20,16 @@ namespace ProcurementSystem.Controllers
         Repository<Asset> assets = new Repository<Asset>(context);
         Repository<Person> people = new Repository<Person>(context);
 
-        private ModelFactory factory = new ModelFactory();
-        private EntityParser parser = new EntityParser();
 
         public ActionResult Index()
         {
-            return View(histories.Get().ToList().Select(x => factory.Create(x)).ToList());
+            return View(histories.Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
         // GET: Histories1/Details/5
         public ActionResult Details(int id)
         {
-            return View(factory.Create(histories.Get(id)));
+            return View(Factory.Create(histories.Get(id)));
         }
 
         public ActionResult Create()
@@ -47,7 +45,7 @@ namespace ProcurementSystem.Controllers
             if (ModelState.IsValid)
             {
 
-                histories.Insert(parser.Create(historymodel, context));
+                histories.Insert(Parser.Create(historymodel));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -78,7 +76,7 @@ namespace ProcurementSystem.Controllers
             if (ModelState.IsValid)
             {
 
-                histories.Update(parser.Create(historymodel, context), historymodel.Id);
+                histories.Update(Parser.Create(historymodel), historymodel.Id);
                 return RedirectToAction("Index");
             }
             return View(historymodel);
@@ -87,7 +85,7 @@ namespace ProcurementSystem.Controllers
         public ActionResult Delete(int id)
         {
             History history = histories.Get(id);
-            return View(factory.Create(history));
+            return View(Factory.Create(history));
         }
 
         [HttpPost, ActionName("Delete")]

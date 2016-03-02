@@ -11,18 +11,17 @@ using ProcurementSystem.Models;
 
 namespace ProcurementSystem.Controllers
 {
-    public class TeamsController : Controller
+    public class TeamsController : BaseController
     {
         static SchoolContext context = new SchoolContext();
         private Repository<Team> teams = new Repository<Team>(context);
 
-        private EntityParser parser = new EntityParser();
-        private ModelFactory factory = new ModelFactory();
+        
 
         public ActionResult Index()
         {
 
-            return View(teams.Get().ToList().Select(x => factory.Create(x)).ToList());
+            return View(teams.Get().ToList().Select(x => Factory.Create(x)).ToList());
 
             //List<TeamModel> teamList = new List<TeamModel>();
             //var teamsCol = teams.Get().ToList();
@@ -38,7 +37,7 @@ namespace ProcurementSystem.Controllers
 
         public ActionResult Details(int id)
         {
-            return View(factory.Create(teams.Get(id)));
+            return View(Factory.Create(teams.Get(id)));
         }
 
         public ActionResult Create()
