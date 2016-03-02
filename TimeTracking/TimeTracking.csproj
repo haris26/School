@@ -255,6 +255,7 @@
     <Content Include="Views\Days\Detail.cshtml" />
     <Content Include="Views\Days\DetCreate.cshtml" />
     <Content Include="Views\Days\DetEdit.cshtml" />
+    <Content Include="Views\Shared\_DetailEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
