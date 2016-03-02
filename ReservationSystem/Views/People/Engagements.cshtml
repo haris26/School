@@ -1,9 +1,5 @@
 ﻿@model ReservationSystem.Models.PersonEngagement
 
-<<<<<<< HEAD
-
-=======
->>>>>>> haris
 @{
     ViewBag.Title = "Engagements";
 }
@@ -12,60 +8,6 @@
 
 <div>
     <h4>Personal Engagement</h4>
-<<<<<<< HEAD
-    <hr />
-
-    <div class="row">
-        <div class="col-md-2">
-            Team
-        </div>
-        <div class="col-md-2">
-            Role
-        </div>
-        <div class="col-md-2">Start Date</div>
-        <div class="col-md-2">End Date</div>
-        <div class="col-md-2">Time</div>
-        <div class="col-md-2">
-            @Html.ActionLink("Create New", "EngCreate", new { id = Model.Person.Id })
-        </div>
-        <hr />
-    </div>
-</div>
-
-
-@foreach (var item in Model.Engagements)
-{
-    <div class="row">
-        <div class="col-md-2">
-            @item.TeamName
-        </div>
-        <div class="col-md-2">
-            @item.RoleName
-        </div>
-        <div class="col-md-2">
-            @item.StartDate.ToString("dd.MM.yyyy")
-        </div>
-        <div class="col-md-2">
-            @item.EndDate
-        </div>
-        <div class="col-md-2">
-            @item.Time
-        </div>
-        <div class="col-md-2">
-            <a href="/people/engedit/@item.Id">  Edit</a>
-            <a href="/people/engdelete/@item.Id"> Delete</a>
-        </div>
-        <hr />
-    </div>
-
-}
-
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
-
-
-=======
     <hr/>
     <div class="row">
         <div class="col-md-2">Team</div>
@@ -95,4 +37,4 @@
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
->>>>>>> haris
+

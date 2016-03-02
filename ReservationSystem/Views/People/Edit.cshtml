@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-﻿@model ReservationSystem.Models.PeopleModel
-=======
 ﻿@model ReservationSystem.Models.PersonModel
->>>>>>> haris
+
 
 @{
     ViewBag.Title = "Edit";
@@ -35,11 +32,6 @@
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
-
-<<<<<<< HEAD
-        
-        
-=======
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -47,7 +39,6 @@
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
->>>>>>> haris
 
         <div class="form-group">
             @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -57,9 +48,6 @@
             </div>
         </div>
 
-<<<<<<< HEAD
-        
-=======
         <div class="form-group">
             @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -115,7 +103,7 @@
                 @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
             </div>
         </div>
->>>>>>> haris
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })

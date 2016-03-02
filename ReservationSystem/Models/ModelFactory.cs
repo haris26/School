@@ -99,16 +99,11 @@ namespace ReservationSystem.Models
                 CategoryName = resourceCat.CategoryName
             };
         }
-<<<<<<< HEAD
 
-        public PeopleModel Create(Person person)
-        {
-            return new PeopleModel
-=======
         public PersonModel Create(Person person)
         {
             return new PersonModel
->>>>>>> haris
+
             {
                 Id = person.Id,
                 FirstName = person.FirstName,
@@ -118,7 +113,7 @@ namespace ReservationSystem.Models
                 Status = person.Status
             };
         }
-<<<<<<< HEAD
+
 
         public EventExtendModel Create(ExtendedEvent exEvent)
         {
@@ -129,7 +124,8 @@ namespace ReservationSystem.Models
                 RepeatUntil = exEvent.RepeatUntil,
                 RepeatingType = exEvent.RepeatingType,
                 Frequency = exEvent.Frequency
-=======
+            };
+        }
         public CharacteristicModel Create(Characteristic characteristic)
         {
             return new CharacteristicModel
@@ -139,7 +135,7 @@ namespace ReservationSystem.Models
                 Value = characteristic.Value,
                 Resource = characteristic.Resource.Id,
                 ResourceName = characteristic.Resource.Name
->>>>>>> haris
+
             };
         }
     }

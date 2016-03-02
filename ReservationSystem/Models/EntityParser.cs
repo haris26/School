@@ -42,12 +42,9 @@ namespace ReservationSystem.Models
 
         }
 
-<<<<<<< HEAD
-        public Engagement Create(EngagementModel model)
-=======
 
             public Engagement Create(EngagementModel model)
->>>>>>> haris
+
         {
             return new Engagement()
             {
@@ -60,12 +57,9 @@ namespace ReservationSystem.Models
                 Role = context.Roles.Find(model.Role)
             };
         }
-<<<<<<< HEAD
 
-        public Resource Create(ResourceModel model, SchoolContext context)
-=======
         public Resource Create (ResourceModel model)
->>>>>>> haris
+
         {
             return new Resource()
             {
@@ -84,12 +78,9 @@ namespace ReservationSystem.Models
                 CategoryName = model.CategoryName
             };
         }
-<<<<<<< HEAD
 
-        public Person Create(PeopleModel model)
-=======
         public Person Create(PersonModel model)
->>>>>>> haris
+
         {
             return new Person()
             {
@@ -101,7 +92,7 @@ namespace ReservationSystem.Models
                 Status = model.Status
             };
         }
-<<<<<<< HEAD
+
 
         public ExtendedEvent Create(EventExtendModel model)
         {
@@ -114,7 +105,7 @@ namespace ReservationSystem.Models
                 Frequency = model.Frequency
             };
         }
-=======
+
         public Characteristic Create(CharacteristicModel model)
         {
             return new Characteristic()
@@ -126,6 +117,6 @@ namespace ReservationSystem.Models
             };
         }
         
->>>>>>> haris
+
     }
 }

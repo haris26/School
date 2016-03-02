@@ -21,3 +21,4 @@ D:\GigiProject\school\Database\obj\Debug\Database.Migrations.Haris002.resources
 D:\GigiProject\school\Database\obj\Debug\Database.csproj.GenerateResource.Cache
 D:\GigiProject\school\Database\obj\Debug\Database.dll
 D:\GigiProject\school\Database\obj\Debug\Database.pdb
+D:\GigiProject\school\Database\obj\Debug\Database.csprojResolveAssemblyReference.cache

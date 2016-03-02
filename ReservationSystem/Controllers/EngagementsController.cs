@@ -37,11 +37,9 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-<<<<<<< HEAD
-                engagements.Insert(parser.Create(model));
-=======
+
                 new EngagementUnit(Context).Insert(Parser.Create(model));
->>>>>>> haris
+
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -70,13 +68,9 @@ namespace ReservationSystem.Controllers
         public ActionResult Edit(EngagementModel model)
         {
             if (ModelState.IsValid)
-<<<<<<< HEAD
-            {                
-                engagements.Update(parser.Create(model), model.Id);
-=======
             {
                 new EngagementUnit(Context).Update(Parser.Create(model), model.Id);
->>>>>>> haris
+
                 return RedirectToAction("Index");
             }
             return View(model);

@@ -177,13 +177,8 @@
     <Compile Include="Models\EventExtendModel.cs" />
     <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
-<<<<<<< HEAD
-    <Compile Include="Models\PeopleModel.cs" />
-    <Compile Include="Models\PersonEngagement.cs" />
-=======
     <Compile Include="Models\PersonEngagement.cs" />
     <Compile Include="Models\PersonModel.cs" />
->>>>>>> haris
     <Compile Include="Models\ResourceCategoryModel.cs" />
     <Compile Include="Models\ResourceCharactersticModel.cs" />
     <Compile Include="Models\ResourceModel.cs" />
@@ -268,7 +263,6 @@
     <Content Include="Views\ResourceCategories\Details.cshtml" />
     <Content Include="Views\ResourceCategories\Edit.cshtml" />
     <Content Include="Views\ResourceCategories\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Events\Extensions.cshtml" />
     <Content Include="Views\Events\ExtCreate.cshtml" />
     <Content Include="Views\Events\ExtEdit.cshtml" />
@@ -284,19 +278,8 @@
     <Content Include="Views\Shared\_EngagementEdit.cshtml" />
     <Content Include="Views\Events\ExtDelete.cshtml" />
     <Content Include="Views\Shared\_ExEventEdit.cshtml" />
-=======
-    <Content Include="Views\People\Create.cshtml" />
-    <Content Include="Views\People\Delete.cshtml" />
-    <Content Include="Views\People\Details.cshtml" />
-    <Content Include="Views\People\Edit.cshtml" />
-    <Content Include="Views\People\Engagements.cshtml" />
-    <Content Include="Views\People\EngCreate.cshtml" />
-    <Content Include="Views\People\EngDelete.cshtml" />
-    <Content Include="Views\People\EngEdit.cshtml" />
-    <Content Include="Views\People\Index.cshtml" />
     <Content Include="Views\Resources\Characterstics.cshtml" />
     <Content Include="Views\Resources\CharEdit.cshtml" />
->>>>>>> haris
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
