@@ -43,7 +43,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                engagements.Insert(parser.Create(model, context));
+                engagements.Insert(parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -52,17 +52,7 @@ namespace ReservationSystem.Controllers
 
         public ActionResult Edit(int id)
         {
-            //Engagement engagement = engagements.Get(id);
-            //EngagementModel model = new EngagementModel()
-            //{
-            //    Id = engagement.Id,
-            //    StartDate = engagement.StartDate,
-            //    EndDate = engagement.EndDate,
-            //    Time = engagement.Time,
-            //    Person = engagement.Person.Id,
-            //    Team = engagement.Team.Id,
-            //    Role = engagement.Role.Id
-            //};
+          
             FillBag();
             return View(factory.Create(engagements.Get(id)));
         }
@@ -73,7 +63,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {                
-                engagements.Update(parser.Create(model, context), model.Id);
+                engagements.Update(parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);

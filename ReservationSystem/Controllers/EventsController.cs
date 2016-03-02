@@ -56,7 +56,7 @@ namespace ReservationSystem.Controllers
                     User = users.Get(model.Person),
                     Resource = resources.Get(model.Resource)
                 };
-                events.Insert(parser.Create(model, context));
+                events.Insert(parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -77,7 +77,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                events.Update(parser.Create(model, context), model.Id);
+                events.Update(parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             FillBag();

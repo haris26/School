@@ -162,6 +162,7 @@
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\EngagementsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\ResourceCategoriesController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
@@ -174,6 +175,8 @@
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\PeopleModel.cs" />
+    <Compile Include="Models\PersonEngagement.cs" />
     <Compile Include="Models\ResourceCategoryModel.cs" />
     <Compile Include="Models\ResourceModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
@@ -257,6 +260,16 @@
     <Content Include="Views\ResourceCategories\Details.cshtml" />
     <Content Include="Views\ResourceCategories\Edit.cshtml" />
     <Content Include="Views\ResourceCategories\Index.cshtml" />
+    <Content Include="Views\People\Create.cshtml" />
+    <Content Include="Views\People\Delete.cshtml" />
+    <Content Include="Views\People\Details.cshtml" />
+    <Content Include="Views\People\Edit.cshtml" />
+    <Content Include="Views\People\Index.cshtml" />
+    <Content Include="Views\People\Engagements.cshtml" />
+    <Content Include="Views\People\EngEdit.cshtml" />
+    <Content Include="Views\People\EngCreate.cshtml" />
+    <Content Include="Views\Shared\_EngagementEdit.cshtml" />
+    <Content Include="Views\People\EngDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
