@@ -152,6 +152,20 @@ namespace TimeTracking.Controllers
             return View(model);
         }
 
+        public ActionResult DayCreate(int id)   // id = Person.Id
+        {
+            FillBag();
+            Person person = new Repository<Person>(Context).Get(id);
+            return View(new DayModel()
+            { Id = 0, Person = person.Id, PersonName = person.FirstName + " " + person.LastName });
+        }
+
+        public ActionResult DayEdit(int id)     // id = Egagement.Id
+        {
+            FillBag();
+            return View(Factory.Create(new Repository<Person>(Context).Get(id)));
+        }
+
 
         void FillBag()
         {
