@@ -120,7 +120,7 @@ namespace ReservationSystem.Models
             return new EventExtendModel()
             {
                 Id = exEvent.Id,
-                ParentEvent = exEvent.ParentEvent,
+                ParentEvent = exEvent.ParentEvent.Id,
                 RepeatUntil = exEvent.RepeatUntil,
                 RepeatingType = exEvent.RepeatingType,
                 Frequency = exEvent.Frequency
