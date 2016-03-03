@@ -42,7 +42,9 @@ namespace ReservationSystem.Models
 
         }
 
-        public Engagement Create(EngagementModel model)
+
+            public Engagement Create(EngagementModel model)
+
         {
             return new Engagement()
             {
@@ -56,7 +58,8 @@ namespace ReservationSystem.Models
             };
         }
 
-        public Resource Create(ResourceModel model, SchoolContext context)
+        public Resource Create (ResourceModel model)
+
         {
             return new Resource()
             {
@@ -76,7 +79,8 @@ namespace ReservationSystem.Models
             };
         }
 
-        public Person Create(PeopleModel model)
+        public Person Create(PersonModel model)
+
         {
             return new Person()
             {
@@ -89,6 +93,7 @@ namespace ReservationSystem.Models
             };
         }
 
+
         public ExtendedEvent Create(EventExtendModel model)
         {
             return new ExtendedEvent()
@@ -100,5 +105,18 @@ namespace ReservationSystem.Models
                 Frequency = model.Frequency
             };
         }
+
+        public Characteristic Create(CharacteristicModel model)
+        {
+            return new Characteristic()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Value = model.Value,
+                Resource = context.Resources.Find(model.Resource)
+            };
+        }
+        
+
     }
 }

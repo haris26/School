@@ -101,23 +101,17 @@ namespace ReservationSystem.Controllers
         //GET - extended events
         public ActionResult Extensions(int id)
         {
-            var extendedEvents = new ExtendedEventUnit(Context).Get().Where(x => x.ParentEvent.Id == id);
+            var ex = new ExtendedEventUnit(Context).Get().FirstOrDefault(x => x.ParentEvent.Id == id);
             EventExtendModel model = new EventExtendModel();
-            foreach (var ex in extendedEvents)
+            model.ParentEvent = id;
+            if (ex != null)
             {
-                if (ex.ParentEvent.Id == id)
-                {
-                   // model.Id = ex.Id;
-                    model.ParentEvent = ex.ParentEvent;
-                    model.Frequency = ex.Frequency;
-                    model.RepeatUntil = ex.RepeatUntil;
-                    model.RepeatingType = ex.RepeatingType;
-                }
-                else
-                {
-                    ViewBag.Title = "There is no extension.";
-                }
-            }     
+                model.Id = ex.Id;
+                model.Frequency = ex.Frequency;
+                model.RepeatUntil = ex.RepeatUntil;
+                model.RepeatingType = ex.RepeatingType;
+            }
+
             return View(model);
         }
 
@@ -127,7 +121,7 @@ namespace ReservationSystem.Controllers
             return View(new EventExtendModel()
             {
                 Id = 0,
-                ParentEvent = exEv
+                ParentEvent = exEv.Id
             });
         }
 
@@ -157,7 +151,7 @@ namespace ReservationSystem.Controllers
             {
                 ExtendedEvent exEvent = Parser.Create(model);
                 new ExtendedEventUnit(Context).Update(exEvent, exEvent.Id);
-                return RedirectToAction("Extensions/" + model.Id);
+                return RedirectToAction("Extensions/" + model.ParentEvent);
             }
             return View(model);
         }

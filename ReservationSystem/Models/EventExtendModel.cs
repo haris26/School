@@ -9,7 +9,7 @@ namespace ReservationSystem.Models
     public class EventExtendModel
     {
         public int Id { get; set; }
-        public Event ParentEvent { get; set; }
+        public int ParentEvent { get; set; }
         public DateTime RepeatUntil { get; set; }
         public RepeatType RepeatingType { get; set; }
         public int Frequency { get; set; }

@@ -100,9 +100,10 @@ namespace ReservationSystem.Models
             };
         }
 
-        public PeopleModel Create(Person person)
+        public PersonModel Create(Person person)
         {
-            return new PeopleModel
+            return new PersonModel
+
             {
                 Id = person.Id,
                 FirstName = person.FirstName,
@@ -113,15 +114,28 @@ namespace ReservationSystem.Models
             };
         }
 
+
         public EventExtendModel Create(ExtendedEvent exEvent)
         {
             return new EventExtendModel()
             {
                 Id = exEvent.Id,
-                ParentEvent = exEvent.ParentEvent,
+                ParentEvent = exEvent.ParentEvent.Id,
                 RepeatUntil = exEvent.RepeatUntil,
                 RepeatingType = exEvent.RepeatingType,
                 Frequency = exEvent.Frequency
+            };
+        }
+        public CharacteristicModel Create(Characteristic characteristic)
+        {
+            return new CharacteristicModel
+            {
+                Id = characteristic.Id,
+                Name = characteristic.Name,
+                Value = characteristic.Value,
+                Resource = characteristic.Resource.Id,
+                ResourceName = characteristic.Resource.Name
+
             };
         }
     }

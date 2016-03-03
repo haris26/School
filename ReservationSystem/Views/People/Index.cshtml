@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ReservationSystem.Models.PeopleModel>
+﻿@model IEnumerable<ReservationSystem.Models.PersonModel>
+
 
 @{
     ViewBag.Title = "Index";
@@ -20,11 +21,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Category)
         </th>
-        
         <th>
             @Html.DisplayNameFor(model => model.Phone)
         </th>
-        
         <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
@@ -39,15 +38,13 @@
         <td>
             @Html.DisplayFor(modelItem => item.LastName)
         </td>
-       
         <td>
             @Html.DisplayFor(modelItem => item.Category)
         </td>
-        
         <td>
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
-       
+
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
@@ -57,7 +54,7 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
         <td>
-            @Html.ActionLink("Engagements", "engagements", new { id = item.Id })
+            @Html.ActionLink("Engagements", "engagements", new { id = item.Id})
         </td>
 
     </tr>

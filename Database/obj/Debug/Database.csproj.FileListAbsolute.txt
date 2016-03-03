@@ -10,3 +10,15 @@ C:\projects\school\Database\bin\Debug\EntityFramework.SqlServer.dll
 C:\projects\school\Database\obj\Debug\Database.csprojResolveAssemblyReference.cache
 C:\projects\school\Database\obj\Debug\Database.Migrations.Haris002.resources
 C:\projects\school\Database\obj\Debug\Database.csproj.GenerateResource.Cache
+D:\GigiProject\school\Database\bin\Debug\Database.dll.config
+D:\GigiProject\school\Database\bin\Debug\Database.dll
+D:\GigiProject\school\Database\bin\Debug\Database.pdb
+D:\GigiProject\school\Database\bin\Debug\EntityFramework.dll
+D:\GigiProject\school\Database\bin\Debug\EntityFramework.SqlServer.dll
+D:\GigiProject\school\Database\bin\Debug\EntityFramework.xml
+D:\GigiProject\school\Database\bin\Debug\EntityFramework.SqlServer.xml
+D:\GigiProject\school\Database\obj\Debug\Database.Migrations.Haris002.resources
+D:\GigiProject\school\Database\obj\Debug\Database.csproj.GenerateResource.Cache
+D:\GigiProject\school\Database\obj\Debug\Database.dll
+D:\GigiProject\school\Database\obj\Debug\Database.pdb
+D:\GigiProject\school\Database\obj\Debug\Database.csprojResolveAssemblyReference.cache
