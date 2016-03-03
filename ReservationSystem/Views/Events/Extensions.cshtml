@@ -14,11 +14,11 @@
         <div class="col-md-2">Repeating type</div>
         <div class="col-md-2">Frequency</div>
         <div class="col-md-2">
-            @Html.ActionLink("Create New", "ExtCreate")
+            @Html.ActionLink("Create New", "ExtCreate", new {id = Model.ParentEvent})
         </div>
         <hr/>
     </div>
-    @if (Model != null)
+    @if (Model.Frequency != 0) //frequency is 0 if event don't have extensions
     {
         <div class="row">
             <div class="col-md-2">@Html.DisplayFor(model => model.RepeatUntil) </div>
