@@ -255,6 +255,7 @@
     <Content Include="Views\People\Create.cshtml" />
     <Content Include="Views\People\EngEdit.cshtml" />
     <Content Include="Views\People\EngCreate.cshtml" />
+    <Content Include="Views\Shared\_RequestEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
