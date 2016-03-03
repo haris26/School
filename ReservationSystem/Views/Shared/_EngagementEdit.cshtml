@@ -13,66 +13,54 @@
         @Html.HiddenFor(model => model.Person)
 
         <div class="form-group">
-            <div class="control-label col-md-2">
-                Team
-            </div>
+            <div class="control-label col-md-2">Team</div>
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Team, ViewBag.TeamsList as IEnumerable<SelectListItem>, new { @class = "form-control" })
-
+                @Html.DropDownListFor(model => model.Team, ViewBag.TeamsList as
+                   IEnumerable<SelectListItem>, new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="control-label col-md-2">
-                Role
-            </div>
+            <div class="control-label col-md-2">Role</div>
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Role, ViewBag.RolesList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Role, ViewBag.RolesList as
+                   IEnumerable<SelectListItem>, new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="control-label col-md-2">
-                @Html.LabelFor(model => model.StartDate)
-            </div>
+            <div class="control-label col-md-2">Start Date</div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartDate,new { htmlAttributes = new { @class = "form-control" ,@type="date"} })
-
-                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
-
+                @Html.EditorFor(model => model.StartDate,
+                new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.StartDate, "",
+                new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="control-label col-md-2">
-                @Html.LabelFor(model => model.EndDate)
-            </div>
-
+            <div class="control-label col-md-2">End date</div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
-
-                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
-
+                @Html.EditorFor(model => model.EndDate,
+                new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.EndDate, "",
+                new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="control-label col-md-2">
-                @Html.LabelFor(model => model.Time)
-            </div>
-
-
+            <div class="control-label col-md-2">Time</div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" } })
-
-                @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
-
+                @Html.EditorFor(model => model.Time,
+                new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Time, "",
+                new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btnbtn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -81,6 +69,3 @@
 <div>
     @Html.ActionLink("Back to List", "Engagements", new { id = Model.Person })
 </div>
-
-
-

@@ -173,6 +173,7 @@
     <Compile Include="Models\CharacteristicNameModel.cs" />
     <Compile Include="Models\EngagementModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
+    <Compile Include="Models\EventExtendModel.cs" />
     <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\PeopleModel.cs" />
@@ -260,6 +261,7 @@
     <Content Include="Views\ResourceCategories\Details.cshtml" />
     <Content Include="Views\ResourceCategories\Edit.cshtml" />
     <Content Include="Views\ResourceCategories\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\People\Create.cshtml" />
     <Content Include="Views\People\Delete.cshtml" />
     <Content Include="Views\People\Details.cshtml" />
@@ -270,6 +272,23 @@
     <Content Include="Views\People\EngCreate.cshtml" />
     <Content Include="Views\Shared\_EngagementEdit.cshtml" />
     <Content Include="Views\People\EngDelete.cshtml" />
+=======
+    <Content Include="Views\Events\Extensions.cshtml" />
+    <Content Include="Views\Events\ExtCreate.cshtml" />
+    <Content Include="Views\Events\ExtEdit.cshtml" />
+    <Content Include="Views\People\Index.cshtml" />
+    <Content Include="Views\People\Create.cshtml" />
+    <Content Include="Views\People\Edit.cshtml" />
+    <Content Include="Views\People\Delete.cshtml" />
+    <Content Include="Views\People\Details.cshtml" />
+    <Content Include="Views\People\Engagements.cshtml" />
+    <Content Include="Views\People\EngCreate.cshtml" />
+    <Content Include="Views\People\EngEdit.cshtml" />
+    <Content Include="Views\People\EngDelete.cshtml" />
+    <Content Include="Views\Shared\_EngagementEdit.cshtml" />
+    <Content Include="Views\Events\ExtDelete.cshtml" />
+    <Content Include="Views\Shared\_ExEventEdit.cshtml" />
+>>>>>>> f1661753e1ffac74327f186a475ee21a7dbf41a4
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

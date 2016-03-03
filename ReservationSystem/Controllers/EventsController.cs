@@ -12,25 +12,18 @@ using ReservationSystem.Models;
 
 namespace ReservationSystem.Controllers
 {
-    public class EventsController : Controller
+    public class EventsController : BaseController
     {
-        static SchoolContext context = new SchoolContext();
-        EventUnit events = new EventUnit(context);
-        Repository<Resource> resources = new Repository<Resource>(context); 
-        Repository<Person> users = new Repository<Person>(context); 
-        private ModelFactory factory = new ModelFactory(context);
-        private EntityParser parser = new EntityParser(context);
-
         // GET: Events
         public ActionResult Index()
         {
-            return View(events.Get().ToList().Select(x => factory.Create(x)).ToList());
+            return View(new EventUnit(Context).Get().ToList().Select(x => Factory.Create(x)));
         }
 
         // GET: Events/Details/5
         public ActionResult Details(int id)
         {
-            return View(factory.Create(events.Get(id)));
+            return View(Factory.Create(new EventUnit(Context).Get(id)));
         }
 
         // GET: Events/Create
@@ -47,16 +40,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                Event evnt = new Event()
-                {
-                    Id = 0,
-                    EventTitle = model.EventTitle,
-                    EventStart = model.StartDate,
-                    EventEnd = model.EndDate,
-                    User = users.Get(model.Person),
-                    Resource = resources.Get(model.Resource)
-                };
-                events.Insert(parser.Create(model));
+                new EventUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -66,8 +50,10 @@ namespace ReservationSystem.Controllers
         // GET: Events/Edit/5
         public ActionResult Edit(int id)
         {
-            FillBag();
-            return View(factory.Create(events.Get(id)));
+            Event ev = new EventUnit(Context).Get(id);
+            string catName = ev.Resource.ResourceCategory.CategoryName;
+            FillResources(catName);
+            return View(Factory.Create(new EventUnit(Context).Get(id)));
         }
 
         // POST: Events/Edit/5
@@ -77,21 +63,17 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                events.Update(parser.Create(model), model.Id);
+                new EventUnit(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
-            FillBag();
+            FillResources(model.CategoryName);
             return View(model);
         }
 
         // GET: Events/Delete/5
         public ActionResult Delete(int id)
         {
-            Event evnt = events.Get(id);
-            if (evnt == null)
-            {
-                return HttpNotFound();
-            }
+            Event evnt = new EventUnit(Context).Get(id);
             return View(evnt);
         }
 
@@ -100,20 +82,104 @@ namespace ReservationSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            events.Delete(id);
+            new EventUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
         void FillBag()
         {
-            ViewBag.ResourceList = new SelectList(resources.Get().ToList(), "Id", "Name");
-            ViewBag.PeopleList = new SelectList(users.Get().ToList(), "Id", "FirstName");
+            ViewBag.ResourceList = new SelectList(new Repository<Resource>(Context).Get().ToList().Where(x => x.Status == ReservationStatus.Available), "Id", "Name");
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
         }
 
         void FillResources(string catName)
         {
-            ViewBag.ResourceList = new SelectList(resources.Get().ToList().Where(x => x.ResourceCategory.CategoryName == catName), "Id", "Name");
-            ViewBag.PeopleList = new SelectList(users.Get().ToList(), "Id", "FirstName");
-        } 
+            ViewBag.ResourceList = new SelectList(new Repository<Resource>(Context).Get().ToList().Where(x => (x.ResourceCategory.CategoryName == catName && x.Status == ReservationStatus.Available)), "Id", "Name");
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
+        }
+
+        //GET - extended events
+        public ActionResult Extensions(int id)
+        {
+            var extendedEvents = new ExtendedEventUnit(Context).Get().Where(x => x.ParentEvent.Id == id);
+            EventExtendModel model = new EventExtendModel();
+            foreach (var ex in extendedEvents)
+            {
+                if (ex.ParentEvent.Id == id)
+                {
+                   // model.Id = ex.Id;
+                    model.ParentEvent = ex.ParentEvent;
+                    model.Frequency = ex.Frequency;
+                    model.RepeatUntil = ex.RepeatUntil;
+                    model.RepeatingType = ex.RepeatingType;
+                }
+                else
+                {
+                    ViewBag.Title = "There is no extension.";
+                }
+            }     
+            return View(model);
+        }
+
+        public ActionResult ExtCreate(int id)   // id = Event.Id
+        {
+            Event exEv = new EventUnit(Context).Get(id);
+            return View(new EventExtendModel()
+            {
+                Id = 0,
+                ParentEvent = exEv
+            });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ExtCreate(EventExtendModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                ExtendedEvent exEvent = Parser.Create(model);
+                new ExtendedEventUnit(Context).Insert(exEvent);
+                return RedirectToAction("Extensions/" + model.ParentEvent);
+            }
+            return View(model);
+        }
+
+        public ActionResult ExtEdit(int id)     // id = Event.Id
+        {
+            return View(Factory.Create(new ExtendedEventUnit(Context).Get(id)));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ExtEdit(EventExtendModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                ExtendedEvent exEvent = Parser.Create(model);
+                new ExtendedEventUnit(Context).Update(exEvent, exEvent.Id);
+                return RedirectToAction("Extensions/" + model.Id);
+            }
+            return View(model);
+        }
+
+        public ActionResult ExtDelete(int id)
+        {
+            ViewBag.ExEventId = id;
+            return View(Factory.Create(new ExtendedEventUnit(Context).Get(id)));
+        }
+
+        //POST events/extdelete/1
+        [HttpPost, ActionName("ExtDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ExtDeleteConfirmed(int id)
+        {
+            ExtendedEventUnit exevents = new ExtendedEventUnit(Context);
+            int exEvent = exevents.Get(id).ParentEvent.Id;
+            exevents.Delete(id);
+            return RedirectToAction("extensions/" + exEvent);
+        }
+
     }
 }
+Status API Training Shop Blog About Pricing
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help

@@ -14,26 +14,20 @@ namespace ReservationSystem.Controllers
     public class PeopleController : BaseController
     {
 
-
-
         public ActionResult Index()
         {
             return View(new Repository<Person>(Context).Get().ToList().Select(x => Factory.Create(x)));
         }
 
-
         public ActionResult Details(int id)
         {
-
             return View(Factory.Create(new Repository<Person>(Context).Get(id)));
         }
 
         public ActionResult Create()
         {
-
             return View();
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -48,13 +42,11 @@ namespace ReservationSystem.Controllers
             return View(model);
         }
 
-
         public ActionResult Edit(int id)
         {
 
             return View(Factory.Create(new Repository<Person>(Context).Get(id)));
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -87,22 +79,22 @@ namespace ReservationSystem.Controllers
         {
             PersonEngagement model = new PersonEngagement();
             model.Person = new Repository<Person>(Context).Get(id);
-            model.Engagements = new EngagementUnit(Context).Get().Where(x => x.Person.Id == id).ToList().Select(x => Factory.Create(x)).ToList();
+            model.Engagements = new EngagementUnit(Context)
+                               .Get().Where(x => x.Person.Id == id).ToList()
+                               .Select(x => Factory.Create(x)).ToList();
             return View(model);
+
         }
-        public ActionResult EngCreate(int id) // id = Person.Id
+
+        public ActionResult EngCreate(int id)   // id = Person.Id
         {
             FillBag();
             Person person = new Repository<Person>(Context).Get(id);
             return View(new EngagementModel()
-              { Id = 0, Person = person.Id, PersonName = person.FirstName + " " + person.LastName });
+            { Id = 0, Person = person.Id, PersonName = person.FirstName + " " + person.LastName });
         }
 
-          public ActionResult EngEdit(int id)       // id = Egagement.Id
-        {
-            FillBag();
-            return View(Factory.Create(new EngagementUnit(Context).Get(id)));
-        }
+        //POST people/engcreate/1
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EngCreate(EngagementModel model)
@@ -116,6 +108,13 @@ namespace ReservationSystem.Controllers
             return View(model);
         }
 
+        public ActionResult EngEdit(int id)       // id = Egagement.Id
+        {
+            FillBag();
+            return View(Factory.Create(new EngagementUnit(Context).Get(id)));
+        }
+
+        //POST people/engedit/1
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EngEdit(EngagementModel model)
@@ -129,13 +128,13 @@ namespace ReservationSystem.Controllers
             return View(model);
         }
 
-        // GET: People/EngDelete/5
         public ActionResult EngDelete(int id)
         {
             return View(Factory.Create(new EngagementUnit(Context).Get(id)));
+
         }
 
-        // POST: People/EngDelete/5
+        //POST people/engdelete/1
         [HttpPost, ActionName("EngDelete")]
         [ValidateAntiForgeryToken]
         public ActionResult EngDeleteConfirmed(int id)
@@ -145,6 +144,7 @@ namespace ReservationSystem.Controllers
             engagements.Delete(id);
             return RedirectToAction("engagements/" + employee);
         }
+
         void FillBag()
         {
             

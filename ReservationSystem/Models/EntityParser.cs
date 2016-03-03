@@ -29,8 +29,9 @@ namespace ReservationSystem.Models
                 Resource = context.Resources.Find(model.Resource)
             };
         }
+
         //Irhad on EntityParser
-        public CharacteristicName Create(CharacteristicNameModel model)
+        public CharacteristicName Create(CharacteristicNameModel model, SchoolContext context)
         {
             return new CharacteristicName()
             {
@@ -41,8 +42,7 @@ namespace ReservationSystem.Models
 
         }
 
-
-public Engagement Create(EngagementModel model)
+        public Engagement Create(EngagementModel model)
         {
             return new Engagement()
             {
@@ -55,7 +55,8 @@ public Engagement Create(EngagementModel model)
                 Role = context.Roles.Find(model.Role)
             };
         }
-        public Resource Create (ResourceModel model)
+
+        public Resource Create(ResourceModel model, SchoolContext context)
         {
             return new Resource()
             {
@@ -65,7 +66,8 @@ public Engagement Create(EngagementModel model)
                 ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
             };
         }
-        public ResourceCategory Create(ResourceCategoryModel model)
+
+        public ResourceCategory Create(ResourceCategoryModel model, SchoolContext context)
         {
             return new ResourceCategory()
             {
@@ -73,6 +75,7 @@ public Engagement Create(EngagementModel model)
                 CategoryName = model.CategoryName
             };
         }
+
         public Person Create(PeopleModel model)
         {
             return new Person()
@@ -83,6 +86,18 @@ public Engagement Create(EngagementModel model)
                 Category = model.Category,
                 Phone = model.Phone,
                 Status = model.Status
+            };
+        }
+
+        public ExtendedEvent Create(EventExtendModel model)
+        {
+            return new ExtendedEvent()
+            {
+                Id = model.Id,
+                ParentEvent = context.Events.Find(model.ParentEvent),
+                RepeatUntil = model.RepeatUntil,
+                RepeatingType = model.RepeatingType,
+                Frequency = model.Frequency
             };
         }
     }
