@@ -14,10 +14,6 @@ namespace ProcurementSystem.Controllers
     public class RequestsController : BaseController
     {
 
-        static SchoolContext context = new SchoolContext();
-        RequestUnit requests = new RequestUnit(context);
-        Repository<Person> people = new Repository<Person>(context);
-        Repository<Asset> assets = new Repository<Asset>(context);
        
 
 
@@ -26,7 +22,7 @@ namespace ProcurementSystem.Controllers
         {
            
            
-            return View(requests.Get().ToList().Select(x => Factory.Create(x)).ToList());
+            return View(new RequestUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
       //  GET: Requests/Details/5
@@ -34,7 +30,7 @@ namespace ProcurementSystem.Controllers
         {
            
            
-            return View(Factory.Create(requests.Get(id)));
+            return View(Factory.Create(new RequestUnit(Context).Get(id)));
         }
 
       //  GET: Requests/Create
@@ -55,7 +51,7 @@ namespace ProcurementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                requests.Insert(Parser.Create(model));
+                new RequestUnit(Context).Insert(Parser.Create(model));
                
                 return RedirectToAction("Index");
             }
@@ -67,7 +63,7 @@ namespace ProcurementSystem.Controllers
         public ActionResult Edit(int id)
         {
             
-            Request request = requests.Get(id);
+            Request request = new RequestUnit(Context).Get(id);
             RequestModel model = new RequestModel()
             {
                 Id = request.Id,
@@ -92,7 +88,7 @@ namespace ProcurementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                requests.Update(Parser.Create(model), model.Id);
+                new RequestUnit(Context).Update(Parser.Create(model), model.Id);
                 
                 return RedirectToAction("Index");
             }
@@ -104,7 +100,7 @@ namespace ProcurementSystem.Controllers
         public ActionResult Delete(int id)
         {
            
-            Request request = requests.Get(id);
+            Request request = new RequestUnit(Context).Get(id);
             return View(Factory.Create(request));
         }
 
@@ -115,14 +111,14 @@ namespace ProcurementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            requests.Delete(id);
+            new RequestUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
         void FillBag()
         {
-            ViewBag.PeopleList = new SelectList(people.Get().ToList(), "Id", "FirstName");
-            ViewBag.AssetsList = new SelectList(assets.Get().ToList(), "Id", "Model");
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
+            ViewBag.AssetsList = new SelectList(new Repository<Asset>(Context).Get().ToList(), "Id", "Model");
         }
     }
 }

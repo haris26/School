@@ -10,7 +10,7 @@ using Database;
 
 namespace ProcurementSystem.Controllers
 {
-    public class AssetCharsController : Controller
+    public class AssetCharsController : BaseController
     {
         private Repository<Characteristic> characteristics = new Repository<Characteristic>(new SchoolContext());
 
