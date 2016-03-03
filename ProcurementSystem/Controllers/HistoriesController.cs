@@ -15,21 +15,18 @@ namespace ProcurementSystem.Controllers
     {
        
 
-        static SchoolContext context = new SchoolContext();
-        HistoryUnit histories = new HistoryUnit(context);
-        Repository<Asset> assets = new Repository<Asset>(context);
-        Repository<Person> people = new Repository<Person>(context);
+        
 
 
         public ActionResult Index()
         {
-            return View(histories.Get().ToList().Select(x => Factory.Create(x)).ToList());
+            return View(new HistoryUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
         // GET: Histories1/Details/5
         public ActionResult Details(int id)
         {
-            return View(Factory.Create(histories.Get(id)));
+            return View(Factory.Create(new HistoryUnit(Context).Get(id)));
         }
 
         public ActionResult Create()
@@ -45,7 +42,7 @@ namespace ProcurementSystem.Controllers
             if (ModelState.IsValid)
             {
 
-                histories.Insert(Parser.Create(historymodel));
+                new HistoryUnit(Context).Insert(Parser.Create(historymodel));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -54,7 +51,7 @@ namespace ProcurementSystem.Controllers
 
         public ActionResult Edit(int id)
         {
-            History history = histories.Get(id);
+            History history = new HistoryUnit(Context).Get(id);
            HistoryModel historymodel = new HistoryModel()
             {
                 Id = history.Id,
@@ -76,7 +73,7 @@ namespace ProcurementSystem.Controllers
             if (ModelState.IsValid)
             {
 
-                histories.Update(Parser.Create(historymodel), historymodel.Id);
+                new HistoryUnit(Context).Update(Parser.Create(historymodel), historymodel.Id);
                 return RedirectToAction("Index");
             }
             return View(historymodel);
@@ -84,7 +81,7 @@ namespace ProcurementSystem.Controllers
 
         public ActionResult Delete(int id)
         {
-            History history = histories.Get(id);
+            History history = new HistoryUnit(Context).Get(id);
             return View(Factory.Create(history));
         }
 
@@ -92,14 +89,14 @@ namespace ProcurementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            histories.Delete(id);
+            new HistoryUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
         void FillBag()
         {
-            ViewBag.PeopleList = new SelectList(people.Get().ToList(), "Id", "FirstName");
-            ViewBag.RolesList = new SelectList(assets.Get().ToList(), "Id", "Name");
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
+            ViewBag.RolesList = new SelectList(new Repository<Asset>(Context).Get().ToList(), "Id", "Name");
            
         }
     }

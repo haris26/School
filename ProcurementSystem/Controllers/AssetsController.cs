@@ -13,17 +13,14 @@ namespace ProcurementSystem.Controllers
 {
     public class AssetsController : BaseController
     {
-        static SchoolContext context = new SchoolContext();
-        AssetsUnit assets = new AssetsUnit(context);
-        private Repository<AssetCategory> assetCategories = new Repository<AssetCategory>(context);
-        private Repository<Person> people = new Repository<Person>(context);
+        //komentar opalio 
      
 
        
         // GET: Assets
         public ActionResult Index()
         {
-            return View(assets.Get().ToList().Select(x => Factory.Create(x)).ToList());
+            return View(new AssetsUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
 
             
         }
@@ -32,7 +29,7 @@ namespace ProcurementSystem.Controllers
         public ActionResult Details(int id)
         {
 
-            return View(Factory.Create(assets.Get(id)));
+            return View(Factory.Create(new AssetsUnit(Context).Get(id)));
         }
 
         // GET: Assets/Create
@@ -51,7 +48,7 @@ namespace ProcurementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                assets.Insert(Parser.Create(model));
+                new AssetsUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -62,7 +59,7 @@ namespace ProcurementSystem.Controllers
         public ActionResult Edit(int id)
         {
             //var assetCol = assetCategories.Get().ToList();
-            Asset asset = assets.Get(id);
+            Asset asset = new AssetsUnit(Context).Get(id);
             AssetsModel model = new AssetsModel()
             {
                 Id = asset.Id,
@@ -90,7 +87,7 @@ namespace ProcurementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                assets.Update(Parser.Create(model), model.Id);
+                new AssetsUnit(Context).Update(Parser.Create(model), model.Id);
                 
                 return RedirectToAction("Index"); 
             }
@@ -101,7 +98,7 @@ namespace ProcurementSystem.Controllers
         // GET: Assets/Delete/5
         public ActionResult Delete(int id)
         {
-            Asset asset = assets.Get(id);
+            Asset asset = new AssetsUnit(Context).Get(id);
             return View(Factory.Create(asset));
         }
 
@@ -111,15 +108,15 @@ namespace ProcurementSystem.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             
-            assets.Delete(id);
+            new AssetsUnit(Context).Delete(id);
            
             return RedirectToAction("Index");
         }
 
         void FillBag()
         {
-            ViewBag.PeopleList = new SelectList(people.Get().ToList(), "Id", "FirstName");
-            ViewBag.CategoryList = new SelectList(assetCategories.Get().ToList(), "Id", "CategoryName");
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
+            ViewBag.CategoryList = new SelectList(new Repository<AssetCategory>(Context).Get().ToList(), "Id", "CategoryName");
             
         }
 

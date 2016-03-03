@@ -13,21 +13,17 @@ namespace ProcurementSystem.Controllers
 {
     public class EngagementsController : BaseController
     {
-        static SchoolContext context = new SchoolContext();
-        EngagementUnit engagements = new EngagementUnit(context);
-        Repository<Person> people = new Repository<Person>(context);
-        Repository<Team> teams = new Repository<Team>(context);
-        Repository<Role> roles = new Repository<Role>(context);
+        
       
 
         public ActionResult Index()
         {
-            return View(engagements.Get().ToList().Select(x => Factory.Create(x)).ToList());
+            return View(new EngagementUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
         public ActionResult Details(int id)
         {
-            return View(Factory.Create(engagements.Get(id)));
+            return View(Factory.Create(new EngagementUnit(Context).Get(id)));
         }
 
         public ActionResult Create()
@@ -43,7 +39,7 @@ namespace ProcurementSystem.Controllers
             if (ModelState.IsValid)
             {
 
-                engagements.Insert(Parser.Create(model));
+                new EngagementUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -52,7 +48,7 @@ namespace ProcurementSystem.Controllers
 
         public ActionResult Edit(int id)
         {
-            Engagement engagement = engagements.Get(id);
+            Engagement engagement = new EngagementUnit(Context).Get(id);
             EngagementModel model = new EngagementModel()
             {
                 Id = engagement.Id,
@@ -74,7 +70,7 @@ namespace ProcurementSystem.Controllers
             if (ModelState.IsValid)
             {
 
-                engagements.Update(Parser.Create(model), model.Id);
+                new EngagementUnit(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -82,7 +78,7 @@ namespace ProcurementSystem.Controllers
 
         public ActionResult Delete(int id)
         {
-            Engagement engagement = engagements.Get(id);
+            Engagement engagement = new EngagementUnit(Context).Get(id);
             return View(Factory.Create(engagement));
         }
 
@@ -90,15 +86,15 @@ namespace ProcurementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            engagements.Delete(id);
+            new EngagementUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
         void FillBag()
         {
-            ViewBag.PeopleList = new SelectList(people.Get().ToList(), "Id", "FirstName");
-            ViewBag.RolesList = new SelectList(roles.Get().ToList(), "Id", "Name");
-            ViewBag.TeamsList = new SelectList(teams.Get().ToList(), "Id", "Name");
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
+            ViewBag.RolesList = new SelectList(new Repository<Role>(Context).Get().ToList(), "Id", "Name");
+            ViewBag.TeamsList = new SelectList(new Repository<Team>(Context).Get().ToList(), "Id", "Name");
         }
     }
 }

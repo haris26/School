@@ -13,23 +13,21 @@ namespace ProcurementSystem.Controllers
 {
     public class AssetCharacteristicNamesController : BaseController
     {
-        static SchoolContext context = new SchoolContext();
-        AssetCharNamesUnit characteristicNames = new AssetCharNamesUnit(context);
-        Repository<AssetCategory> assetCategory = new Repository<AssetCategory>(context);
+      
       
 
 
 
         public ActionResult Index()
         {
-            return View(characteristicNames.Get().ToList().Select(x => Factory.Create(x)));
+            return View(new AssetCharNamesUnit(Context).Get().ToList().Select(x => Factory.Create(x)));
         }
 
 
         public ActionResult Details(int id)
         {
 
-            return View(Factory.Create(characteristicNames.Get(id)));
+            return View(Factory.Create(new AssetCharNamesUnit(Context).Get(id)));
         }
 
 
@@ -46,7 +44,7 @@ namespace ProcurementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                characteristicNames.Insert(Parser.Create(model));
+                new AssetCharNamesUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -56,7 +54,7 @@ namespace ProcurementSystem.Controllers
         public ActionResult Edit(int id)
         {
             FillBag();
-            return View(Factory.Create(characteristicNames.Get(id)));
+            return View(Factory.Create(new AssetCharNamesUnit(Context).Get(id)));
         }
 
 
@@ -66,7 +64,7 @@ namespace ProcurementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                characteristicNames.Update(Parser.Create(model), model.Id);
+                new AssetCharNamesUnit(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -75,7 +73,7 @@ namespace ProcurementSystem.Controllers
 
         public ActionResult Delete(int id)
         {
-           AssetCharacteristicNames characteristicName = characteristicNames.Get(id);
+           AssetCharacteristicNames characteristicName = new AssetCharNamesUnit(Context).Get(id);
             return View(Factory.Create(characteristicName));
         }
 
@@ -84,13 +82,13 @@ namespace ProcurementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            characteristicNames.Delete(id);
+            new AssetCharNamesUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
         void FillBag()
         {
-            ViewBag.AssetCategoryList = new SelectList(assetCategory.Get().ToList(), "Id", "CategoryName");
+            ViewBag.AssetCategoryList = new SelectList(new Repository<AssetCategory>(Context).Get().ToList(), "Id", "CategoryName");
 
         }
     }
