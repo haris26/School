@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>@Model.Day.Date</h2>
+<h2>@Model.Day</h2>
 
 <div>
     <h4>Details </h4>
@@ -15,7 +15,7 @@
         <div class="col-md-2">Description</div>
         <div class="col-md-2">Team</div>
         <div class="col-md-2">
-            @Html.ActionLink("Create New", "DetCreate", new { id = Model.Day.Id })
+            @Html.ActionLink("Create New", "DetCreate", new { id = Model.Day.Person.Id })
         </div>
         <hr />
     </div>
