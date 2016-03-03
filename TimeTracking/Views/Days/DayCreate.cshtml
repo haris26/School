@@ -1,8 +1,8 @@
-﻿@model TimeTracking.Models.DayModel
+﻿@model TimeTracking.Models.DayDetail
 @{
     ViewBag.Title = "Create Day";
 }
-<h2>@Model.PersonName</h2>
+<h2>@Model.Day.Person.FirstName</h2>
 
 @using (Html.BeginForm())
 {
