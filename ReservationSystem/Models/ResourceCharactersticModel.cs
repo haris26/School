@@ -15,6 +15,6 @@ namespace ReservationSystem.Models
         }
         public Resource Resource { get; set; }
         public IList<CharacteristicModel> Characteristics { get; set; }
-
+        public Characteristic Charac { get; set; }
     }
 }
