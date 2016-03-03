@@ -8,6 +8,7 @@ namespace TimeTracking.Models
 {
     public class EntityParser
     {
+
         private SchoolContext context;
 
         public EntityParser(SchoolContext ctx)
@@ -68,5 +69,6 @@ namespace TimeTracking.Models
 
             };
         }
+
     }
 }

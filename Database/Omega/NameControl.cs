@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Database.Omega
 {
+
     public class NameControl: ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext context)
@@ -16,6 +17,7 @@ namespace Database.Omega
                 return new ValidationResult("");
             }
             return ValidationResult.Success;
+
         }
     }
 }

@@ -6,7 +6,9 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
     <meta name="description" content="The description of my page" />
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -26,12 +28,14 @@
                     <li>@Html.ActionLink("Roles", "Index", "roles")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
                     <li>@Html.ActionLink("People", "Index", "people")</li>
                     <li>@Html.ActionLink("Details", "Index", "details")</li>
                     <li>@Html.ActionLink("Days", "Index", "days")</li>
                     <li>@Html.ActionLink("Engagements", "Index", "engagements")</li>
                     @*<li><a href="/teams">Teams</a></li>
                     <li><a href="/roles">Roles</a></li>*@
+
                 </ul>
             </div>
         </div>

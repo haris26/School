@@ -1,5 +1,7 @@
+
 ﻿@*@model Database.Detail*@
 @model TimeTracking.Models.DetailModel
+
 
 @{
     ViewBag.Title = "Details";
@@ -8,6 +10,7 @@
 <h2>Details</h2>
 
 <div>
+
     <h4>Day</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -21,6 +24,7 @@
         <dd>
             @Html.DisplayFor(model => model.Date)
         </dd>
+
 
 
         <dt>
@@ -52,4 +56,6 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
+
 </p>
+

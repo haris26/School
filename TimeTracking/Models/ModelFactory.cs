@@ -3,18 +3,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+
 using TimeTracking.Models;
+
 
 namespace TimeTracking.Models
 {
     public class ModelFactory
     {
+
         private SchoolContext context;
 
         public ModelFactory(SchoolContext ctx)
         {
             context = ctx;
         }
+
 
         public TeamModel Create(Team team)
         {
@@ -49,6 +53,7 @@ namespace TimeTracking.Models
             };
         }
 
+
         public DayModel Create(Day day)
         {
             return new DayModel()
@@ -70,7 +75,9 @@ namespace TimeTracking.Models
             {
                 Id = detail.Id,
                 Day = detail.Day.Id,
-                Date = detail.Day.Date,
+
+                Date= detail.Day.Date,
+
                 PersonName = detail.Day.Person.FirstName,
                 WorkTime = detail.WorkTime,
                 BillTime = detail.BillTime,
@@ -92,4 +99,5 @@ namespace TimeTracking.Models
             };
         }
 }
+
 }

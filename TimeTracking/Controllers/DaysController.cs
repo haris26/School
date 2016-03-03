@@ -80,28 +80,76 @@ namespace TimeTracking.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Detail(int id)
-        {
+        //public ActionResult Detail(int id)
+        //{
+        //    DayDetail model = new DayDetail();
+        //    model.Day = new Repository<Day>(Context).Get(id);
+        //    model.Detail = new DetailUnit(Context)
+        //                       .Get().Where(x => x.Day.Id == id).ToList()
+        //                       .Select(x => Factory.Create(x)).ToList();
+        //    return View(model);
+        //}
+
+        public ActionResult Detail(int id) {
             DayDetail model = new DayDetail();
             model.Day = new Repository<Day>(Context).Get(id);
-            model.Detail = new DetailUnit(Context)
-                               .Get().Where(x => x.Day.Id == id).ToList()
-                               .Select(x => Factory.Create(x)).ToList();
+            model.Detail = new DetailUnit(Context).Get().Where(x => x.Day.Id == id).ToList()
+                            .Select(x => Factory.Create(x)).ToList();
             return View(model);
         }
-
-        public ActionResult DayCreate(int id)   // id = Person.Id
+        public ActionResult DetCreate(int id)   // id = Day.Id
         {
             FillBag();
-            Person person = new Repository<Person>(Context).Get(id);
-            return View(new DayModel()
-            { Id = 0, Person = person.Id, PersonName = person.FirstName + " " + person.LastName });
+            Day day = new Repository<Day>(Context).Get(id);
+            return View(new DetailModel()
+            { Id = 0, Day = day.Id, Date = day.Date });
         }
 
-        public ActionResult DayEdit(int id)     // id = Egagement.Id
+        public ActionResult DetEdit(int id)     // id = Detail.Id
         {
             FillBag();
-            return View(Factory.Create(new Repository<Person>(Context).Get(id)));
+            return View(Factory.Create(new DetailUnit(Context).Get(id)));
+        }
+
+
+        //public ActionResult DayCreate(int id)   // id = Person.Id
+        //{
+        //    FillBag();
+        //    Person person = new Repository<Person>(Context).Get(id);
+        //    return View(new DayModel()
+        //    { Id = 0, Person = person.Id, PersonName = person.FirstName + " " + person.LastName });
+        //}
+
+        //public ActionResult DayEdit(int id)     // id = Egagement.Id
+        //{
+        //    FillBag();
+        //    return View(Factory.Create(new Repository<Person>(Context).Get(id)));
+        //}
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DetCreate(DetailModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Detail detail = Parser.Create(model);
+                new DetailUnit(Context).Insert(detail);
+                return RedirectToAction("Detail/" + model.Day);
+            }
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DetEdit(DetailModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Detail detail = Parser.Create(model);
+                new DetailUnit(Context).Update(detail, detail.Id);
+                return RedirectToAction("Detail/" + model.Day);
+            }
+            return View(model);
         }
 
 

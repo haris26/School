@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Database;
+
 using TimeTracking.Models;
 
 namespace TimeTracking.Controllers
@@ -23,12 +24,15 @@ namespace TimeTracking.Controllers
         public ActionResult Details(int id)
         {
             return View(Factory.Create(new DetailUnit(Context).Get(id)));
+
         }
 
         // GET: Details/Create
         public ActionResult Create()
         {
+
             FillBag();
+
             return View();
         }
 
@@ -37,6 +41,7 @@ namespace TimeTracking.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public ActionResult Create(DetailModel model)
         {
             if (ModelState.IsValid)
@@ -53,6 +58,7 @@ namespace TimeTracking.Controllers
         {
             FillBag();
             return View(Factory.Create(new DetailUnit(Context).Get(id)));
+
         }
 
         // POST: Details/Edit/5
@@ -60,6 +66,7 @@ namespace TimeTracking.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public ActionResult Edit(DetailModel model)
         {
             if (ModelState.IsValid)
@@ -74,6 +81,7 @@ namespace TimeTracking.Controllers
         public ActionResult Delete(int id)
         {
             return View(Factory.Create(new DetailUnit(Context).Get(id)));
+
         }
 
         // POST: Details/Delete/5
@@ -81,6 +89,7 @@ namespace TimeTracking.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
             new DetailUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }

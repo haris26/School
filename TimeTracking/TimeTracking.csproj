@@ -176,6 +176,7 @@
     <Compile Include="Models\PersonDays.cs" />
     <Compile Include="Models\PersonDetails.cs" />
     <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -210,10 +211,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Test\Get.cshtml" />
-    <Content Include="Views\Test\People.cshtml" />
-    <Content Include="Views\Test\Person.cshtml" />
-    <Content Include="Views\Test\Person2.cshtml" />
+    <Content Include="Test\Get.cshtml" />
+    <Content Include="Test\People.cshtml" />
+    <Content Include="Test\Person.cshtml" />
+    <Content Include="Test\Person2.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
@@ -252,9 +253,12 @@
     <Content Include="Views\Teams\Details.cshtml" />
     <Content Include="Views\Teams\Edit.cshtml" />
     <Content Include="Views\Teams\Index.cshtml" />
-    <Content Include="Views\Days\DayEdit.cshtml" />
-    <Content Include="Views\Days\DayCreate.cshtml" />
     <Content Include="Views\Days\Detail.cshtml" />
+    <Content Include="Views\Days\DetCreate.cshtml" />
+    <Content Include="Views\Days\DetEdit.cshtml" />
+    <Content Include="Views\Shared\_DetailEdit.cshtml" />
+    <Content Include="Views\Days\DayCreate.cshtml" />
+    <Content Include="Views\Days\DayEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

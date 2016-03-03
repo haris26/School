@@ -1,3 +1,4 @@
+
 ﻿@model TimeTracking.Models.DayDetail
 @{
     ViewBag.Title = "Detail";
@@ -16,6 +17,7 @@
 
         <div class="col-md-2">
             @Html.ActionLink("Create New", "DayCreate", new { id = Model.Day.Id })
+
         </div>
         <hr />
     </div>
@@ -24,6 +26,7 @@
 @foreach (var item in Model.Detail)
 {
     <div class="row">
+
         <div class="col-md-2">@item.TeamName</div>
         <div class="col-md-2">@item.Description</div>
         <div class="col-md-2">@item.BillTime</div>
@@ -35,10 +38,13 @@
             <a href="/days/daydelete/@item.Id">Delete</a>
         </div>
         @*<div class="col-md-2">@Html.ActionLink("Details", "Detail", new { id = item.Id })</div>*@
+
         <hr />
     </div>
 }
 
 <p>
     @Html.ActionLink("Back to List", "Index")
+
 </p>
+

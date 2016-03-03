@@ -1,4 +1,6 @@
+
 ﻿@model IEnumerable<TimeTracking.Models.DetailModel>
+
 
 @{
     ViewBag.Title = "Index";
@@ -11,13 +13,18 @@
 </p>
 <table class="table">
     <tr>
+
         <th>
             Name
         </th>
         <th>
             Team
         </th>
-        <th>Date</th>
+
+        <th>
+            Date
+        </th>
+
 
         <th>
             @Html.DisplayNameFor(model => model.WorkTime)
@@ -28,6 +35,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
+
         <th></th>
     </tr>
 
@@ -38,7 +46,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TeamName)
             </td>
-            <td>@Html.DisplayFor(modelItem => item.Date)</td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
 
             <td>
                 @Html.DisplayFor(modelItem => item.WorkTime)
@@ -58,3 +69,4 @@
     }
 
 </table>
+
