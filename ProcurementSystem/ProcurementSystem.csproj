@@ -248,14 +248,20 @@
     <Content Include="Views\Engagements\Edit.cshtml" />
     <Content Include="Views\Engagements\Index.cshtml" />
     <Content Include="Views\People\Index.cshtml" />
-    <Content Include="Views\People\Engagements.cshtml" />
     <Content Include="Views\People\Edit.cshtml" />
     <Content Include="Views\People\Details.cshtml" />
     <Content Include="Views\People\Delete.cshtml" />
     <Content Include="Views\People\Create.cshtml" />
     <Content Include="Views\People\EngEdit.cshtml" />
     <Content Include="Views\People\EngCreate.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Shared\_RequestEdit.cshtml" />
+=======
+    <Content Include="Views\People\Engagements.cshtml" />
+    <Content Include="Views\People\EngDelete.cshtml" />
+    <Content Include="Views\Shared\_EngagementEdit.cshtml" />
+
+>>>>>>> 2601a95644e792f340c7ebe7c01bd67617165eca
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
