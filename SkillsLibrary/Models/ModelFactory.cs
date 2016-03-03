@@ -74,7 +74,8 @@ namespace SkillsLibrary.Models
                 EmployeeName = empEdu.Employee.FirstName + " " + empEdu.Employee.LastName,
                 Education = empEdu.Education.Id,
                 EducationName = empEdu.Education.Name,
-                Reference = empEdu.Reference
+                Reference = empEdu.Reference,
+                Type = empEdu.Education.Type
             };
         }
 

@@ -11,6 +11,7 @@
     <hr />
     <div class="row">
         <div class="col-md-2">Name</div>
+        <div class="col-md-2">Type</div>
         <div class="col-md-2">Reference</div>
         <div class="col-md-2">
 
@@ -20,10 +21,11 @@
     </div>
 </div>
 
-@foreach (var item in Model.Education)
+@foreach (var item in Model.Educations)
 {
     <div class="row">
         <div class="col-md-2">@item.EducationName</div>
+        <div class="col-md-2">@item.Type</div>
         <div class="col-md-2">@item.Reference</div>
         <div class="col-md-2">
             <a href="/people/eduedit/@item.Id">Edit</a> |

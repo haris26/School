@@ -224,11 +224,11 @@ namespace SkillsLibrary.Controllers
 
 
 
-        public ActionResult EmployeeEducation(int id)
+        public ActionResult EmployeeEducation(int id)         //Person id
         {
             PersonEducation model = new PersonEducation();
             model.Person = new Repository<Person>(Context).Get(id);
-            model.Education = new EmployeeEducationUnit(Context)
+            model.Educations = new EmployeeEducationUnit(Context)
                               .Get().Where(x => x.Employee.Id == id).ToList()
                               .Select(x => Factory.Create(x)).ToList();
             return View(model);

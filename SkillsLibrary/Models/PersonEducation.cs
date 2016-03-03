@@ -10,9 +10,9 @@ namespace SkillsLibrary.Models
     {
         public PersonEducation()
         {
-            Education = new List<EmployeeEducationModel>();
+            Educations = new List<EmployeeEducationModel>();
         }
         public Person Person { get; set; }
-        public IList<EmployeeEducationModel> Education { get; set; }
+        public IList<EmployeeEducationModel> Educations { get; set; }
     }
 }
