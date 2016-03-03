@@ -162,6 +162,7 @@
     <Compile Include="Controllers\EngagementsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -253,11 +254,13 @@
     <Content Include="Views\Teams\Details.cshtml" />
     <Content Include="Views\Teams\Edit.cshtml" />
     <Content Include="Views\Teams\Index.cshtml" />
-
     <Content Include="Views\Days\DayEdit.cshtml" />
     <Content Include="Views\Days\DayCreate.cshtml" />
     <Content Include="Views\Days\Detail.cshtml" />
-
+    <Content Include="Views\Shared\_DetailEdit.cshtml" />
+    <Content Include="Views\Shared\_DayEdit.cshtml" />
+    <Content Include="Views\Days\DetCreate.cshtml" />
+    <Content Include="Views\Days\DetEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

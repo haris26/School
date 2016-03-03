@@ -1,4 +1,3 @@
-
 ﻿@model TimeTracking.Models.DayDetail
 @{
     ViewBag.Title = "Detail";
@@ -16,7 +15,7 @@
         
 
         <div class="col-md-2">
-            @Html.ActionLink("Create New", "DayCreate", new { id = Model.Day.Id })
+            @Html.ActionLink("Create New", "DayCreate", new { id = Model.Day.Person.Id })
 
         </div>
         <hr />

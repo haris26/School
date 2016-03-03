@@ -1,5 +1,4 @@
-
-﻿@model IEnumerable<TimeTracking.Models.DetailModel>
+@model IEnumerable<TimeTracking.Models.DetailModel>
 
 
 @{
@@ -20,12 +19,9 @@
         <th>
             Team
         </th>
-        <th>Date</th>
-
         <th>
             Date
         </th>
-
 
         <th>
             @Html.DisplayNameFor(model => model.WorkTime)
@@ -47,12 +43,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TeamName)
             </td>
-            <td>@Html.DisplayFor(modelItem => item.Date)</td>
-
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
-
             <td>
                 @Html.DisplayFor(modelItem => item.WorkTime)
             </td>
@@ -71,4 +64,3 @@
     }
 
 </table>
-

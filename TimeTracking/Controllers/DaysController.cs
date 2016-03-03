@@ -80,16 +80,7 @@ namespace TimeTracking.Controllers
             return RedirectToAction("Index");
         }
 
-        //public ActionResult Detail(int id)
-        //{
-        //    DayDetail model = new DayDetail();
-        //    model.Day = new Repository<Day>(Context).Get(id);
-        //    model.Detail = new DetailUnit(Context)
-        //                       .Get().Where(x => x.Day.Id == id).ToList()
-        //                       .Select(x => Factory.Create(x)).ToList();
-        //    return View(model);
-        //}
-
+       
         public ActionResult Detail(int id) {
             DayDetail model = new DayDetail();
             model.Day = new Repository<Day>(Context).Get(id);
@@ -110,21 +101,6 @@ namespace TimeTracking.Controllers
             FillBag();
             return View(Factory.Create(new DetailUnit(Context).Get(id)));
         }
-
-
-        //public ActionResult DayCreate(int id)   // id = Person.Id
-        //{
-        //    FillBag();
-        //    Person person = new Repository<Person>(Context).Get(id);
-        //    return View(new DayModel()
-        //    { Id = 0, Person = person.Id, PersonName = person.FirstName + " " + person.LastName });
-        //}
-
-        //public ActionResult DayEdit(int id)     // id = Egagement.Id
-        //{
-        //    FillBag();
-        //    return View(Factory.Create(new Repository<Person>(Context).Get(id)));
-        //}
 
 
         [HttpPost]

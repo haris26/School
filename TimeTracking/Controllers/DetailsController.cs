@@ -98,7 +98,7 @@ namespace TimeTracking.Controllers
         void FillBag()
         {
             ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
-            ViewBag.TeamList = new SelectList(new Repository<Team>(Context).Get().ToList(), "Id", "TeamName");
+            ViewBag.TeamList = new SelectList(new Repository<Team>(Context).Get().ToList(), "Id", "Name");
 
         }
     }

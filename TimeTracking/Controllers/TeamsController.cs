@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data;
 using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Database;
-using TimeTracking.Models;
 
 namespace TimeTracking.Controllers
 {
@@ -71,88 +65,84 @@ namespace TimeTracking.Controllers
             teams.Delete(id);
             return RedirectToAction("Index");
         }
+
+        //public ActionResult ProjectSkills(int id)
+        //{
+        //    ProjectSkills model = new ProjectSkills();
+        //    model.Team = new Repository<Team>(Context).Get(id);
+        //    model.Skills = new ProjectSkillUnit(Context)
+        //                   .Get().Where(x => x.Team.Id == id).ToList()
+        //                   .Select(x => Factory.Create(x)).ToList();
+        //    return View(model);
+        //}
+
+
+        //public ActionResult SkillCreate(int id)   // id = Team.Id
+        //{
+        //    FillBag();
+        //    Team team = new Repository<Team>(Context).Get(id);
+        //    return View(new ProjectSkillModel()
+        //    {
+        //        Project = team.Id,
+        //        ProjectName = team.Description,
+        //        TeamName = team.Name
+        //    });
+        //}
+
+        //public ActionResult SkillEdit(int id)     // id = ProjectSkill.Id
+        //{
+        //    FillBag();
+        //    return View(Factory.Create(new ProjectSkillUnit(Context).Get(id)));
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult SkillCreate(ProjectSkillModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        ProjectSkill projSkill = Parser.Create(model);
+        //        new ProjectSkillUnit(Context).Insert(projSkill);
+        //        return RedirectToAction("ProjectSkills/" + model.Project);
+        //    }
+        //    return View(model);
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult SkillEdit(ProjectSkillModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        ProjectSkill projSkill = Parser.Create(model);
+        //        new ProjectSkillUnit(Context).Update(projSkill, projSkill.Id);
+        //        return RedirectToAction("ProjectSkills/" + model.Project);
+        //    }
+        //    return View(model);
+        //}
+
+        //// GET: People/SkillDelete/5
+        //public ActionResult SkillDelete(int id)
+        //{
+        //    return View(Factory.Create(new ProjectSkillUnit(Context).Get(id)));
+        //}
+
+        //// POST: People/SkillDelete/5
+        //[HttpPost, ActionName("SkillDelete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult SkillDeleteConfirmed(int id)
+        //{
+        //    ProjectSkillUnit projSkills = new ProjectSkillUnit(Context);
+        //    int project = projSkills.Get(id).Team.Id;
+        //    projSkills.Delete(id);
+        //    return RedirectToAction("ProjectSkills/" + project);
+        //}
+
+
+
+        void FillBag()
+        {
+            ViewBag.ToolsList = new SelectList(new Repository<Tool>(Context).Get().ToList(), "Id", "Name");
+        }
     }
 }
-
-//        public ActionResult ProjectSkills(int id)
-
-//        {
-//            ProjectSkills model = new ProjectSkills();
-//            model.Team = new Repository<Team>(Context).Get(id);
-//            model.Skills = new ProjectSkillUnit(Context)
-//                           .Get().Where(x => x.Team.Id == id).ToList()
-//                           .Select(x => Factory.Create(x)).ToList();
-//            return View(model);
-//        }
-
-
-//        public ActionResult SkillCreate(int id)   // id = Team.Id
-//        {
-//            FillBag();
-//            Team team = new Repository<Team>(Context).Get(id);
-//            return View(new ProjectSkillModel()
-//            {
-//                Project = team.Id,
-//                ProjectName = team.Description,
-//                TeamName = team.Name
-//            });
-//        }
-
-//        public ActionResult SkillEdit(int id)     // id = ProjectSkill.Id
-//        {
-//            FillBag();
-//            return View(Factory.Create(new ProjectSkillUnit(Context).Get(id)));
-//        }
-
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult SkillCreate(ProjectSkillModel model)
-//        {
-//            if (ModelState.IsValid)
-//            {
-//                ProjectSkill projSkill = Parser.Create(model);
-//                new ProjectSkillUnit(Context).Insert(projSkill);
-//                return RedirectToAction("ProjectSkills/" + model.Project);
-//            }
-//            return View(model);
-//        }
-
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult SkillEdit(ProjectSkillModel model)
-//        {
-//            if (ModelState.IsValid)
-//            {
-//                ProjectSkill projSkill = Parser.Create(model);
-//                new ProjectSkillUnit(Context).Update(projSkill, projSkill.Id);
-//                return RedirectToAction("ProjectSkills/" + model.Project);
-//            }
-//            return View(model);
-//        }
-
-//        // GET: People/SkillDelete/5
-//        public ActionResult SkillDelete(int id)
-//        {
-//            return View(Factory.Create(new ProjectSkillUnit(Context).Get(id)));
-//        }
-
-//        // POST: People/SkillDelete/5
-//        [HttpPost, ActionName("SkillDelete")]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult SkillDeleteConfirmed(int id)
-//        {
-//            ProjectSkillUnit projSkills = new ProjectSkillUnit(Context);
-//            int project = projSkills.Get(id).Team.Id;
-//            projSkills.Delete(id);
-//            return RedirectToAction("ProjectSkills/" + project);
-//        }
-
-
-
-//        void FillBag()
-//        {
-//            ViewBag.ToolsList = new SelectList(new Repository<Tool>(Context).Get().ToList(), "Id", "Name");
-//        }
-//    }
-
-//}
