@@ -159,28 +159,28 @@
     <Compile Include="Controllers\AssetCategoriesController.cs" />
     <Compile Include="Controllers\AssetCharacteristicNamesController.cs" />
     <Compile Include="Controllers\AssetCharsController.cs" />
+    <Compile Include="Controllers\AssetsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EngagementsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\AssetsController.cs" />
-    <Compile Include="Controllers\PeopleController.cs" />
-    <Compile Include="Models\AssetsModel.cs" />
-    <Compile Include="Models\CharacteristicNameModel.cs" />
-    <Compile Include="Models\EngagementModel.cs" />
-    <Compile Include="Models\EntityParser.cs" />
-    <Compile Include="Models\ModelFactory.cs" />
-    <Compile Include="Models\PeopleModel.cs" />
-    <Compile Include="Models\PersonEngagement.cs" />
-    <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Controllers\HistoriesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\RequestsController.cs" />
+    <Compile Include="Models\AssetsModel.cs" />
+    <Compile Include="Models\CharacteristicNameModel.cs" />
+    <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\HistoryModel.cs" />
+    <Compile Include="Models\PeopleModel.cs" />
+    <Compile Include="Models\PersonEngagement.cs" />
     <Compile Include="Models\RequestModel.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EngagementModel.cs" />
+    <Compile Include="Models\EntityParser.cs" />
+    <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -232,29 +232,10 @@
     <Content Include="Views\Teams\Details.cshtml" />
     <Content Include="Views\Teams\Edit.cshtml" />
     <Content Include="Views\Teams\Index.cshtml" />
-    <Content Include="Views\Assets\Create.cshtml" />
-    <Content Include="Views\Assets\Delete.cshtml" />
-    <Content Include="Views\Assets\Details.cshtml" />
-    <Content Include="Views\Assets\Edit.cshtml" />
-    <Content Include="Views\Assets\Index.cshtml" />
-    <Content Include="Views\AssetCategories\Create.cshtml" />
-    <Content Include="Views\AssetCategories\Delete.cshtml" />
-    <Content Include="Views\AssetCategories\Details.cshtml" />
-    <Content Include="Views\AssetCategories\Edit.cshtml" />
-    <Content Include="Views\AssetCategories\Index.cshtml" />
-    <Content Include="Views\AssetChars\Create.cshtml" />
-    <Content Include="Views\AssetChars\Delete.cshtml" />
-    <Content Include="Views\AssetChars\Details.cshtml" />
-    <Content Include="Views\AssetChars\Edit.cshtml" />
-    <Content Include="Views\AssetChars\Index.cshtml" />
-    <Content Include="Views\AssetCharacteristicNames\Create.cshtml" />
-    <Content Include="Views\AssetCharacteristicNames\Delete.cshtml" />
-    <Content Include="Views\AssetCharacteristicNames\Details.cshtml" />
-    <Content Include="Views\AssetCharacteristicNames\Edit.cshtml" />
-    <Content Include="Views\AssetCharacteristicNames\Index.cshtml" />
     <Content Include="Views\Histories\Create.cshtml" />
     <Content Include="Views\Histories\Delete.cshtml" />
     <Content Include="Views\Histories\Details.cshtml" />
+    <Content Include="Views\Histories\Edit.cshtml" />
     <Content Include="Views\Histories\Index.cshtml" />
     <Content Include="Views\Requests\Create.cshtml" />
     <Content Include="Views\Requests\Delete.cshtml" />
@@ -266,18 +247,18 @@
     <Content Include="Views\Engagements\Details.cshtml" />
     <Content Include="Views\Engagements\Edit.cshtml" />
     <Content Include="Views\Engagements\Index.cshtml" />
-    <Content Include="Views\People\Create.cshtml" />
-    <Content Include="Views\People\Delete.cshtml" />
-    <Content Include="Views\People\Details.cshtml" />
-    <Content Include="Views\People\Edit.cshtml" />
     <Content Include="Views\People\Index.cshtml" />
+    <Content Include="Views\People\Engagements.cshtml" />
+    <Content Include="Views\People\Edit.cshtml" />
+    <Content Include="Views\People\Details.cshtml" />
+    <Content Include="Views\People\Delete.cshtml" />
+    <Content Include="Views\People\Create.cshtml" />
     <Content Include="Views\People\EngEdit.cshtml" />
     <Content Include="Views\People\EngCreate.cshtml" />
-    <Content Include="Views\People\Engagements.cshtml" />
-    <Content Include="Views\People\EngDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
