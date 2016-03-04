@@ -103,7 +103,7 @@ namespace TimeTracking.Controllers
             FillBag();
             Person person = new Repository<Person>(Context).Get(id);
             return View(new DayModel()
-            { Id = 0, Person = person.Id, PersonName = person.FirstName + " " + person.LastName });
+            { Person = person.Id});
         }
 
         public ActionResult DayEdit(int id)     // id = Egagement.Id
