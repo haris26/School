@@ -12,7 +12,9 @@
         @Html.HiddenFor(model => model.Id)
         @Html.HiddenFor(model => model.Day)
 
-        <div class="form-group">
+        
+                <div class="form-group">
+
                 <div class="control-label col-md-2">Team</div>
                 <div class="col-md-10">
                     @Html.DropDownListFor(model => model.Team, ViewBag.TeamsList as

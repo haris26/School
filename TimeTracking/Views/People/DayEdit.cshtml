@@ -1,7 +1,8 @@
-﻿
+﻿@model TimeTracking.Models.DayModel
 @{
-    ViewBag.Title = "DayEdit";
+
+    ViewBag.Title = "Edit Day";
+
 }
 
-<h2>DayEdit</h2>
-
+@Html.Partial("_DayEdit", Model)

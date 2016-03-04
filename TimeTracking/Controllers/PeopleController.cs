@@ -88,33 +88,133 @@ namespace TimeTracking.Controllers
             return View(model);
         }
 
-        public ActionResult Detail(int id)
+        public ActionResult DayCreate(int id)   // id = Person.Id
         {
-            DayDetail model = new DayDetail();
-            model.Day = new DayUnit(Context).Get(id);
-            model.Detail = new DetailUnit(Context)
-                               .Get().Where(x => x.Day.Id == id).ToList()
-                               .Select(x => Factory.Create(x)).ToList();
+
+            Person person = new Repository<Person>(Context).Get(id);
+            return View(new DayModel()
+            { Id = 0, Person = person.Id, PersonName = person.FirstName + " " + person.LastName });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DayCreate(DayModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                new DayUnit(Context).Insert(Parser.Create(model));
+                return RedirectToAction("Days/"+model.Person);
+            }
+
             return View(model);
         }
 
-        public ActionResult DayCreate(int id)   // id = Person.Id
+        public ActionResult DayEdit(int id)     // id = Day.id
         {
-            FillBag();
-            Person person = new Repository<Person>(Context).Get(id);
-            return View(new DayModel()
-            { Person = person.Id});
+            return View(Factory.Create(new DayUnit(Context).Get(id)));
         }
 
-        public ActionResult DayEdit(int id)     // id = Egagement.Id
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DayEdit(DayModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                new DayUnit(Context).Update(Parser.Create(model), model.Id);
+                return RedirectToAction("Days/" + model.Person);
+            }
+            return View(model);
+        }
+
+
+        public ActionResult DayDelete(int id)
+        {
+            return View(Factory.Create(new DayUnit(Context).Get(id)));
+        }
+
+
+        [HttpPost, ActionName("DayDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DayDeleteConfirmed(int id)
+        {
+            DayUnit dayUnit = new DayUnit(Context);
+            int person = dayUnit.Get(id).Person.Id;
+            dayUnit.Delete(id);
+            return RedirectToAction("Days/" + person);
+        }
+
+
+        public ActionResult Detail(int id)      //day.id
+        {
+            DayDetail model = new DayDetail();
+            model.Day = new Repository<Day>(Context).Get(id);
+            model.Detail = new DetailUnit(Context).Get().Where(x => x.Day.Id == id).ToList()
+                            .Select(x => Factory.Create(x)).ToList();
+            return View(model);
+        }
+
+        public ActionResult DetCreate(int id)   // id = Day.Id
         {
             FillBag();
-            return View(Factory.Create(new Repository<Person>(Context).Get(id)));
+
+            Day day = new Repository<Day>(Context).Get(id);
+            return View(new DetailModel()
+            { Id = 0, Day = day.Id, Date = day.Date });
+
+        }
+
+        public ActionResult DetEdit(int id)     // id = Detail.Id
+        {
+            FillBag();
+            return View(Factory.Create(new DetailUnit(Context).Get(id)));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DetCreate(DetailModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Detail detail = Parser.Create(model);
+                new DetailUnit(Context).Insert(detail);
+                return RedirectToAction("Detail/" + model.Day);
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DetEdit(DetailModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Detail detail = Parser.Create(model);
+                new DetailUnit(Context).Update(detail, detail.Id);
+                return RedirectToAction("Detail/" + model.Day);
+            }
+            return View(model);
+        }
+
+        public ActionResult DetDelete(int id)
+        {
+            return View(Factory.Create(new DetailUnit(Context).Get(id)));
+        }
+
+
+        [HttpPost, ActionName("DetDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DetDeleteConfirmed(int id)
+        {
+            DetailUnit detailUnit = new DetailUnit(Context);
+            int day = detailUnit.Get(id).Day.Id;
+            detailUnit.Delete(id);
+            return RedirectToAction("Detail/" + day);
         }
 
         void FillBag()
         {
             ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
+            ViewBag.TeamsList = new SelectList(new Repository<Team>(Context).Get().ToList(), "Id", "Name");
         }
     }
 }
