@@ -76,6 +76,7 @@ namespace TimeTracking.Models
                 Id = detail.Id,
                 Day = detail.Day.Id,
                 Date=detail.Day.Date,
+                Person = detail.Day.Person.Id,
                 PersonName = detail.Day.Person.FirstName,
                 WorkTime = detail.WorkTime,
                 BillTime = detail.BillTime,

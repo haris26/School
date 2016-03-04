@@ -15,7 +15,7 @@
         <div class="col-md-2">Description</div>
         <div class="col-md-2">Team</div>
         <div class="col-md-2">
-            @Html.ActionLink("Create New", "DetCreate", new { id = Model.Day.Person.Id })
+            @Html.ActionLink("Create New", "DetCreate", new { id = Model.Day.Id})
         </div>
         <hr />
     </div>
@@ -27,7 +27,7 @@
         <div class="col-md-2">@item.WorkTime</div>
         <div class="col-md-2">@item.BillTime</div>
         <div class="col-md-2">@item.Description</div>
-        <div class="col-md-2">@item.Team</div>
+        <div class="col-md-2">@item.TeamName</div>
         <div class="col-md-2">
             <a href="/days/detedit/@item.Id">Edit</a> |
             <a href="/days/detdelete/@item.Id">Delete</a>

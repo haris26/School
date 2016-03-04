@@ -1,21 +1,20 @@
 ﻿@model TimeTracking.Models.DayDetail
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = "Details";
 }
 
-<h2>@Model.Day.Person.FirstName @Model.Day.Person.LastName</h2>
+<h2>@Model.Day.Date</h2>
 
 <div>
-    <h4>Details</h4>
+    <h4>Details </h4>
     <hr />
     <div class="row">
-        <div class="col-md-2">Team</div>
+        <div class="col-md-2">WorkTime</div>
+        <div class="col-md-2">BillTime</div>
         <div class="col-md-2">Description</div>
-        <div class="col-md-2">Bill Time</div>
-        
-
+        <div class="col-md-2">Team</div>
         <div class="col-md-2">
-            @*@Html.ActionLink("Create New", "DayCreate", new { id = Model.Day.Id })*@
+            @Html.ActionLink("Create New", "DetCreate", new { id = Model.Day.Id })
         </div>
         <hr />
     </div>
@@ -24,21 +23,18 @@
 @foreach (var item in Model.Detail)
 {
     <div class="row">
-        <div class="col-md-2">@item.Team</div>
-        <div class="col-md-2">@item.Description</div>
+        <div class="col-md-2">@item.WorkTime</div>
         <div class="col-md-2">@item.BillTime</div>
-        
-
-
+        <div class="col-md-2">@item.Description</div>
+        <div class="col-md-2">@item.TeamName</div>
         <div class="col-md-2">
-            <a href="/people/engedit/@item.Id">Edit</a> |
-            <a href="/people/engdelete/@item.Id">Delete</a>
+            <a href="/people/detedit/@item.Id">Edit</a> |
+            <a href="/people/detdelete/@item.Id">Delete</a>
         </div>
-        <div class="col-md-2">@Html.ActionLink("Details", "Detail", new { id = item.Id })</div>
         <hr />
     </div>
 }
 
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Days", new {id = Model.Day.Person.Id})
 </p>

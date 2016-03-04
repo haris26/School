@@ -256,6 +256,11 @@
     <Content Include="Views\Days\DetCreate.cshtml" />
     <Content Include="Views\Days\DetEdit.cshtml" />
     <Content Include="Views\Shared\_DetailEdit.cshtml" />
+    <Content Include="Views\Shared\_DayEdit.cshtml" />
+    <Content Include="Views\People\DayDelete.cshtml" />
+    <Content Include="Views\People\DetCreate.cshtml" />
+    <Content Include="Views\People\DetEdit.cshtml" />
+    <Content Include="Views\People\DetDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
