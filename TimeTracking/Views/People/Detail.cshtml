@@ -23,7 +23,9 @@
 @foreach (var item in Model.Detail)
 {
     <div class="row">
+
         <div class="col-md-2">@item.WorkTime</div>
+
         <div class="col-md-2">@item.BillTime</div>
         <div class="col-md-2">@item.Description</div>
         <div class="col-md-2">@item.TeamName</div>
@@ -31,6 +33,7 @@
             <a href="/people/detedit/@item.Id">Edit</a> |
             <a href="/people/detdelete/@item.Id">Delete</a>
         </div>
+
         <hr />
     </div>
 }

@@ -90,6 +90,7 @@ namespace TimeTracking.Controllers
 
         public ActionResult DayCreate(int id)   // id = Person.Id
         {
+
             Person person = new Repository<Person>(Context).Get(id);
             return View(new DayModel()
             { Id = 0, Person = person.Id, PersonName = person.FirstName + " " + person.LastName });
@@ -104,6 +105,7 @@ namespace TimeTracking.Controllers
                 new DayUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Days/"+model.Person);
             }
+
             return View(model);
         }
 

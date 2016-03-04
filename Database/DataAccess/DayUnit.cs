@@ -19,6 +19,7 @@ namespace Database
             if (oldEnt != null)
             {
                 context.Entry(oldEnt).CurrentValues.SetValues(entity);
+                context.Entry(oldEnt).State = EntityState.Modified;
                 oldEnt.Person = entity.Person;
                 context.SaveChanges();
             }
