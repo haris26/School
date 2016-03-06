@@ -13,10 +13,6 @@ namespace ProcurementSystem.Controllers
 {
     public class RequestsController : BaseController
     {
-
-       
-
-
         // GET: Requests
         public ActionResult Index()
         {

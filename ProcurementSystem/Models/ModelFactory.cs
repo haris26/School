@@ -118,6 +118,7 @@ namespace ProcurementSystem.Models
                 Description =history.Description,
                 Person = history.Person.Id,
                 PersonName = history.Person.FirstName + " " + history.Person.LastName,
+                Status = history.Status,
                 Asset=history.Asset.Id,
                 AssetModel=history.Asset.Model
               

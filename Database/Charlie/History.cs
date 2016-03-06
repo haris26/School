@@ -17,7 +17,7 @@ namespace Database
         public int Id { get; set; }                     // Identity[1]
         // public int AssetID { get; set; }    
        
- public virtual Asset Asset { get; set; }                // Navigation to Asset instead of AssetId
+        public virtual Asset Asset { get; set; }                // Navigation to Asset instead of AssetId
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime EventBegin { get; set; }        // History record from...

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Database;
 
 namespace ProcurementSystem.Models
 {
@@ -16,6 +17,6 @@ namespace ProcurementSystem.Models
         public int Team { get; set; }
         public int Asset { get; set; }
         public string AssetModel { get; set; }
-        public HistoryModel Status { get; set; }
+        public HistoryStatus Status { get; set; }
     }
 }

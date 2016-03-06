@@ -86,18 +86,18 @@ namespace ProcurementSystem.Models
             };
         }
 
-        public History Create(HistoryModel history)
+        public History Create(HistoryModel model)
         {
             return new History()
 
             {
-                Id = history.Id,
-                EventBegin = history.EventBegin,
-                EventEnd = history.EventEnd,
-                Description = history.Description,
-                Person = context.People.Find(history.Person),
-
-                Asset = context.Assets.Find(history.Asset)
+                Id = model.Id,
+                EventBegin = model.EventBegin,
+                EventEnd = model.EventEnd,
+                Description = model.Description,
+                Person = context.People.Find(model.Person),
+                Status = model.Status,
+                Asset = context.Assets.Find(model.Asset)
 
             };
         }

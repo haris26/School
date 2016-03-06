@@ -235,7 +235,6 @@
     <Content Include="Views\Histories\Create.cshtml" />
     <Content Include="Views\Histories\Delete.cshtml" />
     <Content Include="Views\Histories\Details.cshtml" />
-    <Content Include="Views\Histories\Edit.cshtml" />
     <Content Include="Views\Histories\Index.cshtml" />
     <Content Include="Views\Requests\Create.cshtml" />
     <Content Include="Views\Requests\Delete.cshtml" />
@@ -254,14 +253,33 @@
     <Content Include="Views\People\Create.cshtml" />
     <Content Include="Views\People\EngEdit.cshtml" />
     <Content Include="Views\People\EngCreate.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Shared\_RequestEdit.cshtml" />
-=======
     <Content Include="Views\People\Engagements.cshtml" />
     <Content Include="Views\People\EngDelete.cshtml" />
     <Content Include="Views\Shared\_EngagementEdit.cshtml" />
-
->>>>>>> 2601a95644e792f340c7ebe7c01bd67617165eca
+    <Content Include="Views\AssetCategories\Create.cshtml" />
+    <Content Include="Views\AssetCategories\Delete.cshtml" />
+    <Content Include="Views\AssetCategories\Details.cshtml" />
+    <Content Include="Views\AssetCategories\Edit.cshtml" />
+    <Content Include="Views\AssetCategories\Index.cshtml" />
+    <Content Include="Views\AssetCharacteristicNames\Create.cshtml" />
+    <Content Include="Views\AssetCharacteristicNames\Delete.cshtml" />
+    <Content Include="Views\AssetCharacteristicNames\Details.cshtml" />
+    <Content Include="Views\AssetCharacteristicNames\Edit.cshtml" />
+    <Content Include="Views\AssetCharacteristicNames\Index.cshtml" />
+    <Content Include="Views\AssetChars\Create.cshtml" />
+    <Content Include="Views\AssetChars\Delete.cshtml" />
+    <Content Include="Views\AssetChars\Details.cshtml" />
+    <Content Include="Views\AssetChars\Edit.cshtml" />
+    <Content Include="Views\AssetChars\Index.cshtml" />
+    <Content Include="Views\Assets\Create.cshtml" />
+    <Content Include="Views\Assets\Delete.cshtml" />
+    <Content Include="Views\Assets\Details.cshtml" />
+    <Content Include="Views\Assets\Edit.cshtml" />
+    <Content Include="Views\Assets\Index.cshtml" />
+    <Content Include="Views\Shared\_HistoryEdit.cshtml" />
+    <Content Include="Views\Histories\Edit.cshtml" />
+    <Content Include="Views\Shared\_AssetEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
