@@ -16,13 +16,13 @@ namespace DataSeed
 
         public static void Seed()
         {
-            //getCategories();            // assetCategory
-            //getCharacteristicNames();   // assetCharacteristicNames
-            //getAssets();                // assets
-            //getCharacteristics();       // assetChar
+            getCategories();            // assetCategory
+            getCharacteristicNames();   // assetCharacteristicNames
+           getAssets();                // assets
+           getCharacteristics();       // assetChar
 
             getRequests();              // request
-            //getHistory();               // historyR
+            getHistory();               // historyR
 
             Console.ReadKey();
         }
@@ -147,7 +147,7 @@ namespace DataSeed
                 Asset asset = context.Assets.FirstOrDefault(x => x.Model == asName);
                 string perName = Utility.getString(row, 6);
 
-                Person user = context.People.FirstOrDefault(x => x.FirstName == perName);
+                Person user = context.People.FirstOrDefault(x =>x.FirstName == perName);
 
                 Request request = new Request()
                 {

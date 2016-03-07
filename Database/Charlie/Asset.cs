@@ -26,5 +26,8 @@ namespace Database
         // public enum Status { Active=1,Coming_soon=2, Out_of_order=3 } we will put status to enumerators
         public AssetStatus Status { get; set; }
         public virtual ICollection<AssetCategory> AssetCategories { get; set; }
-    }
+
+       
+
+    
 }
