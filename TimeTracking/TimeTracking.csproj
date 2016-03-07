@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5F7ABDCD-DFBF-411F-AE26-FDEE5D9AA997}</ProjectGuid>
+    <ProjectGuid>{0170F483-CE02-4633-A9C0-A6B329DD7F90}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -261,9 +261,13 @@
     <Content Include="Views\Shared\_DayEdit.cshtml" />
     <Content Include="Views\Days\DetCreate.cshtml" />
     <Content Include="Views\Days\DetEdit.cshtml" />
+
+    <Content Include="Views\Details\DetCreate.cshtml" />
     <Content Include="Views\People\DetCreate.cshtml" />
-    <Content Include="Views\People\DetEdit.cshtml" />
+    <Content Include="Views\People\DayDelete.cshtml" />
     <Content Include="Views\People\DetDelete.cshtml" />
+    <Content Include="Views\People\DetEdit.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

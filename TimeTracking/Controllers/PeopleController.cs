@@ -156,9 +156,11 @@ namespace TimeTracking.Controllers
         public ActionResult DetCreate(int id)   // id = Day.Id
         {
             FillBag();
+
             Day day = new Repository<Day>(Context).Get(id);
             return View(new DetailModel()
             { Id = 0, Day = day.Id, Date = day.Date });
+
         }
 
         public ActionResult DetEdit(int id)     // id = Detail.Id

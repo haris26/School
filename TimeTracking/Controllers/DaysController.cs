@@ -93,7 +93,7 @@ namespace TimeTracking.Controllers
             FillBag();
             Day day = new Repository<Day>(Context).Get(id);
             return View(new DetailModel()
-            { Id = 0, Day = day.Id, Date = day.Date });
+            { Id = 0, Day = day.Id, Date = day.Date});
         }
 
         public ActionResult DetEdit(int id)     // id = Detail.Id
@@ -130,7 +130,7 @@ namespace TimeTracking.Controllers
 
         public ActionResult DayCreate(int id)   // id = Person.Id
         {
-            FillBag();
+            //FillBag();
             Person person = new Repository<Person>(Context).Get(id);
             return View(new DayModel()
             { Id = 0, Person = person.Id, PersonName = person.FirstName + " " + person.LastName });
