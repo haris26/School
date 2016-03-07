@@ -3,7 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+<<<<<<< HEAD
     <ProjectGuid>{65A6E1B6-68B2-433A-9C0D-612BD7C198D7}</ProjectGuid>
+=======
+    <ProjectGuid>{93E34BB9-BBEF-43E5-B744-EAD0D1A66F5C}</ProjectGuid>
+>>>>>>> 3458eded02a15721a6bf1a1537efa5732455ae4f
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UnitTest</RootNamespace>
@@ -63,10 +67,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+=======
+>>>>>>> 3458eded02a15721a6bf1a1537efa5732455ae4f
     <ProjectReference Include="..\Database\Database.csproj">
       <Project>{73d7e73e-3c79-4509-a8e9-20ed017471b3}</Project>
       <Name>Database</Name>
@@ -76,6 +83,13 @@
       <Name>ReservationSystem</Name>
     </ProjectReference>
   </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+>>>>>>> 3458eded02a15721a6bf1a1537efa5732455ae4f
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
