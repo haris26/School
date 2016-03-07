@@ -1,19 +1,11 @@
 ﻿using System;
-<<<<<<< HEAD
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Database;
-using System.Linq;
-using System.Collections.Generic;
-=======
 using System.Linq;
 using Database;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
->>>>>>> 3458eded02a15721a6bf1a1537efa5732455ae4f
 
 namespace UnitTest
 {
     [TestClass]
-<<<<<<< HEAD
     public class RepositoryTest
     {
         [TestMethod]
@@ -28,28 +20,12 @@ namespace UnitTest
             {
                 Name = "Test Project",
                 Description = "Unit Test",
-=======
-    public class UnitTest1
-    {
-        [TestMethod]
-        public void TestAdd(){
-            //Arrange
-            Repository<Team> teams = new Repository<Team>(new SchoolContext());
-            int N = teams.Get().Count();
-
-            //Act
-            teams.Insert(new Team()
-            {
-                Name = "Test project",
-                Description = "Unit test",
->>>>>>> 3458eded02a15721a6bf1a1537efa5732455ae4f
                 Type = ProjectType.External
             });
             int id = teams.Get().Max(x => x.Id);
             teams.Delete(id);
             int M = teams.Get().Count();
 
-<<<<<<< HEAD
             // Assert
             Assert.AreEqual(M, N);
         }
@@ -66,25 +42,6 @@ namespace UnitTest
                 Name = "Resource test",
                 Status = ReservationStatus.Available,
                 ResourceCategory = resCat.Get(1)
-=======
-            //Assert
-            Assert.AreEqual(M, N);
-        }
-
-        [TestMethod]
-        public void TestAddResource()
-        {
-            SchoolContext context = new SchoolContext();
-            ResourceUnit resources = new ResourceUnit(context);
-            int N = resources.Get().Count();
-
-            ResourceCategory cat = new Repository<ResourceCategory>(context).Get(1);
-            resources.Insert(new Resource()
-            {
-                Name = "test phone",
-                ResourceCategory = cat,
-                Status = ReservationStatus.Available
->>>>>>> 3458eded02a15721a6bf1a1537efa5732455ae4f
             });
             int id = resources.Get().Max(x => x.Id);
             resources.Delete(id);
@@ -92,42 +49,6 @@ namespace UnitTest
 
             Assert.AreEqual(M, N);
         }
-<<<<<<< HEAD
-        [TestMethod]
-        public void ResourceCategoryTest()
-        {
-            Repository<ResourceCategory> resourceCat = new Repository<ResourceCategory>(new SchoolContext());
-            int N = resourceCat.Get().Count();
-
-            resourceCat.Insert(new ResourceCategory()
-            {
-                CategoryName = "Cars"
-            });
-            int id = resourceCat.Get().Max(x => x.Id);
-            resourceCat.Delete(id);
-            int M = resourceCat.Get().Count();
-
-            Assert.AreEqual(M,N);
-        }
-        [TestMethod]
-        public void ResourceUpdate()
-        {
-            Repository<Resource> resource = new Repository<Resource>(new SchoolContext());
-            Resource res = new Resource()
-            {
-                Name = "Haris Proba",
-                Status = ReservationStatus.Available
-            };
-            resource.Insert(res);
-            int maxId = resource.Get().Max(x => x.Id);
-            var oldRes = resource.Get(maxId);
-            string oldStatus = oldRes.Status.ToString();
-            oldRes.Status = ReservationStatus.Reserved;
-            resource.Update(oldRes, oldRes.Id);
-
-            Assert.AreNotEqual(oldStatus, oldRes.Status);
-            resource.Delete(res.Id);
-=======
 
         [TestMethod]
         public void TestUpdateResource()
@@ -234,7 +155,6 @@ namespace UnitTest
             Assert.AreNotEqual(oldStart, oldEvent.EventStart);
             events.Delete(oldEvent.Id);
 
->>>>>>> 3458eded02a15721a6bf1a1537efa5732455ae4f
         }
     }
 }
