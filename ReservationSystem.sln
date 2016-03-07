@@ -9,11 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSeed", "DataSeed\DataSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationSystem", "ReservationSystem\ReservationSystem.csproj", "{8AFECF9E-3B9E-4EED-A77D-B8644FF76089}"
 EndProject
-<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{65A6E1B6-68B2-433A-9C0D-612BD7C198D7}"
-=======
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{93E34BB9-BBEF-43E5-B744-EAD0D1A66F5C}"
->>>>>>> 3458eded02a15721a6bf1a1537efa5732455ae4f
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,17 +29,10 @@ Global
 		{8AFECF9E-3B9E-4EED-A77D-B8644FF76089}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AFECF9E-3B9E-4EED-A77D-B8644FF76089}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AFECF9E-3B9E-4EED-A77D-B8644FF76089}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
 		{65A6E1B6-68B2-433A-9C0D-612BD7C198D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{65A6E1B6-68B2-433A-9C0D-612BD7C198D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65A6E1B6-68B2-433A-9C0D-612BD7C198D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65A6E1B6-68B2-433A-9C0D-612BD7C198D7}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
-		{93E34BB9-BBEF-43E5-B744-EAD0D1A66F5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93E34BB9-BBEF-43E5-B744-EAD0D1A66F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93E34BB9-BBEF-43E5-B744-EAD0D1A66F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93E34BB9-BBEF-43E5-B744-EAD0D1A66F5C}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> 3458eded02a15721a6bf1a1537efa5732455ae4f
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
