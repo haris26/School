@@ -165,6 +165,7 @@
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\ProjectSkillsController.cs" />
     <Compile Include="Controllers\SkillCategoriesController.cs" />
+    <Compile Include="Controllers\SkillsController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\ToolsController.cs" />
@@ -304,6 +305,7 @@
     <Content Include="Views\People\EduCreate.cshtml" />
     <Content Include="Views\People\EduEdit.cshtml" />
     <Content Include="Views\People\EduDelete.cshtml" />
+    <Content Include="Views\Skills\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
