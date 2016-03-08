@@ -1,0 +1,9 @@
+@font-face { font-family: Open Sans; src: url(../fonts/OpenSans.ttf);}
+
+body { 
+    font-size: 13px; 
+    font-family: "Open Sans"; 
+    background: url(../img/bg.jpg) #0F1F2D no-repeat center center fixed; 
+}
+
+.top-margin { margin-top: 100px; }

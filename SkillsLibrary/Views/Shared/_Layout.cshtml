@@ -8,39 +8,78 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <header class="navbar header navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Skills Library", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="#"><img src="img/mistral_logo.png" width="75px" height="45px" /></a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Skill Categories", "Index", "SkillCategories")</li>
-                    <li>@Html.ActionLink("Tools", "Index", "Tools")</li>
-                    <li>@Html.ActionLink("Employee Skills", "Index", "EmployeeSkills")</li>
-                    <li>@Html.ActionLink("Project Skills", "Index", "ProjectSkills")</li>
-                    <li>@Html.ActionLink("Education", "Index", "Educations")</li>
-                    <li>@Html.ActionLink("Employee Educations", "Index", "EmployeeEducations")</li>
-                    <li>@Html.ActionLink("Teams", "Index", "Teams")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="peopleDetails.html"><span class="glyphicon glyphicon-user"></span> Username</a></li>
+                    <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" name="search" placeholder="Search ...">
+                </form>
+            </div>
+        </div>
+    </header>
+    <nav class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <div style="margin-bottom: 10px">
+                    <table>
+                        <tr>
+                            <td width="55">
+                                <img src="img/avatar.jpg" class="user_avatar">
+                            </td>
+                            <td valign="top">
+                                <h5 class="user_name_display"><a href="#" class="white-link">admin</a></h5><p class="user_level_display">Admin</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <ul class="newnav nav nav-sidebar">
+                    <li class=""><a href="overview.html"><span class="glyphicon glyphicon-home"></span> Overview</a></li>
+                    <li class=""><a href="people.html"><span class="glyphicon glyphicon-user"></span> People</a></li>
+                    <li class=""><a href="qualifications.html"><span class="glyphicon glyphicon-bookmark"></span> Qualifications</a></li>
+                    <li class=""><a href="skills.html"><span class="glyphicon glyphicon-cog"></span>  Skills</a></li>
+                    <li class=""><a href="teams.html"><span class="glyphicon glyphicon-user"></span> Teams</a></li>
+                    <li class=""><a href="findPeople.html"><span class="glyphicon glyphicon-search"></span> Find People</a></li>
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    </nav>
+
+    <section>
+        <div class="row" style="margin:0">
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <div id="responsive-menu-links" class="row">
+                    <select name="link" onchange="window.location.href=$(this).val();" class="form-control">
+                        <option value="overview.html">Overview</option>
+                        <option value="people.html">People</option>
+                        <option value="qualifications.html">Qualifications</option>
+                        <option value="skills.html">Skills</option>
+                        <option value="teams.html">Teams</option>
+                        <option value="findPeople.html">Find People</option>
+                    </select>
+                    <br />
+                </div>
+                <div>
+                    <div id="content">@RenderBody()</div>
+                </div>
+                <hr>
+                <p class="align-center footer-text">Made By Team Alpha</p>
+            </div>
+        </div>
+    </section>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
