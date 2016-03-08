@@ -202,6 +202,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\nedim.pubxml" />
+    <None Include="Properties\PublishProfiles\dalila.pubxml" />
+    <None Include="Properties\PublishProfiles\dalilaFTP.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
