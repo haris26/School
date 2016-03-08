@@ -6,42 +6,42 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class RepositoryTest
     {
         [TestMethod]
-        public void TestAdd(){
-            //Arrange
+        public void TestAdd()
+        {
+            // Arrange
             Repository<Team> teams = new Repository<Team>(new SchoolContext());
             int N = teams.Get().Count();
 
-            //Act
+            // Act
             teams.Insert(new Team()
             {
-                Name = "Test project",
-                Description = "Unit test",
+                Name = "Test Project",
+                Description = "Unit Test",
                 Type = ProjectType.External
             });
             int id = teams.Get().Max(x => x.Id);
             teams.Delete(id);
             int M = teams.Get().Count();
 
-            //Assert
+            // Assert
             Assert.AreEqual(M, N);
         }
-
         [TestMethod]
-        public void TestAddResource()
+        public void ResourceTest()
         {
             SchoolContext context = new SchoolContext();
             ResourceUnit resources = new ResourceUnit(context);
+            Repository<ResourceCategory> resCat = new Repository<ResourceCategory>(context);
             int N = resources.Get().Count();
 
-            ResourceCategory cat = new Repository<ResourceCategory>(context).Get(1);
             resources.Insert(new Resource()
             {
-                Name = "test phone",
-                ResourceCategory = cat,
-                Status = ReservationStatus.Available
+                Name = "Resource test",
+                Status = ReservationStatus.Available,
+                ResourceCategory = resCat.Get(1)
             });
             int id = resources.Get().Max(x => x.Id);
             resources.Delete(id);
