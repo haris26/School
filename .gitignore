@@ -13,6 +13,9 @@ TimeTracking/
 ProcurementSystem/
 WorkforceRoster/
 
+ReservationSystem/bin
+ReservationSystem/obj
+
 # User-specific files
 *.vs
 *.suo
