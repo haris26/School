@@ -148,7 +148,7 @@ namespace UnitTest
         }
 
 
-         public void RemoveTest()
+        public void RemoveTest()
         { // Arrange
             SchoolContext cont = new SchoolContext();
             Repository<Person> people = new Repository<Person>(cont);
@@ -156,7 +156,7 @@ namespace UnitTest
             Repository<AssetCategory> categories = new Repository<AssetCategory>(cont);
 
             int N = assets.Get().Count();
-           
+
             // Act
             assets.Insert(new Asset()
             {
@@ -165,18 +165,18 @@ namespace UnitTest
                 Name = "Name asset",
                 Price = 157.87,
                 SerialNumber = "025477aasdds",
-                User =people.Get(1),
-                 Vendor = "Dell",
+                User = people.Get(1),
+                Vendor = "Dell",
                 Status = AssetStatus.Active,
-                Model="569IS",
-                AssetCategory=categories.Get(1),
+                Model = "569IS",
+                AssetCategory = categories.Get(1),
 
 
             });
             int id = assets.Get().Max(x => x.Id);
             assets.Delete(id);
             int M = assets.Get().Count();
-
+        }
             // Assert
 
         [TestMethod]
