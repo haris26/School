@@ -41,6 +41,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 new ResourceUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }

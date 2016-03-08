@@ -45,7 +45,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                resourceCat.Insert(parser.Create(model, context));
+                resourceCat.Insert(parser.Create(model));
                 return RedirectToAction("Index");
             }
 
@@ -67,7 +67,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                resourceCat.Update(parser.Create(model, context), model.Id);
+                resourceCat.Update(parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);

@@ -64,7 +64,7 @@ namespace UnitTest
             oldRes.Name = "edit test res";
             oldRes.Status = ReservationStatus.Reserved;
             resources.Update(oldRes, oldRes.Id);
-            
+
             Assert.AreNotEqual(oldName, oldRes.Name);
             Assert.AreNotEqual(oldStatus, oldRes.Status);
             resources.Delete(oldRes.Id);

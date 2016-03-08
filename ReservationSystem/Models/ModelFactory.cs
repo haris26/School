@@ -140,6 +140,3 @@ namespace ReservationSystem.Models
         }
     }
 }
-
-
-

@@ -48,17 +48,7 @@ namespace ReservationSystem.Controllers
 
         public ActionResult Edit(int id)
         {
-            //Engagement engagement = engagements.Get(id);
-            //EngagementModel model = new EngagementModel()
-            //{
-            //    Id = engagement.Id,
-            //    StartDate = engagement.StartDate,
-            //    EndDate = engagement.EndDate,
-            //    Time = engagement.Time,
-            //    Person = engagement.Person.Id,
-            //    Team = engagement.Team.Id,
-            //    Role = engagement.Role.Id
-            //};
+          
             FillBag();
             return View(Factory.Create(new EngagementUnit(Context).Get(id)));
         }
