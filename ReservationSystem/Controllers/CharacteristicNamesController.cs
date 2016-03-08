@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data;
 using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Database;
 using ReservationSystem.Models;
@@ -44,7 +39,7 @@ namespace ReservationSystem.Controllers
             if (ModelState.IsValid)
             {
 
-                new CharacteristicNameUnit(Context).Insert(Parser.Create(model, Context));
+                new CharacteristicNameUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -65,7 +60,7 @@ namespace ReservationSystem.Controllers
             if (ModelState.IsValid)
             {
 
-                new CharacteristicNameUnit(Context).Update(Parser.Create(model, Context), model.Id);
+                new CharacteristicNameUnit(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
             return View(model);

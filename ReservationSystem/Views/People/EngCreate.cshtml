@@ -1,8 +1,8 @@
-﻿@using System.Web.Services.Protocols
+
+﻿@model ReservationSystem.Models.EngagementModel
 @{
-    ViewBag.Title = "EngCreate";
+    ViewBag.Title = "Create Engagement";
 }
+@Html.Partial("_EngagementEdit", Model)
 
-@Html.Partial("_EngagementEdit")
 
-﻿
