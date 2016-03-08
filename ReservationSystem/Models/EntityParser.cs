@@ -31,7 +31,7 @@ namespace ReservationSystem.Models
         }
 
         //Irhad on EntityParser
-        public CharacteristicName Create(CharacteristicNameModel model, SchoolContext context)
+        public CharacteristicName Create(CharacteristicNameModel model)
         {
             return new CharacteristicName()
             {
@@ -70,7 +70,7 @@ namespace ReservationSystem.Models
             };
         }
 
-        public ResourceCategory Create(ResourceCategoryModel model, SchoolContext context)
+        public ResourceCategory Create(ResourceCategoryModel model)
         {
             return new ResourceCategory()
             {

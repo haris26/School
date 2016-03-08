@@ -41,11 +41,8 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-<<<<<<< HEAD
-                resources.Insert(parser.Create(model));
-=======
+
                 new ResourceUnit(Context).Insert(Parser.Create(model));
->>>>>>> 9234915cb657b0a168ec514926ed98677a1475a6
                 return RedirectToAction("Index");
             }
             FillBag();
@@ -68,11 +65,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-<<<<<<< HEAD
-                resources.Update(parser.Create(model), model.Id);
-=======
                 new ResourceUnit(Context).Update(Parser.Create(model), model.Id);
->>>>>>> 9234915cb657b0a168ec514926ed98677a1475a6
                 return RedirectToAction("Index");
             }
             return View(model);

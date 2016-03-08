@@ -1,27 +1,13 @@
 ﻿using System;
-<<<<<<< HEAD
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Database;
-using System.Linq;
-=======
 using System.Linq;
 using Database;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
->>>>>>> 4ce30205bf0afe2a1131409efbdb42cc85ac63e8
 
 namespace UnitTest
 {
     [TestClass]
     public class RepositoryTest
     {
-<<<<<<< HEAD
-        
-        [TestMethod]
-        public void TestAdd()
-        {
-            Repository<Team> teams = new Repository<Team>(new SchoolContext());
-            int N = teams.Get().Count();
-=======
         [TestMethod]
         public void TestAdd()
         {
@@ -30,7 +16,6 @@ namespace UnitTest
             int N = teams.Get().Count();
 
             // Act
->>>>>>> 4ce30205bf0afe2a1131409efbdb42cc85ac63e8
             teams.Insert(new Team()
             {
                 Name = "Test Project",
@@ -40,67 +25,6 @@ namespace UnitTest
             int id = teams.Get().Max(x => x.Id);
             teams.Delete(id);
             int M = teams.Get().Count();
-<<<<<<< HEAD
-            Assert.AreEqual(M, N);
-        }
-    }
-    [TestClass]
-    public class CharacteriticTest
-    {
-        private SchoolContext context = new SchoolContext();
-        [TestMethod]
-        public void TestAddCharacteristics()
-        {
-            Repository<Characteristic> charac = new Repository<Characteristic>(context);
-            int N = charac.Get().Count();
-            charac.Insert(new Characteristic()
-            {
-                Name = "Test Project",
-                Value = "Unit Test",
-                Resource =new ResourceUnit(context).Get(1)
-            });
-            int id = charac.Get().Max(x => x.Id);
-            charac.Delete(id);
-            int M = charac.Get().Count();
-            Assert.AreEqual(M, N);
-        }
-        [TestMethod]
-        public void TestEditCharacteristics()
-        {
-            Repository<Characteristic> charac = new Repository<Characteristic>(context);
-            Characteristic newChr = new Characteristic()
-            {
-                Name = "name",
-                Value = "value",
-                Resource = new ResourceUnit(context).Get(1)
-            };
-            charac.Insert(newChr);
-            string name = newChr.Name;
-            string value =newChr.Value;
-            newChr.Name = "test name ";
-            newChr.Value = "test value ";
-            charac.Update(newChr, newChr.Id);
-            Assert.AreNotEqual(name, newChr.Name);
-            Assert.AreNotEqual(value, newChr.Value);
-            charac.Delete(newChr.Id);
-        }
-        [TestMethod]
-        public void TestDeleteCharacteristics()
-        {
-            Repository<Characteristic> charac = new Repository<Characteristic>(context);
-            int N = charac.Get().Count();
-            Characteristic newChr = new Characteristic()
-            {
-                Name = "name",
-                Value = "value",
-                Resource = new ResourceUnit(context).Get(1)
-            };
-            charac.Insert(newChr);
-            charac.Delete(newChr.Id);
-            int M = charac.Get().Count() ;
-            Assert.AreEqual(N, M);
-       
-=======
 
             // Assert
             Assert.AreEqual(M, N);
@@ -140,7 +64,7 @@ namespace UnitTest
             oldRes.Name = "edit test res";
             oldRes.Status = ReservationStatus.Reserved;
             resources.Update(oldRes, oldRes.Id);
-            
+
             Assert.AreNotEqual(oldName, oldRes.Name);
             Assert.AreNotEqual(oldStatus, oldRes.Status);
             resources.Delete(oldRes.Id);
@@ -231,7 +155,6 @@ namespace UnitTest
             Assert.AreNotEqual(oldStart, oldEvent.EventStart);
             events.Delete(oldEvent.Id);
 
->>>>>>> 4ce30205bf0afe2a1131409efbdb42cc85ac63e8
         }
     }
 }

@@ -263,18 +263,6 @@
     <Content Include="Views\ResourceCategories\Details.cshtml" />
     <Content Include="Views\ResourceCategories\Edit.cshtml" />
     <Content Include="Views\ResourceCategories\Index.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\People\Create.cshtml" />
-    <Content Include="Views\People\Delete.cshtml" />
-    <Content Include="Views\People\Details.cshtml" />
-    <Content Include="Views\People\Edit.cshtml" />
-    <Content Include="Views\People\Index.cshtml" />
-    <Content Include="Views\People\Engagements.cshtml" />
-    <Content Include="Views\People\EngEdit.cshtml" />
-    <Content Include="Views\People\EngCreate.cshtml" />
-    <Content Include="Views\Shared\_EngagementEdit.cshtml" />
-    <Content Include="Views\People\EngDelete.cshtml" />
-=======
     <Content Include="Views\Events\Extensions.cshtml" />
     <Content Include="Views\Events\ExtCreate.cshtml" />
     <Content Include="Views\Events\ExtEdit.cshtml" />
@@ -290,12 +278,8 @@
     <Content Include="Views\Shared\_EngagementEdit.cshtml" />
     <Content Include="Views\Events\ExtDelete.cshtml" />
     <Content Include="Views\Shared\_ExEventEdit.cshtml" />
-<<<<<<< HEAD
->>>>>>> f1661753e1ffac74327f186a475ee21a7dbf41a4
-=======
     <Content Include="Views\Resources\Characterstics.cshtml" />
     <Content Include="Views\Resources\CharEdit.cshtml" />
->>>>>>> 9234915cb657b0a168ec514926ed98677a1475a6
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
