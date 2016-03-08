@@ -85,6 +85,7 @@ namespace ReservationSystem.Controllers
             new ResourceUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
+
         public ActionResult Characterstics(int id)
         {
             ResourceCharactersticModel model = new ResourceCharactersticModel();
@@ -93,10 +94,12 @@ namespace ReservationSystem.Controllers
                 .Select(x => Factory.Create(x)).ToList();
             return View(model);
         }
+
         public ActionResult CharEdit(int id)
         {
             return View(Factory.Create(new Repository<Characteristic>(Context).Get(id)));
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CharEdit(CharacteristicModel model)
@@ -109,6 +112,7 @@ namespace ReservationSystem.Controllers
             }
             return View(model);
         }
+
         void FillBag()
         {
             ViewBag.ResourceCatList = new SelectList(new Repository<ResourceCategory>(Context).Get().ToList(), "Id", "CategoryName");

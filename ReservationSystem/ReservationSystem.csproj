@@ -163,6 +163,7 @@
     <Compile Include="Controllers\EngagementsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\ResourceCategoriesController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
@@ -188,6 +189,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\mistral.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -281,6 +283,9 @@
     <Content Include="Views\Shared\_ExEventEdit.cshtml" />
     <Content Include="Views\Resources\Characterstics.cshtml" />
     <Content Include="Views\Resources\CharEdit.cshtml" />
+    <Content Include="Views\Reservations\Rooms.cshtml" />
+    <Content Include="Views\Reservations\Devices.cshtml" />
+    <Content Include="Views\Reservations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
