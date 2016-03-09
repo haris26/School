@@ -197,6 +197,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\PS.pubxml" />
+    <None Include="Properties\PublishProfiles\PS1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -254,7 +256,6 @@
     <Content Include="Views\People\EngEdit.cshtml" />
     <Content Include="Views\People\EngCreate.cshtml" />
     <Content Include="Views\Shared\_RequestEdit.cshtml" />
-
     <Content Include="Views\People\Engagements.cshtml" />
     <Content Include="Views\People\EngDelete.cshtml" />
     <Content Include="Views\Shared\_EngagementEdit.cshtml" />
@@ -281,13 +282,9 @@
     <Content Include="Views\Shared\_HistoryEdit.cshtml" />
     <Content Include="Views\Histories\Edit.cshtml" />
     <Content Include="Views\Shared\_AssetEdit.cshtml" />
-
-
     <Content Include="Views\People\Engagements.cshtml" />
     <Content Include="Views\People\EngDelete.cshtml" />
     <Content Include="Views\Shared\_EngagementEdit.cshtml" />
-
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -305,10 +302,6 @@
     <ProjectReference Include="..\Database\Database.csproj">
       <Project>{73d7e73e-3c79-4509-a8e9-20ed017471b3}</Project>
       <Name>Database</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataSeed\DataSeed.csproj">
-      <Project>{b7647363-7466-461d-99b4-32e502503513}</Project>
-      <Name>DataSeed</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
