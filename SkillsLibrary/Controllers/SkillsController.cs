@@ -68,14 +68,9 @@ namespace SkillsLibrary.Controllers
         }
 
         // GET: Skills/EditCategory/5
-        public ActionResult EditCategory(int id)
+        public ActionResult EditCategory(int id)   //category id
         {
-            Tool tool = db.Tools.Find(id);
-            if (tool == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tool);
+            return View(Factory.Create(new Repository<SkillCategory>(Context).Get(id)));
         }
 
         // POST: Skills/EditCategory/5
@@ -83,15 +78,14 @@ namespace SkillsLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditCategory(Tool tool)
+        public ActionResult EditCategory(SkillCategoryModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tool).State = EntityState.Modified;
-                db.SaveChanges();
+                new Repository<SkillCategory>(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
-            return View(tool);
+            return View(model);
         }
 
         // GET: Skills/EditSkill/5
