@@ -20,33 +20,19 @@ namespace SkillsLibrary.Controllers
             return View(db.Tools.ToList());
         }
 
-        // GET: Skills/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Tool tool = db.Tools.Find(id);
-            if (tool == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tool);
-        }
 
-        // GET: Skills/Create
-        public ActionResult Create()
+        // GET: Skills/AddCategory
+        public ActionResult AddCategory()
         {
             return View();
         }
 
-        // POST: Skills/Create
+        // POST: Skills/AddCategory
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] Tool tool)
+        public ActionResult AddCategory(Tool tool)
         {
             if (ModelState.IsValid)
             {
@@ -58,13 +44,32 @@ namespace SkillsLibrary.Controllers
             return View(tool);
         }
 
-        // GET: Skills/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Skills/AddSkill
+        public ActionResult AddSkill()
         {
-            if (id == null)
+            return View();
+        }
+
+        // POST: Skills/AddSkill
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddSkill(Tool tool)
+        {
+            if (ModelState.IsValid)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                db.Tools.Add(tool);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
+
+            return View(tool);
+        }
+
+        // GET: Skills/EditCategory/5
+        public ActionResult EditCategory(int id)
+        {
             Tool tool = db.Tools.Find(id);
             if (tool == null)
             {
@@ -73,12 +78,12 @@ namespace SkillsLibrary.Controllers
             return View(tool);
         }
 
-        // POST: Skills/Edit/5
+        // POST: Skills/EditCategory/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] Tool tool)
+        public ActionResult EditCategory(Tool tool)
         {
             if (ModelState.IsValid)
             {
@@ -89,13 +94,9 @@ namespace SkillsLibrary.Controllers
             return View(tool);
         }
 
-        // GET: Skills/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Skills/EditSkill/5
+        public ActionResult EditSkill(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Tool tool = db.Tools.Find(id);
             if (tool == null)
             {
@@ -104,10 +105,37 @@ namespace SkillsLibrary.Controllers
             return View(tool);
         }
 
-        // POST: Skills/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Skills/EditSkill/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult EditSkill(Tool tool)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(tool).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(tool);
+        }
+
+        // GET: Skills/DeleteCategory/5
+        public ActionResult DeleteCategory(int id)
+        {
+            Tool tool = db.Tools.Find(id);
+            if (tool == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tool);
+        }
+
+        // POST: Skills/DeleteCategory/5
+        [HttpPost, ActionName("DeleteCategory")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteCategoryConfirmed(int id)
         {
             Tool tool = db.Tools.Find(id);
             db.Tools.Remove(tool);
@@ -115,13 +143,26 @@ namespace SkillsLibrary.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        // GET: Skills/DeleteCategory/5
+        public ActionResult DeleteSkill(int id)
         {
-            if (disposing)
+            Tool tool = db.Tools.Find(id);
+            if (tool == null)
             {
-                db.Dispose();
+                return HttpNotFound();
             }
-            base.Dispose(disposing);
+            return View(tool);
+        }
+
+        // POST: Skills/DeleteCategory/5
+        [HttpPost, ActionName("DeleteSkill")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteSkillConfirmed(int id)
+        {
+            Tool tool = db.Tools.Find(id);
+            db.Tools.Remove(tool);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
