@@ -1,7 +1,15 @@
-﻿
+﻿@model ReservationSystem.Models.ReservationModel
 @{
     ViewBag.Title = "Devices";
 }
 
 <h2>Devices</h2>
 
+<div>
+    <div class="form-group">
+        <div class="control-label col-md-2">Resources</div>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Resources, ViewBag.ResourceList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+        </div>
+    </div>
+</div>

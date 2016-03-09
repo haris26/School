@@ -180,8 +180,10 @@
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\PersonEngagement.cs" />
     <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="Models\ReservationModel.cs" />
     <Compile Include="Models\ResourceCategoryModel.cs" />
     <Compile Include="Models\ResourceCharactersticModel.cs" />
+    <Compile Include="Models\ResourceDetailModel.cs" />
     <Compile Include="Models\ResourceModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
