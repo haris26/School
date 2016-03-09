@@ -103,7 +103,7 @@ namespace SkillsLibrary.Controllers
             if (ModelState.IsValid)
             {
                 new ToolUnit(Context).Update(Parser.Create(model), model.Id);
-                return RedirectToAction("Index");
+                return RedirectToAction("EditCategory/"+model.Category);
             }
             return View(model);
         }
@@ -134,8 +134,10 @@ namespace SkillsLibrary.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteSkillConfirmed(int id)
         {
-            new ToolUnit(Context).Delete(id);
-            return RedirectToAction("Index");
+            ToolUnit tools = new ToolUnit(Context);
+            int category = tools.Get(id).Category.Id;
+            tools.Delete(id);
+            return RedirectToAction("EditCategory/"+category);
         }
 
         void FillBag()
