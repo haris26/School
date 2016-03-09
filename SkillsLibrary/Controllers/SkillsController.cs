@@ -12,14 +12,14 @@ namespace SkillsLibrary.Controllers
 {
     public class SkillsController : BaseController
     {
+
         private SchoolContext db = new SchoolContext();
 
         // GET: Skills
         public ActionResult Index()
         {
-            return View(db.Tools.ToList());
+            return View(new Repository<SkillCategory>(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
-
 
         // GET: Skills/AddCategory
         public ActionResult AddCategory()
@@ -144,7 +144,7 @@ namespace SkillsLibrary.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Skills/DeleteCategory/5
+        // GET: Skills/DeleteSkill/5
         public ActionResult DeleteSkill(int id)
         {
             Tool tool = db.Tools.Find(id);
@@ -155,7 +155,7 @@ namespace SkillsLibrary.Controllers
             return View(tool);
         }
 
-        // POST: Skills/DeleteCategory/5
+        // POST: Skills/DeleteSkill/5
         [HttpPost, ActionName("DeleteSkill")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteSkillConfirmed(int id)

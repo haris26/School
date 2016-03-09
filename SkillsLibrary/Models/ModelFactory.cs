@@ -116,5 +116,21 @@ namespace SkillsLibrary.Models
                 Status = person.Status
             };
         }
+
+        public SkillCategoryModel Create (SkillCategory category)
+        {
+            SkillCategoryModel model = new SkillCategoryModel()
+            {
+                Id = category.Id,
+                Name = category.Name,
+            };
+
+            foreach (var tool in category.Tools)
+            {
+                model.Tools.Add(Create(tool));
+            }
+
+            return model;
+        }
     }
 }

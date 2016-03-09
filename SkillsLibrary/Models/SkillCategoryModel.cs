@@ -9,11 +9,11 @@ namespace SkillsLibrary.Models
     {
         public SkillCategoryModel()
         {
-            Tools = new List<string>();
+            Tools = new List<ToolModel>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public IList<string> Tools { get; set; }
+        public IList<ToolModel> Tools { get; set; }
     }
 }

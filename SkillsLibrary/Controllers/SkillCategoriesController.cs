@@ -32,7 +32,7 @@ namespace SkillsLibrary.Controllers
 
                 foreach (var tool in category.Tools)
                 {
-                    categoryModel.Tools.Add(tool.Name);
+                    //categoryModel.Tools.Add(tool.Name);
                 }
 
                 categoriesList.Add(categoryModel);
