@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Database.Tool>
+﻿@model IEnumerable<SkillsLibrary.Models.SkillCategoryModel>
 
 @{
     ViewBag.Title = "Skills";
@@ -15,86 +15,31 @@
 
     <br>
 
-    <!-- Programming Skills-->
+@foreach (var item in Model)
+{
     <div class="row">
         <div class="col-md-12">
             <div class="panel-group panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" href="#programmingSkills">
-                            <span class="glyphicon glyphicon-chevron-down"></span>  Programming Skills
+                        <a data-toggle="collapse" href="#@item.Id">
+                            <span class="glyphicon glyphicon-chevron-down"></span>  @item.Name
                         </a>
                         <a style="float:right" href="EditCategory">
                             <span class="glyphicon glyphicon-edit"></span>
                         </a>
                     </h4>
                 </div>
-                <div id="programmingSkills" class="panel-collapse collapse">
+                <div id="@item.Id" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <div>C#</div>
-                        <div>JavaScript</div>
-                        <div>AngularJS</div>
-                        <div>Node.js</div>
-                        <div>Ember.js</div>
-                        <div>Java</div>
-                        <div>Objective-C</div>
+                        @foreach (var tool in item.Tools)
+                        {
+                            <div>@tool.Name</div>
+                        }
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Colaboration Tools-->
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel-group panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" href="#collaboration">
-                            <span class="glyphicon glyphicon-chevron-down"></span>  Collaboration Tools
-                        </a>
-                        <a style="float:right" href="#">
-                            <span class="glyphicon glyphicon-edit"></span>
-                        </a>
-                    </h4>
-                </div>
-                <div id="collaboration" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <div>TFS</div>
-                        <div>Git</div>
-                        <div>Subversion</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Project Management Tools -->
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#pmtools">
-                                <span class="glyphicon glyphicon-chevron-down"></span>  Project Management Tools
-                            </a>
-                            <a style="float:right" href="#">
-                                <span class="glyphicon glyphicon-edit"></span>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="pmtools" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div>Asana</div>
-                            <div>Assembla</div>
-                            <div>Trello</div>
-                            <div>JIRA</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+}
 </div>

@@ -88,5 +88,14 @@ namespace SkillsLibrary.Models
                 Status = model.Status
             };
         }
+
+        public SkillCategory Create (SkillCategoryModel model)
+        {
+            return new SkillCategory()
+            {
+                Id = model.Id,
+                Name = model.Name
+            };
+        }
     }
 }

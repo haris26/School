@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Database;
+using SkillsLibrary.Models;
 
 namespace SkillsLibrary.Controllers
 {
@@ -32,16 +33,15 @@ namespace SkillsLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddCategory(Tool tool)
+        public ActionResult AddCategory(SkillCategoryModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Tools.Add(tool);
-                db.SaveChanges();
+                new Repository<SkillCategory>(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
 
-            return View(tool);
+            return View(model);
         }
 
         // GET: Skills/AddSkill
@@ -56,16 +56,15 @@ namespace SkillsLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddSkill(Tool tool)
+        public ActionResult AddSkill(ToolModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Tools.Add(tool);
-                db.SaveChanges();
+                new ToolUnit(Context).Insert(Parser.Create(model));
                 return RedirectToAction("Index");
             }
 
-            return View(tool);
+            return View(model);
         }
 
         // GET: Skills/EditCategory/5
