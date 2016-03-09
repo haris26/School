@@ -61,6 +61,7 @@ namespace SkillsLibrary.Controllers
                 return RedirectToAction("Index");
             }
 
+            FillBag();
             return View(model);
         }
 
