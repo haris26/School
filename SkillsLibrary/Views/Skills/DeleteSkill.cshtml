@@ -1,0 +1,43 @@
+﻿@model SkillsLibrary.Models.ToolModel
+
+@{
+    ViewBag.Title = "Delete Skill";
+}
+
+<div class="db-header clearfix">
+    <div class="page-header-title"><span class="glyphicon glyphicon-cog"></span> Delete Skill</div>
+</div>
+<br>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <br>
+    <dl class="dl-horizontal">
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Category
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
+

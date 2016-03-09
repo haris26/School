@@ -59,7 +59,7 @@ namespace SkillsLibrary.Controllers
 
             foreach (var tool in skillCategory.Tools)
             {
-                categoryModel.Tools.Add(tool.Name);
+                //categoryModel.Tools.Add(tool.Name);
             }
 
             return View(categoryModel);

@@ -309,6 +309,9 @@
     <Content Include="Views\Skills\AddCategory.cshtml" />
     <Content Include="Views\Skills\AddSkill.cshtml" />
     <Content Include="Views\Skills\EditCategory.cshtml" />
+    <Content Include="Views\Skills\EditSkill.cshtml" />
+    <Content Include="Views\Skills\DeleteCategory.cshtml" />
+    <Content Include="Views\Skills\DeleteSkill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
