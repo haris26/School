@@ -1,4 +1,6 @@
 ﻿// RESERVATION SYSTEM
+
+using System.Collections.Generic;
 using Database.Beta;
 
 namespace Database
@@ -12,5 +14,6 @@ namespace Database
         [StatusControl]
         public ReservationStatus Status { get; set; }                       // Reservation status of resource
         public virtual ResourceCategory  ResourceCategory { get; set;}      // Navigation to the resource category
+        public virtual ICollection<Characteristic> Characteristics { get; set; } 
     }
 }

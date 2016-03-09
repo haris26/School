@@ -183,7 +183,6 @@
     <Compile Include="Models\ReservationModel.cs" />
     <Compile Include="Models\ResourceCategoryModel.cs" />
     <Compile Include="Models\ResourceCharactersticModel.cs" />
-    <Compile Include="Models\ResourceDetailModel.cs" />
     <Compile Include="Models\ResourceModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
