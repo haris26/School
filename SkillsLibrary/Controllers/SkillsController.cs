@@ -10,7 +10,7 @@ using Database;
 
 namespace SkillsLibrary.Controllers
 {
-    public class SkillsController : Controller
+    public class SkillsController : BaseController
     {
         private SchoolContext db = new SchoolContext();
 
@@ -47,6 +47,7 @@ namespace SkillsLibrary.Controllers
         // GET: Skills/AddSkill
         public ActionResult AddSkill()
         {
+            FillBag();
             return View();
         }
 
@@ -163,6 +164,11 @@ namespace SkillsLibrary.Controllers
             db.Tools.Remove(tool);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        void FillBag()
+        {
+            ViewBag.CategoriesList = new SelectList(new Repository<SkillCategory>(Context).Get().ToList(), "Id", "Name");
         }
     }
 }

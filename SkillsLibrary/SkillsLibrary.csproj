@@ -306,6 +306,9 @@
     <Content Include="Views\People\EduEdit.cshtml" />
     <Content Include="Views\People\EduDelete.cshtml" />
     <Content Include="Views\Skills\Index.cshtml" />
+    <Content Include="Views\Skills\AddCategory.cshtml" />
+    <Content Include="Views\Skills\AddSkill.cshtml" />
+    <Content Include="Views\Skills\EditCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
