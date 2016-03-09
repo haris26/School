@@ -13,9 +13,6 @@ namespace SkillsLibrary.Controllers
 {
     public class SkillsController : BaseController
     {
-
-        private SchoolContext db = new SchoolContext();
-
         // GET: Skills
         public ActionResult Index()
         {
@@ -89,14 +86,10 @@ namespace SkillsLibrary.Controllers
         }
 
         // GET: Skills/EditSkill/5
-        public ActionResult EditSkill(int id)
+        public ActionResult EditSkill(int id)    //skill id
         {
-            Tool tool = db.Tools.Find(id);
-            if (tool == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tool);
+            FillBag();
+            return View(Factory.Create(new Repository<Tool>(Context).Get(id)));
         }
 
         // POST: Skills/EditSkill/5
@@ -104,26 +97,20 @@ namespace SkillsLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditSkill(Tool tool)
+        public ActionResult EditSkill(ToolModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tool).State = EntityState.Modified;
-                db.SaveChanges();
+                new ToolUnit(Context).Update(Parser.Create(model), model.Id);
                 return RedirectToAction("Index");
             }
-            return View(tool);
+            return View(model);
         }
 
         // GET: Skills/DeleteCategory/5
         public ActionResult DeleteCategory(int id)
         {
-            Tool tool = db.Tools.Find(id);
-            if (tool == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tool);
+            return View(Factory.Create(new Repository<SkillCategory>(Context).Get(id)));
         }
 
         // POST: Skills/DeleteCategory/5
@@ -131,21 +118,14 @@ namespace SkillsLibrary.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteCategoryConfirmed(int id)
         {
-            Tool tool = db.Tools.Find(id);
-            db.Tools.Remove(tool);
-            db.SaveChanges();
+            new Repository<SkillCategory>(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
         // GET: Skills/DeleteSkill/5
         public ActionResult DeleteSkill(int id)
         {
-            Tool tool = db.Tools.Find(id);
-            if (tool == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tool);
+            return View(Factory.Create(new ToolUnit(Context).Get(id)));
         }
 
         // POST: Skills/DeleteSkill/5
@@ -153,9 +133,7 @@ namespace SkillsLibrary.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteSkillConfirmed(int id)
         {
-            Tool tool = db.Tools.Find(id);
-            db.Tools.Remove(tool);
-            db.SaveChanges();
+            new ToolUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
