@@ -6,6 +6,10 @@
 
 <div class="db-header clearfix">
     <div class="page-header-title"><span class="glyphicon glyphicon-cog"></span> Edit Category</div>
+    <div class="db-header-extra">
+        <a href="/Skills/DeleteCategory" class="btn btn-primary btn-sm" data-toggle="modal">Delete Category</a>
+    </div>
+</div>
 </div>
 
 @using (Html.BeginForm())
@@ -25,14 +29,32 @@
             </div>
         </div>
 
-        @foreach (var tool in Model.Tools)
-        {
-            <div>@tool.Name</div>
-        }
+
+            <div class="col-md-8">
+                <div class="panel-group panel panel-default">
+                    <div class="panel-body">
+                        @foreach (var tool in Model.Tools)
+                        {
+                            <div class="col-md-6">
+                                @Html.DisplayFor(modelItem => tool.Name)
+                            </div>
+                            <div style="float:right">
+                                <a style="color:black" href="/Skills/EditSkill/@tool.Id">
+                                    <span class="glyphicon glyphicon-edit"></span></a>
+                                <a style="color:black" href="/Skills/DeleteSkill/@tool.Id">
+                                    <span class="glyphicon glyphicon-trash"></span></a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <br>
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>
