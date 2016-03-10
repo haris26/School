@@ -32,12 +32,18 @@ namespace SkillsLibrary.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddCategory(SkillCategoryModel model)
         {
-            bool nameExists = new Repository<SkillCategory>(Context).Get().ToList().Select(x => x.Name).ToList().Contains(model.Name);
-
             if (ModelState.IsValid)
             {
-                new Repository<SkillCategory>(Context).Insert(Parser.Create(model));
-                return RedirectToAction("Index");
+                if (new Repository<SkillCategory>(Context).Get().ToList().Select(x => x.Name).ToList().Contains(model.Name))
+                {
+                    ViewBag.SameNameError = "A category with the entered name already exists.";
+                    return View(model);
+                }
+                else
+                {
+                    new Repository<SkillCategory>(Context).Insert(Parser.Create(model));
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(model);
@@ -66,8 +72,17 @@ namespace SkillsLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
-                new ToolUnit(Context).Insert(Parser.Create(model));
-                return RedirectToAction("Index");
+                if (new Repository<Tool>(Context).Get().ToList().Select(x => x.Name).ToList().Contains(model.Name))
+                {
+                    ViewBag.SameNameError = "A skill with the entered name already exists.";
+                    FillBag();
+                    return View(model);
+                }
+                else
+                {
+                    new ToolUnit(Context).Insert(Parser.Create(model));
+                    return RedirectToAction("Index");
+                }
             }
 
             FillBag();
