@@ -9,7 +9,7 @@
     @foreach (var item in Model)
     {
         <div class="col-xs-6 col-sm-6 col-md-3">
-            <div class="thumbnail">
+            <div class="thumbnail" style="margin-top:10px">
                 <img src="@Url.Content("~/Content/confRoom.png")" />
                 <div class="caption">
                     <h4> @item.Name </h4>
@@ -17,39 +17,56 @@
                     {
                         <span>
                             @if (characteristic.Name == "NumberOfChairs")
-                            {
-                                <img src="@Url.Content("~/Content/chairBlue.png")" /> @characteristic.Value
+                            {   <span style="padding:3px">
+                                <img src="@Url.Content("~/Content/chairBlue.png")" />  @characteristic.Value
+                                </span>
                             }
                             else if (characteristic.Name == "Projector" && characteristic.Value == "Yes")
-                            {
+                            {    <span style="padding:3px">
                                 <img src="@Url.Content("~/Content/projectorBlue.png")" />
+                                </span>
                             }
                             else if (characteristic.Name == "Projector" && characteristic.Value == "No")
-                            {
+                            {    <span style="padding:3px">
                                 <img src="@Url.Content("~/Content/projectorGray.png")" />
+                                </span>
                             }
+
                             else if (characteristic.Name == "TV" && characteristic.Value == "Yes")
+
                             {
-                                <img src="@Url.Content("~/Content/tvBlue.png")" />
+                                <span style="padding:3px">
+                                    <img src="@Url.Content("~/Content/tvBlue.png")" />
+                                </span>
                             }
                             else if (characteristic.Name == "TV" && characteristic.Value == "No")
                             {
-                                <img src="@Url.Content("~/Content/tvGray.png")" />
+                                <span style="padding:3px">
+                                    <img src="@Url.Content("~/Content/tvGray.png")" />
+                                </span>
                             }
                             else if (characteristic.Name == "WhiteBoard" && characteristic.Value == "Yes")
                             {
-                                <img src="@Url.Content("~/Content/whiteboardBlue.png")" />
+                                <span style="padding:3px">
+                                    <img src="@Url.Content("~/Content/whiteboardBlue.png")" />
+                                </span>
                             }
                             else if (characteristic.Name == "WhiteBoard" && characteristic.Value == "No")
                             {
-                                <img src="@Url.Content("~/Content/whiteboardGray.png")" />
+                                <span style="padding:3px">
+                                    <img src="@Url.Content("~/Content/whiteboardGray.png")" />
+                                </span>
                             }
                         </span>
                     }
-                    
+                    <br>
+                    <br>
+                    <p >
+                        @Html.ActionLink("Reserve", "CreateRoomRes", new { id = item.Id }, new { @class="btn btn-success" })
+                    </p>
                 </div>
             </div>
-        </div>    
+        </div>
     }
-    
+
 </div>
