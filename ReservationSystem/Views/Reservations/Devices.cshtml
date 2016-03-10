@@ -4,7 +4,7 @@
 }
 
 <h2>Avilable Devices</h2>
-<<div class="row">
+<div class="row">
     @foreach (var item in Model)
     {
         <div class="col-xs-6 col-sm-6 col-md-3">
@@ -30,12 +30,12 @@
                                 <img src="@Url.Content("~/Content/iosBlue.png")" />
                                 </span>
                             }
-                            else if (characteristic.Name == "OsType" && characteristic.Value == "Android")
+                            else if (characteristic.Name == "OsType" && characteristic.Value == "Android ")
                             {    
-                                @*<span style="padding:3px">
+                                <span style="padding:3px">
                                 <img src="@Url.Content("~/Content/androidBlue.png")" />
-                                </span>*@
-                                @characteristic.Value
+                                </span>
+                                
                             }
                             else if (characteristic.Name == "OsType" && characteristic.Value == "Windows")
                             {    <span style="padding:3px">
@@ -57,7 +57,7 @@
                     <br>
                     <br>
                     <p>
-                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#extendModal">Reserve</button>
+                        @Html.ActionLink("Reserve", "CreateDeviceRes", new { id = item.Id }, new { @class = "btn btn-success" })
                     </p>
                 </div>
 

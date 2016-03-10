@@ -188,18 +188,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\androidBlue.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\chairBlue.png" />
     <Content Include="Content\chairGray.png" />
     <Content Include="Content\confRoom.png" />
+    <Content Include="Content\devices.png" />
+    <Content Include="Content\iosBlue.png" />
     <Content Include="Content\mistral.png" />
+    <Content Include="Content\mobileBlue.png" />
     <Content Include="Content\projectorBlue.png" />
     <Content Include="Content\projectorGray.png" />
+    <Content Include="Content\quantity.png" />
+    <Content Include="Content\tabletBLue.png" />
     <Content Include="Content\tvBlue.png" />
     <Content Include="Content\tvGray.png" />
     <Content Include="Content\whiteboardBlue.png" />
     <Content Include="Content\whiteboardGray.png" />
+    <Content Include="Content\windowsBlue.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -298,8 +305,7 @@
     <Content Include="Views\Reservations\Devices.cshtml" />
     <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\Reservations\CreateDeviceRes.cshtml" />
- <Content Include="Views\Reservations\CreateRoomRes.cshtml" />
-
+    <Content Include="Views\Reservations\CreateRoomRes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
