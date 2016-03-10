@@ -14,7 +14,7 @@ namespace ProcurementSystem.Models
             public int User { get; set; }
             public string UserName { get; set; }
             public string Model { get; set; }
-            public Database.AssetType Type { get; set; }
+            public Database.AssetType AssetType { get; set; }
             // public IList<string> Assets { get; set; }
             public string SerialNumber { get; set; }
             public string Vendor { get; set; }
@@ -23,6 +23,7 @@ namespace ProcurementSystem.Models
             public AssetStatus Status { get; set; }
             public int Category { get; set; }
             public string CategoryName { get; set; }
+            
 
         
     }

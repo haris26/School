@@ -69,6 +69,13 @@ namespace ProcurementSystem.Controllers
                 RequestDate = request.RequestDate,
                 Asset = request.Asset.Id,  
                 Person = request.User.Id,
+                Category = request.AssetCategory.Id,
+                Quantity = request.Quantity,
+                Status = request.Status,
+                AssetType = request.AssetType,
+
+
+
               
             };
             FillBag();
@@ -115,6 +122,7 @@ namespace ProcurementSystem.Controllers
         {
             ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
             ViewBag.AssetsList = new SelectList(new Repository<Asset>(Context).Get().ToList(), "Id", "Model");
+            ViewBag.CategoryList = new SelectList(new Repository<AssetCategory>(Context).Get().ToList(), "Id", "CategoryName");
         }
     }
 }

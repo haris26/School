@@ -81,7 +81,12 @@ namespace ProcurementSystem.Models
                 RequestMessage = model.RequestMessage,
                 RequestDate = model.RequestDate,
                 Asset = context.Assets.Find(model.Asset),
-                User = context.People.Find(model.Person)
+                User = context.People.Find(model.Person),
+                AssetCategory = context.AssetCategory.Find(model.Category),
+                Quantity = model.Quantity,
+                Status = model.Status,
+                AssetType = model.AssetType,
+
 
             };
         }

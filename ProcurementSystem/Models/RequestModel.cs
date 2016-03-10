@@ -18,6 +18,10 @@ namespace ProcurementSystem.Models
         public string AssetModel { get; set; }
         public int Person { get; set; }
         public string PersonName { get; set; }
+        public int Category { get; set; }
+        public string CategoryName { get; set; }
+        public int Quantity { get; set; }
+        public AssetType AssetType { get; set; }
 
     }
 }

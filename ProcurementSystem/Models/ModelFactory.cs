@@ -103,7 +103,13 @@ namespace ProcurementSystem.Models
                 Asset = request.Asset.Id,
                 AssetModel = request.Asset.Model,
                 Person = request.User.Id,
-                PersonName = request.User.FirstName + " " + request.User.LastName
+                PersonName = request.User.FirstName + " " + request.User.LastName,
+                Category = request.AssetCategory.Id,
+                CategoryName = request.AssetCategory.CategoryName,
+                Quantity = request.Quantity,
+                Status = request.Status,
+                AssetType = request.AssetType,
+
 
             };
         }

@@ -1,37 +1,21 @@
-﻿@model ProcurementSystem.Models.RequestModel
+﻿@model Database.Request
 
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm())
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <h4>Request</h4>
         <hr />
-
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <div class="control-label col-md-2">User</div>
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Person, ViewBag.PeopleList as IEnumerable<SelectListItem>, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.AssetType, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.AssetType, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.AssetType, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="control-label col-md-2">Category name</div>
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CategoryName, ViewBag.CategoryList as IEnumerable<SelectListItem>, new { @class = "form-control" })
-            </div>
-        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.requestType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -39,7 +23,6 @@
                 @Html.ValidationMessageFor(model => model.requestType, "", new { @class = "text-danger" })
             </div>
         </div>
-
 
         <div class="form-group">
             @Html.LabelFor(model => model.RequestMessage, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -64,21 +47,14 @@
                 @Html.ValidationMessageFor(model => model.RequestDate, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
-            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -92,3 +68,6 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
