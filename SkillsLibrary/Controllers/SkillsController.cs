@@ -32,6 +32,8 @@ namespace SkillsLibrary.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddCategory(SkillCategoryModel model)
         {
+            bool nameExists = new Repository<SkillCategory>(Context).Get().ToList().Select(x => x.Name).ToList().Contains(model.Name);
+
             if (ModelState.IsValid)
             {
                 new Repository<SkillCategory>(Context).Insert(Parser.Create(model));
