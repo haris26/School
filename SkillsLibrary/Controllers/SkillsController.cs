@@ -90,8 +90,16 @@ namespace SkillsLibrary.Controllers
         }
 
         // GET: Skills/EditCategory/5
-        public ActionResult EditCategory(int id)   //category id
+        public ActionResult EditCategory(int id, int? errorFlag)   //category id
         {
+            if (errorFlag != null)
+            {
+                if (errorFlag.Value == 1)
+                    ViewBag.CannotDeleteError = "The selected category cannot be deleted.";
+                else
+                    ViewBag.CannotDeleteError = "The selected skill cannot be deleted.";
+            }
+
             return View(Factory.Create(new Repository<SkillCategory>(Context).Get(id)));
         }
 
@@ -135,7 +143,15 @@ namespace SkillsLibrary.Controllers
         // GET: Skills/DeleteCategory/5
         public ActionResult DeleteCategory(int id)
         {
-            return View(Factory.Create(new Repository<SkillCategory>(Context).Get(id)));
+            SkillCategory selectedCategory = new Repository<SkillCategory>(Context).Get(id);
+            if (selectedCategory.Tools.Count() == 0)
+            {
+                return View(Factory.Create(selectedCategory));
+            }
+            else
+            {
+                return RedirectToAction("EditCategory/" + id + "/1");
+            }
         }
 
         // POST: Skills/DeleteCategory/5
@@ -150,7 +166,15 @@ namespace SkillsLibrary.Controllers
         // GET: Skills/DeleteSkill/5
         public ActionResult DeleteSkill(int id)
         {
-            return View(Factory.Create(new ToolUnit(Context).Get(id)));
+            Tool selectedTool = new Repository<Tool>(Context).Get(id);
+            if (selectedTool.EmployeeSkills.Count() == 0)
+            {
+                return View(Factory.Create(selectedTool));
+            }
+            else
+            {
+                return RedirectToAction("EditCategory/" + selectedTool.Category.Id + "/2");
+            }
         }
 
         // POST: Skills/DeleteSkill/5
