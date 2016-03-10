@@ -8,15 +8,14 @@ namespace ReservationSystem.Models
 {
     public class ReservationModel
     {
+        public ReservationModel()
+        {
+            Characteristics = new List<Characteristic>();
+            Events = new List<Event>();
+        }
         public int Id { get; set; }
-        public string EventTitle { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public int Person { get; set; }
-        public string PersonName { get; set; }
-        public int Resource { get; set; }
-        public string ResourceName { get; set; }
-        public int Category { get; set; }
-        public string CategoryName { get; set; }
+        public string Name { get; set; }
+        public IList<Characteristic> Characteristics { get; set; }
+        public IList<Event> Events { get; set; }
     }
 }

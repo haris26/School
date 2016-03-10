@@ -22,9 +22,30 @@ namespace ReservationSystem.Controllers
         }
 
         public ActionResult Rooms()
-        {         
-            FillRooms();
-            return View();
+        {
+            IList<ReservationModel> models = new List<ReservationModel>();
+            var resources = new ResourceUnit(Context).Get().ToList().Where(x => (x.ResourceCategory.CategoryName == "Room" && x.Status == ReservationStatus.Available));
+            var events = new EventUnit(Context).Get().ToList().Where(x => x.Resource.ResourceCategory.CategoryName == "Room");
+            foreach (var res in resources)
+            {
+                ReservationModel model = new ReservationModel()
+                {
+                    Id = res.Id,
+                    Name = res.Name
+                };
+
+                foreach (var ch in res.Characteristics)
+                {
+                    model.Characteristics.Add(new Characteristic() { Name = ch.Name, Value = ch.Value });
+                }
+                foreach (var ev in events)
+                {
+                    model.Events.Add(new Event() { EventTitle = ev.EventTitle, EventStart = ev.EventStart, EventEnd = ev.EventEnd });
+                }
+                models.Add(model);
+
+            }
+            return View(models); 
         }
 
         public void FillRooms()
