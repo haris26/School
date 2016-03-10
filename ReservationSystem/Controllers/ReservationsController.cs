@@ -56,7 +56,7 @@ namespace ReservationSystem.Controllers
 
         public ActionResult Devices()
         {
-            //ReservationModel model = new ReservationModel();
+            ReservationModel model = new ReservationModel();
             //model.Events = new EventUnit(Context).Get().ToList().Where(x => x.Resource.ResourceCategory.CategoryName == "Device").Select(x => Factory.Create(x)).ToList();
 
             //model.Resources = new ResourceUnit(Context).Get().Where(x => x.ResourceCategory.CategoryName == "Device").ToList()
@@ -67,6 +67,17 @@ namespace ReservationSystem.Controllers
             ViewBag.DeviceTypeList = new SelectList(new Repository<Characteristic>(Context).Get().ToList().Where(x => x.Name == "OsType"),"Id", "Value").DistinctBy(x => x.Text);
             return View(model);
 
+        }
+        public ActionResult CreateDeviceRes()
+        {
+            EventModel model = new EventModel();
+            FillDevices();
+            return View(model);
+        }
+        public void FillDevices()
+        {
+            ViewBag.AvailableDev = new SelectList(new ResourceUnit(Context).Get().ToList().Where(x => x.Status == ReservationStatus.Available && x.ResourceCategory.CategoryName == "Device"), "Id", "Name");
+            ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
         }
     }
 }
