@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Database;
 using ReservationSystem.Models;
+using Microsoft.Ajax.Utilities;
 
 namespace ReservationSystem.Controllers
 {
@@ -39,7 +40,7 @@ namespace ReservationSystem.Controllers
             model.ResourceCharacteristics = new Repository<Characteristic>(Context).Get().ToList().Where(x => x.Resource.ResourceCategory.CategoryName == "Device").ToList();
 
             //ViewBag.ResourceList = new SelectList(new ResourceUnit(Context).Get().ToList().Where(x => x.ResourceCategory.CategoryName == "Device" ), "Id", "Name");
-
+            ViewBag.DeviceTypeList = new SelectList(new Repository<Characteristic>(Context).Get().ToList().Where(x => x.Name == "OsType"),"Id", "Value").DistinctBy(x => x.Text);
             return View(model);
         }
     }

@@ -5,11 +5,26 @@
 
 <h2>Devices</h2>
 
-<div>
+@*<div>
     <div class="form-group">
         <div class="control-label col-md-2">Resources</div>
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.Resources, ViewBag.ResourceList as IEnumerable<SelectListItem>, new { @class = "form-control" })
         </div>
+    </div>
+</div>*@
+<div id="container">
+    <div class="deviceTitle">Devices Reservations</div>
+    <div class="typeContainer">
+        <div class="type"><p>Type:</p></div>
+        <div class="form-group">
+            @Html.DropDownListFor(model => model.Resources, ViewBag.DeviceTypeList as IEnumerable<SelectListItem>, new { @class = "form-control"})
+        </div>
+        <div class="type" style="margin-left:20px"><p>Model:</p></div>
+        <div class="form-group">
+            
+        </div>
+        <div class="btn-primary1"><button type="button" class="btn btn-primary" onclick="location.href='devicesMainShow.html'">Show Calendar</button></div>
+
     </div>
 </div>

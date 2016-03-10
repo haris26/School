@@ -48,3 +48,27 @@ header{
 .dropdown:hover .dropdown-menu {
 	display: block;
 }
+
+.deviceTitle{
+    font-family:Arial;
+    color:#3475CD;
+    font-size:25px;
+    width:300px;
+    margin:0 auto;
+    margin-top:70px;
+    text-align:center;
+}
+.typeContainer{
+    width:750px;
+    margin: 0 auto;
+    margin-top:10px;
+    margin-bottom:30px;
+}
+.type{
+    font-family:Arial;
+    font-size:18px;
+    /*padding-left:400px;*/
+    margin:0 auto;
+    margin-top:25px;
+    display:inline-block;
+}
