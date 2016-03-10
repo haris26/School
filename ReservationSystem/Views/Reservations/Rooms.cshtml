@@ -62,7 +62,7 @@
                     <br>
                     <br>
                     <p >
-                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#extendModal">Reserve</button>
+                        @Html.ActionLink("Reserve", "CreateRoomRes", new { id = item.Id }, new { @class="btn btn-success" })
                     </p>
                 </div>
             </div>
