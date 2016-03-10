@@ -56,18 +56,29 @@ namespace ReservationSystem.Controllers
 
         public ActionResult Devices()
         {
-            //ReservationModel model = new ReservationModel();
-            //model.Events = new EventUnit(Context).Get().ToList().Where(x => x.Resource.ResourceCategory.CategoryName == "Device").Select(x => Factory.Create(x)).ToList();
+            IList<ReservationModel> models = new List<ReservationModel>();
+            var resources = new ResourceUnit(Context).Get().ToList().Where(x => (x.ResourceCategory.CategoryName == "Device" && x.Status == ReservationStatus.Available));
+            var events = new EventUnit(Context).Get().ToList().Where(x => x.Resource.ResourceCategory.CategoryName == "Device");
+            foreach (var res in resources)
+            {
+                ReservationModel model = new ReservationModel()
+                {
+                    Id = res.Id,
+                    Name = res.Name
+                };
 
-            //model.Resources = new ResourceUnit(Context).Get().Where(x => x.ResourceCategory.CategoryName == "Device").ToList()
-            //    .Select(x => Factory.Create(x)).ToList();
-            //model.ResourceCharacteristics = new Repository<Characteristic>(Context).Get().ToList().Where(x => x.Resource.ResourceCategory.CategoryName == "Device").ToList();
+                foreach (var ch in res.Characteristics)
+                {
+                    model.Characteristics.Add(new Characteristic() { Name = ch.Name, Value = ch.Value });
+                }
+                foreach (var ev in events)
+                {
+                    model.Events.Add(new Event() { EventTitle = ev.EventTitle, EventStart = ev.EventStart, EventEnd = ev.EventEnd });
+                }
+                models.Add(model);
 
-            ViewBag.ResourceList = new SelectList(new ResourceUnit(Context).Get().ToList().Where(x => x.ResourceCategory.CategoryName == "Device" ), "Id", "Name");
-
-            //return View(model);
-
-            return View();
+            }
+            return View(models);
         }
     }
 }
