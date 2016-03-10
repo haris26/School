@@ -1,15 +1,69 @@
-﻿@model ReservationSystem.Models.ReservationModel
+﻿@model IList<ReservationSystem.Models.ReservationModel>
 @{
     ViewBag.Title = "Devices";
 }
 
-<h2>Devices</h2>
+<h2>Avilable Devices</h2>
 
-<div>
-    <div class="form-group">
-        <div class="control-label col-md-2">Resources</div>
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Resource, ViewBag.ResourceList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+<<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-xs-6 col-sm-6 col-md-3">
+            <div class="thumbnail" style="margin-top:10px">
+                <img src="@Url.Content("~/Content/devices.png")" />
+                <div class="caption">
+                    <h4> @item.Name </h4>
+                    @foreach (var characteristic in item.Characteristics)
+                    {
+                        <span>
+                            @if (characteristic.Name == "DeviceType" && characteristic.Value=="MobilePhone")
+                            {   <span style="padding:3px">
+                                <img src="@Url.Content("~/Content/mobileBlue.png")" />
+                            </span>
+                            }
+                            else if (characteristic.Name == "DeviceType" && characteristic.Value == "Tablet")
+                            {    <span style="padding:3px">
+                                <img src="@Url.Content("~/Content/tabletBlue.png")" />
+                            </span>
+                            }
+                            else if (characteristic.Name == "OsType" && characteristic.Value == "iOS")
+                            {    <span style="padding:3px">
+                                <img src="@Url.Content("~/Content/iosBlue.png")" />
+                                </span>
+                            }
+                            else if (characteristic.Name == "OsType" && characteristic.Value == "Android")
+                            {    
+                                @*<span style="padding:3px">
+                                <img src="@Url.Content("~/Content/androidBlue.png")" />
+                                </span>*@
+                                @characteristic.Value
+                            }
+                            else if (characteristic.Name == "OsType" && characteristic.Value == "Windows")
+                            {    <span style="padding:3px">
+                                <img src="@Url.Content("~/Content/windowsBlue.png")" />
+                            </span>
+                            }
+                            else if (characteristic.Name == "OsVersion" )
+                            {    <span style="padding:3px">
+                              @characteristic.Value
+                            </span>
+                            }
+                            else if (characteristic.Name == "Quantity")
+                            {    <span style="padding:3px">
+                                <img src="@Url.Content("~/Content/quantity.png")" /> @characteristic.Value
+                            </span>
+                            }
+                        </span>
+                    }
+                    <br>
+                    <br>
+                    <p>
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#extendModal">Reserve</button>
+                    </p>
+                </div>
+
+            </div>
         </div>
-    </div>
+    }
+
 </div>
