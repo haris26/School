@@ -76,6 +76,7 @@ namespace ReservationSystem.Controllers
         {
             ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
             ViewBag.ResourceList = new SelectList(new Repository<Resource>(Context).Get().ToList().Where(x => (x.ResourceCategory.CategoryName == "Room" && x.Status == ReservationStatus.Available)), "Id", "Name");
+
         }
 
         public ActionResult Devices()
