@@ -41,10 +41,17 @@ namespace SkillsLibrary.Controllers
             return View(model);
         }
 
-        // GET: Skills/AddSkill
-        public ActionResult AddSkill()
+        // GET: Skills/AddSkill/3
+        public ActionResult AddSkill(int? id)
         {
-            FillBag();
+            if(id != null)
+            {
+                FillBag(id.Value);
+            }
+            else
+            {
+                FillBag();
+            }
             return View();
         }
 
@@ -143,6 +150,11 @@ namespace SkillsLibrary.Controllers
         void FillBag()
         {
             ViewBag.CategoriesList = new SelectList(new Repository<SkillCategory>(Context).Get().ToList(), "Id", "Name");
+        }
+
+        void FillBag(int selected)
+        {
+            ViewBag.CategoriesList = new SelectList(new Repository<SkillCategory>(Context).Get().ToList(), "Id", "Name", selected);
         }
     }
 }
