@@ -7,7 +7,8 @@
 <div class="db-header clearfix">
     <div class="page-header-title"><span class="glyphicon glyphicon-cog"></span> Edit Category</div>
     <div class="db-header-extra">
-        <a href="/Skills/DeleteCategory/@Model.Id" class="btn btn-primary btn-sm" data-toggle="modal">Delete Category</a>
+        <a href="/Skills/AddSkill" class="btn btn-primary btn-sm" data-toggle="modal">Add New Skill</a>
+        <a href="/Skills/DeleteCategory/@Model.Id" class="btn btn-danger btn-sm" data-toggle="modal">Delete Category</a>
     </div>
 </div>
 
@@ -35,14 +36,12 @@
                     <div class="panel-body">
                         @foreach (var tool in Model.Tools)
                         {
-                            <div class="col-md-6">
+                            <div>
                                 @Html.DisplayFor(modelItem => tool.Name)
-                            </div>
-                            <div style="float:right">
-                                <a style="color:black" href="/Skills/EditSkill/@tool.Id">
-                                    <span class="glyphicon glyphicon-edit"></span></a>
-                                <a style="color:black" href="/Skills/DeleteSkill/@tool.Id">
-                                    <span class="glyphicon glyphicon-trash"></span></a>
+                                <span style="float:right">
+                                    <a style="color:black" href="/Skills/EditSkill/@tool.Id"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a style="color:black" href="/Skills/DeleteSkill/@tool.Id"><span class="glyphicon glyphicon-trash"></span></a>
+                                </span>
                             </div>
                         }
                     </div>
