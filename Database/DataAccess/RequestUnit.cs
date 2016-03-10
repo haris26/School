@@ -20,7 +20,7 @@ namespace Database
             context.Requests.Add(entity);
             context.Entry(entity.User).State = EntityState.Unchanged;
             context.Entry(entity.Asset).State = EntityState.Unchanged;
-
+            context.Entry(entity.AssetCategory).State = EntityState.Unchanged;
             context.SaveChanges();
         }
         public override void Update(Request entity, int id)
@@ -31,6 +31,7 @@ namespace Database
                 context.Entry(oldEnt).CurrentValues.SetValues(entity);
                 oldEnt.User = entity.User;
                 oldEnt.Asset = entity.Asset;
+                oldEnt.AssetCategory = entity.AssetCategory;
                 context.SaveChanges();
             }
         }

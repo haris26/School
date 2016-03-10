@@ -14,6 +14,9 @@ namespace Database
         public DateTime RequestDate { get; set; }                   // Date of the request
         public RequestStatus Status { get; set; }                   // Status
         public List<Request> requests = new List<Request>();
+        public int Quantity { get; set; }
+        public virtual AssetCategory AssetCategory { get; set; }
+        public AssetType AssetType { get; set; }
         public virtual Asset Asset { get; set; }
         public virtual Person User { get; set; }
     }

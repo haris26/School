@@ -24,7 +24,7 @@ namespace Database
             if (oldEnt != null)
             {
                 context.Entry(oldEnt).CurrentValues.SetValues(entity);
-                
+ 
                 oldEnt.AssetCategory = entity.AssetCategory;
                 context.SaveChanges();
             }

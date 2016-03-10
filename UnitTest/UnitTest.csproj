@@ -67,6 +67,10 @@
       <Project>{73d7e73e-3c79-4509-a8e9-20ed017471b3}</Project>
       <Name>Database</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataSeed\DataSeed.csproj">
+      <Project>{b7647363-7466-461d-99b4-32e502503513}</Project>
+      <Name>DataSeed</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProcurementSystem\ProcurementSystem.csproj">
       <Project>{1d04fd50-08dc-4edd-8fac-ae0a21383113}</Project>
       <Name>ProcurementSystem</Name>

@@ -11,7 +11,7 @@ namespace DataSeed
 {
     static class Charlie
     {
-        static string sourceData = Utility.sourceRoot + "GigiSchool.xls";
+        static string sourceData = Utility.sourceRoot + "charlie.xls";
         static SchoolContext context = new SchoolContext();
 
         public static void Seed()
@@ -37,8 +37,10 @@ namespace DataSeed
             {
                 AssetCategory category = new AssetCategory()
                 {
-                    CategoryName = Utility.getString(row, 0)
+                    CategoryName = Utility.getString(row, 0),
+                    assetType = (AssetType)Enum.Parse(typeof(AssetType), row.ItemArray.GetValue(1).ToString()),
                 };
+               
                 N++;
                 context.AssetCategory.Add(category);
             }
@@ -141,11 +143,12 @@ namespace DataSeed
             int N = 0;
             foreach (DataRow row in rawData.Rows)
             {
+                string catName = Utility.getString(row, 5);
+                AssetCategory category = context.AssetCategory.Where(x => x.CategoryName == catName).FirstOrDefault();
 
-
-                string asName = Utility.getString(row, 5);
+                string asName = Utility.getString(row, 8);
                 Asset asset = context.Assets.FirstOrDefault(x => x.Model == asName);
-                string perName = Utility.getString(row, 6);
+                string perName = Utility.getString(row, 9);
 
                 Person user = context.People.FirstOrDefault(x =>x.FirstName == perName);
 
@@ -153,11 +156,14 @@ namespace DataSeed
                 {
                     User = user,
                     Asset = asset,
+                    AssetCategory=category,
+                    AssetType= (AssetType)Utility.getInteger(row, 4),
                     requestType = (RequestType)Utility.getInteger(row, 0),
                     RequestMessage = Utility.getString(row, 1),
                     RequestDescription = Utility.getString(row,2),
-                    RequestDate = Utility.getDate(row, 3),
-                    Status = (RequestStatus)Utility.getInteger(row, 4)
+                    RequestDate = Utility.getDate(row, 6),
+                    Status = (RequestStatus)Utility.getInteger(row, 7),
+                    Quantity=Utility.getInteger(row, 3)
                 };
                 N++;
                 context.Requests.Add(request);
