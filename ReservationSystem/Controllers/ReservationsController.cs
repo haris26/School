@@ -92,10 +92,26 @@ namespace ReservationSystem.Controllers
             return View(model);
 
         }
-        public ActionResult CreateDeviceRes()
+        public ActionResult CreateDeviceRes(int id)
         {
-            EventModel model = new EventModel();
+            Resource device = new ResourceUnit(Context).Get(id);
             FillDevices();
+            return View(new EventModel()
+            {
+                Resource = device.Id,
+                ResourceName = device.Name
+            });
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateDeviceRes (EventModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Event e = Parser.Create(model);
+                new EventUnit(Context).Insert(e);
+                return RedirectToAction("Devices");
+            }
             return View(model);
         }
         public void FillDevices()
