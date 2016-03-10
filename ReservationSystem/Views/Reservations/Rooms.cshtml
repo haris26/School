@@ -1,7 +1,55 @@
-﻿@model ReservationSystem.Models.ReservationModel
+﻿@model IList<ReservationSystem.Models.ReservationModel>
 @{
     ViewBag.Title = "Rooms";
 }
 
-<h2>Rooms</h2>
+<h2>Available Rooms</h2>
 
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-xs-6 col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="@Url.Content("~/Content/confRoom.png")" />
+                <div class="caption">
+                    <h4> @item.Name </h4>
+                    @foreach (var characteristic in item.Characteristics)
+                    {
+                        <span>
+                            @if (characteristic.Name == "NumberOfChairs")
+                            {
+                                <img src="@Url.Content("~/Content/chairBlue.png")" /> @characteristic.Value
+                            }
+                            else if (characteristic.Name == "Projector" && characteristic.Value == "Yes")
+                            {
+                                <img src="@Url.Content("~/Content/projectorBlue.png")" />
+                            }
+                            else if (characteristic.Name == "Projector" && characteristic.Value == "No")
+                            {
+                                <img src="@Url.Content("~/Content/projectorGray.png")" />
+                            }
+                            else if (characteristic.Name == "TV" && characteristic.Value == "Yes")
+                            {
+                                <img src="@Url.Content("~/Content/tvBlue.png")" />
+                            }
+                            else if (characteristic.Name == "TV" && characteristic.Value == "No")
+                            {
+                                <img src="@Url.Content("~/Content/tvGray.png")" />
+                            }
+                            else if (characteristic.Name == "WhiteBoard" && characteristic.Value == "Yes")
+                            {
+                                <img src="@Url.Content("~/Content/whiteboardBlue.png")" />
+                            }
+                            else if (characteristic.Name == "WhiteBoard" && characteristic.Value == "No")
+                            {
+                                <img src="@Url.Content("~/Content/whiteboardGray.png")" />
+                            }
+                        </span>
+                    }
+                    
+                </div>
+            </div>
+        </div>    
+    }
+    
+</div>
