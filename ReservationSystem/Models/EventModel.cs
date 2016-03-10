@@ -17,5 +17,6 @@ namespace ReservationSystem.Models
         public string ResourceName { get; set; }
         public int Category { get; set; } 
         public string CategoryName { get; set; }
+        public string Time { get; set; }
     }
 }
