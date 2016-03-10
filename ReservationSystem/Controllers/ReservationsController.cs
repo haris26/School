@@ -48,6 +48,30 @@ namespace ReservationSystem.Controllers
             return View(models); 
         }
 
+        public ActionResult CreateRoomRes(int id)   // id = resource (room) id
+        {
+            Resource room = new ResourceUnit(Context).Get(id);
+            FillRooms();
+            return View(new EventModel()
+            {
+                Resource = room.Id,
+                ResourceName = room.Name
+            });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateRoomRes(EventModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Event e = Parser.Create(model);
+                new EventUnit(Context).Insert(e);
+                return RedirectToAction("Rooms");
+            }
+            return View(model);
+        }
+
         public void FillRooms()
         {
             ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
