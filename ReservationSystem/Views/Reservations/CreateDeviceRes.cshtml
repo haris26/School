@@ -50,6 +50,12 @@
             </div>
         </div>
         <div class="form-group">
+            <div class="control-label col-md-2">Start time</div>
+            <div class="col-md-6">
+                @Html.DropDownListFor(model => model.Time, ViewBag.TimeList as IEnumerable<SelectListItem>, new { @class = "form-control"})
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-success" />
             </div>
