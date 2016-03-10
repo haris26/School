@@ -1,4 +1,5 @@
-﻿@model ReservationSystem.Models.EventModel
+﻿@using System.Data.Entity.Infrastructure
+@model ReservationSystem.Models.EventModel
 @{
     ViewBag.Title = "CreateRoomRes";
 }
@@ -30,7 +31,7 @@
         <div class="form-group">
             <div class="control-label col-md-2">Device</div>
             <div class="col-md-6">
-                @Html.DropDownListFor(model => model.Resource, ViewBag.ResourceList as IEnumerable<SelectListItem>, new {@class = "form-control", @disabled = "disabled" })
+                @Html.DropDownListFor(model => model.Resource, ViewBag.ResourceList as IEnumerable<SelectListItem>, new {@class = "form-control", @readonly = "true"})
             </div>
         </div>
 

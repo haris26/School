@@ -82,6 +82,9 @@ namespace ReservationSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            Event evnt = new EventUnit(Context).Get(id);
+            Resource res = new ResourceUnit(Context).Get(evnt.Resource.Id);
+            res.Status = ReservationStatus.Available;
             new EventUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
