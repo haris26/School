@@ -200,7 +200,7 @@
     <Content Include="Content\mobileBlue.png" />
     <Content Include="Content\projectorBlue.png" />
     <Content Include="Content\projectorGray.png" />
-    <Content Include="Content\quantity.png" />
+    <Content Include="Content\quantityBlue.png" />
     <Content Include="Content\tabletBLue.png" />
     <Content Include="Content\tvBlue.png" />
     <Content Include="Content\tvGray.png" />
@@ -305,6 +305,7 @@
     <Content Include="Views\Reservations\Devices.cshtml" />
     <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\Reservations\CreateRoomRes.cshtml" />
+    <Content Include="Views\Reservations\CreateDeviceRes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

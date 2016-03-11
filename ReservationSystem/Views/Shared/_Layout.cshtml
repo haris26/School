@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Reservation System</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -36,7 +36,7 @@
                     <li class="dropdown">
                         @Html.ActionLink("Reservations", "Index", "Reservations")
                         <ul class="dropdown-menu">
-                            <li><a href="">Active</a></li>
+                            <li>@Html.ActionLink("Events", "Index", "Events")</li>
                         </ul>
                     </li>
 
