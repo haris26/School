@@ -3,63 +3,68 @@
 @{
     ViewBag.Title = "Delete Day";
 }
+<div class="form1 container-fluid col-xs-offset-2 col-xs-8">
+    <h2>Delete</h2>
 
-<h2>Delete</h2>
+    <h3 class="username">Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Days</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PersonName)
+            </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Days</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PersonName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PersonName)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.WorkTime)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.WorkTime)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.WorkTime)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.WorkTime)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PtoTime)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PtoTime)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PtoTime)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PtoTime)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EntryStatus)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EntryStatus)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EntryStatus)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EntryStatus)
-        </dd>
+        </dl>
 
-    </dl>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                
+                    @Html.ActionLink("Back to List", "Days/" + Model.Person, "TimeTracking")
+                    @*@Html.ActionLink("Back to List", "", new { id = Model.Person })*@
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
-</div>
+                
+            </div>
+        }
+    </div>
+    </div>

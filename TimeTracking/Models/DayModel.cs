@@ -8,12 +8,12 @@ namespace TimeTracking.Models
 {
     public class DayModel
     {
-        //public DayModel()
-        //{
-        //    Detail = new List<string>();
-        //}
+        public DayModel()
+        {
+            EntryStatus = EntryStatus.Unlocked;
+        }
 
-        
+
         public int Id { get; set; }
         public int Person { get; set; }
         public string PersonName { get; set; }

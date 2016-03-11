@@ -165,6 +165,7 @@
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\TimeTrackingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,8 +183,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bg1.jpg" />
+    <Content Include="Content\bg.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\mistrallogo.jpg" />
+    <Content Include="Content\Yoda.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -195,10 +200,14 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\CODE Bold.otf" />
+    <None Include="Properties\PublishProfiles\FTPPublish.pubxml" />
+    <None Include="Properties\PublishProfiles\GigiSchool.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-2.2.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.2.1.js" />
+    <Content Include="Scripts\jquery-2.2.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -210,12 +219,24 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Content\logo1.png" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\images\logo_400x400.png" />
+    <Content Include="Views\scripts\ai.0.15.0-build58334.js" />
+    <Content Include="Views\scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Views\scripts\bootstrap.js" />
+    <Content Include="Views\scripts\bootstrap.min.js" />
+    <Content Include="Views\Details\Mockview.cshtml" />
+    <None Include="Views\scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Views\scripts\jquery-1.9.1.js" />
+    <Content Include="Views\scripts\jquery-1.9.1.min.js" />
+    <Content Include="Views\scripts\npm.js" />
+    <Content Include="Views\styles\bootstrap.css" />
+    <Content Include="Views\styles\bootstrap.min.css" />
+    <Content Include="Views\styles\Login1.css" />
+    <Content Include="Views\styles\StyleLogin.css" />
+    <Content Include="Views\styles\StyleSheet1.css" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Test\Get.cshtml" />
-    <Content Include="Test\People.cshtml" />
-    <Content Include="Test\Person.cshtml" />
-    <Content Include="Test\Person2.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
@@ -266,6 +287,17 @@
     <Content Include="Views\People\DayDelete.cshtml" />
     <Content Include="Views\People\DetDelete.cshtml" />
     <Content Include="Views\People\DetEdit.cshtml" />
+    <Content Include="Views\Days\Mockview.cshtml" />
+    <Content Include="Views\scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\styles\bootstrap.css.map" />
+    <Content Include="Views\styles\bootstrap.min.css.map" />
+    <Content Include="Views\Shared\_Home.cshtml" />
+    <Content Include="Views\TimeTracking\Create.cshtml" />
+    <Content Include="Views\TimeTracking\Delete.cshtml" />
+    <Content Include="Views\TimeTracking\Details.cshtml" />
+    <Content Include="Views\TimeTracking\Edit.cshtml" />
+    <Content Include="Views\TimeTracking\CreateDetail.cshtml" />
+    <Content Include="Views\TimeTracking\Days.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -276,9 +308,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\TimeTracking\Mockups\TimeTracking2\TimeTracking2\TimeTracking2.csproj">
+      <Project>{1bad5715-5eb6-489f-91d6-57f7253e1cdb}</Project>
+      <Name>TimeTracking2</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Database\Database.csproj">
       <Project>{73d7e73e-3c79-4509-a8e9-20ed017471b3}</Project>
       <Name>Database</Name>

@@ -2,42 +2,49 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="form1 container-fluid col-xs-offset-2 col-xs-10">
+    <h2 class="username">@Model.Day.Date</h2>
 
-<h2>@Model.Day.Date</h2>
-
-<div>
-    <h4>Details </h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-2">WorkTime</div>
-        <div class="col-md-2">BillTime</div>
-        <div class="col-md-2">Description</div>
-        <div class="col-md-2">Team</div>
-        <div class="col-md-2">
-            @Html.ActionLink("Create New", "DetCreate", new { id = Model.Day.Id })
-        </div>
+    <div>
+        <h4>Details </h4>
         <hr />
+        <div class="row">
+            <div class="col-md-2">WorkTime</div>
+            @*<div class="col-md-2">BillTime</div>*@
+            <div class="col-md-4">Description</div>
+            <div class="col-md-2">Team</div>
+            <div class="col-md-2">
+                @Html.ActionLink("Create New", "DetCreate", new { id = Model.Day.Id })
+            </div>
+            <hr />
+        </div>
+    </div>
+
+    @foreach (var item in Model.Detail)
+    {
+        <div class="row">
+
+            <div class="col-md-2">@item.WorkTime</div>
+
+            @*<div class="col-md-2">@item.BillTime</div>*@
+            <div class="col-md-4">@item.Description</div>
+            <div class="col-md-2">@item.TeamName</div>
+            <div class="col-md-2">
+                <a href="/people/detedit/@item.Id">Edit</a> |
+                <a href="/people/detdelete/@item.Id">Delete</a>
+            </div>
+
+           
+            <hr />
+            
+        </div>
+       
+    }
+    <div>
+        @Html.ActionLink("Back to List", "Days/" + Model.Day.Person.Id, "TimeTracking")
+        @*@Html.ActionLink("Back to List", "", new { id = Model.Person })*@
+
     </div>
 </div>
 
-@foreach (var item in Model.Detail)
-{
-    <div class="row">
-
-        <div class="col-md-2">@item.WorkTime</div>
-
-        <div class="col-md-2">@item.BillTime</div>
-        <div class="col-md-2">@item.Description</div>
-        <div class="col-md-2">@item.TeamName</div>
-        <div class="col-md-2">
-            <a href="/people/detedit/@item.Id">Edit</a> |
-            <a href="/people/detdelete/@item.Id">Delete</a>
-        </div>
-
-        <hr />
-    </div>
-}
-
-<p>
-    @Html.ActionLink("Back to List", "Days", new {id = Model.Day.Person.Id})
-</p>
+   
