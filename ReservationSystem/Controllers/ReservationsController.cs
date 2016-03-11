@@ -139,6 +139,13 @@ namespace ReservationSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateDeviceRes (EventModel model)
         {
+            string[] timePars = model.Time.Split(':');
+            int hh = Convert.ToInt32(timePars[0]);
+            int mm = Convert.ToInt32(timePars[1]);
+            model.StartDate = model.StartDate.AddHours(hh);
+            model.StartDate = model.StartDate.AddMinutes(mm);
+            model.EndDate = model.EndDate.AddHours(hh);
+            model.EndDate = model.EndDate.AddMinutes(mm + 15);
             if (ModelState.IsValid)
             {
                 Event e = Parser.Create(model);
@@ -151,6 +158,18 @@ namespace ReservationSystem.Controllers
         {
             ViewBag.AvailableDev = new SelectList(new ResourceUnit(Context).Get().ToList().Where(x => x.Status == ReservationStatus.Available && x.ResourceCategory.CategoryName == "Device"), "Id", "Name");
             ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
+            List<string> times = new List<string>(new string[]
+            {
+                "9:00", "9:15", "9:30", "9:45",
+                "10:00", "10:15", "10:30", "10:45",
+                "11:00", "11:15", "11:30", "11:45",
+                "12:00", "12:15", "12:30", "12:45",
+                "13:00", "13:15", "13:30", "13:45",
+                "14:00", "14:15", "14:30", "14:45",
+                "15:00", "15:15", "15:30", "15:45",
+                "16:00", "16:15", "16:30", "16:45",
+            });
+            ViewBag.TimeList = new SelectList(times);
         }
     }
 }
