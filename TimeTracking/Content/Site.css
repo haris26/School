@@ -116,7 +116,7 @@ input[type=number] {-moz-appearance: textfield;}
 
 .form{
     margin-top:-100px;
-    color: #04c4bb;
+    color: rgba(229, 103, 23, 0.6);
 }
 
 .form1{
@@ -125,7 +125,7 @@ input[type=number] {-moz-appearance: textfield;}
 }
 
 .username{
-color: #04c4bb;
+color: rgba(229, 103, 23, 0.6);
 }
 
 .btn-default{
@@ -153,6 +153,10 @@ color: #04c4bb;
 
 .logo{
     margin-top:-200px;
+}
+
+.links{
+    color: rgba(229, 103, 23, 0.8);
 }
 
 

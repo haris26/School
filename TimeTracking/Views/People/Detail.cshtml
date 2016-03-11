@@ -14,7 +14,7 @@
             <div class="col-md-4">Description</div>
             <div class="col-md-2">Team</div>
             <div class="col-md-2">
-                @Html.ActionLink("Create New", "DetCreate", new { id = Model.Day.Id })
+                @Html.ActionLink("Create New", "DetCreate", new { id = Model.Day.Id }, new { @class="links"})
             </div>
             <hr />
         </div>
@@ -30,8 +30,8 @@
             <div class="col-md-4">@item.Description</div>
             <div class="col-md-2">@item.TeamName</div>
             <div class="col-md-2">
-                <a href="/people/detedit/@item.Id">Edit</a> |
-                <a href="/people/detdelete/@item.Id">Delete</a>
+                <a class="links" href="/people/detedit/@item.Id">Edit</a> |
+                <a class="links" href="/people/detdelete/@item.Id">Delete</a>
             </div>
 
            
@@ -40,8 +40,8 @@
         </div>
        
     }
-    <div>
-        @Html.ActionLink("Back to List", "Days/" + Model.Day.Person.Id, "TimeTracking")
+    <div class="links" >
+        @Html.ActionLink("Back to List", "Days/" + Model.Day.Person.Id, "TimeTracking", new { @class = "links" })
         @*@Html.ActionLink("Back to List", "", new { id = Model.Person })*@
 
     </div>
