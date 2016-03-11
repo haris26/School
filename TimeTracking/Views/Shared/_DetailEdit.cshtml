@@ -14,9 +14,9 @@
             @Html.HiddenFor(model => model.Day)
 
 
-            <div class="form-group">
+            <div class="username form-group">
 
-                <div class="control-label col-md-2">Team</div>
+                <div class="control-label col-md-2"><b>Team</b></div>
                 <div class="col-md-10">
                     @Html.DropDownListFor(model => model.Team, ViewBag.TeamsList as
                        IEnumerable<SelectListItem>, new { @class = "form-control" })
@@ -25,8 +25,8 @@
 
 
 
-            <div class="form-group">
-                <div class="control-label col-md-2">Work Time</div>
+            <div class="username form-group">
+                <div class="control-label col-md-2"><b>Work Time</b></div>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.WorkTime,
                 new { htmlAttributes = new { @class = "form-control" } })
@@ -45,8 +45,8 @@
                     </div>
                 </div>*@
 
-            <div class="form-group">
-                <div class="control-label col-md-2">Description</div>
+            <div class="username form-group">
+                <div class="control-label col-md-2"><b>Description</b></div>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Description,
                 new { htmlAttributes = new { @class = "form-control" } })
@@ -61,16 +61,8 @@
                 </div>
             </div>
             @*@Html.ActionLink("Back to List", "Days/" + Model.Person, "TimeTracking")*@
-            @Html.ActionLink("Back to List", "Detail", new { id = Model.Day })
+            @Html.ActionLink("Back to List", "Detail", new { id = Model.Day }, "TimeTracking")
         </div>
     }
     </div>
-<<<<<<< HEAD
-   
-=======
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Detail", new { id = Model.Day })
-</div>
->>>>>>> c159e434db579e4b60f4427c3e9550b5d639d9ca

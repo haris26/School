@@ -17,7 +17,7 @@
 
 
             <div class="form-group">
-                <div class="control-label col-md-2">@Html.LabelFor(model => model.Date)</div>
+                <div class="username control-label col-md-2">@Html.LabelFor(model => model.Date)</div>
 
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Date,
@@ -29,7 +29,7 @@
 
             <div class="form-group">
 
-                <div class="control-label col-md-2">@Html.LabelFor(model => model.WorkTime)</div>
+                <div class="username control-label col-md-2">@Html.LabelFor(model => model.WorkTime)</div>
 
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.WorkTime,
@@ -53,7 +53,7 @@
 
             <div class="form-group">
 
-                <div class="control-label col-md-2">@Html.LabelFor(model => model.PtoTime)</div>
+                <div class="username control-label col-md-2">@Html.LabelFor(model => model.PtoTime)</div>
 
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.PtoTime,
@@ -63,7 +63,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="username form-group">
                 @Html.LabelFor(model => model.EntryStatus, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EnumDropDownListFor(model => model.EntryStatus, htmlAttributes: new { @class = "form-control" })
