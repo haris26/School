@@ -16,9 +16,9 @@ namespace ProcurementSystem.Controllers
         // GET: Requests
         public ActionResult Index()
         {
-           
-           
-            return View(new RequestUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
+            return View(new RequestUnit(Context).Get().ToList().Select(x => Factory.Create(x)).OrderByDescending(x => x.Id).ToList());
+
+            // return View(new RequestUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
         }
 
       //  GET: Requests/Details/5
@@ -54,8 +54,32 @@ namespace ProcurementSystem.Controllers
             FillBag();
             return View(model);
         }
+        public ActionResult Create1()
+        {
+            FillBag();
+            return View();
+        }
 
-   //     GET: Requests/Edit/5
+        //  POST: Requests/Create
+        //  To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //   more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create1(RequestModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                new RequestUnit(Context).Insert(Parser.Create(model));
+
+                return RedirectToAction("Index");
+            }
+            FillBag();
+            return View(model);
+        }
+
+        //     GET: Requests/Edit/5
         public ActionResult Edit(int id)
         {
             
@@ -73,9 +97,6 @@ namespace ProcurementSystem.Controllers
                 Quantity = request.Quantity,
                 Status = request.Status,
                 AssetType = request.AssetType,
-
-
-
               
             };
             FillBag();
@@ -99,6 +120,7 @@ namespace ProcurementSystem.Controllers
         }
 
 
+
     //    GET: Requests/Delete/5
         public ActionResult Delete(int id)
         {
@@ -117,6 +139,16 @@ namespace ProcurementSystem.Controllers
             new RequestUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult SomeAction()
+        {
+            var viewModel = new RequestModel
+            {
+                RequestDate = System.DateTime.Now
+            };
+
+            return View(viewModel);
+        }
 
         void FillBag()
         {
@@ -124,5 +156,6 @@ namespace ProcurementSystem.Controllers
             ViewBag.AssetsList = new SelectList(new Repository<Asset>(Context).Get().ToList(), "Id", "Model");
             ViewBag.CategoryList = new SelectList(new Repository<AssetCategory>(Context).Get().ToList(), "Id", "CategoryName");
         }
+
     }
 }

@@ -7,6 +7,29 @@
     @Styles.Render("~/Content/css")
 
     @Scripts.Render("~/bundles/modernizr")
+    <script>
+        $(document).ready(function () {
+            // hide all second level
+            $('.nav-third-level').hide();
+
+            // show all second level whose anchor has matching href
+            $('a').each(function () {
+                if (document.location.href.indexOf($(this).attr('href')) > 0) {
+                    // add class to matching anchor
+                    $(this).addClass('active-me');
+                    // find its parent 'nav-second-level' and make visible
+                    $(this).closest('.nav-third-level').show();
+                }
+
+            });
+
+            // open submenu on click of main menu
+            $('a[href="#"]').click(function () {
+                $('.nav-third-level').hide();
+                $(this).next('.nav-third-level').show();
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -40,7 +63,7 @@
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Requests <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/requests/index"><span class="glyphicon glyphicon-plus-sign"></span> New request<span class="fa arrow"></span></a>
+                                    <a href="x"><span class="glyphicon glyphicon-plus-sign"></span> New request<span class="fa arrow"></span></a>
                                     
                                     <ul class="nav nav-third-level">
                                         <li>
@@ -77,5 +100,6 @@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
+    
 </body>
 </html>
