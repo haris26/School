@@ -16,7 +16,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    <div class="row">
     <div class="form-horizontal">
         <br>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -27,39 +27,38 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 <div>
+                    <div class="text-danger">
+                        @ViewBag.CannotDeleteError
+                    </div>
                     <br>
                     <input type="submit" value="Save" class="btn btn-primary" />
                 </div>
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
-            
         </div>
 
-
-            <div class="col-md-8">
-                <div class="panel-group panel panel-default">
-                    <div class="panel-body">
-                        @foreach (var tool in Model.Tools)
+        <div class="col-md-8">
+            <div class="panel-group panel panel-default">
+                <div class="panel-body">
+                    @foreach (var tool in Model.Tools)
                         {
-                            <div>
-                                @Html.DisplayFor(modelItem => tool.Name)
-                                <span style="float:right">
-                                    <a style="color:black" href="/Skills/EditSkill/@tool.Id"><span class="glyphicon glyphicon-edit"></span></a>
-                                    <a style="color:black" href="/Skills/DeleteSkill/@tool.Id"><span class="glyphicon glyphicon-trash"></span></a>
-                                </span>
-                            </div>
+                        <div>
+                            @Html.DisplayFor(modelItem => tool.Name)
+                            <span style="float:right">
+                                <a style="color:black" href="/Skills/EditSkill/@tool.Id"><span class="glyphicon glyphicon-edit"></span></a>
+                                <a style="color:black" href="/Skills/DeleteSkill/@tool.Id"><span class="glyphicon glyphicon-trash"></span></a>
+                            </span>
+                        </div>
                         }
-                    </div>
                 </div>
             </div>
+        </div>
     </div>
+        </div>
 }
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")
-</div>
-
-<div>
-    @ViewBag.CannotDeleteError
 </div>
 
