@@ -71,7 +71,6 @@ namespace ReservationSystem.Controllers
             model.EndDate = model.EndDate.AddHours(hh);
             model.EndDate = model.EndDate.AddMinutes(mm + 15);
 
-
             if (ModelState.IsValid)
             {
                 Event e = Parser.Create(model);
