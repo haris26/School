@@ -72,7 +72,7 @@ namespace ReservationSystem.Controllers
                 Event e = Parser.Create(model);
                 e.Resource = r;
                 new EventUnit(Context).Insert(e);
-                return RedirectToAction("Rooms");
+                return RedirectToAction("Active");
             }
             return View(model);
         }
@@ -148,14 +148,30 @@ namespace ReservationSystem.Controllers
                 Event e = Parser.Create(model);
                 e.Resource = r;
                 new EventUnit(Context).Insert(e);
-                return RedirectToAction("Devices");
+                return RedirectToAction("Active");
             }
             return View(model);
         }
+
         public void FillDevices()
         {
             ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
             ViewBag.TimeList = new SelectList(new List<string>(new string[] { "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00" }));
+        }
+
+        public ActionResult Active()
+        {
+            FillActive();
+            return View(new EventUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
+        }
+
+        public void FillActive()
+        {
+            int countR = new EventUnit(Context).Get().ToList().Where(x => x.Resource.ResourceCategory.CategoryName == "Room").Count();
+            ViewBag.CountRooms = countR;
+
+            int countD = new EventUnit(Context).Get().ToList().Where(x => x.Resource.ResourceCategory.CategoryName == "Device").Count();
+            ViewBag.CountDevices = countD;
         }
     }
 }

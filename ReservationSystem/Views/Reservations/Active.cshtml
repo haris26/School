@@ -1,0 +1,45 @@
+﻿@model IList<ReservationSystem.Models.EventModel>
+@{
+    ViewBag.Title = "Active";
+}
+
+<h2>Active reservations</h2>
+
+<div class="row">
+    <div class="col-sm-6">
+        <br>
+       
+        <p>
+            <span class="badge"> @ViewBag.CountRooms </span> Room reservations
+        </p>
+        <br>
+        @foreach (var item in Model)
+        {
+            if (item.CategoryName == "Room")
+            {
+                <div class="notice notice-rooms">
+                    @item.PersonName have reservation for <strong> @item.ResourceName </strong> on <i class="glyphicon glyphicon-calendar"> </i> @item.StartDate.Day.@item.StartDate.Month.@item.StartDate.Year <br>
+                    <i class="glyphicon glyphicon-time"> </i> @item.StartDate.ToString("h:mm tt") -  @item.EndDate.ToString("h:mm tt")
+                </div>
+            }
+        }
+    </div>
+
+    <div class="col-sm-6">
+        <br>
+        <p>
+            <span class="badge"> @ViewBag.CountDevices </span>  Device reservations
+        </p>
+        <br>
+          @foreach (var item in Model)
+          {
+              if (item.CategoryName == "Device")
+              {
+                <div class="notice notice-devices">
+                    @item.PersonName have reservation for <strong> @item.ResourceName </strong> on <i class="glyphicon glyphicon-calendar"> </i> @item.StartDate.Day.@item.StartDate.Month.@item.StartDate.Year <br>
+                    <i class="glyphicon glyphicon-time"> </i> @item.StartDate.ToString("h:mm tt") -  @item.EndDate.ToString("h:mm tt")
+                </div>
+              }
+          }
+     </div>
+</div>
