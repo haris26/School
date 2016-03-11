@@ -200,6 +200,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\avatar.jpg" />
+    <Content Include="img\bg.jpg" />
+    <Content Include="img\mistral_logo.png" />
+    <Content Include="img\skillsBarChart.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -208,6 +212,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="fonts\OpenSans.ttf" />
+    <None Include="Properties\PublishProfiles\alpha.pubxml" />
     <None Include="Properties\PublishProfiles\nedim.pubxml" />
     <None Include="Properties\PublishProfiles\dalila.pubxml" />
     <None Include="Properties\PublishProfiles\dalilaFTP.pubxml" />
@@ -315,7 +320,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
