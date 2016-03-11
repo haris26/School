@@ -76,6 +76,10 @@
     <Compile Include="DataAccess\EmployeeEducationUnit.cs" />
     <Compile Include="Delta\NameControl.cs" />
     <Compile Include="Delta\SymbolControl.cs" />
+    <Compile Include="Migrations\201603111544494_Dzanan.cs" />
+    <Compile Include="Migrations\201603111544494_Dzanan.Designer.cs">
+      <DependentUpon>201603111544494_Dzanan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Omega\Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="DataAccess\EventUnit.cs" />
@@ -103,6 +107,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603111544494_Dzanan.resx">
+      <DependentUpon>201603111544494_Dzanan.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
