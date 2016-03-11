@@ -6,6 +6,7 @@ using System.Linq;
 namespace UnitTest
 {
     [TestClass]
+
     public class DaysTest
     {
         [TestMethod]
@@ -14,10 +15,12 @@ namespace UnitTest
             //Arrange
             SchoolContext context = new SchoolContext();
             DayUnit days = new DayUnit(context);
+
             Repository<Person> people = new Repository<Person>(context);
             int N = days.Get().Count();
 
             //Act
+
             //days.Insert(new Day()
             //{
             //    Date = Convert.ToDateTime("21/10/1985"),
@@ -59,6 +62,7 @@ namespace UnitTest
             //Assert.AreEqual(M, N);
             Assert.AreNotEqual(WorkTime, day.WorkTime);
             Assert.AreNotEqual(PtoTime, day.PtoTime);
+
         }
     }
 }

@@ -282,6 +282,7 @@
     <Content Include="Views\Shared\_DayEdit.cshtml" />
     <Content Include="Views\Days\DetCreate.cshtml" />
     <Content Include="Views\Days\DetEdit.cshtml" />
+
     <Content Include="Views\Details\DetCreate.cshtml" />
     <Content Include="Views\People\DetCreate.cshtml" />
     <Content Include="Views\People\DayDelete.cshtml" />
@@ -298,6 +299,7 @@
     <Content Include="Views\TimeTracking\Edit.cshtml" />
     <Content Include="Views\TimeTracking\CreateDetail.cshtml" />
     <Content Include="Views\TimeTracking\Days.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
