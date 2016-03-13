@@ -21,27 +21,25 @@ namespace ProcurementSystem
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js",
-                        "~/Scripts/metisMenu.min.js",
-                        "~/Scripts/startmin.js",
-                         "~/Scripts/jquery.dataTables.min.js",
-                          "~/Scripts/dataTables.bootstrap.min.js",
-                           "~/Scripts/jquery.min.js",
-                           "~/Scripts/bootstrap.min.js"));
+                     // "~/Scripts/respond.js",
+                     //  "~/Scripts/npm.js",
+                      // "~/Scripts/scripts.js",
+                         "~/Scripts/jquery.min.js",
+                           "~/Scripts/metisMenu.min.js",
+                            "~/Scripts/bootstrap.min.js",
+                              "~/Scripts/startmin.js"
+                                          ));
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css",
+                     
                       "~/Content/bootstrap.min.css",
                       "~/Content/bootstrap-social.css",
                       "~/Content/bootstrap-theme.min.css",
-                      "~/Content/metisMenu.min.css",
-                      "~/Content/startmin.css",
-                      "~/Content/timeline.css",
-                      "~/Content/dataTables.bootstrap.css",
-                      "~/Content/font-awesome.min.css",
-                      "~/Content/dataTables.responsive.css"));
+                    
+                          "~/Content/startmin.css"
+                      ));
         }
     }
 }
