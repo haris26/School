@@ -23,10 +23,20 @@
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
-        <a href="/" class="navbar-brand"><img id="img_logo" alt="Logo" src="@Url.Content("~/Content/logo1.png")" height="50" /></a>
-        <ul class="nav navbar-nav">
-            <li>@Html.ActionLink("Create Detail", "CreateDetail", "TimeTracking")</li>
-            @*<li class="dropdown">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand"><img id="img_logo" alt="Logo" src="@Url.Content("~/Content/logo1.png")" height="50" /></a>
+                </div>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Create Detail", "CreateDetail", "TimeTracking")</li>
+                    @*<li class="dropdown">
                     <a href="#" class="dropdown-toggle dugme" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="AllProjects.html">View All</a></li>
@@ -35,36 +45,48 @@
                         <li><a href="TeamMember.html">Project 3</a></li>
                     </ul>
                 </li>*@
-            <li>@Html.ActionLink("Calendar", "Days", "TimeTracking")</li>
-            @*<li><a class="dugme" href="#">My Projects</a></li>
+                    <li>@Html.ActionLink("Calendar", "Days", "TimeTracking")</li>
+                    @*<li><a class="dugme" href="#">My Projects</a></li>
                 <li><a class="dugme" href="#">Report</a></li>
                 <li><a class="dugme" href="#">Settings</a></li>*@
-        </ul>
+                   
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                </ul>
+            </div>
+            
+               
+            </div>
+                     
     </nav>
 
-    <div class="row">
-        <div id="quote" class="container col-sm-3">
-            <blockquote class="blockquote-reverse">
-                <p>Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning.”</p>
-                <footer>― Rick Cook, The Wizardry Compiled</footer>
-            </blockquote>
-        </div>
+   
 
-        <a href="/TimeTracking/CreateDetail"><img class="logo col-xs-offset-3" src="~/Content/mistrallogo.jpg" width="280" height="280"/></a>
-        </div>
+  
 
-
+    <br />
+    <br />
+    <br /><br />
+<br />
+<br />
+    <br />
+    <br />
+    <br /><br />
+    <br />
+    <br />
 
         <div class="container body-content">
             @RenderBody()
 
-            <footer>
-                <div id="footer">
-                    <p>&copy; @DateTime.Now.Date.Date - Mistral's Time Tracking Application</p>
-                </div>
-            </footer>
+            
         </div>
-
+    <footer>
+        <div class="container-fluid col-xs-offset-4 col-xs-8 col-md-8" id="footer">
+            <p>&copy; @DateTime.Now.Date.Date - Mistral's Time Tracking Application</p>
+        </div>
+    </footer>
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
