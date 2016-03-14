@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
+
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 // WORKFORCE ROSTER
 namespace Database
@@ -42,7 +44,10 @@ namespace Database
         public string FirstName { get; set; }
         [SymbolControl]
         public string LastName { get; set; }
-        [Required]
+
+        [NotMapped]
+        public string FullName { get { return FirstName + " " + LastName; } }
+
         public string Email { get; set; }
         public EmploymentType Category { get; set; }
         public Gender Gender { get; set; }
