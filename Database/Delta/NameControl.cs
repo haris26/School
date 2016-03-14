@@ -5,20 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Database.Omega
+namespace Database.Delta
 {
-    public class NameControl : ValidationAttribute
+    class NameControl : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext context)
         {
-            if (value == null)
+            if(value == null)
             {
-                return new ValidationResult("Pliz pliz enter name");
+                return new ValidationResult("This field is required");
             }
-            if (value.ToString().Contains("@"))
+
+            if(value.ToString().Contains("@"))
             {
-                return new ValidationResult("Pliz pliz don't enter email");
+                return new ValidationResult("This is not an email field.");
             }
+
+           
             return ValidationResult.Success;
         }
     }

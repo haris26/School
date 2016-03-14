@@ -60,6 +60,10 @@
 	display: block;
 }
 
+.dropdown-menu > li > a {
+    color: #fff;
+}
+
 .deviceTitle{
     font-family:Arial;
     color:#3475CD;
