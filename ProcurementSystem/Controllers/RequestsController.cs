@@ -57,14 +57,43 @@ namespace ProcurementSystem.Controllers
             FillBag();
             return View(model);
         }
-        
+
+
+        //  GET: Requests/Create
+        public ActionResult Basic()
+        {
+            FillBag();
+            return View();
+        }
 
         //  POST: Requests/Create
         //  To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         //   more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 
 
-       
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Basic(RequestModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                new RequestUnit(Context).Insert(Parser.Create(model));
+
+                return RedirectToAction("Index");
+            }
+            FillBag();
+            return View(model);
+        }
+
+
+
+        //  POST: Requests/Create
+        //  To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //   more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+
+
 
         //     GET: Requests/Edit/5
         public ActionResult Edit(int id)

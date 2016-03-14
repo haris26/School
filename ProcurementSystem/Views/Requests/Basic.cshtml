@@ -1,0 +1,48 @@
+﻿@using System.Data.Entity.Infrastructure
+@model ProcurementSystem.Models.RequestModel
+
+@{
+    ViewBag.Title = "Basic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section featured{
+    }
+<h2>Basic</h2>
+
+@using (Html.BeginForm())
+{
+    <label for="Type">Type</label>
+    <select id="Types" name="Type"></select>
+<br /><br />
+<input type="submit" value="Submit"/>
+}
+@*<script>
+    var select = document.getElementById(dev);
+    select.onchange = function ()
+    {
+        document.getElementById("sel").href = this.value + ".cshtml";
+
+    }
+
+</script>
+@using (Html.BeginForm())
+{
+    <label for="exampleInputEmail1">Category</label>
+    <div class="dropdown-plans">
+        <select class="form-control" id="dev">
+            <option value="Create">Device</option>
+            <option value="Create1">Equipment</option>
+        </select>
+    </div>
+    <div class="buton-plans">
+        <a id="sel" href="create">Select</a>
+    
+    </div>
+
+    if()
+}*@
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

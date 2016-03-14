@@ -303,6 +303,7 @@
     <Content Include="Views\People\Engagements.cshtml" />
     <Content Include="Views\People\EngDelete.cshtml" />
     <Content Include="Views\Shared\_EngagementEdit.cshtml" />
+    <Content Include="Views\Requests\Basic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
