@@ -211,6 +211,15 @@ namespace TimeTracking.Controllers
             return RedirectToAction("Detail/" + day);
         }
 
+        public ActionResult Mockview(int id)
+        {
+            FillBag();
+
+            Day day = new DayUnit(Context).Get(id);
+            return View(new DetailModel()
+            { Id = 0, Day = day.Id, Date = day.Date });
+        }
+
         void FillBag()
         {
             ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");

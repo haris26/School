@@ -1,0 +1,103 @@
+﻿@model TimeTracking.Models.DetailModel
+
+
+@{
+    ViewBag.Title = "Create";
+}
+@*<div class="row">
+        <h2 class="col-xs-5 col-xs-offset-4">Create</h2>
+    </div>*@
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    @*<div class="form-horizontal">
+        <div class="row">
+            <h4 class="col-xs-5 col-xs-offset-4">Details</h4>
+        </div>*@
+    @Html.HiddenFor(model => model.Day)
+
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form container-fluid col-xs-6 col-xs-offset-4">
+
+
+        <div class="row">
+            <div class="form-group">
+                <div class="control-label col-xs-2"><b>Person</b></div>
+                <div class="col-xs-6">
+                    @Html.DropDownListFor(model => model.PersonName, ViewBag.PeopleList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-4"> @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })</div>
+
+        <div class="col-xs-1"><label class="name">Date</label>@Html.DisplayFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })</div>
+
+        <div class="row"><br /></div>
+
+        <div class="row">
+            <div class="col-xs-4"><label class="name">Task Description</label>@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1"><label class="name">Tue</label>@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1"><label class="name">Wed</label>@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1"><label class="name">Thu</label>@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1"><label class="name">Fri</label>@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-3">Total : 12  <span class="glyphicon glyphicon-remove-sign" style="color:red; float:right"></span></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4">@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-3">Total : 12  <span class="glyphicon glyphicon-remove-sign" style="color:red; float:right"></span></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4">@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-3">Total : 12  <span class="glyphicon glyphicon-remove-sign" style="color:red; float:right"></span></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4">@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-1">@Html.EditorFor(model => model.WorkTime, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div class="col-xs-3">Total : 12  <span class="glyphicon glyphicon-remove-sign" style="color:red; float:right"></span></div>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+
+
+}
+
+
+

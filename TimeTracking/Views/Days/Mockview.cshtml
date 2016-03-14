@@ -1,0 +1,32 @@
+﻿@model TimeTracking.Models.DayModel
+@{
+    ViewBag.Title = "Mockview";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h2>Mockview</h2>
+        <div class="row">
+            <div id="quote" class="container col-sm-3">
+                <blockquote class="blockquote-reverse">
+                    <p>Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning.”</p>
+                    <footer>― Rick Cook, The Wizardry Compiled</footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <div class="control-label col-md-2">@Html.LabelFor(model => model.WorkTime)</div>
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.WorkTime,
+         new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.WorkTime, "",
+         new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+}

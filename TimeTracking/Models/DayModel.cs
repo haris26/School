@@ -10,7 +10,9 @@ namespace TimeTracking.Models
     {
         public DayModel()
         {
-            Detail = new List<DetailModel>();
+
+            EntryStatus = EntryStatus.Unlocked;
+
         }
 
 

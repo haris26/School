@@ -3,39 +3,51 @@
     ViewBag.Title = "Day";
 }
 
-<h2>@Model.Person.FirstName @Model.Person.LastName</h2>
+<div class="form1 container-fluid col-xs-offset-2 col-xs-8">
+    <h2 class="username">@Model.Person.FirstName @Model.Person.LastName</h2>
 
-<div>
-    <h4>Days</h4>
-    <hr />
+    <div>
+        <h4>Days</h4>
+        <hr />
+        <div class="row">
+            <div class="col-xs-4">Date</div>
+            <div class="col-xs-2">Work Time</div>
+
+
+            @*<div class="col-md-2">
+                    @Html.ActionLink("Create New", "DayCreate", new { id = Model.Person.Id })
+                </div>*@
+            <hr />
+        </div>
+    </div>
+
+    @foreach (var item in Model.Days)
+    {
+        <div class="row">
+            <div class="col-xs-4">@item.Date</div>
+            <div class="col-xs-2">@item.WorkTime</div>
+
+
+
+            <div class="col-xs-2">
+                <a class="links" href="/people/dayedit/@item.Id">Edit</a> |
+                <a class="links" href="/people/daydelete/@item.Id">Delete</a>
+            </div>
+            <div class="col-xs-2"><a class="links" href="/people/detail/@item.Id">Details</a></div>
+            @*<div class="col-md-2">@Html.ActionLink("Details", "Detail", new { id = item.Id })</div>*@
+            <hr />
+        </div>
+            
+
+        
+
+    }
     <div class="row">
-        <div class="col-md-2">Date</div>
-        <div class="col-md-2">Work Time</div>
-
-
-       
-       
+        <p>
+            @Html.ActionLink("Back to Entry Form", "CreateDetail", "TimeTracking", new { @class = "links" })
+        </p>
     </div>
 </div>
 
-@foreach (var item in Model.Days)
-{
-    <div class="row">
-        <div class="col-md-2">@item.Date</div>
-        <div class="col-md-2">@item.WorkTime</div>
-        
 
 
-        <div class="col-md-2">
-            <a href="/people/dayedit/@item.Id">Edit</a> |
-            <a href="/people/daydelete/@item.Id">Delete</a>
-        </div>
-        <div class="col-md-2"><a href="/people/detail/@item.Id">Details</a></div>
-        @*<div class="col-md-2">@Html.ActionLink("Details", "Detail", new { id = item.Id })</div>*@
-        <hr />
-    </div>
-}
-
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>

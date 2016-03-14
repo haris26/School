@@ -6,10 +6,12 @@ using System.Linq;
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTest1
+
+    public class RepositoryTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestAdd()
+
         {
             //Arrange
             Repository<Team> teams = new Repository<Team>(new SchoolContext());
@@ -18,16 +20,19 @@ namespace UnitTest
             //Act
             teams.Insert(new Team()
             {
-                Name="test Project",
-                Description="Unit test",
-                Type=ProjectType.External
+
+                Name = "Test Project",
+                Description = "Unit Test",
+                Type = ProjectType.External
             });
-            int id = teams.Get().Max(x=> x.Id);
+            int id = teams.Get().Max(x => x.Id);
+
             teams.Delete(id);
             int M = teams.Get().Count();
 
             //Assert
-            Assert.AreEqual(M,N);
+
+            Assert.AreEqual(M, N);
 
         }
     }

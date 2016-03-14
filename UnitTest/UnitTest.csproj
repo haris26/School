@@ -61,12 +61,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DetailTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTest2.cs" />
-    <Compile Include="UnitTest3.cs" />
-    <Compile Include="Mytest.cs" />
-    <Compile Include="DayUpdateTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Database\Database.csproj">
@@ -74,7 +72,7 @@
       <Name>Database</Name>
     </ProjectReference>
     <ProjectReference Include="..\TimeTracking\TimeTracking.csproj">
-      <Project>{5f7abdcd-dfbf-411f-ae26-fdee5d9aa997}</Project>
+      <Project>{0170f483-ce02-4633-a9c0-a6b329dd7f90}</Project>
       <Name>TimeTracking</Name>
     </ProjectReference>
   </ItemGroup>
