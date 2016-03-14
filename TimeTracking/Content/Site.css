@@ -35,7 +35,8 @@ textarea {
 }
 
 .navbar-nav li:hover {
-    background-color: #04c4bb;
+    background-color: white;
+    color:white;
     
 }
 
@@ -51,7 +52,7 @@ textarea {
 
 
 .navbar-default .navbar-nav > li > a {
-   color: white;
+   color:#F2AE75;
 
 }
 
@@ -105,22 +106,18 @@ input[type=number] {-moz-appearance: textfield;}
 
 #footer{
     position:fixed;
-    bottom:0px;
-    background-color: #273547;
-    width: 2920px;
-    margin-left: -790px;
-    color: white;
-    text-align:center;
-    vertical-align:central;
+    bottom: 0px;
+    color: #F2AE75;   
 }
 
 .form{
-    margin-top:-100px;
+    margin-top:-300px;
     color: rgba(229, 103, 23, 0.6);
 }
 
 .form1{
-   margin-top:-150px;
+   margin-top:-260px;
+   margin-left: 400px;
     
 }
 
@@ -152,13 +149,21 @@ color: rgba(229, 103, 23, 0.6);
 }
 
 .logo{
-    margin-top:-200px;
+    margin-top:-130px;
+    /*margin-left: 600px;*/
 }
 
 .links{
     color: rgba(229, 103, 23, 0.8);
 }
 
+.landing{
+    margin-top:-170px;
+}
+
+.create{
+    margin-top: -100px;
+}
 
 textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus .dropdown-menu:focus {   
     border-color: rgba(229, 103, 23, 0.8);
@@ -168,6 +173,10 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus .dropdow
 .select:active, .select:hover {
   outline-color: rgba(229, 103, 23, 0.8);
 }
+
+/*.quote{
+    margin-top: -180px;
+}*/
 
 
 
