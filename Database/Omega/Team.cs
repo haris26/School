@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
 
-
 // WORKFORCE ROSTER
 namespace Database
 {
