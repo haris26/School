@@ -44,6 +44,8 @@ namespace TimeTracking.Models
         }
 
 
+
+
         public Person Create(PersonModel model)
         {
             return new Person()
@@ -63,7 +65,7 @@ namespace TimeTracking.Models
                 Id = model.Id,
                 Day = context.Days.Find(model.Day),
                 WorkTime = model.WorkTime,
-                BillTime = model.BillTime,
+                //BillTime = model.BillTime,
                 Description = model.Description,
                 Team = context.Teams.Find(model.Team)
 

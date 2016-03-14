@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Database;
 
 using TimeTracking.Models;
+using TimeTracking.Help;
 
 namespace TimeTracking.Controllers
 {
@@ -28,12 +29,35 @@ namespace TimeTracking.Controllers
         }
 
         // GET: Details/Create
-        public ActionResult Create()
+        public ActionResult WeeklyView(PersonDays model)
         {
-
+            
             FillBag();
-
-            return View();
+            DateTime startDayOfWeek = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
+            DateTime endDayOfWeek = startDayOfWeek.AddDays(6);
+            using (SchoolContext context = new SchoolContext())
+            {
+                ModelFactory modelFactory = new ModelFactory(context);
+                for (var day = startDayOfWeek; day <= endDayOfWeek; day = day.AddDays(1))
+                {
+                    DayModel dayModel = new DayModel();
+                    DateTime yesterday = day.AddDays(-1);
+                    DateTime tommorow = day.AddDays(1);
+                    var days = context.Days.Where(x => x.Date > yesterday && x.Date < tommorow).Include(x=>x.Details).ToList();
+                    List<DayModel> daysModel = new List<DayModel>();
+                    foreach(var d in days)
+                    {
+                        dayModel = modelFactory.Create(d);
+                        foreach(var detail in d.Details)
+                        {
+                            dayModel.Detail.Add(modelFactory.Create(detail));
+                        }
+                        daysModel.Add(dayModel);
+                    }
+                    model.Days.AddRange(daysModel);                   
+                }
+            }
+            return View("WeeklyView", model);
         }
 
         // POST: Details/Create
@@ -42,7 +66,7 @@ namespace TimeTracking.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Create(DetailModel model)
+        public ActionResult WeeklyView(DetailModel model)
         {
             if (ModelState.IsValid)
             {

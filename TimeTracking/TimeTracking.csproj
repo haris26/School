@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0170F483-CE02-4633-A9C0-A6B329DD7F90}</ProjectGuid>
+    <ProjectGuid>{5F7ABDCD-DFBF-411F-AE26-FDEE5D9AA997}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -165,9 +165,12 @@
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\TimeTrackingController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\DateTimeExtensions.cs" />
     <Compile Include="Models\DayDetail.cs" />
     <Compile Include="Models\DayModel.cs" />
     <Compile Include="Models\DetailModel.cs" />
@@ -184,6 +187,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\logo1.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -195,9 +199,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\Elma.pubxml" />
+    <None Include="Properties\PublishProfiles\Elma1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -211,7 +215,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Test\Get.cshtml" />
     <Content Include="Test\People.cshtml" />
     <Content Include="Test\Person.cshtml" />
@@ -230,7 +234,7 @@
     <Content Include="Views\Days\Details.cshtml" />
     <Content Include="Views\Days\Edit.cshtml" />
     <Content Include="Views\Days\Index.cshtml" />
-    <Content Include="Views\Details\Create.cshtml" />
+    <Content Include="Views\Details\Create1.cshtml" />
     <Content Include="Views\Details\Delete.cshtml" />
     <Content Include="Views\Details\Details.cshtml" />
     <Content Include="Views\Details\Edit.cshtml" />
@@ -261,13 +265,21 @@
     <Content Include="Views\Shared\_DayEdit.cshtml" />
     <Content Include="Views\Days\DetCreate.cshtml" />
     <Content Include="Views\Days\DetEdit.cshtml" />
-
     <Content Include="Views\Details\DetCreate.cshtml" />
     <Content Include="Views\People\DetCreate.cshtml" />
     <Content Include="Views\People\DayDelete.cshtml" />
     <Content Include="Views\People\DetDelete.cshtml" />
     <Content Include="Views\People\DetEdit.cshtml" />
-
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Details\WeeklyView.cshtml" />
+    <Content Include="Views\TimeTracking\CreateDetail.cshtml" />
+    <Content Include="Views\TimeTracking\Index.cshtml" />
+    <Content Include="Views\TimeTracking\Days.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -278,7 +290,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Database\Database.csproj">

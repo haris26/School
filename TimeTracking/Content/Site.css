@@ -1,9 +1,9 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 100px;
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
+/ Set padding to keep content from hitting the edges /
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -16,9 +16,72 @@
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
+/ Set width on the form input elements since they're 100% wide by default /
 input,
 select,
 textarea {
     max-width: 280px;
 }
+
+
+
+
+.navbar-default {
+    background-color: #273547;
+    
+}
+
+.navbar-nav li:hover {
+    background-color: #e7e7e7;
+    
+}
+.dropdown-menu li:hover{
+    height: 26px;
+} 
+
+
+.navbar-default .navbar-nav > li > a {
+   color: white;
+
+}
+
+.navbar-nav {
+   font-family: 'Oswald', sans-serif;
+   font-size: 16px;
+   text-transform: uppercase;
+   color:white; 
+    
+}
+
+#img_logo{
+    margin-top: -12px;
+}
+
+.table-content .form-control {
+        height: 30px;
+        padding: 2px;
+        padding-left: 5px;
+        overflow:auto;
+    }
+
+input[type=number] { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    margin: 0; 
+}
+
+.btn-info{
+    background-color:#273547;
+    font-family: 'Oswald', sans-serif;
+}
+
+.row{
+    margin-top:3px;
+}
+
+#footer{
+    position:fixed;
+    bottom:0px;
+}
+
