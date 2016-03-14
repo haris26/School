@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 
 // SKILLS LIBRARY
 namespace Database
@@ -13,6 +14,7 @@ namespace Database
         }
 
         public int Id { get; set; }                                 // Identity[1]
+        [Required]
         public string Name { get; set; }                            // Category name
 
         public virtual ICollection<Tool> Tools { get; set; }        // List of tools
