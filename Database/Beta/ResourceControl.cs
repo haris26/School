@@ -5,21 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Database.Omega
+namespace Database.Beta
 {
-    public class NameControl: ValidationAttribute
+    public class ResourceControl: ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext context)
         {
             if (value == null)
             {
-                return new ValidationResult("Pliz pliz enter name");
-            }
-            if (value.ToString().Contains("@"))
-            {
-                return new ValidationResult("Pliz pliz don't enter email");
+                return new ValidationResult("Please fill this field");
             }
             return ValidationResult.Success;
         }
     }
+    
 }
