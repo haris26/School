@@ -19,6 +19,7 @@ namespace Database
             context.Details.Add(entity);
             context.Entry(entity.Day).State = EntityState.Unchanged;
             context.Entry(entity.Team).State = EntityState.Unchanged;
+
             context.SaveChanges();
 
         }

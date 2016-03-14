@@ -12,7 +12,8 @@ namespace Database
        
         public int Id { get; set; }                       //Identity[1]
         public string CategoryName { get; set; }          //Name of the category
-
+        public virtual AssetType assetType { get; set; }
+        public virtual ICollection<Asset> Assets { get; set; }
         public virtual ICollection<AssetCharacteristicNames> AssetCharacteristicNames { get; set; }
     }
 }

@@ -50,6 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Beta\DateTimeFormat.cs" />
+    <Compile Include="Beta\EventTitleControl.cs" />
+    <Compile Include="Beta\ResourceControl.cs" />
+    <Compile Include="Beta\StatusControl.cs" />
     <Compile Include="Charlie\Asset.cs" />
     <Compile Include="Charlie\AssetCategory.cs" />
     <Compile Include="Charlie\AssetChar.cs" />
@@ -76,9 +80,9 @@
     <Compile Include="DataAccess\EmployeeEducationUnit.cs" />
     <Compile Include="Delta\NameControl.cs" />
     <Compile Include="Delta\SymbolControl.cs" />
-    <Compile Include="Migrations\201603111544494_Dzanan.cs" />
-    <Compile Include="Migrations\201603111544494_Dzanan.Designer.cs">
-      <DependentUpon>201603111544494_Dzanan.cs</DependentUpon>
+    <Compile Include="Migrations\201603110922471_sule.cs" />
+    <Compile Include="Migrations\201603110922471_sule.Designer.cs">
+      <DependentUpon>201603110922471_sule.cs</DependentUpon>
     </Compile>
     <Compile Include="Omega\Engagement.cs" />
     <Compile Include="Enumerators.cs" />
@@ -109,8 +113,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603111544494_Dzanan.resx">
-      <DependentUpon>201603111544494_Dzanan.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201603110922471_sule.resx">
+      <DependentUpon>201603110922471_sule.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
