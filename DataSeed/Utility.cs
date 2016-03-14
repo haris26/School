@@ -11,7 +11,7 @@ namespace DataSeed
     static class Utility
     {
 
-        public static string sourceRoot = @"C:\Users\irma_\Desktop\ProjectGit\School\";
+        public static string sourceRoot = @"C:\Projects\delta\";
 
 
         public static DataTable OpenExcel(string path, string sheet)
