@@ -1,27 +1,24 @@
 ﻿/* css style for Beta _layout */
-header{
-	background-color: #3475CD;
-	position: absolute;
-	width: 100%;
-	height: 50px;
-}
+.header { background: #3475CD; padding:0px !important}
+.navbar-nav li:hover a { background: #3475CD !important;}
+.navbar-brand { padding: 5px 1px 1px 10px !important;}
 
 .container-top {
 	padding-top: 60px;
 }
 
-.navbar-default {
+.navbar {
 	border: 0px;   
 	border-style: none;
 	box-shadow: none;                                              
 }
 
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+.navbar .navbar-collapse, .navbar-default .navbar-form {
 	background-color: #3475CD;
 	border-style:none;
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar .navbar-nav>li>a {
     color: #fff;
 }
 
@@ -37,12 +34,26 @@ header{
 	border: none;
 }
 
+.navbar-inverse .navbar-toggle {
+    border-color: #fff;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #fff;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: #2e69ba;
+}
+
 #logo{
 	height: 50px;
 }
 
 .dropdown .dropdown-menu{
 	border: none;
+    background-color: #3475CD;
+    color: #fff;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -71,4 +82,30 @@ header{
     margin:0 auto;
     margin-top:25px;
     display:inline-block;
+}
+
+/*style for active reservations*/
+.notice {
+    padding: 15px;
+    background-color: #fafafa;
+    border-left: 6px solid #7f7f84;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+       -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+            box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+}
+
+.notice-rooms {
+    border-color: #45ABCD;
+	background-color: #f4f8fa;
+}
+.notice-rooms>strong {
+    color: #45ABCD;
+}
+.notice-devices {
+    border-color: #FEAF20;
+	background-color: #fcf8f2;
+}
+.notice-devices>strong {
+    color: #FEAF20;
 }
