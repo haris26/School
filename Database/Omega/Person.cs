@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 // WORKFORCE ROSTER
 namespace Database
@@ -36,6 +37,8 @@ namespace Database
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [NotMapped]
+        public string FullName { get { return FirstName + " " + LastName; } }
         public string Email { get; set; }
         public EmploymentType Category { get; set; }
         public Gender Gender { get; set; }

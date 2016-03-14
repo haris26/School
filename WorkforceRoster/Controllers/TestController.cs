@@ -37,6 +37,13 @@ namespace WorkforceRoster.Controllers
             }
         }
 
+        public ActionResult Person()
+        {
+            Repository<Person> people = new Repository<Person>(new SchoolContext());
+            List<Person> person = people.Get().ToList();
+            return View("People");
+        }
+
         public ActionResult Person(int id)
         {
             Repository<Person> people = new Repository<Person>(new SchoolContext());
