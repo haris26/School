@@ -18,16 +18,5 @@ namespace Database
             context.Entry(entity.AssetCategory).State = EntityState.Unchanged;
             context.SaveChanges();
         }
-        public override void Update(AssetCharacteristicNames entity, int id)
-        {
-            AssetCharacteristicNames oldEnt = Get(id);
-            if (oldEnt != null)
-            {
-                context.Entry(oldEnt).CurrentValues.SetValues(entity);
- 
-                oldEnt.AssetCategory = entity.AssetCategory;
-                context.SaveChanges();
-            }
-        }
     }
 }
