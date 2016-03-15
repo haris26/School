@@ -10,7 +10,7 @@ namespace DataSeed
 {
     static class Utility
     {
-        public static string sourceRoot = @"C:\Projects\school\";
+        public static string sourceRoot = @"C:\Projects\alfa\";
 
         public static DataTable OpenExcel(string path, string sheet)
         {

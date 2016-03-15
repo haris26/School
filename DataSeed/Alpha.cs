@@ -61,7 +61,9 @@ namespace DataSeed
                     Level = (Level)Utility.getInteger(row, 0),
                     Experience = Utility.getInteger(row, 1),
                     Tool = tool,
-                    Employee = employee
+                    Employee = employee,
+                    Date = Utility.getDate(row, 4),
+                    AssessedBy = (AssessmentType)Utility.getInteger(row, 5)
                 };
 
                 if (exp > 0)

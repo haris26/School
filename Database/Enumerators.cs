@@ -49,6 +49,12 @@ namespace Database
         HighlySkilled = 5
     }
 
+    public enum AssessmentType
+    {
+        Self = 0,
+        Supervisor = 1
+    }
+
 // Reservation System
 
     public enum RepeatType

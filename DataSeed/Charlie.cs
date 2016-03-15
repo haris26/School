@@ -85,14 +85,14 @@ namespace DataSeed
                     AssetCategory = category,
                     Name = Utility.getString(row, 1),
                     SerialNumber = Utility.getString(row, 2),
-                    Description = Utility.getString(row, 3),
+                    //Description = Utility.getString(row, 3),
                     Vendor = Utility.getString(row, 4),
                     Price = Utility.getDouble(row, 5),
                     Status = (AssetStatus)Utility.getInteger(row, 6),
                     User = person,
                     Model = "missing",
                     DateOfTrade = DateTime.Today,
-                    Type = (AssetType)Utility.getInteger(row, 0)
+                    //Type = (AssetType)Utility.getInteger(row, 0)
                 };
                 N++;
                 context.Assets.Add(resource);
