@@ -8,14 +8,7 @@ namespace WebAPI.Models
 {
     public class EntityParser
     {
-        private SchoolContext context;
-
-        public EntityParser(SchoolContext _context)
-        {
-            context = _context;
-        }
-       
-        public Resource Create(ResourceModel model)
+        public Resource Create(ResourceModel model, SchoolContext context)
 
         {
             return new Resource()

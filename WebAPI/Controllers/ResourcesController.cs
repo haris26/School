@@ -12,7 +12,7 @@ namespace WebAPI.Controllers
     public class ResourcesController : BaseController<Resource>
     {
         public ResourcesController(Repository<Resource> depo) : base(depo) { }
-
+        
         public List<ResourceModel> Get()
         {
             return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
@@ -32,24 +32,25 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
-        public IHttpActionResult Post(Resource resource)
+        public IHttpActionResult Post(ResourceModel model)
         {
             try
             {
-                Repository.Insert(resource);
-                return Ok(Factory.Create(resource));
+                Repository.Insert(Parser.Create(model, Repository.BaseContext()));
+                return Ok();
             }
             catch (Exception ex)
             {
                 return BadRequest();
             }
         }
-        public IHttpActionResult Put (int id, Resource resource)
+        public IHttpActionResult Put(ResourceModel model)
         {
             try
             {
-                Repository.Update(resource, id);
-                return Ok(Factory.Create(resource));
+                Resource resource = Parser.Create(model, Repository.BaseContext());
+                Repository.Update(resource, resource.Id);
+                return Ok();
             }
             catch (Exception ex)
             {
