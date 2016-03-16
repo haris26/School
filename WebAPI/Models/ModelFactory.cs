@@ -23,6 +23,7 @@ namespace WebAPI.Models
             }
             return model;
         }
+
         public ResourceModel Create(Resource resource)
         {
             return new ResourceModel()
@@ -32,6 +33,35 @@ namespace WebAPI.Models
                 Status = resource.Status,
                 ResourceCategory = resource.ResourceCategory.Id,
                 ResourceCategoryName = resource.ResourceCategory.CategoryName
+            };
+        }
+
+        public EventModel Create(Event ev)
+        {
+            return new EventModel()
+            {
+                Id = ev.Id,
+                EventTitle = ev.EventTitle,
+                StartDate = ev.EventStart,
+                EndDate = ev.EventEnd,
+                Person = ev.User.Id,
+                PersonName = ev.User.FirstName + " " + ev.User.LastName,
+                Resource = ev.Resource.Id,
+                ResourceName = ev.Resource.Name,
+                Category = ev.Resource.ResourceCategory.Id,
+                CategoryName = ev.Resource.ResourceCategory.CategoryName
+            };
+        }
+
+        public EventExtendModel Create(ExtendedEvent exEvent)
+        {
+            return new EventExtendModel()
+            {
+                Id = exEvent.Id,
+                ParentEvent = exEvent.ParentEvent.Id,
+                RepeatUntil = exEvent.RepeatUntil,
+                RepeatingType = exEvent.RepeatingType,
+                Frequency = exEvent.Frequency
             };
         }
     }

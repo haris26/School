@@ -19,5 +19,30 @@ namespace WebAPI.Models
                 ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
             };
         }
+
+        public Event Create(EventModel model, SchoolContext context)
+        {
+            return new Event()
+            {
+                Id = model.Id,
+                EventTitle = model.EventTitle,
+                EventStart = model.StartDate,
+                EventEnd = model.EndDate,
+                User = context.People.Find(model.Person),
+                Resource = context.Resources.Find(model.Resource)
+            };
+        }
+
+        public ExtendedEvent Create(EventExtendModel model, SchoolContext context)
+        {
+            return new ExtendedEvent()
+            {
+                Id = model.Id,
+                ParentEvent = context.Events.Find(model.ParentEvent),
+                RepeatUntil = model.RepeatUntil,
+                RepeatingType = model.RepeatingType,
+                Frequency = model.Frequency
+            };
+        }
     }
 }

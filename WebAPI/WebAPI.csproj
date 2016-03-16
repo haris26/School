@@ -150,12 +150,16 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\EventExtendsController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityParser.cs" />
+    <Compile Include="Models\EventExtendModel.cs" />
+    <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\ResourceModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
