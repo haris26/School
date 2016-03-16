@@ -61,7 +61,7 @@ namespace ProcurementSystem.Models
                 RoleName = engagement.Role.Name
             };
         }
-    
+
         public AssetsModel Create(Asset asset)
         {
             return new AssetsModel()
@@ -72,17 +72,17 @@ namespace ProcurementSystem.Models
                 User = asset.User.Id,
                 UserName = asset.User.FirstName,
                 Vendor = asset.Vendor,
+                Status = asset.Status.ToString(),
                 Category = asset.AssetCategory.Id,
                 CategoryName = asset.AssetCategory.CategoryName,
                 DateOfTrade = asset.DateOfTrade,
                 SerialNumber = asset.SerialNumber,
-                Status = asset.Status,
                 Price = asset.Price
             };
         }
-        public CharacteristicNameModel Create(AssetCharacteristicNames characteristicNames)
+        public AssetCharacteristicsNameModel Create(AssetCharacteristicNames characteristicNames)
         {
-            return new CharacteristicNameModel()
+            return new AssetCharacteristicsNameModel()
             {
                 Id = characteristicNames.Id,
                 Name = characteristicNames.Name,

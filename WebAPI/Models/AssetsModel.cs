@@ -1,14 +1,13 @@
-﻿using System;
+﻿using Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Database;
 
-namespace ProcurementSystem.Models
+namespace WebAPI.Models
 {
-  
-        public class AssetsModel
-        {
+    public class AssetsModel
+    {
         public int Id { get; set; }
         public string Name { get; set; }
         public int User { get; set; }
@@ -21,8 +20,10 @@ namespace ProcurementSystem.Models
         public string Status { get; set; }
         public int Category { get; set; }
         public string CategoryName { get; set; }
-
-
+       
 
     }
+
+
+
 }

@@ -58,5 +58,57 @@ namespace WebAPI.Models
             };
         }
 
+        public AssetCategoriesModel Create(AssetCategory category)
+        {
+            AssetCategoriesModel model = new AssetCategoriesModel()
+            {
+                Id = category.Id,
+                CategoryName = category.CategoryName,
+                Type = category.assetType.ToString()
+
+            };
+            foreach (var asset in category.Assets)
+            {
+                model.Assets.Add(new AssetsModel
+                {
+                    Name = asset.Name,
+                    User = asset.User.Id,
+                    UserName = asset.User.FullName,
+                    Model = asset.Model,
+                    SerialNumber = asset.SerialNumber,
+                    Vendor = asset.Vendor,
+                    DateOfTrade = asset.DateOfTrade,
+                    Status = asset.Status.ToString(),
+                    Category = asset.AssetCategory.Id,
+                    CategoryName = asset.AssetCategory.CategoryName
+                });
+            }
+
+
+            return model;
+        }
+
+        public AssetsModel Create(Asset asset)
+        {
+            return new AssetsModel()
+            {
+                Id = asset.Id,
+                Name = asset.Name,
+                Model = asset.Model,
+                User = asset.User.Id,
+                UserName = asset.User.FirstName,
+                Vendor = asset.Vendor,
+                Status = asset.Status.ToString(),
+                Category = asset.AssetCategory.Id,
+                CategoryName = asset.AssetCategory.CategoryName,
+                DateOfTrade = asset.DateOfTrade,
+                SerialNumber = asset.SerialNumber,
+                Price = asset.Price
+            };
+        }
+
     }
-    }
+
+
+
+}

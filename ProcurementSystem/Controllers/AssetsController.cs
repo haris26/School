@@ -68,16 +68,17 @@ namespace ProcurementSystem.Controllers
                 User = asset.User.Id,
                 UserName = asset.User.FirstName,
                 Vendor = asset.Vendor,
+
+                Status = asset.Status.ToString(),
                 Category = asset.AssetCategory.Id,
+                CategoryName = asset.AssetCategory.CategoryName,
                 DateOfTrade = asset.DateOfTrade,
                 SerialNumber = asset.SerialNumber,
-                Status = asset.Status,
                 Price = asset.Price
             };
             FillBag();
             return View(model);
         }
-
         // POST: Assets/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

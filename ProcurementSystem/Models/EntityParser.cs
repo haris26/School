@@ -57,17 +57,19 @@ namespace ProcurementSystem.Models
                 // Category = model.AssetCategory.Id,
                 DateOfTrade = model.DateOfTrade,
                 SerialNumber = model.SerialNumber,
-                Status = model.Status,
+                // Status = model.Status.ToString(),
                 Price = model.Price
             };
+
+
         }
-        public AssetCharacteristicNames Create(CharacteristicNameModel model)
+        public AssetCharacteristicNames Create(AssetCharacteristicsNameModel model)
         {
             return new AssetCharacteristicNames()
             {
                 Id = model.Id,
                 Name = model.Name,
-
+    AssetCategory=context.AssetCategory.Find(model.AssetCategory)
             };
         }
 
@@ -106,5 +108,27 @@ namespace ProcurementSystem.Models
 
             };
         }
+		 public AssetCategory Create(AssetCategoryModel model)
+        {
+            return new AssetCategory()
+
+            {
+                Id = model.Id,
+               CategoryName=model.CategoryName,
+      
+
+            };
+        }
+
+        public AssetChar Create(AssetCharModel model)
+        {
+            return new AssetChar()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Value = model.Value,
+                Asset = context.Assets.Find(model.Asset)
+            };
+            }
     }
 }

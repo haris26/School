@@ -13,12 +13,7 @@ namespace ProcurementSystem.Controllers
 {
     public class AssetCharacteristicNamesController : BaseController
     {
-      
-      
-
-
-
-        public ActionResult Index()
+      public ActionResult Index()
         {
             return View(new AssetCharNamesUnit(Context).Get().ToList().Select(x => Factory.Create(x)));
         }
@@ -40,7 +35,7 @@ namespace ProcurementSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CharacteristicNameModel model)
+        public ActionResult Create(AssetCharacteristicsNameModel model)
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +55,7 @@ namespace ProcurementSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(CharacteristicNameModel model)
+        public ActionResult Edit(AssetCharacteristicsNameModel model)
         {
             if (ModelState.IsValid)
             {

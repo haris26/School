@@ -46,11 +46,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -169,8 +169,10 @@
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\RequestsController.cs" />
+    <Compile Include="Models\AssetCategoryModel.cs" />
+    <Compile Include="Models\AssetCharacteristicsNameModel.cs" />
+    <Compile Include="Models\AssetCharModel.cs" />
     <Compile Include="Models\AssetsModel.cs" />
-    <Compile Include="Models\CharacteristicNameModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\HistoryModel.cs" />
     <Compile Include="Models\PeopleModel.cs" />
@@ -328,6 +330,9 @@
       <Project>{b7647363-7466-461d-99b4-32e502503513}</Project>
       <Name>DataSeed</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
