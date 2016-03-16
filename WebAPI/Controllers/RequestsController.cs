@@ -1,0 +1,80 @@
+﻿using Database;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using WebApi.Controllers;
+using WebAPI.Models;
+
+namespace WebAPI.Controllers
+{
+    public class RequestsController : BaseController<Request>
+    {
+        
+        public RequestsController(Repository<Request> depo) : base(depo) { }
+        
+
+        public List<RequestModel> Get()
+        {
+            return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
+        }
+
+        public IHttpActionResult Get(int id)
+        {
+            try {
+                Request request = Repository.Get(id);
+                if(request == null)
+                {
+                    return NotFound();
+
+                }
+                else
+                
+                    return Ok(Factory.Create(request));
+               
+            }
+            catch(Exception ex)
+            {
+                return BadRequest();
+            }
+           }
+
+        public IHttpActionResult Post(RequestModel model)
+        {
+            try {
+                Repository.Insert(Parser.Create(model));
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
+
+        public IHttpActionResult Put(int id, RequestModel model)
+        {
+            try {
+                Repository.Update(Parser.Create(model), model.Id);
+                return Ok(model);
+            }
+            catch(Exception ex)
+            {
+             return   NotFound();
+            }
+          }
+
+        public IHttpActionResult Delete(int id)
+        {
+            try {
+                Repository.Delete(id);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return NotFound();
+            }
+        }
+    }
+}
