@@ -6,9 +6,17 @@ using System.Web;
 
 namespace WebAPI.Models
 {
-    public class EntityParser 
+
+    public class EntityParser
     {
-        
+      
+
+        //public EntityParser(SchoolContext ctx)
+        //{
+        //    context = ctx;
+        //}
+
+
         //public Engagement Create(EngagementModel model)
         //{
         //    return new Engagement()
@@ -23,12 +31,16 @@ namespace WebAPI.Models
         //    };
         //}
 
-        public Day Create(DayModel model)
+
+        public Day Create(DayModel model, SchoolContext context)
+
         {
             return new Day()
             {
                 Id = model.Id,
-                Person = 
+
+                Person = context.People.Find(model.Person),
+
                 Date = model.Date,
                 WorkTime = model.WorkTime,
                 PtoTime = model.PtoTime,
@@ -37,7 +49,9 @@ namespace WebAPI.Models
         }
 
 
-        public Person Create(PersonModel model)
+
+        public Person Create(PersonModel model, SchoolContext context )
+
         {
             return new Person()
             {
@@ -49,7 +63,9 @@ namespace WebAPI.Models
             };
         }
 
-        public Detail Create(DetailModel model)
+
+        public Detail Create(DetailModel model, SchoolContext context)
+
         {
             return new Detail()
             {

@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json.Serialization;
-using System;
+
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Newtonsoft.Json.Serialization;
+
 
 namespace WebAPI
 {
@@ -24,6 +26,7 @@ namespace WebAPI
             var json = GlobalConfiguration.Configuration;
             json.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
             json.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+
             json.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize;
             json.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
         }

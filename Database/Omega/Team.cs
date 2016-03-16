@@ -1,9 +1,17 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5700b91658f31bf84a31f2235250c7fb4c1d5b58
 ﻿using Database.Omega;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5700b91658f31bf84a31f2235250c7fb4c1d5b58
 // WORKFORCE ROSTER
 namespace Database
 {

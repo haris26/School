@@ -10,8 +10,9 @@ namespace DataSeed
         static string sourceData = Utility.sourceRoot + "delta.xls";
         static SchoolContext context = new SchoolContext();
 
-        public static void Main()
+        public static void Seed()
         {
+            Console.Clear();
             getDays();      
             getDetails();   
             Console.ReadKey();

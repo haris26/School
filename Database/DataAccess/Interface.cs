@@ -11,4 +11,8 @@ namespace Database
         void Update(Entity entity, int id);
         void Delete(int id);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> af0afc48dfe75ce3413c01c03aad5c284773faf2

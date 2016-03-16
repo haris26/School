@@ -1,10 +1,5 @@
 ﻿using Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-using WebAPI.Models;
 
 
 namespace WebAPI.Models
@@ -23,9 +18,22 @@ namespace WebAPI.Models
             };
             foreach (var person in team.Roles)
             {
-                model.Members.Add(person.Person.FirstName + " " + person.Person.LastName);
+
+                model.Members.Add(new MemberModel() { Name = person.Person.FirstName + " " + person.Person.LastName, Role = person.Role.Name });
+
             }
             return model;
+        }
+
+
+        public RoleModel Create(Role role)
+        {
+            return new RoleModel()
+            {
+                Id = role.Id,
+                Name = role.Name,
+                Count = role.Roles.Count
+            };
         }
 
         //public EngagementModel Create(Engagement engagement)
@@ -58,6 +66,9 @@ namespace WebAPI.Models
                 PtoTime = day.PtoTime,
                 EntryStatus = day.EntryStatus
             };
+
+
+
         }
 
         public DetailModel Create(Detail detail)
@@ -66,7 +77,12 @@ namespace WebAPI.Models
             {
                 Id = detail.Id,
                 Day = detail.Day.Id,
+
+
                 Date = detail.Day.Date,
+
+
+
                 Person = detail.Day.Person.Id,
                 PersonName = detail.Day.Person.FirstName,
                 WorkTime = detail.WorkTime,

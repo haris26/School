@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebApi.Controllers;
+using WebApi.Controllers.WebAPI.Controllers;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
@@ -13,9 +13,9 @@ namespace WebAPI.Controllers
     public class DaysController : BaseController<Day>
     {
 
-        
-        public DaysController(Repository<Day> depo) : base(depo) {}
-        
+        public DaysController(Repository<Day> depo) : base(depo)
+        { }
+
         public IList<DayModel> Get()
         {
             return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
@@ -23,43 +23,47 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Get(int id)
         {
-            try
-            {
-                var day = Repository.Get(id);
-                if (day == null)
-                {
-                    return NotFound();
-                }
-                else
-                    return Ok(Factory.Create(day));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest();
-            }
-                
-        }
 
-        public IHttpActionResult Post(Day day)
-        {
             try {
-                Repository.Insert(day);
-                return Ok();
+                Day day = Repository.Get(id);
+                if (day == null) return NotFound();
+                else
+                return Ok(Factory.Create(Repository.Get(id)));
             }
             catch(Exception ex)
             {
                 return BadRequest();
             }
         }
-
-        public IHttpActionResult Put(int id, Day day)
+        public IHttpActionResult Post(DayModel model)
         {
+            var sch = Repository.BaseContext();
             try
             {
-                Repository.Update(day, id);
-                return Ok();
+                if (model == null) return NotFound();
+                else {
+                    Repository.Insert(Parser.Create(model,sch));
+                    return Ok(model);
+                }
             }
-            catch (Exception ex)
+            catch (Exception ex) {
+                return BadRequest();
+            }
+            
+        }
+        public IHttpActionResult Put(int id, DayModel model)
+        {
+            var sch = Repository.BaseContext();
+            try {
+                Day day1 = Repository.Get(id);
+                if (day1==null || model == null) return NotFound();
+                else {
+                    Repository.Update(Parser.Create(model,sch), id);
+                    return Ok(model);
+                }
+            }
+            catch(Exception ex)
+
             {
                 return BadRequest();
             }
@@ -67,11 +71,19 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Delete(int id)
         {
-            try {
-                Repository.Delete(id);
-                return Ok();
+
+
+            try
+            {
+                Day day = Repository.Get(id);
+                if (day == null) return NotFound();
+                else {
+                    Repository.Delete(id);
+                    return Ok();
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
+
             {
                 return BadRequest();
             }

@@ -69,4 +69,6 @@ namespace WebApi.App_Start
             kernel.Bind(typeof(Interface<>)).To(typeof(Repository<>)).WithConstructorArgument(typeof(DbContext), new SchoolContext());
         }
     }
+
 }
+

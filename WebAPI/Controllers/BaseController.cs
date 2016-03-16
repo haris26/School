@@ -7,13 +7,17 @@ using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Models;
 
-namespace WebApi.Controllers
+
+namespace WebAPI.Controllers
+
 {
     public class BaseController<T> : ApiController where T : class
     {
         private Repository<T> depo;
         private ModelFactory fact;
-  
+
+        private EntityParser parser;
+
 
         public BaseController(Repository<T> _depo)
         {
@@ -33,6 +37,17 @@ namespace WebApi.Controllers
                 return fact;
             }
         }
-        
+
+
+        protected EntityParser Parser
+        {
+            get
+            {
+                if (parser == null) parser = new EntityParser();
+                return parser;
+            }
+
+        }
     }
 }
+
