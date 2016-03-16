@@ -8,7 +8,9 @@ namespace WebAPI.Models
 {
     public class EntityParser
     {
+
         public Resource Create(ResourceModel model, SchoolContext context)
+
 
         {
             return new Resource()
@@ -19,6 +21,27 @@ namespace WebAPI.Models
                 ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
             };
         }
+
+        public Characteristic Create(CharacteristicModel model,SchoolContext context)
+        {
+            return new Characteristic()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Value = model.Value,
+                Resource = context.Resources.Find(model.Resource)
+            };
+        }
+        public CharacteristicName Create(CharacteristicNameModel model, SchoolContext context)
+        {
+            return new CharacteristicName()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
+            };
+
+
 
         public Event Create(EventModel model, SchoolContext context)
         {
@@ -43,6 +66,7 @@ namespace WebAPI.Models
                 RepeatingType = model.RepeatingType,
                 Frequency = model.Frequency
             };
+
         }
     }
 }
