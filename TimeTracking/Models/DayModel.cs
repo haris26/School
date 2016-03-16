@@ -10,7 +10,9 @@ namespace TimeTracking.Models
     {
         public DayModel()
         {
+
             EntryStatus = EntryStatus.Unlocked;
+
         }
 
 
@@ -21,7 +23,7 @@ namespace TimeTracking.Models
         public double WorkTime { get; set; }
         public double PtoTime { get; set; }
         public EntryStatus EntryStatus { get; set; }
-        //public int DetailId { get; set; }
-        //public IList<string> Detail { get; set; }
+        public int DetailId { get; set; }
+        public List<DetailModel> Detail { get; set; }
     }
 }
