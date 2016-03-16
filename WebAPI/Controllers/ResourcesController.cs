@@ -49,9 +49,16 @@ namespace WebAPI.Controllers
             try
             {
                 Resource resource = Parser.Create(model, Repository.BaseContext());
-                Repository.Update(resource, resource.Id);
-                return Ok();
-            }
+                if (resource == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    Repository.Update(resource, resource.Id);
+                    return Ok(Factory.Create(resource));
+                }
+                            }
             catch (Exception ex)
             {
                 return BadRequest();
@@ -60,8 +67,21 @@ namespace WebAPI.Controllers
         }
         public IHttpActionResult Delete (int id)
         {
-            Repository.Delete(id);
-            return Ok();
+            try
+            {
+                Resource resource = Repository.Get(id);
+                if (resource == null)
+                    return NotFound();
+                else
+                {
+                    Repository.Delete(id);
+                    return Ok();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
         }
     }
 }
