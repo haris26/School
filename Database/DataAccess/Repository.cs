@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Database
 {
-    public class Repository<Entity> where Entity : class
+    public class Repository<Entity> : Interface<Entity> where Entity : class
     {
-        public SchoolContext context;
-        public DbSet<Entity> dbSet;
+        protected SchoolContext context;
+        protected DbSet<Entity> dbSet;
 
         public Repository(SchoolContext _context)
         {
             context = _context;
-            dbSet = _context.Set<Entity>();
+            dbSet = context.Set<Entity>();
+        }
+
+        public SchoolContext BaseContext()
+        {
+            return context;
         }
 
         public IQueryable<Entity> Get()
