@@ -34,5 +34,37 @@ namespace WebAPI.Models
                 ResourceCategoryName = resource.ResourceCategory.CategoryName
             };
         }
+        public RoleModel Create(Role role)
+        {
+            return new RoleModel()
+            {
+                Id = role.Id,
+                Name = role.Name,
+                Count = role.Roles.Count
+            };
+        }
+        public CharacteristicModel Create(Characteristic characteristic)
+        {
+            return new CharacteristicModel
+            {
+                Id = characteristic.Id,
+                Name = characteristic.Name,
+                Value = characteristic.Value,
+                Resource = characteristic.Resource.Id,
+                ResourceName = characteristic.Resource.Name
+
+            };
+        }
+        public CharacteristicNameModel Create(CharacteristicName characteristicName)
+        {
+            return new CharacteristicNameModel()
+            {
+                Id = characteristicName.Id,
+                Name = characteristicName.Name,
+                ResourceCategory = characteristicName.ResourceCategory.Id,
+
+                ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
+            };
+        }
     }
 }

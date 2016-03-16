@@ -8,14 +8,9 @@ namespace WebAPI.Models
 {
     public class EntityParser
     {
-        private SchoolContext context;
-
-        public EntityParser(SchoolContext _context)
-        {
-            context = _context;
-        }
+      
        
-        public Resource Create(ResourceModel model)
+        public Resource Create(ResourceModel model,SchoolContext context)
 
         {
             return new Resource()
@@ -25,6 +20,26 @@ namespace WebAPI.Models
                 Status = model.Status,
                 ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
             };
+        }
+        public Characteristic Create(CharacteristicModel model,SchoolContext context)
+        {
+            return new Characteristic()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Value = model.Value,
+                Resource = context.Resources.Find(model.Resource)
+            };
+        }
+        public CharacteristicName Create(CharacteristicNameModel model, SchoolContext context)
+        {
+            return new CharacteristicName()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
+            };
+
         }
     }
 }
