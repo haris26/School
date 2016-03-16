@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationSystem", "Reserv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{65A6E1B6-68B2-433A-9C0D-612BD7C198D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{1112AE7B-2427-4B34-8E7B-79007D22AEED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{65A6E1B6-68B2-433A-9C0D-612BD7C198D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65A6E1B6-68B2-433A-9C0D-612BD7C198D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65A6E1B6-68B2-433A-9C0D-612BD7C198D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1112AE7B-2427-4B34-8E7B-79007D22AEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1112AE7B-2427-4B34-8E7B-79007D22AEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1112AE7B-2427-4B34-8E7B-79007D22AEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1112AE7B-2427-4B34-8E7B-79007D22AEED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
