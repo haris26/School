@@ -1,14 +1,16 @@
 ﻿using System.Data.Entity;
 
-
-
 namespace Database
 {
     public class SchoolContext: DbContext
     {
+<<<<<<< HEAD
 
         public SchoolContext(): base() //("name=School")
 
+=======
+        public SchoolContext(): base() //("name=School")
+>>>>>>> 5700b91658f31bf84a31f2235250c7fb4c1d5b58
         { }
         // ALPHA
         public DbSet<Education> Educations { get; set; }
@@ -39,6 +41,9 @@ namespace Database
         public DbSet<Person> People { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Team> Teams{ get; set; }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5700b91658f31bf84a31f2235250c7fb4c1d5b58
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Database
 {
-    public class DayUnit : Repository<Day>
+    public class DayUnit: Repository<Day>
     {
         public DayUnit(SchoolContext context) : base(context) { }
 
@@ -11,18 +11,6 @@ namespace Database
             context.Days.Add(entity);
             context.Entry(entity.Person).State = EntityState.Unchanged;
             context.SaveChanges();
-        }
-
-        public override void Update(Day entity, int id)
-        {
-            Day oldEnt = Get(id);
-            if (oldEnt != null)
-            {
-                context.Entry(oldEnt).CurrentValues.SetValues(entity);
-                context.Entry(oldEnt).State = EntityState.Modified;
-                oldEnt.Person = entity.Person;
-                context.SaveChanges();
-            }
         }
     }
 }
