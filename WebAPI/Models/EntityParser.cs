@@ -8,14 +8,9 @@ namespace WebAPI.Models
 {
     public class EntityParser
     {
-        protected SchoolContext context;
+     
 
-        public EntityParser(SchoolContext _context)
-        {
-            context = _context;
-        }
-
-        public Request Create(RequestModel model)
+        public Request Create(RequestModel model, SchoolContext context)
         {
             return new Request()
             {

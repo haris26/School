@@ -44,7 +44,7 @@ namespace WebAPI.Controllers
         public IHttpActionResult Post(RequestModel model)
         {
             try {
-                Repository.Insert(Parser.Create(model));
+                Repository.Insert(Parser.Create(model, Repository.BaseContext()));
                 return Ok();
             }
             catch (Exception ex)
@@ -56,7 +56,7 @@ namespace WebAPI.Controllers
         public IHttpActionResult Put(int id, RequestModel model)
         {
             try {
-                Repository.Update(Parser.Create(model), model.Id);
+                Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
                 return Ok(model);
             }
             catch(Exception ex)

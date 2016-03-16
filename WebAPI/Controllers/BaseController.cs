@@ -39,7 +39,7 @@ namespace WebApi.Controllers
         {
             get
             {
-                if (pars == null) pars = new EntityParser(depo.BaseContext());
+                if (pars == null) pars = new EntityParser();
                 return pars;
             }
         }
