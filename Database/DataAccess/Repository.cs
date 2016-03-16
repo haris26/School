@@ -17,7 +17,10 @@ namespace Database
             context = _context;
             dbSet = _context.Set<Entity>();
         }
-
+        public SchoolContext BaseContext()
+        {
+            return context;
+        }
         public IQueryable<Entity> Get()
         {
             return dbSet.AsQueryable();
