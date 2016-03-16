@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DC5B1863-550F-41BF-A135-D1209A65055A}</ProjectGuid>
+    <ProjectGuid>{74B790E0-C0CD-4884-A5D1-B3D934E0593F}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -165,6 +165,8 @@
     <Compile Include="Models\SkillsCategoryModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Models\ToolModel.cs" />
+    <Compile Include="Controllers\EducationsController.cs" />
+    <Compile Include="Models\EducationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -201,9 +203,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59852</DevelopmentServerPort>
+          <DevelopmentServerPort>55013</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59852/</IISUrl>
+          <IISUrl>http://localhost:55013/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -27,9 +27,9 @@ namespace WebAPI.Controllers
                 if (team == null)
                     return NotFound();
                 else
-                    return Ok(Factory.Create(Repository.Get(id)));
+                    return Ok(Factory.Create(team));
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 return BadRequest();
             }
@@ -52,8 +52,12 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Repository.Update(team, id);
-                return Ok(Factory.Create(team));
+                Team oldTeam = Repository.Get(id);
+                if (oldTeam == null)
+                    return NotFound();
+                else
+                    Repository.Update(team, id);
+                    return Ok(Factory.Create(team));
             }
             catch (Exception ex)
             {
@@ -76,7 +80,6 @@ namespace WebAPI.Controllers
             {
                 return BadRequest();
             }
-
         }
     }
 }

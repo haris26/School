@@ -56,5 +56,16 @@ namespace WebAPI.Models
 
             return model;
         }
+
+        public EducationModel Create (Education education)
+        {
+            return new EducationModel()
+            {
+                Id = education.Id,
+                Name = education.Name,
+                Type = education.Type
+            };
+        }
+
     }
 }
