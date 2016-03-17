@@ -9,12 +9,12 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    public class EmployeeSkillsController : BaseController<EmployeeSkill>
+    public class EmployeeEducationsController : BaseController<EmployeeEducation>
     {
-        public EmployeeSkillsController(Repository<EmployeeSkill> depo) : base(depo)
+        public EmployeeEducationsController(Repository<EmployeeEducation> depo) : base(depo)
         { }
 
-        public IHttpActionResult Post(EmployeeSkillModel model)
+        public IHttpActionResult Post(EmployeeEducationModel model)
         {
             try
             {
@@ -27,12 +27,12 @@ namespace WebAPI.Controllers
             }
         }
 
-        public IHttpActionResult Put(int id, EmployeeSkillModel model)
+        public IHttpActionResult Put(int id, EmployeeEducationModel model)
         {
             try
             {
-                EmployeeSkill oldEmpSkill = Repository.Get(id);
-                if (oldEmpSkill == null)
+                EmployeeEducation oldEmpEdu = Repository.Get(id);
+                if (oldEmpEdu == null)
                     return NotFound();
                 else
                     Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
@@ -48,8 +48,8 @@ namespace WebAPI.Controllers
         {
             try
             {
-                EmployeeSkill employeeskill = Repository.Get(id);
-                if (employeeskill == null)
+                EmployeeEducation employeeeducation = Repository.Get(id);
+                if (employeeeducation == null)
                     return NotFound();
                 else
                     Repository.Delete(id);

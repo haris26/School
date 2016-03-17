@@ -43,5 +43,16 @@ namespace WebAPI.Models
                 AssessedBy = model.AssessedBy
             };
         }
+
+        public EmployeeEducation Create(EmployeeEducationModel model, SchoolContext context)
+        {
+            return new EmployeeEducation()
+            {
+                Id = model.Id,
+                Employee = context.People.Find(model.Employee),
+                Education = context.Educations.Find(model.Education),
+                Reference = model.Reference
+            };
+        }
     }
 }
