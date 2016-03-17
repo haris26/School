@@ -66,6 +66,7 @@
     <Compile Include="DataAccess\CharacteristicNameUnit.cs" />
     <Compile Include="DataAccess\CharacteristicUnit.cs" />
     <Compile Include="DataAccess\Interface.cs" />
+    <Compile Include="DataAccess\InterfaceContext.cs" />
     <Compile Include="Delta\Day.cs" />
     <Compile Include="DataAccess\DayUnit.cs" />
     <Compile Include="Delta\Detail.cs" />
