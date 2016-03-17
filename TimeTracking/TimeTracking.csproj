@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5F7ABDCD-DFBF-411F-AE26-FDEE5D9AA997}</ProjectGuid>
+    <ProjectGuid>{0170F483-CE02-4633-A9C0-A6B329DD7F90}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -163,8 +163,6 @@
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\TimeTrackingController.cs" />
-
-
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,11 +184,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\logo1.png" />
-
     <Content Include="Content\mistrallogo.jpg" />
     <Content Include="Content\mistral4.jpg" />
-
-    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -198,12 +193,7 @@
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-
     <None Include="Properties\PublishProfiles\GigiSchool.pubxml" />
-
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -232,14 +222,12 @@
     <Content Include="Views\scripts\jquery-1.9.1.min.js" />
     <Content Include="Views\scripts\npm.js" />
     <Content Include="Views\Shared\Error.cshtml" />
-
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\styles\bootstrap.css" />
     <Content Include="Views\styles\bootstrap.min.css" />
     <Content Include="Views\styles\Login1.css" />
     <Content Include="Views\styles\StyleLogin.css" />
     <Content Include="Views\styles\StyleSheet1.css" />
-
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config">
@@ -292,7 +280,6 @@
     <Content Include="Views\People\DayDelete.cshtml" />
     <Content Include="Views\People\DetDelete.cshtml" />
     <Content Include="Views\People\DetEdit.cshtml" />
-
     <Content Include="Views\TimeTracking\Create.cshtml" />
     <Content Include="Views\TimeTracking\CreateDetail.cshtml" />
     <Content Include="Views\TimeTracking\Days.cshtml" />
@@ -303,7 +290,6 @@
     <Content Include="Views\styles\bootstrap.min.css.map" />
     <Content Include="Views\scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Shared\_Home.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -315,7 +301,6 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Database\Database.csproj">
