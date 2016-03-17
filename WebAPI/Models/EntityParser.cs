@@ -29,5 +29,19 @@ namespace WebAPI.Models
                 Level = model.Level
             };
         }
+
+        public EmployeeSkill Create(EmployeeSkillModel model, SchoolContext context)
+        {
+            return new EmployeeSkill()
+            {
+                Id = model.Id,
+                Employee = context.People.Find(model.Employee),
+                Tool = context.Tools.Find(model.Tool),
+                Level = model.Level,
+                Experience = model.Experience,
+                Date = model.Date,
+                AssessedBy = model.AssessedBy
+            };
+        }
     }
 }
