@@ -29,7 +29,6 @@ namespace WebAPI.Models
                 Count = role.Roles.Count
             };
         }
-
         //public EngagementModel Create(Engagement engagement)
         //{
         //    return new EngagementModel()
@@ -60,16 +59,19 @@ namespace WebAPI.Models
                 PtoTime = day.PtoTime,
                 EntryStatus = day.EntryStatus
             };
+
+
         }
-
-
         public DetailModel Create(Detail detail)
         {
             return new DetailModel()
             {
                 Id = detail.Id,
                 Day = detail.Day.Id,
+
                 Date = detail.Day.Date,
+
+
                 Person = detail.Day.Person.Id,
                 PersonName = detail.Day.Person.FirstName,
                 WorkTime = detail.WorkTime,

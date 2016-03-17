@@ -8,15 +8,12 @@ using System.Web.Http;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
-
 {
     public class BaseController<T> : ApiController where T : class
     {
         private Repository<T> depo;
         private ModelFactory fact;
         private EntityParser parser;
-
-
 
         public BaseController(Repository<T> _depo)
         {

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebAPI.Controllers.WebAPI.Controllers;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
@@ -14,7 +13,6 @@ namespace WebAPI.Controllers
     {
         public DaysController(Repository<Day> depo) : base(depo)
         { }
-
         public IList<DayModel> Get()
         {
             return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
@@ -68,6 +66,7 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Delete(int id)
         {
+
             try
             {
                 Day day = Repository.Get(id);

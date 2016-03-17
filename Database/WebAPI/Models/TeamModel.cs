@@ -5,13 +5,11 @@ using System.Web;
 
 namespace WebAPI.Models
 {
-
     public class MemberModel
     {
         public string Name { get; set; }
         public string Role { get; set; }
     }
-
     public class TeamModel
     {
         public TeamModel()

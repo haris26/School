@@ -5,14 +5,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebAPI.Controllers;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
     public class DetailsController : BaseController<Detail>
     {
-
         public DetailsController(Repository<Detail> depo) : base(depo)
         { }
 

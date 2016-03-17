@@ -42,8 +42,8 @@ namespace WebAPI.Models
             };
         }
 
-        public Person Create(PersonModel model, SchoolContext context )
 
+        public Person Create(PersonModel model, SchoolContext context )
         {
             return new Person()
             {
@@ -56,7 +56,6 @@ namespace WebAPI.Models
         }
 
         public Detail Create(DetailModel model, SchoolContext context)
-
         {
             return new Detail()
             {
