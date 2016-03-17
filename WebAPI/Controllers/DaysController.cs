@@ -51,8 +51,8 @@ namespace WebAPI.Controllers
         {
             var sch = Repository.BaseContext();
             try {
-                Day day1 = Repository.Get(id);
-                if (day1==null || model == null) return NotFound();
+                Day day = Repository.Get(id);
+                if (day==null || model == null) return NotFound();
                 else {
                     Repository.Update(Parser.Create(model,sch), id);
                     return Ok(model);
