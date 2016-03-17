@@ -27,6 +27,7 @@ namespace ProcurementSystem
                          "~/Scripts/jquery.min.js",
                            "~/Scripts/metisMenu.min.js",
                             "~/Scripts/bootstrap.min.js",
+                            "~/Scripts/ourscript.js",
                               "~/Scripts/startmin.js"
                                           ));
 

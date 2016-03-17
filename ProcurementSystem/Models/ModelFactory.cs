@@ -86,7 +86,8 @@ namespace ProcurementSystem.Models
             {
                 Id = characteristicNames.Id,
                 Name = characteristicNames.Name,
-                
+                 AssetCategory = characteristicNames.AssetCategory.Id,
+                AssetCategoryName = characteristicNames.AssetCategory.CategoryName
             };
         }
   

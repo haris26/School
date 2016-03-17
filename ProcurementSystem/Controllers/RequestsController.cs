@@ -16,7 +16,8 @@ namespace ProcurementSystem.Controllers
         IEnumerable<AssetCategory> CategoryDevice = new List<AssetCategory>();
         // GET: Requests
         public ActionResult Index()
-        {
+        { 
+           
             return View(new RequestUnit(Context).Get().ToList().Select(x => Factory.Create(x)).OrderByDescending(x => x.Id).ToList());
 
             // return View(new RequestUnit(Context).Get().ToList().Select(x => Factory.Create(x)).ToList());
