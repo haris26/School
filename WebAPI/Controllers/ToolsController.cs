@@ -48,7 +48,11 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
+                Tool oldTool = Repository.Get(id);
+                if (oldTool == null)
+                    return NotFound();
+                else
+                    Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
                 return Ok(model);
             }
             catch (Exception ex)
