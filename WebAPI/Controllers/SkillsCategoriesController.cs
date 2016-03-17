@@ -52,8 +52,12 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Repository.Update(skillcategory, id);
-                return Ok(Factory.Create(skillcategory));
+                SkillCategory oldSkillcategory = Repository.Get(id);
+                if (oldSkillcategory == null)
+                    return NotFound();
+                else
+                    Repository.Update(skillcategory, id);
+                    return Ok(Factory.Create(skillcategory));
             }
             catch (Exception ex)
             {
