@@ -21,22 +21,71 @@ namespace WebAPI.Controllers
             return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
         }
 
-        public DetailModel Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return Factory.Create(Repository.Get(id));
+            try
+            {
+                Detail detail = Repository.Get(id);
+                if (detail == null)
+                    return NotFound();
+                else
+                    return Ok(Factory.Create(detail));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
         }
-        public void Post(Detail detail)
+        public IHttpActionResult Post(DetailModel model)
         {
-            Repository.Insert(detail);
+            var sch = Repository.BaseContext();
+
+            try
+            {
+                if (model == null) return NotFound();
+                else {
+                    Repository.Insert(Parser.Create(model, sch));
+                    return Ok(model);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
         }
-        public void Put(int id, Detail detail)
+        public IHttpActionResult Put(int id, DetailModel model)
         {
-            Repository.Update(detail, id);
+            var sch = Repository.BaseContext();
+            try
+            {
+                Detail detail1 = Repository.Get(id);
+                if (detail1 == null || model == null) return NotFound();
+                else {
+                    Repository.Update(Parser.Create(model, sch), id);
+                    return Ok(model);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
         }
 
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
-            Repository.Delete(id);
+            try
+            {
+                Detail detail = Repository.Get(id);
+                if (detail == null)
+                    return NotFound();
+                else
+                    Repository.Delete(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
         }
     }
 }
