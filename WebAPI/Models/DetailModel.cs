@@ -7,6 +7,8 @@ namespace WebAPI.Models
 {
     public class DetailModel
     {
+       
+
         public int Id { get; set; }
         public int Day { get; set; }
         public DateTime Date { get; set; }
