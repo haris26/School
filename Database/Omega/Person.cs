@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-<<<<<<< HEAD
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-=======
-using System.ComponentModel.DataAnnotations.Schema;
->>>>>>> 5700b91658f31bf84a31f2235250c7fb4c1d5b58
 
 // WORKFORCE ROSTER
 namespace Database
@@ -43,15 +39,8 @@ namespace Database
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-<<<<<<< HEAD
-
         [NotMapped]
         public string FullName { get { return FirstName + " " + LastName; } }
-
-=======
-        [NotMapped]
-        public string FullName { get { return FirstName + " " + LastName; } }
->>>>>>> 5700b91658f31bf84a31f2235250c7fb4c1d5b58
         public string Email { get; set; }
         public EmploymentType Category { get; set; }
         public Gender Gender { get; set; }

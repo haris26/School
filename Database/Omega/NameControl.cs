@@ -11,10 +11,6 @@ namespace Database.Omega
     {
         protected override ValidationResult IsValid(object value, ValidationContext context)
         {
-<<<<<<< HEAD
-
-=======
->>>>>>> 5700b91658f31bf84a31f2235250c7fb4c1d5b58
             if (value == null)
             {
                 return new ValidationResult("Pliz pliz enter name");

@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 5700b91658f31bf84a31f2235250c7fb4c1d5b58
 ﻿using Database.Omega;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 5700b91658f31bf84a31f2235250c7fb4c1d5b58
 // WORKFORCE ROSTER
 namespace Database
 {
@@ -30,7 +21,6 @@ namespace Database
         public string Name { get; set; }                    // Team (project) name
         public string Description { get; set; }             // Description
         public ProjectType Type { get; set; }               // Type (absence, internal, external)
-
         public virtual ICollection<Engagement> Roles { get; set; }
         public virtual ICollection<Person> Members { get; set; }
         public virtual ICollection<ProjectSkill> ProjectSkills { get; set; }
