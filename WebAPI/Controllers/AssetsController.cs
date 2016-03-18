@@ -15,9 +15,27 @@ namespace WebAPI.Controllers
         public AssetsController(Repository<Asset> depo) : base(depo)
         { }
 
-        public IList<AssetsModel> Get()
+        public Object GetAll(int page = 0)
         {
-            return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
+            int PageSize = 5;
+            var query =
+               Repository.Get()
+                   .OrderBy(x => x.Status)
+                   .ThenBy(x => x.Model)
+                   .ToList();
+
+            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+
+            IList<AssetsModel> people =
+                query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
+
+            return new
+            {
+                pageSize = PageSize,
+                currentPage = page,
+                pageCount = TotalPages,
+                allPeople = people
+            };
         }
 
         public IHttpActionResult Get(int id)
