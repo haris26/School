@@ -58,5 +58,17 @@ namespace WebAPI.Models
             };
         }
 
+        public PeopleModel Create(Person person)
+        {
+            return new PeopleModel
+            {
+                Id = person.Id,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Category = person.Category,
+                Phone = person.Phone,
+                Status = person.Status
+            };
+        }
     }
     }

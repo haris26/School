@@ -150,6 +150,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\RequestsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
@@ -158,6 +159,7 @@
     </Compile>
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\PeopleModel.cs" />
     <Compile Include="Models\RequestModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\TeamModel.cs" />

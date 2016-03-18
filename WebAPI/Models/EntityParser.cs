@@ -30,6 +30,17 @@ namespace WebAPI.Models
             };
         }
 
-
+        public Person Create(PeopleModel model, SchoolContext context)
+        {
+            return new Person()
+            {
+                Id = model.Id,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Category = model.Category,
+                Phone = model.Phone,
+                Status = model.Status
+            };
+        }
     }
 }
