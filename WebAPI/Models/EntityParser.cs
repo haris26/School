@@ -8,19 +8,6 @@ namespace WebAPI.Models
 {
     public class EntityParser
     {
-        public Person Create(PersonModel model, SchoolContext context)
-        {
-            return new Person()
-            {
-                Id = model.Id,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Category = model.Category,
-                Phone = model.Phone,
-                Status = model.Status
-            };
-        }
-
         public Resource Create(ResourceModel model, SchoolContext context)
         {
             return new Resource()
@@ -84,6 +71,18 @@ namespace WebAPI.Models
             {
                 Id = model.Id,
                 CategoryName = model.CategoryName
+            };
+        }
+
+        public Person Create(PersonModel model, SchoolContext context)
+        {
+            return new Person()
+            {
+                Id = model.Id,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Category = model.Category,
+                Status = model.Status
             };
         }
     }

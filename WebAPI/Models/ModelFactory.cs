@@ -8,20 +8,6 @@ namespace WebAPI.Models
 {
     public class ModelFactory
     {
-        public PersonModel Create(Person person)
-        {
-            return new PersonModel()
-
-            {
-                Id = person.Id,
-                FirstName = person.FirstName,
-                LastName = person.LastName,
-                Category = person.Category,
-                Phone = person.Phone,
-                Status = person.Status
-            };
-        }
-
         public TeamModel Create(Team team)
         {
             TeamModel model = new TeamModel()
@@ -120,6 +106,19 @@ namespace WebAPI.Models
             {
                 Id = resourceCat.Id,
                 CategoryName = resourceCat.CategoryName
+            };
+        }
+
+        public PersonModel Create(Person person)
+        {
+            return new PersonModel()
+            {
+                Id = person.Id,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Category = person.Category,
+                Phone = person.Phone,
+                Status = person.Status
             };
         }
     }

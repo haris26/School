@@ -23,7 +23,6 @@ namespace WebAPI.Controllers
                 Repository.Get()
                     .OrderBy(x => x.FirstName)
                     .ThenBy(x => x.LastName)
-                    .Select(x => Factory.Create(x))
                     .ToList();
 
             int TotalPages = (int) Math.Ceiling((double) query.Count()/PageSize);
@@ -36,7 +35,7 @@ namespace WebAPI.Controllers
                 pageSize = PageSize,
                 currentPage = page,
                 pageCount = TotalPages,
-                people = people
+                allPeople = people
             };
         }
     }
