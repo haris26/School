@@ -33,7 +33,7 @@ namespace Database
             Teams = new Collection<Team>();
             EmployeeSkills = new Collection<EmployeeSkill>();
             Days = new Collection<Day>();
-            Events = new Collection<Event>();
+
         }
 
         public int Id { get; set; }
@@ -56,7 +56,6 @@ namespace Database
         public virtual ICollection<Team> Teams { get; set; }
         public virtual ICollection<EmployeeSkill> EmployeeSkills { get; set; }
         public virtual ICollection<Day> Days { get; set; }
-        public virtual ICollection<Event> Events { get; set; }
 
     }
 }
