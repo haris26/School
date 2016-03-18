@@ -4,39 +4,61 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using WebAPI.Controllers;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    public class DetailsController : BaseController<Detail>
+    public class PeopleController : BaseController<Person>
     {
 
-        public DetailsController(Repository<Detail> depo) : base(depo)
+        public PeopleController(Repository<Person> depo) : base(depo)
         { }
 
-        public IList<DetailModel> Get()
+        public IList<PersonModel> GetAll(int page = 0)
         {
-            return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
+            int PageSize = 5;
+            var query = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName);
+            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+            IList<PersonModel> people = query.Skip(PageSize * page)
+                                              .Take(PageSize).ToList()
+                                              .Select(x => Factory.Create(x))
+                                              .ToList();           
+
+                var PageHeader = new
+                {
+                    pageSize = PageSize,
+                    currentPage = page,
+                    pageCount = TotalPages
+                };
+
+                HttpContext.Current.Response.Headers.Add
+                ("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject
+                (PageHeader));
+
+                return people;
+           
+           
         }
 
         public IHttpActionResult Get(int id)
         {
             try
             {
-                Detail detail = Repository.Get(id);
-                if (detail == null)
+                Person person = Repository.Get(id);
+                if (person == null)
                     return NotFound();
                 else
-                    return Ok(Factory.Create(detail));
+                    return Ok(Factory.Create(person));
             }
             catch (Exception ex)
             {
                 return BadRequest();
             }
         }
-        public IHttpActionResult Post(DetailModel model)
+        public IHttpActionResult Post(PersonModel model)
         {
             var sch = Repository.BaseContext();
 
@@ -53,13 +75,13 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
-        public IHttpActionResult Put(int id, DetailModel model)
+        public IHttpActionResult Put(int id, PersonModel model)
         {
             var sch = Repository.BaseContext();
             try
             {
-                Detail detail = Repository.Get(id);
-                if (detail == null || model == null) return NotFound();
+                Person person = Repository.Get(id);
+                if (person == null || model == null) return NotFound();
                 else {
                     Repository.Update(Parser.Create(model, sch), id);
                     return Ok(model);
@@ -75,8 +97,8 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Detail detail = Repository.Get(id);
-                if (detail == null)
+                Person person = Repository.Get(id);
+                if (person == null)
                     return NotFound();
                 else
                     Repository.Delete(id);
@@ -89,3 +111,4 @@ namespace WebAPI.Controllers
         }
     }
 }
+

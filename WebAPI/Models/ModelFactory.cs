@@ -80,16 +80,16 @@ namespace WebAPI.Models
             };
         }
 
-        //public PersonModel Create(Person person)
-        //{
-        //    return new PersonModel()
-        //    {
-        //        Id = person.Id,
-        //        FirstName = person.FirstName,
-        //        LastName = person.LastName,
-        //        Category = person.Category,
-        //        Status = person.Status
-        //    };
-        //}
+        public PersonModel Create(Person person)
+        {
+            return new PersonModel()
+            {
+                Id = person.Id,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Category = person.Category,
+                Status = person.Status
+            };
+        }
     }
 }
