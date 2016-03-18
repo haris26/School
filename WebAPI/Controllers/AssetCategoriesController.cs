@@ -24,25 +24,31 @@ namespace WebAPI.Controllers
         {
             try
             {
-                AssetCategory category = Repository.Get(id);
-                if (category == null)
+                AssetCategory assetCat = Repository.Get(id);
+                if (assetCat == null)
+                {
                     return NotFound();
-                else return
-                        Ok(Factory.Create(category));
+
+                }
+                else
+
+                    return Ok(Factory.Create(assetCat));
+
             }
             catch (Exception ex)
             {
                 return BadRequest();
             }
-
         }
 
-        public IHttpActionResult Post(AssetCategory category)
+
+
+        public IHttpActionResult Post(AssetCategoriesModel model)
         {
             try
             {
-                Repository.Insert(category);
-                return Ok(Factory.Create(category));
+                Repository.Insert(Parser.Create(model, Repository.BaseContext()));
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -51,17 +57,31 @@ namespace WebAPI.Controllers
         }
 
 
-        public AssetCategoriesModel Put(int id, AssetCategory category)
+
+        public IHttpActionResult Put(int id, AssetCategoriesModel model)
         {
-            Repository.Update(category, id);
-            return Factory.Create(category);
+            try
+            {
+                Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
         }
 
         public IHttpActionResult Delete(int id)
         {
-            Repository.Delete(id);
-            return Ok();
-
+            try
+            {
+                Repository.Delete(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
         }
     }
 }

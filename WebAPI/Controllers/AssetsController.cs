@@ -26,23 +26,14 @@ namespace WebAPI.Controllers
             {
                 Asset asset = Repository.Get(id);
                 if (asset == null)
+                {
                     return NotFound();
-                else
-                    return Ok(Factory.Create(asset));
-                            
-            }
-            catch (Exception ex)
-            {
-                return BadRequest();
-            }
-        }
 
-        public IHttpActionResult Post(Asset asset)
-        {
-            try
-            {
-                Repository.Insert(asset);
-                return Ok(Factory.Create(asset));
+                }
+                else
+
+                    return Ok(Factory.Create(asset));
+
             }
             catch (Exception ex)
             {
@@ -51,29 +42,46 @@ namespace WebAPI.Controllers
         }
 
 
-        public IHttpActionResult Put(int id, Asset asset)
+
+        public IHttpActionResult Post(AssetsModel model)
         {
             try
             {
-                Repository.Update(asset, id);
-                if (asset == null)
-                    return NotFound();
-                else
-                    return Ok(Factory.Create(asset));
-
+                Repository.Insert(Parser.Create(model, Repository.BaseContext()));
+                return Ok();
             }
-               
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest();
+            }
+        }
+
+
+
+        public IHttpActionResult Put(int id, AssetsModel model)
+        {
+            try
+            {
+                Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
             }
         }
 
         public IHttpActionResult Delete(int id)
         {
-            Repository.Delete(id);
-            return Ok();
-
+            try
+            {
+                Repository.Delete(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
         }
     }
 }
