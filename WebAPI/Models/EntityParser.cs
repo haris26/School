@@ -8,10 +8,20 @@ namespace WebAPI.Models
 {
     public class EntityParser
     {
+        public Person Create(PersonModel model, SchoolContext context)
+        {
+            return new Person()
+            {
+                Id = model.Id,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Category = model.Category,
+                Phone = model.Phone,
+                Status = model.Status
+            };
+        }
 
         public Resource Create(ResourceModel model, SchoolContext context)
-
-
         {
             return new Resource()
             {
@@ -32,6 +42,7 @@ namespace WebAPI.Models
                 Resource = context.Resources.Find(model.Resource)
             };
         }
+
         public CharacteristicName Create(CharacteristicNameModel model, SchoolContext context)
         {
             return new CharacteristicName()
@@ -40,8 +51,7 @@ namespace WebAPI.Models
                 Name = model.Name,
                 ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
             };
-
-
+        }
 
         public Event Create(EventModel model, SchoolContext context)
         {
@@ -68,5 +78,7 @@ namespace WebAPI.Models
             };
 
         }
+
+        
     }
 }

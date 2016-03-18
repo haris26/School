@@ -8,6 +8,20 @@ namespace WebAPI.Models
 {
     public class ModelFactory
     {
+        public PersonModel Create(Person person)
+        {
+            return new PersonModel()
+
+            {
+                Id = person.Id,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Category = person.Category,
+                Phone = person.Phone,
+                Status = person.Status
+            };
+        }
+
         public TeamModel Create(Team team)
         {
             TeamModel model = new TeamModel()
@@ -57,6 +71,7 @@ namespace WebAPI.Models
 
             };
         }
+
         public CharacteristicNameModel Create(CharacteristicName characteristicName)
         {
             return new CharacteristicNameModel()
@@ -64,9 +79,9 @@ namespace WebAPI.Models
                 Id = characteristicName.Id,
                 Name = characteristicName.Name,
                 ResourceCategory = characteristicName.ResourceCategory.Id,
-
                 ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
-
+            };
+        }
 
         public EventModel Create(Event ev)
         {
@@ -97,5 +112,7 @@ namespace WebAPI.Models
 
             };
         }
+
+        
     }
 }
