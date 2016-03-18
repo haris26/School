@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Controllers;
 using WebAPI.Models;
+using System.Web;
 
 namespace WebAPI.Controllers
 {
@@ -16,9 +17,27 @@ namespace WebAPI.Controllers
         public DetailsController(Repository<Detail> depo) : base(depo)
         { }
 
-        public IList<DetailModel> Get()
+        public IList<DetailModel> GetAll(int page = 0)
         {
-            return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
+            int PageSize = 5;
+            var query = Repository.Get().OrderBy(x => x.Day.Date)
+                                        .ThenBy(x => x.Day.Person.LastName);
+                                        
+            int TotalPages = (int)Math.Ceiling
+                            ((double)query.Count() / PageSize);
+            IList<DetailModel> details = query.Skip(PageSize * page)
+                                              .Take(PageSize).ToList()
+                                              .Select(x => Factory.Create(x))
+                                              .ToList();
+            var PageHeader = new
+            {
+                pageSize = PageSize,
+                currentPage = page,
+                pageCount = TotalPages
+            };
+
+            HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+            return details;
         }
 
         public IHttpActionResult Get(int id)

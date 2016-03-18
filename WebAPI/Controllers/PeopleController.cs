@@ -9,38 +9,34 @@ using System.Web.Http;
 using WebAPI.Controllers;
 using WebAPI.Models;
 
+
 namespace WebAPI.Controllers
 {
     public class PeopleController : BaseController<Person>
     {
-
         public PeopleController(Repository<Person> depo) : base(depo)
         { }
 
-        public IList<PersonModel> GetAll(int page = 0)
+        public IList<PersonModel> GetAll(int page =0)
         {
             int PageSize = 5;
-            var query = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName);
-            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+            var query = Repository.Get().OrderBy(x => x.LastName)
+                                        .ThenBy(x => x.FirstName);
+            int TotalPages = (int)Math.Ceiling
+                            ((double)query.Count() / PageSize);
             IList<PersonModel> people = query.Skip(PageSize * page)
                                               .Take(PageSize).ToList()
                                               .Select(x => Factory.Create(x))
-                                              .ToList();           
+                                              .ToList();
+            var PageHeader = new
+            {
+                pageSize = PageSize,
+                currentPage = page,
+                pageCount = TotalPages
+            };
 
-                var PageHeader = new
-                {
-                    pageSize = PageSize,
-                    currentPage = page,
-                    pageCount = TotalPages
-                };
-
-                HttpContext.Current.Response.Headers.Add
-                ("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject
-                (PageHeader));
-
-                return people;
-           
-           
+        HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+            return people;
         }
 
         public IHttpActionResult Get(int id)
@@ -48,26 +44,27 @@ namespace WebAPI.Controllers
             try
             {
                 Person person = Repository.Get(id);
-                if (person == null)
-                    return NotFound();
+
+                if (person == null) return NotFound();
                 else
-                    return Ok(Factory.Create(person));
+                    return Ok(Factory.Create(Repository.Get(id)));
+
             }
             catch (Exception ex)
             {
                 return BadRequest();
             }
         }
-        public IHttpActionResult Post(PersonModel model)
-        {
-            var sch = Repository.BaseContext();
 
+
+        public IHttpActionResult Post(Person person)
+        {
             try
             {
-                if (model == null) return NotFound();
+                if (person == null) return NotFound();
                 else {
-                    Repository.Insert(Parser.Create(model, sch));
-                    return Ok(model);
+                    Repository.Insert(person);
+                    return Ok(Factory.Create(person));
                 }
             }
             catch (Exception ex)
@@ -75,16 +72,16 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
-        public IHttpActionResult Put(int id, PersonModel model)
+
+        public IHttpActionResult Put(int id, Person person)
         {
-            var sch = Repository.BaseContext();
             try
             {
-                Person person = Repository.Get(id);
-                if (person == null || model == null) return NotFound();
+                Person person1 = Repository.Get(id);
+                if (person1 == null || person == null) return NotFound();
                 else {
-                    Repository.Update(Parser.Create(model, sch), id);
-                    return Ok(model);
+                    Repository.Update(person, id);
+                    return Ok(Factory.Create(person));
                 }
             }
             catch (Exception ex)
@@ -98,11 +95,12 @@ namespace WebAPI.Controllers
             try
             {
                 Person person = Repository.Get(id);
-                if (person == null)
-                    return NotFound();
-                else
+
+                if (person == null) return NotFound();
+                else {
                     Repository.Delete(id);
-                return Ok();
+                    return Ok();
+                }
             }
             catch (Exception ex)
             {
@@ -111,4 +109,3 @@ namespace WebAPI.Controllers
         }
     }
 }
-
