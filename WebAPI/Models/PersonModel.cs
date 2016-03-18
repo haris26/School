@@ -13,5 +13,6 @@ namespace WebAPI.Models
         public string LastName { get; set; }
         public EmploymentType Category { get; set; }
         public EmploymentStatus Status { get; set; }
+       
     }
 }
