@@ -58,6 +58,7 @@ namespace WebAPI.Models
             };
         }
 
+
         public AssetCategoriesModel Create(AssetCategory category)
         {
             AssetCategoriesModel model = new AssetCategoriesModel()
@@ -104,6 +105,20 @@ namespace WebAPI.Models
                 DateOfTrade = asset.DateOfTrade,
                 SerialNumber = asset.SerialNumber,
                 Price = asset.Price
+            };
+        }
+
+
+        public PeopleModel Create(Person person)
+        {
+            return new PeopleModel
+            {
+                Id = person.Id,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Category = person.Category,
+                Phone = person.Phone,
+                Status = person.Status
             };
         }
 
