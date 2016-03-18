@@ -17,22 +17,22 @@ namespace WebAPI.Controllers
         public IList<DayModel> GetAll(int page = 0)
         {
             int PageSize = 5;
-            var query = Repository.Get().OrderBy(x => x.Person.LastName).ThenBy(x=>x.Person.FirstName).ThenBy(x => x.Date);
+            var query = Repository.Get().OrderBy(x => x.Person.LastName).ThenBy(x => x.Person.FirstName).ThenBy(x => x.Date);
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
-            IList<DayModel> days = query.Skip(PageSize * page)
-                    .Take(PageSize).ToList()
-                    .Select(x => Factory.Create(x))
-                    .ToList();
-            var PageHeader = new
-            {
-                pageSize = PageSize,
-                currentPage = page,
-                pageCount = TotalPages,
+           
+                IList<DayModel> days = query.Skip(PageSize * page)
+                        .Take(PageSize).ToList()
+                        .Select(x => Factory.Create(x))
+                        .ToList();
+                var PageHeader = new
+                {
+                    pageSize = PageSize,
+                    currentPage = page,
+                    pageCount = TotalPages,
+                };
 
-            };
-
-            HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
-            return days;
+                HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+                return days;
         }
        
 
