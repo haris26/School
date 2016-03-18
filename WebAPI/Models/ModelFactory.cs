@@ -122,6 +122,23 @@ namespace WebAPI.Models
             };
         }
 
+        public HistoryModel Create(History history)
+        {
+            return new HistoryModel
+            {
+                Id = history.Id,
+                EventBegin = history.EventBegin,
+                EventEnd = history.EventEnd,
+                Description = history.Description,
+                Person = history.Person.Id,
+                PersonName = history.Person.FullName,
+                Asset = history.Asset.Id,
+                AssetModel = history.Asset.Model,
+                Status = history.Status
+            };
+        }
+
+
     }
 
 

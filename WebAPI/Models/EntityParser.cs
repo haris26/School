@@ -42,5 +42,18 @@ namespace WebAPI.Models
                 Status = model.Status
             };
         }
+        public History Create(HistoryModel model, SchoolContext context)
+        {
+            return new History()
+            {
+                Id = model.Id,
+                EventBegin=model.EventBegin,
+                EventEnd=model.EventEnd,
+                Person = context.People.Find(model.Person),
+                Asset = context.Assets.Find(model.Asset),
+                Description = model.Description
+                
+            };
+        }
     }
 }
