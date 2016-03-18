@@ -152,6 +152,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CharacteristicNamesController.cs" />
     <Compile Include="Controllers\CharacteristicsController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EventExtendsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
@@ -162,11 +163,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Dashboard.cs" />
     <Compile Include="Models\CharacteristicModel.cs" />
     <Compile Include="Models\CharacteristicNameModel.cs" />
+    <Compile Include="Models\DashboardModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\EventExtendModel.cs" />
     <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\ListModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\ResourceCategoryModel.cs" />
