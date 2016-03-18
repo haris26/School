@@ -11,24 +11,48 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    public class RequestsController : BaseController<Request>
+    public class HistoryController : BaseController<History>
     {
         
-        public RequestsController(Repository<Request> depo) : base(depo) { }
-        
+        public HistoryController(Repository<History> depo) : base(depo) { }
+
+
+
+        public Object GetAll(int page = 0)
+        {
+            int PageSize = 5;
+            var query =
+               Repository.Get()
+                   .OrderBy(x => x.Person.FirstName)
+                   .ThenBy(x => x.EventBegin)
+                   .ToList();
+
+            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+
+            IList<HistoryModel> history =
+                query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
+
+            return new
+            {
+                pageSize = PageSize,
+                currentPage = page,
+                pageCount = TotalPages,
+                allhistory = history
+            };
+        }
 
         public IHttpActionResult Get(int id)
         {
             try {
-                Request request = Repository.Get(id);
-                if(request == null)
+                History history = Repository.Get(id);
+                if(history == null)
                 {
                     return NotFound();
 
                 }
                 else
                 
-                    return Ok(Factory.Create(request));
+                    return Ok(Factory.Create(history));
                
             }
             catch(Exception ex)
@@ -37,7 +61,7 @@ namespace WebAPI.Controllers
             }
         }
 
-        public IHttpActionResult Post(RequestModel model)
+        public IHttpActionResult Post(HistoryModel model)
         {
             try {
                 Repository.Insert(Parser.Create(model, Repository.BaseContext()));
@@ -49,7 +73,7 @@ namespace WebAPI.Controllers
             }
         }
 
-        public IHttpActionResult Put(int id, RequestModel model)
+        public IHttpActionResult Put(int id, HistoryModel model)
         {
             try {
                 Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
