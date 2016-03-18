@@ -53,5 +53,6 @@ namespace Database
         public virtual ICollection<Engagement> Roles { get; set; }
         public virtual ICollection<Team> Teams { get; set; }
         public virtual ICollection<EmployeeSkill> EmployeeSkills { get; set; }
+        public virtual ICollection<EmployeeEducation> EmployeeEducations { get; set; }
     }
 }

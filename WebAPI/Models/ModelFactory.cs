@@ -67,5 +67,13 @@ namespace WebAPI.Models
             };
         }
 
+        public PersonModel Create (Person person)
+        {
+            return new PersonModel()
+            {
+                FirstName = person.FirstName,
+                LastName = person.LastName
+            };
+        }
     }
 }
