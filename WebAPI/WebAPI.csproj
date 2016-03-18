@@ -155,6 +155,7 @@
     <Compile Include="Controllers\EventExtendsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Controllers\ResourceCategoriesController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="Models\ResourceCategoryModel.cs" />
     <Compile Include="Models\ResourceModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\TeamModel.cs" />

@@ -81,6 +81,7 @@ namespace WebAPI.Models
                 ResourceCategory = characteristicName.ResourceCategory.Id,
                 ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
             };
+
         }
 
         public EventModel Create(Event ev)
@@ -113,6 +114,13 @@ namespace WebAPI.Models
             };
         }
 
-        
+        public ResourceCategoryModel Create(ResourceCategory resourceCat)
+        {
+            return new ResourceCategoryModel()
+            {
+                Id = resourceCat.Id,
+                CategoryName = resourceCat.CategoryName
+            };
+        }
     }
 }

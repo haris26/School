@@ -15,6 +15,7 @@ namespace WebAPI.App_Start
     using Database;
     using System.Data.Entity;
     using Database.DataAccess;
+    using Models;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -67,6 +68,7 @@ namespace WebAPI.App_Start
         private static void RegisterServices(IKernel kernel) //najavljujemo zavisnosti
         {
             kernel.Bind(typeof(Interface<>)).To(typeof(Repository<>)).WithConstructorArgument(typeof(DbContext), new SchoolContext()); //bindamo interfejs na repo
+            //kernel.Bind(typeof(InterfaceContext)).To(typeof(EntityParser)).WithConstructorArgument(typeof(DbContext), new SchoolContext());
         }        
     }
 }
