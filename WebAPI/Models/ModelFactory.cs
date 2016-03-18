@@ -57,6 +57,7 @@ namespace WebAPI.Models
 
             };
         }
+
         public CharacteristicNameModel Create(CharacteristicName characteristicName)
         {
             return new CharacteristicNameModel()
@@ -64,10 +65,10 @@ namespace WebAPI.Models
                 Id = characteristicName.Id,
                 Name = characteristicName.Name,
                 ResourceCategory = characteristicName.ResourceCategory.Id,
-
                 ResourceCategoryName = characteristicName.ResourceCategory.CategoryName
             };
-            }
+
+        }
 
         public EventModel Create(Event ev)
         {
@@ -98,6 +99,7 @@ namespace WebAPI.Models
 
             };
         }
+
         public ResourceCategoryModel Create(ResourceCategory resourceCat)
         {
             return new ResourceCategoryModel()
@@ -106,10 +108,10 @@ namespace WebAPI.Models
                 CategoryName = resourceCat.CategoryName
             };
         }
+
         public PersonModel Create(Person person)
         {
             return new PersonModel()
-
             {
                 Id = person.Id,
                 FirstName = person.FirstName,

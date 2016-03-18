@@ -28,6 +28,7 @@ namespace WebAPI.Models
                 Resource = context.Resources.Find(model.Resource)
             };
         }
+
         public CharacteristicName Create(CharacteristicNameModel model, SchoolContext context)
         {
             return new CharacteristicName()
@@ -37,6 +38,7 @@ namespace WebAPI.Models
                 ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
             };
         }
+
         public Event Create(EventModel model, SchoolContext context)
         {
             return new Event()
@@ -62,6 +64,7 @@ namespace WebAPI.Models
             };
 
         }
+
         public ResourceCategory Create(ResourceCategoryModel model, SchoolContext context)
         {
             return new ResourceCategory()
@@ -70,6 +73,8 @@ namespace WebAPI.Models
                 CategoryName = model.CategoryName
             };
         }
+
+
         public Person Create(PersonModel model, SchoolContext context)
 
         {

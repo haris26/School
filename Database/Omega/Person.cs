@@ -54,6 +54,7 @@ namespace Database
         public virtual ICollection<Team> Teams { get; set; }
         public virtual ICollection<EmployeeSkill> EmployeeSkills { get; set; }
         public virtual ICollection<Event> Events { get; set; }
-        public virtual ICollection<Day> Days { get; set; }
+        public virtual ICollection<Day> Days { get; set; } 
+
     }
 }
