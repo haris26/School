@@ -1,29 +1,28 @@
-﻿using Database;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Models;
+using Database;
 using System.Web;
 
 namespace WebAPI.Controllers
 {
-    public class DetailsController : BaseController<Detail>
+    public class PeopleController : BaseController<Person>
     {
-        public DetailsController(Repository<Detail> depo) : base(depo)
+        public PeopleController(Repository<Person> depo) : base(depo)
         { }
 
-        public IList<DetailModel> GetAll(int page = 0)
+        public IList<PersonModel> GetAll(int page =0)
         {
             int PageSize = 5;
-            var query = Repository.Get().OrderBy(x => x.Day.Date)
-                                        .ThenBy(x => x.Day.Person.LastName);
-                                        
+            var query = Repository.Get().OrderBy(x => x.LastName)
+                                        .ThenBy(x => x.FirstName);
             int TotalPages = (int)Math.Ceiling
                             ((double)query.Count() / PageSize);
-            IList<DetailModel> details = query.Skip(PageSize * page)
+            IList<PersonModel> people = query.Skip(PageSize * page)
                                               .Take(PageSize).ToList()
                                               .Select(x => Factory.Create(x))
                                               .ToList();
@@ -34,53 +33,18 @@ namespace WebAPI.Controllers
                 pageCount = TotalPages
             };
 
-            HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
-            return details;
+        HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+            return people;
         }
 
         public IHttpActionResult Get(int id)
         {
             try
             {
-                Detail detail = Repository.Get(id);
-                if (detail == null)
-                    return NotFound();
+                Person person = Repository.Get(id);
+                if (person == null) return NotFound();
                 else
-                    return Ok(Factory.Create(detail));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest();
-            }
-        }
-        public IHttpActionResult Post(DetailModel model)
-        {
-            var sch = Repository.BaseContext();
-
-            try
-            {
-                if (model == null) return NotFound();
-                else {
-                    Repository.Insert(Parser.Create(model, sch));
-                    return Ok(model);
-                }
-            }
-            catch (Exception ex)
-            {
-                return BadRequest();
-            }
-        }
-        public IHttpActionResult Put(int id, DetailModel model)
-        {
-            var sch = Repository.BaseContext();
-            try
-            {
-                Detail detail1 = Repository.Get(id);
-                if (detail1 == null || model == null) return NotFound();
-                else {
-                    Repository.Update(Parser.Create(model, sch), id);
-                    return Ok(model);
-                }
+                    return Ok(Factory.Create(Repository.Get(id)));
             }
             catch (Exception ex)
             {
@@ -88,16 +52,47 @@ namespace WebAPI.Controllers
             }
         }
 
+        public IHttpActionResult Post(Person person)
+        {
+            try
+            {
+                if (person == null) return NotFound();
+                else {
+                    Repository.Insert(person);
+                    return Ok(Factory.Create(person));
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
+        public IHttpActionResult Put(int id, Person person)
+        {
+            try
+            {
+                Person person1 = Repository.Get(id);
+                if (person1 == null || person == null) return NotFound();
+                else {
+                    Repository.Update(person, id);
+                    return Ok(Factory.Create(person));
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
         public IHttpActionResult Delete(int id)
         {
             try
             {
-                Detail detail = Repository.Get(id);
-                if (detail == null)
-                    return NotFound();
-                else
+                Person person = Repository.Get(id);
+                if (person == null) return NotFound();
+                else {
                     Repository.Delete(id);
-                return Ok();
+                    return Ok();
+                }
             }
             catch (Exception ex)
             {

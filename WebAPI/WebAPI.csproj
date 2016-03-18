@@ -152,6 +152,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DaysController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
