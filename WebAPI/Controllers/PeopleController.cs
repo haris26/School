@@ -15,7 +15,7 @@ namespace WebAPI.Controllers
         public PeopleController(Repository<Person> depo):base(depo)
         { }
 
-        public IList<PersonModel> GetAll(int page = 0, int PageSize = 0)
+        public IList<PersonModel> GetAll(int page = 0, int PageSize = 5)
         {
             var query = Repository.Get().OrderBy(x => x.FirstName)
                                         .ThenBy(x => x.LastName).ToList();
