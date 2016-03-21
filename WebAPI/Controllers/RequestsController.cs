@@ -8,20 +8,38 @@ using System.Web.Http;
 using WebApi.Controllers;
 using WebAPI.Models;
 
+
 namespace WebAPI.Controllers
 {
     public class RequestsController : BaseController<Request>
     {
         
         public RequestsController(Repository<Request> depo) : base(depo) { }
-        
 
-        public List<RequestModel> Get()
+        public Object GetAll(int page = 0)
         {
-            return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
+            int PageSize = 5;
+            var query =
+               Repository.Get()
+                   .OrderByDescending(x => x.Status)
+                   .ThenBy(x => x.RequestDate)
+                   .ToList();
+
+            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+            IList<RequestModel> requests =
+               query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
+
+            return new
+            {
+                pageSize = PageSize,
+                currentPage = page,
+                pageCount = TotalPages,
+                allRequests = requests
+            };
         }
 
-        public IHttpActionResult Get(int id)
+
+         public IHttpActionResult Get(int id)
         {
             try {
                 Request request = Repository.Get(id);
@@ -39,7 +57,7 @@ namespace WebAPI.Controllers
             {
                 return BadRequest();
             }
-           }
+        }
 
         public IHttpActionResult Post(RequestModel model)
         {
