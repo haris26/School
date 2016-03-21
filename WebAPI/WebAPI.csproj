@@ -154,6 +154,8 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EmployeeEducationsController.cs" />
     <Compile Include="Controllers\EmployeeSummariesController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Helpers\AppGlobal.cs" />
     <Compile Include="Helpers\EmployeeSummary.cs" />
     <Compile Include="Models\EmployeeSkillsSummary.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
@@ -176,6 +178,7 @@
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\SkillsCategoryModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
+    <Compile Include="Models\TeamSummaryModel.cs" />
     <Compile Include="Models\ToolModel.cs" />
     <Compile Include="Controllers\EducationsController.cs" />
     <Compile Include="Models\EducationModel.cs" />

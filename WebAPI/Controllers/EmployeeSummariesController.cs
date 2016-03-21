@@ -18,14 +18,19 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Person person = Repository.Get(id);
-                if (person == null)
+                Person person;
+                if (id == 0)
+                    person = AppGlobals.currentUser;
+                else
                 {
-                    return NotFound();
+                    person = Repository.Get(id);
+                    if (person == null)
+                    {
+                        return NotFound();
+                    }
                 }
-
                 return Ok(EmployeeSummary.Create(person));
-            }
+            }    
             catch (Exception ex)
             {
                 return BadRequest();
