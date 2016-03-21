@@ -22,7 +22,12 @@ namespace WebAPI.Controllers
         {
             int CY = Convert.ToInt32(ConfigurationManager.AppSettings["currentYear"]);
 
-            Person person = Repository.Get(id);
+            Person person;
+            if (id == 0)
+                person = AppGlobals.currentUser;
+            else
+                person = Repository.Get(id);
+
 
             return Ok(Dashboard.Create(person));
         }
