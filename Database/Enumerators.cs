@@ -64,6 +64,13 @@ namespace Database
         Reserved = 2
     }
 
+    public enum TimeSlot
+    {
+        Minutes = 1,
+        Hours = 2,
+        Days = 3
+    }
+
 // Procurement System
     
     public enum AssetType
