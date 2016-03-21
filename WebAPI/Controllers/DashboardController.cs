@@ -1,15 +1,10 @@
 ﻿using Database;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using WebApi.Helpers;
+using WebAPI.Controllers;
 using WebAPI.Helpers;
-using WebAPI.Models;
 
-namespace WebAPI.Controllers
+namespace WebApi.Controllers
 {
     public class DashboardController : BaseController<Person>
     {
@@ -18,9 +13,11 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Get(int id = 0)
         {
-            int CY = Convert.ToInt32(ConfigurationManager.AppSettings["currentYear"]);
-
-            Person person = Repository.Get(id);
+            Person person;
+            if (id == 0)
+                person = AppGlobals.currentUser;
+            else
+                person = Repository.Get(id);
 
             return Ok(Dashboard.Create(person));
         }
