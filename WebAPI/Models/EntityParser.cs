@@ -70,7 +70,9 @@ namespace WebAPI.Models
             return new ResourceCategory()
             {
                 Id = model.Id,
-                CategoryName = model.CategoryName
+                CategoryName = model.CategoryName,
+                TimeSlot = model.TimeSlot,
+                TimeDuration = model.TimeDuration
             };
         }
 
