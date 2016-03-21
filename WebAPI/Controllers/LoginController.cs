@@ -1,8 +1,15 @@
-﻿using Database;
-using System.Web.Http;
-using WebApi.Helpers;
 
-namespace WebApi.Controllers
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using Database;
+using WebAPI.Helpers;
+
+namespace WebAPI.Controllers
+
 {
     public class LoginController : ApiController
     {
@@ -29,4 +36,6 @@ namespace WebApi.Controllers
             }
         }
     }
+
 }
+
