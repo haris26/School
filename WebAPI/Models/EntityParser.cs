@@ -30,6 +30,37 @@ namespace WebAPI.Models
             };
         }
 
+        public Asset Create(AssetsModel model, SchoolContext context)
+        {
+            return new Asset()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Model = model.Model,
+                User = context.People.Find(model.User),
+              Status = (AssetStatus)Enum.Parse(typeof(AssetStatus), model.Status),
+            Vendor = model.Vendor,
+                AssetCategory = context.AssetCategory.Find(model.Category),
+                DateOfTrade = model.DateOfTrade,
+                SerialNumber = model.SerialNumber,
+                Price = model.Price
+ };
+        }
+
+
+        public AssetCategory Create(AssetCategoriesModel model, SchoolContext context)
+        {
+            return new AssetCategory()
+            {
+                Id=model.Id,
+                CategoryName= model.CategoryName,
+                assetType = (AssetType)Enum.Parse(typeof(AssetType), model.Type),
+       
+
+    };
+        }
+
+
         public Person Create(PeopleModel model, SchoolContext context)
         {
             return new Person()

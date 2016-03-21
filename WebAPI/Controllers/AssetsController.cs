@@ -15,9 +15,27 @@ namespace WebAPI.Controllers
         public AssetsController(Repository<Asset> depo) : base(depo)
         { }
 
-        public IList<AssetsModel> Get()
+        public Object GetAll(int page = 0)
         {
-            return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
+            int PageSize = 5;
+            var query =
+               Repository.Get()
+                   .OrderBy(x => x.Status)
+                   .ThenBy(x => x.Model)
+                   .ToList();
+
+            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+
+            IList<AssetsModel> people =
+                query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
+
+            return new
+            {
+                pageSize = PageSize,
+                currentPage = page,
+                pageCount = TotalPages,
+                allPeople = people
+            };
         }
 
         public IHttpActionResult Get(int id)
@@ -26,23 +44,14 @@ namespace WebAPI.Controllers
             {
                 Asset asset = Repository.Get(id);
                 if (asset == null)
+                {
                     return NotFound();
-                else
-                    return Ok(Factory.Create(asset));
-                            
-            }
-            catch (Exception ex)
-            {
-                return BadRequest();
-            }
-        }
 
-        public IHttpActionResult Post(Asset asset)
-        {
-            try
-            {
-                Repository.Insert(asset);
-                return Ok(Factory.Create(asset));
+                }
+                else
+
+                    return Ok(Factory.Create(asset));
+
             }
             catch (Exception ex)
             {
@@ -51,29 +60,46 @@ namespace WebAPI.Controllers
         }
 
 
-        public IHttpActionResult Put(int id, Asset asset)
+
+        public IHttpActionResult Post(AssetsModel model)
         {
             try
             {
-                Repository.Update(asset, id);
-                if (asset == null)
-                    return NotFound();
-                else
-                    return Ok(Factory.Create(asset));
-
+                Repository.Insert(Parser.Create(model, Repository.BaseContext()));
+                return Ok();
             }
-               
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest();
+            }
+        }
+
+
+
+        public IHttpActionResult Put(int id, AssetsModel model)
+        {
+            try
+            {
+                Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
             }
         }
 
         public IHttpActionResult Delete(int id)
         {
-            Repository.Delete(id);
-            return Ok();
-
+            try
+            {
+                Repository.Delete(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
         }
     }
 }

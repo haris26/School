@@ -15,9 +15,37 @@ namespace WebAPI.Controllers
     {
         
         public RequestsController(Repository<Request> depo) : base(depo) { }
+
+
+
         
 
-        public IHttpActionResult Get(int id)
+        public Object GetAll(int page = 0)
+        {
+            int PageSize = 5;
+            var query =
+               Repository.Get()
+                   .OrderByDescending(x => x.Status)
+                   .ThenBy(x => x.RequestDate)
+                   .ToList();
+
+            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+            IList<RequestModel> requests =
+               query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
+
+            return new
+            {
+                pageSize = PageSize,
+                currentPage = page,
+                pageCount = TotalPages,
+                allRequests = requests
+            };
+        }
+
+
+         public IHttpActionResult Get(int id)
+
+
         {
             try {
                 Request request = Repository.Get(id);

@@ -57,7 +57,7 @@ namespace ProcurementSystem.Models
                 // Category = model.AssetCategory.Id,
                 DateOfTrade = model.DateOfTrade,
                 SerialNumber = model.SerialNumber,
-                // Status = model.Status.ToString(),
+                Status = (AssetStatus)Enum.Parse(typeof(AssetStatus), model.Status),
                 Price = model.Price
             };
 
@@ -115,7 +115,8 @@ namespace ProcurementSystem.Models
             {
                 Id = model.Id,
                CategoryName=model.CategoryName,
-      
+                assetType = (AssetType)Enum.Parse(typeof(AssetType), model.Type),
+
 
             };
         }
