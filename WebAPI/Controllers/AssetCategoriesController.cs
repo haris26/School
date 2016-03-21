@@ -26,7 +26,7 @@ namespace WebAPI.Controllers
 
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
 
-            IList<AssetCategoriesModel> people =
+            IList<AssetCategoriesModel> categories =
                 query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
 
             return new
@@ -34,7 +34,7 @@ namespace WebAPI.Controllers
                 pageSize = PageSize,
                 currentPage = page,
                 pageCount = TotalPages,
-                allPeople = people
+                allcategories = categories
             };
         }
 

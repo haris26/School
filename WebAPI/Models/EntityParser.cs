@@ -86,5 +86,19 @@ namespace WebAPI.Models
                 
             };
         }
+
+        public AssetChar Create(AssetCharsModel model, SchoolContext context)
+        {
+            return new AssetChar()
+            {
+                Id = model.Id,
+                Name=model.Name,
+                Value=model.Value,
+                Asset = context.Assets.Find(model.Asset),
+               
+
+            };
+
+        }
     }
 }

@@ -88,7 +88,20 @@ namespace WebAPI.Models
 
             return model;
         }
+        public AssetCharsModel Create(AssetChar characteristic)
+        {
+            AssetCharsModel model = new AssetCharsModel()
+            {
+                Id = characteristic.Id,
+               Name = characteristic.Name,
+             Value=characteristic.Value,
+               Asset = characteristic.Asset.Id,
+              AssetName=characteristic.Asset.Name
 
+            };
+            
+              return model;
+        }
         public AssetsModel Create(Asset asset)
         {
             return new AssetsModel()
