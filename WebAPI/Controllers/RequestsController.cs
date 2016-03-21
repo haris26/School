@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
         public RequestsController(Repository<Request> depo) : base(depo) { }
 
 
-        public IHttpActionResult Get(int id)
+        
 
         public Object GetAll(int page = 0)
         {
