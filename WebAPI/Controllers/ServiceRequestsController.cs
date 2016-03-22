@@ -8,16 +8,14 @@ using System.Web.Http;
 using WebApi.Controllers;
 using WebAPI.Models;
 
-
 namespace WebAPI.Controllers
 {
-    public class RequestsController : BaseController<Request>
+    public class ServiceRequestsController : BaseController<Request>
     {
-        
-        public RequestsController(Repository<Request> depo) : base(depo) { }
+        public ServiceRequestsController(Repository<Request> depo) : base(depo) { }
 
 
-        
+
 
         public Object GetAll(int page = 0)
         {
@@ -26,7 +24,7 @@ namespace WebAPI.Controllers
                Repository.Get()
                    .OrderByDescending(x => x.Status)
                    .ThenBy(x => x.RequestDate)
-                   .Where(x => x.requestType == RequestType.Equipment)
+                   .Where(x => x.requestType == RequestType.Service)
                    .ToList();
 
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
@@ -43,23 +41,24 @@ namespace WebAPI.Controllers
         }
 
 
-         public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(int id)
 
 
         {
-            try {
+            try
+            {
                 Request request = Repository.Get(id);
-                if(request == null)
+                if (request == null)
                 {
                     return NotFound();
 
                 }
                 else
-                
+
                     return Ok(Factory.Create(request));
-               
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest();
             }
@@ -67,7 +66,8 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Post(RequestModel model)
         {
-            try {
+            try
+            {
                 Repository.Insert(Parser.Create(model, Repository.BaseContext()));
                 return Ok();
             }
@@ -79,23 +79,25 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Put(int id, RequestModel model)
         {
-            try {
+            try
+            {
                 Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
                 return Ok(model);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-             return   NotFound();
+                return NotFound();
             }
-          }
+        }
 
         public IHttpActionResult Delete(int id)
         {
-            try {
+            try
+            {
                 Repository.Delete(id);
                 return Ok();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return NotFound();
             }

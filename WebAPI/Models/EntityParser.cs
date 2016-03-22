@@ -30,6 +30,8 @@ namespace WebAPI.Models
             };
         }
 
+       
+
         public Asset Create(AssetsModel model, SchoolContext context)
         {
             return new Asset()

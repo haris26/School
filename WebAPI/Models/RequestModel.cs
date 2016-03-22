@@ -12,7 +12,7 @@ namespace WebAPI.Models
         {
             Status = (RequestStatus)1;
             RequestDate = DateTime.Now;
-
+            
             requestType = (RequestType)1;
         }
         public int Id { get; set; }
