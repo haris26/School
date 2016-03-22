@@ -42,7 +42,7 @@ namespace WebApi.Controllers
 
         public IHttpActionResult Get()
         {
-            if (!WebSecurity.Initialized) WebSecurity.InitializeDatabaseConnection("School", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+            if (!WebSecurity.Initialized) WebSecurity.InitializeDatabaseConnection("SchoolLocal", "UserProfile", "UserId", "UserName", autoCreateTables: true);
             WebSecurity.Logout();
             return Ok();
         }
@@ -51,7 +51,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                if (!WebSecurity.Initialized) WebSecurity.InitializeDatabaseConnection("School", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                if (!WebSecurity.Initialized) WebSecurity.InitializeDatabaseConnection("SchoolLocal", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                 WebSecurity.CreateUserAndAccount(user.username, user.password, false);
                 return Ok();
             }
