@@ -27,26 +27,49 @@ namespace WebAPI.Models
         }
         public RequestModel Create(Request request)
         {
-            return new RequestModel()
+            if (request.Asset == null)
             {
-                Id = request.Id,
-                requestType = request.requestType,
-                RequestDescription = request.RequestDescription,
-                RequestMessage = request.RequestMessage,
-                RequestDate = request.RequestDate,
-               // Asset = request.Asset.Id,
-              //  AssetModel = request.Asset.Name,
-                Person = request.User.Id,
-                PersonName = request.User.FirstName + " " + request.User.LastName,
-                Category = request.AssetCategory.Id,
-                CategoryName = request.AssetCategory.CategoryName,
-                Quantity = request.Quantity,
-                Status = request.Status,
-                AssetType = request.AssetType,
+                return new RequestModel()
+                {
+                    Id = request.Id,
+                    requestType = request.requestType,
+                    RequestDescription = request.RequestDescription,
+                    RequestMessage = request.RequestMessage,
+                    RequestDate = request.RequestDate,
+                    // Asset = request.Asset.Id,
+                    //  AssetModel = request.Asset.Name,
+                    Person = request.User.Id,
+                    PersonName = request.User.FirstName + " " + request.User.LastName,
+                    Category = request.AssetCategory.Id,
+                    CategoryName = request.AssetCategory.CategoryName,
+                    Quantity = request.Quantity,
+                    Status = request.Status,
+                    AssetType = request.AssetType,
+                };
+            }
+            else
+                return new RequestModel()
+                {
+                    Id = request.Id,
+                    requestType = request.requestType,
+                    RequestDescription = request.RequestDescription,
+                    RequestMessage = request.RequestMessage,
+                    RequestDate = request.RequestDate,
+                    Asset = request.Asset.Id,
+                    AssetModel = request.Asset.Name,
+                    Person = request.User.Id,
+                    PersonName = request.User.FirstName + " " + request.User.LastName,
+                    Category = request.AssetCategory.Id,
+                    CategoryName = request.AssetCategory.CategoryName,
+                     Quantity = request.Quantity,
+                    Status = request.Status,
+                    AssetType = request.AssetType,
 
 
-            };
+                };          
         }
+
+      
 
         public RoleModel Create(Role role)
         {
