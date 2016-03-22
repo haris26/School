@@ -169,6 +169,7 @@
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\RequestsController.cs" />
+    <Compile Include="Filters\SchoolAuthorizeAttribute.cs" />
     <Compile Include="Models\AssetCategoryModel.cs" />
     <Compile Include="Models\AssetCharacteristicsNameModel.cs" />
     <Compile Include="Models\AssetCharModel.cs" />
