@@ -49,6 +49,16 @@ namespace DataSeed
             return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
         }
 
+        public static DateTime? getOptDate(DataRow row, int index)
+        {
+            string retrievedDate = row.ItemArray.GetValue(index).ToString();
+
+            if (retrievedDate == "")
+                return null;
+
+            return Convert.ToDateTime(row.ItemArray.GetValue(index).ToString());
+        }
+
         public static double getDouble(DataRow row, int index)
         {
             return Convert.ToDouble(row.ItemArray.GetValue(index).ToString());

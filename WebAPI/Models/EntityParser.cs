@@ -39,7 +39,8 @@ namespace WebAPI.Models
                 Tool = context.Tools.Find(model.Tool),
                 Level = model.Level,
                 Experience = model.Experience,
-                Date = model.Date,
+                DateOfSelfAssessment = model.DateOfSelfAssessment,
+                DateOfSupervisorAssessment = model.DateOfSupervisorAssessment,
                 AssessedBy = model.AssessedBy
             };
         }

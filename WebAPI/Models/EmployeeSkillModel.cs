@@ -13,7 +13,8 @@ namespace WebAPI.Models
         public int Tool { get; set; }
         public Level Level { get; set; }
         public int? Experience { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime DateOfSelfAssessment { get; set; }
+        public DateTime? DateOfSupervisorAssessment { get; set; }
         public AssessmentType AssessedBy { get; set; }
     }
 }

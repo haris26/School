@@ -54,7 +54,9 @@ namespace WebAPI.Helpers
                 CategoryName = x.Key.Name,
                 Skills = x.ToList()
                           .GroupBy(y => y.Tool.Name)
-                          .Select(y => y.ToList().OrderBy(z => z.Date).FirstOrDefault()).ToList()
+                          .Select(y => y.ToList().Where(z => z.AssessedBy == AssessmentType.Supervisor)
+                                                 .OrderByDescending(z => z.DateOfSupervisorAssessment)
+                                                 .FirstOrDefault()).ToList()
                           .Select(y => CreateEmployeeSkillDetail(y)).ToList()
             };
         }

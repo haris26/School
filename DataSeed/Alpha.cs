@@ -62,8 +62,9 @@ namespace DataSeed
                     Experience = Utility.getInteger(row, 1),
                     Tool = tool,
                     Employee = employee,
-                    Date = Utility.getDate(row, 4),
-                    AssessedBy = (AssessmentType)Utility.getInteger(row, 5)
+                    DateOfSelfAssessment = Utility.getDate(row, 4),
+                    DateOfSupervisorAssessment = Utility.getOptDate(row, 5),
+                    AssessedBy = (AssessmentType)Utility.getInteger(row, 6)
                 };
 
                 if (exp > 0)
