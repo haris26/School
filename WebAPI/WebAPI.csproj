@@ -157,10 +157,12 @@
     <Compile Include="Controllers\EmployeeSummariesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SkillAssessmentHistoriesController.cs" />
+    <Compile Include="Controllers\TeamSummariesController.cs" />
     <Compile Include="Helpers\AppGlobal.cs" />
     <Compile Include="Helpers\EmployeeAssessment.cs" />
     <Compile Include="Helpers\EmployeeSummary.cs" />
     <Compile Include="Models\AssessmentSearchModel.cs" />
+    <Compile Include="Helpers\TeamSummary.cs" />
     <Compile Include="Models\CategorySkillsSummary.cs" />
     <Compile Include="Models\EmployeeAssessmentModel.cs" />
     <Compile Include="Models\EmployeeSkillsSummary.cs" />
