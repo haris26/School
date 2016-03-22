@@ -155,8 +155,10 @@
     <Compile Include="Controllers\EmployeeEducationsController.cs" />
     <Compile Include="Controllers\EmployeeSummariesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\TeamSummariesController.cs" />
     <Compile Include="Helpers\AppGlobal.cs" />
     <Compile Include="Helpers\EmployeeSummary.cs" />
+    <Compile Include="Helpers\TeamSummary.cs" />
     <Compile Include="Models\CategorySkillsSummary.cs" />
     <Compile Include="Models\EmployeeSkillsSummary.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
