@@ -246,12 +246,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Test\Get.cshtml" />
     <Content Include="Views\Test\Person.cshtml" />
-    <Content Include="Views\Test\Person2.cshtml" />
     <Content Include="Views\Test\People.cshtml" />
     <Content Include="Views\Teams\Create.cshtml" />
     <Content Include="Views\Teams\Delete.cshtml" />
@@ -282,7 +279,6 @@
     <Content Include="Views\Shared\_RequestEdit.cshtml" />
     <Content Include="Views\People\Engagements.cshtml" />
     <Content Include="Views\People\EngDelete.cshtml" />
-    <Content Include="Views\Shared\_EngagementEdit.cshtml" />
     <Content Include="Views\AssetCategories\Create.cshtml" />
     <Content Include="Views\AssetCategories\Delete.cshtml" />
     <Content Include="Views\AssetCategories\Details.cshtml" />
@@ -310,6 +306,8 @@
     <Content Include="Views\People\EngDelete.cshtml" />
     <Content Include="Views\Shared\_EngagementEdit.cshtml" />
     <Content Include="Views\Requests\Basic.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
