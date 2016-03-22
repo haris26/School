@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Principal;
+using System.Threading;
 using System.Web.Http;
 using Database;
 using WebAPI.Helpers;
-using System.Threading;
-using System.Security.Principal;
 using WebMatrix.WebData;
 
 namespace WebAPI.Controllers
@@ -37,7 +37,8 @@ namespace WebAPI.Controllers
                     return NotFound();
                 }
             }
-            catch
+
+            catch 
             {
                 return BadRequest();
             }

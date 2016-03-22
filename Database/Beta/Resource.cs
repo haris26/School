@@ -14,6 +14,7 @@ namespace Database
         [StatusControl]
         public ReservationStatus Status { get; set; }                       // Reservation status of resource
         public virtual ResourceCategory  ResourceCategory { get; set;}      // Navigation to the resource category
-        public virtual ICollection<Characteristic> Characteristics { get; set; } 
+        public virtual ICollection<Characteristic> Characteristics { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
     }
 }

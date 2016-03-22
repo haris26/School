@@ -5,15 +5,18 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Database;
+using WebAPI.Filters;
 using WebAPI.Helpers;
 using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
+
     [SchoolAuthorized]
     public class DashboardController : BaseController<Person>
     {
         SchoolIdentity identity = new SchoolIdentity();
+
         public DashboardController(Repository<Person> depo) : base(depo) { }
 
         public IHttpActionResult Get(int id = 0)
