@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebAPI.Controllers;
 using WebAPI.Models;
 using System.Web;
 
@@ -13,7 +12,6 @@ namespace WebAPI.Controllers
 {
     public class DetailsController : BaseController<Detail>
     {
-
         public DetailsController(Repository<Detail> depo) : base(depo)
         { }
 
@@ -77,8 +75,8 @@ namespace WebAPI.Controllers
             var sch = Repository.BaseContext();
             try
             {
-                Detail detail = Repository.Get(id);
-                if (detail == null || model == null) return NotFound();
+                Detail detail1 = Repository.Get(id);
+                if (detail1 == null || model == null) return NotFound();
                 else {
                     Repository.Update(Parser.Create(model, sch), id);
                     return Ok(model);

@@ -12,4 +12,3 @@ namespace Database
         void Delete(int id);
     }
 }
-

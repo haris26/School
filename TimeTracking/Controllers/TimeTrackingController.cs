@@ -14,7 +14,6 @@ namespace TimeTracking.Controllers
     public class TimeTrackingController : BaseController
     {
 
-
         public ActionResult Days(int id)
 
         {
@@ -25,7 +24,6 @@ namespace TimeTracking.Controllers
                                .Select(x => Factory.Create(x)).ToList();
             return View(model);
         }
-
 
         public ActionResult CreateDetail()
         {
@@ -76,4 +74,3 @@ namespace TimeTracking.Controllers
         }
     }
 }
-

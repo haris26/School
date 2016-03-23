@@ -5,14 +5,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebAPI.Controllers;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
     public class TeamsController : BaseController<Team>
     {
-
         public TeamsController(Repository<Team> depo) : base(depo)
         { }
 
@@ -63,7 +61,6 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
-
         public IHttpActionResult Delete(int id) {
             try
             {

@@ -1,14 +1,12 @@
 ﻿body {
-
     padding-top: 150px;
-
     padding-bottom: 20px;
     
     
    
 }
 
-/ Set padding to keep content from hitting the edges /
+/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -21,7 +19,7 @@
     white-space: normal;
 }
 
-/ Set width on the form input elements since they're 100% wide by default /
+/* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
@@ -37,7 +35,6 @@ textarea {
 }
 
 .navbar-nav li:hover {
-
     background-color: white;
     color:white;
     
@@ -49,16 +46,13 @@ textarea {
 }
 
 
-
 .dropdown-menu li:hover{
     height: 26px;
 } 
 
 
 .navbar-default .navbar-nav > li > a {
-
    color:#F2AE75;
-
 
 }
 
@@ -80,7 +74,6 @@ textarea {
     text-transform:lowercase;
 }
 
-
 #img_logo{
     margin-top: -12px;
 }
@@ -92,19 +85,15 @@ textarea {
         overflow:auto;
     }
 
-
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
-
     -webkit-appearance: none;
     -moz-appearance: none;
     
     margin: 0; 
 }
 
-
 input[type=number] {-moz-appearance: textfield;}
-
 
 .btn-info{
     background-color:#273547;
@@ -117,7 +106,6 @@ input[type=number] {-moz-appearance: textfield;}
 
 #footer{
     position:fixed;
-
     bottom: 0px;
     color: #F2AE75;   
 }
@@ -185,6 +173,5 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus .dropdow
 .select:active, .select:hover {
   outline-color: rgba(229, 103, 23, 0.8);
 }
-
 
 

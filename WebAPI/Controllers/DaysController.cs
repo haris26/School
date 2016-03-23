@@ -6,7 +6,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
-using WebAPI.Controllers;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
@@ -15,26 +14,25 @@ namespace WebAPI.Controllers
     {
         public DaysController(Repository<Day> depo) : base(depo)
         { }
-
         public IList<DayModel> GetAll(int page = 0)
         {
             int PageSize = 5;
-            var query = Repository.Get().OrderBy(x => x.Person.LastName).ThenBy(x=>x.Person.FirstName).ThenBy(x => x.Date);
+            var query = Repository.Get().OrderBy(x => x.Person.LastName).ThenBy(x => x.Person.FirstName).ThenBy(x => x.Date);
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
-            IList<DayModel> days = query.Skip(PageSize * page)
-                    .Take(PageSize).ToList()
-                    .Select(x => Factory.Create(x))
-                    .ToList();
-            var PageHeader = new
-            {
-                pageSize = PageSize,
-                currentPage = page,
-                pageCount = TotalPages,
+           
+                IList<DayModel> days = query.Skip(PageSize * page)
+                        .Take(PageSize).ToList()
+                        .Select(x => Factory.Create(x))
+                        .ToList();
+                var PageHeader = new
+                {
+                    pageSize = PageSize,
+                    currentPage = page,
+                    pageCount = TotalPages,
+                };
 
-            };
-
-            HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
-            return days;
+                HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+                return days;
         }
        
 
@@ -73,7 +71,6 @@ namespace WebAPI.Controllers
             try {
                 Day day = Repository.Get(id);
                 if (day==null || model == null) return NotFound();
-
                 else {
                     Repository.Update(Parser.Create(model,sch), id);
                     return Ok(model);
@@ -87,6 +84,7 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Delete(int id)
         {
+
             try
             {
                 Day day = Repository.Get(id);

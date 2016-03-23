@@ -3,7 +3,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+
     <ProjectGuid>{8A5933F6-4844-47CD-AC8C-713C61204E83}</ProjectGuid>
+
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UnitTest</RootNamespace>
@@ -61,10 +63,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+
     <Compile Include="DetailTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTest2.cs" />
+
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Database\Database.csproj">
@@ -72,7 +76,9 @@
       <Name>Database</Name>
     </ProjectReference>
     <ProjectReference Include="..\TimeTracking\TimeTracking.csproj">
+
       <Project>{0170f483-ce02-4633-a9c0-a6b329dd7f90}</Project>
+
       <Name>TimeTracking</Name>
     </ProjectReference>
   </ItemGroup>

@@ -10,6 +10,6 @@ namespace TimeTracking.Models
             Days = new List<DayModel>();
         }
         public Person Person { get; set; }
-        public List<DayModel> Days { get; set; }
+        public IList<DayModel> Days { get; set; }
     }
 }

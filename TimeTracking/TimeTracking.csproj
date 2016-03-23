@@ -166,7 +166,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helper\DateTimeExtensions.cs" />
     <Compile Include="Models\DayDetail.cs" />
     <Compile Include="Models\DayModel.cs" />
     <Compile Include="Models\DetailModel.cs" />
@@ -186,6 +185,7 @@
     <Content Include="Content\logo1.png" />
     <Content Include="Content\mistrallogo.jpg" />
     <Content Include="Content\mistral4.jpg" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -193,6 +193,9 @@
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\GigiSchool.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -244,7 +247,7 @@
     <Content Include="Views\Days\Details.cshtml" />
     <Content Include="Views\Days\Edit.cshtml" />
     <Content Include="Views\Days\Index.cshtml" />
-    <Content Include="Views\Details\Create1.cshtml" />
+    <Content Include="Views\Details\Create.cshtml" />
     <Content Include="Views\Details\Delete.cshtml" />
     <Content Include="Views\Details\Details.cshtml" />
     <Content Include="Views\Details\Edit.cshtml" />
@@ -301,6 +304,7 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Database\Database.csproj">

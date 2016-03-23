@@ -1,14 +1,13 @@
-﻿using Database;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using WebAPI.Models;
+using Database;
 using System.Web;
 using System.Web.Http;
-using WebAPI.Controllers;
-using WebAPI.Models;
-
+using System.Configuration;
 
 namespace WebAPI.Controllers
 {
@@ -44,18 +43,15 @@ namespace WebAPI.Controllers
             try
             {
                 Person person = Repository.Get(id);
-
                 if (person == null) return NotFound();
                 else
                     return Ok(Factory.Create(Repository.Get(id)));
-
             }
             catch (Exception ex)
             {
                 return BadRequest();
             }
         }
-
 
         public IHttpActionResult Post(Person person)
         {
@@ -72,7 +68,6 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
-
         public IHttpActionResult Put(int id, Person person)
         {
             try
@@ -89,13 +84,11 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
-
         public IHttpActionResult Delete(int id)
         {
             try
             {
                 Person person = Repository.Get(id);
-
                 if (person == null) return NotFound();
                 else {
                     Repository.Delete(id);
@@ -106,6 +99,7 @@ namespace WebAPI.Controllers
             {
                 return BadRequest();
             }
+
         }
     }
 }
