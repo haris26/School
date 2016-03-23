@@ -189,12 +189,14 @@
     <Compile Include="Controllers\EmployeeSummariesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SkillAssessmentHistoriesController.cs" />
+    <Compile Include="Controllers\SupervisorAssessmentsController.cs" />
     <Compile Include="Controllers\TeamSummariesController.cs" />
     <Compile Include="Filters\SchoolAuthorizeAttribute.cs" />
     <Compile Include="Helpers\AppGlobal.cs" />
     <Compile Include="Helpers\EmployeeAssessment.cs" />
     <Compile Include="Helpers\EmployeeSummary.cs" />
     <Compile Include="Helpers\SchoolIdentity.cs" />
+    <Compile Include="Helpers\SupervisorAssessment.cs" />
     <Compile Include="Models\AssessmentSearchModel.cs" />
     <Compile Include="Helpers\TeamSummary.cs" />
     <Compile Include="Models\CategorySkillsSummary.cs" />
@@ -220,6 +222,7 @@
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\SkillAssessmentHistoryModel.cs" />
     <Compile Include="Models\SkillsCategoryModel.cs" />
+    <Compile Include="Models\SupervisorAssessmentModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Models\TeamSkillSummary.cs" />
     <Compile Include="Models\TeamSummaryModel.cs" />
