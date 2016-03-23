@@ -7,6 +7,8 @@ namespace WebAPI.Models
 {
     public class EmployeeSkillDetail
     {
+        public int EmployeeSkillId { get; set; }
+        public int SkillId { get; set; }
         public string Skill { get; set; }
         public int Level { get; set; }
         public int? Experience { get; set; }

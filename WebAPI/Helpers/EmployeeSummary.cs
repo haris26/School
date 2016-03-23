@@ -32,7 +32,7 @@ namespace WebAPI.Helpers
 
             employeeSummary.Skills = person.EmployeeSkills
                                            .GroupBy(x => x.Tool.Category)
-                                           .Select(x => CreateEmployeeSkillsSummary(x)).ToList();
+                                           .Select(x => CreateEmployeeSkillsSummary(x, AssessmentType.Supervisor)).ToList();
 
             return employeeSummary;
         }
@@ -47,14 +47,14 @@ namespace WebAPI.Helpers
             };
         }
 
-        public static EmployeeSkillsSummary CreateEmployeeSkillsSummary(IGrouping<SkillCategory, EmployeeSkill> x)
+        public static EmployeeSkillsSummary CreateEmployeeSkillsSummary(IGrouping<SkillCategory, EmployeeSkill> x, AssessmentType assessType)
         {
             return new EmployeeSkillsSummary()
             {
                 CategoryName = x.Key.Name,
                 Skills = x.ToList()
                           .GroupBy(y => y.Tool.Name)
-                          .Select(y => y.ToList().Where(z => z.AssessedBy == AssessmentType.Supervisor)
+                          .Select(y => y.ToList().Where(z => z.AssessedBy == assessType)
                                                  .OrderByDescending(z => z.DateOfSupervisorAssessment)
                                                  .FirstOrDefault()).ToList()
                           .Select(y => CreateEmployeeSkillDetail(y)).ToList()
@@ -65,6 +65,8 @@ namespace WebAPI.Helpers
         {
             return new EmployeeSkillDetail()
             {
+                EmployeeSkillId = skill.Id,
+                SkillId = skill.Tool.Id,
                 Skill = skill.Tool.Name,
                 Level = (int)skill.Level,
                 Experience = skill.Experience
