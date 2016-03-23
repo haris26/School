@@ -13,7 +13,6 @@ namespace WebAPI.Helpers
         {
             DashboardModel dashboard = new DashboardModel()
             {
-
                 Id =  person.Id,
                 Name = person.FullName
             };

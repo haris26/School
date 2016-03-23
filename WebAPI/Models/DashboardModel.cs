@@ -19,7 +19,6 @@ namespace WebAPI.Models
         public IList<ListModel> Reservations { get; set; }
         public IList<ListModel> Days { get; set; }
 
-
         public DashboardModel()
         {
             Roles = new List<ListModel>();

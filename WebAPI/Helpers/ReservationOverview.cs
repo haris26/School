@@ -35,22 +35,7 @@ namespace WebAPI.Helpers
 
                 foreach (var ev in res.Events)
                 {
-                    if (modelParameters.ToDate == null) {
-                        if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday && modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
-                        {
-                            model.Events.Add(new EventsListModel()
-                            {
-                                Id = ev.Id,
-                                EventTitle = ev.EventTitle,
-                                FromDate = ev.EventStart,
-                                Person = ev.User.Id,
-                                PersonName = ev.User.FullName,
-                                Time = GetTimeForReservation(ev.EventStart)
-                            });
-                        }
-                    }
-                    else
-                    {
+                    if (modelParameters.ToDate != System.DateTime.Today) {
                         SetWeeklyInterval(modelParameters.FromDate, modelParameters);
                         if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday && modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
                         {
@@ -61,6 +46,26 @@ namespace WebAPI.Helpers
                                     Id = ev.Id,
                                     EventTitle = ev.EventTitle,
                                     FromDate = ev.EventStart,
+                                    ToDate = ev.EventEnd,
+                                    Person = ev.User.Id,
+                                    PersonName = ev.User.FullName,
+                                    Time = GetTimeForReservation(ev.EventStart)
+                                });
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday && modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
+                        {
+                            if (ev.EventStart == modelParameters.FromDate)
+                            {
+                                model.Events.Add(new EventsListModel()
+                                {
+                                    Id = ev.Id,
+                                    EventTitle = ev.EventTitle,
+                                    FromDate = ev.EventStart,
+                                    ToDate = ev.EventEnd,
                                     Person = ev.User.Id,
                                     PersonName = ev.User.FullName,
                                     Time = GetTimeForReservation(ev.EventStart)
@@ -101,9 +106,8 @@ namespace WebAPI.Helpers
                 model.ToDate = model.FromDate.AddDays(1);
                 model.FromDate = model.FromDate.AddDays(-3);
             }
-            else  (Day == DayOfWeek.Friday)
+            else if (Day == DayOfWeek.Friday)
             {
-
                 model.FromDate = model.FromDate.AddDays(-4);
             }     
         }
