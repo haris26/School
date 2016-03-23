@@ -37,9 +37,9 @@ namespace WebAPI.Helpers
                     allSkills.Add(skill);
             }
 
+
             teamSummary.Skills = allSkills.GroupBy(x => x.Tool.Category)
                                           .Select(x => CreateCategorySkillSummary(x)).ToList();
-
 
             teamSummary.RequiredSkills = team.ProjectSkills.ToList().Select(x => CreateRequiredSkill(x)).ToList();
 
