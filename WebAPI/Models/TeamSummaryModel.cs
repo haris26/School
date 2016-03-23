@@ -17,11 +17,13 @@ namespace WebAPI.Models
         {
             Skills = new List<CategorySkillsSummary>();
             RequiredSkills = new List<RequiredSkill>();
+            Members = new List<PersonModel>();
         }
 
         public string Name { get; set; }
         public int PeopleInTeam { get; set; }
-        public IList<CategorySkillsSummary> Skills { get; set; }
+        public IList<PersonModel> Members { get; set; }
         public IList<RequiredSkill> RequiredSkills { get; set; }
+        public IList<CategorySkillsSummary> Skills { get; set; }
     }
 }

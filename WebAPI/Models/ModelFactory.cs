@@ -71,6 +71,7 @@ namespace WebAPI.Models
         {
             return new PersonModel()
             {
+                Id =person.Id,
                 FirstName = person.FirstName,
                 LastName = person.LastName
             };

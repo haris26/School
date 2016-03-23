@@ -12,7 +12,7 @@ namespace WebAPI.Models
             MemberSkills = new Dictionary<int, EmployeeSkillDetail>();
         }
 
-        public int AverageLevel { get; set; }
-        IDictionary<int, EmployeeSkillDetail> MemberSkills { get; set; }  //key is employee id
+        public double AverageLevel { get; set; }
+        public IDictionary<int, EmployeeSkillDetail> MemberSkills { get; set; }  //key is employee id
     }
 }

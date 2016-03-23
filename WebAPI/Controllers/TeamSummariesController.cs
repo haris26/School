@@ -15,17 +15,17 @@ namespace WebAPI.Controllers
         public TeamSummariesController(Repository<Team> depo) : base(depo)
         { }
 
-        public IList<TeamModel> Get()
+        public IList<TeamSummaryModel> Get()
         {
-            return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
+            return Repository.Get().Where(x =>x.Type != ProjectType.Absence)
+                                   .ToList().Select(x => TeamSummary.Create(x)).ToList();
         }
 
         public IHttpActionResult Get(int id)
         {
             try
             {
-                Team team;
-                team = Repository.Get(id);
+                Team team = Repository.Get(id);
                 if (team == null)
                 {
                     return NotFound();
