@@ -9,7 +9,7 @@ using Database;
 
 namespace WebAPI.Helpers
 {
-    public class Dashboard
+    public class ListAllPeople
 
     {
         public static DashboardModel Create(Person person)
@@ -31,6 +31,7 @@ namespace WebAPI.Helpers
 
             var details = person.Days.SelectMany(x => x.Details).GroupBy(x => x.Team.Name).Select(x => new { team = x.Key, time = x.Sum(y => y.WorkTime) }).ToList();
             foreach (var detail in details)
+
             {
                 dashboard.Days.Add(new ListModel { Category = detail.team, Count = (int)detail.time });
             }

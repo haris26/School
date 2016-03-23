@@ -28,7 +28,6 @@ namespace WebAPI.Models
         public IList<ListModel> Skills { get; set; }
         public IList<ListModel> Reservations { get; set; }
         public IList<ListModel> Days { get; set; }
-
     }
 }
 
