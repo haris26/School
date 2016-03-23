@@ -22,27 +22,41 @@ namespace WebAPI.Helpers
                     Id = res.Id,
                     Name = res.Name
                 };
-
+                
                 foreach (var ch in res.Characteristics)
                 {
-                    model.Characteristics.Add(new ResListModel() { Name = ch.Name, Value = ch.Value, ResName = ch.Resource.Name, ResId = ch.Resource.Id });
+                    model.Characteristics.Add(new CharacteristicsListModel()
+                    {
+                        Id = ch.Id,
+                        Name = ch.Name,
+                        Value = ch.Value,
+                    });
                 }
+
                 foreach (var ev in res.Events)
                 {
-                    if (ev.EventStart == modelParameters.FromDate)
+                    if (ev.EventStart >= modelParameters.FromDate && ev.EventStart <= modelParameters.ToDate)
                     {
-                        model.Events.Add(new Event()
+                        model.Events.Add(new EventsListModel()
                         {
+                            Id = ev.Id,
                             EventTitle = ev.EventTitle,
-                            EventStart = ev.EventStart,
-                            EventEnd = ev.EventEnd
+                            FromDate = ev.EventStart,
+                            ToDate = ev.EventEnd,
+                            Person = ev.User.Id,
+                            PersonName = ev.User.FullName,
+                            Time = GetTimeForReservation(ev.EventStart)
                         });
                     }           
                 }
                 models.Add(model);
             }
-
             return models;
+        }
+
+        public static string GetTimeForReservation(DateTime date)
+        {
+            return Convert.ToString(date.Hour + ":" + date.Minute);
         }
     }
 }
