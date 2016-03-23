@@ -18,7 +18,7 @@ namespace WebAPI.Models
         public int Id { get; set; }
         public string EventTitle { get; set; }
         public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
+        public DateTime? ToDate { get; set; }
         public int Person { get; set; }
         public string PersonName { get; set; }
         public string Time { get; set; }

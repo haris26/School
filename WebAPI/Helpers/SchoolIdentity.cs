@@ -6,8 +6,6 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 
-using Database;
-
 
 namespace WebAPI.Helpers
 {

@@ -10,11 +10,10 @@ namespace WebAPI.Models
         public SearchModel()
         {
             this.FromDate = System.DateTime.Today;
-            this.ToDate = System.DateTime.Today;
+        
         }
         public string ResourceName { get; set; }
         public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
         public string CategoryName { get; set; }
 
     }
