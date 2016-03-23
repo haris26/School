@@ -25,7 +25,7 @@ namespace WebAPI.Helpers
 
                 foreach (var ch in res.Characteristics)
                 {
-                    model.Characteristics.Add(new Characteristic() {Name = ch.Name, Value = ch.Value});
+                    model.Characteristics.Add(new ResListModel() { Name = ch.Name, Value = ch.Value, ResName = ch.Resource.Name, ResId = ch.Resource.Id });
                 }
                 foreach (var ev in res.Events)
                 {

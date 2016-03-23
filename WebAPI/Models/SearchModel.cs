@@ -11,6 +11,7 @@ namespace WebAPI.Models
         {
             this.FromDate = System.DateTime.Today;
         }
+        public string ResourceName { get; set; }
         public DateTime FromDate { get; set; }
         public DateTime? ToDate { get; set; }
         public string CategoryName { get; set; }

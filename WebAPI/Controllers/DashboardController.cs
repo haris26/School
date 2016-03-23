@@ -7,7 +7,6 @@ using System.Web.Http;
 using Database;
 using WebAPI.Filters;
 using WebAPI.Helpers;
-using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
