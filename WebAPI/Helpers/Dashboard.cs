@@ -37,6 +37,18 @@ namespace WebApi.Helpers
 
             dashboard.Days.Add(new ListModel { Category = "Calendar", Count = person.Days.Count() });
 
+            var assets = person.Assets.GroupBy(x => x.AssetCategory.CategoryName).Select(x => new { type = x.Key, count = x.Count() }).ToList();
+            foreach (var asset in assets)
+            {
+                dashboard.Assets.Add(new ListModel { Category = asset.type, Count = asset.count });
+            }
+            var requests = person.Requests.GroupBy(x => x.RequestDescription).Select(x => new { type = x.Key, count = x.Count() }).ToList();
+            foreach (var request in requests)
+            {
+                dashboard.Requests.Add(new ListModel { Category = request.type, Count = request.count });
+            }
+
+
             return dashboard;
         }
     }
