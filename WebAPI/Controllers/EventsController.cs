@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Database;
 using WebAPI.Models;
+using WebAPI.Helpers;
 
 namespace WebAPI.Controllers
 {
@@ -39,7 +40,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Repository.Insert(Parser.Create(ev, Repository.BaseContext()));
+                Repository.Insert(EventRestriction.Create(ev, Repository.BaseContext()));
                 return Ok();
             }
             catch (Exception ex)

@@ -31,7 +31,7 @@ namespace WebAPI.Filters
                     string username = split[0];
                     string password = split[1];
 
-                    if (!WebSecurity.Initialized) WebSecurity.InitializeDatabaseConnection("School", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    if (!WebSecurity.Initialized) WebSecurity.InitializeDatabaseConnection("SchoolLocal", "UserProfile", "UserId", "UserName", autoCreateTables: true);
 
                     if (WebSecurity.Login(username, password))
                     {

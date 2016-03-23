@@ -189,27 +189,20 @@
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
-
     <Compile Include="Controllers\ReservationsController.cs" />
-
     <Compile Include="Controllers\ReservationOverviewsController.cs" />
-
     <Compile Include="Controllers\ResourceCategoriesController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
-
     <Compile Include="Filters\SchoolAuthorizedAttribute.cs" />
-
-
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AppGlobals.cs" />
     <Compile Include="Helpers\Dashboard.cs" />
-
+    <Compile Include="Helpers\EventRestriction.cs" />
     <Compile Include="Helpers\ReservationOverview.cs" />
-
     <Compile Include="Helpers\SchoolIdentity.cs" />
     <Compile Include="Models\CharacteristicModel.cs" />
     <Compile Include="Models\CharacteristicNameModel.cs" />
@@ -219,11 +212,8 @@
     <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\PersonModel.cs" />
-
     <Compile Include="Models\ReservationModel.cs" />
-
     <Compile Include="Models\ReservationOverviewModel.cs" />
-
     <Compile Include="Models\ResourceCategoryModel.cs" />
     <Compile Include="Models\ResourceModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
