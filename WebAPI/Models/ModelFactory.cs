@@ -61,7 +61,7 @@ namespace WebAPI.Models
                     PersonName = request.User.FirstName + " " + request.User.LastName,
                     Category = request.AssetCategory.Id,
                     CategoryName = request.AssetCategory.CategoryName,
-                     Quantity = request.Quantity,
+                    Quantity = request.Quantity,
                     Status = request.Status,
                     AssetType = request.AssetType,
 
