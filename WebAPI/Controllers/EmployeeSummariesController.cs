@@ -6,11 +6,16 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Helpers;
+using WebAPI.Services;
+using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
+    [SchoolAuthorize]
     public class EmployeeSummariesController : BaseController<Person>
     {
+        SchoolIdentity ident = new SchoolIdentity();
+
         public EmployeeSummariesController(Repository<Person> depo) : base(depo)
         { }
 
@@ -20,7 +25,7 @@ namespace WebAPI.Controllers
             {
                 Person person;
                 if (id == 0)
-                    person = AppGlobals.currentUser;
+                    person = ident.currentUser;
                 else
                 {
                     person = Repository.Get(id);

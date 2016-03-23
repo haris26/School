@@ -19,7 +19,7 @@ namespace WebAPI.Helpers
 
             teamSummary.RequiredSkills = team.ProjectSkills.ToList().Select(x => CreateRequiredSkill(x)).ToList();
 
-            teamSummary.Skills = 
+            //teamSummary.Skills = 
 
             return teamSummary;
         }
@@ -37,7 +37,7 @@ namespace WebAPI.Helpers
         {
             return new TeamSkillSummary()
             {
-                AverageLevel = 
+                //AverageLevel = 
             };
         }
 
