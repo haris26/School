@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Database
 {
     public class AuthToken
@@ -13,4 +14,6 @@ namespace Database
         public DateTime Expiration { get; set; }
         public virtual ApiUser ApiUser { get; set; }
     }
+
 }
+

@@ -27,18 +27,18 @@ namespace Database
         // we need details for a day
         public virtual ICollection<Detail> Details { get; set; }    // work details for a day
 
-        [NotMapped]
-        public double totalHoursForDay {
-            get {
-                foreach (Detail detail in Details) {
-                    totalHoursForDay += detail.WorkTime;
-                }
-                return totalHoursForDay;
-            }
+        //[NotMapped]
+        //public double totalHoursForDay {
+        //    get {
+        //        foreach (Detail detail in Details) {
+        //            totalHoursForDay += detail.WorkTime;
+        //        }
+        //        return totalHoursForDay;
+        //    }
 
-            set { totalHoursForDay = value; }
+        //    set { totalHoursForDay = value; }
 
-        }
+        //}
 }
 }
 

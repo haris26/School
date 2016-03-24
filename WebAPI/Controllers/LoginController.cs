@@ -7,6 +7,7 @@ using WebAPI.Helpers;
 using WebMatrix.WebData;
 
 namespace WebAPI.Controllers
+
 {
     public class UserModel
     {
