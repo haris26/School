@@ -15,6 +15,7 @@ namespace Database
             Roles = new Collection<Engagement>();
             Members = new Collection<Person>();
             ProjectSkills = new Collection<ProjectSkill>();
+            Details = new Collection<Detail>();
         }
 
         public int Id { get; set; }                         // Identity[1]

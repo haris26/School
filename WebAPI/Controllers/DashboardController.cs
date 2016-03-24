@@ -1,15 +1,18 @@
 using Database;
-using System.Web.Http;
-using WebAPI.Filters;
-using WebAPI.Services;
-using WebAPI.Controllers;
-using WebAPI.Helpers;
-using WebAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
+using System.Web;
+using System.Web.Http;
+
+using WebAPI.Services;
+using WebAPI.Filters;
+
+using WebAPI.Helpers;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
+
 {
     [SchoolAuthorize]
     public class DashboardController : BaseController<Person>
@@ -32,6 +35,5 @@ namespace WebAPI.Controllers
             return Ok(Dashboard.Create(person));
         }
 
-       
     }
 }

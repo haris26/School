@@ -136,7 +136,9 @@
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -185,6 +187,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DaysController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
+    <Compile Include="Controllers\ListTeamController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MonthController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
@@ -197,11 +200,13 @@
     <Compile Include="Helpers\AppGlobals.cs" />
     <Compile Include="Helpers\Dashboard.cs" />
     <Compile Include="Helpers\MonthList.cs" />
+    <Compile Include="Helpers\ListTeams.cs" />
     <Compile Include="Helpers\SchoolIdentity.cs" />
     <Compile Include="Models\DashboardModel.cs" />
     <Compile Include="Models\DayModel.cs" />
     <Compile Include="Models\DetailModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
+    <Compile Include="Models\ListTeamsModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\MonthModel.cs" />
     <Compile Include="Models\PersonModel.cs" />
@@ -229,6 +234,9 @@
       <Project>{73d7e73e-3c79-4509-a8e9-20ed017471b3}</Project>
       <Name>Database</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

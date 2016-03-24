@@ -8,6 +8,7 @@ namespace WebAPI.Models
 
     public class ListModel
     {
+       
         public string Category { get; set; }
         public int Count { get; set; }
     }
@@ -28,6 +29,7 @@ namespace WebAPI.Models
         //public IList<ListModel> Skills { get; set; }
         //public IList<ListModel> Reservations { get; set; }
         public IList<ListModel> Days { get; set; }
+
     }
 }
 

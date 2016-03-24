@@ -1,4 +1,4 @@
-using Database;
+﻿using Database;
 using System;
 using System.Security.Principal;
 using System.Threading;
@@ -7,6 +7,8 @@ using WebAPI.Helpers;
 using WebMatrix.WebData;
 
 namespace WebAPI.Controllers
+
+
 {
     public class UserModel
     {
