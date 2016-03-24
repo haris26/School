@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Models;
+using WebAPI.Helpers;
 
 namespace WebAPI.Controllers
 {
@@ -14,6 +15,18 @@ namespace WebAPI.Controllers
         
         public ToolsController(Repository<Tool> depo) : base(depo)
         { }
+
+        public IHttpActionResult Get()
+        {
+            try
+            {
+                return Ok(Criteria.Create(Repository.BaseContext()));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
 
         public IHttpActionResult Get(int id)
         {

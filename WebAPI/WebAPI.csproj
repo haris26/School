@@ -184,6 +184,8 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Helpers\Criteria.cs" />
+    <Compile Include="Models\CriteriaModel.cs" />
     <Compile Include="Controllers\EditEducationsController.cs" />
     <Compile Include="Controllers\EmployeeAssessmentsController.cs" />
     <Compile Include="Controllers\EmployeeEducationsController.cs" />

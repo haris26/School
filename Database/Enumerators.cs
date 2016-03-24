@@ -55,6 +55,12 @@ namespace Database
         Supervisor = 1
     }
 
+    public enum CategoryType
+    {
+        Skills = 0,
+        Educations = 1
+    }
+
 // Reservation System
 
     public enum RepeatType
