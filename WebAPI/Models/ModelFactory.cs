@@ -76,5 +76,18 @@ namespace WebAPI.Models
                 LastName = person.LastName
             };
         }
+
+        public EmployeeEducationModel Create(EmployeeEducation employeeEducation)
+        {
+            return new EmployeeEducationModel()
+            {
+                Id = employeeEducation.Id,
+                Employee = employeeEducation.Employee.Id,
+                EducationName = employeeEducation.Education.Name,
+                Education = employeeEducation.Education.Id,
+                Type = employeeEducation.Education.Type,
+                Reference = employeeEducation.Reference
+            };
+        }
     }
 }

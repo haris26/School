@@ -11,6 +11,7 @@ namespace WebAPI.Models
         public int Id { get; set; }
         public int Employee { get; set; }
         public int Education { get; set; }
+        public string EducationName { get; set; }
         public string Reference { get; set; }
         public EducationType Type { get; set; }
     }
