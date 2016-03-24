@@ -187,7 +187,9 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DaysController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
+    <Compile Include="Controllers\ListTeamController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MonthController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
@@ -197,12 +199,15 @@
     </Compile>
     <Compile Include="Helpers\AppGlobals.cs" />
     <Compile Include="Helpers\Dashboard.cs" />
+    <Compile Include="Helpers\MonthList.cs" />
+    <Compile Include="Helpers\ListTeams.cs" />
     <Compile Include="Helpers\SchoolIdentity.cs" />
     <Compile Include="Models\DashboardModel.cs" />
     <Compile Include="Models\DayModel.cs" />
     <Compile Include="Models\DetailModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
-    <Compile Include="Models\FullDashboardModel.cs" />
+    <Compile Include="Models\MonthModel.cs" />
+    <Compile Include="Models\ListTeamsModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\RoleModel.cs" />

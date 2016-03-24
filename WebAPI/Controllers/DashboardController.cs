@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using WebApi.Services;
 using WebAPI.Filters;
 using WebAPI.Helpers;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
+
 {
     [SchoolAuthorize]
     public class DashboardController : BaseController<Person>
@@ -18,7 +20,7 @@ namespace WebAPI.Controllers
         public DashboardController(Repository<Person> depo) : base(depo)
         { }
 
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(int id=0)
         {
             Person person;
             if (id == 0)

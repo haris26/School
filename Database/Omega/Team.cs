@@ -15,6 +15,7 @@ namespace Database
             Roles = new Collection<Engagement>();
             Members = new Collection<Person>();
             ProjectSkills = new Collection<ProjectSkill>();
+            Details = new Collection<Detail>();
         }
 
         public int Id { get; set; }                         // Identity[1]
@@ -26,5 +27,6 @@ namespace Database
         public virtual ICollection<Engagement> Roles { get; set; }
         public virtual ICollection<Person> Members { get; set; }
         public virtual ICollection<ProjectSkill> ProjectSkills { get; set; }
+        public virtual ICollection<Detail> Details { get; set; }
     }
 }
