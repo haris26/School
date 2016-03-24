@@ -6,7 +6,7 @@ using System.Web;
 using WebAPI.Models;
 using Database;
 
-namespace WebApi.Services
+namespace WebAPI.Services
 {
     public class SchoolIdentity
     {

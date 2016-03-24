@@ -35,6 +35,7 @@ namespace WebAPI.Helpers
             {
                 dashboard.Days.Add(new ListModel { Category = detail.team, Count = (int)detail.time });
             }
+            
             return dashboard;
         }
     }

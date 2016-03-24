@@ -10,6 +10,8 @@ namespace WebAPI.Models
     {
         public string Category { get; set; }
         public int Count { get; set; }
+
+        public int CountEmpty { get; set; }
     }
 
     public class DashboardModel
