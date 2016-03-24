@@ -1,7 +1,7 @@
 using Database;
 using System.Web.Http;
 using WebAPI.Filters;
-using WebApi.Services;
+using WebAPI.Services;
 using WebAPI.Controllers;
 using WebAPI.Helpers;
 using WebAPI.Models;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 
-namespace WebApi.Controllers
+namespace WebAPI.Controllers
 {
     [SchoolAuthorize]
     public class DashboardController : BaseController<Person>
@@ -19,7 +19,7 @@ namespace WebApi.Controllers
         public DashboardController(Repository<Person> depo) : base(depo)
         { }
 
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(int id=0)
         {
             Person person;
             if (id == 0)
@@ -32,39 +32,6 @@ namespace WebApi.Controllers
             return Ok(Dashboard.Create(person));
         }
 
-        public IList<DashboardModel> Get()
-        {
-           
-            var people = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName)
-                        .ToList();
-
-            List<DashboardModel> list = new List<DashboardModel>();
-            foreach (var p in people)
-            {
-                list.Add(Dashboard.Create(p));
-            }
-            return list;
-        }
-
-        public IList<DashboardModel> GetByMonth(int month)
-        {
-            
-            var people = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName)
-                        .ToList();
-
-            List<DashboardModel> list = new List<DashboardModel>();
-            foreach (var p in people)
-            {
-                foreach(var day in p.Days.ToList())
-                {
-                    if (day.Date.Month != month)
-                        p.Days.Remove(day);
-                }
-               
-                    list.Add(Dashboard.Create(p));
-                
-            }
-            return list;
-        }
+       
     }
 }

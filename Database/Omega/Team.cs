@@ -26,5 +26,6 @@ namespace Database
         public virtual ICollection<Engagement> Roles { get; set; }
         public virtual ICollection<Person> Members { get; set; }
         public virtual ICollection<ProjectSkill> ProjectSkills { get; set; }
+        public virtual ICollection<Detail> Details { get; set; }
     }
 }
