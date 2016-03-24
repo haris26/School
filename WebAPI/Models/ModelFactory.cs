@@ -36,8 +36,8 @@ namespace WebAPI.Models
                     RequestDescription = request.RequestDescription,
                     RequestMessage = request.RequestMessage,
                     RequestDate = request.RequestDate,
-                    // Asset = request.Asset.Id,
-                    //  AssetModel = request.Asset.Name,
+                    //Asset = request.Asset.Id,
+                    //AssetModel = request.Asset.Name,
                     Person = request.User.Id,
                     PersonName = request.User.FirstName + " " + request.User.LastName,
                     Category = request.AssetCategory.Id,
@@ -66,7 +66,8 @@ namespace WebAPI.Models
                     AssetType = request.AssetType,
 
 
-                };          
+                };
+
         }
 
       
@@ -173,6 +174,16 @@ namespace WebAPI.Models
                 Status = history.Status
             };
         }
+
+        public TokenModel Create(AuthToken token)
+        {
+            return new TokenModel()
+            {
+                Token = token.Token,
+                Expiration = token.Expiration
+            };
+        }
+
 
 
     }

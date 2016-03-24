@@ -3,10 +3,11 @@ using System.Web.Http;
 using WebApi.Filters;
 using WebApi.Helpers;
 using WebApi.Helpers;
+using WebAPI.Filters;
 
 namespace WebApi.Controllers
 {
-    [SchoolAuthorize]
+    [TokenAuthorize]
     public class DashboardController : BaseController<Person>
     {
         SchoolIdentity ident = new SchoolIdentity();
