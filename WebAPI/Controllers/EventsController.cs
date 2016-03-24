@@ -53,7 +53,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Event e = Parser.Create(ev, Repository.BaseContext());
+                Event e = EventRestriction.Create(ev, Repository.BaseContext());
                 if (e == null)
                     return NotFound();
                 else

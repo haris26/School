@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Database;
+using WebAPI.Helpers;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
@@ -40,7 +41,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Repository.Insert(Parser.Create(extendEvent, Repository.BaseContext()));
+                Repository.Insert(EventExtendRestriction.Create(extendEvent, Repository.BaseContext()));
                 return Ok();
             }
             catch (Exception ex)
@@ -53,7 +54,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                ExtendedEvent e = Parser.Create(extendedEvent, Repository.BaseContext());
+                ExtendedEvent e = EventExtendRestriction.Create(extendedEvent, Repository.BaseContext());
                 if (e == null)
                     return NotFound();
                 else

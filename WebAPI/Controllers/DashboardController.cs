@@ -11,7 +11,7 @@ using WebAPI.Helpers;
 namespace WebAPI.Controllers
 {
 
-    [SchoolAuthorized]
+    [TokenAuthorize]
     public class DashboardController : BaseController<Person>
     {
         SchoolIdentity identity = new SchoolIdentity();
