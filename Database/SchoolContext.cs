@@ -35,5 +35,8 @@ namespace Database
         public DbSet<Person> People { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Team> Teams{ get; set; }
+        // TOKEN
+        public DbSet<ApiUser> ApiUsers { get; set; }
+        public DbSet<AuthToken> AuthTokens { get; set; }
     }
 }

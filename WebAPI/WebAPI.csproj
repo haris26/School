@@ -189,10 +189,13 @@
     <Compile Include="Controllers\EmployeeEducationsController.cs" />
     <Compile Include="Controllers\EmployeeSummariesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SignatureController.cs" />
     <Compile Include="Controllers\SkillAssessmentHistoriesController.cs" />
     <Compile Include="Controllers\SupervisorAssessmentsController.cs" />
     <Compile Include="Controllers\TeamSummariesController.cs" />
+    <Compile Include="Controllers\TokenRequestController.cs" />
     <Compile Include="Filters\SchoolAuthorizeAttribute.cs" />
+    <Compile Include="Filters\TokenAuthorizeAttribute.cs" />
     <Compile Include="Helpers\AppGlobal.cs" />
     <Compile Include="Helpers\EmployeeAssessment.cs" />
     <Compile Include="Helpers\EmployeeSummary.cs" />
@@ -227,6 +230,8 @@
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Models\TeamSkillSummary.cs" />
     <Compile Include="Models\TeamSummaryModel.cs" />
+    <Compile Include="Models\TokenModel.cs" />
+    <Compile Include="Models\TokenRequestModel.cs" />
     <Compile Include="Models\ToolModel.cs" />
     <Compile Include="Controllers\EducationsController.cs" />
     <Compile Include="Models\EducationModel.cs" />

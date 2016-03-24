@@ -89,5 +89,14 @@ namespace WebAPI.Models
                 Reference = employeeEducation.Reference
             };
         }
+
+        public TokenModel Create(AuthToken token)
+        {
+            return new TokenModel()
+            {
+                Token = token.Token,
+                Expiration = token.Expiration
+            };
+        }
     }
 }

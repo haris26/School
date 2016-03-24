@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiUser.cs" />
+    <Compile Include="AuthToken.cs" />
     <Compile Include="Beta\DateTimeFormat.cs" />
     <Compile Include="Beta\EventTitleControl.cs" />
     <Compile Include="Beta\ResourceControl.cs" />
