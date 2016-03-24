@@ -14,7 +14,7 @@ namespace WebAPI.Controllers
         public MonthController(Repository<Person> depo) : base(depo)
         { }
 
-        
+
         public IList<MonthModel> Get()
         {
 
@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
             return list;
         }
 
-     
+
 
         public IList<MonthModel> GetByMonth(int month)
         {
@@ -51,5 +51,5 @@ namespace WebAPI.Controllers
             }
             return list;
         }
-        }
+    }
 }

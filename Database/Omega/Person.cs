@@ -56,6 +56,6 @@ namespace Database
         public virtual ICollection<Team> Teams { get; set; }
         public virtual ICollection<EmployeeSkill> EmployeeSkills { get; set; }
         public virtual ICollection<Day> Days { get; set; }
-
+        
     }
 }
