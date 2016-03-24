@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using Database;
 using System.Text;
@@ -10,6 +11,7 @@ namespace WebAPI.Helpers
     public static class AppGlobals
     {
         public static Person currentUser;
+
         public static string Signature(string Secret, string AppId)
         {
 

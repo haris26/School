@@ -1,4 +1,4 @@
-﻿using Database;
+using Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +15,13 @@ namespace WebAPI.Controllers
 
         public string Get()
         {
-            //apiUsers.Insert(new ApiUser() { Name = "School", AppId = "R2lnaVNjaG9vbA==", Secret = "TWlzdHJhbFRhbGVudHM=" });
             var apiUser = apiUsers.Get().First();
+            apiUsers.Insert(new ApiUser()
+            {
+                Name = "School",
+                AppId = "R2lnaVNjaG9vbA==",
+                Secret = "TWlzdHJhbFRhbGVudHM="
+            });
             return AppGlobals.Signature(apiUser.Secret, apiUser.AppId);
         }
     }

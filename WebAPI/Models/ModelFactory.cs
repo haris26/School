@@ -8,6 +8,15 @@ namespace WebAPI.Models
 {
     public class ModelFactory
     {
+        public TokenModel Create(AuthToken token)
+        {
+            return new TokenModel()
+            {
+                Token = token.Token,
+                Expiration = token.Expiration
+            };
+        }
+
         public TeamModel Create(Team team)
         {
             TeamModel model = new TeamModel()
