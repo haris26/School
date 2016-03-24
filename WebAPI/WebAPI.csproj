@@ -194,8 +194,11 @@
     <Compile Include="Controllers\ResourceCategoriesController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\SignatureController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
+    <Compile Include="Controllers\TokenRequestController.cs" />
     <Compile Include="Filters\SchoolAuthorizedAttribute.cs" />
+    <Compile Include="Filters\TokenAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,6 +222,8 @@
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
+    <Compile Include="Models\TokenModel.cs" />
+    <Compile Include="Models\TokenRequestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

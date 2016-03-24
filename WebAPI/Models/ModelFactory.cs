@@ -123,5 +123,13 @@ namespace WebAPI.Models
                 Status = person.Status
             };
         }
+        public TokenModel Create(AuthToken token)
+        {
+            return new TokenModel()
+            {
+                Token = token.Token,
+                Expiration = token.Expiration
+            };
+        }
     }
 }
