@@ -27,30 +27,30 @@ namespace WebAPI.Controllers
             }
             return list;
         }
+
+        public IList<ListTeamsModel> GetByMonth(int month)
+        {
+
+            var teams = Repository.Get().OrderBy(x => x.Name)
+                   .ToList();
+
+            List<ListTeamsModel> list = new List<ListTeamsModel>();
+            foreach (var t in teams)
+            {
+                foreach (var day in t.Details.ToList())
+                {
+                    if (day.Day.Date.Month != month)
+                        t.Details.Remove(day);
+                }
+
+                list.Add(ListTeams.Create(t));
+
+            }
+            return list;
+        }
     }
 }
 
 
 
-//        public IList<ListTeamsModel> GetByTeam(int month)
-//        {
 
-//            var teams = Repository.Get().OrderBy(x => x.Name).ThenBy(x => x.Members)
-//                        .ToList();
-
-//            List<ListTeamsModel> list = new List<ListTeamsModel>();
-//            foreach (var t in teams)
-//            {
-//                foreach (var day in t.Days.ToList())
-//                {
-//                    if (day.Date.Month != month)
-//                        p.Days.Remove(day);
-//                }
-
-//                list.Add(MonthList.Create(p));
-
-//            }
-//            return list;
-//        }
-//    }
-//}
