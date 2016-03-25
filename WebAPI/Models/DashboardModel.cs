@@ -11,9 +11,9 @@ namespace WebAPI.Models
        
         public string Category { get; set; }
         public int Count { get; set; }
-
-        public int CountEmpty { get; set; }
+       
     }
+    
 
     public class DashboardModel
     {
@@ -27,11 +27,12 @@ namespace WebAPI.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public int CountEmpty { get; set; }
         //public IList<ListModel> Roles { get; set; }
         //public IList<ListModel> Skills { get; set; }
         //public IList<ListModel> Reservations { get; set; }
         public IList<ListModel> Days { get; set; }
-
+        
     }
 }
 
