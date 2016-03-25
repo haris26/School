@@ -37,7 +37,7 @@ namespace WebAPI.Filters
         public void HandleUnauthorize(HttpActionContext actionContext)
         {
             actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
-            // actionContext.Response.Headers.Add("WWW-Authenticate", "Basic Scheme='SchoolContext' location=''");
+           // actionContext.Response.Headers.Add("WWW-Authenticate", "Basic Scheme='SchoolContext' location=''");
             // location='http://localhost:444/accounts/login'
         }
     }

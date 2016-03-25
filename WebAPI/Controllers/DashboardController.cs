@@ -11,7 +11,7 @@ using System;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    [SchoolAuthorize(true)]
     public class DashboardController : BaseController<Person>
     {
         
