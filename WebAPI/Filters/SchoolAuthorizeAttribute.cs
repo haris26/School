@@ -16,6 +16,14 @@ namespace WebAPI.Filters
 {
     public class SchoolAuthorizeAttribute : AuthorizationFilterAttribute
     {
+        private bool perUser;
+
+        public SchoolAuthorizeAttribute(bool _perUser = true)
+
+        {
+            perUser = _perUser;
+
+        }
         public override void OnAuthorization(HttpActionContext actionContext)
         {
             if (Thread.CurrentPrincipal.Identity.IsAuthenticated) return;
