@@ -20,7 +20,7 @@ namespace WebAPI.Helpers
 
             };
 
-
+           
             var members = team.Details.GroupBy(x => x.Day.Person.FullName).Select(x => new { person = x.Key, time = x.Sum(y => y.WorkTime) }).ToList();
 
             foreach (var det in members)
@@ -33,6 +33,13 @@ namespace WebAPI.Helpers
             foreach (var tm in time)
             {
                 listteam.Details.Add(new ListModel { Category = "Overall time worked", Count = (int)tm.time });
+            }
+
+            var days = team.Details.GroupBy(x => x.Team).Select(x => new { team = x.Key, time = x.Sum(y => y.) }).ToList();
+
+            foreach (var day in days)
+            {
+                listteam.Days.Add(new ListModel { Category = team.Name, Count = (int)day.time });
             }
             return listteam;
 

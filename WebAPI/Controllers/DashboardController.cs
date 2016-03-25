@@ -1,9 +1,5 @@
 using Database;
 using System.Web.Http;
-<<<<<<< HEAD
-using WebAPI.Services;
-=======
->>>>>>> dfe22a165b44b08b5063d3e0daec9df28bbdf9b7
 using WebAPI.Filters;
 using WebAPI.Services;
 using WebAPI.Controllers;
