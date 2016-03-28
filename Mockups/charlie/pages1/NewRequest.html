@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        </script>
+        <script>
+        $(document).ready(function(){
+            $('#sel').on('change', function() {
+              if ( this.value == '1')
+              {
+                   $("#sel2").hide();
+                $("#sel1").show();
+              }
+              else  if ( this.value == '2')
+              {
+                  $("#sel1").hide();
+                $("#sel2").show();
+              }
+               else
+              {
+                $("#sel1").hide();
+              }
+            });
+        });
+        </script>
+        <script>
+        $(document).ready(function(){
+            $('#dev').on('change', function() {
+              if ( this.value == '0')
+              {
+                $("#other").show();
+              }
+          
+               else
+              {
+                $("#other").hide();
+              }
+            });
+        });
+        </script>
+        <title>Procurement System</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+      
+
+        <!-- Custom CSS -->
+        <link href="../css/startmin.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <div id="wrapper">
+
+            <!-- Navigation -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Procurement</a>
+                </div>
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <ul class="nav navbar-nav navbar-left navbar-top-links">
+                    <li><a href="Request.html"><i class="fa fa-home fa-fw"></i> Home</a></li>
+                </ul>
+
+                <ul class="nav navbar-right navbar-top-links">
+                    <li class="dropdown navbar-inverse">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                              
+                            </li>
+                            <li>
+                              
+                            </li>
+                            <li>
+                              
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-tasks fa-fw"></i> New Task
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                               
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="text-center" href="#">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i> Employee <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- /.navbar-top-links -->
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-search">
+                               <!--  <div class="input-group custom-search-form">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div> -->
+                                <!-- /input-group -->
+                            </li>
+                           
+                            <li>
+                                <a href="Request.html"><i class="fa fa-bar-chart-o fa-fw"></i> Requests <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="NewRequest.html"><span class="glyphicon glyphicon-plus-sign"></span> New request</a>
+                                    </li>
+                                    <li>
+                                        <a href="HistoryR.html"><span class="glyphicon glyphicon-wrench"></span> History </a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            
+                          
+							<li>
+                                <a href="MyAssets.html"><span class="glyphicon glyphicon-calendar"></span> My assets</a>
+                            </li>
+							
+                           
+                            
+                        </ul>
+                    </div>
+                    <!-- /.sidebar-collapse -->
+                </div>
+                <!-- /.navbar-static-side -->
+            </nav>
+
+            <!-- Page Content -->
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Welcome, employer</h1>
+							<div class="col-lg-4">
+                       <div class="container4" action="NewRequest.html" id="form1">
+<div>
+  
+  <br>
+</div>
+<form >
+  <div class="form-group">
+  
+  <br>
+  
+  <label for="exampleInputEmail1">Category</label>
+    <select class="form-control" id="sel">
+    <option value="1">Device</option>
+    <option value="2">Office</option>
+    
+  </select>
+      <div style='display:none;' id='sel1'>&nbsp;
+          <label for="exampleInputEmail1">Device Type</label>
+          &nbsp;
+          <select class="form-control" id="dev">
+              <option>Laptop</option>
+              <option>Monitor</option>
+              <option>Testing equpiment</option>
+              <option>Mouse</option>
+              <option>Keyboard</option>
+              <option value="0">Other</option>
+          </select>
+      </div>
+      <div style='display:none;' id='other'><br />&nbsp;
+          &nbsp;
+          <input type='text' class='text' name='other' />
+          
+      </div>
+      <div style='display:none;' id='sel2'>&nbsp;
+          <label for="exampleInputEmail1">Equipment Type</label>
+          &nbsp;<select class="form-control">
+              <option>Chair</option>
+              <option>Table</option>
+              <option>Smartphone</option>
+          </select>
+      </div>
+
+
+      </div>
+  
+   <label for="number">Quantity</label>
+                         
+    <input type="number" id="replyNumber" min="1" data-bind="value:replyNumber" />
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Request Description</label>
+    <textarea class="form-control" rows="1" id="comment"></textarea>
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="exampleInputPassword1">Request Message</label>
+    <textarea class="form-control" rows="5" id="comment"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+
+        <!-- jQuery -->
+        <script src="../js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../js/bootstrap.min.js"></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="../js/metisMenu.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="../js/startmin.js"></script>
+
+    </body>
+</html>

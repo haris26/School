@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Procurement System</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+      
+
+        <!-- Custom CSS -->
+        <link href="../css/startmin.css" rel="stylesheet">
+
+        
+
+
+    </head>
+    <body>
+
+        <div id="wrapper">
+
+            <!-- Navigation -->
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="AdminPage.html">Procurement</a>
+                </div>
+
+              
+
+                <ul class="nav navbar-nav navbar-left navbar-top-links">
+                    <li><a href="AdminPage.html">  <span class="glyphicon glyphicon-home"></span> Home</a></li>
+                </ul>
+
+				
+                <ul class="nav navbar-right navbar-top-links">
+                    <li class="dropdown navbar-inverse">
+					
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                          <span class="glyphicon glyphicon-dashboard"></span>	 Alerts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                              
+                            </li>
+                            <li>
+                              
+                            </li>
+                            <li>
+                              
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        New Task
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                               
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="text-center" href="#">
+                                    <strong>See All Alerts</strong>
+                                    
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                          <span class="glyphicon glyphicon-user"></span> IT Officer <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#"> User Profile</a>
+                            </li>
+                            <li><a href="#"> Settings</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="login.html">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- /.navbar-top-links -->
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-search">
+                               
+                            </li>
+                           
+                            <li>
+                                <a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span> Requests <span class="glyphicon glyphicon-menu-down"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                       <a href="RequestHist.html"><span class="glyphicon glyphicon-plus-sign"></span> New</a>
+                                       <a href="ServiceHist.html"><span class="glyphicon glyphicon-wrench"></span> Service</a>
+                                            </li>
+											
+							 </li>
+								
+								</ul>
+                                <!-- /.nav-second-level -->
+                          
+                            
+                          
+							<li>
+							  <a><span class="glyphicon glyphicon-list"></span> Inventory <span class="glyphicon glyphicon-menu-down"></span> </a>
+							  <ul class="nav nav-third-level">
+                                            
+                                                
+											 <li><a href="Inventory.html"><span class="glyphicon glyphicon-plus"></span> Add Inventory </a></li>
+                        <li><a href="Free.html"><span class="glyphicon glyphicon-cog"></span> Free equipment</a></li>
+                        <li><a href="Taken.html"><span class="glyphicon glyphicon-cog"></span> Taken</a></li>
+                        <li><a  href="Tables.html"><span class="glyphicon glyphicon-cog"></span> Schedule By Room</a></li>
+						 </ul> </li>
+						 <li>
+                                <a href="#"><span class="glyphicon glyphicon-modal-window"></span> Reports</a>
+                           </li>
+							
+                           
+                            
+                     
+                    </div>
+                    <!-- /.sidebar-collapse -->
+                </div>
+                <!-- /.navbar-static-side -->
+            </div>
+            <!-- Page Content -->
+         
+            <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Requests</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                               Service Requests
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+											    <th>User</th>
+                                                <th> Category</th>
+												<th> Type</th>
+                                                <th>Asset</th>                                               
+                                                <th>Date</th>
+                                                <th>Request Message</th>
+                                                <th>Request Description</th>
+                                                <th>Request status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="request-table">
+											    <td> Alen</td>
+                                                <td> Laptop</td>
+												<td> SW </td>
+                                                <td>Inspiron i3 599ir</td>
+												<td>07/03/2016</td>
+                                                <td>I need update of my system</td>
+                                                <td>Since I was moved to another project and have no time for sw you have to take care of it.</td>
+                                                <td><a href="#"><u>Change</u></a></td>
+                                            </tr>
+
+                                             <tr class="request-table">
+											    <td> Irma</td>
+                                                <td> Laptop</td>
+												<td> HW </td>
+                                                <td>Inspiron i3 599ir</td>
+												<td>07/03/2016</td>
+                                                <td>I need update of my system</td>
+                                                <td>Since I was moved to another project and have no time for sw you have to take care of it.</td>
+                                                <td><a href="#"><u>Change</u></a></td>
+                                            </tr>
+
+                                            <tr class="request-table">
+											    <td> Alen</td>
+                                                <td> Laptop</td>
+												<td> SW  </td>
+                                                <td>Inspiron i3 599ir</td>
+												<td>07/03/2016</td>
+                                                <td>I need update of my system</td>
+                                                <td>Since I was moved to another project and have no time for sw you have to take care of it.</td>
+                                                <td><a href="#"><u>Change</u></a></td>
+                                            </tr>
+
+                                             <tr class="request-table">
+											    <td> Sabina</td>
+                                                <td> Laptop</td>
+												<td> HW </td>
+                                                <td>Inspiron i3 599ir</td>
+												<td>07/03/2016</td>
+                                                <td>I need update of my system</td>
+                                                <td>Since I was moved to another project and have no time for sw you have to take care of it.</td>
+                                                <td><a href="#"><u>Change</u></a></td>
+                                            </tr>
+                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+                              
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+
+        <!-- jQuery -->
+        <script src="../js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../js/bootstrap.min.js"></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="../js/metisMenu.min.js"></script>
+
+
+        <!-- jQuery -->
+        <script src="../js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../js/bootstrap.min.js"></script>
+
+
+        <!-- DataTables JavaScript -->
+        <script src="../js/dataTables/jquery.dataTables.min.js"></script>
+        <script src="../js/dataTables/dataTables.bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="../js/startmin.js"></script>
+
+        <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+        <script>
+            $(document).ready(function() {
+                $('#dataTables-example').DataTable({
+                        responsive: true
+                });
+            });
+        </script>
+
+    </body>
+</html>
