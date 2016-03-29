@@ -7,9 +7,11 @@ using System.Web.Http;
 using Database;
 using WebAPI.Models;
 using WebAPI.Helpers;
+using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
+    [TokenAuthorize]
     public class EventsController : BaseController<Event>
     {
         public EventsController(Repository<Event> depo) : base(depo)

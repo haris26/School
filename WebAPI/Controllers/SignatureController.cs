@@ -16,12 +16,12 @@ namespace WebAPI.Controllers
         public string Get()
         {
             var apiUser = apiUsers.Get().First();
-            apiUsers.Insert(new ApiUser()
-            {
-                Name = "School",
-                AppId = "R2lnaVNjaG9vbA==",
-                Secret = "TWlzdHJhbFRhbGVudHM="
-            });
+            //apiUsers.Insert(new ApiUser()
+            //{
+            //    Name = "School",
+            //    AppId = "R2lnaVNjaG9vbA==",
+            //    Secret = "TWlzdHJhbFRhbGVudHM="
+            //});
             return AppGlobals.Signature(apiUser.Secret, apiUser.AppId);
         }
     }

@@ -9,6 +9,7 @@ using System.Web.Http;
 using Database;
 using WebAPI.Helpers;
 using WebMatrix.WebData;
+using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {

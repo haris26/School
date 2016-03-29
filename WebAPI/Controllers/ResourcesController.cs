@@ -6,9 +6,11 @@ using System.Net.Http;
 using System.Web.Http;
 using Database;
 using WebAPI.Models;
+using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
+    [TokenAuthorize]
     public class ResourcesController : BaseController<Resource>
     {
         public ResourcesController(Repository<Resource> depo) : base(depo) { }
@@ -17,6 +19,7 @@ namespace WebAPI.Controllers
         {
             return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
         }
+
         public IHttpActionResult Get(int id)
         {
             try
@@ -32,6 +35,7 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
+
         public IHttpActionResult Post(ResourceModel model)
         {
             try
@@ -44,19 +48,20 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
-        public IHttpActionResult Put(ResourceModel model)
+
+        public IHttpActionResult Put(int id, ResourceModel model)
         {
             try
             {
-                Resource resource = Parser.Create(model, Repository.BaseContext());
+                Resource resource = Repository.Get(id);
                 if (resource == null)
                 {
                     return NotFound();
                 }
                 else
                 {
-                    Repository.Update(resource, resource.Id);
-                    return Ok(Factory.Create(resource));
+                    Repository.Update(Parser.Create(model, Repository.BaseContext()), resource.Id);
+                    return Ok(model);
                 }
                             }
             catch (Exception ex)
@@ -65,6 +70,7 @@ namespace WebAPI.Controllers
             }
             
         }
+
         public IHttpActionResult Delete (int id)
         {
             try

@@ -22,6 +22,7 @@ namespace WebAPI.Helpers
             var hash = provider.ComputeHash(Encoding.UTF8.GetBytes(key));
             return Convert.ToBase64String(hash);
         }
+
         public static string GenerateToken(ApiUser user)
         {
             var provider = new System.Security.Cryptography.HMACSHA256(Convert.FromBase64String(user.AppId));

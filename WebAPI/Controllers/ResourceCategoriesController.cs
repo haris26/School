@@ -5,10 +5,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebAPI.Filters;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
+    [TokenAuthorize]
     public class ResourceCategoriesController : BaseController<ResourceCategory>
     {
         public ResourceCategoriesController(Repository<ResourceCategory> depo) : base(depo) { }
@@ -17,6 +19,7 @@ namespace WebAPI.Controllers
         {
             return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
         }
+
         public IHttpActionResult Get (int id)
         {
             try
@@ -32,6 +35,7 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
+
         public IHttpActionResult Post (ResourceCategoryModel model)
         {
             try
@@ -44,17 +48,18 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
-        public IHttpActionResult Put (ResourceCategoryModel model)
+
+        public IHttpActionResult Put (int id, ResourceCategoryModel model)
         {
             try
             {
-                ResourceCategory resourceCat = Parser.Create(model, Repository.BaseContext());
+                ResourceCategory resourceCat = Repository.Get(id);
                 if (resourceCat == null)
                     return NotFound();
                 else
                 {
-                    Repository.Update(resourceCat, resourceCat.Id);
-                    return Ok(Factory.Create(resourceCat));
+                    Repository.Update(Parser.Create(model, Repository.BaseContext()), resourceCat.Id);
+                    return Ok(model);
                 }
 
             }
@@ -63,6 +68,7 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
+
         public IHttpActionResult Delete (int id)
         {
             try

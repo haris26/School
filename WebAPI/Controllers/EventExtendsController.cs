@@ -7,9 +7,11 @@ using System.Web.Http;
 using Database;
 using WebAPI.Helpers;
 using WebAPI.Models;
+using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
+    [TokenAuthorize]
     public class EventExtendsController : BaseController<ExtendedEvent>
 
     {
