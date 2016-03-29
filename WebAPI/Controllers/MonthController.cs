@@ -38,16 +38,15 @@ namespace WebAPI.Controllers
                         .ToList();
 
             List<MonthModel> list = new List<MonthModel>();
+            MonthModel model = new MonthModel();
             foreach (var p in people)
             {
                 foreach (var day in p.Days.ToList())
                 {
                     if (day.Date.Month != month)
-                        p.Days.Remove(day);
+                        p.Days.Remove(day);                       
                 }
-
-                list.Add(MonthList.Create(p));
-
+                    list.Add(MonthList.Create(p));
             }
             return list;
         }
