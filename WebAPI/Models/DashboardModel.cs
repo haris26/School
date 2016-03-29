@@ -8,12 +8,13 @@ namespace WebAPI.Models
 
     public class ListModel
     {
-       
+
         public string Category { get; set; }
         public int Count { get; set; }
-       
+        public int EmptyDays { get; set; }
+
     }
-    
+
 
     public class DashboardModel
     {

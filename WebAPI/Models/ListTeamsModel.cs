@@ -6,6 +6,7 @@ using System.Web;
 
 namespace WebAPI.Models
 {
+
     public class ListTeamsModel
     {
 
@@ -18,7 +19,8 @@ namespace WebAPI.Models
         }
         public int Id { get; set; }
         public string Name { get; set; }
-        public IList<ListModel> Days { get; set; }
+        public int MissedDays { get; set; }
+        public IList<ListModel> Days { get; set; }        
         public IList<ListModel> Details { get; set; }
         public IList<ListModel> Members { get; set; }
 
