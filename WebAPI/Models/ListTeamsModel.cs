@@ -15,14 +15,14 @@ namespace WebAPI.Models
 
             Details = new List<ListModel>();
             Days = new List<ListModel>();
-            Members = new List<ListModel>();
+            Members = new List<CountModel>();
         }
         public int Id { get; set; }
         public string Name { get; set; }
         public int MissedDays { get; set; }
         public IList<ListModel> Days { get; set; }        
         public IList<ListModel> Details { get; set; }
-        public IList<ListModel> Members { get; set; }
+        public IList<CountModel> Members { get; set; }
 
     }
 }
