@@ -189,7 +189,6 @@
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
-    <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\ReservationOverviewsController.cs" />
     <Compile Include="Controllers\ResourceCategoriesController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
@@ -216,7 +215,6 @@
     <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\PersonModel.cs" />
-    <Compile Include="Models\ReservationModel.cs" />
     <Compile Include="Models\ReservationOverviewModel.cs" />
     <Compile Include="Models\ResourceCategoryModel.cs" />
     <Compile Include="Models\ResourceModel.cs" />

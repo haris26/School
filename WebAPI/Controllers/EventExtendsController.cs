@@ -50,17 +50,17 @@ namespace WebAPI.Controllers
             }
         }
 
-        public IHttpActionResult Put(EventExtendModel extendedEvent)
+        public IHttpActionResult Put(int id, EventExtendModel model)
         {
             try
             {
-                ExtendedEvent e = EventExtendRestriction.Create(extendedEvent, Repository.BaseContext());
+                ExtendedEvent e = Repository.Get(id);
                 if (e == null)
                     return NotFound();
                 else
                 {
-                    Repository.Update(e, e.Id);
-                    return Ok(Factory.Create(e));
+                    Repository.Update(EventExtendRestriction.Create(model, Repository.BaseContext()), e.Id);
+                    return Ok(model);
                 }
             }
             catch (Exception ex)

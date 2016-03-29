@@ -18,37 +18,47 @@ namespace WebAPI.Controllers
         {
             return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
         }
+
         public IHttpActionResult Get(int id)
         {
             try
             {
-                if (Repository.Get(id) == null)
-                {
+                Characteristic characteristic = Repository.Get(id);
+                if (characteristic == null)
                     return NotFound();
-                }
                 else
-                {
-                    return Ok(Factory.Create(Repository.Get(id)));
-                }
+                    return Ok(Factory.Create(characteristic));             
             }
             catch (Exception ex)
             {
                 return BadRequest();
             }
-
         }
+
         public IHttpActionResult Post(CharacteristicModel model)
         {
             try
             {
-                if (ModelState.IsValid)
-                {
-                    Repository.Insert(Parser.Create(model, Repository.BaseContext()));
-                    return Ok(model);
-                }
-                else
-                {
+                Repository.Insert(Parser.Create(model, Repository.BaseContext()));
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
+
+        public IHttpActionResult Put(int id, CharacteristicModel model)
+        {
+            try
+            {
+                Characteristic characteristic = Repository.Get(id);
+                if (characteristic == null)
                     return NotFound();
+                else
+                { 
+                    Repository.Update(Parser.Create(model, Repository.BaseContext()), characteristic.Id);
+                    return Ok(model);
                 }
             }
             catch (Exception ex)
@@ -56,46 +66,25 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
-        public IHttpActionResult Put(CharacteristicModel model)
+
+        public IHttpActionResult Delete(int id)
         {
             try
             {
-                if (ModelState.IsValid)
-                {
-                    Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
-                    return Ok(model);
-                }
-                else
-                {
+                Characteristic characteristic = Repository.Get(id);
+                if (characteristic == null)
                     return NotFound();
-                }
-            }
-            catch (Exception ex)
-            {
-                return BadRequest();
-            }
-        }
-            public IHttpActionResult Delete(int id)
-        {
-            try
-            {
-                if (Repository.Get(id) != null)
+                else
                 {
                     Repository.Delete(id);
                     return Ok();
                 }
-                else
-                {
-                    return NotFound();
-                }
             }
             catch (Exception ex)
             {
                 return BadRequest();
             }
-        }
-           
-        }
-    
-    }
+        }         
+    }    
+}
 
