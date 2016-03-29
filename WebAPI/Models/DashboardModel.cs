@@ -11,10 +11,18 @@ namespace WebAPI.Models
 
         public string Category { get; set; }
         public int Count { get; set; }
-        public int EmptyDays { get; set; }
+
 
     }
 
+    public class CountModel
+    {
+
+        public string Category { get; set; }
+        public int Count { get; set; }
+        public int EmptyDays { get; set; }
+
+    }
 
     public class DashboardModel
     {
