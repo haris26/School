@@ -110,8 +110,6 @@ namespace WebAPI.Helpers
             {
                 model.FromDate = model.FromDate.AddDays(-4);
             }     
-        }
-        
-       
+        }  
     }
 }
