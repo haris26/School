@@ -24,20 +24,19 @@ namespace WebAPI.Controllers
             List<ListTeamsModel> list = new List<ListTeamsModel>();
             foreach (var t in teams)
             {
-                list.Add(ListTeams.Create(t));
+                foreach (var day in t.Details.ToList())
+                {
+                    if (day.Day.Date.Month != DateTime.Now.Month)
+                        t.Details.Remove(day);
+
+                }
+                list.Add(ListTeams.Create(t, DateTime.Now.Month));
             }
             return list;
         }
 
         public IList<ListTeamsModel> GetByMonth(int month)
         {
-
-            int dd = DateTime.Now.Month; //(year: 2016, month: 3, day: 1);
-            int dty = DateTime.Now.Year;
-            int bd = DateTime.DaysInMonth(dty, dd);
-            var weekends = new DayOfWeek[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
-            IEnumerable<int> businessDaysInMonth = Enumerable.Range(1, bd)
-                                                   .Where(d => !weekends.Contains(new DateTime(dty, dd, d).DayOfWeek));
 
             var teams = Repository.Get().OrderBy(x => x.Name)
                    .ToList();
@@ -49,13 +48,10 @@ namespace WebAPI.Controllers
                 {
                     if (day.Day.Date.Month != month)
                         t.Details.Remove(day);
-                    if (month == day.Day.Date.Month)
-                    {
-                        model.MissedDays = businessDaysInMonth.Count(); 
-                    }
+                    
                 } 
 
-                list.Add(ListTeams.Create(t));
+                list.Add(ListTeams.Create(t,month));
 
             }
             return list;
