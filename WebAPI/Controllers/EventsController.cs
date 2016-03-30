@@ -14,6 +14,8 @@ namespace WebAPI.Controllers
     [TokenAuthorize]
     public class EventsController : BaseController<Event>
     {
+        //Person currentPerson = AppGlobals.currentUser;
+
         public EventsController(Repository<Event> depo) : base(depo)
         { }
 
@@ -51,17 +53,17 @@ namespace WebAPI.Controllers
             }
         }
 
-        public IHttpActionResult Put(EventModel ev)
+        public IHttpActionResult Put(int id, EventModel model)
         {
             try
             {
-                Event e = EventRestriction.Create(ev, Repository.BaseContext());
+                Event e = Repository.Get(id);
                 if (e == null)
                     return NotFound();
                 else
                 {
-                    Repository.Update(e, e.Id);
-                    return Ok(Factory.Create(e));
+                    Repository.Update(EventRestriction.Create(model, Repository.BaseContext()), e.Id);
+                    return Ok(model);
                 }       
             }
             catch (Exception ex)
