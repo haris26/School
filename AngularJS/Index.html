@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html ng-app="school">
+
+<head>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/script10.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+    <h1>{{ message }}</h1>
+
+    Filter: <input type="search" ng-model="selPerson">
+    Order: <select ng-model="sortOrder">
+        <option value="+lastName">Last Name</option>
+        <option value="+firstName">First Name</option>
+        <option value="-phone">Phone number</option>
+    </select>
+    <hr>
+    <div ng-repeat="person in people | orderBy: sortOrder | filter: selPerson">
+        <sch-osoba />
+    </div>
+</body>
+</html>

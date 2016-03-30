@@ -15,25 +15,30 @@ namespace WebAPI.Controllers
         public PeopleController(Repository<Person> depo):base(depo)
         { }
 
-        public IList<PersonModel> GetAll(int page = 0, int PageSize = 5)
+        public IList<PersonModel> Get()
         {
-            var query = Repository.Get().OrderBy(x => x.FirstName)
-                                        .ThenBy(x => x.LastName).ToList();
-            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
-            IList<PersonModel> people = query.Skip(PageSize * page)
-                                             .Take(PageSize).ToList()
-                                             .Select(x => Factory.Create(x))
-                                             .ToList();
-
-            var pageHeader = new
-            {
-                pageSize = PageSize,
-                currentPage = page,
-                pageCount = TotalPages
-            };
-
-            HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(pageHeader));
-            return people;
+            return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
         }
+
+        //public IList<PersonModel> GetAll(int page = 0, int PageSize = 5)
+        //{
+        //    var query = Repository.Get().OrderBy(x => x.FirstName)
+        //                                .ThenBy(x => x.LastName).ToList();
+        //    int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+        //    IList<PersonModel> people = query.Skip(PageSize * page)
+        //                                     .Take(PageSize).ToList()
+        //                                     .Select(x => Factory.Create(x))
+        //                                     .ToList();
+
+        //    var pageHeader = new
+        //    {
+        //        pageSize = PageSize,
+        //        currentPage = page,
+        //        pageCount = TotalPages
+        //    };
+
+        //    HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(pageHeader));
+        //    return people;
+        //}
     }
 }
