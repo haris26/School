@@ -12,7 +12,7 @@ namespace WebAPI.Helpers
     {
         public static ListTeamsModel Create(Team team, int month)
         {
-            Person person = new Person();
+         //   Person person = new Person();
            
 
 
@@ -23,14 +23,15 @@ namespace WebAPI.Helpers
 
             };
 
-            int dd = DateTime.Now.Month; //(year: 2016, month: 3, day: 1);
+            //Declaring DateTime variables in order to select only working days for each month
+            int dd = month;//DateTime.Now.Month; //(year: 2016, month: 3, day: 1);
             int dty = DateTime.Now.Year;
             int bd = DateTime.DaysInMonth(dty, month);
             var weekends = new DayOfWeek[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
             IEnumerable<int> businessDaysInMonth = Enumerable.Range(1, bd)
                                                    .Where(d => !weekends.Contains(new DateTime(dty, month, d).DayOfWeek));
 
- 
+            //Getting details sorted by Persons and forwarding time worked and days not logged into Members list
             var members = team.Details.GroupBy(x => x.Day.Person.FullName).Select(x => new { person = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
 
             foreach (var det in members)
@@ -38,6 +39,7 @@ namespace WebAPI.Helpers
                 listteam.Members.Add(new CountModel { Category = det.person, Count = (int)det.time, EmptyDays = businessDaysInMonth.Count() -det.empty });
             }
 
+            //Getting details for the entire team and forwarding overall team work time invested
             var time = team.Details.GroupBy(x => x.Team).Select(x => new { team = x.Key, time = x.Sum(y => y.WorkTime) }).ToList();
 
             foreach (var tm in time)
@@ -45,16 +47,17 @@ namespace WebAPI.Helpers
                 listteam.Details.Add(new ListModel { Category = "Overall time worked", Count = (int)tm.time });
             }
 
-            var days = team.Details.GroupBy(x => x.Team).Select(x => new { type = x.Key, days = x.Count() }).ToList();
+            //Getting day count from Details table and forwarding it to display overall team days invested
+            var days = team.Details.GroupBy(x => x.Team).Select(x => new { type = x.Key, days = x.GroupBy(z => z.Day.Date).Count() }).ToList();
 
             foreach (var day in days)
             {
                 listteam.Days.Add(new ListModel { Category = "Overall days worked", Count = (int)day.days });
             }
 
+            //Displaying days not logged for the entire team
             foreach (var d in members)
             {
-
                 listteam.MissedDays = businessDaysInMonth.Count() - d.empty;
             }   
             

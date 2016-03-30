@@ -17,7 +17,6 @@ namespace WebAPI.Controllers
 
         public IList<ListTeamsModel> Get()
         {
-
             var teams = Repository.Get().OrderBy(x => x.Name)
                         .ToList();
 
@@ -26,7 +25,8 @@ namespace WebAPI.Controllers
             {
                 foreach (var day in t.Details.ToList())
                 {
-                    if (day.Day.Date.Month != DateTime.Now.Month)
+
+                    if (day.Day.Date.Month != DateTime.Now.Month)//making the default landing page api/listteam to refer to current month
                         t.Details.Remove(day);
 
                 }
@@ -38,27 +38,26 @@ namespace WebAPI.Controllers
         public IList<ListTeamsModel> GetByMonth(int month)
         {
 
+
             var teams = Repository.Get().OrderBy(x => x.Name)
                    .ToList();
-            ListTeamsModel model = new ListTeamsModel();
+            
             List<ListTeamsModel> list = new List<ListTeamsModel>();
             foreach (var t in teams)
             {
-                foreach (var day in t.Details.ToList())
-                {
+                foreach (var day in t.Details.ToList())  //making sure only details included into the month we have forwarded are included, and everthying
+                 {                                       //else is hidden
                     if (day.Day.Date.Month != month)
-                        t.Details.Remove(day);
-                    
-                } 
 
-                list.Add(ListTeams.Create(t,month));
+                    {
+                        t.Details.Remove(day);
+                    }
+                }
+                list.Add(ListTeams.Create(t, month));
 
             }
-            return list;
+            return list;          
         }
     }
 }
-
-
-
 

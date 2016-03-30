@@ -47,12 +47,10 @@ namespace WebAPI.Controllers
                 foreach (var day in p.Days.ToList())
                 {
                     if (day.Date.Month != month)
-                        p.Days.Remove(day);
+                        p.Days.Remove(day);                       
                 }
 
-
                 list.Add(MonthList.Create(p));
-
 
             }
             return list;
