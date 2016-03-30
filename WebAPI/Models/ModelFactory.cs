@@ -63,7 +63,6 @@ namespace WebAPI.Models
                 Value = characteristic.Value,
                 Resource = characteristic.Resource.Id,
                 ResourceName = characteristic.Resource.Name
-
             };
         }
 
@@ -105,7 +104,6 @@ namespace WebAPI.Models
                 RepeatUntil = exEvent.RepeatUntil,
                 RepeatingType = exEvent.RepeatingType,
                 Frequency = exEvent.Frequency
-
             };
         }
 

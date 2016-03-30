@@ -8,7 +8,6 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
-using Database;
 
 namespace WebAPI.Filters
 {
