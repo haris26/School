@@ -192,7 +192,9 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\FindPeopleController.cs" />
     <Compile Include="Helpers\Criteria.cs" />
+    <Compile Include="Helpers\SearchResult.cs" />
     <Compile Include="Models\CriteriaModel.cs" />
     <Compile Include="Controllers\EditEducationsController.cs" />
     <Compile Include="Controllers\EmployeeAssessmentsController.cs" />
@@ -233,7 +235,10 @@
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\ProjectSkillModel.cs" />
+    <Compile Include="Models\EmployeeResultModel.cs" />
+    <Compile Include="Models\ResultModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\SkillAssessmentHistoryModel.cs" />
     <Compile Include="Models\SkillsCategoryModel.cs" />
     <Compile Include="Models\SupervisorAssessmentModel.cs" />
