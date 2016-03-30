@@ -23,6 +23,13 @@ namespace WebAPI.Models
         public int EmptyDays { get; set; }
 
     }
+    public class EmptyDayModel
+    {
+
+        public string Category { get; set; }
+        public int EmptyDays { get; set; }
+
+    }
 
     public class DashboardModel
     {
