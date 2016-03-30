@@ -9,6 +9,8 @@ using System.Threading;
 using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
+using Database;
+using WebAPI.Helpers;
 using WebMatrix.WebData;
 
 namespace WebAPI.Filters

@@ -30,7 +30,6 @@ namespace WebAPI.Controllers
                 if (person != null)
                 {
                     Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(person.FirstName), null);
-                    AppGlobals.currentUser = person;
                     return Ok(person.FirstName);
                 }
                 else

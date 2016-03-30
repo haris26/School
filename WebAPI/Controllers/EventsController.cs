@@ -14,6 +14,8 @@ namespace WebAPI.Controllers
     [TokenAuthorize]
     public class EventsController : BaseController<Event>
     {
+        //Person currentPerson = AppGlobals.currentUser;
+
         public EventsController(Repository<Event> depo) : base(depo)
         { }
 

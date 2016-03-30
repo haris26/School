@@ -18,6 +18,7 @@ namespace WebAPI.Models
                 ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
             };
         }
+
         public Characteristic Create(CharacteristicModel model,SchoolContext context)
         {
             return new Characteristic()
@@ -62,7 +63,6 @@ namespace WebAPI.Models
                 RepeatingType = model.RepeatingType,
                 Frequency = model.Frequency
             };
-
         }
 
         public ResourceCategory Create(ResourceCategoryModel model, SchoolContext context)
@@ -76,9 +76,7 @@ namespace WebAPI.Models
             };
         }
 
-
         public Person Create(PersonModel model, SchoolContext context)
-
         {
             return new Person()
             {
