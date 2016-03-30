@@ -22,7 +22,8 @@ namespace WebAPI.Helpers
             };
 
             if ((model.StartDate.DayOfWeek != DayOfWeek.Saturday && model.StartDate.DayOfWeek != DayOfWeek.Sunday) 
-                && (model.EndDate.DayOfWeek != DayOfWeek.Saturday && model.EndDate.DayOfWeek != DayOfWeek.Sunday))
+                && (model.EndDate.DayOfWeek != DayOfWeek.Saturday && model.EndDate.DayOfWeek != DayOfWeek.Sunday)
+                && (model.StartDate >= DateTime.Today && model.StartDate <= model.EndDate))
             {
                 ev.EventStart = model.StartDate;
                 ev.EventEnd = model.EndDate;
