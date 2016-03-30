@@ -13,6 +13,8 @@ namespace WebAPI.Controllers
     public class AssetCharsController : BaseController<AssetChar>
     {
         public AssetCharsController(Repository<AssetChar> depo) : base(depo) { }
+
+
         public Object GetAll(int page = 0)
             {
                 int PageSize = 5;

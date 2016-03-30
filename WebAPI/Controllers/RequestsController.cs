@@ -21,10 +21,10 @@ namespace WebAPI.Controllers
 
         public Object GetAll(int page = 0)
         {
-            int PageSize = 5;
+            int PageSize = 15;
             var query =
                Repository.Get()
-                   .OrderByDescending(x => x.Status)
+                   .OrderBy(x => x.Status)
                    .ThenBy(x => x.RequestDate)
                    .Where(x => x.requestType == RequestType.Equipment)
                    .ToList();
@@ -33,12 +33,21 @@ namespace WebAPI.Controllers
             IList<RequestModel> requests =
                query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
 
+            int count = 0;
+            for(int i = 0; i < requests.Count(); i++)
+            {
+                if (requests[i].Status == RequestStatus.InProccess)
+                {
+                    count++;
+                }
+            }
             return new
             {
                 pageSize = PageSize,
                 currentPage = page,
                 pageCount = TotalPages,
-                allRequests = requests
+                allRequests = requests,
+                count
             };
         }
 
