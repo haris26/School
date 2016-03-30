@@ -16,7 +16,13 @@ namespace WebAPI.Controllers
         public PeopleController(Repository<Person> depo) : base(depo)
         { }
 
-        public IList<PersonModel> GetAll(int page =0)
+        //Code for testing angularJS
+        //public IList<PersonModel> Get()
+        //{
+        //    var people = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName).ToList().Select(x => Factory.Create(x)).ToList();
+        //    return people;
+        //}
+        public IList<PersonModel> GetAll(int page = 0)
         {
             int PageSize = 5;
             var query = Repository.Get().OrderBy(x => x.LastName)
@@ -34,7 +40,7 @@ namespace WebAPI.Controllers
                 pageCount = TotalPages
             };
 
-        HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+            //HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
             return people;
         }
 

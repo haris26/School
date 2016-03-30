@@ -4,6 +4,7 @@ using System.Linq;
 using WebAPI.Services;
 using WebAPI.Helpers;
 using WebAPI.Models;
+using System;
 
 namespace WebAPI.Controllers
 {
@@ -23,22 +24,25 @@ namespace WebAPI.Controllers
 
             List<MonthModel> list = new List<MonthModel>();
             foreach (var p in people)
-            {
-                list.Add(MonthList.Create(p));
-            }
+            {               
+                    foreach (var day in p.Days.ToList())
+                    {
+                        if (day.Date.Month != DateTime.Now.Month)
+                            p.Days.Remove(day);
+                    }
+                    list.Add(MonthList.Create(p, DateTime.Now.Month));
+                }
             return list;
         }
-
-
 
         public IList<MonthModel> GetByMonth(int month)
         {
 
-            var people = Repository.Get().OrderBy(x => x.FirstName).ThenBy(x => x.LastName)
+            var people = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName)
                         .ToList();
 
             List<MonthModel> list = new List<MonthModel>();
-            MonthModel model = new MonthModel();
+         
             foreach (var p in people)
             {
                 foreach (var day in p.Days.ToList())
@@ -46,7 +50,7 @@ namespace WebAPI.Controllers
                     if (day.Date.Month != month)
                         p.Days.Remove(day);                       
                 }
-                    list.Add(MonthList.Create(p));
+                    list.Add(MonthList.Create(p, month));
             }
             return list;
         }
