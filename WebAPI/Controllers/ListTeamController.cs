@@ -33,12 +33,12 @@ namespace WebAPI.Controllers
         public IList<ListTeamsModel> GetByMonth(int month)
         {
 
-            int dd = DateTime.Now.Month; //(year: 2016, month: 3, day: 1);
+            int dd = DateTime.Now.Month; //(year: 2016, month: 3, day: 1); nije visak
             int dty = DateTime.Now.Year;
-            int bd = DateTime.DaysInMonth(dty, dd);
+            int bd = DateTime.DaysInMonth(dty, month);
             var weekends = new DayOfWeek[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
             IEnumerable<int> businessDaysInMonth = Enumerable.Range(1, bd)
-                                                   .Where(d => !weekends.Contains(new DateTime(dty, dd, d).DayOfWeek));
+                                                   .Where(d => !weekends.Contains(new DateTime(dty, month, d).DayOfWeek));
 
             var teams = Repository.Get().OrderBy(x => x.Name)
                    .ToList();

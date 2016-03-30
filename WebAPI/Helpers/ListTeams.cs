@@ -23,19 +23,19 @@ namespace WebAPI.Helpers
 
             };
 
-            int dd = DateTime.Now.Month; //(year: 2016, month: 3, day: 1);
-            int dty = DateTime.Now.Year;
-            int bd = DateTime.DaysInMonth(dty, dd);
+            DateTime dd = DateTime.Now; //(year: 2016, month: 3, day: 1);
+            int bd = DateTime.DaysInMonth(dd.Year, dd.Month);
             var weekends = new DayOfWeek[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
             IEnumerable<int> businessDaysInMonth = Enumerable.Range(1, bd)
-                                                   .Where(d => !weekends.Contains(new DateTime(dty, dd, d).DayOfWeek));
+                                                   .Where(d => !weekends.Contains(new DateTime(dd.Year, dd.Month, d).DayOfWeek));
 
  
             var members = team.Details.GroupBy(x => x.Day.Person.FullName).Select(x => new { person = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
-
+            
             foreach (var det in members)
             {
                 listteam.Members.Add(new CountModel { Category = det.person, Count = (int)det.time, EmptyDays = businessDaysInMonth.Count() - det.empty });
+                
             }
 
             var time = team.Details.GroupBy(x => x.Team).Select(x => new { team = x.Key, time = x.Sum(y => y.WorkTime) }).ToList();
