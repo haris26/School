@@ -17,7 +17,7 @@ namespace WebAPI.Helpers
             {
                 Id = model.Id,
                 EventTitle = model.EventTitle,
-                User = p,
+                User = context.People.Find(AppGlobals.currentUser.Id),
                 Resource = context.Resources.Find(model.Resource)
             };
 
