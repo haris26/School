@@ -204,6 +204,7 @@
     <Compile Include="Controllers\SignatureController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TokenRequestController.cs" />
+    <Compile Include="Controllers\UserReservationsController.cs" />
     <Compile Include="Filters\SchoolAuthorizedAttribute.cs" />
     <Compile Include="Filters\TokenAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -215,6 +216,7 @@
     <Compile Include="Helpers\EventRestriction.cs" />
     <Compile Include="Helpers\ReservationOverview.cs" />
     <Compile Include="Helpers\SchoolIdentity.cs" />
+    <Compile Include="Helpers\UserReservations.cs" />
     <Compile Include="Models\CharacteristicModel.cs" />
     <Compile Include="Models\CharacteristicNameModel.cs" />
     <Compile Include="Models\DashboardModel.cs" />
@@ -231,6 +233,7 @@
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Models\TokenModel.cs" />
     <Compile Include="Models\TokenRequestModel.cs" />
+    <Compile Include="Models\UserReservationsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

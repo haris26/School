@@ -11,13 +11,11 @@ namespace WebAPI.Helpers
     {
         public static Event Create(EventModel model, SchoolContext context)
         {
-            int id = AppGlobals.currentUser.Id;
-            Person p = context.People.Find(id);
             Event ev = new Event()
             {
                 Id = model.Id,
                 EventTitle = model.EventTitle,
-                User = p,
+                User = context.People.Find(AppGlobals.currentUser.Id),
                 Resource = context.Resources.Find(model.Resource)
             };
 
