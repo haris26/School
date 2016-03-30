@@ -88,11 +88,11 @@ namespace Database
   
     public enum RequestStatus
     {
-        AvaitingForApprovale = 1,
-        Cancelled = 2,
+        AvaitingForApprovale = 2,
+        Cancelled = 5,
         Approved = 3,
         Completed = 4,
-        InProccess = 5
+        InProccess = 1
     }
 
     public enum RequestType
