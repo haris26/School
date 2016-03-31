@@ -29,6 +29,7 @@ namespace WebAPI.Controllers
         //    IList<PeopleModel> people =
         //        query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
 
+
         //    return new
         //    {
         //        pageSize = PageSize,
@@ -37,10 +38,10 @@ namespace WebAPI.Controllers
         //        allPeople = people
         //    };
         //}
+
         public IList<PeopleModel> Get()
         {
             return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
-
 
         }
 

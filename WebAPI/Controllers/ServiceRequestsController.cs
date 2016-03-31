@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
             int PageSize = 5;
             var query =
                Repository.Get()
-                   .OrderByDescending(x => x.Status)
+                   .OrderBy(x => x.Status)
                    .ThenBy(x => x.RequestDate)
                    .Where(x => x.requestType == RequestType.Service)
                    .ToList();
@@ -31,12 +31,22 @@ namespace WebAPI.Controllers
             IList<RequestModel> requests =
                query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
 
+            int count = 0;
+            for (int i = 0; i < requests.Count(); i++)
+            {
+                if (requests[i].Status == RequestStatus.InProccess)
+                {
+                    count++;
+                }
+            }
+
             return new
             {
                 pageSize = PageSize,
                 currentPage = page,
                 pageCount = TotalPages,
-                allRequests = requests
+                allRequests = requests,
+                count
             };
         }
 
