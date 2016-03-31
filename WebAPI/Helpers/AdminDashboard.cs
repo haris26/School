@@ -44,16 +44,16 @@ namespace WebApi.Helpers
                     dashboard.CountServiceRequests++;
                 }
 
-                else if (request.Status == RequestStatus.InProccess && request.AssetType == AssetType.Device && request.Asset.Status==AssetStatus.OutofOrder)
-                {
-                    //dashboard.ServiceRequests.Add(new RequestListModel()
-                    //{
-                    //    Id = request.Id,
-                    //    RequestType = request.requestType
-                    //});
+                //else if (request.Status == RequestStatus.InProccess && request.AssetType == AssetType.Device && request.Asset.Status==AssetStatus.OutofOrder)
+                //{
+                //    //dashboard.ServiceRequests.Add(new RequestListModel()
+                //    //{
+                //    //    Id = request.Id,
+                //    //    RequestType = request.requestType
+                //    //});
 
-                    dashboard.CountOutOfStorage++;
-                }
+                //    dashboard.CountOutOfStorage++;
+                //}
             }
 
             //dashboard.CountEquipmentRequests = dashboard.EquipmentRequests.Count;
