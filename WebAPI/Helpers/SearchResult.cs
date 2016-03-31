@@ -164,6 +164,9 @@ namespace WebAPI.Helpers
                                                                               Reference = x.Reference })
                                                            .ToList();
 
+            employee.Engagements = person.Roles.Where(x => x.EndDate == null && x.Time > 0).ToList()
+                                               .Select(x => EmployeeSummary.CreateEngagementDetail(x)).ToList();
+
             return employee;
         }
 
@@ -177,7 +180,9 @@ namespace WebAPI.Helpers
             };
 
             employee.Skills = GetCurrentSkills(employeeSkills.ToList());
-            
+            employee.Engagements = employeeSkills.Key.Roles.Where(x => x.EndDate == null && x.Time > 0).ToList()
+                                   .Select(x => EmployeeSummary.CreateEngagementDetail(x)).ToList();
+
             return employee;
         }
 
