@@ -62,7 +62,7 @@ namespace UnitTest
                 SerialNumber = "025477aasdds",
                 User =people.Get(1),
                  Vendor = "Dell",
-                Status = AssetStatus.Active,
+                Status = AssetStatus.Assigned,
                 Model="569IS",
 
 
@@ -131,7 +131,7 @@ namespace UnitTest
                 AssetCategory = categories.Get(1),
 
                 Vendor = "Dell",
-                Status = AssetStatus.Active,
+                Status = AssetStatus.Assigned,
                 Model = "inspiron i5K6",
                 User = people.Get(1),
 
@@ -167,7 +167,7 @@ namespace UnitTest
                 SerialNumber = "025477aasdds",
                 User = people.Get(1),
                 Vendor = "Dell",
-                Status = AssetStatus.Active,
+                Status = AssetStatus.Assigned,
                 Model = "569IS",
                 AssetCategory = categories.Get(1),
 

@@ -11,7 +11,7 @@ namespace DataSeed
 {
     static class Charlie
     {
-        static string sourceData = Utility.sourceRoot + "GigiSchool.xls";
+        static string sourceData = Utility.sourceRoot + "Charlie.xls";
         static SchoolContext context = new SchoolContext();
 
         public static void Seed()

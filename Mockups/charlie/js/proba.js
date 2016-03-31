@@ -1,6 +1,8 @@
 function myFunction() {
 
-   confirm("Do you want to go to another section?");
+   confirm("Complete the action?");
    
 	
 	}
+
+

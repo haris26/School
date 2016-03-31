@@ -33,17 +33,26 @@ namespace WebAPI.Controllers
             IList<RequestModel> requests =
                query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
 
+            int count = 0;
+            for (int i = 0; i < requests.Count(); i++)
+            {
+                if (requests[i].Status == RequestStatus.InProccess)
+                {
+                    count++;
+                }
+            }
             return new
             {
                 pageSize = PageSize,
                 currentPage = page,
                 pageCount = TotalPages,
-                allRequests = requests
+                allRequests = requests,
+                count
             };
         }
 
 
-         public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(int id)
 
 
         {

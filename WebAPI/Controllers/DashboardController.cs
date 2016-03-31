@@ -6,7 +6,7 @@ using WebAPI.Filters;
 
 namespace WebApi.Controllers
 {
-    [TokenAuthorize]
+    [SchoolAuthorize(true)]
     public class DashboardController : BaseController<Person>
     {
         SchoolIdentity ident = new SchoolIdentity();
