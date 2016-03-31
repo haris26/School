@@ -17,14 +17,14 @@ namespace WebAPI.Controllers
         [HttpPost]
         public IHttpActionResult FindPeople ([FromBody] SearchModel search)
         {
-            try
-            {
+            //try
+            //{
                 return Ok(SearchResult.Create(Repository.BaseContext(), search));
-            }
-            catch(Exception ex)
-            {
-                return BadRequest();
-            }
+            //}
+            //catch(Exception ex)
+            //{
+            //    return BadRequest();
+            //}
         }
     }
 }

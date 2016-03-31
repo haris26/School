@@ -12,6 +12,33 @@ namespace WebAPI.Helpers
         public static ResultModel Create(SchoolContext context, SearchModel search)
         {
             ResultModel result = new ResultModel();
+            result.ExactMatches = GetExactMatches(context, search);
+
+            //get list of employee ids that are already in exact matches
+            var exactMatchesIds = result.ExactMatches.Select(x => x.EmployeeId).ToList();
+
+            result.CloseMatches = GetCloseMatches(context, search, exactMatchesIds);
+
+            return result;
+        }
+
+        public static List<EmployeeResultModel> GetCloseMatches (SchoolContext context, SearchModel search, List<int> exactMatches)
+        {
+            List<int> searchedSkills = search.QueriedSkills.Select(x => x.Id).ToList();
+
+             var closeMatches = context.EmployeeSkills.Where(x => searchedSkills.Contains(x.Tool.Id) && !exactMatches.Contains(x.Employee.Id)).ToList()
+                                             .GroupBy(x => x.Employee)
+                                             .Select(x => CreateEmployeeResultModel(x))
+                                             .OrderByDescending(x => x.Skills.Count())
+                                             .ThenByDescending(x => x.Skills[0].Level)
+                                             .ToList();
+
+            return closeMatches;
+        }
+
+        public static List<EmployeeResultModel> GetExactMatches(SchoolContext context, SearchModel search)
+        {
+            List<EmployeeResultModel> exactMatches = new List<EmployeeResultModel>();
             Dictionary<int, Person> employees = new Dictionary<int, Person>();
             Dictionary<int, List<EmployeeSkill>> employeeSkills = new Dictionary<int, List<EmployeeSkill>>();
             List<int> employeesToRemove = new List<int>();
@@ -36,11 +63,7 @@ namespace WebAPI.Helpers
                     employeeSkills.Add(currentEmployee, new List<EmployeeSkill>());
 
                     //get the skills of that employee that are last approved by a supervisor
-                    var currentSkills = employee.Value.EmployeeSkills
-                                                .GroupBy(x => x.Tool)
-                                                .Select(x => x.ToList().Where(y => y.AssessedBy == AssessmentType.Supervisor)
-                                                                       .OrderByDescending(y => y.DateOfSupervisorAssessment)
-                                                                       .FirstOrDefault()).ToList();
+                    var currentSkills = GetCurrentSkills(employee.Value);
                     //get educations of employee (list of ids)
                     var educations = employee.Value.EmployeeEducations
                                              .Select(x => x.Education.Id)
@@ -63,7 +86,7 @@ namespace WebAPI.Helpers
                         //if the employee has that skill, add it to the list of his/her skills that need to be displayed
                         else
                             employeeSkills[currentEmployee].Add(searchedSkill);
-                            
+
                     }
 
                     //if the employee has passed all checks for rewuired skills, check his / her educations
@@ -83,12 +106,12 @@ namespace WebAPI.Helpers
                     employees.Remove(person);
                 }
 
-                result.ExactMatches = employees.Select(x => CreateEmployeeResultModel(x.Value, employeeSkills[x.Value.Id], search.QueriedEducations)).ToList();
+                exactMatches = employees.Select(x => CreateEmployeeResultModel(x.Value, employeeSkills[x.Value.Id], search.QueriedEducations)).ToList();
             }
 
 
             //else, if no skills were chosen but only educations
-            else if(search.QueriedEducations.Count() > 0)
+            else if (search.QueriedEducations.Count() > 0)
             {
                 var firstCondition = search.QueriedEducations[0];
                 //get all employees that match the first condition
@@ -120,12 +143,12 @@ namespace WebAPI.Helpers
 
                 //indicate that no skills were passed for search
                 List<EmployeeSkill> searchedSkills = new List<EmployeeSkill>();
-                result.ExactMatches = employees.Select(x => CreateEmployeeResultModel(x.Value, searchedSkills, search.QueriedEducations)).ToList();
+                exactMatches = employees.Select(x => CreateEmployeeResultModel(x.Value, searchedSkills, search.QueriedEducations)).ToList();
             }
-
-            return result;
+            return exactMatches;
         }
 
+        //for exact matches
         public static EmployeeResultModel CreateEmployeeResultModel(Person person, List<EmployeeSkill> searchedSkills, IList<int> searchedEducations)
         {
             EmployeeResultModel employee = new EmployeeResultModel()
@@ -142,6 +165,41 @@ namespace WebAPI.Helpers
                                                            .ToList();
 
             return employee;
+        }
+
+        //for close matches
+        public static EmployeeResultModel CreateEmployeeResultModel(IGrouping<Person, EmployeeSkill> employeeSkills)
+        {
+            EmployeeResultModel employee = new EmployeeResultModel()
+            {
+                EmployeeId = employeeSkills.Key.Id,
+                FullName = employeeSkills.Key.FullName
+            };
+
+            employee.Skills = GetCurrentSkills(employeeSkills.ToList());
+            
+            return employee;
+        }
+
+        //get all current skills of a person 
+        public static List<EmployeeSkill> GetCurrentSkills(Person person)
+        {
+            var currentSkills = person.EmployeeSkills
+                                      .GroupBy(x => x.Tool)
+                                      .Select(x => x.ToList().Where(y => y.AssessedBy == AssessmentType.Supervisor)
+                                                             .OrderByDescending(y => y.DateOfSupervisorAssessment)
+                                                             .FirstOrDefault()).ToList();
+            return currentSkills;
+        }
+
+        //get current skills from a list of skill assessments
+        public static List<EmployeeSkillDetail> GetCurrentSkills(List<EmployeeSkill> employeeSkills)
+        {
+            var currentSkills = employeeSkills.GroupBy(x => x.Tool)
+                                              .Select(x => x.ToList().Where(y => y.AssessedBy == AssessmentType.Supervisor)
+                                              .OrderByDescending(y => y.DateOfSupervisorAssessment)
+                                              .FirstOrDefault()).Select(x => EmployeeSummary.CreateEmployeeSkillDetail(x)).ToList();
+            return currentSkills;
         }
     }
 }
