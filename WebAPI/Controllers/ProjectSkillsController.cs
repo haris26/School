@@ -6,11 +6,16 @@ using System.Net.Http;
 using System.Web.Http;
 using Database;
 using WebAPI.Models;
+using WebAPI.Services;
+using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
+    [TokenAuthorize]
     public class ProjectSkillsController : BaseController<ProjectSkill>
     {
+        SchoolIdentity ident = new SchoolIdentity();
+
         public ProjectSkillsController(Repository<ProjectSkill> depo) : base(depo)
         { }
 

@@ -5,14 +5,18 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Database;
-using WebAPI.Models;
 using System.Web;
 using WebAPI.Helpers;
+using WebAPI.Filters;
+using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
+    [TokenAuthorize]
     public class EditEducationsController : BaseController<Person>
     {
+        SchoolIdentity ident = new SchoolIdentity();
+
         public EditEducationsController(Repository<Person> depo):base(depo)
         { }
 

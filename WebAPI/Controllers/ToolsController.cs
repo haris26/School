@@ -7,12 +7,16 @@ using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Models;
 using WebAPI.Helpers;
+using WebAPI.Filters;
+using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
+    [TokenAuthorize]
     public class ToolsController : BaseController<Tool>
     {
-        
+        SchoolIdentity ident = new SchoolIdentity();
+
         public ToolsController(Repository<Tool> depo) : base(depo)
         { }
 

@@ -6,11 +6,16 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Models;
+using WebAPI.Filters;
+using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
+    [TokenAuthorize]
     public class EmployeeEducationsController : BaseController<EmployeeEducation>
     {
+        SchoolIdentity ident = new SchoolIdentity();
+
         public EmployeeEducationsController(Repository<EmployeeEducation> depo) : base(depo)
         { }
 

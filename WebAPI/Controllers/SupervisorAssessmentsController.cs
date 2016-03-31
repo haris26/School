@@ -6,28 +6,27 @@ using System.Net.Http;
 using System.Web.Http;
 using Database;
 using WebAPI.Helpers;
+using WebAPI.Filters;
+using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
+    [TokenAuthorize]
     public class SupervisorAssessmentsController : BaseController<Person>
     {
+        SchoolIdentity ident = new SchoolIdentity();
+
         public SupervisorAssessmentsController(Repository<Person> depo) : base(depo)
         { }
 
-        public IHttpActionResult Get(int id = 0)
+        public IHttpActionResult Get(int id)
         {
             try
             {
-                Person person;
-                if (id == 0)
-                    person = AppGlobals.currentUser;
-                else
+                Person person = Repository.Get(id);
+                if (person == null)
                 {
-                    person = Repository.Get(id);
-                    if (person == null)
-                    {
-                        return NotFound();
-                    }
+                    return NotFound();
                 }
                 return Ok(SupervisorAssessment.Create(person));
             }
