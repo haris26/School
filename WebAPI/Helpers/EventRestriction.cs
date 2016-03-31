@@ -31,5 +31,41 @@ namespace WebAPI.Helpers
 
             return ev;
         }
+
+        public static void DecreaseQuantity(EventModel model, SchoolContext context)
+        {
+            Resource resource = context.Resources.Find(model.Resource);
+            if (resource.ResourceCategory.CategoryName == "Device")
+            {
+                var resourceCharacteristics = resource.Characteristics;
+                foreach(var characteristic in resourceCharacteristics)
+                {
+                    if (characteristic.Name == "Quantity")
+                    {
+                        int quantity = Convert.ToInt32(characteristic.Value);
+                        quantity--;
+                        characteristic.Value = Convert.ToString(quantity);
+                    }
+                }
+            }
+        }
+
+        public static void IncreaseQuantity(Event ev, SchoolContext context)
+        {
+            Resource resource = context.Resources.Find(ev.Resource.Id);
+            if (resource.ResourceCategory.CategoryName == "Device")
+            {
+                var resourceCharacteristics = resource.Characteristics;
+                foreach (var characteristic in resourceCharacteristics)
+                {
+                    if (characteristic.Name == "Quantity")
+                    {
+                        int quantity = Convert.ToInt32(characteristic.Value);
+                        quantity++;
+                        characteristic.Value = Convert.ToString(quantity);
+                    }
+                }
+            }
+        }
     }
 }

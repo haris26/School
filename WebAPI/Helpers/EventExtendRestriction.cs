@@ -19,7 +19,8 @@ namespace WebAPI.Helpers
                 Frequency = model.Frequency
             };
 
-            if (model.RepeatUntil.DayOfWeek != DayOfWeek.Saturday && model.RepeatUntil.DayOfWeek != DayOfWeek.Sunday)
+            if (model.RepeatUntil.DayOfWeek != DayOfWeek.Saturday && model.RepeatUntil.DayOfWeek != DayOfWeek.Sunday
+                && model.RepeatUntil >= extendedEvent.ParentEvent.EventEnd)
                 extendedEvent.RepeatUntil = model.RepeatUntil;
 
             return extendedEvent;

@@ -44,7 +44,9 @@ namespace WebAPI.Controllers
         {
             try
             {
+                EventRestriction.DecreaseQuantity(ev, Repository.BaseContext());
                 Repository.Insert(EventRestriction.Create(ev, Repository.BaseContext()));
+                
                 return Ok();
             }
             catch (Exception ex)
@@ -81,7 +83,8 @@ namespace WebAPI.Controllers
                     return NotFound();
                 else
                 {
-                    Repository.Delete(id);
+                    EventRestriction.IncreaseQuantity(e, Repository.BaseContext());
+                    Repository.Delete(id);                    
                     return Ok();
                 }
             }
