@@ -192,6 +192,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminDashboardController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CharacteristicNamesController.cs" />
     <Compile Include="Controllers\CharacteristicsController.cs" />
@@ -213,6 +214,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AdminDashboard.cs" />
     <Compile Include="Helpers\AppGlobals.cs" />
     <Compile Include="Helpers\Dashboard.cs" />
     <Compile Include="Helpers\EventExtendRestriction.cs" />
@@ -220,8 +222,10 @@
     <Compile Include="Helpers\ReservationOverview.cs" />
     <Compile Include="Helpers\SchoolIdentity.cs" />
     <Compile Include="Helpers\UserReservations.cs" />
+    <Compile Include="Models\AdminDashboardModel.cs" />
     <Compile Include="Models\CharacteristicModel.cs" />
     <Compile Include="Models\CharacteristicNameModel.cs" />
+    <Compile Include="Models\DashboardFilterModel.cs" />
     <Compile Include="Models\DashboardModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\EventExtendModel.cs" />

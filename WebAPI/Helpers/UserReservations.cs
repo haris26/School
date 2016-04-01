@@ -18,7 +18,7 @@ namespace WebAPI.Helpers
                 UserName = AppGlobals.currentUser.FirstName
             };
 
-            var reservations = new EventUnit(context).Get().ToList().Where(x => (x.User.FullName == AppGlobals.currentUser.FullName));
+            var reservations = new EventUnit(context).Get().ToList().Where(x => (x.User.FullName == AppGlobals.currentUser.FullName && x.EventStart>=System.DateTime.Today)).OrderBy(y=> y.EventStart);
 
             foreach (var reservation in reservations)
             {
