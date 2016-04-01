@@ -30,4 +30,21 @@
         };
     });
 
+
+
+app.directive("schoolPerson", function() {
+    return {
+        restrict: "AE",
+        scope: true,
+        transclude: true,
+        templateUrl: "view10.html",
+        link: function(scope, elem, attrs) {
+            elem.bind('click', function(){ elem.css('font-size', '30px')});
+            elem.bind('mouseover', function(){ elem.css('color', 'red'); });
+            elem.bind('mouseout', function () { elem.css('color', 'green'); });
+            elem.bind('mouseout', function () { elem.css('font-size', '16px'); });
+        }
+    };
+});
+
 }());

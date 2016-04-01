@@ -22,7 +22,7 @@ namespace Database
         public DbSet<ResourceCategory> ResourceCategories { get; set; }
         // CHARLIE
         public DbSet<Asset> Assets { get; set; }
-        public DbSet<AssetCategory> AssetCategory { get; set; }
+        public DbSet<AssetCategory> AssetCategories { get; set; }
         public DbSet<AssetChar> AssetCharacteristics { get; set; }
         public DbSet<AssetCharacteristicNames> AssetCharNames { get; set; }
         public DbSet<History> Histories { get; set; }
