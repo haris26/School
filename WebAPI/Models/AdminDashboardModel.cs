@@ -14,13 +14,17 @@ namespace WebAPI.Models
         public int Id { get; set; }
         public string ResourceName { get; set; }
         public IList<CharacteristicsListModel> Characteristics { get; set; }
-        public int Usage { get; set; }
+        public double Usage { get; set; }
     }
 
     public class AdminDashboardModel
-    {    
-         public int ResultSpan { get; set; }
-         public int NumberOfResults { get; set; }
-         public IList<ResourceStats> ResourceStatistics { get; set; }
+    {
+        public AdminDashboardModel()
+        {
+            ResourceStatistics = new List<ResourceStats>();
+        }
+        public int ResultSpan { get; set; }
+        public int NumberOfResults { get; set; }
+        public IList<ResourceStats> ResourceStatistics { get; set; }
     }
 }
