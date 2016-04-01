@@ -3,12 +3,11 @@
 
 <head>
     <script src="scripts/angular.min.js"></script>
-    <script src="scripts/script10.js"></script>
+    <script src="scripts/script.js"></script>
 </head>
 
 <body ng-controller="MainCtrl">
     <h1>{{ message }}</h1>
-
     Filter: <input type="search" ng-model="selPerson">
     Order: <select ng-model="sortOrder">
         <option value="+lastName">Last Name</option>
@@ -17,7 +16,7 @@
     </select>
     <hr>
     <div ng-repeat="person in people | orderBy: sortOrder | filter: selPerson">
-        <sch-osoba />
+        <school-person title="this is an employee">Last name of our employee is {{ person.lastName }}</school-person>
     </div>
 </body>
 </html>

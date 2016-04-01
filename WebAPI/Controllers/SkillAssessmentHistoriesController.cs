@@ -22,14 +22,22 @@ namespace WebAPI.Controllers
         [HttpPost]
         public IHttpActionResult Get([FromBody] AssessmentSearchModel search)
         {
+            try
+            { 
             return Ok(Repository.Get(search.EmpId).EmployeeSkills
                                                   .Where(x => x.AssessedBy == AssessmentType.Supervisor 
                                                               && x.DateOfSupervisorAssessment.Value.Date >= search.StartDate
                                                               && x.DateOfSupervisorAssessment.Value.Date <= search.EndDate
                                                               && x.Tool.Id == search.Skill).ToList()
-                                                  .Select(x => new SkillAssessment() {
+                                                  .Select(x => new SkillAssessmentModel() {
+                                                              Name = x.Tool.Name,
                                                               Date = x.DateOfSupervisorAssessment.Value,
                                                               Level = (int)x.Level }).ToList());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
         }
     }
 }

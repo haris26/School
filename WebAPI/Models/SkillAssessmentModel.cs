@@ -5,15 +5,10 @@ using System.Web;
 
 namespace WebAPI.Models
 {
-    public class SkillAssessment
+    public class SkillAssessmentModel
     {
+        public string Name { get; set; }
         public DateTime Date { get; set; }
         public int Level { get; set; }
-    }
-
-    public class SkillAssessmentHistoryModel
-    {
-        public string SkillName { get; set; }
-        public IList<SkillAssessment> SkillAssessments { get; set; }
     }
 }

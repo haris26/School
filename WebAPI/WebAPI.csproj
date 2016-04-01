@@ -242,7 +242,7 @@
     <Compile Include="Models\ResultModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
-    <Compile Include="Models\SkillAssessmentHistoryModel.cs" />
+    <Compile Include="Models\SkillAssessmentModel.cs" />
     <Compile Include="Models\SkillsCategoryModel.cs" />
     <Compile Include="Models\SupervisorAssessmentModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
