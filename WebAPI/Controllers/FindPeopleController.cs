@@ -7,11 +7,16 @@ using System.Web.Http;
 using Database;
 using WebAPI.Models;
 using WebAPI.Helpers;
+using WebAPI.Filters;
+using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
+    [TokenAuthorize]
     public class FindPeopleController : BaseController<EmployeeSkill>
     {
+        SchoolIdentity ident = new SchoolIdentity();
+
         public FindPeopleController(Repository<EmployeeSkill> depo) : base(depo) { }
 
         [HttpPost]
