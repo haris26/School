@@ -17,14 +17,13 @@ namespace WebAPI.Helpers
                 ResultSpan = model.ResultSpan,
                 NumberOfResults=model.NumberOfResults
             };
-
+            IList<ResourceStats> statistics = new List<ResourceStats>();
             DateTime date = DateTime.Today.AddDays(-model.ResultSpan);
             var reservations = new EventUnit(context).Get().ToList().Where(x=> x.EventStart>=date);
-            int Total = reservations.Count();
-            
+            int Total = reservations.Where(x => x.Resource.ResourceCategory.CategoryName == model.CategoryName).Count();
+
             foreach (var reservation in reservations)
-            {
-                
+            {               
                 if (reservation.Resource.ResourceCategory.CategoryName==model.CategoryName)
                 {
                     ResourceStats ResourceStatistic = new ResourceStats()
@@ -43,13 +42,11 @@ namespace WebAPI.Helpers
                     }
 
                     var count = reservations.Where(x => x.Resource.Name == reservation.Resource.Name).Count();
-                    ResourceStatistic.Usage = Convert.ToInt32(count)/Total * 100;
+                    ResourceStatistic.Usage = Convert.ToDouble(count)/Total * 100;
                     AdminDashboard.ResourceStatistics.Add(ResourceStatistic);
-
                 }
-
             }
-            
+            AdminDashboard.ResourceStatistics.Distinct();
             return AdminDashboard;
         }
     }
