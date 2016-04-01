@@ -193,7 +193,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FindPeopleController.cs" />
+    <Compile Include="Controllers\OverviewController.cs" />
     <Compile Include="Helpers\Criteria.cs" />
+    <Compile Include="Helpers\Overview.cs" />
     <Compile Include="Helpers\SearchResult.cs" />
     <Compile Include="Models\CriteriaModel.cs" />
     <Compile Include="Controllers\EditEducationsController.cs" />
@@ -233,6 +235,7 @@
     <Compile Include="Models\EmployeeSummaryModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\OverviewModel.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\ProjectSkillModel.cs" />
     <Compile Include="Models\EmployeeResultModel.cs" />
