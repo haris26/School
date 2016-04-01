@@ -17,9 +17,9 @@
     </select>
     <hr>
     <div ng-repeat="person in people | orderBy: sortOrder | filter: selPerson">
-        <!--<div>Employee: {{ person.firstName }} {{ person.lastName }}<br>E-mail: {{ person.email }}, Phone: {{ person.phone }}<hr></div>-->
-        <sch-osoba/>
-        
+        <school-person title="this is an employee">Last name of our employee is {{ person.lastName }}</school-person>
     </div>
+        
+    
 </body>
 </html>

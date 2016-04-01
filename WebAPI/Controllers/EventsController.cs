@@ -46,7 +46,6 @@ namespace WebAPI.Controllers
             {
                 EventRestriction.DecreaseQuantity(ev, Repository.BaseContext());
                 Repository.Insert(EventRestriction.Create(ev, Repository.BaseContext()));
-                
                 return Ok();
             }
             catch (Exception ex)
