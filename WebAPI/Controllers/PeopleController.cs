@@ -15,8 +15,12 @@ namespace WebAPI.Controllers
     {
         public PeopleController(Repository<Person> depo) : base(depo)
         { }
-
-        public IList<PersonModel> GetAll(int page =0)
+        public IList<PersonModel> Get()
+        {
+            var people = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName).ToList().Select(x => Factory.Create(x)).ToList();
+            return people;
+        }
+        public IList<PersonModel> GetAll(int page)
         {
             int PageSize = 15;
             var query = Repository.Get().OrderBy(x => x.LastName)

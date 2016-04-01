@@ -14,5 +14,6 @@ namespace WebAPI.Models
         public EmploymentType Category { get; set; }
         public EmploymentStatus Status { get; set; }
 
+
     }
 }
