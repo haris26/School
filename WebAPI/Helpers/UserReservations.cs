@@ -19,7 +19,7 @@ namespace WebAPI.Helpers
             };
 
             var reservations = new EventUnit(context).Get().ToList().Where(x => (x.User.FullName == AppGlobals.currentUser.FullName && x.EventStart>=System.DateTime.Today)).OrderBy(y=> y.EventStart);
-
+            
             foreach (var reservation in reservations)
             {
                 if (reservation.EventStart == System.DateTime.Today)
@@ -54,10 +54,27 @@ namespace WebAPI.Helpers
                         CategoryName = reservation.Resource.ResourceCategory.CategoryName,
                     });
                 }
+               
             }
+            foreach (var activeReservation in reservations)
+            {
+                model.ActiveReservations.Add(new EventModel()
+                {
+                    Id = activeReservation.Id,
+                    EventTitle = activeReservation.EventTitle,
+                    StartDate = activeReservation.EventStart,
+                    EndDate = activeReservation.EventEnd,
+                    Person = AppGlobals.currentUser.Id,
+                    PersonName = AppGlobals.currentUser.FullName,
+                    Resource = activeReservation.Resource.Id,
+                    ResourceName = activeReservation.Resource.Name,
+                    Category = activeReservation.Resource.ResourceCategory.Id,
+                    CategoryName = activeReservation.Resource.ResourceCategory.CategoryName,
+                });
+            }
+
             model.CountToday = model.TodayReservations.Count;
             model.CountUpcoming = model.UpcomingReservations.Count;
-            model.ActiveReservations = model.TodayReservations.Union(model.UpcomingReservations).ToList();
             return model;
         }
     }
