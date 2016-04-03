@@ -19,13 +19,15 @@ namespace WebAPI.Helpers
             };
             IList<ResourceStats> statistics = new List<ResourceStats>();
             DateTime date = DateTime.Today.AddDays(-model.ResultSpan);
-            var reservations = new EventUnit(context).Get().ToList().Where(x=> x.EventStart>=date);
-            int Total = reservations.Where(x => x.Resource.ResourceCategory.CategoryName == model.CategoryName).Count();
-
+            var reservations = new EventUnit(context).Get().ToList().Where(x => x.EventStart >= date).GroupBy(x => x.Resource.Name).Select(x => x.First()).ToList();
+            
+           
             foreach (var reservation in reservations)
-            {               
+            {
+               
                 if (reservation.Resource.ResourceCategory.CategoryName==model.CategoryName)
                 {
+                    double totalTime = 0.00;
                     ResourceStats ResourceStatistic = new ResourceStats()
                     {
                       Id=reservation.Resource.Id,
@@ -40,13 +42,36 @@ namespace WebAPI.Helpers
                             Value = ch.Value,
                         });
                     }
+                    var timeReservations = new EventUnit(context).Get().Where(x => x.Resource.ResourceCategory.CategoryName == model.CategoryName).ToList();
+                    foreach (var time in timeReservations)
+                    {
+                        if( reservation.Resource.Name == time.Resource.Name && time.EventStart<=DateTime.Today)
+                        {
+                            DateTime timeRestricition = DateTime.Today;
+                            if(time.EventEnd < timeRestricition)
+                            {
+                                timeRestricition = time.EventEnd;
+                            }
+                            if (time.EventStart == timeRestricition)
+                            {
+                                totalTime += Convert.ToDouble((timeRestricition - time.EventStart).TotalMinutes);
+                            }
+                            else
+                            {
+                                totalTime += Convert.ToDouble(((timeRestricition - time.EventStart).TotalDays)*480);
+                            }
+                        }
+                      
 
-                    var count = reservations.Where(x => x.Resource.Name == reservation.Resource.Name).Count();
-                    ResourceStatistic.Usage = Convert.ToDouble(count)/Total * 100;
+                    }
+
+                    ResourceStatistic.Usage = Convert.ToDouble((totalTime / (AdminDashboard.ResultSpan*480)) * 100);
                     AdminDashboard.ResourceStatistics.Add(ResourceStatistic);
                 }
             }
-            AdminDashboard.ResourceStatistics.Distinct();
+
+            var Ordered=AdminDashboard.ResourceStatistics.OrderByDescending(x => x.Usage).Take(AdminDashboard.NumberOfResults).ToList();
+            AdminDashboard.ResourceStatistics = Ordered;
             return AdminDashboard;
         }
     }
