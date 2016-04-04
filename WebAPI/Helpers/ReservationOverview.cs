@@ -42,7 +42,6 @@ namespace WebAPI.Helpers
                     if (modelParameters.ToDate != System.DateTime.Today)
                     {
                         SetWeeklyInterval(modelParameters.FromDate, modelParameters);
-                        //model.Quantity = CheckQuantity(res, context);
                         if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
                             modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
                         {
@@ -63,7 +62,6 @@ namespace WebAPI.Helpers
                     }
                     else
                     {
-                        //model.Quantity = CheckQuantity(res, context);
                         if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
                             modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
                         {
@@ -84,7 +82,6 @@ namespace WebAPI.Helpers
                     }
                 }
                 models.Add(model);
-                //model.Quantity = CheckQuantity(res, context);
             }
             return models;
         }
@@ -135,8 +132,6 @@ namespace WebAPI.Helpers
                         quantity = Convert.ToInt32(c.Value);
                 }
             }
-            else
-                quantity = 1;
             return quantity;
         }
     }
