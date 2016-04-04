@@ -70,7 +70,7 @@ namespace WebAPI.Helpers
         public static int GetResourceQuantity(EventModel model, SchoolContext context)
         {
             int quantity = 1;
-            Resource resource = new Repository<Resource>(context).Get(model.Resource);
+            Resource resource = context.Resources.Find(model.Resource);
             if (resource.ResourceCategory.CategoryName == "Device")
             {
                 var characteristics = resource.Characteristics;
