@@ -1,4 +1,3 @@
-﻿
 (function () {
 
     var app = angular.module("school", []);
@@ -6,11 +5,12 @@
     app.controller("MainCtrl", function ($scope, $http) {
 
         var onComplete = function (response) {
+
             $scope.people = response.data;
             $scope.message = "";
         };
-
         var onError = function (reason) {
+
             $scope.message = "No data for that request";
         };
 
@@ -63,3 +63,4 @@
     });
 
 }());
+

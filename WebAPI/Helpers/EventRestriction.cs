@@ -66,5 +66,21 @@ namespace WebAPI.Helpers
                 }
             }
         }
+
+        public static int GetResourceQuantity(EventModel model, SchoolContext context)
+        {
+            int quantity = 1;
+            Resource resource = new Repository<Resource>(context).Get(model.Resource);
+            if (resource.ResourceCategory.CategoryName == "Device")
+            {
+                var characteristics = resource.Characteristics;
+                foreach (var c in characteristics)
+                {
+                    if (c.Name == "Quantity")
+                        quantity = Convert.ToInt32(c.Value);
+                }
+            }
+            return quantity;
+        }
     }
 }

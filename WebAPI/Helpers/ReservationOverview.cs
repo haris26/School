@@ -14,7 +14,10 @@ namespace WebAPI.Helpers
             SchoolContext context = new SchoolContext();
             IList<ReservationOverviewModel> models = new List<ReservationOverviewModel>();
 
-            var resources = new ResourceUnit(context).Get().ToList().Where(x => (x.ResourceCategory.CategoryName == modelParameters.CategoryName));
+            var resources =
+                new ResourceUnit(context).Get()
+                    .ToList()
+                    .Where(x => (x.ResourceCategory.CategoryName == modelParameters.CategoryName));
             foreach (var res in resources)
             {
                 ReservationOverviewModel model = new ReservationOverviewModel()
@@ -22,7 +25,7 @@ namespace WebAPI.Helpers
                     Id = res.Id,
                     Name = res.Name
                 };
-                
+
                 foreach (var ch in res.Characteristics)
                 {
                     model.Characteristics.Add(new CharacteristicsListModel()
@@ -31,13 +34,17 @@ namespace WebAPI.Helpers
                         Name = ch.Name,
                         Value = ch.Value,
                     });
+                    model.Quantity = CheckQuantity(res, context);
                 }
 
                 foreach (var ev in res.Events)
                 {
-                    if (modelParameters.ToDate != System.DateTime.Today) {
+                    if (modelParameters.ToDate != System.DateTime.Today)
+                    {
                         SetWeeklyInterval(modelParameters.FromDate, modelParameters);
-                        if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday && modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
+                        //model.Quantity = CheckQuantity(res, context);
+                        if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
+                            modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
                         {
                             if (ev.EventStart >= modelParameters.FromDate && ev.EventStart <= modelParameters.ToDate)
                             {
@@ -56,7 +63,9 @@ namespace WebAPI.Helpers
                     }
                     else
                     {
-                        if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday && modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
+                        //model.Quantity = CheckQuantity(res, context);
+                        if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
+                            modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
                         {
                             if (ev.EventStart == modelParameters.FromDate)
                             {
@@ -72,9 +81,10 @@ namespace WebAPI.Helpers
                                 });
                             }
                         }
-                    }                      
+                    }
                 }
                 models.Add(model);
+                //model.Quantity = CheckQuantity(res, context);
             }
             return models;
         }
@@ -83,8 +93,8 @@ namespace WebAPI.Helpers
         {
             return Convert.ToString(date.Hour + ":" + date.Minute);
         }
-        
-        public static void SetWeeklyInterval(DateTime date,SearchModel model)
+
+        public static void SetWeeklyInterval(DateTime date, SearchModel model)
         {
             DayOfWeek Day = date.DayOfWeek;
             if (Day == DayOfWeek.Monday)
@@ -109,7 +119,25 @@ namespace WebAPI.Helpers
             else if (Day == DayOfWeek.Friday)
             {
                 model.FromDate = model.FromDate.AddDays(-4);
-            }     
-        }  
+            }
+        }
+
+        public static int CheckQuantity(Resource res, SchoolContext context)
+        {
+            int quantity = 1;
+            Resource resource = context.Resources.Find(res.Id);
+            if (resource.ResourceCategory.CategoryName == "Device")
+            {
+                var characteristics = resource.Characteristics;
+                foreach (var c in characteristics)
+                {
+                    if (c.Name == "Quantity")
+                        quantity = Convert.ToInt32(c.Value);
+                }
+            }
+            else
+                quantity = 1;
+            return quantity;
+        }
     }
 }
