@@ -10,7 +10,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    //[TokenAuthorize]
     public class ResourceCategoriesController : BaseController<ResourceCategory>
     {
         public ResourceCategoriesController(Repository<ResourceCategory> depo) : base(depo) { }

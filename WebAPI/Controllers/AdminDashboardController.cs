@@ -10,7 +10,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    //[TokenAuthorize]
     public class AdminDashboardController : ApiController
     {
         public IHttpActionResult Post( DashboardFilterModel model )

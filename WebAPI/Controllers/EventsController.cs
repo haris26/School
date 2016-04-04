@@ -11,7 +11,7 @@ using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    //[TokenAuthorize]
     public class EventsController : BaseController<Event>
     {
         //Person currentPerson = AppGlobals.currentUser;
@@ -44,10 +44,16 @@ namespace WebAPI.Controllers
         {
             try
             {
-                EventRestriction.DecreaseQuantity(ev, Repository.BaseContext());
-                Repository.Insert(EventRestriction.Create(ev, Repository.BaseContext()));
-                
-                return Ok();
+                int quantity = EventRestriction.GetResourceQuantity(ev, Repository.BaseContext());
+                if (quantity > 0)
+                {
+                    EventRestriction.DecreaseQuantity(ev, Repository.BaseContext());
+                    Repository.Insert(EventRestriction.Create(ev, Repository.BaseContext()));
+                    return Ok();
+                }
+                else
+                    return BadRequest();
+
             }
             catch (Exception ex)
             {
