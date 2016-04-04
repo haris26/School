@@ -111,9 +111,12 @@
   <ItemGroup>
     <Content Include="angular.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="index.html" />
+    <Content Include="library\angular.js" />
     <Content Include="script10.js" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\controller1.js" />
     <Content Include="Web.config" />
     <Content Include="X010.html" />
   </ItemGroup>

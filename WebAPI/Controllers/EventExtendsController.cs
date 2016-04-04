@@ -11,7 +11,7 @@ using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    //[TokenAuthorize]
     public class EventExtendsController : BaseController<ExtendedEvent>
 
     {
