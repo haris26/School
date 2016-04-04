@@ -47,12 +47,12 @@ namespace WebAPI.Helpers
                     {
                         if( reservation.Resource.Name == time.Resource.Name && time.EventStart<=DateTime.Today)
                         {
-                            DateTime timeRestricition = DateTime.Today;
+                            DateTime timeRestricition = DateTime.Today.AddHours(23);
                             if(time.EventEnd < timeRestricition)
                             {
                                 timeRestricition = time.EventEnd;
                             }
-                            if (time.EventStart == timeRestricition)
+                            if (time.EventStart.ToShortDateString() == timeRestricition.ToShortDateString())
                             {
                                 totalTime += Convert.ToDouble((timeRestricition - time.EventStart).TotalMinutes);
                             }
