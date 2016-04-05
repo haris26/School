@@ -216,6 +216,7 @@
     </Compile>
     <Compile Include="Helpers\AdminDashboard.cs" />
     <Compile Include="Helpers\AppGlobals.cs" />
+    <Compile Include="Helpers\Characteristics.cs" />
     <Compile Include="Helpers\Dashboard.cs" />
     <Compile Include="Helpers\EventExtendRestriction.cs" />
     <Compile Include="Helpers\EventRestriction.cs" />
