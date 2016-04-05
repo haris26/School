@@ -17,16 +17,13 @@ namespace WebAPI.Models
 
     public class CountModel
     {
-
-        public string Category { get; set; }
         public int Count { get; set; }
         public int EmptyDays { get; set; }
+        public string Category { get; set; }
 
     }
     public class EmptyDayModel
     {
-
-        public string Category { get; set; }
         public int EmptyDays { get; set; }
 
     }

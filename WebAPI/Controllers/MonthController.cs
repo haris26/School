@@ -6,6 +6,7 @@ using WebAPI.Services;
 using WebAPI.Helpers;
 using WebAPI.Models;
 using System;
+using System.Configuration;
 
 namespace WebAPI.Controllers
 {
@@ -38,7 +39,10 @@ namespace WebAPI.Controllers
         public IList<MonthModel> GetByMonth(int month=0)
         {
             if (month ==0) {
-                month = DateTime.Now.Month;
+                string deadline = System.Configuration.ConfigurationManager.AppSettings["deadline"];
+                if (DateTime.Now.Day<= Convert.ToInt32(deadline))
+                month = DateTime.Now.Month-1;
+                else month = DateTime.Now.Month;
             }
             var people = Repository.Get().OrderBy(x => x.FirstName).ThenBy(x => x.LastName)
                         .ToList();

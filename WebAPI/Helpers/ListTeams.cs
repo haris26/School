@@ -32,11 +32,23 @@ namespace WebAPI.Helpers
                                                    .Where(d => !weekends.Contains(new DateTime(dty, month, d).DayOfWeek));
 
             //Getting details sorted by Persons and forwarding time worked and days not logged into Members list
-            var members = team.Details.GroupBy(x => x.Day.Person.FullName).Select(x => new { person = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
+            //var members = team.Details.GroupBy(x => x.Day.Person.FullName).Select(x => new { person = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
 
+
+            //foreach (var det in members)
+            //{
+            //    listteam.Members.Add(new CountModel { Category = det.person, Count = (int)det.time, EmptyDays = businessDaysInMonth.Count() -det.empty });
+            //}
+            var members = team.Roles.SelectMany(x => x.Person.Days).SelectMany(x=>x.Details).GroupBy(x => x.Day.Person.FullName).Select(x => new { person = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
             foreach (var det in members)
             {
-                listteam.Members.Add(new CountModel { Category = det.person, Count = (int)det.time, EmptyDays = businessDaysInMonth.Count() -det.empty });
+                if (team.Roles.GroupBy(x => x.Person.Days).Count() == 0)
+                {
+                    listteam.Members.Add(new CountModel { Category = det.person, Count = (int)det.time, EmptyDays = businessDaysInMonth.Count() });
+                }
+                else
+                    listteam.Members.Add(new CountModel { Category = det.person, Count = (int)det.time, EmptyDays = businessDaysInMonth.Count() - det.empty });
+
             }
 
             //Getting details for the entire team and forwarding overall team work time invested

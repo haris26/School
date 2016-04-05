@@ -38,13 +38,22 @@ namespace WebAPI.Helpers
             foreach (var day in days)
             {
                 
-                dashboard.EmptyDays.Add(new EmptyDayModel {Category="Count Empty Days", EmptyDays = businessDaysInMonth.Count() - day.empty });
+                dashboard.EmptyDays.Add(new EmptyDayModel {EmptyDays = businessDaysInMonth.Count() - day.empty });
             }
             if (person.Days.Count == 0)
             {
-                dashboard.EmptyDays.Add(new EmptyDayModel {Category= "Count Empty Days", EmptyDays = businessDaysInMonth.Count() });
+                dashboard.EmptyDays.Add(new EmptyDayModel { EmptyDays = businessDaysInMonth.Count() });
             }
-
+            if (month == DateTime.Now.Month || month == DateTime.Now.Month - 1)
+            {
+                string deadline = System.Configuration.ConfigurationManager.AppSettings["deadline"];
+                int deadln = Convert.ToInt32(deadline);
+                if (DateTime.Now.Day <= deadln)
+                {
+                    dashboard.DeadLineIn = deadln - DateTime.Now.Day;
+                }
+            }
+           
             return dashboard;
         }
     }

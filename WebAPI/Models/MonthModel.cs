@@ -23,6 +23,8 @@ namespace WebAPI.Models
         public IList<CountModel> Days { get; set; }
         public IList<EmptyDayModel> EmptyDays { get; set; }
         public IList<ListModel> Details { get; set; }
+        public int DeadLineIn { get; set; }
+        
 
     }
 }
