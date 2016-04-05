@@ -5,12 +5,12 @@
     app.controller("ResourceController", function ($scope, DataService) {
 
         $scope.selResource = "";
-        $scope.sortOrder = "name";
+        $scope.sortOrder = "";
         fetchResources();
 
         function fetchResources() {
             $scope.message = "Wait...";
-            DataService.list().then(
+            DataService.resourceList().then(
                 function (response) {
                     $scope.resources = response.data;
                     $scope.message = "";
@@ -47,6 +47,18 @@
                 function (response) { window.alert("data saved!"); },
                 function (reason) { window.alert("something went wrong!"); });
         }
+    });
+
+    app.controller("CharacteristicController", function ($scope, $http) {
+        var onComplete = function (response) {
+            $scope.characteristics = response.data;
+        };
+        var onError = function (reason) {
+            $scope.message = "No data for characteristics request";
+        };
+        var promise = $http.get("http://localhost:50169/api/characteristics");
+        promise.then(onComplete, onError);
+
     });
 
 }());

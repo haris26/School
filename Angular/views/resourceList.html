@@ -52,15 +52,19 @@
         </div>
         <div class="panel">
             Filter: <input type="search" ng-model="selResource">
-            <!--Order: <select ng-model="sortOrder">
-                <option value="+lastName">Last Name</option>
-                <option value="+firstName">First Name</option>
-                <option value="-phone">Phone number</option>
-            </select>-->
+            Order: <select ng-model="sortOrder">
+                <option value="categoryName">Device</option>
+                <option value="categoryName">Room</option>
+            </select>
 
             <div ng-repeat="item in resources | orderBy: sortOrder | filter: selResource">
                 <hr><a href="#" ng-click="transfer(item)">{{ item.name }}</a> {{ item.status }} {{item.resourceCategory}} {{ item.resourceCategoryName }}
-            </div>
+                <div ng-controller="CharacteristicController">
+                    <div ng-repeat="char in characteristics">
+                        <div ng-if="char.resource == item.id && char.name == 'OsType'">{{char.name}} {{char.value}}</div>
+                    </div>
+                </div>                   
+            </div>                     
         </div>
     </div>
 </body>

@@ -4,18 +4,18 @@
 
     app.factory("DataService", function ($http) {
 
-        var source = "http://localhost:50169/api/resources/";
+        var source = "http://localhost:50169/api/";
 
         return {
-            list: function () {
-                return $http.get(source)
+            resourceList: function () {
+                return $http.get(source + "resources/")
             },
 
-            read: function (id) {
-                return $http.get(source + id)
+            resourceRead: function (id) {
+                return $http.get(source + "resources/" + id)
             },
 
-            create: function (data) {
+            resourceCreate: function (data) {
                 return $http({
                     method: "post",
                     url: source,
