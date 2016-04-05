@@ -34,46 +34,31 @@
     <div class="panel">
         <div>
             <input type="button" value="Save data" ng-click="saveData()" />
-            <input type="button" value="New person" ng-click="newPerson()" />
+            <input type="button" value="New event" ng-click="newEvent()" />
             <hr>
         </div>
         <div class="label">Id:</div>
-        <div class="text"><input type="text" ng-model="person.id"></div>
-        <div class="label">First name:</div>
-        <div class="text"><input type="text" ng-model="person.firstName"></div>
-        <div class="label">Last name:</div>
-        <div class="text"><input type="text" ng-model="person.lastName"></div>
-        <div class="label">E-mail:</div>
-        <div class="text"><input type="text" ng-model="person.email"></div>
-        <div class="label">Phone:</div>
-        <div class="text"><input type="text" ng-model="person.phone"></div>
-        <div class="label">Category:</div>
-        <div class="text"><input type="text" ng-model="person.category"></div>
-        <div class="label">Gender:</div>
-        <div class="text"><input type="text" ng-model="person.gender"></div>
-        <div class="label">Zip code:</div>
-        <div class="text"><input type="text" ng-model="person.address.zipCode"></div>
-        <div class="label">Town:</div>
-        <div class="text"><input type="text" ng-model="person.address.town"></div>
-        <div class="label">Road:</div>
-        <div class="text"><input type="text" ng-model="person.address.road"></div>
-        <div class="label">Birth date:</div>
-        <div class="text"><input type="text" ng-model="person.birthDate"></div>
+        <div class="text"><input type="text" ng-model="ev.id"></div>
+        <div class="label">Event title:</div>
+        <div class="text"><input type="text" ng-model="ev.eventTitle"></div>
         <div class="label">Start date:</div>
-        <div class="text"><input type="text" ng-model="person.startDate"></div>
-        <div class="label">Status:</div>
-        <div class="text"><input type="text" ng-model="person.status"></div>
+        <div class="text"><input type="text" ng-model="ev.startDate"></div>
+        <div class="label">End date:</div>
+        <div class="text"><input type="text" ng-model="ev.endDate"></div>
+        <div class="label">Resource:</div>
+        <div class="text"><input type="text" ng-model="ev.resourceName"></div>
+        <div class="label">User:</div>
+        <div class="text"><input type="text" ng-model="ev.personName"></div>
     </div>
     <div class="panel">
-        Filter: <input type="search" ng-model="selPerson">
+        Filter: <input type="search" ng-model="selEvn">
         Order: <select ng-model="sortOrder">
-            <option value="+lastName">Last Name</option>
-            <option value="+firstName">First Name</option>
-            <option value="-phone">Phone number</option>
+            <option value="+eventTitle">Event title</option>
+            
         </select>
 
-        <div ng-repeat="item in people | orderBy: sortOrder | filter: selPerson">
-            <hr><a href="#" ng-click="transfer(item)">{{ item.firstName }}</a> {{ item.lastName }} {{ item.email }} {{ item.phone }}
+        <div ng-repeat="item in events | orderBy: sortOrder | filter: selEvn">
+            <hr><a href="#" ng-click="transfer(item)">{{ item.eventTitle }}</a> {{ item.eventStart }} {{ item.eventEnd }} {{ item.resource }}
         </div>
     </div>
 </div>

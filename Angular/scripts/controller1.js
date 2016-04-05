@@ -6,7 +6,7 @@
     app.controller("MainCtrl", function($scope, $http) {
 
         var onComplete = function(response) {
-            $scope.people = response.data;
+            $scope.events = response.data;
             $scope.message = "";
         };
 
@@ -14,46 +14,41 @@
             $scope.message = "No data for that request";
         };
 
-        $scope.selPerson = "";
-        $scope.sortOrder = "lastName";
-        var promise = $http.get("http://localhost:50169/api/people");
+        $scope.selEvn = "";
+        $scope.sortOrder = "eventTitle";
+        var promise = $http.get("http://localhost:50169/api/events/");
         $scope.message = "Wait...";
         promise.then(onComplete, onError);
 
         $scope.transfer = function(item) {
-            $scope.person = item;
+            $scope.ev = item;
         };
 
-        $scope.newPerson = function() {
-            $scope.person = {
+        $scope.newEvent = function() {
+            $scope.ev = {
                 id: 0,
-                firstName: "",
-                lastName: "",
-                email: "",
-                phone: "",
-                category: "Full",
-                gender: "",
-                address: {},
-                birthDate: "",
+                eventTitle: "",
                 startDate: new Date(),
-                status: "Active"
-            }
+                endDate: new Date(),
+                resourceName: "",
+                personName: ""
+        }
         };
 
         $scope.saveData = function() {
             var promise;
-            if ($scope.person.id == 0){
+            if ($scope.ev.id == 0){
                 promise = $http({
                     method: "post",
-                    url: "http://localhost:50169/api/people",
-                    data: $scope.person
+                    url: "http://localhost:50169/api/events/",
+                    data: $scope.ev
                 })
             }
             else {
                 promise = $http({
                     method: "put",
-                    url: "http://localhost:50169/api/people/" + $scope.person.id,
-                    data: $scope.person
+                    url: "http://localhost:50169/api/events/" + $scope.ev.id,
+                    data: $scope.ev
                 })
             }
             promise.then(
