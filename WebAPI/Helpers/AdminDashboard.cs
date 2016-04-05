@@ -27,7 +27,7 @@ namespace WebAPI.Helpers
 
                 if (reservation.Resource.ResourceCategory.CategoryName == model.CategoryName)
                 {
-                    double totalTime = 0.00;
+                    double totalTime = new double();
                     ResourceStats ResourceStatistic = new ResourceStats()
                     {
                         Id = reservation.Resource.Id,
@@ -45,7 +45,7 @@ namespace WebAPI.Helpers
                     var timeReservations = new EventUnit(context).Get().Where(x => x.Resource.ResourceCategory.CategoryName == model.CategoryName).ToList();
                     foreach (var time in timeReservations)
                     {
-                        if (reservation.Resource.Name == time.Resource.Name && time.EventStart <= DateTime.Today)
+                        if( reservation.Resource.Name == time.Resource.Name && time.EventStart<DateTime.Today)
                         {
                             DateTime timeRestricition = DateTime.Today.AddDays(1);
                             if (time.EventEnd < timeRestricition)
