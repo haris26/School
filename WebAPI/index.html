@@ -8,16 +8,15 @@
 
 <body ng-controller="MainCtrl">
     <h1>{{ message }}</h1>
-
     Filter: <input type="search" ng-model="selPerson">
     Order: <select ng-model="sortOrder">
         <option value="+lastName">Last Name</option>
         <option value="+firstName">First Name</option>
         <option value="-phone">Phone number</option>
-    </select> 
+    </select>
     <hr>
     <div ng-repeat="person in people | orderBy: sortOrder | filter: selPerson">
-      <div>Employee: {{ person.firstName }} {{ person.lastName }}<br>E-mail: {{ person.email }}, Phone: {{ person.phone }}<hr></div>    
+        <school-person title="this is an employee">Last name of our employee is {{ person.lastName }}</school-person>
     </div>
 </body>
 </html>

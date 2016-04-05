@@ -21,7 +21,7 @@ namespace WebAPI.Models
                 RequestDate = model.RequestDate,
                 Asset = context.Assets.Find(model.Asset),
                 User = context.People.Find(model.Person),
-                AssetCategory = context.AssetCategory.Find(model.Category),
+                AssetCategory = context.AssetCategories.Find(model.Category),
                 Quantity = model.Quantity,
                 Status = model.Status,
                 AssetType = model.AssetType,
@@ -42,7 +42,7 @@ namespace WebAPI.Models
                 User = context.People.Find(model.User),
               Status = (AssetStatus)Enum.Parse(typeof(AssetStatus), model.Status),
             Vendor = model.Vendor,
-                AssetCategory = context.AssetCategory.Find(model.Category),
+                AssetCategory = context.AssetCategories.Find(model.Category),
                 DateOfTrade = model.DateOfTrade,
                 SerialNumber = model.SerialNumber,
                 Price = model.Price

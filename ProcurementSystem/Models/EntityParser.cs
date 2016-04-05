@@ -53,7 +53,7 @@ namespace ProcurementSystem.Models
                 User = context.People.Find(model.User),
                 //PersonName = Asset.Person
                 Vendor = model.Vendor,
-                AssetCategory = context.AssetCategory.Find(model.Category),
+                AssetCategory = context.AssetCategories.Find(model.Category),
                 // Category = model.AssetCategory.Id,
                 DateOfTrade = model.DateOfTrade,
                 SerialNumber = model.SerialNumber,
@@ -69,7 +69,7 @@ namespace ProcurementSystem.Models
             {
                 Id = model.Id,
                 Name = model.Name,
-    AssetCategory=context.AssetCategory.Find(model.AssetCategory)
+    AssetCategory=context.AssetCategories.Find(model.AssetCategory)
             };
         }
 
@@ -84,7 +84,7 @@ namespace ProcurementSystem.Models
                 RequestDate = model.RequestDate,
                 Asset = context.Assets.Find(model.Asset),
                 User = context.People.Find(model.Person),
-                AssetCategory = context.AssetCategory.Find(model.Category),
+                AssetCategory = context.AssetCategories.Find(model.Category),
                 Quantity = model.Quantity,
                 Status = model.Status,
                 AssetType = model.AssetType,

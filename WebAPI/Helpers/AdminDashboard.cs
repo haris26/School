@@ -56,6 +56,21 @@ namespace WebApi.Helpers
                 //}
             }
 
+            //counting assets by type and status
+            var assets = new AssetsUnit(context).Get().ToList();
+            foreach(var asset in assets)
+            {
+                if(asset.AssetCategory.assetType == AssetType.Device && asset.Status == AssetStatus.Free)
+                {
+                    dashboard.countFreeAssets++;
+                }else if(asset.AssetCategory.assetType == AssetType.Device && asset.Status == AssetStatus.Assigned){
+                    dashboard.countAssignedAssets++;
+                }else if(asset.AssetCategory.assetType == AssetType.Device && asset.Status == AssetStatus.OutofOrder) {
+
+                    dashboard.countOutOfOrderAssets++;
+
+                }
+            }
             //dashboard.CountEquipmentRequests = dashboard.EquipmentRequests.Count;
             //dashboard.CountServiceRequests = dashboard.ServiceRequests.Count;
 

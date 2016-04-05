@@ -42,7 +42,7 @@ namespace DataSeed
                 };
                
                 N++;
-                context.AssetCategory.Add(category);
+                context.AssetCategories.Add(category);
             }
             context.SaveChanges();
             Console.WriteLine(N);
@@ -57,7 +57,7 @@ namespace DataSeed
             foreach (DataRow row in rawData.Rows)
             {
                 string catName = Utility.getString(row, 0);
-                AssetCategory resource = context.AssetCategory.FirstOrDefault(x => x.CategoryName == catName);
+                AssetCategory resource = context.AssetCategories.FirstOrDefault(x => x.CategoryName == catName);
 
                 AssetCharacteristicNames characteristic = new AssetCharacteristicNames()
                 {
@@ -80,7 +80,7 @@ namespace DataSeed
             foreach (DataRow row in rawData.Rows)
             {
                 string catName = Utility.getString(row, 2);
-                AssetCategory category = context.AssetCategory.Where(x => x.CategoryName == catName).FirstOrDefault();
+                AssetCategory category = context.AssetCategories.Where(x => x.CategoryName == catName).FirstOrDefault();
                 string perName = Utility.getString(row, 7);
                 Person person = context.People.Where(x => x.FirstName == perName).FirstOrDefault();
 
@@ -144,7 +144,7 @@ namespace DataSeed
             foreach (DataRow row in rawData.Rows)
             {
                 string catName = Utility.getString(row, 5);
-                AssetCategory category = context.AssetCategory.Where(x => x.CategoryName == catName).FirstOrDefault();
+                AssetCategory category = context.AssetCategories.Where(x => x.CategoryName == catName).FirstOrDefault();
 
                 string asName = Utility.getString(row, 8);
                 Asset asset = context.Assets.FirstOrDefault(x => x.Model == asName);
