@@ -19,14 +19,17 @@
         $scope.message = "Wait...";
         promise.then(onComplete, onError);
     });
-
-    app.directive("schOsoba", function() {
+    app.directive("schoolPerson", function () {
         return {
-            restrict: "E",
+            restrict: "AE",
             scope: true,
-            replace: false,
             transclude: true,
-            template: "<div>Employee: {{ person.firstName }} {{ person.lastName }}<br>E-mail: {{ person.email }}, Phone: {{ person.phone }}<hr></div>"
+            templateUrl: "view10.html",
+            link: function (scope, elem, attrs) {
+                elem.bind('click', function () { elem.css('background-color', 'yellow'); });
+                elem.bind('mouseover', function () { elem.css('color', 'red'); });
+                elem.bind('mouseout', function () { elem.css('color', 'green'); });
+            }
         };
     });
 

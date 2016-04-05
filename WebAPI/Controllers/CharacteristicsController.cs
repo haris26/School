@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Filters;
+using WebAPI.Helpers;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
@@ -30,7 +31,7 @@ namespace WebAPI.Controllers
                 if (characteristic == null)
                     return NotFound();
                 else
-                    return Ok(Factory.Create(characteristic));             
+                    return Ok(Factory.Create(characteristic));
             }
             catch (Exception ex)
             {

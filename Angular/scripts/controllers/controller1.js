@@ -1,19 +1,17 @@
-
-(function(){
+(function () {
 
     var app = angular.module("school", []);
 
-    app.controller("MainCtrl", function($scope, $http) {
+    app.controller("MainCtrl", function ($scope, $http) {
 
         var onComplete = function(response) {
             $scope.events = response.data;
             $scope.message = "";
         };
+        var onError = function (reason) {
 
-        var onError = function(reason) {
             $scope.message = "No data for that request";
         };
-
 
         $scope.selEvn = "";
         $scope.sortOrder = "eventTitle";
@@ -33,10 +31,10 @@
                 endDate: new Date(),
                 resourceName: "",
                 personName: ""
-        }
+            }
         };
 
-        $scope.saveData = function() {
+        $scope.saveData = function () {
             var promise;
             if ($scope.ev.id == 0){
                 promise = $http({
@@ -53,9 +51,10 @@
                 })
             }
             promise.then(
-                function(response){ window.alert("data saved!");},
-                function(reason){ window.alert("something went wrong!");});
+                function (response) { window.alert("data saved!"); },
+                function (reason) { window.alert("something went wrong!"); });
         }
     });
 
 }());
+

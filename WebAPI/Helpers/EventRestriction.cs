@@ -20,7 +20,6 @@ namespace WebAPI.Helpers
                 User = context.People.Find(AppGlobals.currentUser.Id),
                 Resource = context.Resources.Find(model.Resource)
             };
-
             if ((model.StartDate.DayOfWeek != DayOfWeek.Saturday && model.StartDate.DayOfWeek != DayOfWeek.Sunday) 
                 && (model.EndDate.DayOfWeek != DayOfWeek.Saturday && model.EndDate.DayOfWeek != DayOfWeek.Sunday)
                 && (model.StartDate >= DateTime.Today && model.StartDate <= model.EndDate))
@@ -43,8 +42,8 @@ namespace WebAPI.Helpers
                     if (characteristic.Name == "Quantity")
                     {
                         int quantity = Convert.ToInt32(characteristic.Value);
-                        quantity--;
-                        characteristic.Value = Convert.ToString(quantity);
+                            quantity--;
+                            characteristic.Value = Convert.ToString(quantity);
                     }
                 }
             }
