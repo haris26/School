@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using Database;
@@ -14,62 +15,65 @@ namespace WebAPI.Helpers
             SchoolContext context = new SchoolContext();
             UserReservationsModel model = new UserReservationsModel()
             {
-                Id = AppGlobals.currentUser.Id,
-                UserName = AppGlobals.currentUser.FirstName
+                //Id = AppGlobals.currentUser.Id,
+                //UserName = AppGlobals.currentUser.FirstName
+                Id = 4,
+                UserName = "Martina"
             };
 
-            var reservations = new EventUnit(context).Get().ToList().Where(x => (x.User.FullName == AppGlobals.currentUser.FullName && x.EventStart>=System.DateTime.Today)).OrderBy(y=> y.EventStart);
-            
+            //var reservations = new EventUnit(context).Get().ToList().Where(x => (x.User.FullName == AppGlobals.currentUser.FullName && x.EventStart>=System.DateTime.Today)).OrderBy(y=> y.EventStart);
+            var reservations = new EventUnit(context).Get().ToList().Where(x => (x.User.FullName == "Martina Vistica" && x.EventStart.Date >= System.DateTime.Today.Date)).OrderBy(y => y.EventStart);
+
             foreach (var reservation in reservations)
             {
-                if (reservation.EventStart == System.DateTime.Today)
+                if (reservation.EventStart.Date == System.DateTime.Today.Date)
                 {
-                    model.TodayReservations.Add(new EventModel()
+                    model.TodayReservations.Add(new EventListModel()
                     {
                         Id = reservation.Id,
                         EventTitle = reservation.EventTitle,
-                        StartDate = reservation.EventStart,
-                        EndDate = reservation.EventEnd,
-                        Person = AppGlobals.currentUser.Id,
-                        PersonName = AppGlobals.currentUser.FullName,
-                        Resource = reservation.Resource.Id,
+                        StartDate = reservation.EventStart.ToShortDateString(),
+                        EndDate = reservation.EventEnd.ToShortDateString(),
+                        //Person = AppGlobals.currentUser.Id,
+                        //PersonName = AppGlobals.currentUser.FullName,
+                        PersonName = "Martina Vistica",
                         ResourceName = reservation.Resource.Name,
-                        Category = reservation.Resource.ResourceCategory.Id,
                         CategoryName = reservation.Resource.ResourceCategory.CategoryName,
+                        Time = reservation.EventStart.ToShortTimeString() + " - " + reservation.EventEnd.ToShortTimeString()
                     });
                 }
-                else if (reservation.EventStart > System.DateTime.Now)
+                else if (reservation.EventStart.Date > System.DateTime.Now.Date)
                 {
-                    model.UpcomingReservations.Add(new EventModel()
+                    model.UpcomingReservations.Add(new EventListModel()
                     {
                         Id = reservation.Id,
                         EventTitle = reservation.EventTitle,
-                        StartDate = reservation.EventStart,
-                        EndDate = reservation.EventEnd,
-                        Person = AppGlobals.currentUser.Id,
-                        PersonName = AppGlobals.currentUser.FullName,
-                        Resource = reservation.Resource.Id,
+                        StartDate = reservation.EventStart.ToShortDateString(),
+                        EndDate = reservation.EventEnd.ToShortDateString(),
+                        //Person = AppGlobals.currentUser.Id,
+                        //PersonName = AppGlobals.currentUser.FullName,
+                        PersonName = "Martina Vistica",
                         ResourceName = reservation.Resource.Name,
-                        Category = reservation.Resource.ResourceCategory.Id,
                         CategoryName = reservation.Resource.ResourceCategory.CategoryName,
+                        Time = reservation.EventStart.ToShortTimeString() + " - " + reservation.EventEnd.ToShortTimeString()
                     });
                 }
                
             }
             foreach (var activeReservation in reservations)
             {
-                model.ActiveReservations.Add(new EventModel()
+                model.ActiveReservations.Add(new EventListModel()
                 {
                     Id = activeReservation.Id,
                     EventTitle = activeReservation.EventTitle,
-                    StartDate = activeReservation.EventStart,
-                    EndDate = activeReservation.EventEnd,
-                    Person = AppGlobals.currentUser.Id,
-                    PersonName = AppGlobals.currentUser.FullName,
-                    Resource = activeReservation.Resource.Id,
+                    StartDate = activeReservation.EventStart.ToShortDateString(),
+                    EndDate = activeReservation.EventEnd.ToShortDateString(),
+                    //Person = AppGlobals.currentUser.Id,
+                    //PersonName = AppGlobals.currentUser.FullName,
+                    PersonName = "Martina Vistica",
                     ResourceName = activeReservation.Resource.Name,
-                    Category = activeReservation.Resource.ResourceCategory.Id,
                     CategoryName = activeReservation.Resource.ResourceCategory.CategoryName,
+                    Time = activeReservation.EventStart.ToShortTimeString() + " - " + activeReservation.EventEnd.ToShortTimeString()
                 });
             }
 

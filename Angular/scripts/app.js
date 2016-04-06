@@ -15,8 +15,10 @@
 
         $routeProvider
             .when("/resources", { templateUrl: "views/resourceList.html", controller: "ResourceController" })
-            .when("/teams", { templateUrl: "views/teams.html", controller: "TeamsController" })
-            .otherwise({ redirectTo: "/resourceList" });
+            .when("/home", { templateUrl: "views/userDashboard.html", controller: "UserDashboardController" })
+            .when("/dashboard", { templateUrl: "views/userDashboard.html", controller: "UserDashboardController" })
+            .when("/active", { templateUrl: "views/active.html", controller: "UserDashboardController" })
+            .otherwise({ redirectTo: "/home" });
     });
 
 }());

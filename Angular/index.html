@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html ng-app="school">
+
+<head>
+    <script src="library/angular.js"></script>
+    <script src="library/angular-route.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/userDashboardController.js"></script>
+    <script src="scripts/services/userDashboardService.js"></script>
+    <script src="scripts/controllers/ResourceController.js"></script>
+    <script src="scripts/services/DataService.js"></script>
+    <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+    <h1>{{ message }}</h1>
+
+<div><a href="#/resources">Resources</a> | <a href="#/dashboard">Dashboard</a> | <a href="#/active">Active reservations</a> <hr></div>
+
+    <div ng-view></div>
+
+</body>
+</html>

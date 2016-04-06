@@ -51,7 +51,7 @@
                     })
             },
 
-            delete: function (dataSet, id, callback) {
+            remove: function (dataSet, id, callback) {
                 $http({ method: "delete", url: source + dataSet + "/" + id })
                     .success(function () {
                         callback(true);

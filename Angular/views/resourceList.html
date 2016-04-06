@@ -4,11 +4,10 @@
 <head>
     <script src="../library/angular.js"></script>
     <script src="../library/angular-route.js"></script>
-
     <script src="../scripts/app.js"></script>
     <script src="../scripts/controllers/ResourceController.js"></script>
     <script src="../scripts/services/DataService.js"></script>
-    <link rel="stylesheet" href="../styles/site.css">
+    <link rel="stylesheet" href="../styles/style.css" />
 </head>
 
 <body>
@@ -42,6 +41,7 @@
                 <hr><a href="#" ng-click="transfer(item)">{{ item.name }}</a>               
                         <div ng-repeat="char in characteristics | filter: selResource" ng-if="char.resource == item.id && char.name == 'OsType'">OS type: {{char.value}}</div>
             </div>
+
         </div>
     </div>
 </body>
