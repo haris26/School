@@ -10,9 +10,9 @@
     app.config(function ($routeProvider) {
 
         $routeProvider
-            .when("/skills", { templateUrl: "views/skills.html", controller: "SkillsCtrl" })
-            .when("/editCategory", { templateUrl: "views/editCategory.html", controller: "SkillsCtrl" })
-            .otherwise({ redirectTo: "/skills" });
+            .when("/skills", { templateUrl: "skills.html", controller: "SkillsCtrl" })
+            .when("/editCategory", { templateUrl: "editCategory.html", controller: "SkillsCtrl" })
+            .otherwise({ redirectTo: "skills" });
     });
 
 }());

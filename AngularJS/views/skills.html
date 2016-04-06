@@ -1,62 +1,39 @@
-﻿<!DOCTYPE html>
-<html ng-app="school">
-<head>
-    <!-- style -->
-    <link rel="stylesheet" href="../styles/bootstrap.min.css" />
-    <link rel="stylesheet" href="../styles/jquery-ui.css">
-    <link rel="stylesheet" href="../styles/dashboard.css" />
-    <link rel="stylesheet" href="../styles/responsive.css" />
-    <link rel="stylesheet" href="../styles/style.css" />
-
-    <!-- scripts -->
-    <script src="../scripts/jquery.min.js"></script>
-    <script src="../scripts/bootstrap.min.js"></script>
-    <script src="../library/angular.min.js"></script>
-    <script src="../scripts/controllers/skillsController.js"></script>
-    <script src="../scripts/services/skillsService.js"></script>
-
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
-    <div class="db-header clearfix">
+﻿<div class="db-header clearfix">
             
-        <div class="page-header-title"><span class="glyphicon glyphicon-cog"></span> Skills</div>
-        <div class="db-header-extra">
-            <button class="btn btn-primary btn-sm" type="button">Add New Category</button>&nbsp;
-            <button class="btn btn-primary btn-sm" type="button">Add New Skill</button>
-        </div>
+    <div class="page-header-title"><span class="glyphicon glyphicon-cog"></span> Skills</div>
+    <div class="db-header-extra">
+        <button class="btn btn-primary btn-sm" type="button">Add New Category</button>&nbsp;
+        <button class="btn btn-primary btn-sm" type="button">Add New Skill</button>
     </div>
+</div>
 
 
-    <div id="content">
-        {{ message }}
-        <br>
-        <div class="row">
-            <div class="col-md-12">
-                <div ng-repeat="category in categories | orderBy: sortOrder">
-                    <div class="panel-group panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#{{ category.id }}">
-                                    <span class="glyphicon glyphicon-chevron-down"></span>  {{ category.name }}
-                                </a>
-                                <a style="float:right" href="#">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="{{ category.id }}" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <div ng-repeat="tool in category.tools | orderBy: sortOrder">
-                                    {{ tool.name }}
-                                </div>
+<div id="content">
+    {{ message }}
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <div ng-repeat="category in categories | orderBy: sortOrder">
+                <div class="panel-group panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#{{ category.id }}">
+                                <span class="glyphicon glyphicon-chevron-down"></span>  {{ category.name }}
+                            </a>
+                            <a style="float:right" href="#">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="{{ category.id }}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div ng-repeat="tool in category.tools | orderBy: sortOrder">
+                                {{ tool.name }}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-     </div>
-</body>
-</html>
+    </div>
+</div>

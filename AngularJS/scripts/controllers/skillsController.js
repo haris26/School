@@ -1,24 +1,26 @@
 ﻿(function () {
 
-    var app = angular.module("school", []);
+    var app = angular.module("school");
 
-    app.controller("SkillsCtrl", function ($scope, SkillsService) {
+    app.controller("SkillsCtrl", function ($scope, $rootScope, DataService) {
 
         $scope.selCategory = "";
         $scope.sortOrder = "Name";
         fetchCategories();
 
+        var categoryId = 13;
+        getCategory(categoryId);
+
+        function getCategory(Id) {
+            DataService.read("skillscategories", categoryId, function (data) {
+                $scope.category = data;
+            })
+        }
+
         function fetchCategories() {
-            $scope.message = "Wait...";
-            SkillsService.getCategories().then(
-                function (response) {
-                    $scope.categories = response.data;
-                    $scope.message = "";
-                },
-                function (reason) {
-                    $scope.message = "No data for that request";
-                }
-            );
+            DataService.list("skillscategories", function (data) {
+                $scope.categories = data;
+            })
         }
     });
 

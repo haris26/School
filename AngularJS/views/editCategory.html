@@ -1,0 +1,43 @@
+﻿
+<div class="db-header clearfix">
+    <div class="page-header-title"><span class="glyphicon glyphicon-cog"></span> Edit Category</div>
+    <div class="db-header-extra">
+        <a href="" class="btn btn-primary btn-sm" data-toggle="modal">Add New Skill</a>
+        <a href="" class="btn btn-danger btn-sm" data-toggle="modal">Delete Category</a>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="form-horizontal">
+        <br>
+        <div class="form-group">
+            <div class="control-label col-md-2">Name</div>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" ng-model="category.name" type="text"/>
+                <div>
+                    <!--<div class="text-danger">
+                        @ViewBag.CannotDeleteError
+                    </div>-->
+                    <br>
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+                <!--@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })-->
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="panel-group panel panel-default">
+                <div class="panel-body">
+                    <div ng-repeat="tool in category.tools">
+                        {{tool.name}}
+                        <span style="float:right">
+                            <a style="color:black" href=""><span class="glyphicon glyphicon-edit"></span></a>
+                            <a style="color:black" href=""><span class="glyphicon glyphicon-trash"></span></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

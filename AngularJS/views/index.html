@@ -13,11 +13,17 @@
     <link rel="stylesheet" href="../styles/style.css" />
 
     <!-- scripts -->
-    <script src="../scripts/bootstrap.min.js"></script>
-    <script src="../library/angular.min.js"></script>
+    <script src="../library/jquery.min.js"></script>
+    <script src="../library/bootstrap.min.js"></script>
+    <script src="../library/angular.js"></script>
+    <script src="../library/angular-route.js"></script>
+
+    <script src="../scripts/app.js"></script>
+    <script src="../scripts/controllers/skillsController.js"></script>
+    <script src="../scripts/services/DataService.js"></script>
 
 </head>
-<body>
+<body ng-app="school">
     <header class="navbar header navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -82,7 +88,7 @@
                     </select>
                     <br />
                 </div>
-                <div id="content"></div>
+                <div  ng-view id="content"></div>
             </div>
         </div>
     </section>

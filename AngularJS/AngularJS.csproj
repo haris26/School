@@ -99,6 +99,8 @@
     <Content Include="images\bg.jpg" />
     <Content Include="images\mistral_logo.png" />
     <Content Include="images\skillsBarChart.jpg" />
+    <Content Include="library\angular-route.js" />
+    <Content Include="library\angular.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -116,22 +118,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Index.html" />
-    <Content Include="scripts\ai.0.15.0-build58334.js" />
-    <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="library\angular.min.js" />
     <Content Include="scripts\app.js" />
-    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="library\bootstrap.min.js" />
     <Content Include="scripts\controller.js" />
     <Content Include="scripts\controllers\skillsController.js" />
-    <Content Include="scripts\jquery.min.js" />
+    <Content Include="library\jquery.min.js" />
     <Content Include="scripts\service.js" />
-    <Content Include="scripts\services\skillsService.js" />
+    <Content Include="scripts\services\DataService.js" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\dashboard.css" />
     <Content Include="styles\jquery-ui.css" />
     <Content Include="styles\responsive.css" />
     <Content Include="styles\style.css" />
-    <Content Include="views\layout.html" />
+    <Content Include="views\editCategory.html" />
+    <Content Include="views\index.html" />
     <Content Include="views\skills.html" />
     <Content Include="Web.config" />
   </ItemGroup>
