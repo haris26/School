@@ -114,6 +114,7 @@
     <Content Include="library\angular.min.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\services\DataService.js" />
+    <Content Include="styles\site.css" />
     <Content Include="views\index.html" />
     <Content Include="Global.asax" />
     <Content Include="views\resourceList.html" />
@@ -153,7 +154,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="images\" />
     <Folder Include="Models\" />
-    <Folder Include="styles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WebAPI\WebAPI.csproj">

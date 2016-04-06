@@ -8,29 +8,7 @@
     <script src="../scripts/app.js"></script>
     <script src="../scripts/controllers/ResourceController.js"></script>
     <script src="../scripts/services/DataService.js"></script>
-
-    <style>
-        .label {
-            float: left;
-            text-align: right;
-            width: 45%;
-            margin: 6px;
-        }
-
-        .text {
-            float: left;
-            width: 45%;
-            margin: 6px;
-        }
-
-        .panel {
-            width: 30%;
-            float: left;
-            margin: 6px;
-            padding: 10px;
-            border: 1px solid black;
-        }
-    </style>
+    <link rel="stylesheet" href="../styles/site.css">
 </head>
 
 <body>
@@ -55,19 +33,15 @@
         </div>
         <div class="panel">
             Filter: <input type="search" ng-model="selResource">
-            Order: <select ng-model="sortOrder">
+            <!--Order: <select ng-model="sortOrder">
                 <option value="categoryName">Device</option>
                 <option value="categoryName">Room</option>
-            </select>
+            </select>-->
 
-            <div ng-repeat="item in resources | orderBy: sortOrder | filter: selResource">
-                <hr><a href="#" ng-click="transfer(item)">{{ item.name }}</a> 
-                <div>
-                    <div ng-repeat="char in characteristics">
-                        <div ng-if="char.resource == item.id && char.name == 'OsType'">OS type: {{char.value}}</div>
-                    </div>
-                </div>                   
-            </div>                     
+            <div ng-repeat="item in resources | filter: selResource">
+                <hr><a href="#" ng-click="transfer(item)">{{ item.name }}</a>               
+                        <div ng-repeat="char in characteristics | filter: selResource" ng-if="char.resource == item.id && char.name == 'OsType'">OS type: {{char.value}}</div>
+            </div>
         </div>
     </div>
 </body>
