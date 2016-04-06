@@ -1,43 +1,43 @@
-﻿(function () {
+﻿//(function () {
 
-    var app = angular.module("school");
+//    var app = angular.module("school");
 
-    app.factory("DataService", function ($http) {
+//    app.factory("DataService", function ($http) {
 
-        var source = "http://localhost:50169/api/resources/";
+//        var source = "http://localhost:50169/api/";
 
-        return {
-            list: function () {
-                return $http.get(source)
-            },
+//        return {
+//            resourceList: function () {
+//                return $http.get(source + "resources/")
+//            },
 
-            read: function (id) {
-                return $http.get(source + id)
-            },
+//            resourceRead: function (id) {
+//                return $http.get(source + "resources/" + id)
+//            },
 
-            create: function (data) {
-                return $http({
-                    method: "post",
-                    url: source,
-                    data: data
-                })
-            },
+//            resourceCreate: function (data) {
+//                return $http({
+//                    method: "post",
+//                    url: source,
+//                    data: data
+//                })
+//            },
 
-            update: function (id, data) {
-                return $http({
-                    method: "put",
-                    url: source + id,
-                    data: data
-                })
-            },
+//            update: function (id, data) {
+//                return $http({
+//                    method: "put",
+//                    url: source + id,
+//                    data: data
+//                })
+//            },
 
-            delete: function (set, id) {
-                return $http({
-                    method: "delete",
-                    url: source + id,
-                    data: null
-                })
-            }
-        };
-    });
-}());
+//            delete: function (set, id) {
+//                return $http({
+//                    method: "delete",
+//                    url: source + id,
+//                    data: null
+//                })
+//            }
+//        };
+//    });
+//}());
