@@ -126,11 +126,13 @@
     <Content Include="library\jquery.min.js" />
     <Content Include="scripts\service.js" />
     <Content Include="scripts\services\DataService.js" />
+    <Content Include="styles\bootstrap.css" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\dashboard.css" />
     <Content Include="styles\jquery-ui.css" />
     <Content Include="styles\responsive.css" />
     <Content Include="styles\style.css" />
+    <Content Include="views\addNewCategory.html" />
     <Content Include="views\editCategory.html" />
     <Content Include="views\index.html" />
     <Content Include="views\skills.html" />
