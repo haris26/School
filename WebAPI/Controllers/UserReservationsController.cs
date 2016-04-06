@@ -10,7 +10,7 @@ using WebAPI.Helpers;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    //[TokenAuthorize]
     public class UserReservationsController : ApiController
     {
         public IHttpActionResult Get()

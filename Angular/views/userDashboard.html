@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html ng-app="school">
+
+<head>
+    <script src="../library/angular.min.js"></script>
+    <script src="../scripts/controllers/userDashboardController.js"></script>
+    <script src="../scripts/services/userDashboardService.js"></script>
+    <link rel="stylesheet" href="../styles/style.css"/>
+</head>
+
+<body>
+    <div ng-controller="UserDashboardController">
+        <h1>{{ message }}</h1>
+        <div class="panel">
+            <h3>Today reservations</h3>
+            <p ng-if="dashboard.countToday > 1">{{dashboard.countToday}} reservations</p>
+            <p ng-if="dashboard.countToday == 1">{{dashboard.countToday}} reservation</p>
+            <hr/>
+            <div ng-repeat="item in dashboard.todayReservations">
+                <p>
+                    You have reservation for <b>{{ item.resourceName }}</b> at {{item.time}}
+                </p>
+            </div>
+        </div>
+        <div class="panel">
+            <h3>Upcoming reservations</h3>
+            <p ng-if="dashboard.countUpcoming > 1">{{dashboard.countUpcoming}} reservations</p>
+            <p ng-if="dashboard.countUpcoming == 1">{{dashboard.countUpcoming}} reservation</p>
+            <hr/>
+            <div ng-repeat="item in dashboard.upcomingReservations">
+                <p>
+                    You have reservation for <b>{{ item.resourceName }}</b> on {{item.startDate}}<br />
+                    at {{item.time}}
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

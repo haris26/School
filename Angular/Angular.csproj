@@ -109,6 +109,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scripts\controllers\userDashboardController.js" />
+    <Content Include="scripts\services\userDashboardService.js" />
+    <Content Include="styles\style.css" />
+    <Content Include="views\active.html" />
     <Content Include="views\index.html" />
     <Content Include="library\angular.min.js" />
     <Content Include="Global.asax" />
@@ -122,6 +126,7 @@
     <Content Include="scripts\services\resourceService.js" />
     <Content Include="scripts\services\service.js" />
     <Content Include="view10.html" />
+    <Content Include="views\userDashboard.html" />
     <Content Include="Web.config" />
     <Content Include="X010.html" />
   </ItemGroup>
@@ -149,7 +154,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="images\" />
     <Folder Include="Models\" />
-    <Folder Include="styles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WebAPI\WebAPI.csproj">

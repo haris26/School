@@ -51,11 +51,11 @@ namespace WebAPI.Helpers
                                 {
                                     Id = ev.Id,
                                     EventTitle = ev.EventTitle,
-                                    FromDate = ev.EventStart,
-                                    ToDate = ev.EventEnd,
+                                    FromDate = ev.EventStart.ToShortDateString(),
+                                    ToDate = ev.EventEnd.ToShortDateString(),
                                     Person = ev.User.Id,
                                     PersonName = ev.User.FullName,
-                                    Time = GetTimeForReservation(ev.EventStart)
+                                    Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
                                 });
                             }
                         }
@@ -71,11 +71,11 @@ namespace WebAPI.Helpers
                                 {
                                     Id = ev.Id,
                                     EventTitle = ev.EventTitle,
-                                    FromDate = ev.EventStart,
-                                    ToDate = ev.EventEnd,
+                                    FromDate = ev.EventStart.ToShortDateString(),
+                                    ToDate = ev.EventEnd.ToShortDateString(),
                                     Person = ev.User.Id,
                                     PersonName = ev.User.FullName,
-                                    Time = GetTimeForReservation(ev.EventStart)
+                                    Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
                                 });
                             }
                         }
@@ -84,11 +84,6 @@ namespace WebAPI.Helpers
                 models.Add(model);
             }
             return models;
-        }
-
-        public static string GetTimeForReservation(DateTime date)
-        {
-            return Convert.ToString(date.Hour + ":" + date.Minute);
         }
 
         public static void SetWeeklyInterval(DateTime date, SearchModel model)
