@@ -1,66 +1,22 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html ng-app="school">
 
 <head>
     <script src="library/angular.js"></script>
-    <script src="scripts/controller1.js"></script>
-    <!--<script src="scripts/service.js"></script>-->
-
-    <style>
-        .label {
-            float: left;
-            text-align: right;
-            width: 45%;
-            margin: 6px;
-        }
-        .text {
-            float: left;
-            width: 45%;
-            margin: 6px;
-        }
-        .panel {
-            width:30%;
-            float:left;
-            margin:6px;
-            padding:10px;
-            border:1px solid black;
-        }
-    </style>
+    <script src="library/angular-route.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/userDashboardController.js"></script>
+    <script src="scripts/services/userDashboardService.js"></script>
+    <script src="scripts/controllers/ResourceController.js"></script>
+    <script src="scripts/services/DataService.js"></script>
+    <link rel="stylesheet" href="styles/style.css" />
 </head>
-
 <body>
-<div ng-controller="MainCtrl">
     <h1>{{ message }}</h1>
-    <div class="panel">
-        <div>
-            <input type="button" value="Save data" ng-click="saveData()" />
-            <input type="button" value="New event" ng-click="newEvent()" />
-            <hr>
-        </div>
-        <div class="label">Id:</div>
-        <div class="text"><input type="text" ng-model="ev.id"></div>
-        <div class="label">Event title:</div>
-        <div class="text"><input type="text" ng-model="ev.eventTitle"></div>
-        <div class="label">Start date:</div>
-        <div class="text"><input type="text" ng-model="ev.startDate"></div>
-        <div class="label">End date:</div>
-        <div class="text"><input type="text" ng-model="ev.endDate"></div>
-        <div class="label">Resource:</div>
-        <div class="text"><input type="text" ng-model="ev.resourceName"></div>
-        <div class="label">User:</div>
-        <div class="text"><input type="text" ng-model="ev.personName"></div>
-    </div>
-    <div class="panel">
-        Filter: <input type="search" ng-model="selEvn">
-        Order: <select ng-model="sortOrder">
-            <option value="+eventTitle">Event title</option>
-            
-        </select>
 
-        <div ng-repeat="item in events | orderBy: sortOrder | filter: selEvn">
-            <hr><a href="#" ng-click="transfer(item)">{{ item.eventTitle }}</a> {{ item.eventStart }} {{ item.eventEnd }} {{ item.resource }}
-        </div>
-    </div>
-</div>
+<div><a href="#/resources">Resources</a> | <a href="#/dashboard">Dashboard</a> | <a href="#/active">Active reservations</a> <hr></div>
+
+    <div ng-view></div>
+
 </body>
 </html>

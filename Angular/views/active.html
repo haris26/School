@@ -2,9 +2,12 @@
 <html ng-app="school">
 
 <head>
-    <script src="../library/angular.min.js"></script>
+    <script src="../library/angular.js"></script>
+    <script src="../library/angular-route.js"></script>
+    <script src="../scripts/app.js"></script>
     <script src="../scripts/controllers/userDashboardController.js"></script>
     <script src="../scripts/services/userDashboardService.js"></script>
+    <script src="../scripts/services/DataService.js"></script>
     <link rel="stylesheet" href="../styles/style.css" />
 </head>
 
@@ -13,10 +16,14 @@
         <h1>{{ message }}</h1>
         <div ng-repeat="item in dashboard.activeReservations">
             <div class="panel-active">
-                <h3>{{item.resourceName}}</h3>
+                <h3>{{item.resourceName}} {{item.id}}</h3>
                 <p>{{item.startDate}}</p>
                 <p>{{item.time}}</p>
-                
+                <div>
+                    <input type="button" value="Cancel" ng-click="cancelReservation(item)" />
+                    <input type="button" value="Extend" ng-click="newResource()" />
+                    <hr>
+                </div>
             </div>
         </div>
     </div>

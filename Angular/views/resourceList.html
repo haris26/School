@@ -4,33 +4,10 @@
 <head>
     <script src="../library/angular.js"></script>
     <script src="../library/angular-route.js"></script>
-
     <script src="../scripts/app.js"></script>
     <script src="../scripts/controllers/ResourceController.js"></script>
     <script src="../scripts/services/DataService.js"></script>
-
-    <style>
-        .label {
-            float: left;
-            text-align: right;
-            width: 45%;
-            margin: 6px;
-        }
-
-        .text {
-            float: left;
-            width: 45%;
-            margin: 6px;
-        }
-
-        .panel {
-            width: 30%;
-            float: left;
-            margin: 6px;
-            padding: 10px;
-            border: 1px solid black;
-        }
-    </style>
+    <link rel="stylesheet" href="../styles/style.css" />
 </head>
 
 <body>
@@ -61,7 +38,7 @@
             </select>
 
             <div ng-repeat="item in resources | orderBy: sortOrder | filter: selResource">
-                <hr><a href="#" ng-click="transfer(item)">{{ item.name }}</a> 
+                <hr><a href="" ng-click="transfer(item)">{{ item.name }}</a> 
                 <div>
                     <div ng-repeat="char in characteristics">
                         <div ng-if="char.resource == item.id && char.name == 'OsType'">OS type: {{char.value}}</div>
