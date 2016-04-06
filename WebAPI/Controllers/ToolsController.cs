@@ -12,7 +12,7 @@ using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    //[TokenAuthorize]
     public class ToolsController : BaseController<Tool>
     {
         SchoolIdentity ident = new SchoolIdentity();

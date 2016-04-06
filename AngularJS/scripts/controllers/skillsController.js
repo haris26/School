@@ -6,13 +6,16 @@
 
         $scope.selCategory = "";
         $scope.sortOrder = "Name";
-        var categoryId = $routeParams.categoryId;
+        fetchCategories();
+        $scope.categoryId = $routeParams.categoryId;
 
-        if (categoryId == undefined) {
-            fetchCategories();
-        }
-        else {
-            getCategory(categoryId);
+        if ($scope.categoryId != undefined) {
+            getCategory($scope.categoryId);
+            $scope.newSkill = {
+                "id": 0,
+                "name": "",
+                "category": $scope.categoryId
+            };
         }
 
         function fetchCategories() {
@@ -29,6 +32,38 @@
 
         $scope.editCategory = function (categoryId) {
             $location.path('/editCategory/'+categoryId)
+        }
+
+        $scope.saveCategory = function () {
+
+            var skillCategory = {
+                "id": categoryId,
+                "name": $scope.category.name
+            };
+
+            DataService.update("skillscategories", $scope.category.id, skillCategory, function (data) {
+                if (data != false) {
+                    window.alert($scope.category.name + " saved!");
+                }
+                else {
+                    window.alert($scope.category.name + " could not be saved!");
+                }
+            })
+        }
+
+        $scope.addSkill = function () {
+            $log.info($scope.newSkill);
+
+            DataService.create("tools", $scope.newSkill, function (data) {
+                if (data != false) {
+                    getCategory($scope.newSkill.category);
+                    $('#addNewSkillModal').modal('hide');
+                    window.alert($scope.newSkill.name + " added!");
+                }
+                else {
+                    window.alert($scope.newSkill.name + " could not be added!");
+                }
+            })
         }
     });
 
