@@ -94,22 +94,38 @@ namespace WebAPI.Models
             };
             foreach (var asset in category.Assets)
             {
+                if (asset.User == null) { 
                 model.Assets.Add(new AssetsModel
                 {
                     Name = asset.Name,
-                    User = asset.User.Id,
-                    UserName = asset.User.FullName,
+                    //User = asset.User.Id,
+                    //UserName = asset.User.FullName,
                     Model = asset.Model,
                     SerialNumber = asset.SerialNumber,
                     Vendor = asset.Vendor,
+                    Price = asset.Price,
+                    DateOfTrade = asset.DateOfTrade,
+                    Status = asset.Status.ToString(),
+                    Category = asset.AssetCategory.Id,
+                    CategoryName = asset.AssetCategory.CategoryName
+                }); }
+                else
+                    model.Assets.Add(new AssetsModel
+                {
+                    Name = asset.Name,
+                        User = asset.User.Id,
+                        UserName = asset.User.FullName,
+                        Model = asset.Model,
+                    SerialNumber = asset.SerialNumber,
+                    Vendor = asset.Vendor,
+                    Price = asset.Price,
                     DateOfTrade = asset.DateOfTrade,
                     Status = asset.Status.ToString(),
                     Category = asset.AssetCategory.Id,
                     CategoryName = asset.AssetCategory.CategoryName
                 });
             }
-
-
+            
             return model;
         }
         public AssetCharsModel Create(AssetChar characteristic)
