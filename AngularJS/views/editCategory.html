@@ -12,10 +12,12 @@
     <div class="form-horizontal">
         <br>
         <div class="form-group">
-            <div class="control-label col-md-2">Name</div>
+            <div class="control-label col-md-2 col-sm-2">Name</div>
             <div class="col-md-10">
-                <input class="form-control text-box single-line" ng-model="category.name" type="text"/>
-                <div>
+                <div class="col-md-4">
+                    <input class="form-control text-box single-line" type="text" ng-model="category.name" />
+                </div>
+                <div class="col-offset-md-2 col-md-10">
                     <!--<div class="text-danger">
                         @ViewBag.CannotDeleteError
                     </div>-->
