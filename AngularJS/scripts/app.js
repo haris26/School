@@ -11,7 +11,7 @@
 
         $routeProvider
             .when("/skills", { templateUrl: "skills.html", controller: "SkillsCtrl" })
-            .when("/editCategory", { templateUrl: "editCategory.html", controller: "SkillsCtrl" })
+            .when("/editCategory/:categoryId", { templateUrl: "editCategory.html", controller: "SkillsCtrl" })
             .otherwise({ redirectTo: "skills" });
     });
 

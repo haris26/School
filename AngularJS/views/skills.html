@@ -20,8 +20,8 @@
                             <a data-toggle="collapse" href="#{{ category.id }}">
                                 <span class="glyphicon glyphicon-chevron-down"></span>  {{ category.name }}
                             </a>
-                            <a style="float:right" href="#">
-                                <span class="glyphicon glyphicon-edit"></span>
+                            <a style="float:right">
+                                <span ng-click="editCategory(category.id)" class="glyphicon glyphicon-edit"></span>
                             </a>
                         </h4>
                     </div>
