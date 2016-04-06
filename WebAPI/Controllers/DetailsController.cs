@@ -75,8 +75,8 @@ namespace WebAPI.Controllers
             var sch = Repository.BaseContext();
             try
             {
-                Detail detail1 = Repository.Get(id);
-                if (detail1 == null || model == null) return NotFound();
+                Detail detail = Repository.Get(id);
+                if (detail == null || model == null) return NotFound();
                 else {
                     Repository.Update(Parser.Create(model, sch), id);
                     return Ok(model);

@@ -9,26 +9,22 @@ namespace WebAPI.Models
     public class MonthModel
     {
         
-        public MonthModel()
+        public MonthModel(int month)
         {
-            //including this entire DateTime code in order to initiate a default vaulue for EmptyDays variable to show the days not logged on a team level
-            int dd = DateTime.Now.Month; //(year: 2016, month: 3, day: 1);
-            int dty = DateTime.Now.Year;
-            int bd = DateTime.DaysInMonth(dty, dd);
-            var weekends = new DayOfWeek[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
-            IEnumerable<int> businessDaysInMonth = Enumerable.Range(1, bd)
-                                                   .Where(d => !weekends.Contains(new DateTime(dty, dd, d).DayOfWeek));
 
             Details = new List<ListModel>();
             Days = new List<CountModel>();
-            //giving a variable a default value of number of business days in a given month
-            EmptyDays = businessDaysInMonth.Count();
+           
+            
+            EmptyDays = new List<EmptyDayModel>();
         }
         public int Id { get; set; }
         public string Name { get; set; }
-        public int EmptyDays { get; set; }
         public IList<CountModel> Days { get; set; }
+        public IList<EmptyDayModel> EmptyDays { get; set; }
         public IList<ListModel> Details { get; set; }
+        public int DeadLineIn { get; set; }
+        
 
     }
 }

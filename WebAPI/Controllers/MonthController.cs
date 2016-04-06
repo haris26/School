@@ -5,6 +5,8 @@ using System.Linq;
 using WebAPI.Services;
 using WebAPI.Helpers;
 using WebAPI.Models;
+using System;
+using System.Configuration;
 
 namespace WebAPI.Controllers
 {
@@ -16,27 +18,32 @@ namespace WebAPI.Controllers
         public MonthController(Repository<Person> depo) : base(depo)
         { }
 
-        public IList<MonthModel> Get()
+        //public IList<MonthModel> Get()
 
+        //{
+
+        //    var people = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName)
+        //                .ToList();
+
+
+        //    List<MonthModel> list = new List<MonthModel>();
+        //    foreach (var p in people)
+        //    {
+        //        list.Add(MonthList.Create(p));
+
+        //    }
+        //    return list;
+        //}
+
+
+        public IList<MonthModel> GetByMonth(int month=0)
         {
-
-            var people = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName)
-                        .ToList();
-
-
-            List<MonthModel> list = new List<MonthModel>();
-            foreach (var p in people)
-            {
-                list.Add(MonthList.Create(p));
-
+            if (month ==0) {
+                string deadline = System.Configuration.ConfigurationManager.AppSettings["deadline"];
+                if (DateTime.Now.Day<= Convert.ToInt32(deadline))
+                month = DateTime.Now.Month-1;
+                else month = DateTime.Now.Month;
             }
-            return list;
-        }
-
-
-        public IList<MonthModel> GetByMonth(int month)
-        {
-
             var people = Repository.Get().OrderBy(x => x.FirstName).ThenBy(x => x.LastName)
                         .ToList();
 
@@ -50,7 +57,7 @@ namespace WebAPI.Controllers
                         p.Days.Remove(day);                       
                 }
 
-                list.Add(MonthList.Create(p));
+                list.Add(MonthList.Create(p,month));
 
             }
             return list;
