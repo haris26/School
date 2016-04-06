@@ -44,6 +44,8 @@ namespace WebApi.Helpers
                     dashboard.CountServiceRequests++;
                 }
             }
+
+            //counting assets by type and status
             var assets = new AssetsUnit(context).Get().ToList();
             foreach (var asset in assets)
             {
@@ -57,9 +59,7 @@ namespace WebApi.Helpers
                 }
                 else if (asset.AssetCategory.assetType == AssetType.Office && asset.Status == AssetStatus.OutofOrder)
                 {
-
                     dashboard.countOutOfOrderAssets++;
-
                 }
             }
 
