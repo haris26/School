@@ -119,9 +119,11 @@
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="library\angular.min.js" />
+    <Content Include="scripts\app.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\controller.js" />
     <Content Include="scripts\controllers\skillsController.js" />
+    <Content Include="scripts\jquery.min.js" />
     <Content Include="scripts\service.js" />
     <Content Include="scripts\services\skillsService.js" />
     <Content Include="styles\bootstrap.min.css" />
