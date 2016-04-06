@@ -15,29 +15,10 @@ namespace WebAPI.Controllers
         public AssetCategoriesController(Repository<AssetCategory> depo) : base(depo)
         { }
 
-        public Object GetAll(int page = 0)
+        public List<AssetCategoriesModel> Get()
         {
-            int PageSize = 5;
-            var query =
-               Repository.Get()
-                   .OrderBy(x => x.CategoryName)
-                   .ThenBy(x => x.AssetCharacteristicNames)
-                   .ToList();
-
-            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
-
-            IList<AssetCategoriesModel> categories =
-                query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
-
-            return new
-            {
-                pageSize = PageSize,
-                currentPage = page,
-                pageCount = TotalPages,
-                allcategories = categories
-            };
+            return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
         }
-
 
         public IHttpActionResult Get(int id)
         {
@@ -92,15 +73,22 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Delete(int id)
         {
-            try
-            {
-                Repository.Delete(id);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return NotFound();
+            
+                try
+                {
+                    AssetCategory assetCat = Repository.Get(id);
+                    if (assetCat == null)
+                        return NotFound();
+                    else
+                    {
+                        Repository.Delete(id);
+                        return Ok();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest();
+                }
             }
         }
     }
-}
