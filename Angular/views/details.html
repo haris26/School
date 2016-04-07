@@ -1,12 +1,4 @@
-﻿<!DOCTYPE html>
-<html ng-app="school">
-
-<head>
-    <script src="../library/angular.js"></script>
-    <script src="../scripts/detailsController.js"></script>
-    <script src="../scripts/service.js"></script>
-
-    <style>
+﻿  <style>
         .label {
             float: left;
             text-align: right;
@@ -28,11 +20,7 @@
             border: 1px solid black;
         }
     </style>
-</head>
-
-<body>
-    <div ng-controller="MainCtrl">
-        <h1>{{ message }}</h1>
+    
         <div class="panel">
             <div>
                 <input type="button" value="Save data" ng-click="saveData()" />
@@ -71,6 +59,4 @@
                 <hr><a href="#" ng-click="transfer(item)">{{ item.personName }}</a> {{ item.date }} {{ item.description }}
             </div>
         </div>
-    </div>
-</body>
-</html>
+ 

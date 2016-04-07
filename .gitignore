@@ -13,6 +13,10 @@ ProcurementSystem/
 WorkforceRoster/
 SkillsLibrary/
 test/
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1581035b146c1225e9875eb6d99f87272986be02
 
 # User-specific files
 *.vs

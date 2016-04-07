@@ -6,6 +6,7 @@
 
         var source = "http://localhost:52571/api/details/";
 
+
         return {
             list: function() {
                 return $http.get(source)

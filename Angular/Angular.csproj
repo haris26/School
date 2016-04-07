@@ -148,6 +148,7 @@
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controller2.js" />
+    <Content Include="scripts\controllers\DetailsController.js" />
     <Content Include="scripts\controllers\EngagementsController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
     <Content Include="scripts\controllers\RolesController.js" />
@@ -159,6 +160,7 @@
     <Content Include="styles\site.css" />
     <Content Include="views\details.html" />
     <Content Include="views\engagements.html" />
+    <Content Include="views\people.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +172,7 @@
   <ItemGroup>
     <Folder Include="images\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="scripts\directives\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,8 +1,8 @@
-(function(){
+(function () {
 
     var app = angular.module("school");
 
-    app.controller("EngagementsController", function($scope, $rootScope, DataService) {
+    app.controller("EngagementsController", function ($scope, $rootScope, DataService) {
 
         var dataSet = "engagements";
         $scope.selString = "";
@@ -31,16 +31,16 @@
         };
 
         function fetchData() {
-            DataService.list(dataSet, function(data) {
-                $scope.engagements= data;
+            DataService.list(dataSet, function (data) {
+                $scope.engagements = data;
             });
         }
 
-        $scope.transfer = function(item) {
+        $scope.transfer = function (item) {
             $scope.engagement = item;
         };
 
-        $scope.newEngagement = function() {
+        $scope.newEngagement = function () {
             $scope.engagement = {
                 id: 0,
                 person: 0,
@@ -54,13 +54,13 @@
             }
         };
 
-        $scope.saveData = function() {
+        $scope.saveData = function () {
             var promise;
-            if ($scope.engagement.id == 0){
-                DataService.create(dataSet, $scope.engagement, function(data){});
+            if ($scope.engagement.id == 0) {
+                DataService.create(dataSet, $scope.engagement, function (data) { });
             }
             else {
-                DataService.update(dataSet, $scope.engagement.id, $scope.engagement, function(data){});
+                DataService.update(dataSet, $scope.engagement.id, $scope.engagement, function (data) { });
             }
             fetchData();
         }

@@ -35,7 +35,6 @@
         <option value="+roleName">Role Name</option>
         <option value="+personName">Person Name</option>
     </select>
-
     <div ng-repeat="item in engagements | orderBy: sortOrder | filter: selString">
         <hr><a href="#" ng-click="transfer(item)">{{ item.personName }}</a> {{ item.teamName }} {{ item.roleName }}
     </div>

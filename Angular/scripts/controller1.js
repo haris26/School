@@ -1,25 +1,24 @@
+
 (function(){
 
     var app = angular.module("school", []);
 
-    app.controller("MainCtrl", function($scope, DataService) {
+    app.controller("MainCtrl", function($scope, $http) {
+
+        var onComplete = function(response) {
+            $scope.people = response.data;
+            $scope.message = "";
+        };
+
+        var onError = function(reason) {
+            $scope.message = "No data for that request";
+        };
 
         $scope.selPerson = "";
         $scope.sortOrder = "lastName";
-        fetchPeople();
-
-        function fetchPeople() {
-            $scope.message = "Wait...";
-            DataService.list().then(
-                function(response) {
-                    $scope.people = response.data;
-                    $scope.message = "";
-                },
-                function(reason) {
-                    $scope.message = "No data for that request";
-                }
-            );
-        }
+        var promise = $http.get("http://localhost:52571/api/people");
+        $scope.message = "Wait...";
+        promise.then(onComplete, onError);
 
         $scope.transfer = function(item) {
             $scope.person = item;
@@ -34,8 +33,7 @@
                 phone: "",
                 category: "Full",
                 gender: "",
-                address: "",
-
+                address: {},
                 birthDate: "",
                 startDate: new Date(),
                 status: "Active"
@@ -45,10 +43,18 @@
         $scope.saveData = function() {
             var promise;
             if ($scope.person.id == 0){
-                promise = DataService.create($scope.person);
+                promise = $http({
+                    method: "post",
+                    url: "http://localhost:52571/api/people",
+                    data: $scope.person
+                })
             }
             else {
-                promise = DataService.update($scope.person.id, $scope.person);
+                promise = $http({
+                    method: "put",
+                    url: "http://localhost:52571/api/people/" + $scope.person.id,
+                    data: $scope.person
+                })
             }
             promise.then(
                 function(response){ window.alert("data saved!");},
