@@ -10,7 +10,6 @@
         fetchData();
         getCharacteristics();
 
-
         function fetchData() {
             DataService.list(dataSet, function (data) {
                 $scope.resources = data;
@@ -23,9 +22,24 @@
             });
         };
 
+        $scope.createEvent = function (item)
+        {
+            DataService.create("events", $scope.eventReservation, function (data) { });
+            $scope.showme = false;
+        }
         $scope.transfer = function (item) {
             $scope.resource = item;
             $scope.showme = true;
+            $scope.eventReservation = {
+                id: 0,
+                eventTitle: "",
+                startDate: new Date(),
+                endDate: new Date(),
+                resource: item.id,
+                resourceName:item.name,
+                category:item.category,
+                categoryName:item.categoryName
+            };
         };
         
         $scope.newResource = function () {
@@ -48,6 +62,7 @@
             }
             fetchData();
         }
+
     });
 
 }());
