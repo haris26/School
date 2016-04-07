@@ -119,6 +119,7 @@
     <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="library\angular-route.js" />
     <Content Include="obj\Debug\Angular.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Angular.dll" />
     <Content Include="obj\Debug\Angular.pdb" />
@@ -145,11 +146,19 @@
     <Content Include="library\angular.js" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\app.js" />
     <Content Include="scripts\controller2.js" />
+    <Content Include="scripts\controllers\EngagementsController.js" />
+    <Content Include="scripts\controllers\PeopleController.js" />
+    <Content Include="scripts\controllers\RolesController.js" />
+    <Content Include="scripts\controllers\TeamsController.js" />
     <Content Include="scripts\detailsController.js" />
     <Content Include="scripts\loginService.js" />
     <Content Include="scripts\service.js" />
+    <Content Include="scripts\services\DataService.js" />
+    <Content Include="styles\site.css" />
     <Content Include="views\details.html" />
+    <Content Include="views\engagements.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -161,7 +170,6 @@
   <ItemGroup>
     <Folder Include="images\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="styles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

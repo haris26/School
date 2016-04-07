@@ -3,79 +3,55 @@
 
 <head>
     <script src="library/angular.js"></script>
-    <script src="scripts/controller2.js"></script>
-    <script src="scripts/service.js"></script>
-
-    <style>
-        .label {
-            float: left;
-            text-align: right;
-            width: 45%;
-            margin: 6px;
-        }
-        .text {
-            float: left;
-            width: 45%;
-            margin: 6px;
-        }
-        .panel {
-            width:30%;
-            float:left;
-            margin:6px;
-            padding:10px;
-            border:1px solid black;
-        }
-    </style>
+    <script src="scripts/controllers/EngagementsController.js"></script>
+    <script src="scripts/services/DataService.js"></script>
+    <script src="library/angular-route.js"></script>
+    <link rel="stylesheet" href="styles/site.css">
 </head>
 
-<body>
-<div ng-controller="MainCtrl">
+<body ng-controller="EngagementsController">
     <h1>{{ message }}</h1>
     <div class="panel">
         <div>
             <input type="button" value="Save data" ng-click="saveData()" />
-            <input type="button" value="New person" ng-click="newPerson()" />
+            <input type="button" value="New engagement" ng-click="newEngagement()" />
             <hr>
         </div>
         <div class="label">Id:</div>
-        <div class="text"><input type="text" ng-model="person.id"></div>
-        <div class="label">First name:</div>
-        <div class="text"><input type="text" ng-model="person.firstName"></div>
-        <div class="label">Last name:</div>
-        <div class="text"><input type="text" ng-model="person.lastName"></div>
-        <div class="label">E-mail:</div>
-        <div class="text"><input type="text" ng-model="person.email"></div>
-        <div class="label">Phone:</div>
-        <div class="text"><input type="text" ng-model="person.phone"></div>
-        <div class="label">Category:</div>
-        <div class="text"><input type="text" ng-model="person.category"></div>
-        <div class="label">Gender:</div>
-        <div class="text"><input type="text" ng-model="person.gender"></div>
-        <div class="label">Zip code:</div>
-        <div class="text"><input type="text" ng-model="person.address.zipCode"></div>
-        <div class="label">Town:</div>
-        <div class="text"><input type="text" ng-model="person.address.town"></div>
-        <div class="label">Road:</div>
-        <div class="text"><input type="text" ng-model="person.address.road"></div>
-        <div class="label">Birth date:</div>
-        <div class="text"><input type="text" ng-model="person.birthDate"></div>
-        <div class="label">Start date:</div>
-        <div class="text"><input type="text" ng-model="person.startDate"></div>
-        <div class="label">Status:</div>
-        <div class="text"><input type="text" ng-model="person.status"></div>
+        <div class="text"><input type="text" ng-model="engagement.id"></div>
+        <div class="label">Person:</div>
+        <div class="text">
+            <select ng-model="engagement.person"
+                    ng-options="person.id as person.firstName + ' ' + person.lastName for person in people"></select>
+        </div>
+        <div class="label">Team:</div>
+        <div class="text">
+            <select ng-model="engagement.team"
+                    ng-options="team.id as team.name for team in teams"></select>
+        </div>
+        <div class="label">Role:</div>
+        <div class="text">
+            <select ng-model="engagement.role"
+                    ng-options="role.id as role.name for role in roles"></select>
+        </div>
+        <div class="label">Start Date:</div>
+        <div class="text"><input type="text" ng-model="engagement.startDate"></div>
+        <div class="label">Time / weekly:</div>
+        <div class="text"><input type="text" ng-model="engagement.time"></div>
     </div>
-    <div class="panel">
-        Filter: <input type="search" ng-model="selPerson">
-        Order: <select ng-model="sortOrder">
-            <option value="+lastName">Last Name</option>
-            <option value="+firstName">First Name</option>
-            <option value="-phone">Phone number</option>
-        </select> 
 
-        <div ng-repeat="item in people | orderBy: sortOrder | filter: selPerson">
-            <hr><a href="#" ng-click="transfer(item)">{{ item.firstName }}</a> {{ item.lastName }} {{ item.email }} {{ item.phone }}
+    <div class="panel">
+        Filter: <input type="search" ng-model="selString">
+        Order:
+        <select ng-model="sortOrder">
+            <option value="+teamName">Team Name</option>
+            <option value="+roleName">Role Name</option>
+            <option value="+personName">Person Name</option>
+        </select>
+
+        <div ng-repeat="item in engagements | orderBy: sortOrder | filter: selString">
+            <hr><a href="#" ng-click="transfer(item)">{{ item.personName }}</a> {{ item.teamName }} {{ item.roleName }}
         </div>
     </div>
-</div>
 </body>
 </html>
