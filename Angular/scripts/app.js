@@ -17,7 +17,7 @@
             .when("/requests", { templateUrl: "views/NewRequests.html", controller: "AllRequestsController" })
             .when("/servicerequests", { templateUrl: "views/ServiceRequests.html", controller: "ServiceRequestsController" })
             .when("/assets", { templateUrl: "views/AllAssets.html", controller: "AssetsController" })
-            //.when("/engagements", { templateUrl: "views/engagements.html", controller: "EngagementsController" })
+            .when("/newservicerequests", { templateUrl: "views/SendServiceRequest.html", controller: "NewServiceRequestController" })
             .otherwise({ redirectTo: "/" });
     });
 

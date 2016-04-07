@@ -4,15 +4,15 @@
 
     app.controller("NewServiceRequestController", function ($scope, DataService) {
 
-        var dataSet = "servicerequests";
+        var dataSet = "newservicerequests";
         //$scope.selPerson = "";
         //$scope.sortOrder = "lastName";
-        fetchPeople();
+        fetchNewServiceRequests();
         
 
-        function fetchPeople() {
-            DataService.list("servicerequests", function (data) {
-                $scope.servicerequest = data;
+        function fetchNewServiceRequests() {
+           DataService.list("newservicerequests", function (data) {
+                $scope.newservicerequests = data;
             });
         };
 
@@ -23,33 +23,33 @@
         };
 
         $scope.transfer = function (item) {
-            $scope.servicerequest = item;
+            $scope.assets = item;
         };
 
         $scope.newServiceRequest = function () {
-            $scope.servicerequest = {
+            $scope.newservicerequests = {
                 id: 0,
                 requestType: 2,
-                requestDescription: "",
-                requestMessage: "",
-                phone: "",
-                category: "Full",
-                gender: "",
-                address: {},
-                birthDate: "",
-                startDate: new Date(),
-                status: "Active"
+                requestDescription:"aloo" ,
+                requestMessage: "haloo",
+                requestDate: new Date(),
+                status: 1,
+                assetId: assets.assetId,
+                userId: assets.userId,
+                quantity:1,
+                assetType: assets.assetType,
+                assetCategory:assets.assetCategory
             }
         };
 
         $scope.saveData = function () {
-            if ($scope.person.id == 0) {
-                DataService.create(dataSet, $scope.person, function (data) { });
+            if ($scope.newservicerequests.id == 0) {
+                DataService.create(dataSet, $scope.newservicerequests, function (data) { });
             }
             else {
-                DataService.update(dataSet, $scope.person.id, $scope.person, function (data) { });
+                DataService.update(dataSet, $scope.newservicerequests.id, $scope.newservicerequests, function (data) { });
             }
-            fetchPeople();
+            fetchNewServiceRequests();
         }
     });
 }());

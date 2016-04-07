@@ -10,7 +10,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Requests for new IT equipment
+                    Assets
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -22,8 +22,8 @@
                                     <th>Model</th>
                                     <th>Status</th>
                                     <th>Category</th>
-                                    <th>Request Description</th>
-                                    <th>Request status</th>
+                                    <th>User</th>
+                                    <th>Service </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,9 +32,9 @@
                                     <td>{{item.name}} </td>
                                     <td>{{item.model}}</td>
                                     <td>{{item.status}}</td>
-                                    <td>{{item.category}}</td>
+                                    <td>{{item.categoryName }}</td>
                                     <td>{{item.userName}}</td>
-                                    <td><a href="Assign.html"><u>Change</u></a></td>
+                                    <td><a href="#/newservicerequests" ng-click="transfer(item)">Service</a></td>
 
                                 </tr>
 

@@ -13,6 +13,8 @@
     <script src="scripts/controllers/AllRequestsController.js"></script>
     <script src="scripts/controllers/ServiceRequestsController.js"></script>
     <script src="scripts/controllers/AssetsController.js"></script>
+    <script src="scripts/controllers/NewServiceRequestController.js"></script>
+
     <script src="scripts/services/DataService.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/bootstrap-social.css">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap-theme.min.css">
@@ -124,7 +126,7 @@
 
                                 <li><a href="Inventory.html"><span class="glyphicon glyphicon-plus"></span> Add Inventory </a></li>
                                 <li><a href="Free.html"><span class="glyphicon glyphicon-cog"></span> Free equipment</a></li>
-                                <li><a href="Taken.html"><span class="glyphicon glyphicon-cog"></span> Taken</a></li>
+                                <li><a href="#/assets"><span class="glyphicon glyphicon-cog"></span> Taken</a></li>
                                 <li><a href="Tables.html"><span class="glyphicon glyphicon-cog"></span> Schedule By Room</a></li>
                             </ul>
                         </li>
@@ -141,10 +143,10 @@
                 <!-- /.navbar-static-side -->
             </div>
             <!-- Page Content -->
-            
+            <div>
             <div id="page-wrapper" ng-view></div>
                         <!-- /#page-wrapper -->
-           
+           </div>
                     <!-- /#wrapper -->
                 
                 
