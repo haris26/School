@@ -2,16 +2,16 @@
 <html ng-app="school">
 
 <head>
-    <script src="/library/jquery.min.js"></script>
+    <script src="library/jquery.min.js"></script>
     <script src="library/angular.js"></script>
     <script src="library/angular-route.js"></script>
     <script src="library/bootstrap.min.js"></script>
     <script src="library/metisMenu.min.js"></script>
     <script src="library/startmin.js"></script>
-    <script src="library/proba.js"></script>
-    <script src="scripts/app.js"></script>
+     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/AllRequestsController.js"></script>
     <script src="scripts/controllers/ServiceRequestsController.js"></script>
+    <script src="scripts/controllers/AdminDashboardController.js"></script>
     <script src="scripts/services/DataService.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/bootstrap-social.css">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap-theme.min.css">
@@ -31,14 +31,10 @@
                     <a class="navbar-brand" href="AdminPage.html">Procurement</a>
                 </div>
 
-
-
-                <ul class="nav navbar-nav navbar-left navbar-top-links">
-                    <li><a href="AdminPage.html">  <span class="glyphicon glyphicon-home"></span> Home</a></li>
+ <ul class="nav navbar-nav navbar-left navbar-top-links">
+                    <li><a href="#/admindashboard">  <span class="glyphicon glyphicon-home"></span> Home</a></li>
                 </ul>
-
-
-                <ul class="nav navbar-right navbar-top-links">
+  <ul class="nav navbar-right navbar-top-links">
                     <li class="dropdown navbar-inverse">
 
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -125,6 +121,7 @@
                                 <li><a href="Free.html"><span class="glyphicon glyphicon-cog"></span> Free equipment</a></li>
                                 <li><a href="Taken.html"><span class="glyphicon glyphicon-cog"></span> Taken</a></li>
                                 <li><a href="Tables.html"><span class="glyphicon glyphicon-cog"></span> Schedule By Room</a></li>
+                                <li><a href="#/makenewrequest"><span class="glyphicon glyphicon-cog"></span> New Request</a></li>
                             </ul>
                         </li>
                         <li>

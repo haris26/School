@@ -16,7 +16,7 @@
         $routeProvider
             .when("/requests", { templateUrl: "views/NewRequests.html", controller: "AllRequestsController" })
             .when("/servicerequests", { templateUrl: "views/ServiceRequests.html", controller: "ServiceRequestsController" })
-            //.when("/roles", { templateUrl: "views/roles.html", controller: "RolesController" })
+            .when("/admindashboard", { templateUrl: "views/AdminDashboard.html", controller: "AdminDashboardController" })
             //.when("/engagements", { templateUrl: "views/engagements.html", controller: "EngagementsController" })
             .otherwise({ redirectTo: "/" });
     });
