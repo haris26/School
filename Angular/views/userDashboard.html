@@ -21,6 +21,7 @@
             <hr/>
             <div ng-repeat="item in dashboard.todayReservations">
                 <p>
+                    <i class="active-title">{{item.eventTitle}}</i> <br/>
                     You have reservation for <b>{{ item.resourceName }}</b> at {{item.time}}
                 </p>
             </div>
@@ -32,6 +33,7 @@
             <hr/>
             <div ng-repeat="item in dashboard.upcomingReservations">
                 <p>
+                    <i class="active-title">{{item.eventTitle}}</i> <br/>
                     You have reservation for <b>{{ item.resourceName }}</b> on {{item.startDate}}<br />
                     at {{item.time}}
                 </p>

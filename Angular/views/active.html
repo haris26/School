@@ -17,12 +17,29 @@
         <div ng-repeat="item in dashboard.activeReservations">
             <div class="panel-active">
                 <h3>{{item.resourceName}}</h3>
+                <hr/>
+                <p><i class="active-title">{{item.eventTitle}}</i></p>
                 <p>{{item.startDate}}</p>
                 <p>{{item.time}}</p>
                 <div>
                     <input type="button" value="Cancel" ng-click="cancelReservation(item)"/>
-                    <hr>
+                    <input type="button" value="Extend" ng-click="extendReservation(item)"/>
                 </div>
+            </div>
+        </div>
+        <div class="panel" ng-show ="modalShow">
+            <div class="label">Repeat until: </div>
+            <div class="text"><input type="date" ng-model="eventExtend.repeatUntil"></div>
+            <div class="label">Repeating type: </div>
+            <div class="text">
+                <select ng-model="eventExtend.repeatingType"
+                        ng-options="repatingTypes.indexOf(type) as type for type in repeatingTypes">
+                </select>
+            </div>
+            <div class="label">Frequency: </div>
+            <div class="text"><input type="number" ng-model="eventExtend.frequency"></div>
+            <div>
+                <input type="button" value="Save" ng-click="saveData()" />
             </div>
         </div>
     </div>
