@@ -30,15 +30,18 @@ namespace WebAPI.Helpers
          
             IEnumerable<int> businessDaysInMonth = Enumerable.Range(1, bd)
                                                    .Where(d => !weekends.Contains(new DateTime(dd.Year, dd.Month, d).DayOfWeek));
-
+           // List<DayModel> list = new List<DayModel>();
+           
             var days =
                person.Days.GroupBy(x => x.Person.FirstName)
                    .Select(x => new { type = x.Key, days = x.Count() })
                    .ToList();
+           
+            
             foreach (var d in days)
             {
-
-                dashboard.CountEmpty = businessDaysInMonth.Count() - d.days;
+                        dashboard.CountEmpty = businessDaysInMonth.Count() - d.days;
+              
             }
 
 

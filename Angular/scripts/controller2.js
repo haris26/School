@@ -34,7 +34,8 @@
                 phone: "",
                 category: "Full",
                 gender: "",
-                address: {},
+                address: "",
+
                 birthDate: "",
                 startDate: new Date(),
                 status: "Active"

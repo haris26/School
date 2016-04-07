@@ -23,6 +23,7 @@ namespace WebAPI.Helpers
 
             };
 
+
             //Declaring DateTime variables in order to select only working days for each month
             int dd = month;//DateTime.Now.Month; //(year: 2016, month: 3, day: 1);
             int dty = DateTime.Now.Year;
@@ -31,7 +32,9 @@ namespace WebAPI.Helpers
             IEnumerable<int> businessDaysInMonth = Enumerable.Range(1, bd)
                                                    .Where(d => !weekends.Contains(new DateTime(dty, month, d).DayOfWeek));
 
+
             //Getting details sorted by Persons and forwarding time worked and days not logged into Members list
+
             //var members = team.Details.GroupBy(x => x.Day.Person.FullName).Select(x => new { person = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
 
 
@@ -48,6 +51,7 @@ namespace WebAPI.Helpers
                 }
                 else
                     listteam.Members.Add(new CountModel { Category = det.person, Count = (int)det.time, EmptyDays = businessDaysInMonth.Count() - det.empty });
+
 
             }
 

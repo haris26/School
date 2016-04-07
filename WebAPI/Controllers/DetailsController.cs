@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
 
         public IList<DetailModel> GetAll(int page = 0)
         {
-            int PageSize = 5;
+            int PageSize = 20;
             var query = Repository.Get().OrderBy(x => x.Day.Date)
                                         .ThenBy(x => x.Day.Person.LastName);
                                         
@@ -61,7 +61,21 @@ namespace WebAPI.Controllers
             {
                 if (model == null) return NotFound();
                 else {
-                    Repository.Insert(Parser.Create(model, sch));
+                    Repository<Day> days= new Repository<Day>(sch);
+                    var day = days.Get().Where(x => x.Person.Id == model.Person && x.Date == model.Date).FirstOrDefault();
+                    if (day == null) {
+                        days.Insert(Parser.Create(new DayModel()
+                        {
+                            Person = model.Person,
+                            Date = model.Date
+
+                        }, sch));
+                        model.Day = day.Id;
+                        Repository.Insert(Parser.Create(model, sch));
+                    }
+                    else {
+                        model.Day = day.Id;
+                        Repository.Insert(Parser.Create(model, sch)); } 
                     return Ok(model);
                 }
             }

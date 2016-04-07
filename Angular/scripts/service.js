@@ -4,7 +4,8 @@
 
     app.factory("DataService", function($http) {
 
-        var source = "http://localhost:52571/api/people/";
+        var source = "http://localhost:52571/api/details/";
+
 
         return {
             list: function() {
