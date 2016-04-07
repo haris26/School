@@ -22,7 +22,7 @@
             </select>-->
 
             <div ng-repeat="item in resources | filter: selResource">
-                <hr><a href="#" ng-click="transfer(item)">{{ item.name }}</a>               
+                <hr><a href="" ng-click="transfer(item)">{{ item.name }}</a>               
                 <div ng-repeat="char in characteristics | filter: selResource" ng-if="char.resource == item.id && char.name == 'OsType'">
                     OS type: {{char.value}}
                 </div>
@@ -31,20 +31,17 @@
         </div>
         <div ng-show="showme" class="panel">
             <div>
-                <input type="button" value="Save data" ng-click="saveData()" />
-                <input type="button" value="New resource" ng-click="newResource()" />
+                <input type="button" value="Create event" ng-click="createEvent()" />
                 <hr>
             </div>
-            <div class="label">Id:</div>
-            <div class="text"><input type="text" ng-model="resource.id"></div>
             <div class="label">Resource name:</div>
-            <div class="text"><input type="text" ng-model="resource.name"></div>
-            <div class="label">Resource status:</div>
-            <div class="text"><input type="text" ng-model="resource.status"></div>
-            <div class="label">Category</div>
-            <div class="text"><input type="text" ng-model="resource.resourceCategory"></div>
-            <div class="label">Resource category name:</div>
-            <div class="text"><input type="text" ng-model="resource.resourceCategoryName"></div>
+            <div class="text"><input type="text"  ng-model="eventReservation.resourceName" readonly ></div>
+            <div class="label">Event Title:</div>
+            <div class="text"><input type="text" ng-model="eventReservation.eventTitle"></div>
+            <div class="label">Event Start</div>
+            <div class="text"><input  type="date" ng-model="eventReservation.startDate"></div>
+            <div class="label">Event End</div>
+            <div class="text"><input type="date" ng-model="eventReservation.endDate"></div>          
         </div>
     </div>
 </body>
