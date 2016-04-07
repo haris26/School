@@ -152,12 +152,13 @@ namespace WebAPI.Models
                 User = asset.User.Id,
                 UserName = asset.User.FirstName,
                 Vendor = asset.Vendor,
+                Price = asset.Price,
                 Status = asset.Status.ToString(),
                 Category = asset.AssetCategory.Id,
                 CategoryName = asset.AssetCategory.CategoryName,
                 DateOfTrade = asset.DateOfTrade,
-                SerialNumber = asset.SerialNumber,
-                Price = asset.Price
+                SerialNumber = asset.SerialNumber
+              
             };
         }
 

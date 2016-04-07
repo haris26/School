@@ -1,9 +1,7 @@
 ﻿<div>
-    
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Requests</h1>
-            <button class="btn btn-success">New Request</button><hr />
+            <h1 class="page-header">Assets</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -20,25 +18,22 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>User</th>
-
+                                    <th>Name</th>
+                                    <th>Model</th>
+                                    <th>Status</th>
                                     <th>Category</th>
-
-                                    <th>Date</th>
-                                    <th>Request Message</th>
                                     <th>Request Description</th>
                                     <th>Request status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="item in requests" class="request-table">
+                                <tr ng-repeat="item in assets" class="request-table">
 
-                                    <td>{{item.personName}} </td>
-
-                                    <td>{{item.categoryName}}</td>
-                                    <td>{{item.requestDate|date}}</td>
-                                    <td>{{item.requestMessage}}</td>
-                                    <td>{{item.requestDescription}}</td>
+                                    <td>{{item.name}} </td>
+                                    <td>{{item.model}}</td>
+                                    <td>{{item.status}}</td>
+                                    <td>{{item.category}}</td>
+                                    <td>{{item.userName}}</td>
                                     <td><a href="Assign.html"><u>Change</u></a></td>
 
                                 </tr>
