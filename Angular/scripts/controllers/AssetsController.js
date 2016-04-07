@@ -13,7 +13,7 @@
 
         function getAssets() {
             DataService.list("assets", function (data) {
-                $scope.requests = data.allAssets;
+                $scope.assets = data.allAssets;
             });
         };
 
