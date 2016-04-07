@@ -19,7 +19,7 @@
             .when("/teams", {templateUrl: "views/teams.html", controller: "TeamsController"})
             .when("/roles", {templateUrl: "views/roles.html", controller: "RolesController"})
             .when("/engagements", {templateUrl: "views/engagements.html", controller: "EngagementsController"})
-            .otherwise({redirectTo: "/people"});
+            .otherwise({redirectTo: "/details"});
     });
 
 }());

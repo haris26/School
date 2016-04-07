@@ -3,7 +3,6 @@
     var app = angular.module("school");
 
     app.factory("DataService", function ($http, $rootScope, schConfig) {
-
         var source = schConfig.source;
 
         return {
