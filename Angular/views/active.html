@@ -16,12 +16,11 @@
         <h1>{{ message }}</h1>
         <div ng-repeat="item in dashboard.activeReservations">
             <div class="panel-active">
-                <h3>{{item.resourceName}} {{item.id}}</h3>
+                <h3>{{item.resourceName}}</h3>
                 <p>{{item.startDate}}</p>
                 <p>{{item.time}}</p>
                 <div>
-                    <input type="button" value="Cancel" ng-click="cancelReservation(item)" />
-                    <input type="button" value="Extend" ng-click="newResource()" />
+                    <input type="button" value="Cancel" ng-click="cancelReservation(item)"/>
                     <hr>
                 </div>
             </div>
