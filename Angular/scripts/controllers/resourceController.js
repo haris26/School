@@ -16,6 +16,7 @@
                 $scope.resources = data;
             });
         }
+
         function getCharacteristics() {
             DataService.list("characteristics", function (data) {
                 $scope.characteristics = data;
