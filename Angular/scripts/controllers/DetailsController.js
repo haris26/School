@@ -5,7 +5,7 @@
     app.controller("DetailsController", function ($scope, $rootScope, DataService) {
 
         var dataSet = "details";
-        $scope.selString = "";
+        $scope.selDetail = "";
         $scope.sortOrder = "teamName";
         fetchData();
 

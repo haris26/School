@@ -56,7 +56,7 @@
             </select>
 
             <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail">
-                <hr><a href="#" ng-click="transfer(item)">{{ item.personName }}</a> {{ item.date }} {{ item.description }}
+                <hr><a href="#/details" ng-click="transfer(item)">{{ item.personName }}</a> {{ item.date }} {{ item.description }}
             </div>
         </div>
  
