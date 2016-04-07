@@ -1,4 +1,4 @@
-﻿ .label {
+﻿.label {
     float: left;
     text-align: right;
     width: 45%;
@@ -13,14 +13,6 @@
 
 .panel {
     width: 30%;
-    float: left;
-    margin: 6px;
-    padding: 10px;
-    border: 1px solid black;
-}
-
-.panel-active {
-    width: 15%;
     float: left;
     margin: 6px;
     padding: 10px;

@@ -13,7 +13,23 @@
 <body>
     <div ng-controller="ResourceController">
         <h1>{{ message }}</h1>
+        
         <div class="panel">
+            Filter: <input type="search" ng-model="selResource">
+            <!--Order: <select ng-model="sortOrder">
+                <option value="categoryName">Device</option>
+                <option value="categoryName">Room</option>
+            </select>-->
+
+            <div ng-repeat="item in resources | filter: selResource">
+                <hr><a href="#" ng-click="transfer(item)">{{ item.name }}</a>               
+                <div ng-repeat="char in characteristics | filter: selResource" ng-if="char.resource == item.id && char.name == 'OsType'">
+                    OS type: {{char.value}}
+                </div>
+            </div>
+
+        </div>
+        <div ng-show="showme" class="panel">
             <div>
                 <input type="button" value="Save data" ng-click="saveData()" />
                 <input type="button" value="New resource" ng-click="newResource()" />
@@ -29,19 +45,6 @@
             <div class="text"><input type="text" ng-model="resource.resourceCategory"></div>
             <div class="label">Resource category name:</div>
             <div class="text"><input type="text" ng-model="resource.resourceCategoryName"></div>
-        </div>
-        <div class="panel">
-            Filter: <input type="search" ng-model="selResource">
-            <!--Order: <select ng-model="sortOrder">
-                <option value="categoryName">Device</option>
-                <option value="categoryName">Room</option>
-            </select>-->
-
-            <div ng-repeat="item in resources | filter: selResource">
-                <hr><a href="#" ng-click="transfer(item)">{{ item.name }}</a>               
-                        <div ng-repeat="char in characteristics | filter: selResource" ng-if="char.resource == item.id && char.name == 'OsType'">OS type: {{char.value}}</div>
-            </div>
-
         </div>
     </div>
 </body>

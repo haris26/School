@@ -6,6 +6,7 @@
 
         $rootScope.selResource = "";
         var dataSet = "resources";
+        $scope.showme = false;
         fetchData();
         getCharacteristics();
 
@@ -23,8 +24,9 @@
 
         $scope.transfer = function (item) {
             $scope.resource = item;
+            $scope.showme = true;
         };
-
+        
         $scope.newResource = function () {
             $scope.resource = {
                 id: 0,
@@ -34,7 +36,7 @@
                 categoryName:""
             }
         };
-
+        
         $scope.saveData = function () {
             var promise;
             if ($scope.resource.id == 0) {
