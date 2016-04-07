@@ -12,7 +12,6 @@
         $routeProvider
             .when("/skills", { templateUrl: "skills.html", controller: "SkillsCtrl" })
             .when("/editCategory/:categoryId", { templateUrl: "editCategory.html", controller: "SkillsCtrl" })
-            .when("/addNewCategory", { templateUrl: "addNewCategory.html", controller: "SkillsCtrl" })
             .otherwise({ redirectTo: "skills" });
     });
 

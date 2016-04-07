@@ -9,6 +9,11 @@
         fetchCategories();
         $scope.categoryId = $routeParams.categoryId;
 
+        $scope.newCategory = {
+            "id": 0,
+            "name": ""
+        }
+
         if ($scope.categoryId != undefined) {
             getCategory($scope.categoryId);
             $scope.newSkill = {
@@ -38,7 +43,7 @@
 
             var skillCategory = {
                 "id": categoryId,
-                "name": $scope.category.name
+                "name": $scope.category.name,
             };
 
             DataService.update("skillscategories", $scope.category.id, skillCategory, function (data) {
@@ -62,6 +67,19 @@
                 }
                 else {
                     window.alert($scope.newSkill.name + " could not be added!");
+                }
+            })
+        }
+
+        $scope.addCategory = function () {
+            DataService.create("skillscategories", $scope.newCategory, function (data) {
+                if (data != false) {
+                    fetchCategories();
+                    $('#addNewCategoryModal').modal('hide');
+                    window.alert($scope.newCategory.name + " added!");
+                }
+                else {
+                    window.alert($scope.newCategory.name + " could not be added!");
                 }
             })
         }
