@@ -65,14 +65,11 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Tool oldTool = Repository.Get(id);
-                if (oldTool == null)
-                    return NotFound();
-                else
-                    Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
-                return Ok(model);
+                Tool tool = Parser.Create(model, Repository.BaseContext());
+                Repository.Update(tool, id);
+                return Ok(Factory.Create(tool));
             }
-            catch (Exception ex)
+            catch
             {
                 return BadRequest();
             }

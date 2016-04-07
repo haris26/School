@@ -11,10 +11,10 @@ using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    //[TokenAuthorize]
     public class EmployeeEducationsController : BaseController<EmployeeEducation>
     {
-        SchoolIdentity ident = new SchoolIdentity();
+        //SchoolIdentity ident = new SchoolIdentity();
 
         public EmployeeEducationsController(Repository<EmployeeEducation> depo) : base(depo)
         { }
