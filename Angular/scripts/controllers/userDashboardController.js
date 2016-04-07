@@ -12,28 +12,23 @@
             });
         }
 
-        $scope.saveData = function () {
+        $scope.cancelReservation = function (item) {
             var promise;
-            if ($scope.engagement.id == 0) {
-                DataService.create(dataSet, $scope.engagement, function (data) { });
+            $scope.eventId = item.id;
+            getEvent($scope.eventId);
+            if ($scope.reservationEvent != undefined) {
+                DataService.remove("events", $scope.reservationEvent.id, function (data) { });
             }
-            else {
-                DataService.update(dataSet, $scope.engagement.id, $scope.engagement, function (data) { });
-            }
-            fetchData();
-        }
-        function getEvent(id) {
-            DataService.read("events", id , function (data) {
-                $scope.event = data;
-            });
         };
 
-        $scope.cancelReservation = function(item) {
-            var promise;
-            getEvent(item.id);
-            if ($scope.event != null) {
-                DataService.remove(dataSet, $scope.event.id , function (data) {});
-            }         
+        //$scope.transfer = function (item) {
+        //    $scope.reservationEvent = item;
+        //};
+
+        function getEvent(id) {
+            DataService.read("events", id , function (data) {
+                $scope.reservationEvent = data;
+            });
         };
     });
 }());
