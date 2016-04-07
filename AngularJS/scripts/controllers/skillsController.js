@@ -6,6 +6,7 @@
 
         $scope.selCategory = "";
         $scope.sortOrder = "Name";
+        $scope.mode = true;
         fetchCategories();
         $scope.categoryId = $routeParams.categoryId;
 

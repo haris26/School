@@ -1,12 +1,16 @@
-﻿<div id="addNewSkillModal" class="modal fade" role="dialog">
+﻿<div id="deleteCategoryModal" class="modal fade" role="dialog">
+    <div ng-include="'modals/deleteCategoryModal.html'"></div>
+</div>
+
+<div id="addSkillModal" class="modal fade" role="dialog">
     <div ng-include="'modals/addSkillModal.html'"></div>
 </div>
 
 <div class="db-header clearfix">
     <div class="page-header-title"><span class="glyphicon glyphicon-cog"></span> Edit Category</div>
     <div class="db-header-extra">
-        <a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addNewSkillModal">Add New Skill</a>
-        <a href="" class="btn btn-danger btn-sm" data-toggle="modal">Delete Category</a>
+        <a href="" class="btn btn-primary btn-sm" ng-click="mode=true" data-toggle="modal" data-target="#addNewSkillModal">Add New Skill</a>
+        <a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#deleteCategoryModal">Delete Category</a>
     </div>
 </div>
 
@@ -32,7 +36,7 @@
                     <div ng-repeat="tool in category.tools">
                         {{tool.name}}
                         <span style="float:right">
-                            <a style="color:black" href=""><span class="glyphicon glyphicon-edit"></span></a>
+                            <a ng-click="mode=false" style="color:black" data-toggle="modal" data-target="#addNewSkillModal" ><span class="glyphicon glyphicon-edit"></span></a>
                             <a style="color:black" href=""><span class="glyphicon glyphicon-trash"></span></a>
                         </span>
                     </div>

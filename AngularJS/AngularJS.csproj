@@ -135,6 +135,7 @@
     <Content Include="views\editCategory.html" />
     <Content Include="views\index.html" />
     <Content Include="views\modals\addCategoryModal.html" />
+    <Content Include="views\modals\deleteCategoryModal.html" />
     <Content Include="views\modals\addSkillModal.html" />
     <Content Include="views\skills.html" />
     <Content Include="Web.config" />
