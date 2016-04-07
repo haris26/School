@@ -1,4 +1,5 @@
 ﻿using Database;
+using System.Linq;
 
 namespace WebAPI.Models
 {
@@ -37,7 +38,8 @@ namespace WebAPI.Models
                 Id = tool.Id,
                 Name = tool.Name,
                 Category = tool.Category.Id,
-                CategoryName = tool.Category.Name
+                CategoryName = tool.Category.Name,
+                NumOfEmployees = tool.EmployeeSkills.ToList().Count()
             };
         }
 

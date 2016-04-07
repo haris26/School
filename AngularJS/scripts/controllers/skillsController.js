@@ -18,7 +18,8 @@
         $scope.newSkill = {
             "id": 0,
             "name": "",
-            "category": 0
+            "category": 0,
+            "numOfEmployees" : 0
         };
 
         if ($scope.categoryId != undefined) {
@@ -75,7 +76,6 @@
                 })
             }
             else {
-                $log.info("new category: " + $scope.newSkill.category);
                 DataService.update("tools", $scope.newSkill.id, $scope.newSkill, function (data) {
                     if (data != false) {
                         getCategory($scope.newSkill.category);
@@ -109,19 +109,28 @@
             $scope.newSkill.id = tool.id;
             $scope.newSkill.name = tool.name;
             $scope.newSkill.category = tool.category;
+            $scope.newSkill.numOfEmployees = tool.numOfEmployees;
         }
 
         $scope.deleteSkill = function () {
-            DataService.remove("tools", $scope.newSkill.id, function (data) {
-                if (data != false) {
-                    getCategory($scope.newSkill.category);
-                    $('#deleteSkillModal').modal('hide');
-                    window.alert($scope.newSkill.name + " has been deleted!")
-                }
-                else {
-                    window.alert($scope.newSkill.name + " could not be deleted!");
-                }
-            })
+            if ($scope.newSkill.numOfEmployees == 0) {
+                DataService.remove("tools", $scope.newSkill.id, function (data) {
+                    if (data != false) {
+                        getCategory($scope.newSkill.category);
+                        $('#deleteSkillModal').modal('hide');
+                        window.alert($scope.newSkill.name + " has been deleted!")
+                    }
+                    else {
+                        window.alert($scope.newSkill.name + " could not be deleted!");
+                    }
+                })
+            }
+            else {
+                window.alert($scope.newSkill.name + " could not be deleted because it is assigned to some employees!");
+                $('.modal').modal('hide');
+            }
+
+
         }
 
         $scope.deleteCategory = function () {
