@@ -112,13 +112,14 @@
     <Content Include="index.html" />
     <Content Include="scripts\controllers\userDashboardController.js" />
     <Content Include="scripts\services\userDashboardService.js" />
-    <Content Include="styles\style.css" />
     <Content Include="views\active.html" />
     <Content Include="library\angular-route.js" />
     <Content Include="library\angular.js" />
     <Content Include="library\angular.min.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\services\DataService.js" />
+    <Content Include="styles\style.css" />
+    <Content Include="views\index.html" />
     <Content Include="Global.asax" />
     <Content Include="views\resourceList.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
