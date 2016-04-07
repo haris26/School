@@ -45,7 +45,7 @@
         $scope.updateCategory = function () {
 
             var skillCategory = {
-                "id": categoryId,
+                "id": $scope.category.id,
                 "name": $scope.category.name,
             };
 
@@ -60,17 +60,36 @@
         }
 
         $scope.addSkill = function () {
-            DataService.create("tools", $scope.newSkill, function (data) {
-                if (data != false) {
-                    fetchCategories();
-                    getCategory($scope.newSkill.category);
-                    $('#addNewSkillModal').modal('hide');
-                    window.alert($scope.newSkill.name + " added!");
-                }
-                else {
-                    window.alert($scope.newSkill.name + " could not be added!");
-                }
-            })
+
+            if ($scope.newSkill.id == 0) {
+                DataService.create("tools", $scope.newSkill, function (data) {
+                    if (data != false) {
+                        fetchCategories();
+                        getCategory($scope.newSkill.category);
+                        $('#addSkillModal').modal('hide');
+                        window.alert($scope.newSkill.name + " added!");
+                    }
+                    else {
+                        window.alert($scope.newSkill.name + " could not be added!");
+                    }
+                })
+            }
+            else {
+                $log.info("new category: " + $scope.newSkill.category);
+                DataService.update("tools", $scope.newSkill.id, $scope.newSkill, function (data) {
+                    if (data != false) {
+                        getCategory($scope.newSkill.category);
+                        $('#addSkillModal').modal('hide');
+                        window.alert($scope.newSkill.name + " has been updated!")
+                        $scope.newSkill.id = 0;
+                        $scope.newSkill.name = "";
+                        $scope.newSkill.category = $scope.category.id;
+                    }
+                    else {
+                        window.alert($scope.newSkill.name + " could not be updated!");
+                    }
+                })
+            }
         }
 
         $scope.addCategory = function () {
@@ -84,6 +103,12 @@
                     window.alert($scope.newCategory.name + " could not be added!");
                 }
             })
+        }
+
+        $scope.editSkill = function (tool) {
+            $scope.newSkill.id = tool.id;
+            $scope.newSkill.name = tool.name;
+            $scope.newSkill.category = tool.category;
         }
     });
 
