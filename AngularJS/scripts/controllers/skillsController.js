@@ -16,11 +16,6 @@
 
         if ($scope.categoryId != undefined) {
             getCategory($scope.categoryId);
-            $scope.newSkill = {
-                "id": 0,
-                "name": "",
-                "category": $scope.categoryId
-            };
         }
 
         function fetchCategories() {
@@ -32,6 +27,11 @@
         function getCategory(id) {
             DataService.read("skillscategories", id, function (data) {
                 $scope.category = data;
+                $scope.newSkill = {
+                    "id": 0,
+                    "name": "",
+                    "category": $scope.category.id
+                };
             })
         }
 
@@ -57,8 +57,6 @@
         }
 
         $scope.addSkill = function () {
-            $log.info($scope.newSkill);
-
             DataService.create("tools", $scope.newSkill, function (data) {
                 if (data != false) {
                     getCategory($scope.newSkill.category);
