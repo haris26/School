@@ -15,6 +15,12 @@
             "name": ""
         }
 
+        $scope.newSkill = {
+            "id": 0,
+            "name": "",
+            "category": 0
+        };
+
         if ($scope.categoryId != undefined) {
             getCategory($scope.categoryId);
         }
@@ -28,11 +34,7 @@
         function getCategory(id) {
             DataService.read("skillscategories", id, function (data) {
                 $scope.category = data;
-                $scope.newSkill = {
-                    "id": 0,
-                    "name": "",
-                    "category": $scope.category.id
-                };
+                $scope.newSkill.category = $scope.category.id;
             })
         }
 
@@ -40,7 +42,7 @@
             $location.path('/editCategory/'+categoryId)
         }
 
-        $scope.saveCategory = function () {
+        $scope.updateCategory = function () {
 
             var skillCategory = {
                 "id": categoryId,
@@ -60,6 +62,7 @@
         $scope.addSkill = function () {
             DataService.create("tools", $scope.newSkill, function (data) {
                 if (data != false) {
+                    fetchCategories();
                     getCategory($scope.newSkill.category);
                     $('#addNewSkillModal').modal('hide');
                     window.alert($scope.newSkill.name + " added!");
