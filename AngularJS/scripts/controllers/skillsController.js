@@ -110,6 +110,41 @@
             $scope.newSkill.name = tool.name;
             $scope.newSkill.category = tool.category;
         }
+
+        $scope.deleteSkill = function () {
+            DataService.remove("tools", $scope.newSkill.id, function (data) {
+                if (data != false) {
+                    getCategory($scope.newSkill.category);
+                    $('#deleteSkillModal').modal('hide');
+                    window.alert($scope.newSkill.name + " has been deleted!")
+                }
+                else {
+                    window.alert($scope.newSkill.name + " could not be deleted!");
+                }
+            })
+        }
+
+        $scope.deleteCategory = function () {
+            if($scope.category.tools.length == 0 ) {
+
+            DataService.remove("skillscategories", $scope.category.id,  function (data) {
+                if (data != false) {
+                    window.alert($scope.category.name + " has been deleted!");
+                    $('.modal').modal('hide');
+                    $('.modal-backdrop').remove();
+                    $location.path("/skills");
+                }
+                else {
+                    window.alert($scope.category.name + " could not be deleted!");
+                }
+            })
+
+            }
+            else {
+                window.alert($scope.category.name + " could not be deleted because it is not empty!");
+                $('.modal').modal('hide');
+            }
+        }
     });
 
 }());
