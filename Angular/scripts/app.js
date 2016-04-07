@@ -8,7 +8,8 @@
             months: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
             weekdays: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
             deadline: 5,
-            year: 2016
+            year: 2016,
+            repeatingType: ['Undefined','Daily', 'Weekly', 'Monthly']
         });
 
     app.config(function ($routeProvider) {
