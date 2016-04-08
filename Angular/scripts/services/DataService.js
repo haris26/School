@@ -32,6 +32,7 @@
             create: function (dataSet, data, callback) {
                 $http({ method: "post", url: source + dataSet, data: data })
                     .success(function (data) {
+                        $rootScope.message = "You have submited your request!";
                         callback(data);
                     })
                     .error(function (error) {

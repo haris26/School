@@ -119,11 +119,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-
     <Content Include="scripts\controllers\AdminDashboardController.js" />
-
     <Content Include="scripts\controllers\AssetsController.js" />
-
+    <Content Include="scripts\controllers\NewRequestsController.js" />
+    <Content Include="scripts\controllers\NewServiceRequestController.js" />
     <Content Include="scripts\controllers\ServiceRequestsController.js" />
     <Content Include="index.html" />
     <Content Include="library\bootstrap.min.js" />
@@ -144,12 +143,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="styles\startmin.css" />
     <Content Include="styles\Style.css" />
-
     <Content Include="views\AdminDashboard.html" />
-
     <Content Include="views\AllAssets.html" />
-
     <Content Include="views\NewRequests.html" />
+    <Content Include="views\SendNewRequest.html" />
     <Content Include="views\SendServiceRequest.html" />
     <Content Include="views\ServiceRequests.html" />
     <Content Include="Web.config" />
