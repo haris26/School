@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html ng-app="school">
+
+<head>
+    <script src="../library/angular.js"></script>
+    <script src="../scripts/DetailsController2.js"></script>
+    <script src="../scripts/service.js"></script>
+
+    <style>
+        .label {
+            float: left;
+            text-align: right;
+            width: 45%;
+            margin: 6px;
+        }
+
+        .text {
+            float: left;
+            width: 45%;
+            margin: 6px;
+        }
+
+        .panel {
+            width: 30%;
+            float: left;
+            margin: 6px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-controller="MainCtrl">
+        <h1>{{ message }}</h1>
+        <div class="panel">
+            <div>
+                <input type="button" value="Save data" ng-click="saveData()" />
+                <input type="button" value="New detail" ng-click="newDetail()" />
+                <hr>
+            </div>
+            <div class="label">Id:</div>
+            <div class="text"><input type="text" ng-model="detail.id"></div>
+            <div class="label">Id Day:</div>
+            <div class="text"><input type="text" ng-model="detail.day"></div>
+            <div class="label">Date:</div>
+            <div class="text"><input type="text" ng-model="detail.date"></div>
+            <div class="label">Person id:</div>
+            <div class="text"><input type="text" ng-model="detail.person"></div>
+            <div class="label">Person name:</div>
+            <div class="text"><input type="text" ng-model="detail.personName"></div>
+            <div class="label">Work time:</div>
+            <div class="text"><input type="text" ng-model="detail.workTime"></div>
+            <div class="label">Description:</div>
+            <div class="text"><input type="text" ng-model="detail.description"></div>
+            <div class="label">Team id:</div>
+            <div class="text"><input type="text" ng-model="detail.team"></div>
+            <div class="label">Team name:</div>
+            <div class="text"><input type="text" ng-model="detail.teamName"></div>
+
+        </div>
+        <div class="panel">
+            Filter: <input type="search" ng-model="selDetail">
+            Order: <select ng-model="sortOrder">
+                <option value="+date">Date</option>
+                <option value="+personName">Person</option>
+                <option value="-description">Description</option>
+            </select>
+
+            <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail">
+                <hr><a href="#" ng-click="transfer(item)"><b>Name: </b>{{ item.personName }}</a> <b>Date: </b>{{ item.date }} <b>Description: </b>{{ item.description }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
