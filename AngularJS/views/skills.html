@@ -22,10 +22,10 @@
         <div class="col-md-12">
             <div ng-repeat="category in categories | orderBy: sortOrder">
                 <div class="panel-group panel panel-default">
-                    <div class="panel-heading" data-toggle="collapse" data-target="#{{category.id}}">
+                    <div class="panel-heading" ng-click="collapse(category.id)" data-toggle="collapse" data-target="#{{category.id}}">
                         <h4 class="panel-title">
                             <span>
-                                <span class="glyphicon glyphicon-chevron-down"></span>  {{ category.name }}
+                                <span class="{{icon[collapsed[category.id]]}}"></span>  {{ category.name }}
                             </span>
                             <span style="float:right">
                                 <span ng-click="editCategory(category.id)" class="glyphicon glyphicon-edit"></span>

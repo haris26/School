@@ -4,23 +4,29 @@
 
     app.controller("SkillsCtrl", function ($scope, $rootScope, $log, $location, $routeParams, DataService) {
 
+        $scope.categoryId = $routeParams.categoryId;
         $scope.selCategory = "";
         $scope.sortOrder = "Name";
-        $scope.mode = true;
-        fetchCategories();
-        $scope.categoryId = $routeParams.categoryId;
 
         $scope.newCategory = {
             "id": 0,
             "name": ""
         }
-
         $scope.newSkill = {
             "id": 0,
             "name": "",
             "category": 0,
-            "numOfEmployees" : 0
+            "numOfEmployees": 0
         };
+
+        $scope.collapsed = {};
+
+        $scope.icon = {
+            true: "glyphicon glyphicon-chevron-down",
+            false: "glyphicon glyphicon-chevron-up"
+        }
+
+        fetchCategories();
 
         if ($scope.categoryId != undefined) {
             getCategory($scope.categoryId);
@@ -29,6 +35,9 @@
         function fetchCategories() {
             DataService.list("skillscategories", function (data) {
                 $scope.categories = data;
+                for (i = 0; i < $scope.categories.length; i++) {
+                    $scope.collapsed[$scope.categories[i].id] = true;
+                }
             })
         }
 
@@ -37,6 +46,10 @@
                 $scope.category = data;
                 $scope.newSkill.category = $scope.category.id;
             })
+        }
+
+        $scope.collapse = function (id) {
+            $scope.collapsed[id] = !$scope.collapsed[id];
         }
 
         $scope.editCategory = function (categoryId) {
