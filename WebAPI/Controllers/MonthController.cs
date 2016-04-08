@@ -1,4 +1,5 @@
 ﻿using Database;
+
 using System.Collections.Generic;
 using System.Linq;
 using WebAPI.Services;
@@ -8,6 +9,7 @@ using System;
 
 namespace WebAPI.Controllers
 {
+
     public class MonthController : BaseController<Person>
     {
         SchoolIdentity ident = new SchoolIdentity();
@@ -15,10 +17,8 @@ namespace WebAPI.Controllers
         public MonthController(Repository<Person> depo) : base(depo)
         { }
 
-
         public IList<MonthModel> Get()
         {
-
             var people = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName)
                         .ToList();
 
@@ -42,7 +42,7 @@ namespace WebAPI.Controllers
                         .ToList();
 
             List<MonthModel> list = new List<MonthModel>();
-         
+
             foreach (var p in people)
             {
                 foreach (var day in p.Days.ToList())

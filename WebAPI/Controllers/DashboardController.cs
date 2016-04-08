@@ -1,5 +1,6 @@
 using Database;
 using System.Web.Http;
+
 using WebAPI.Filters;
 using WebAPI.Services;
 using WebAPI.Controllers;
@@ -33,8 +34,5 @@ namespace WebAPI.Controllers
             return Ok(Dashboard.Create(person));
         }
 
-        
-
-       
     }
 }

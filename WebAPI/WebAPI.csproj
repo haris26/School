@@ -214,13 +214,13 @@
     <Compile Include="Helpers\MonthList.cs" />
     <Compile Include="Helpers\ListTeams.cs" />
     <Compile Include="Helpers\SchoolIdentity.cs" />
-    <Compile Include="Models\DashboardModel.cs" />
+    <Compile Include="DashboardModel.cs" />
     <Compile Include="Models\DayModel.cs" />
     <Compile Include="Models\DetailModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
-    <Compile Include="Models\MonthModel.cs" />
     <Compile Include="Models\ListTeamsModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\MonthModel.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\TeamModel.cs" />

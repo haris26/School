@@ -13,7 +13,11 @@ ProcurementSystem/
 WorkforceRoster/
 SkillsLibrary/
 test/
+<<<<<<< HEAD
 AngularJS/
+=======
+Angular/
+>>>>>>> 09eb8fa55d42c579964039df5a8602c253fbaf97
 
 # User-specific files
 *.vs

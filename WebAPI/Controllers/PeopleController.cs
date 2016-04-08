@@ -16,13 +16,12 @@ namespace WebAPI.Controllers
         public PeopleController(Repository<Person> depo) : base(depo)
         { }
 
-        //Code for testing angularJS
-        //public IList<PersonModel> Get()
-        //{
-        //    var people = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName).ToList().Select(x => Factory.Create(x)).ToList();
-        //    return people;
-        //}
-        public IList<PersonModel> GetAll(int page = 0)
+        public IList<PersonModel> Get()
+        {
+            var people = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName).ToList().Select(x => Factory.Create(x)).ToList();
+            return people;
+        }
+        public IList<PersonModel> GetAll(int page)
         {
             int PageSize = 5;
             var query = Repository.Get().OrderBy(x => x.LastName)
@@ -78,8 +77,8 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Person person1 = Repository.Get(id);
-                if (person1 == null || person == null) return NotFound();
+                //Person person = Repository.Get(id);
+                if (person == null || person == null) return NotFound();
                 else {
                     Repository.Update(person, id);
                     return Ok(Factory.Create(person));

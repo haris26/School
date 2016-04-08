@@ -15,7 +15,7 @@ namespace WebAPI.Models
             Details = new List<ListModel>();
             Days = new List<ListModel>();
             Members = new List<CountModel>();
-            EmptyDays = new List<EmptyModel>();
+            DeadlineIn = new List<DeadlineModel>();
         }
 
         public int Id { get; set; }
@@ -23,7 +23,7 @@ namespace WebAPI.Models
         public IList<ListModel> Days { get; set; }        
         public IList<ListModel> Details { get; set; }
         public IList<CountModel> Members { get; set; }
-        public IList<EmptyModel> EmptyDays { get; set; }
+        public IList<DeadlineModel> DeadlineIn { get; set; }
 
     }
 }
