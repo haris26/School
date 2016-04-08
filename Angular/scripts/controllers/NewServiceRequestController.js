@@ -2,54 +2,33 @@
 
     var app = angular.module("school");
 
-    app.controller("NewServiceRequestController", function ($scope, DataService) {
+    app.controller("NewServiceRequestController", function ($scope, $rootScope, DataService) {
 
         var dataSet = "newservicerequests";
-        //$scope.selPerson = "";
-        //$scope.sortOrder = "lastName";
-        fetchNewServiceRequests();
-        
-
+        $scope.requestMessage = "";
+        $scope.requestDescription = "";
+       
         function fetchNewServiceRequests() {
-           DataService.list("newservicerequests", function (data) {
+           DataService.list(dataSet, function (data) {
                 $scope.newservicerequests = data;
             });
         };
-
-        function getAssets() {
-            DataService.list("assets", function (data) {
-                $scope.assets = data;
-            });
-        };
-
-        $scope.transfer = function (item) {
-            $scope.assets = item;
-        };
-
-        $scope.newServiceRequest = function () {
-            $scope.newservicerequests = {
-                id: 0,
+        $scope.save = function save()
+        {
+            var model = $rootScope.model;
+            $scope.request = {
+                id:0,
+                requestMessage: $scope.requestMessage,
+                requestDescription: $scope.requestDescription,
                 requestType: 2,
-                requestDescription:"aloo" ,
-                requestMessage: "haloo",
-                requestDate: new Date(),
-                status: 1,
-                assetId: assets.assetId,
-                userId: assets.userId,
-                quantity:1,
-                assetType: assets.assetType,
-                assetCategory:assets.assetCategory
-            }
-        };
-
-        $scope.saveData = function () {
-            if ($scope.newservicerequests.id == 0) {
-                DataService.create(dataSet, $scope.newservicerequests, function (data) { });
-            }
-            else {
-                DataService.update(dataSet, $scope.newservicerequests.id, $scope.newservicerequests, function (data) { });
-            }
-            fetchNewServiceRequests();
+                requestDate: Date.now(),
+                quantity: 1,
+                asset: model.id,
+                assetType: 1,
+                category: model.category,
+                person: model.user
+            };               
+            DataService.create("requests", $scope.request, function (response) { });
         }
     });
 }());

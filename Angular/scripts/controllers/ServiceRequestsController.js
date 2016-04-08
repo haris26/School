@@ -13,7 +13,7 @@
 
         function getRequests() {
             DataService.list("servicerequests", function (data) {
-                $scope.requests = data.allRequests;
+                $scope.serviceRequests = data.allRequests;
             });
         };
 

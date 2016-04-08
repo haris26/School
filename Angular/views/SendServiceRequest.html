@@ -1,21 +1,20 @@
-﻿<div>
+﻿<div ng-controller="NewServiceRequestController">
 <div class="panel">
- <div>
-     <br />
-     <br />
-     
- </div>
-    <div class="label" style="color:black; font-size:20px;">New Service Request</div><hr />
-    <div class="label" style="color:black; font-size:13px;" ng-model="request.requestMessage">Request Message:</div>
-    <div class="text"><input type="text"></div><hr />
-    <div class="label" style="color:black; font-size:13px;">Request Description:</div>
-    <div class="text"><textarea type="textarea" style="width:300px; height:130px;" placeholder="Details about malfunction" ng-model="request.requestDescription"></textarea></div>
-</div>
+        <div>
+            <br />
+            <br />
+
+        </div>
+        <div class="label" style="color:black; font-size:20px;">New Service Request</div><hr />
+        <div class="label" style="color:black; font-size:13px;">Request Message:</div>
+        <div class="text"><input type="text" ng-model="requestMessage"></div><hr />
+        <div class="label" style="color:black; font-size:13px;">Request Description:</div>
+        <div class="text"><textarea type="textarea" style="width:300px; height:130px;" placeholder="Details about malfunction" ng-model="requestDescription"></textarea></div>
+    </div>
     <div>
         <br />
-        <input type="button" value="SendRequest" ng-click="saveData()" />
+        <input type="button" value="SendRequest" ng-click="save()" />
 
         <hr>
         </div>
-       
     </div>

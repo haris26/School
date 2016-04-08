@@ -13,7 +13,11 @@ namespace WebAPI.Models
             Status = "in Process";
             RequestDate = DateTime.Now;
             
+
             requestType = "Equipment";
+
+        
+
         }
         public int Id { get; set; }
         public string requestType { get; set; }
