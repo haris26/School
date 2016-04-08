@@ -9,15 +9,16 @@
         $scope.selCategory = "";
         $scope.sortOrder = "Name";
 
-        $scope.newCategory = {
-            "id": 0,
-            "name": ""
-        }
-        $scope.newSkill = {
-            "id": 0,
-            "name": "",
-            "category": 0,
-            "numOfEmployees": 0
+        $scope.categoryItem = {
+            id: 0,
+            name: ""
+        };
+
+        $scope.skillItem = {
+            id: 0,
+            name: "",
+            category: 0,
+            numOfEmployees: 0
         };
 
         $scope.collapsed = {};
@@ -47,7 +48,7 @@
             DataService.read("skillscategories", id, function (data) {
                 $scope.category = data;
                 $scope.message = "";
-                $scope.newSkill.category = $scope.category.id;
+                $scope.skillItem.category = $scope.category.id;
             })
         }
 
@@ -62,8 +63,8 @@
         $scope.updateCategory = function () {
 
             var skillCategory = {
-                "id": $scope.category.id,
-                "name": $scope.category.name,
+                id: $scope.category.id,
+                name : $scope.category.name,
             };
 
             DataService.update("skillscategories", $scope.category.id, skillCategory, function (data) {
@@ -77,72 +78,73 @@
         }
 
         $scope.addSkill = function () {
-
-            if ($scope.newSkill.id == 0) {
-                DataService.create("tools", $scope.newSkill, function (data) {
+            if ($scope.skillItem.id == 0) {
+                DataService.create("tools", $scope.skillItem, function (data) {
                     if (data != false) {
                         fetchCategories();
-                        getCategory($scope.newSkill.category);
-                        window.alert($scope.newSkill.name + " added!");
+                        getCategory($scope.skillItem.category);
+                        window.alert($scope.skillItem.name + " added!");
                         $('.modal').modal('hide');
+                        $scope.skillItem.name = "";
                     }
                     else {
-                        window.alert($scope.newSkill.name + " could not be added!");
+                        window.alert($scope.skillItem.name + " could not be added!");
                     }
                 })
             }
             else {
-                DataService.update("tools", $scope.newSkill.id, $scope.newSkill, function (data) {
+                DataService.update("tools", $scope.skillItem.id, $scope.skillItem, function (data) {
                     if (data != false) {
-                        getCategory($scope.newSkill.category);
+                        getCategory($scope.skillItem.category);
                         $('#addSkillModal').modal('hide');
-                        window.alert($scope.newSkill.name + " has been updated!")
-                        $scope.newSkill.id = 0;
-                        $scope.newSkill.name = "";
-                        $scope.newSkill.category = $scope.category.id;
+                        window.alert($scope.skillItem.name + " has been updated!")
+                        $scope.skillItem.id = 0;
+                        $scope.skillItem.name = "";
+                        $scope.skillItem.category = $scope.category.id;
                     }
                     else {
-                        window.alert($scope.newSkill.name + " could not be updated!");
+                        window.alert($scope.skillItem.name + " could not be updated!");
                     }
                 })
             }
         }
 
         $scope.addCategory = function () {
-            DataService.create("skillscategories", $scope.newCategory, function (data) {
+            DataService.create("skillscategories", $scope.categoryItem, function (data) {
                 if (data != false) {
                     fetchCategories();
                     $('#addNewCategoryModal').modal('hide');
-                    window.alert($scope.newCategory.name + " added!");
+                    window.alert($scope.categoryItem.name + " added!");
+                    $scope.categoryItem.name = "";
                 }
                 else {
-                    window.alert($scope.newCategory.name + " could not be added!");
+                    window.alert($scope.categoryItem.name + " could not be added!");
                 }
             })
         }
 
         $scope.editSkill = function (tool) {
-            $scope.newSkill.id = tool.id;
-            $scope.newSkill.name = tool.name;
-            $scope.newSkill.category = tool.category;
-            $scope.newSkill.numOfEmployees = tool.numOfEmployees;
+            $scope.skillItem.id = tool.id;
+            $scope.skillItem.name = tool.name;
+            $scope.skillItem.category = tool.category;
+            $scope.skillItem.numOfEmployees = tool.numOfEmployees;
         }
 
         $scope.deleteSkill = function () {
-            if ($scope.newSkill.numOfEmployees == 0) {
-                DataService.remove("tools", $scope.newSkill.id, function (data) {
+            if ($scope.skillItem.numOfEmployees == 0) {
+                DataService.remove("tools", $scope.skillItem.id, function (data) {
                     if (data != false) {
-                        getCategory($scope.newSkill.category);
+                        getCategory($scope.skillItem.category);
                         $('#deleteSkillModal').modal('hide');
-                        window.alert($scope.newSkill.name + " has been deleted!")
+                        window.alert($scope.skillItem.name + " has been deleted!")
                     }
                     else {
-                        window.alert($scope.newSkill.name + " could not be deleted!");
+                        window.alert($scope.skillItem.name + " could not be deleted!");
                     }
                 })
             }
             else {
-                window.alert($scope.newSkill.name + " could not be deleted because it is assigned to some employees!");
+                window.alert($scope.skillItem.name + " could not be deleted because it is assigned to some employees!");
                 $('.modal').modal('hide');
             }
 
@@ -152,17 +154,17 @@
         $scope.deleteCategory = function () {
             if($scope.category.tools.length == 0 ) {
 
-            DataService.remove("skillscategories", $scope.category.id,  function (data) {
-                if (data != false) {
-                    window.alert($scope.category.name + " has been deleted!");
-                    $('.modal').modal('hide');
-                    $('.modal-backdrop').remove();
-                    $location.path("/skills");
-                }
-                else {
-                    window.alert($scope.category.name + " could not be deleted!");
-                }
-            })
+                DataService.remove("skillscategories", $scope.category.id,  function (data) {
+                    if (data != false) {
+                        window.alert($scope.category.name + " has been deleted!");
+                        $('.modal').modal('hide');
+                        $('.modal-backdrop').remove();
+                        $location.path("/skills");
+                    }
+                    else {
+                        window.alert($scope.category.name + " could not be deleted!");
+                    }
+                })
 
             }
             else {
