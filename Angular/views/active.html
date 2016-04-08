@@ -24,12 +24,14 @@
                 <div>
                     <input type="button" value="Cancel" ng-click="cancelReservation(item)"/>
                     <input type="button" value="Extend" ng-click="extendReservation(item)"/>
-                </div>t a
+                </div>
             </div>
         </div>
-        <div class="panel" ng-show ="modalShow">
+        <div class="panel" ng-show="modalShow">
+            <h3>Extend event</h3>
             <div class="label">Repeat until: </div>
-            <div class="text"><input type="date" ng-model="eventExtend.repeatUntil"></div>
+            <div class="text"><input type="date" ng-model="eventExtend.repeatUntil">
+            </div>
             <div class="label">Repeating type: </div>
             <div class="text">
                 <select ng-model="eventExtend.repeatingType"
@@ -37,9 +39,10 @@
                 </select>
             </div>
             <div class="label">Frequency: </div>
-            <div class="text"><input type="number" ng-model="eventExtend.frequency"></div>
+            <div class="text"><input type="number" ng-model="eventExtend.frequency">
+            </div>
             <div>
-                <input type="button" value="Save" ng-click="saveData()" />
+                <input type="button" value="Save" ng-click="saveData()"/>
             </div>
         </div>
     </div>
