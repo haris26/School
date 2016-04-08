@@ -46,6 +46,7 @@
         function getCategory(id) {
             DataService.read("skillscategories", id, function (data) {
                 $scope.category = data;
+                $scope.message = "";
                 $scope.newSkill.category = $scope.category.id;
             })
         }
