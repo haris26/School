@@ -10,17 +10,17 @@ namespace WebAPI.Models
     {
         public RequestModel()
         {
-            Status = (RequestStatus)1;
+            Status = "in Process";
             RequestDate = DateTime.Now;
             
-            requestType = (RequestType)1;
+            requestType = "Equipment";
         }
         public int Id { get; set; }
-        public RequestType requestType { get; set; }
+        public string requestType { get; set; }
         public string RequestDescription { get; set; }
         public string RequestMessage { get; set; }
         public DateTime RequestDate { get; set; }
-        public RequestStatus Status { get; set; }
+        public string Status { get; set; }
         public int? Asset { get; set; }
         public string AssetModel { get; set; }
         public int Person { get; set; }
@@ -28,7 +28,7 @@ namespace WebAPI.Models
         public int? Category { get; set; }
         public string CategoryName { get; set; }
         public int Quantity { get; set; }
-        public AssetType AssetType { get; set; }
+        public string AssetType { get; set; }
 
     }
 }

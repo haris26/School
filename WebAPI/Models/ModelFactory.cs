@@ -32,7 +32,7 @@ namespace WebAPI.Models
                 return new RequestModel()
                 {
                     Id = request.Id,
-                    requestType = request.requestType,
+                    requestType = request.requestType.ToString(),
                     RequestDescription = request.RequestDescription,
                     RequestMessage = request.RequestMessage,
                     RequestDate = request.RequestDate,
@@ -43,15 +43,15 @@ namespace WebAPI.Models
                     Category = request.AssetCategory.Id,
                     CategoryName = request.AssetCategory.CategoryName,
                     Quantity = request.Quantity,
-                    Status = request.Status,
-                    AssetType = request.AssetType,
+                    Status = request.Status.ToString(),
+                    AssetType = request.AssetType.ToString(),
                 };
             }
             else
                 return new RequestModel()
                 {
                     Id = request.Id,
-                    requestType = request.requestType,
+                    requestType = request.requestType.ToString(),
                     RequestDescription = request.RequestDescription,
                     RequestMessage = request.RequestMessage,
                     RequestDate = request.RequestDate,
@@ -62,8 +62,8 @@ namespace WebAPI.Models
                     Category = request.AssetCategory.Id,
                     CategoryName = request.AssetCategory.CategoryName,
                     Quantity = request.Quantity,
-                    Status = request.Status,
-                    AssetType = request.AssetType,
+                    Status = request.Status.ToString(),
+                    AssetType = request.AssetType.ToString(),
 
 
                 };

@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
             for(int i = 0; i < requests.Count(); i++)
 
             {
-                if (requests[i].Status == RequestStatus.InProccess)
+                if (requests[i].Status ==(RequestStatus.InProccess).ToString())
                 {
                     count++;
                 }

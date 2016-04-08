@@ -15,7 +15,7 @@ namespace WebAPI.Models
             return new Request()
             {
                 Id = model.Id,
-                requestType = model.requestType,
+                requestType = (RequestType)Enum.Parse(typeof(RequestType), model.requestType),
                 RequestDescription = model.RequestDescription,
                 RequestMessage = model.RequestMessage,
                 RequestDate = model.RequestDate,
@@ -23,8 +23,8 @@ namespace WebAPI.Models
                 User = context.People.Find(model.Person),
                 AssetCategory = context.AssetCategories.Find(model.Category),
                 Quantity = model.Quantity,
-                Status = model.Status,
-                AssetType = model.AssetType,
+                Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), model.Status),
+                AssetType = (AssetType)Enum.Parse(typeof(AssetType), model.AssetType)
 
 
             };

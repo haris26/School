@@ -97,7 +97,7 @@ namespace DataSeed
                    
                     DateOfTrade = Utility.getDate(row,8),
                    
-                    // Type = (AssetType)Utility.getInteger(row, 0)
+                    
                 };
                 N++;
                 context.Assets.Add(resource);
@@ -157,13 +157,14 @@ namespace DataSeed
                     User = user,
                     Asset = asset,
                     AssetCategory=category,
-                    AssetType= (AssetType)Utility.getInteger(row, 4),
-                    requestType = (RequestType)Utility.getInteger(row, 0),
+               
+                    AssetType = (AssetType)Enum.Parse(typeof(AssetType), row.ItemArray.GetValue(4).ToString()),
+                    requestType = (RequestType)Enum.Parse(typeof(RequestType), row.ItemArray.GetValue(0).ToString()),
                     RequestMessage = Utility.getString(row, 1),
                     RequestDescription = Utility.getString(row,2),
                     RequestDate = Utility.getDate(row, 6),
-                    Status = (RequestStatus)Utility.getInteger(row, 7),
-                    Quantity=Utility.getInteger(row, 3)
+                    Status = (RequestStatus)Enum.Parse(typeof(RequestStatus),row.ItemArray.GetValue(7).ToString()),
+                    Quantity =Utility.getInteger(row, 3)
                 };
                 N++;
                 context.Requests.Add(request);
@@ -193,7 +194,7 @@ namespace DataSeed
                 {
                     Person = user,
                     Asset = asset,
-                    Status = (HistoryStatus)Utility.getInteger(row, 3),
+                    Status = (HistoryStatus)Enum.Parse(typeof(HistoryStatus), row.ItemArray.GetValue(3).ToString()),
                     Description = Utility.getString(row, 2),
                     EventBegin = Utility.getDate(row, 0),
                     EventEnd = Utility.getDate(row, 1)
