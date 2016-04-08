@@ -16,13 +16,10 @@
         $routeProvider
             .when("/requests", { templateUrl: "views/NewRequests.html", controller: "AllRequestsController" })
             .when("/servicerequests", { templateUrl: "views/ServiceRequests.html", controller: "ServiceRequestsController" })
-
             .when("/admindashboard", { templateUrl: "views/AdminDashboard.html", controller: "AdminDashboardController" })
             .when("/makenewrequest", { templateUrl: "views/Requests.html", controller: "NewRequestsController" })
-
             .when("/assets", { templateUrl: "views/AllAssets.html", controller: "AssetsController" })
             .when("/newservicerequests", { templateUrl: "views/SendServiceRequest.html", controller: "NewServiceRequestController" })
-
             .otherwise({ redirectTo: "/" });
     });
 

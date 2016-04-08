@@ -6,9 +6,11 @@
 
         var dataSet = "assets";
         $scope.selString = "";
-        //$scope.sortOrder = "";
-        getAssets();
 
+        getAssets();
+      
+        $rootScope.model = {};
+       
         fetchData();
 
         function getAssets() {
@@ -23,10 +25,13 @@
             });
         }
 
-        $scope.transfer = function (item) {
-            $scope.assets = item.allAssets;
+        $scope.transfer = function transfer(item)
+        {
+            $rootScope.model = item;
+        }
 
-        };
+
+       
 
 
 

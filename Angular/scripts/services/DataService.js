@@ -5,7 +5,7 @@
     app.factory("DataService", function ($http, $rootScope, schConfig) {
 
         var source = schConfig.source;
-
+        
         return {
             list: function (dataSet, callback) {
                 $http.get(source + dataSet)
@@ -61,6 +61,7 @@
                         callback(false);
                     })
             }
+
         };
     });
 }());
