@@ -1,49 +1,35 @@
-﻿<!DOCTYPE html>
-<html ng-app="school">
-
-<head>
-    <script src="../library/angular.js"></script>
-    <script src="../library/angular-route.js"></script>
-    <script src="../scripts/app.js"></script>
-    <script src="../scripts/controllers/userDashboardController.js"></script>
-    <script src="../scripts/services/DataService.js"></script>
-    <link rel="stylesheet" href="../styles/style.css" />
-</head>
-
-<body>
-    <div ng-controller="UserDashboardController">
-        <h1>{{ message }}</h1>
-        <div ng-repeat="item in dashboard.activeReservations">
-            <div class="panel-active">
-                <h3>{{item.resourceName}}</h3>
-                <hr/>
-                <p><i class="active-title">{{item.eventTitle}}</i></p>
-                <p>{{item.startDate}}</p>
-                <p>{{item.time}}</p>
-                <div class="button-align">
-                    <input type="button" value="Cancel" ng-click="cancelReservation(item)"/>
-                    <input type="button" value="Extend" ng-click="extendReservation(item)"/>
-                </div>
-            </div>
-        </div>
-        <div class="panel" ng-show="modalShow">
-            <h3>Extend event</h3>
-            <div class="label">Repeat until: </div>
-            <div class="text"><input type="date" ng-model="eventExtend.repeatUntil">
-            </div>
-            <div class="label">Repeating type: </div>
-            <div class="text">
-                <select ng-model="eventExtend.repeatingType"
-                        ng-options="repatingTypes.indexOf(type) as type for type in repeatingTypes">
-                </select>
-            </div>
-            <div class="label">Frequency: </div>
-            <div class="text"><input type="number" ng-model="eventExtend.frequency">
-            </div>
+﻿<div ng-controller="UserDashboardController">
+    <h1>{{ message }}</h1>
+    <div ng-repeat="item in dashboard.activeReservations">
+        <div class="panel-active">
+            <h3>{{item.resourceName}}</h3>
+            <hr/>
+            <p><i class="active-title">{{item.eventTitle}}</i></p>
+            <p>{{item.startDate}}</p>
+            <p>{{item.time}}</p>
             <div class="button-align">
-                <input type="button" value="Save" ng-click="saveData()"/>
+                <input type="button" value="Cancel" ng-click="cancelReservation(item)"/>
+                <input type="button" value="Extend" ng-click="extendReservation(item)"/>
             </div>
         </div>
     </div>
-</body>
-</html>
+    <div class="panel" ng-show="modalShow">
+        <h3>Extend event</h3>
+        <div class="label">Repeat until: </div>
+        <div class="text"><input type="date" ng-model="eventExtend.repeatUntil">
+        </div>
+        <div class="label">Repeating type: </div>
+        <div class="text">
+            <select ng-model="eventExtend.repeatingType"
+                    ng-options="repeatingTypes.indexOf(type) as type for type in repeatingTypes">
+            </select>
+        </div>
+        <div class="label">Frequency: </div>
+        <div class="text"><input type="number" ng-model="eventExtend.frequency">
+        </div>
+        <div class="button-align">
+            <input type="button" value="Cancel" ng-click="cancel()" />
+            <input type="button" value="Save" ng-click="saveData()"/>
+        </div>
+    </div>
+</div>

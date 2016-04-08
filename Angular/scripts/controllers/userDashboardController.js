@@ -36,11 +36,14 @@
         };
 
         $scope.saveData = function () {
-            console.log($scope.eventExtend);
             DataService.create("eventextends", $scope.eventExtend, function (data) { });
             $scope.modalShow = false;
         };
-      
+
+        $scope.cancel = function() {
+            $scope.modalShow = false;
+        };
+
         function getEvent(id) {
             DataService.read("events", id , function (data) {
                 $scope.reservationEvent = data;

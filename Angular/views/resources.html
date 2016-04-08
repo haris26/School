@@ -1,0 +1,22 @@
+﻿<div ng-controller="ReservationsController">
+    <h1>{{ message }}</h1>
+    <div class="label">From date:</div>
+    <div class="text"><input type="date" ng-model="searchParameters.fromDate"></div>
+    <div class="label">To date:</div>
+    <div class="text"><input type="date" ng-model="searchParameters.toDate"></div>
+    <div class="label">Resource category:</div>
+    <div class="text">
+        <select ng-model="searchParameters.categoryName"
+                ng-options="category.id as category.categoryName for category in categories"></select>
+    </div>
+    <div>
+        <input type="button" value="Search" ng-click="sendData(searchParameters)"/>
+        
+    </div>
+    <hr>
+    <div ng-show="showme" class="panel">
+        <div ng-repeat="item in resources">
+            <p>{{item.name}}</p>
+        </div>
+    </div>
+</div>
