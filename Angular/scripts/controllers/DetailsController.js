@@ -56,20 +56,20 @@
         $scope.deleteData = function()
         {
 
-                DataService.delete(dataSet, $scope.detail.id, function (data) { });   
-            fetchData();
+                DataService.delete(dataSet, $scope.detail.id, function (data) { fetchData()});   
+           // fetchData();
             
         }
 
         $scope.saveData = function () {
             var promise;
             if ($scope.detail.id == 0) {
-                DataService.create(dataSet, $scope.detail, function (data) { });
+                DataService.create(dataSet, $scope.detail, function (data) {fetchData() });
             }
             else {
-                DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { });
+                DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData()});
             }
-            fetchData();
+            //fetchData();
         }
     });
 
