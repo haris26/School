@@ -36,12 +36,15 @@
         $scope.transfer = function (item) {
             $scope.detail = item;
         };
-
+        $scope.reloadRoute = function () {
+            $window.location.reload();
+        }
+         
         $scope.newDetail = function () {
             $scope.detail = {
                 id: 0,
                 day: 0,
-                date: "",//$filter('date')(new Date(), 'yyyy-MM-ddT00:00:00'),
+                date: "",
                 person: 0,
                 personName: "",
                 workTime: "",
@@ -53,20 +56,20 @@
         $scope.deleteData = function()
         {
 
-                DataService.delete(dataSet, $scope.detail.id, function (data) { });   
-            fetchData();
+                DataService.delete(dataSet, $scope.detail.id, function (data) { fetchData()});   
+           // fetchData();
             
         }
 
         $scope.saveData = function () {
             var promise;
             if ($scope.detail.id == 0) {
-                DataService.create(dataSet, $scope.detail, function (data) { });
+                DataService.create(dataSet, $scope.detail, function (data) {fetchData() });
             }
             else {
-                DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { });
+                DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData()});
             }
-            fetchData();
+            //fetchData();
         }
     });
 
