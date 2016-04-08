@@ -42,3 +42,12 @@ body { font-family: "Open Sans"; padding-top: 50px;}
 .d-w-num { font-size: 38px; color: #FFF; vertical-align: top; line-height: 100%; }
 
 .table-header { font-weight: 600; background: #f0f0f0; }
+
+.modal-open {
+  overflow-y: scroll;
+}
+
+.modal
+{
+    overflow-y: auto;
+}

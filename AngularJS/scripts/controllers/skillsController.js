@@ -157,8 +157,9 @@
                 DataService.remove("skillscategories", $scope.category.id,  function (data) {
                     if (data != false) {
                         window.alert($scope.category.name + " has been deleted!");
-                        $('.modal').modal('hide');
+                        $('#deleteCategoryModal').modal('hide');
                         $('.modal-backdrop').remove();
+                        $('body').removeClass('modal-open');
                         $location.path("/skills");
                     }
                     else {

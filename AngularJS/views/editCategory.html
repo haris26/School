@@ -37,15 +37,16 @@
                 </div>
             </div>
 
-        <div ng-show="category.tools.length" class="col-md-8">
-            <div class="panel-group panel panel-default">
-                <div class="panel-body">
-                    <div ng-repeat="tool in category.tools">
-                        {{tool.name}}
-                        <span style="float:right">
-                            <a style="color:black" data-toggle="modal" ng-click ="editSkill(tool)" data-target="#addSkillModal" ><span class="glyphicon glyphicon-edit"></span></a>
-                            <a style="color:black" data-toggle="modal" ng-click ="editSkill(tool)" data-target="#deleteSkillModal"><span class="glyphicon glyphicon-trash"></span></a>
-                        </span>
+            <div ng-show="category.tools.length" class="col-md-8">
+                <div class="panel-group panel panel-default">
+                    <div class="panel-body">
+                        <div ng-repeat="tool in category.tools">
+                            {{tool.name}}
+                            <span style="float:right">
+                                <a style="color:black" data-toggle="modal" ng-click ="editSkill(tool)" data-target="#addSkillModal" ><span class="glyphicon glyphicon-edit"></span></a>
+                                <a style="color:black" data-toggle="modal" ng-click ="editSkill(tool)" data-target="#deleteSkillModal"><span class="glyphicon glyphicon-trash"></span></a>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
