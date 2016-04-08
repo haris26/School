@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
         }
         public IList<PersonModel> GetAll(int page)
         {
-            int PageSize = 5;
+            int PageSize = 15;
             var query = Repository.Get().OrderBy(x => x.LastName)
                                         .ThenBy(x => x.FirstName);
             int TotalPages = (int)Math.Ceiling
@@ -40,6 +40,7 @@ namespace WebAPI.Controllers
             };
 
             //HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+
             return people;
         }
 

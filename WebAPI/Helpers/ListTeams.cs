@@ -17,7 +17,12 @@ namespace WebAPI.Helpers
                 Id = team.Id,
                 Name = team.Name,
             };
+<<<<<<< HEAD
             Person person = new Person();
+=======
+
+
+>>>>>>> c1e56a37f6085f2a384425186de696ccddef86c6
             //Declaring DateTime variables in order to select only working days for each month
             int dd = month;
             int dty = DateTime.Now.Year;
@@ -26,8 +31,21 @@ namespace WebAPI.Helpers
             IEnumerable<int> businessDaysInMonth = Enumerable.Range(1, bd)
                                                    .Where(d => !weekends.Contains(new DateTime(dty, dd, d).DayOfWeek));
 
+
             //Getting details sorted by Persons and forwarding time worked and days not logged into Members list
+<<<<<<< HEAD
             var members = team.Details.GroupBy(x => x.Day.Person.FullName).Select(x => new { person = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
+=======
+
+            //var members = team.Details.GroupBy(x => x.Day.Person.FullName).Select(x => new { person = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
+
+
+            //foreach (var det in members)
+            //{
+            //    listteam.Members.Add(new CountModel { Category = det.person, Count = (int)det.time, EmptyDays = businessDaysInMonth.Count() -det.empty });
+            //}
+            var members = team.Roles.SelectMany(x => x.Person.Days).SelectMany(x=>x.Details).GroupBy(x => x.Day.Person.FullName).Select(x => new { person = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
+>>>>>>> c1e56a37f6085f2a384425186de696ccddef86c6
             foreach (var det in members)
             {
                 if (team.Roles.GroupBy(x => x.Person.Days).Count() == 0)
@@ -37,6 +55,10 @@ namespace WebAPI.Helpers
                 else
                     listteam.Members.Add(new CountModel { Category = det.person, Count = (int)det.time, EmptyDays = businessDaysInMonth.Count() - det.empty });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c1e56a37f6085f2a384425186de696ccddef86c6
             }
 
             //Getting details for the entire team and forwarding overall team work time invested

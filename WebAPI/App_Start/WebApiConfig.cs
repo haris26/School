@@ -11,6 +11,10 @@ namespace WebAPI
     {
         public static void Register(HttpConfiguration config)
         {
+<<<<<<< HEAD
+=======
+
+>>>>>>> c1e56a37f6085f2a384425186de696ccddef86c6
             config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             // Web API configuration and services

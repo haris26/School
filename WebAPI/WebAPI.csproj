@@ -209,7 +209,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AppGlobals.cs" />
-    <Compile Include="Helpers\CountEmpty.cs" />
     <Compile Include="Helpers\Dashboard.cs" />
     <Compile Include="Helpers\MonthList.cs" />
     <Compile Include="Helpers\ListTeams.cs" />

@@ -18,6 +18,7 @@ namespace WebAPI.Controllers
         public IList<DetailModel> GetAll(int page = 0)
         {
             int PageSize = 100;
+
             var query = Repository.Get().OrderBy(x => x.Day.Date)
                                         .ThenBy(x => x.Day.Person.LastName);
 
@@ -78,18 +79,19 @@ namespace WebAPI.Controllers
                 {
                     Person = model.Person,
                     Date = model.Date
-                },sch));
+
+                }, sch));
                 model.Day = day.Id;
                 Repository.Insert(Parser.Create(model, sch));
             }
             else
             {
-               // day = days.Get().Where(x => x.Person.Id == model.Person && x.Date == model.Date).FirstOrDefault();
                 model.Day = day.Id;
                 Repository.Insert(Parser.Create(model, sch));
             }
             return Ok(model);
         }
+
 
         public IHttpActionResult Put(int id, DetailModel model)
         {
@@ -98,7 +100,8 @@ namespace WebAPI.Controllers
             {
                 Detail detail = Repository.Get(id);
                 if (detail == null || model == null) return NotFound();
-                else {
+                else
+                {
                     Repository.Update(Parser.Create(model, sch), id);
                     return Ok(model);
                 }

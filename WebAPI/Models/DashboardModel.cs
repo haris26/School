@@ -20,10 +20,21 @@ namespace WebAPI.Models
 
     public class CountModel
     {
+<<<<<<< HEAD:WebAPI/DashboardModel.cs
         public string Category { get; set; }
         public int Count { get; set; }
         public int EmptyDays { get; set; }
     }
+=======
+        public int Count { get; set; }
+        public int EmptyDays { get; set; }
+        public string Category { get; set; }
+
+    }
+    public class EmptyDayModel
+    {
+        public int EmptyDays { get; set; }
+>>>>>>> c1e56a37f6085f2a384425186de696ccddef86c6:WebAPI/Models/DashboardModel.cs
 
     public class DeadlineModel
     {
