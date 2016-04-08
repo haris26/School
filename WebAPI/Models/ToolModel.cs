@@ -11,5 +11,6 @@ namespace WebAPI.Models
         public string Name { get; set; }
         public int Category { get; set; }
         public string CategoryName { get; set; }
+        public int NumOfEmployees { get; set; }
     }
 }
