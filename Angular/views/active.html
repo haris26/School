@@ -6,7 +6,6 @@
     <script src="../library/angular-route.js"></script>
     <script src="../scripts/app.js"></script>
     <script src="../scripts/controllers/userDashboardController.js"></script>
-    <script src="../scripts/services/userDashboardService.js"></script>
     <script src="../scripts/services/DataService.js"></script>
     <link rel="stylesheet" href="../styles/style.css" />
 </head>
@@ -21,7 +20,7 @@
                 <p><i class="active-title">{{item.eventTitle}}</i></p>
                 <p>{{item.startDate}}</p>
                 <p>{{item.time}}</p>
-                <div>
+                <div class="button-align">
                     <input type="button" value="Cancel" ng-click="cancelReservation(item)"/>
                     <input type="button" value="Extend" ng-click="extendReservation(item)"/>
                 </div>
@@ -41,7 +40,7 @@
             <div class="label">Frequency: </div>
             <div class="text"><input type="number" ng-model="eventExtend.frequency">
             </div>
-            <div>
+            <div class="button-align">
                 <input type="button" value="Save" ng-click="saveData()"/>
             </div>
         </div>
