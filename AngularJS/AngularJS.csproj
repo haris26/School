@@ -132,6 +132,7 @@
     <Content Include="styles\jquery-ui.css" />
     <Content Include="styles\responsive.css" />
     <Content Include="styles\style.css" />
+    <Content Include="views\qualifications.html" />
     <Content Include="views\editCategory.html" />
     <Content Include="views\index.html" />
     <Content Include="views\modals\addCategoryModal.html" />

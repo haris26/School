@@ -4,6 +4,7 @@
 
     app.controller("SkillsCtrl", function ($scope, $rootScope, $log, $location, $routeParams, DataService) {
 
+        $scope.message = "Loading data...";
         $scope.selCategory = "";
         $scope.sortOrder = "Name";
         $scope.mode = true;
@@ -28,6 +29,7 @@
         function fetchCategories() {
             DataService.list("skillscategories", function (data) {
                 $scope.categories = data;
+                $scope.message = "";
             })
         }
 
@@ -66,8 +68,8 @@
                     if (data != false) {
                         fetchCategories();
                         getCategory($scope.newSkill.category);
-                        $('#addSkillModal').modal('hide');
                         window.alert($scope.newSkill.name + " added!");
+                        $('.modal').modal('hide');
                     }
                     else {
                         window.alert($scope.newSkill.name + " could not be added!");
