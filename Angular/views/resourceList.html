@@ -15,19 +15,14 @@
         <h1>{{ message }}</h1>
         
         <div class="panel">
-            Filter: <input type="search" ng-model="selResource">
-            <!--Order: <select ng-model="sortOrder">
-                <option value="categoryName">Device</option>
-                <option value="categoryName">Room</option>
-            </select>-->
-
-            <div ng-repeat="item in resources | filter: selResource">
-                <hr><a href="" ng-click="transfer(item)">{{ item.name }}</a>               
-                <div ng-repeat="char in characteristics | filter: selResource" ng-if="char.resource == item.id && char.name == 'OsType'">
-                    OS type: {{char.value}}
+            Filter: <input type="search" ng-model="selResource">            
+                <div ng-repeat="item in resources  | filter: selResource" ng-if="item.resourceCategoryName == 'Device'">
+                    <hr>{{ item.name }}
+                    <div style="float:right; margin-top:6px"><input type="button" value="Reserve" ng-click="transfer(item)" /></div>
+                    <div ng-repeat="char in characteristics" ng-if="char.resource == item.id && char.name == 'OsType'">
+                        OS type: {{char.value}}
+                    </div>
                 </div>
-            </div>
-
         </div>
         <div ng-show="showme" class="panel">
             <div>

@@ -4,7 +4,6 @@
 
     app.controller("ResourceController", function ($scope, $rootScope, DataService) {
 
-        $rootScope.selResource = "";
         var dataSet = "resources";
         $scope.showme = false;
         fetchData();
@@ -15,6 +14,7 @@
                 $scope.resources = data;
             });
         }
+
         function getCharacteristics() {
             DataService.list("characteristics", function (data) {
                 $scope.characteristics = data;
