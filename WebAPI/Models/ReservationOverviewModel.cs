@@ -26,15 +26,15 @@ namespace WebAPI.Models
 
     public class ReservationOverviewModel
     {
-        public ReservationOverviewModel()
-        {
-            Characteristics = new List<CharacteristicsListModel>();
-            Events = new List<EventsListModel>();
-        }
         public int Id { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
         public IList<CharacteristicsListModel> Characteristics { get; set; }
         public IList<EventsListModel> Events { get; set; }
+        public ReservationOverviewModel()
+        {
+            Characteristics = new List<CharacteristicsListModel>();
+            Events = new List<EventsListModel>();
+        }
     }
 }

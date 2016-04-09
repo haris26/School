@@ -22,5 +22,5 @@
             .when("/reservations", { templateUrl: "views/resources.html", controller: "ReservationsController" })
             .otherwise({ redirectTo: "/home" });
     });
-
+    
 }());

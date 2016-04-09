@@ -198,7 +198,7 @@
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
-    <Compile Include="Controllers\ReservationOverviewsController.cs" />
+    <Compile Include="Controllers\ReservationOverviewController.cs" />
     <Compile Include="Controllers\ResourceCategoriesController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
