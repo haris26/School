@@ -57,8 +57,7 @@ namespace WebAPI.Helpers
                         CategoryName = reservation.Resource.ResourceCategory.CategoryName,
                         Time = reservation.EventStart.ToShortTimeString() + " - " + reservation.EventEnd.ToShortTimeString()
                     });
-                }
-               
+                }  
             }
             foreach (var activeReservation in reservations)
             {

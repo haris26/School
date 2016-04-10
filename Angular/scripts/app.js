@@ -19,7 +19,8 @@
             .when("/home", { templateUrl: "views/userDashboard.html", controller: "UserDashboardController" })
             .when("/dashboard", { templateUrl: "views/userDashboard.html", controller: "UserDashboardController" })
             .when("/active", { templateUrl: "views/active.html", controller: "UserDashboardController" })
+            .when("/reservations", { templateUrl: "views/resources.html", controller: "ReservationsController" })
             .otherwise({ redirectTo: "/home" });
     });
-
+    
 }());

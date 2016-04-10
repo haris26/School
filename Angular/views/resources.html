@@ -1,0 +1,25 @@
+﻿<div ng-controller="ReservationsController">
+    <h1>{{ message }}</h1>
+    <div class="label">From date:</div>
+    <div class="text"><input type="date" ng-model="searchParameters.fromDate"></div>
+    <div class="label">To date:</div>
+    <div class="text"><input type="date" ng-model="searchParameters.toDate"></div>
+    <div class="label">Resource category:</div>
+    <div class="text">
+        <select ng-model="searchParameters.categoryName"
+                ng-options="category.categoryName as category.categoryName for category in categories"></select>
+    </div>
+    <input type="button" value="Search" ng-click="sendData(searchParameters)"/>
+        
+    <hr>
+    <div ng-show="showme">
+        <div ng-repeat="item in reservations">
+            <div class="panel-active">
+                <p class="active-title">{{item.name}}</p>
+                <div ng-repeat="characteristic in item.characteristics">
+                    <p>{{characteristic.name}} - {{characteristic.value}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

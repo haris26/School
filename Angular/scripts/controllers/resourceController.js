@@ -21,11 +21,12 @@
             });
         };
 
-        $scope.createEvent = function (item)
+        $scope.createEvent = function ()
         {
             DataService.create("events", $scope.eventReservation, function (data) { });
             $scope.showme = false;
         }
+
         $scope.transfer = function (item) {
             $scope.resource = item;
             $scope.showme = true;

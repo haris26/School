@@ -31,8 +31,8 @@
 
             create: function (dataSet, data, callback) {
                 $http({ method: "post", url: source + dataSet, data: data })
-                    .success(function (data) {
-                        callback(data);
+                    .success(function (postData) {
+                        callback(postData);
                     })
                     .error(function (error) {
                         $rootScope.message = error.message;

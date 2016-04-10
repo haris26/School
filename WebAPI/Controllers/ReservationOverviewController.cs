@@ -11,7 +11,7 @@ using WebAPI.Models;
 namespace WebAPI.Controllers
 {
     //[TokenAuthorize]
-    public class ReservationOverviewsController : ApiController
+    public class ReservationOverviewController : ApiController
     {
         public IHttpActionResult Post(SearchModel model)
         {
