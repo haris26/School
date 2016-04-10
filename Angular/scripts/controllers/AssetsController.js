@@ -8,9 +8,9 @@
         $scope.selString = "";
 
         getAssets();
-      
+
         $rootScope.model = {};
-       
+
         fetchData();
 
         function getAssets() {
@@ -25,13 +25,12 @@
             });
         }
 
-        $scope.transfer = function transfer(item)
-        {
+        $scope.transfer = function transfer(item) {
             $rootScope.model = item;
         }
 
 
-       
+
 
 
 

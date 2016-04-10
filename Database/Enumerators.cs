@@ -92,7 +92,7 @@ namespace Database
         Cancelled = 5,
         Approved = 3,
         Completed = 4,
-        In Proccess = 1
+        InProccess = 1
     }
 
     public enum RequestType

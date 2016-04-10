@@ -4,7 +4,7 @@
 
     app.controller("ServiceRequestsController", function ($scope, $rootScope, DataService) {
 
-        var dataSet = "requests";
+        var dataSet = "newReq";
         $scope.selString = "";
         //$scope.sortOrder = "";
         getRequests();

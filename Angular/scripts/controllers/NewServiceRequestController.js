@@ -7,17 +7,18 @@
         var dataSet = "newservicerequests";
         $scope.requestMessage = "";
         $scope.requestDescription = "";
+    
+
        
         function fetchNewServiceRequests() {
-           DataService.list(dataSet, function (data) {
+            DataService.list(dataSet, function (data) {
                 $scope.newservicerequests = data;
             });
         };
-        $scope.save = function save()
-        {
+        $scope.save = function save() {
             var model = $rootScope.model;
             $scope.request = {
-                id:0,
+                id: 0,
                 requestMessage: $scope.requestMessage,
                 requestDescription: $scope.requestDescription,
                 requestType: 2,
@@ -27,7 +28,7 @@
                 assetType: 1,
                 category: model.category,
                 person: model.user
-            };               
+            };
             DataService.create("requests", $scope.request, function (response) { });
         }
     });

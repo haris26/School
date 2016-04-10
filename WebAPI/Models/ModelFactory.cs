@@ -144,7 +144,8 @@ namespace WebAPI.Models
         }
         public AssetsModel Create(Asset asset)
         {
-            return new AssetsModel()
+            
+           AssetsModel model=new AssetsModel()
             {
                 Id = asset.Id,
                 Name = asset.Name,
@@ -160,6 +161,7 @@ namespace WebAPI.Models
                 SerialNumber = asset.SerialNumber
               
             };
+            return model;
         }
 
 

@@ -13,7 +13,7 @@ namespace WebAPI.Controllers
 {
     public class RequestsController : BaseController<Request>
     {
-        
+
         public RequestsController(Repository<Request> depo) : base(depo) { }
 
         public Object GetAll(int page = 0)
@@ -32,10 +32,10 @@ namespace WebAPI.Controllers
 
             int count = 0;
 
-            for(int i = 0; i < requests.Count(); i++)
+            for (int i = 0; i < requests.Count(); i++)
 
             {
-                if (requests[i].Status ==(RequestStatus.InProccess).ToString())
+                if (requests[i].Status == (RequestStatus.InProccess).ToString())
                 {
                     count++;
                 }
@@ -56,19 +56,20 @@ namespace WebAPI.Controllers
 
 
         {
-            try {
+            try
+            {
                 Request request = Repository.Get(id);
-                if(request == null)
+                if (request == null)
                 {
                     return NotFound();
 
                 }
                 else
-                
+
                     return Ok(Factory.Create(request));
-               
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest();
             }
@@ -76,7 +77,8 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Post(RequestModel model)
         {
-            try {
+            try
+            {
                 Repository.Insert(Parser.Create(model, Repository.BaseContext()));
                 return Ok();
             }
@@ -88,23 +90,25 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Put(int id, RequestModel model)
         {
-            try {
+            try
+            {
                 Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
                 return Ok(model);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-             return   NotFound();
+                return NotFound();
             }
-          }
+        }
 
         public IHttpActionResult Delete(int id)
         {
-            try {
+            try
+            {
                 Repository.Delete(id);
                 return Ok();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return NotFound();
             }

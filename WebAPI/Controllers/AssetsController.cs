@@ -28,6 +28,8 @@ namespace WebAPI.Controllers
 
             IList<AssetsModel> assets =
                 query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
+            
+      
 
             return new
             {
