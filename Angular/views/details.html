@@ -29,7 +29,7 @@
                 <hr>
             </div>
             <div class="label">Date:</div>
-            <div class="text"><input type="text" ng-model="detail.date"/></div>
+            <div class="text"><input type="date" ng-model="detail.date"/></div>
             <div class="label">Person:</div>
             <div class="text">
                 <select ng-model="detail.person"
@@ -46,16 +46,18 @@
             </div>
      
         </div>
-        <div class="panel">
+        <div class="panel panel-default"">
             Filter: <input type="search" ng-model="selDetail">
             Order: <select ng-model="sortOrder">
-                <option value="-date">Date</option>
                 <option value="+personName">Person</option>
-                <option value="-description">Description</option>
+                <option value="+description">Description</option>
+                <option value="-date">Date</option>
             </select>
-
             <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail">
-                <hr><a href="#/details" ng-click="transfer(item)">{{ item.personName }}</a> | {{ item.date }} | {{ item.description }} | {{item.workTime}}
+                <hr>
+                <table class="table table-bordered">
+                <tr><td><a href="#/details" ng-click="transfer(item)">{{ item.personName }}</a> </td><td> {{ item.date }} </td><td> {{ item.description }} </td><td> {{item.workTime}}</td><td> {{item.teamName}}</td></tr>
+                </table>
             </div>
         </div>
 
