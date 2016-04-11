@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
 
         public IList<DetailModel> GetAll(int page = 0)
         {
-            int PageSize = 20;
+            int PageSize = 200;
             var query = Repository.Get().OrderBy(x => x.Day.Date)
                                         .ThenBy(x => x.Day.Person.LastName);
                                         
@@ -70,6 +70,7 @@ namespace WebAPI.Controllers
                             Date = model.Date
 
                         }, sch));
+                       day = days.Get().Where(x => x.Person.Id == model.Person && x.Date == model.Date).FirstOrDefault();
                         model.Day = day.Id;
                         Repository.Insert(Parser.Create(model, sch));
                     }

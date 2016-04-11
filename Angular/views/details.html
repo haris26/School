@@ -25,6 +25,7 @@
             <div>
                 <input type="button" value="Save data" ng-click="saveData()" />
                 <input type="button" value="New detail" ng-click="newDetail()" />
+                <input type="button" value="Delete" ng-click="deleteData()" />
                 <hr>
             </div>
             <div class="label">Date:</div>
@@ -48,16 +49,16 @@
         <div class="panel">
             Filter: <input type="search" ng-model="selDetail">
             Order: <select ng-model="sortOrder">
-                <option value="+date">Date</option>
+                <option value="-date">Date</option>
                 <option value="+personName">Person</option>
                 <option value="-description">Description</option>
             </select>
 
             <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail">
-                <hr><a href="#/details" ng-click="transfer(item)">{{ item.personName }}</a> {{ item.date }} {{ item.description }}
+                <hr><a href="#/details" ng-click="transfer(item)">{{ item.personName }}</a> {{ item.date }} | {{ item.description }} | {{ item.workTime }}
             </div>
         </div>
-<div class="panel">
+<!--<div class="panel">
     <div>
         <input type="button" value="Delete" ng-click="deleteData()" />
         <hr>
@@ -79,5 +80,5 @@
                 ng-options="team.id as team.name for team in teams"></select>
     </div>
 
-</div>
+</div>-->
  
