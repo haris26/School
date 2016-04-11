@@ -1,20 +1,122 @@
-﻿.label {
-            float: left;
-            text-align: right;
-            width: 45%;
-            margin: 6px;
-        }
+﻿/* css style for Beta _layout */
+.header { background-color: #01AB8E; padding:0px !important}
+.navbar-nav li:hover a { background-color: #01AB8E !important;}
+.navbar-brand { padding: 5px 1px 1px 10px !important;}
 
-        .text {
-            float: left;
-            width: 45%;
-            margin: 6px;
-        }
+.container-top {
+	padding-top: 60px;
+}
 
-        .panel {
-            width: 30%;
-            float: left;
-            margin: 6px;
-            padding: 10px;
-            border: 1px solid black;
+.navbar {
+	border: 0px;   
+	border-style: none;
+	box-shadow: none;                                              
+}
+
+.navbar .navbar-collapse, .navbar-default .navbar-form {
+	background-color: #01AB8E;
+	border-style:none;
+}
+
+.navbar .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-brand, .navbar-nav>li>a {
+    text-shadow: 0 0px 0 #00BF9F;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #01AB8E;
+}
+
+.bs-example-navbar-collapse-1 .collapse .navbar-collapse {
+	border: none;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #fff;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #fff;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: #009179;
+}
+
+#logo{
+	height: 50px;
+}
+
+.dropdown .dropdown-menu{
+	border: none;
+    background-color: #01AB8E;
+    color: #fff;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+
+.dropdown-menu > li > a {
+    color: #fff;
+}
+
+.deviceTitle{
+    font-family:Arial;
+    color:#01AB8E;
+    font-size:25px;
+    width:300px;
+    margin:0 auto;
+    margin-top:70px;
+    text-align:center;
+}
+.typeContainer{
+    width:750px;
+    margin: 0 auto;
+    margin-top:10px;
+    margin-bottom:30px;
+}
+.type{
+    font-family:Arial;
+    font-size:18px;
+    /*padding-left:400px;*/
+    margin:0 auto;
+    margin-top:25px;
+    display:inline-block;
+}
+
+/*style for user reservations*/
+.notice {
+    padding: 15px;
+    background-color: #fafafa;
+    border-left: 6px solid #7f7f84;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+       -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+            box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+}
+
+.notice-upcoming {
+    border-color: #FEAF20;
+	background-color: #fcf8f2;
+}
+#today-title {
+    color: #45ABCD;
+    font-weight: bold;
+}
+.notice-today {
+    border-color: #45ABCD;
+    background-color: #f4f8fa;
+}
+#upcoming-title {
+    color: #F8A519;
+    font-weight: bold;
+}
+
+#welcome-title{
+	text-align: center;
+	color: #01AB8E;
 }

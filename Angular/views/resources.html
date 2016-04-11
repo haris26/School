@@ -14,7 +14,6 @@
         <div class="text"><input type="search" ng-model="filterSearch" /></div>
         <div class="label"><input type="button" value="Search" ng-click="sendData(searchParameters)" /></div>
     </div>
-    
     <div ng-show="showme">
         <div ng-repeat="item in reservations | filter: filterSearch">
             <div class="panel-active">

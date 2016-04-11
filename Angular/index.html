@@ -2,23 +2,70 @@
 <html ng-app="school">
 
 <head>
+    <title>Mistral RSS</title>
     <script src="library/angular.js"></script>
     <script src="library/angular-route.js"></script>
+    <script src="library/ui-bootstrap-tpls.min.js"></script>
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/site.css" />
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/userDashboardController.js"></script>
     <script src="scripts/controllers/ResourceController.js"></script>
     <script src="scripts/controllers/ReservationsController.js"></script>
     <script src="scripts/controllers/ResOverviewController.js"></script>
     <script src="scripts/services/DataService.js"></script>
-    <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
-    <h1>{{ message }}</h1>
 
-<div><a href="#/resources">Resources</a> | <a href="#/dashboard">Dashboard</a> | <a href="#/active">Active reservations</a>
-     | <a href="#/reservations">Reservations</a> <hr></div>
+    <header>
+        <div class="navbar navbar-default">
+            <div class="navbar-header" >
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="nav navbar-nav navbar-left" href="index.html">
+                    <img src="images/mistral.png" id="logo" />
+                </a>
+            </div>
 
-    <div ng-view></div>
 
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:0px;">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#/resources" data-toggle="dropdown" class="dropdown-toggle">Resources <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="border:none;">
+                            <li><a href="Rooms.html">Rooms</a></li>
+                            <li><a href="devicesMain.html">Devices</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#/reservations" data-toggle="dropdown" class="dropdown-toggle">Reservations <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/active">Show active reservation</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#/dashboard" data-toggle="dropdown" class="dropdown-toggle">Profile <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/dashboard">Home</a></li>
+                            <li><a href="#/home">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container container-top">
+        <h1>{{ message }}</h1>
+
+        <div ng-view></div>
+    </div>
+       
 </body>
 </html>
