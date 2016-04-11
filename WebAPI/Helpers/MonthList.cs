@@ -33,11 +33,10 @@ namespace WebAPI.Helpers
                 dashboard.Details.Add(new ListModel { Category = detail.team, Count = (int)detail.time });
             }
 
-            var days = person.Days.SelectMany(x => x.Details).GroupBy(x => x.Team.Name).Select(x => new { team = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
-
+            //var days = person.Days.SelectMany(x => x.Details).GroupBy(x => x.Team.Name).Select(x => new { team = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
+            var days = person.Roles.SelectMany(x=> x.Person.Days).GroupBy(x=> x.Person.Teams).Select(x => new { team = x.Key, empty = x.GroupBy(z => z.Date).Count() });
             foreach (var day in days)
-            {
-                
+            {                
                 dashboard.EmptyDays.Add(new EmptyDayModel {EmptyDays = businessDaysInMonth.Count() - day.empty });
             }
             if (person.Days.Count == 0)

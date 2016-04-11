@@ -20,7 +20,7 @@ namespace WebAPI.Controllers
             int PageSize = 200;
             var query = Repository.Get().OrderBy(x => x.Day.Date)
                                         .ThenBy(x => x.Day.Person.LastName);
-                                        
+
             int TotalPages = (int)Math.Ceiling
                             ((double)query.Count() / PageSize);
             IList<DetailModel> details = query.Skip(PageSize * page)
@@ -60,7 +60,8 @@ namespace WebAPI.Controllers
             try
             {
                 if (model == null) return NotFound();
-                else {
+                else
+                {
                     Repository<Day> days = new Repository<Day>(sch);
                     var day = days.Get().Where(x => x.Person.Id == model.Person && x.Date == model.Date).FirstOrDefault();
                     if (day == null)
@@ -75,7 +76,8 @@ namespace WebAPI.Controllers
                         model.Day = day.Id;
                         Repository.Insert(Parser.Create(model, sch));
                     }
-                    else {
+                    else
+                    {
                         model.Day = day.Id;
                         Repository.Insert(Parser.Create(model, sch));
                     }
@@ -94,7 +96,8 @@ namespace WebAPI.Controllers
             {
                 Detail detail = Repository.Get(id);
                 if (detail == null || model == null) return NotFound();
-                else {
+                else
+                {
                     Repository.Update(Parser.Create(model, sch), id);
                     return Ok(model);
                 }

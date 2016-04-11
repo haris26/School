@@ -10,6 +10,7 @@ namespace WebAPI.Models
     {
         public DayModel()
         {
+            Detail detail = new Detail();
             EntryStatus = EntryStatus.Unlocked;
         }
 

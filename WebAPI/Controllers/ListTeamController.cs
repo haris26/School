@@ -5,6 +5,8 @@ using WebAPI.Services;
 using WebAPI.Helpers;
 using WebAPI.Models;
 using System;
+using System.Configuration;
+using System.Web.Configuration;
 
 namespace WebAPI.Controllers
 {
@@ -17,6 +19,11 @@ namespace WebAPI.Controllers
 
         public IList<ListTeamsModel> Get()
         {
+            int month;
+            string deadline = System.Configuration.ConfigurationManager.AppSettings["deadline"];
+            if (DateTime.Now.Day <= Convert.ToInt32(deadline))
+                month = DateTime.Now.Month - 1;
+            else month = DateTime.Now.Month;
             var teams = Repository.Get().OrderBy(x => x.Name)
                         .ToList();
 
@@ -25,39 +32,33 @@ namespace WebAPI.Controllers
             {
                 foreach (var day in t.Details.ToList())
                 {
-
-                    if (day.Day.Date.Month != DateTime.Now.Month)//making the default landing page api/listteam to refer to current month
+                    if (day.Day.Date.Month != month) //making the default landing page api/listteam to refer to current month
+                    {
                         t.Details.Remove(day);
-
+                    }
                 }
-                list.Add(ListTeams.Create(t, DateTime.Now.Month));
+                list.Add(ListTeams.Create(t, month));
             }
             return list;
         }
 
         public IList<ListTeamsModel> GetByMonth(int month)
         {
-
-
-            var teams = Repository.Get().OrderBy(x => x.Name)
-                   .ToList();
-            
+            var teams = Repository.Get().OrderBy(x => x.Name).ToList();
+            Engagement eng = new Engagement();
             List<ListTeamsModel> list = new List<ListTeamsModel>();
             foreach (var t in teams)
             {
                 foreach (var day in t.Details.ToList())  //making sure only details included into the month we have forwarded are included, and everthying
-                 {                                       //else is hidden
+                {                                        //else is hidden
                     if (day.Day.Date.Month != month)
-
                     {
                         t.Details.Remove(day);
                     }
                 }
                 list.Add(ListTeams.Create(t, month));
-
             }
-            return list;          
+            return list;
         }
     }
 }
-
