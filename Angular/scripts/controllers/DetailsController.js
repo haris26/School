@@ -6,7 +6,7 @@
 
         var dataSet = "details";
         $scope.selDetail = "";
-        $scope.sortOrder = "teamName";
+        $scope.sortOrder = '-date';
         getTeams();
         fetchData();
         getPeople();
@@ -39,12 +39,12 @@
         $scope.reloadRoute = function () {
             $window.location.reload();
         }
-         
+       
         $scope.newDetail = function () {
             $scope.detail = {
                 id: 0,
                 day: 0,
-                date: "",
+                date: new Date().Date,
                 person: 0,
                 personName: "",
                 workTime: "",
