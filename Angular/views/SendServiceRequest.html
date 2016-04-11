@@ -3,18 +3,21 @@
         <div>
             <br />
             <br />
-
         </div>
-        <div class="label" style="color:black; font-size:20px;">New Service Request</div><hr />
-        <div class="label" style="color:black; font-size:13px;">Request Message:</div>
-        <div class="text"><input type="text" ng-model="requestMessage"></div><hr />
-        <div class="label" style="color:black; font-size:13px;">Request Description:</div>
-        <div class="text"><textarea type="textarea" style="width:300px; height:130px;" placeholder="Details about malfunction" ng-model="requestDescription"></textarea></div>
+            <div class="label" style="color:black; font-size:20px; ">New Service Request</div><hr />
+        <div class="form-group">
+            <label for="exampleInputPassword1">Request Message</label>
+            <textarea class="form-control" rows="1" id="comment" ng-model="requestMessage" style="width:300px;" required></textarea>
+        </div>
+        <div class="form-group">
+              <label for="exampleInputPassword1">Request Description</label>
+              <textarea class="form-control" rows="5" id="comment" ng-model="requestDescription" style="width:300px;" placeholder="More information about malfunction..." required></textarea>
+        </div>
     </div>
     <div>
         <br />
-        <input type="button" value="SendRequest" ng-click="save()" />
-
-        <hr>
+        <button type="submit" class="btn btn-success" value="Send Request" ng-click="save()">Send Request</button>
+        <label for="exampleInputPassword1">{{message}}</label>
+        <hr>       
     </div>
 </div>

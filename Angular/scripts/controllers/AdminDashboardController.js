@@ -8,7 +8,6 @@
         $scope.selString = "";
         //$scope.sortOrder = "";
         getFiles();
-
         fetchData();
 
         function getFiles() {
@@ -27,10 +26,5 @@
             $scope.Files = item;
 
         };
-
-
-
-
     });
-
 }());

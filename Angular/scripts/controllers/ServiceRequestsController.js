@@ -4,11 +4,10 @@
 
     app.controller("ServiceRequestsController", function ($scope, $rootScope, DataService) {
 
-        var dataSet = "newReq";
+        var dataSet = "servicerequests";
         $scope.selString = "";
         //$scope.sortOrder = "";
         getRequests();
-
         fetchData();
 
         function getRequests() {
@@ -25,12 +24,6 @@
 
         $scope.transfer = function (item) {
             $scope.requests = item;
-
         };
-
-
-
-
     });
-
 }());

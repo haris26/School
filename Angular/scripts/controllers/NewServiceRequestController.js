@@ -8,8 +8,6 @@
         $scope.requestMessage = "";
         $scope.requestDescription = "";
     
-
-       
         function fetchNewServiceRequests() {
             DataService.list(dataSet, function (data) {
                 $scope.newservicerequests = data;

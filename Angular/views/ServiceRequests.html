@@ -3,7 +3,6 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Requests</h1>
-
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -21,9 +20,7 @@
                             <thead>
                                 <tr>
                                     <th>User</th>
-
                                     <th>Category</th>
-
                                     <th>Date</th>
                                     <th>Request Message</th>
                                     <th>Request Description</th>
@@ -32,30 +29,20 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="item in serviceRequests" class="request-table">
-
                                     <td>{{item.personName}} </td>
-
                                     <td>{{item.categoryName}}</td>
                                     <td>{{item.requestDate|date}}</td>
                                     <td>{{item.requestMessage}}</td>
                                     <td>{{item.requestDescription}}</td>
                                     <td>{{item.status}}</td>
-
                                 </tr>
-
-
-
                             </tbody>
                         </table>
-
-
                     </div>
                     <!-- /.table-responsive -->
                 </div>
-
             </div>
             <!-- /.row -->
         </div>
     </div>
-
 </div>

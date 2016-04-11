@@ -6,11 +6,8 @@
 
         var dataSet = "assets";
         $scope.selString = "";
-
         getAssets();
-
         $rootScope.model = {};
-
         fetchData();
 
         function getAssets() {
@@ -28,13 +25,5 @@
         $scope.transfer = function transfer(item) {
             $rootScope.model = item;
         }
-
-
-
-
-
-
-
     });
-
 }());

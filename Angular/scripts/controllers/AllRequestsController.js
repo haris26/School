@@ -8,13 +8,11 @@
         $scope.selString = "";
         $scope.sortOrder = "";
         getRequests();
-
         fetchData();
 
         function getRequests() {
             DataService.list("requests", function (data) {
                 $scope.requests = data.allRequests;
-
             });
         };
 
@@ -25,12 +23,7 @@
         }
 
         $scope.transfer = function (item) {
-            $scope.requests = item;
-    
-        };
-
-      
-        
+            $scope.requests = item;    
+        };      
     });
-
 }());

@@ -5,53 +5,38 @@
             <div class="col-lg-4">
                 <div class="container4" action="NewRequest.html" id="form1">
                     <div>
-
-                        <br>
+                 <br>
                     </div>
                     <form>
-
-                        <div class="form-group">
-                            
+                        <div class="form-group">                            
                             <br>
-                         
-                            
                             <div class="text">
                                 <label for="exampleInputEmail1">Category</label>
                                 <select class="form-control" id="sel" ng-change="setCategory()" ng-model="selectedCategory"
-                                        ng-options="category as category.categoryName for category in categories"></select>
-                             </div>
-                         
+                                        ng-options="category as category.categoryName for category in categories" required></select>
+                             </div>                        
                              <!--<div class="text">
                                 <label for="exampleInputEmail1">Type</label>
                                 <select class="form-control" id="sel" ng-model="request.type"
                                         ng-options="category.type for category in categories"></select>
-
                                <label for="exampleInputEmail1">Type</label>
-
                             </div>-->
                        <!--  -->
                             <label for="number">Type</label></br>
-                            <div class="text"><input type="text" ng-model="request.assetType"></div>
-
+                            <div class="text"><input type="text" ng-model="request.assetType" disabled></div>
                         </div>
-
                         <label for="number" >Quantity</label></br>
-
-                        <input type="number" id="replyNumber" min="1" data-bind="value:replyNumber" ng-model="request.quantity"  />
-
+                        <input type="number" id="replyNumber" min="1" data-bind="value:replyNumber" ng-model="request.quantity" required />
                         <div class="form-group">
                             <label for="exampleInputPassword1">Request Description</label>
-                            <textarea class="form-control" rows="1" id="comment" ng-model="request.requestDescription"></textarea>
+                            <textarea class="form-control" rows="1" id="comment" ng-model="request.requestDescription" required></textarea>
                         </div>
-
-
                         <div class="form-group">
                             <label for="exampleInputPassword1">Request Message</label>
-                            <textarea class="form-control" rows="5" id="comment" ng-model="request.requestMessage"></textarea>
+                            <textarea class="form-control" rows="5" id="comment" ng-model="request.requestMessage" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" value="Save data" ng-click="saveData()">Submit</button>
-                        <!--<button type="submit" class="btn" value="New request" ng-click="newRequest()">new Request</button>-->
-                
+                        <!--<button type="submit" class="btn" value="New request" ng-click="newRequest()">new Request</button>-->                
                         <label for="exampleInputPassword1">{{message}}</label>
                     </form>
                 </div>

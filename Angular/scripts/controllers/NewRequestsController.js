@@ -5,29 +5,21 @@
     app.controller("NewRequestsController", function ($scope, $rootScope, DataService) {
 
         var dataSet = "requests";
-     
-     
-        getCategories();
-        
+        getCategories();       
         fetchData();
-        
-        
+               
         function getCategories() {
             DataService.list("assetcategories", function (data) {
                 $scope.categories = data;
             });
         };
-
-        
-       
+            
         function fetchData() {
             DataService.list(dataSet, function (data) {
                 $scope.requests= data.allRequests;
             });
         }
-
-       
-
+      
         $scope.newRequest = function () {
             $scope.request = {
                 id: 0,
@@ -41,13 +33,10 @@
                 requestDate: new Date().Date,
                 status:"In process",
                 requestType: "Equipment",
-                assetType: "",
-             
-               
+                assetType: "",             
             }
         };
        
-
         $scope.saveData = function () {
             var promise;
             if ($scope.request.id == 0) {
@@ -61,9 +50,7 @@
 
         $scope.setCategory = function () {
             $scope.request.category = $scope.selectedCategory.id
-            $scope.request.assetType=$scope.selectedCategory.type
-           
-          
+            $scope.request.assetType=$scope.selectedCategory.type                    
         }
     });
 
