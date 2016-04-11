@@ -11,7 +11,7 @@
       
         function getCategories() {
             DataService.list("resourcecategories", function (data) {
-                $scope.categories = data;
+                $scope.categories = data
             });
         };
 

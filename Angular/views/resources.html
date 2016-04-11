@@ -1,23 +1,29 @@
 ﻿<div ng-controller="ReservationsController">
     <h1>{{ message }}</h1>
-    <div class="label">From date:</div>
-    <div class="text"><input type="date" ng-model="searchParameters.fromDate"></div>
-    <div class="label">To date:</div>
-    <div class="text"><input type="date" ng-model="searchParameters.toDate"></div>
-    <div class="label">Resource category:</div>
-    <div class="text">
-        <select ng-model="searchParameters.categoryName"
-                ng-options="category.categoryName as category.categoryName for category in categories"></select>
+    <div class="formPanel">
+        <div class="label">From date:</div>
+        <div class="text"><input type="date" ng-model="searchParameters.fromDate"></div>
+        <div class="label">To date:</div>
+        <div class="text"><input type="date" ng-model="searchParameters.toDate"></div>
+        <div class="label">Resource category:</div>
+        <div class="text">
+            <select ng-model="searchParameters.categoryName"
+                    ng-options="category.categoryName as category.categoryName for category in categories"></select>
+        </div>
+        <div class="label">Filter:</div>
+        <div class="text"><input type="search" ng-model="filterSearch" /></div>
+        <div class="label"><input type="button" value="Search" ng-click="sendData(searchParameters)" /></div>
     </div>
-    <input type="button" value="Search" ng-click="sendData(searchParameters)"/>
-        
-    <hr>
+    
     <div ng-show="showme">
-        <div ng-repeat="item in reservations">
+        <div ng-repeat="item in reservations | filter: filterSearch">
             <div class="panel-active">
                 <p class="active-title">{{item.name}}</p>
                 <div ng-repeat="characteristic in item.characteristics">
-                    <p>{{characteristic.name}} - {{characteristic.value}}</p>
+                    <p ng-if="characteristic.name == 'DeviceType'">Device Type - {{characteristic.value}}</p>
+                    <p ng-if="characteristic.name == 'OsType'">OS Type - {{characteristic.value}}</p>
+                    <p ng-if="characteristic.name == 'OsVersion'">OS Version - {{characteristic.value}}</p>
+                    <p ng-if="characteristic.name == 'Quantity'">Quantity - {{characteristic.value}}</p>
                 </div>
             </div>
         </div>

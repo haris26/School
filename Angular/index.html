@@ -8,13 +8,15 @@
     <script src="scripts/controllers/userDashboardController.js"></script>
     <script src="scripts/controllers/ResourceController.js"></script>
     <script src="scripts/controllers/ReservationsController.js"></script>
+    <script src="scripts/controllers/ResOverviewController.js"></script>
     <script src="scripts/services/DataService.js"></script>
     <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
     <h1>{{ message }}</h1>
 
-<div><a href="#/resources">Resources</a> | <a href="#/dashboard">Dashboard</a> | <a href="#/active">Active reservations</a> <hr></div>
+<div><a href="#/resources">Resources</a> | <a href="#/dashboard">Dashboard</a> | <a href="#/active">Active reservations</a>
+     | <a href="#/reservations">Reservations</a> <hr></div>
 
     <div ng-view></div>
 
