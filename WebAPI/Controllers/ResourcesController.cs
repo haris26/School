@@ -10,7 +10,7 @@ using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
-    //[TokenAuthorize]
+    [TokenAuthorize]
     public class ResourcesController : BaseController<Resource>
     {
         public ResourcesController(Repository<Resource> depo) : base(depo) { }

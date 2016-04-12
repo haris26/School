@@ -110,11 +110,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\confRoom.png" />
+    <Content Include="images\devices.png" />
     <Content Include="images\mistral.png" />
     <Content Include="index.html" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />
+    <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\ReservationsController.js" />
     <Content Include="scripts\controllers\userDashboardController.js" />
+    <Content Include="scripts\services\LoginService.js" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\site.css" />
     <Content Include="views\active.html" />
@@ -125,6 +129,7 @@
     <Content Include="scripts\services\DataService.js" />
     <Content Include="styles\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="views\login.html" />
     <Content Include="views\resourceList.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />

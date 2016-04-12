@@ -1,35 +1,50 @@
-﻿<div ng-controller="UserDashboardController">
-    <h1>{{ message }}</h1>
-    <div ng-repeat="item in dashboard.activeReservations">
-        <div class="panel-active">
-            <h3>{{item.resourceName}}</h3>
-            <hr/>
-            <p><i class="active-title">{{item.eventTitle}}</i></p>
-            <p>{{item.startDate}}</p>
-            <p>{{item.time}}</p>
-            <div class="button-align">
-                <input type="button" value="Cancel" ng-click="cancelReservation(item)"/>
-                <input type="button" value="Extend" ng-click="extendReservation(item)"/>
+﻿
+<div ng-controller="UserDashboardController">
+
+    <h2 id="welcome-title"> Active reservations </h2>
+    <br>
+    <div class="row">
+        <div ng-repeat="item in dashboard.activeReservations">
+            <div class="col-xs-6 col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img ng-if="item.categoryName=='Device'" src="images/devices.png">
+                    <img ng-if="item.categoryName=='Room'" src="images/confRoom.png">
+                    <div class="caption">
+                        <h4>{{item.resourceName}} </h4>
+                        <p>
+                            <i class="glyphicon glyphicon-calendar"> </i>  {{item.startDate}}
+                        </p>
+                        <p>
+                            <i class="glyphicon glyphicon-time"> </i>  {{item.time}}
+                        </p>
+                        <p>
+                            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#cancelModal" ng-click="cancelReservation(item)">Cancel</button>
+                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#extendModal"  ng-click="extendReservation(item)">Extend</button>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="panel" ng-show="modalShow">
+    </div>
+    <!--<div class="panel" ng-show="modalShow">
         <h3>Extend event</h3>
         <div class="label">Repeat until: </div>
-        <div class="text"><input type="date" ng-model="eventExtend.repeatUntil">
+        <div class="text">
+            <input type="date" ng-model="eventExtend.repeatUntil">
         </div>
         <div class="label">Repeating type: </div>
         <div class="text">
             <select ng-model="eventExtend.repeatingType"
-                    ng-options="repeatingTypes.indexOf(type) as type for type in repeatingTypes">
-            </select>
+                    ng-options="repeatingTypes.indexOf(type) as type for type in repeatingTypes"></select>
         </div>
         <div class="label">Frequency: </div>
-        <div class="text"><input type="number" ng-model="eventExtend.frequency">
+        <div class="text">
+            <input type="number" ng-model="eventExtend.frequency">
         </div>
         <div class="button-align">
             <input type="button" value="Cancel" ng-click="cancel()" />
-            <input type="button" value="Save" ng-click="saveData()"/>
+            <input type="button" value="Save" ng-click="saveData()" />
         </div>
-    </div>
-</div>
+    </div>-->
+<!--</div>-->

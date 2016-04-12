@@ -1,6 +1,6 @@
 ﻿<div ng-controller="ResourceController">
     <h1>{{ message }}</h1>
-        
+    <h2>{{currentUser}}</h2>
     <div class="panel">
         Filter: <input type="search" ng-model="selResource">            
             <div ng-repeat="item in resources  | filter: selResource" ng-if="item.resourceCategoryName == 'Device'">
