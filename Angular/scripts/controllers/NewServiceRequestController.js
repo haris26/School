@@ -25,9 +25,13 @@
                 asset: model.id,
                 assetType: 1,
                 category: model.category,
-                person: model.user
+                person: model.user,
+                status:1
+
             };
+            
             DataService.create("requests", $scope.request, function (response) { });
+           console.log($scope.request)
         }
     });
 }());

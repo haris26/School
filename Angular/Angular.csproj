@@ -121,8 +121,12 @@
   <ItemGroup>
     <Content Include="scripts\controllers\AdminDashboardController.js" />
     <Content Include="scripts\controllers\AssetsController.js" />
+    <Content Include="scripts\controllers\EngagementsController.js" />
+    <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\NewRequestsController.js" />
     <Content Include="scripts\controllers\NewServiceRequestController.js" />
+    <Content Include="scripts\controllers\PeopleController.js" />
+    <Content Include="scripts\controllers\RolesController.js" />
     <Content Include="scripts\controllers\ServiceRequestsController.js" />
     <Content Include="index.html" />
     <Content Include="library\bootstrap.min.js" />
@@ -135,20 +139,28 @@
     <Content Include="library\angular.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controllers\AllRequestsController.js" />
+    <Content Include="scripts\controllers\TeamsController.js" />
     <Content Include="scripts\services\DataService.js" />
+    <Content Include="scripts\services\LoginService.js" />
     <Content Include="styles\bootstrap-social.css" />
     <Content Include="styles\bootstrap-theme.min.css" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="styles\Site.css" />
     <Content Include="styles\startmin.css" />
     <Content Include="styles\Style.css" />
     <Content Include="views\AdminDashboard.html" />
     <Content Include="views\AllAssets.html" />
+    <Content Include="views\engagements.html" />
+    <Content Include="views\login.html" />
     <Content Include="views\NewRequests.html" />
+    <Content Include="views\people.html" />
+    <Content Include="views\roles.html" />
     <Content Include="views\SendNewRequest.html" />
     <Content Include="views\SendServiceRequest.html" />
     <Content Include="views\ServiceRequests.html" />
+    <Content Include="views\teams.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

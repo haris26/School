@@ -1,0 +1,20 @@
+﻿<div class="panel">
+    <div>
+        <input type="button" value="Save data" ng-click="saveData()" />
+        <input type="button" value="New role" ng-click="newRole()" />
+        <hr>
+    </div>
+    <div class="label">Id:</div>
+    <div class="text"><input type="text" ng-model="role.id"></div>
+    <div class="label">Name:</div>
+    <div class="text"><input type="text" ng-model="role.name"></div>
+    <div class="label">System:</div>
+    <div class="text"><input type="text" ng-model="role.system"></div>
+    <div class="label">Team:</div>
+    <div class="text"><input type="text" ng-model="role.team"></div>
+</div>
+<div class="panel">
+    <div ng-repeat="item in roles">
+        <hr><a href="#" ng-click="transfer(item)">{{ item.name }}</a>
+    </div>
+</div>

@@ -23,7 +23,7 @@
         $scope.newRequest = function () {
             $scope.request = {
                 id: 0,
-                person: 6,
+                person: currentUser.id,
                 personName:"",
                 category: 0,
                 categoryName:"",
@@ -31,7 +31,7 @@
                 requestMessage:"",
                 requestDescription:"",
                 requestDate: new Date().Date,
-                status:"In process",
+                status:1,
                 requestType: "Equipment",
                 assetType: "",             
             }
@@ -41,6 +41,7 @@
             var promise;
             if ($scope.request.id == 0) {
                 DataService.create(dataSet, $scope.request, function (data) { });
+                console.log($scope.request);
             }
             else {
                 DataService.update(dataSet, $scope.request.id, $scope.request, function (data) { });

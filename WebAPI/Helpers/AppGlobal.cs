@@ -1,5 +1,6 @@
 ﻿using Database;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -41,6 +42,11 @@ namespace WebApi.Helpers
             var rawTokenByte = Encoding.UTF8.GetBytes(rawTokenInfo);
             var token = provider.ComputeHash(rawTokenByte);
             return Convert.ToBase64String(token);
+        }
+
+        public static List<string> GetRoles(Person currentUser)
+        {
+            return currentUser.Roles.Where(x => x.Role.System).OrderBy(x => x.Role.Name).Select(x => x.Role.Name).Distinct().ToList();
         }
     }
 }
