@@ -33,5 +33,9 @@ namespace WebAPI.Helpers
             var token = provider.ComputeHash(rawTokenByte);
             return Convert.ToBase64String(token);
         }
+        public static List<string> GetRoles(Person currentUser)
+        {
+            return currentUser.Roles.Where(x => x.Role.System).OrderBy(x => x.Role.Name).Select(x => x.Role.Name).Distinct().ToList();
+        }
     }
 }
