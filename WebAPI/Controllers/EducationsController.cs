@@ -11,18 +11,24 @@ using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    //[TokenAuthorize]
     public class EducationsController : BaseController<Education>
     {
-        SchoolIdentity ident = new SchoolIdentity();
+        //SchoolIdentity ident = new SchoolIdentity();
 
         public EducationsController(Repository<Education> depo) : base(depo)
         { }
 
-        public List<EducationModel> Get(int id)
+        //ovo cemo obrisati xD
+        //public List<EducationModel> Get(int id)
+        //{
+        //    return Repository.Get().Where(x => x.Type == (EducationType)id).ToList()
+        //                     .Select(x => Factory.Create(x)).ToList();
+        //}
+
+        public IList<EducationModel> Get()
         {
-            return Repository.Get().Where(x => x.Type == (EducationType)id).ToList()
-                             .Select(x => Factory.Create(x)).ToList();
+            return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
         }
 
         public IHttpActionResult Post(Education education)

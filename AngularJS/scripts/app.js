@@ -12,8 +12,10 @@
         $routeProvider
             .when("/skills", { templateUrl: "skills.html", controller: "SkillsCtrl" })
             .when("/editCategory/:categoryId", { templateUrl: "editCategory.html", controller: "SkillsCtrl" })
-            .when("/qualifications", { templateUrl: "qualifications.html", controller: "SkillsCtrl" })
-            .otherwise({ redirectTo: "skills" });
+            .when("/qualifications", { templateUrl: "qualifications.html", controller: "QualificationsCtrl" })
+            .when("/overview", { templateUrl: "overview.html", controller: "OverviewCtrl" })
+            .when("/employeeSummary/:employeeId", { templateUrl: "employeeSummary.html", controller: "EmployeeSummaryCtrl" })
+            .otherwise({ redirectTo: "overview" });
 
     });
 

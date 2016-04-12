@@ -11,10 +11,10 @@ using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    //[TokenAuthorize]
     public class EmployeeSummariesController : BaseController<Person>
     {
-        SchoolIdentity ident = new SchoolIdentity();
+        //SchoolIdentity ident = new SchoolIdentity();
 
         public EmployeeSummariesController(Repository<Person> depo) : base(depo)
         { }
@@ -24,16 +24,16 @@ namespace WebAPI.Controllers
             try
             {
                 Person person;
-                if (id == 0)
-                    person = ident.currentUser;
-                else
-                {
+                //if (id == 0)
+                //    person = ident.currentUser;
+                //else
+                //{
                     person = Repository.Get(id);
                     if (person == null)
                     {
                         return NotFound();
                     }
-                }
+                //}
                 return Ok(EmployeeSummary.Create(person));
             }    
             catch (Exception ex)

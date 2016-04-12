@@ -1,0 +1,61 @@
+﻿<div class="db-header clearfix">   
+    <div class="page-header-title"><span class="glyphicon glyphicon-home"></span> Overview</div>
+    <div class="db-header-extra"></div>
+</div>
+
+
+<div id="content">
+    {{ message }}
+    <br>
+    <div class="row" ng-show="overview">
+
+        <!-- People -->
+        <div class="col-md-3">
+            <div id="people" class="dashboard-window clearfix div-blue">
+                <div class="d-w-icon">
+                    <span class="glyphicon glyphicon-user giant-white-icon"></span>
+                </div>
+                <div class="d-w-text">
+                    <span class="d-w-num">{{ overview.numOfPeople }}</span><br>People
+                </div>
+            </div>
+        </div>
+
+        <!-- Average skill level -->
+        <div class="col-md-3">
+            <div id="people" class="dashboard-window clearfix div-green">
+                <div class="d-w-icon">
+                    <span class="glyphicon glyphicon-cog giant-white-icon"></span>
+                </div>
+                <div class="d-w-text">
+                    <span class="d-w-num">{{ overview.avgSkillLevel }}</span><br>Average Skill Level
+                </div>
+            </div>
+        </div>
+
+        <!-- Teams -->
+        <div class="col-md-3">
+            <div id="people" class="dashboard-window clearfix div-yellow">
+                <div class="d-w-icon">
+                    <span class="glyphicon glyphicon-user giant-white-icon"></span>
+                </div>
+                <div class="d-w-text">
+                    <span class="d-w-num">{{ overview.numOfTeams }}</span><br>Teams
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="col-md-3">
+            <div id="people" class="dashboard-window clearfix div-red">
+                <div class="d-w-icon">
+                    <span class="glyphicon glyphicon-cog giant-white-icon"></span>
+                </div>
+                <div class="d-w-text">
+                    <span class="d-w-num">{{ overview.numOfSkills }}</span><br>Skills
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

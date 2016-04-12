@@ -17,8 +17,10 @@ namespace WebAPI.Helpers
             overview.NumOfPeople = context.People.ToList().Count();
             overview.NumOfTeams = context.Teams.ToList().Count();
             overview.NumOfSkills = context.Tools.ToList().Count();
-            overview.AvgSkillLevel = people.Select(x => SearchResult.GetCurrentSkills(x)).ToList()
-                                           .Where(x => x.Count() > 0).Select(x => x.Average(y => (int)y.Level)).Sum()/people.Count();
+            var avgSkillLevel = people.Select(x => SearchResult.GetCurrentSkills(x)).ToList()
+                                           .Where(x => x.Count() > 0).Select(x => x.Average(y => (int)y.Level)).Sum() / people.Count();
+
+            overview.AvgSkillLevel = avgSkillLevel.ToString("#.##");
                              
             return overview;
         }

@@ -8,7 +8,7 @@ namespace WebAPI.Models
     public class OverviewModel
     {
         public int NumOfPeople { get; set; }
-        public double AvgSkillLevel { get; set; }
+        public string AvgSkillLevel { get; set; }
         public int NumOfTeams { get; set; }
         public int NumOfSkills { get; set; }
     }

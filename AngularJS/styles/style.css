@@ -20,7 +20,7 @@ body { font-family: "Open Sans"; padding-top: 50px;}
 .newnav .active a { background: #455d74 !important; color: #FFFFFF !important; border-left: 4px solid #273643;}
 .newnav li .active { background: #455d74 !important; color: #FFFFFF !important; border-left: 4px solid #273643;}
 .user_level_display { font-size: 12px; padding-top: 0px;}
-.user_name_display { padding: 0px; margin: 0px; font-weight: 600; padding-bottom: 5px;}
+.user_name_display { padding: 0px; margin: 0px; font-weight: bold; padding-bottom: 5px;}
 .user_avatar { width: 45px; height: 45px;}
 .white-link { color: #FFFFFF; }
 .white-link:hover { color: #DCE8E8; text-decoration: none;}
@@ -34,14 +34,15 @@ body { font-family: "Open Sans"; padding-top: 50px;}
 .page-header-title { font-size: 24px; float: left;}
 .db-header-extra { float: right; padding: 5px;  }
 
-.dashboard-window { background: #62acec; width: 100%; padding: 20px; color: #FFF; border-radius: 4px;}
+.dashboard-window { width: 100%; padding: 20px; color: #FFF; border-radius: 4px;}
 .d-w-icon { width: 30%; float: left; margin-right: 5px;}
 .d-w-text { width: 65%; float: left; font-size: 13px; }
 .d-w-text-maximum { width: 100%; float: left; font-size: 13px; }
 .giant-white-icon { font-size: 48px; color: #FFF;}
 .d-w-num { font-size: 38px; color: #FFF; vertical-align: top; line-height: 100%; }
 
-.table-header { font-weight: 600; background: #f0f0f0; }
+.table-header { font-weight: bold; background: #f0f0f0; }
+td:first-child { font-weight: bold; }
 
 .modal-open {
   overflow-y: scroll;
@@ -51,3 +52,18 @@ body { font-family: "Open Sans"; padding-top: 50px;}
 {
     overflow-y: auto;
 }
+
+.profile-user { background: #273643; height: 150px; border-radius: 4px 4px 0px 0px; padding: 30px; color: #FFFFFF; }
+.profile-info { background: #668caf; min-height: 300px; border-radius: 0px 0px 4px 4px; padding: 10px;}
+.profile-info-label1 { font-weight: bold; color: #E1E7F6; }
+.profile-info-label2 { text-align: right; font-weight: bold; color: #E1E7F6; }
+.profile-info-content1 { font-weight: bold; color: #FFFFFF; }
+.profile-info-content2 { text-align: right; font-weight: bold; color: #FFFFFF; }
+.table-profile { width: 100%; }
+.table-profile td { padding: 8px;}
+.table-profile tr { border-top: 1px solid #719CC4;}
+
+.div-green { background: #5cb85c; border-left: 5px solid #4f9f4f; }
+.div-yellow { background: #f0ad4e; border-left: 5px solid #d89b45; }
+.div-red { background: #d9534f; border-left: 5px solid #b94643; }
+.div-blue { background: #62acec; border-left: 5px solid #5798d1; }
