@@ -12,9 +12,10 @@
         function fetchData() {
             DataService.list(dataSet, function (data) {
                 $scope.resources = data;
+                
+           
             });
-        }
-
+        };
         function getCharacteristics() {
             DataService.list("characteristics", function (data) {
                 $scope.characteristics = data;

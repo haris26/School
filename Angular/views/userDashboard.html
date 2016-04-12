@@ -1,28 +1,38 @@
 ﻿<div class="row" ng-controller="UserDashboardController">
     <h1>{{ message }}</h1>
-    <h2>Welcome {{userName}}</h2>
-    <div class="panel">
+
+    <h2 id="welcome-title">Welcome {{dashboard.userName}}</h2>
+    <div class="col-sm-6">
         <h3>Today reservations</h3>
-        <p ng-if="dashboard.countToday > 1">{{dashboard.countToday}} reservations</p>
-        <p ng-if="dashboard.countToday == 1">{{dashboard.countToday}} reservation</p>
+        <p ng-if="dashboard.countToday > 1">
+            <span class="label label-info"> {{dashboard.countToday}} </span><span> reservations </span>
+        </p>
+        <p ng-if="dashboard.countToday == 1">
+            <span class="label label-info"> {{dashboard.countToday}} </span>  <span>  reservation </span>
+        </p>
         <hr/>
-        <div ng-repeat="item in dashboard.todayReservations">
+        <div class="notice notice-today"ng-repeat="item in dashboard.todayReservations">
             <p>
-                <i class="active-title">{{item.eventTitle}}</i> <br/>
-                You have reservation for <b>{{ item.resourceName }}</b> at {{item.time}}
+                <i id="today-title">{{ item.eventTitle}}</i> <br/>
+                You have reservation for <strong>{{ item.resourceName }}</strong> at <i class="glyphicon glyphicon-time"> </i> {{item.time}}
             </p>
         </div>
     </div>
-    <div class="panel">
+
+    <div class="col-sm-6">
         <h3>Upcoming reservations</h3>
-        <p ng-if="dashboard.countUpcoming > 1">{{dashboard.countUpcoming}} reservations</p>
-        <p ng-if="dashboard.countUpcoming == 1">{{dashboard.countUpcoming}} reservation</p>
+        <p ng-if="dashboard.countUpcoming > 1">
+            <span class="label label-warning"> {{dashboard.countUpcoming}} </span>  reservations
+        </p>
+        <p ng-if="dashboard.countUpcoming == 1">
+            <span class="label label-warning"> {{dashboard.countUpcoming}} </span>  reservation
+        </p>
         <hr/>
-        <div ng-repeat="item in dashboard.upcomingReservations">
+        <div class="notice notice-upcoming" ng-repeat="item in dashboard.upcomingReservations">
             <p>
-                <i class="active-title">{{item.eventTitle}}</i> <br/>
-                You have reservation for <b>{{ item.resourceName }}</b> on {{item.startDate}}<br />
-                at {{item.time}}
+                <i id="upcoming-title">{{item.eventTitle}}</i> <br/>
+                You have reservation for <strong>{{ item.resourceName }}</strong> on <i class="glyphicon glyphicon-calendar"> </i>{{item.startDate}}<br />
+                at <i class="glyphicon glyphicon-time"> </i> {{item.time}}
             </p>
         </div>
     </div>

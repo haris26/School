@@ -88,7 +88,7 @@
     display:inline-block;
 }
 
-/*style for active reservations*/
+/*style for user reservations*/
 .notice {
     padding: 15px;
     background-color: #fafafa;
@@ -99,17 +99,24 @@
             box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
 }
 
-.notice-rooms {
-    border-color: #45ABCD;
-	background-color: #f4f8fa;
-}
-.notice-rooms>strong {
-    color: #45ABCD;
-}
-.notice-devices {
-    border-color: #F8A519;
+.notice-upcoming {
+    border-color: #FEAF20;
 	background-color: #fcf8f2;
 }
-.notice-devices>strong {
+#today-title {
+    color: #45ABCD;
+    font-weight: bold;
+}
+.notice-today {
+    border-color: #45ABCD;
+    background-color: #f4f8fa;
+}
+#upcoming-title {
     color: #F8A519;
+    font-weight: bold;
+}
+
+#welcome-title{
+	text-align: center;
+	color: #01AB8E;
 }
