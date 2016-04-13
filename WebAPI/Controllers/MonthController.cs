@@ -1,5 +1,4 @@
 ﻿using Database;
-
 using System.Collections.Generic;
 using System.Linq;
 using WebAPI.Services;
@@ -44,8 +43,7 @@ namespace WebAPI.Controllers
                 month = DateTime.Now.Month-1;
                 else month = DateTime.Now.Month;
             }
-            var people = Repository.Get().OrderBy(x => x.FirstName).ThenBy(x => x.LastName)
-                        .ToList();
+            var people = Repository.Get().OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList();
 
             List<MonthModel> list = new List<MonthModel>();
 
@@ -56,13 +54,9 @@ namespace WebAPI.Controllers
                     if (day.Date.Month != month)
                         p.Days.Remove(day);                       
                 }
-
-                list.Add(MonthList.Create(p,month));
-
+                    list.Add(MonthList.Create(p, month));
             }
             return list;
         }
-
     }
 }
-

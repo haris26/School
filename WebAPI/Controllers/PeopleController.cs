@@ -15,6 +15,7 @@ namespace WebAPI.Controllers
     {
         public PeopleController(Repository<Person> depo) : base(depo)
         { }
+
         public IList<PersonModel> Get()
         {
             var people = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName).ToList().Select(x => Factory.Create(x)).ToList();
@@ -38,7 +39,8 @@ namespace WebAPI.Controllers
                 pageCount = TotalPages
             };
 
-        //HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+            //HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+
             return people;
         }
 
@@ -76,8 +78,8 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Person person1 = Repository.Get(id);
-                if (person1 == null || person == null) return NotFound();
+                //Person person = Repository.Get(id);
+                if (person == null || person == null) return NotFound();
                 else {
                     Repository.Update(person, id);
                     return Ok(Factory.Create(person));

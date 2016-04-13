@@ -23,7 +23,7 @@
     
         <div class="panel">
             <div>
-                <input type="button" value="Save data" ng-click="saveData()" />
+                <input type="button" value="Save data" ng-click="saveData(); reloadRoute()" />
                 <input type="button" value="New detail" ng-click="newDetail()" />
                 <input type="button" value="Delete" ng-click="deleteData()" />
                 <hr>
@@ -44,7 +44,6 @@
                 <select ng-model="detail.team"
                         ng-options="team.id as team.name for team in teams"></select>
             </div>
-     
         </div>
         <div class="panel panel-default"">
             Filter: <input type="search" ng-model="selDetail">

@@ -35,9 +35,7 @@
                 $scope.month = data;
             });
         }
-     
     });
-
 }());
 
 //(function () {

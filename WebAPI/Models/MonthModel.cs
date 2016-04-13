@@ -8,15 +8,19 @@ namespace WebAPI.Models
 {
     public class MonthModel
     {
+        public MonthModel()
+        {
+            Details = new List<ListModel>();
+            Days = new List<CountModel>();
+            
+         }
         
         public MonthModel(int month)
         {
 
             Details = new List<ListModel>();
-            Days = new List<CountModel>();
-           
-            
-          //EmptyDays = new List<EmptyDayModel>();
+            Days = new List<CountModel>();            
+
         }
         public int Id { get; set; }
         public string Name { get; set; }
@@ -26,7 +30,6 @@ namespace WebAPI.Models
         public int DeadLineIn { get; set; }
         public int TotalHours { get; set; }
         public int EmptyDays { get; set; }
-        
 
-    }
+        }
 }
