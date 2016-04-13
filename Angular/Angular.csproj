@@ -157,6 +157,7 @@
     <Content Include="scripts\services\DataService.js" />
     <Content Include="styles\site.css" />
     <Content Include="views\details.html" />
+    <Content Include="views\month.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

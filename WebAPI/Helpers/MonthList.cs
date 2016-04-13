@@ -30,7 +30,10 @@ namespace WebAPI.Helpers
 
             foreach (var detail in details)
             {
+                dashboard.TotalHours = 0;
                 dashboard.Details.Add(new ListModel { Category = detail.team, Count = (int)detail.time });
+                dashboard.TotalHours = dashboard.Details.Sum(item => item.Count);
+               
             }
 
             var days = person.Days.SelectMany(x => x.Details).GroupBy(x => x.Team.Name).Select(x => new { team = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
@@ -38,11 +41,11 @@ namespace WebAPI.Helpers
             foreach (var day in days)
             {
                 
-                dashboard.EmptyDays.Add(new EmptyDayModel {EmptyDays = businessDaysInMonth.Count() - day.empty });
+                dashboard.EmptyDays = businessDaysInMonth.Count() - day.empty;
             }
             if (person.Days.Count == 0)
             {
-                dashboard.EmptyDays.Add(new EmptyDayModel { EmptyDays = businessDaysInMonth.Count() });
+                dashboard.EmptyDays = businessDaysInMonth.Count();
             }
             if (month == DateTime.Now.Month || month == DateTime.Now.Month - 1)
             {

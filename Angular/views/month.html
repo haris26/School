@@ -1,0 +1,37 @@
+﻿<style>
+    .label {
+        float: left;
+        text-align: right;
+        width: 45%;
+        margin: 6px;
+    }
+
+    .text {
+        float: left;
+        width: 45%;
+        margin: 6px;
+    }
+
+    .panel {
+        width: 30%;
+        float: left;
+        margin: 6px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+</style>
+<div class="panel panel-default" ">
+    Filter: <input type="search" ng-model="selMonth">
+    Order: <select ng-model="sortOrder">
+        <option value="+name">Person</option>
+        <option value="+totalHours">Hours worked</option>
+        <option value="-emptyDays">Nonentered days</option>
+    </select>
+    <div ng-repeat="item in month | orderBy: sortOrder | filter: selMonth">
+        <hr>
+        <table class="table table-bordered">
+            <tr><td><td> {{ item.name }} </td><td> {{ item.totalHours }} </td><td> {{item.emptyDays}}</td></tr>
+        </table>
+    </div>
+</div>
+

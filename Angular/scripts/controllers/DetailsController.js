@@ -56,7 +56,7 @@
         $scope.deleteData = function()
         {
 
-                DataService.delete(dataSet, $scope.detail.id, function (data) { fetchData()});   
+           DataService.delete(dataSet, $scope.detail.id, function (data) { fetchData()});   
            // fetchData();
             
         }
