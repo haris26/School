@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("LoginController", function ($scope, $rootScope, LoginService) {
+    app.controller("LoginController", function ($scope, $rootScope, $location, LoginService) {
 
         $scope.user = { name: "", pass: "" };
 
@@ -13,7 +13,9 @@
                 function (response) {
                     authenticated = true;
                     currentUser = response.data;
+                    $location.path("/home");
                     //$rootScope.userName = currentUser.name;
+
                 },
                 function (reason) {
                     console.log(reason);
