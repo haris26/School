@@ -169,11 +169,12 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div ac-chart="'bar'"
-                 ac-data="dataProgrammingSkills"
-                 ac-config="configProgrammingSkills"
-                 class="chart">
+            <div ng-repeat="category in summary.skills">
+                <div ac-chart="'bar'"
+                     ac-data="data[category.categoryName]"
+                     ac-config="configChart[category.categoryName]"
+                     class="chart">
+                </div>
             </div>
         </div>
     </div>
-</div>
