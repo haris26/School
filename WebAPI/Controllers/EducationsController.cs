@@ -19,12 +19,11 @@ namespace WebAPI.Controllers
         public EducationsController(Repository<Education> depo) : base(depo)
         { }
 
-        //ovo cemo obrisati xD
-        //public List<EducationModel> Get(int id)
-        //{
-        //    return Repository.Get().Where(x => x.Type == (EducationType)id).ToList()
-        //                     .Select(x => Factory.Create(x)).ToList();
-        //}
+        public List<EducationModel> Get(int id)
+        {
+            return Repository.Get().Where(x => x.Type == (EducationType)id).ToList()
+                             .Select(x => Factory.Create(x)).ToList();
+        }
 
         public IList<EducationModel> Get()
         {

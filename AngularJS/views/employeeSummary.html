@@ -169,14 +169,10 @@
 
     <div class="row">
         <div class="col-md-12">
-            <ul class="nav nav-tabs navbar-right">
-                <li ng-repeat="skills in summary.skills" class="active"><a data-toggle="tab" href="#home">{{ skills.categoryName }}</a></li>
-            </ul>
-            <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
-                    <h3>Programming Skills</h3>
-                    <p><img src="../images/skillsBarChart.jpg" /></p>
-                </div>
+            <div ac-chart="'bar'"
+                 ac-data="dataProgrammingSkills"
+                 ac-config="configProgrammingSkills"
+                 class="chart">
             </div>
         </div>
     </div>

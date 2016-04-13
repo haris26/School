@@ -99,8 +99,10 @@
     <Content Include="images\bg.jpg" />
     <Content Include="images\mistral_logo.png" />
     <Content Include="images\skillsBarChart.jpg" />
+    <Content Include="library\angular-charts.min.js" />
     <Content Include="library\angular-route.js" />
     <Content Include="library\angular.js" />
+    <Content Include="library\d3.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -125,6 +127,7 @@
     <Content Include="scripts\controllers\employeeSummaryController.js" />
     <Content Include="scripts\controllers\overviewController.js" />
     <Content Include="scripts\controllers\peopleController.js" />
+    <Content Include="scripts\controllers\qualificationsController.js" />
     <Content Include="scripts\controllers\skillsController.js" />
     <Content Include="library\jquery.min.js" />
     <Content Include="scripts\service.js" />
