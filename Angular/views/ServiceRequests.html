@@ -25,16 +25,25 @@
                                     <th>Request Message</th>
                                     <th>Request Description</th>
                                     <th>Request status</th>
+                                    <th>Change Status</th>
+                                    <th>Save</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="item in serviceRequests" class="request-table">
+                                <tr ng-repeat="item in serviceRequests" class="request-table"> 
+                                                                     
                                     <td>{{item.personName}} </td>
                                     <td>{{item.categoryName}}</td>
                                     <td>{{item.requestDate|date}}</td>
                                     <td>{{item.requestMessage}}</td>
                                     <td>{{item.requestDescription}}</td>
                                     <td>{{item.status}}</td>
+                                    <td><select ng-model="item.status"><option value="1">In Proccess</option>
+                                           <option value="2">Awaiting for approval</option>
+                                           <option value="3">Approved</option>
+                                           <option value="4">Completed</option>
+                                           <option value="5">Cancelled</option></select></td>
+                                    <td><button class="btn btn-danger" ng-click="changeStatus(item)">Save</button></td>
                                 </tr>
                             </tbody>
                         </table>

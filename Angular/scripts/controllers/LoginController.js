@@ -52,6 +52,7 @@
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
                             $rootScope.message = "";
+                            $location.path("/");
                         },
                         function (reason) {
                             currentUser = undefined;

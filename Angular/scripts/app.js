@@ -3,6 +3,7 @@
     var app = angular.module("school", ["ngRoute"]);
     authenticated = false;
     currentUser = {};
+   // $rootScope.user = currentUser.name;
 
     app.constant("schConfig",
         {
