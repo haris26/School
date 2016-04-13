@@ -19,7 +19,7 @@
                      });
             },
 
-            read: function (dataSet, id, callback) {
+           read: function (dataSet, id, callback) {
                 $http.get(source + dataSet + "/" + id)
                      .success(function (data) {
                          return callback(data);
@@ -30,7 +30,7 @@
                      });
             },
 
-            create: function (dataSet, data, callback) {
+           create: function (dataSet, data, callback) {
                 $http({ method: "post", url: source + dataSet, data: data })
                     .success(function (data) {
                         callback(data);
@@ -41,7 +41,7 @@
                     })
             },
 
-            update: function (dataSet, id, data, callback) {
+           update: function (dataSet, id, data, callback) {
                 $http({ method: "put", url: source + dataSet + "/" + id, data: data })
                     .success(function (data) {
                         callback(data);
@@ -52,7 +52,7 @@
                     })
             },
 
-            remove: function (dataSet, id, callback) {
+           remove: function (dataSet, id, callback) {
                 $http({ method: "delete", url: source + dataSet + "/" + id })
                     .success(function () {
                         callback(true);
@@ -61,7 +61,23 @@
                         $rootScope.message = error.message;
                         callback(false);
                     })
-            }
+            },
+
+           getPeople: function (searchedString, page, pageSize) {
+               var resourceUrl = "";
+               if (searchedString != "") {
+                   resourceUrl = source + "people/?searchedString=" + searchedString + "&page=" + page + "&pagesize=" + pageSize
+               }
+               else {
+                   resourceUrl = source + "people/?page=" + page + "&pagesize=" + pageSize
+               }
+
+               return $http({
+                   method: 'GET',
+                   url: resourceUrl
+               });
+           }
+
         };
     });
 }());

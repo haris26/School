@@ -13,6 +13,7 @@
             .when("/skills", { templateUrl: "skills.html", controller: "SkillsCtrl" })
             .when("/editCategory/:categoryId", { templateUrl: "editCategory.html", controller: "SkillsCtrl" })
             .when("/qualifications", { templateUrl: "qualifications.html", controller: "SkillsCtrl" })
+            .when("/people", {templateUrl: "people.html", controller:"PeopleCtrl"})
             .otherwise({ redirectTo: "skills" });
 
     });

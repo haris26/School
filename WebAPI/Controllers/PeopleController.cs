@@ -15,30 +15,50 @@ namespace WebAPI.Controllers
         public PeopleController(Repository<Person> depo):base(depo)
         { }
 
-        public IList<PersonModel> Get()
+        public IList<PersonModel> Get(int page, int PageSize)
         {
-            return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
+            var query = Repository.Get().OrderBy(x => x.FirstName)
+                                        .ThenBy(x => x.LastName).ToList();
+            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+            IList<PersonModel> people = query.Skip(PageSize * page)
+                                             .Take(PageSize).ToList()
+                                             .Select(x => Factory.Create(x))
+                                             .ToList();
+
+            var pageHeader = new
+            {
+                pageSize = PageSize,
+                currentPage = page,
+                pageCount = TotalPages
+            };
+
+            HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(pageHeader));
+            HttpContext.Current.Response.Headers.Add("Access-Control-Expose-Headers", "Pagination");
+            return people;
         }
 
-        //public IList<PersonModel> GetAll(int page = 0, int PageSize = 5)
-        //{
-        //    var query = Repository.Get().OrderBy(x => x.FirstName)
-        //                                .ThenBy(x => x.LastName).ToList();
-        //    int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
-        //    IList<PersonModel> people = query.Skip(PageSize * page)
-        //                                     .Take(PageSize).ToList()
-        //                                     .Select(x => Factory.Create(x))
-        //                                     .ToList();
+        public IList<PersonModel> Get (string searchedString, int page, int PageSize)
+        {
+            var query = Repository.Get()
+                            .Where(x => x.FirstName.Contains(searchedString) || x.LastName.Contains(searchedString))
+                            .OrderBy(x => x.FirstName)
+                            .ThenBy(x => x.LastName).ToList();
+            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+            IList<PersonModel> people = query.Skip(PageSize * page)
+                                             .Take(PageSize).ToList()
+                                             .Select(x => Factory.Create(x))
+                                             .ToList();
 
-        //    var pageHeader = new
-        //    {
-        //        pageSize = PageSize,
-        //        currentPage = page,
-        //        pageCount = TotalPages
-        //    };
+            var pageHeader = new
+            {
+                pageSize = PageSize,
+                currentPage = page,
+                pageCount = TotalPages
+            };
 
-        //    HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(pageHeader));
-        //    return people;
-        //}
+            HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(pageHeader));
+            HttpContext.Current.Response.Headers.Add("Access-Control-Expose-Headers", "Pagination");
+            return people;
+        }
     }
 }
