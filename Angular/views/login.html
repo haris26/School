@@ -1,7 +1,33 @@
-﻿<!DOCTYPE html>
+﻿<div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">Sign In</div>
+        </div>
 
+        <div class="panel-body">
+            <form id="loginform" class="form-horizontal" role="form">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="username" type="text" class="form-control" name="username" ng-model="user.name" placeholder="username">
+                </div>
 
-<body>
+                <div style="margin-bottom: 25px" class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="password" type="password" class="form-control" name="password" placeholder="password" ng-model="user.pass">
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12 controls">
+                        <input type="button" id="btn-login" class="btn btn-success" ng-click="tokenRequest()" value="Login"/>
+                        <input type="button" id="googleBtn" class="btn btn-danger" value="Login with Google"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--<body>
     <div class="panel" style="margin: 0 auto;">
 
 
@@ -18,4 +44,4 @@
 
         <div class="text"><input type="button" value="Sign in with Google" id="googleBtn" /></div>
     </div>
-</body>
+</body>-->

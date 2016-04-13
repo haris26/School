@@ -112,6 +112,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\confRoom.png" />
     <Content Include="images\devices.png" />
+    <Content Include="images\google.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\mistral.png" />
     <Content Include="images\spinner.gif" />
@@ -131,7 +132,6 @@
     <Content Include="library\angular.min.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\services\DataService.js" />
-    <Content Include="styles\style.css" />
     <Content Include="Global.asax" />
     <Content Include="views\login.html" />
     <Content Include="views\resourceList.html" />
