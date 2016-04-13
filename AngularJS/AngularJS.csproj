@@ -124,6 +124,7 @@
     <Content Include="scripts\controller.js" />
     <Content Include="scripts\controllers\employeeSummaryController.js" />
     <Content Include="scripts\controllers\overviewController.js" />
+    <Content Include="scripts\controllers\peopleController.js" />
     <Content Include="scripts\controllers\skillsController.js" />
     <Content Include="library\jquery.min.js" />
     <Content Include="scripts\service.js" />
@@ -135,6 +136,7 @@
     <Content Include="styles\responsive.css" />
     <Content Include="styles\style.css" />
     <Content Include="views\employeeSummary.html" />
+    <Content Include="views\people.html" />
     <Content Include="views\qualifications.html" />
     <Content Include="views\editCategory.html" />
     <Content Include="views\index.html" />

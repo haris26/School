@@ -10,13 +10,14 @@
     app.config(function ($routeProvider) {
 
         $routeProvider
+		    .when("/overview", { templateUrl: "overview.html", controller: "OverviewCtrl" })
             .when("/skills", { templateUrl: "skills.html", controller: "SkillsCtrl" })
             .when("/editCategory/:categoryId", { templateUrl: "editCategory.html", controller: "SkillsCtrl" })
             .when("/qualifications", { templateUrl: "qualifications.html", controller: "QualificationsCtrl" })
-            .when("/overview", { templateUrl: "overview.html", controller: "OverviewCtrl" })
             .when("/employeeSummary/:employeeId", { templateUrl: "employeeSummary.html", controller: "EmployeeSummaryCtrl" })
+            .when("/qualifications", { templateUrl: "qualifications.html", controller: "SkillsCtrl" })
+            .when("/people", {templateUrl: "people.html", controller:"PeopleCtrl"})
             .otherwise({ redirectTo: "overview" });
-
     });
 
 }());

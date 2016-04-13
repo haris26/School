@@ -12,6 +12,5 @@ namespace WebAPI.Models
         public int Category { get; set; }
         public string CategoryName { get; set; }
         public int NumOfEmployees { get; set; }
-        //nesto
     }
 }
