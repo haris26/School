@@ -116,10 +116,13 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controllers\DetailsController.js" />
     <Content Include="scripts\controllers\EngagementsController.js" />
+    <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\MonthController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
     <Content Include="scripts\controllers\RolesController.js" />
     <Content Include="scripts\controllers\TeamsController.js" />
+    <Content Include="scripts\directives\Permission.js" />
+    <Content Include="library\googleClient.js" />
     <Content Include="scripts\loginService.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="styles\site.css" />
@@ -131,7 +134,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />
-    <Folder Include="scripts\directives\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

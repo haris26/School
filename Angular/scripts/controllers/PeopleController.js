@@ -1,9 +1,10 @@
-(function(){
+(function () {
 
     var app = angular.module("school");
 
-    app.controller("PeopleController", function($scope, DataService) {
+    app.controller("PeopleController", function ($scope, DataService) {
 
+        $scope.modal = false;
         var dataSet = "people";
         $scope.selPerson = "";
         $scope.sortOrder = "lastName";
@@ -15,11 +16,12 @@
             });
         };
 
-        $scope.transfer = function(item) {
+        $scope.transfer = function (item) {
+            $scope.modal = true;
             $scope.person = item;
         };
 
-        $scope.newPerson = function() {
+        $scope.newPerson = function () {
             $scope.person = {
                 id: 0,
                 firstName: "",
@@ -35,13 +37,14 @@
             }
         };
 
-        $scope.saveData = function() {
-            if ($scope.person.id == 0){
-                DataService.create(dataSet, $scope.person, function(data){});
+        $scope.saveData = function () {
+            if ($scope.person.id == 0) {
+                DataService.create(dataSet, $scope.person, function (data) { });
             }
             else {
-                DataService.update(dataSet, $scope.person.id, $scope.person, function(data){});
+                DataService.update(dataSet, $scope.person.id, $scope.person, function (data) { });
             }
+            $scope.modal = false;
             fetchPeople();
         }
     });
