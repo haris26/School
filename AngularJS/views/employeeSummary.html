@@ -148,9 +148,16 @@
                     <div id="pastProjects" class="dashboard-window clearfix div-yellow">
                         <div class="d-w-text-maximum">
                             <h4><span class="glyphicon glyphicon-time"></span> Past Projects</h4>
-                            <ul ng-repeat="x in summary.pastProjects">
-                                <li>{{ x.pastProject }}</li>
-                            </ul>
+                            <table class="table">
+                                <tr>
+                                    <td>Project</td>
+                                    <td>Role</td>
+                                </tr>
+                                <tr ng-repeat="project in summary.pastProjects">
+                                    <td>{{ project.description }}</td>
+                                    <td>{{ project.role }}</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>

@@ -38,7 +38,7 @@
                             <th>Action</th>
                         </tr>
                         <tr ng-repeat="person in people">
-                            <td>{{person.firstName}} {{person.lastName}}</td>
+                            <td><a href="#/employeeSummary/{{person.id}}">{{person.firstName}} {{person.lastName}}</a></td>
                             <td>Assess</td>
                         </tr>
                     </tbody>
