@@ -112,13 +112,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\confRoom.png" />
     <Content Include="images\devices.png" />
+    <Content Include="images\loading.gif" />
     <Content Include="images\mistral.png" />
+    <Content Include="images\spinner.gif" />
     <Content Include="index.html" />
+    <Content Include="library\googleClient.js" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />
     <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\ReservationsController.js" />
     <Content Include="scripts\controllers\userDashboardController.js" />
     <Content Include="scripts\services\LoginService.js" />
+    <Content Include="scripts\services\Permission.js" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\site.css" />
     <Content Include="views\active.html" />

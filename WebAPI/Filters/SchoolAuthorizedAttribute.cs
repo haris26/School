@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading;
@@ -39,6 +40,8 @@ namespace WebAPI.Filters
                     {
                         var principal = new GenericIdentity(username);
                         Thread.CurrentPrincipal = new GenericPrincipal(principal, null);
+                        SchoolContext context = new SchoolContext();
+                        AppGlobals.currentUser = context.People.Where(x => x.FirstName == username).FirstOrDefault();
                         return;
                     }
                 }
