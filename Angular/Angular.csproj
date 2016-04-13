@@ -98,7 +98,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\loading.gif" />
     <Content Include="library\angular-route.js" />
+    <Content Include="library\googleClient.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -142,6 +144,7 @@
     <Content Include="scripts\controllers\TeamsController.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="scripts\services\LoginService.js" />
+    <Content Include="scripts\services\Permission.js" />
     <Content Include="styles\bootstrap-social.css" />
     <Content Include="styles\bootstrap-theme.min.css" />
     <Content Include="styles\bootstrap.min.css" />
