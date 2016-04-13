@@ -11,14 +11,14 @@ namespace WebAPI.Helpers
     {
         public static Event Create(EventModel model, SchoolContext context)
         {
-            //int id = AppGlobals.currentUser.Id;
-            Person p = context.People.Find(4);
+            int id = AppGlobals.currentUser.Id;
+            Person p = context.People.Find(id);
             Event ev = new Event()
             {
                 Id = model.Id,
                 EventTitle = model.EventTitle,
-                //User = context.People.Find(AppGlobals.currentUser.Id),
-                User = context.People.Find(4),
+                User = context.People.Find(AppGlobals.currentUser.Id),
+                //User = context.People.Find(4),
                 Resource = context.Resources.Find(model.Resource)
             };
             if ((model.StartDate.DayOfWeek != DayOfWeek.Saturday && model.StartDate.DayOfWeek != DayOfWeek.Sunday) 

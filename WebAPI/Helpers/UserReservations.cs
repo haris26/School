@@ -13,6 +13,7 @@ namespace WebAPI.Helpers
         public static UserReservationsModel Create()
         {
             SchoolContext context = new SchoolContext();
+
             UserReservationsModel model = new UserReservationsModel()
             {
                 Id = AppGlobals.currentUser.Id,
