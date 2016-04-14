@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
 
         public IList<DetailModel> GetAll(int page = 0)
         {
-            int PageSize = 100;
+            int PageSize = 200;
             var query = Repository.Get().OrderBy(x => x.Day.Date)
                                         .ThenBy(x => x.Day.Person.LastName);
 

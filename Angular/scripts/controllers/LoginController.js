@@ -1,10 +1,10 @@
-﻿(function() {
+(function () {
 
     var app = angular.module("school");
 
-    app.controller("LoginController", function($scope, $rootScope, $location, LoginService) {
+    app.controller("LoginController", function ($scope, $rootScope, $location, LoginService) {
 
-        $scope.user = {name: "", pass: ""};
+        $scope.user = { name: "", pass: "" };
         $scope.wait = false;
         startApp('googleBtn');
 
@@ -19,24 +19,24 @@
                     $rootScope.userName = currentUser.name;
                     $scope.wait = false;
                     $location.path("/people");
-},
+                },
                 function (reason) {
                     console.log(reason);
                     $rootScope.message = reason.status;
                     $scope.wait = false;
-}
+                }
             )
-};
+        };
 
         function startApp(actionButton) {
             gapi.load('auth2', function () {
                 auth2 = gapi.auth2.init({
-    client_id: '990732731863-in59ar3adprbnpuhmgagtsfdmvcfv9q4.apps.googleusercontent.com'
-    //cookiepolicy: 'single_host_origin'
-});
+                    client_id: '990732731863-in59ar3adprbnpuhmgagtsfdmvcfv9q4.apps.googleusercontent.com'
+                    //cookiepolicy: 'single_host_origin'
+                });
                 attachSignin(document.getElementById(actionButton));
-});
-};
+            });
+        };
 
         function attachSignin(element) {
             auth2.attachClickHandler(element, {},
@@ -52,18 +52,17 @@
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
                             $rootScope.message = "";
-},
+                        },
                         function (reason) {
                             currentUser = undefined;
                             authenticated = false;
                             $rootScope.message = "Invalid login, try again!";
-}
+                        }
                     );
-},
+                },
                 function (error) {
                     console.log(error);
-});
-};
-});
+                });
+        };
+    });
 }());
-

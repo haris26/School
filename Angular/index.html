@@ -5,16 +5,44 @@
     <script src="library/angular.js"></script>
     <script src="library/angular-route.js"></script> 
     <script src="scripts/app.js"></script>
+    <script src="library/googleClient.js"></script>
+    <script src="library/bootstrap.min.js"></script>
     <script src="scripts/controllers/DetailsController.js"></script>
+    <script src="scripts/controllers/CalendarController.js"></script>
+    <script src="scripts/controllers/PeopleController.js"></script>
+    <script src="scripts/controllers/LoginController.js"></script>
+    <script src="scripts/services/LoginService.js"></script>
     <script src="scripts/services/DataService.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="styles/site.css">
+    <link href="styles/calendar.css" rel="stylesheet" />
 </head>
 
 <body>
-    <h1>{{ message }}</h1>
-
-    <div><a href="#/details">Details</a><hr></div>
-
+    <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand"><img id="img_logo" alt="Logo" src="images/logo1.png" height="50" /></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/people">People</a></li>                       
+                        <li><a href="#/details">Details</a></li>
+                        <li><a href="#/createdetail">New Detail</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.html#/login"><span class="glyphicon glyphicon-user"></span>Log Out</a></li>
+                        <li><a href="#">{{ userName }}</a></li>
+                    </ul>
+                </div>
+            </div>
+            </nav>
     <div ng-view></div>
 </body>
 </html>

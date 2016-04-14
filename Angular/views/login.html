@@ -1,0 +1,34 @@
+﻿<div class="form-horizontal">
+    <div class="row">
+        <div class="form container-fluid col-xs-offset-4 col-xs-8 col-md-8">
+            <div class="row">
+                <div class="create col-xs-offset-1 col-sm-4">
+                    <a href="index.html#/createdetail"><img src="../images/mistral4.jpg" width="280" height="280" /></a>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="control-label col-md-2"><b>Username:</b></div>
+                <div class="col-md-10"><input class="form-control" type="text" ng-model="user.name">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="control-label col-md-2"><b>Password:</b></div>
+                <div class="col-md-10"><input class="form-control" type="password" ng-model="user.pass">
+                </div>
+            </div>
+            <div class="label form-group"></div>
+            <div class="text" ng-show="!wait">
+            </div>                
+                <div class="text" ng-show="!wait"></div>
+                <div class="text" ng-show="wait"><img src="images/loading.gif" /></div>            
+        </div>            
+        </div>
+    <div>
+        <div class="col-xs-offset-6">
+            <input type="button" class="btn btn-warning" id="loginBtn" value="Login" ng-click="tokenRequest()" />
+            <input type="button" class="btn btn-warning" id="googleBtn" value="Login with Google" />
+        </div>
+    </div>
+    </div>

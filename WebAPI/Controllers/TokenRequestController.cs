@@ -8,6 +8,7 @@ using System.Web.Http;
 using WebAPI.Filters;
 using WebAPI.Helpers;
 using WebAPI.Models;
+using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
@@ -16,6 +17,8 @@ namespace WebAPI.Controllers
     {
         public TokenRequestController(Repository<AuthToken> depo) : base(depo)
         { }
+
+        SchoolIdentity ident = new SchoolIdentity();
 
         public IHttpActionResult Post(TokenRequestModel request)
         {
@@ -32,7 +35,15 @@ namespace WebAPI.Controllers
                         ApiUser = user
                     };
                     Repository.Insert(authToken);
-                    return Ok(Factory.Create(authToken));
+                    TokenModel Credentials = new TokenModel()
+                    {
+                        Id = ident.currentUser.Id,
+                        Name = ident.currentUser.FullName,
+                        Roles = AppGlobals.GetRoles(ident.currentUser),
+                        Token = authToken.Token,
+                        Expiration = authToken.Expiration
+                    };
+                    return Ok(Credentials);
                 }
                 else
                 {
