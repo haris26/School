@@ -124,6 +124,7 @@
     <Content Include="scripts\app.js" />
     <Content Include="library\bootstrap.min.js" />
     <Content Include="scripts\controller.js" />
+    <Content Include="scripts\controllers\employeeAssessmentsController.js" />
     <Content Include="scripts\controllers\employeeSummaryController.js" />
     <Content Include="scripts\controllers\loginController.js" />
     <Content Include="scripts\controllers\overviewController.js" />
@@ -140,6 +141,7 @@
     <Content Include="styles\jquery-ui.css" />
     <Content Include="styles\responsive.css" />
     <Content Include="styles\style.css" />
+    <Content Include="views\employeeAssessments.html" />
     <Content Include="views\employeeSummary.html" />
     <Content Include="views\login.html" />
     <Content Include="views\people.html" />

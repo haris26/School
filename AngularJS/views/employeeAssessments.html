@@ -1,0 +1,130 @@
+﻿
+<div class="db-header clearfix">
+    <div class="page-header-title"><span class="glyphicon glyphicon-user"></span> User</div>
+    <div class="db-header-extra"></div>
+</div>
+<div>
+    <div id="content">
+        <div class="row">
+            <div class="col-md-offset-8 col-md-4">
+                <div class="btn-group" style="width:100%">
+                    <form method="get" action="employeeSummary.html">
+                        <button class="btn btn-primary" style="width:50%">Summary</button>
+                    </form>
+                    <button type="button" class="btn btn-primary" style="width:50%">Assessments</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-user">
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="../images/avatar.jpg" width="95px" height="95px">
+                            </td>
+                            <td valign="top" style="padding:10px">
+                                <h4>{{ assessments.fullName }}</h4>
+                                <p class="user_level_display">Employee</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="profile-info">
+                    <p class="profile-info-content1" style="padding:10px">Engagements</p>
+                    <table class="table-profile">
+                        <tr>
+                            <td class="profile-info-label1">Team</td>
+                            <td class="profile-info-label2">Role</td>
+                        </tr>
+                        <tr ng-repeat="assessment in assessments.engagements">
+                            <td class="profile-info-content1">{{ assessment.team }}</td>
+                            <td class="profile-info-content2">{{ assessment.role }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="selfAssessment" class="dashboard-window clearfix" style="background: #62acec; border-left: 5px solid #5798d1;">
+                    <div class="d-w-text">
+                        <h4><span class="glyphicon glyphicon-ok"></span> Self Assessment</h4>
+                        <hr />
+                        Status: {{assessments.selfAssessment.status}}
+                        <hr />
+                        Last Completed: {{assessments.selfAssessment.lastCompleted}}
+                        <hr />
+                        Next Due: {{assessments.selfAssessment.nextDue}}
+                        <br>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div id="supervisorAssessment" class="dashboard-window clearfix" style="background: #62acec; border-left: 5px solid #5798d1;">
+                    <div class="d-w-text">
+                        <h4><span class="glyphicon glyphicon-ok"></span> Supervisor Assessment</h4>
+                        <hr />
+                        Status: {{assessments.supervisorAssessment.status}}
+                        <hr />
+                        Last Completed: {{assessments.supervisorAssessment.lastCompleted}}
+                        <hr />
+                        Next Due: {{assessments.supervisorAssessment.nextDue}}
+                        <br>
+                    </div>
+                    <div class="col-sm-offset-10">
+                        <button class="btn btn-primary" style="width:100%">Assess</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div><h4>Assesment History</h4></div>
+        <div class="row">
+            <div class='col-md-3'>
+                <div class="form-group">
+                    <label>From</label>
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!--<script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                });
+            </script>-->
+            <div class='col-md-3'>
+                <label>To</label>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!--<script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                });
+            </script>-->
+            <div class="col-md-3">
+                <label>Skill</label>
+                <select ng-model="selectedSkill" class="form-control"
+                        ng-options="skill.id as skill.name for skill in assessments.availableSkills"></select>
+            </div>
+        </div>
+    </div>
+</div>
+
+
