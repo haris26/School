@@ -125,6 +125,7 @@
     <Content Include="library\bootstrap.min.js" />
     <Content Include="scripts\controller.js" />
     <Content Include="scripts\controllers\employeeSummaryController.js" />
+    <Content Include="scripts\controllers\loginController.js" />
     <Content Include="scripts\controllers\overviewController.js" />
     <Content Include="scripts\controllers\peopleController.js" />
     <Content Include="scripts\controllers\qualificationsController.js" />
@@ -132,6 +133,7 @@
     <Content Include="library\jquery.min.js" />
     <Content Include="scripts\service.js" />
     <Content Include="scripts\services\DataService.js" />
+    <Content Include="scripts\services\LoginService.js" />
     <Content Include="styles\bootstrap.css" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\dashboard.css" />
@@ -139,6 +141,7 @@
     <Content Include="styles\responsive.css" />
     <Content Include="styles\style.css" />
     <Content Include="views\employeeSummary.html" />
+    <Content Include="views\login.html" />
     <Content Include="views\people.html" />
     <Content Include="views\qualifications.html" />
     <Content Include="views\editCategory.html" />

@@ -6,7 +6,6 @@
 
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
-        //$scope.test = {};
 
         getEmployee($scope.employeeId);
 
@@ -23,7 +22,8 @@
                     for (var j = 0; j < $scope.summary.skills[i].skills.length; j++) {
                         chartData[$scope.summary.skills[i].categoryName].push({
                             x: $scope.summary.skills[i].skills[j].skill,
-                            y: [$scope.summary.skills[i].skills[j].level]
+                            y: [$scope.summary.skills[i].skills[j].level],
+                            "tooltip": $scope.summary.skills[i].skills[j].skill +" - level  "+ $scope.summary.skills[i].skills[j].level
                         })
                     }
 
@@ -32,7 +32,6 @@
                         data: chartData[$scope.summary.skills[i].categoryName]
                     };
                     $scope.configChart[$scope.summary.skills[i].categoryName] = {
-                            title: $scope.summary.skills[i].categoryName,
                             tooltips: true,
                             labels: false,
                             mouseover: function () { },
@@ -41,7 +40,8 @@
                             legend: {
                                 display: false,
                                 position: "right"
-                            }
+                            },
+                            colors: ["white"]
                     }
                 }
             })

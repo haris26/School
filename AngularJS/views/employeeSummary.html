@@ -16,16 +16,17 @@
         </div>
     </div><br>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="profile-user">
-                <table>
+                <table class="table-profile-user">
                     <tr>
                         <td>
                             <img src="../images/avatar.jpg" width="95px" height="95px">
                         </td>
-                        <td valign="top" style="padding:10px">
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top" style="padding:10px">
                             <h4>{{ summary.fullName }}</h4>
-                            <p class="user_level_display">Employee</p>
                         </td>
                     </tr>
                 </table>
@@ -44,137 +45,65 @@
                 </table>
             </div>
             <br>
+            <div id="qualificatins" class="dashboard-window clearfix div-blue">
+                <div class="d-w-text-maximum">
+                    <h4><a href="editQualifications.html"><span class="glyphicon glyphicon-edit white-link"></span></a> Qualifications</h4>
+                    <ul ng-repeat="x in summary.qualifications">
+                        <li>{{ x.qualification }}</li>
+
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div id="pastProjects" class="dashboard-window clearfix div-blue">
+                <div class="d-w-text-maximum">
+                    <h4><span class="glyphicon glyphicon-time"></span> Past Projects</h4>
+                    <table class="table">
+                        <tr>
+                            <td>Project</td>
+                            <td>Role</td>
+                        </tr>
+                        <tr ng-repeat="project in summary.pastProjects">
+                            <td>{{ project.description }}</td>
+                            <td>{{ project.role }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br>
         </div>
-        <div class="col-md-8">
-            <div class="row">
-                <div class="col-md-6" ng-repeat="skills in summary.skills" ng-if="skills.categoryName=='Programming Skills'">
-                    <div id="programingskills" class="dashboard-window clearfix div-green">
-                        <div class="d-w-text-maximum">
-                            <h4><span class="glyphicon glyphicon-cog"></span> {{skills.categoryName}}</h4>
-                            <table class="table">
-                                <tr>
-                                    <th></th>
-                                    <th>Level</th>
-                                    <th>Experience</th>
-                                </tr>
-                                <tr ng-repeat="skills in skills.skills">
-                                    <td>{{ skills.skill }}</td>
-                                    <td>{{ skills.level }}</td>
-                                    <td>{{ skills.experience }}</td>
-                                </tr>
-
-                            </table>
+        <div class="col-md-9">
+            <div ng-repeat="skills in summary.skills">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="dashboard-window clearfix div-darkblue">
+                            <div class="d-w-text-maximum">
+                                <h4><span class="glyphicon glyphicon-cog"></span> {{skills.categoryName}}</h4>
+                                <div class="col-md-5">
+                                    <table class="table">
+                                        <tr>
+                                            <th></th>
+                                            <th class="text-center">Level</th>
+                                            <th class="text-center">Experience</th>
+                                        </tr>
+                                        <tr ng-repeat="skills in skills.skills">
+                                            <td>{{ skills.skill }}</td>
+                                            <td class="text-center">{{ skills.level }}</td>
+                                            <td class="text-center">{{ skills.experience }}</td>
+                                        </tr>
+                                    </table>
+                                </div><div class="col-md-7">
+                                    <div ac-chart="'bar'"
+                                         ac-data="data[skills.categoryName]"
+                                         ac-config="configChart[skills.categoryName]"
+                                         class="chart">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <br>
-                </div>
-                <div class="col-md-6" ng-repeat="skills in summary.skills" ng-if="skills.categoryName=='Collaboration Tools'">
-                    <div id="colaborationstools" class="dashboard-window clearfix div-yellow">
-                        <div class="d-w-text-maximum">
-                            <h4><span class="glyphicon glyphicon-cog"></span> {{skills.categoryName}}</h4>
-                            <table class="table">
-                                <tr>
-                                    <th></th>
-                                    <th>Level</th>
-                                    <th>Experience</th>
-                                </tr>
-                                <tr ng-repeat="skills in skills.skills">
-                                    <td>{{ skills.skill }}</td>
-                                    <td>{{ skills.level }}</td>
-                                    <td>{{ skills.experience }}</td>
-                                </tr>
-
-                            </table>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-                <div class="col-md-6" ng-repeat="skills in summary.skills" ng-if="skills.categoryName=='Languages'">
-                    <div id="languages" class="dashboard-window clearfix div-red">
-                        <div class="d-w-text-maximum">
-                            <h4><span class="glyphicon glyphicon-cog"></span> {{skills.categoryName}}</h4>
-                            <table class="table">
-                                <tr>
-                                    <th></th>
-                                    <th>Level</th>
-                                    <th>Experience</th>
-                                </tr>
-                                <tr ng-repeat="skills in skills.skills">
-                                    <td>{{ skills.skill }}</td>
-                                    <td>{{ skills.level }}</td>
-                                    <td>{{ skills.experience }}</td>
-                                </tr>
-
-                            </table>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-                <div class="col-md-6" ng-repeat="skills in summary.skills" ng-if="skills.categoryName=='Project Management Tools'">
-                    <div id="projectmanagementtools" class="dashboard-window clearfix div-blue">
-                        <div class="d-w-text-maximum">
-                            <h4><span class="glyphicon glyphicon-cog"></span> {{skills.categoryName}}</h4>
-                            <table class="table">
-                                <tr>
-                                    <th></th>
-                                    <th>Level</th>
-                                    <th>Experience</th>
-                                </tr>
-                                <tr ng-repeat="skills in skills.skills">
-                                    <td>{{ skills.skill }}</td>
-                                    <td>{{ skills.level }}</td>
-                                    <td>{{ skills.experience }}</td>
-                                </tr>
-
-                            </table>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-                <div class="col-md-6">
-                    <div id="qualificatins" class="dashboard-window clearfix div-red">
-                        <div class="d-w-text-maximum">
-                            <h4><a href="editQualifications.html"><span class="glyphicon glyphicon-edit white-link"></span></a> Qualifications</h4>
-                            <ul ng-repeat="x in summary.qualifications">
-                                <li>{{ x.qualification }}</li>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-
-                <div class="col-md-6">
-                    <div id="pastProjects" class="dashboard-window clearfix div-yellow">
-                        <div class="d-w-text-maximum">
-                            <h4><span class="glyphicon glyphicon-time"></span> Past Projects</h4>
-                            <table class="table">
-                                <tr>
-                                    <td>Project</td>
-                                    <td>Role</td>
-                                </tr>
-                                <tr ng-repeat="project in summary.pastProjects">
-                                    <td>{{ project.description }}</td>
-                                    <td>{{ project.role }}</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                </div><hr><br />
             </div>
         </div>
     </div>
-    <hr>
-    <br>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div ng-repeat="category in summary.skills">
-                <div ac-chart="'bar'"
-                     ac-data="data[category.categoryName]"
-                     ac-config="configChart[category.categoryName]"
-                     class="chart">
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
