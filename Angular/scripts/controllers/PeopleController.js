@@ -39,13 +39,13 @@
 
         $scope.saveData = function() {
             if ($scope.person.id == 0){
-                DataService.create(dataSet, $scope.person, function(data){});
+                DataService.create(dataSet, $scope.person, function(data){fetchPeople()});
             }
             else {
-                DataService.update(dataSet, $scope.person.id, $scope.person, function(data){});
+                DataService.update(dataSet, $scope.person.id, $scope.person, function (data) { fetchPeople() });
             }
             $scope.modal = false;
-            fetchPeople();
+            //fetchPeople();
         }
     });
 }());

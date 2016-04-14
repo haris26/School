@@ -30,16 +30,11 @@
             </div>
             <div class="label">Date:</div>
             <div class="text"><input type="date" ng-model="detail.date"/></div>
-            <div class="label">Person:</div>
-            <div class="text">
-                <select ng-model="detail.person"
-                        ng-options="person.id as person.firstName + ' ' + person.lastName for person in people"></select>
-            </div>
             <div class="label">Work time:</div>
             <div class="text"><input type="text" ng-model="detail.workTime"></div>
             <div class="label">Description:</div>
             <div class="text"><input type="text" ng-model="detail.description"></div>
-            <div class="label">Team id:</div>
+            <div class="label">Team:</div>
             <div class="text">
                 <select ng-model="detail.team"
                         ng-options="team.id as team.name for team in teams"></select>
@@ -48,14 +43,13 @@
         <div class="panel panel-default"">
             Filter: <input type="search" ng-model="selDetail">
             Order: <select ng-model="sortOrder">
-                <option value="+personName">Person</option>
                 <option value="+description">Description</option>
                 <option value="-date">Date</option>
             </select>
             <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail">
                 <hr>
                 <table class="table table-bordered">
-                <tr><td><a href="#/details" ng-click="transfer(item)">{{ item.personName }}</a> </td><td> {{ item.date }} </td><td> {{ item.description }} </td><td> {{item.workTime}}</td><td> {{item.teamName}}</td></tr>
+                <tr><td><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td> | {{ item.date }}</td><td> | {{item.workTime}}</td><td> | {{item.teamName}}</td></tr>
                 </table>
             </div>
         </div>

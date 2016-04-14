@@ -18,6 +18,17 @@
                     }
                 })
             },
+            google: function (email) {
+                return $http({
+                    method: "post",
+                    url: source + "login",
+                    data: {
+                        email: email,
+                        signature: schConfig.signature,
+                        apiKey: schConfig.apiKey
+                    }
+                })
+            }
         };
 
         function encode(input) {

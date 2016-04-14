@@ -12,7 +12,7 @@
         getPeople();
         getDays();
         function getDays() {
-            DataService.list("days", function (data) {
+            DataService.read("days", currentUser.id, function (data) {
                 $scope.days= data;
             });
         };
@@ -23,12 +23,12 @@
             });
         };
         function getPeople() {
-            DataService.list("people", function (data) {
+            DataService.read("people", currentUser.id, function (data) {
                 $scope.people = data;
             });
         };
         function fetchData() {
-            DataService.list(dataSet, function (data) {
+            DataService.read(dataSet, currentUser.id, function (data) {
                 $scope.details = data;
             });
         }
@@ -45,8 +45,8 @@
                 id: 0,
                 day: 0,
                 date: new Date().Date,
-                person: 0,
-                personName: "",
+                person: currentUser.id,
+                personName: currentUser.personName,
                 workTime: "",
                 description: "",
                 team: 0,
