@@ -6,7 +6,6 @@
 
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
-        //$scope.test = {};
 
         getEmployee($scope.employeeId);
 

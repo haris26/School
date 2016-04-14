@@ -16,7 +16,8 @@
             .when("/qualifications", { templateUrl: "qualifications.html", controller: "QualificationsCtrl" })
             .when("/employeeSummary/:employeeId", { templateUrl: "employeeSummary.html", controller: "EmployeeSummaryCtrl" })
             .when("/qualifications", { templateUrl: "qualifications.html", controller: "SkillsCtrl" })
-            .when("/people", {templateUrl: "people.html", controller:"PeopleCtrl"})
+            .when("/people", { templateUrl: "people.html", controller: "PeopleCtrl" })
+            .when("/employeeAssessments/:employeeId", {templateUrl: "employeeAssessments.html", controller: "EmployeeAssessmentsCtrl"})
             .otherwise({ redirectTo: "overview" });
     });
 
