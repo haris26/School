@@ -1,6 +1,8 @@
 (function(){
 
     var app = angular.module("school", ["ngRoute"]);
+    authenticated = false;
+    currentUser = {};
 
     app.constant("schConfig",
         {

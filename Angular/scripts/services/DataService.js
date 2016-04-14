@@ -1,3 +1,4 @@
+/// <reference path="DataService.js" />
 (function () {
 
     var app = angular.module("school");

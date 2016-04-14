@@ -18,7 +18,6 @@
                     }
                 })
             },
-
             google: function (email) {
                 return $http({
                     method: "post",

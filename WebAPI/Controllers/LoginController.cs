@@ -9,7 +9,8 @@ using WebAPI.Models;
 using WebMatrix.WebData;
 
 namespace WebAPI.Controllers
-{
+{ 
+
     public class UserModel
     {
         public string Email { get; set; }

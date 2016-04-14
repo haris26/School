@@ -25,15 +25,6 @@ namespace WebAPI.Helpers
             return sign;
         }
 
-        public static List<string> GetRoles(Person User)
-        {
-            return User.Roles
-            .Where(x => x.Role.System)
-            .OrderBy(x => x.Role.Name)
-            .Select(x => x.Role.Name.ToLower())
-            .Distinct().ToList();
-        }
-
         public static string GenerateToken(ApiUser user)
         {
             var provider = new System.Security.Cryptography.HMACSHA256(Convert.FromBase64String(user.AppId));
@@ -41,6 +32,14 @@ namespace WebAPI.Helpers
             var rawTokenByte = Encoding.UTF8.GetBytes(rawTokenInfo);
             var token = provider.ComputeHash(rawTokenByte);
             return Convert.ToBase64String(token);
+        }
+        public static List<string> GetRoles(Person User)
+        {
+            return User.Roles
+                       .Where(x => x.Role.System)
+                       .OrderBy(x => x.Role.Name)
+                       .Select(x => x.Role.Name.ToLower())
+                       .Distinct().ToList();
         }
     }
 }

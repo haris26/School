@@ -51,7 +51,8 @@ namespace WebAPI.Models
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Category = model.Category,
-                Status = model.Status
+                Status = model.Status,
+                Email=model.Email
             };
         }
 

@@ -91,7 +91,8 @@ namespace WebAPI.Models
                 FirstName = person.FirstName,
                 LastName = person.LastName,
                 Category = person.Category,
-                Status = person.Status
+                Status = person.Status,
+                Email=person.Email
             };
         }
         public TokenModel Create(AuthToken token)
