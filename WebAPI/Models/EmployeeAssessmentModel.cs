@@ -7,8 +7,8 @@ namespace WebAPI.Models
 {
     public class Assessment
     {
-        public DateTime? LastCompleted { get; set; }
-        public DateTime? NextDue { get; set; }
+        public string LastCompleted { get; set; }
+        public string NextDue { get; set; }
         public string Status { get; set; }
     }
     

@@ -5,10 +5,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebAPI.Filters;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
+    [TokenAuthorize]
     public class TeamsController : BaseController<Team>
     {
         public TeamsController(Repository<Team> depo) : base(depo)

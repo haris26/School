@@ -8,7 +8,7 @@ namespace WebAPI.Models
     public class SkillAssessmentModel
     {
         public string Name { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public int Level { get; set; }
     }
 }

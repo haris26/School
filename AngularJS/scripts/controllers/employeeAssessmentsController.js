@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("EmployeeAssessmentsCtrl", function ($scope, $routeParams, $log, DataService) {
+    app.controller("EmployeeAssessmentsCtrl", function ($scope, $routeParams, $log, $location, DataService) {
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
 
@@ -13,7 +13,6 @@
         var chartData = [];
         $scope.data = {};
         $scope.configChart = {};
-        $scope.showChart = false;
         $scope.visibilityClass = "invisibleChart";
         $scope.chartClass = "invisibleChart1";
 
@@ -22,7 +21,9 @@
         function getEmployeeAssessments(id) {
             DataService.read("employeeassessments", id, function (data) {
                 $scope.assessments = data;
-                $scope.selectedSkill = $scope.assessments.availableSkills[0].id;
+                if ($scope.assessments.availableSkills.length > 0) {
+                    $scope.selectedSkill = $scope.assessments.availableSkills[0].id;
+                }
                 $scope.message = "";
             })
         }
@@ -101,8 +102,11 @@
                 colors: ["white"]
             }
 
-            $scope.showChart = true;
             $scope.visibilityClass = "div-darkblue";
+        }
+
+        $scope.goToSumarry = function () {
+            $location.path('/employeeSummary/' + $scope.employeeId);
         }
     });
 }());
