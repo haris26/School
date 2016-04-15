@@ -56,8 +56,7 @@
         $scope.deleteData = function()
         {
                 DataService.delete(dataSet, $scope.detail.id, function (data) { fetchData()});   
-           // fetchData();
-            
+           // fetchData();            
         }
 
         $scope.saveData = function () {
@@ -71,5 +70,4 @@
             //fetchData();
         }
     });
-
 }());
