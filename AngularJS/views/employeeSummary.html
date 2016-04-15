@@ -45,29 +45,33 @@
                 </table>
             </div>
             <br>
+            <div ng-repeat="qualification in summary.qualifications">
             <div id="qualificatins" class="dashboard-window clearfix div-blue">
                 <div class="d-w-text-maximum">
                     <h4><a href="editQualifications.html"><span class="glyphicon glyphicon-edit white-link"></span></a> Qualifications</h4>
-                    <ul ng-repeat="x in summary.qualifications">
-                        <li>{{ x.qualification }}</li>
+                    <ul>
+                        <li>{{ qualification.qualification }}</li>
 
                     </ul>
                 </div>
             </div>
+            </div>
             <br>
-            <div id="pastProjects" class="dashboard-window clearfix div-blue">
-                <div class="d-w-text-maximum">
-                    <h4><span class="glyphicon glyphicon-time"></span> Past Projects</h4>
-                    <table class="table">
-                        <tr>
-                            <td>Project</td>
-                            <td>Role</td>
-                        </tr>
-                        <tr ng-repeat="project in summary.pastProjects">
-                            <td>{{ project.description }}</td>
-                            <td>{{ project.role }}</td>
-                        </tr>
-                    </table>
+            <div ng-repeat="project in summary.pastProjects">
+                <div id="pastProjects" class="dashboard-window clearfix div-blue">
+                    <div class="d-w-text-maximum">
+                        <h4><span class="glyphicon glyphicon-time"></span> Past Projects</h4>
+                        <table class="table">
+                            <tr>
+                                <td>Project</td>
+                                <td>Role</td>
+                            </tr>
+                            <tr>
+                                <td>{{ project.description }}</td>
+                                <td>{{ project.role }}</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             <br>
@@ -78,8 +82,8 @@
                     <div class="col-md-12">
                         <div class="dashboard-window clearfix div-darkblue">
                             <div class="d-w-text-maximum">
-                                <h4><span class="glyphicon glyphicon-cog"></span> {{skills.categoryName}}</h4>
-                                <div class="col-md-5">
+                                <h4><span class="glyphicon glyphicon-cog"></span> {{skills.categoryName}}</h4><br>
+                                <div class="col-md-4">
                                     <table class="table">
                                         <tr>
                                             <th></th>
@@ -92,7 +96,8 @@
                                             <td class="text-center">{{ skills.experience }}</td>
                                         </tr>
                                     </table>
-                                </div><div class="col-md-7">
+                                </div>
+                                <div class="col-md-8">
                                     <div ac-chart="'bar'"
                                          ac-data="data[skills.categoryName]"
                                          ac-config="configChart[skills.categoryName]"
@@ -102,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                </div><hr><br />
+                </div><br />
             </div>
         </div>
     </div>

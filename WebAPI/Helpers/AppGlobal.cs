@@ -33,9 +33,13 @@ namespace WebAPI.Helpers
             return Convert.ToBase64String(token);
         }
 
-        public static List<string> GetRoles(Person currentUser)
+        public static List<string> GetRoles(Person User)
         {
-            return currentUser.Roles.Where(x => x.Role.System).OrderBy(x => x.Role.Name).Select(x => x.Role.Name).Distinct().ToList();
+            return User.Roles
+                .Where(x => x.Role.System)
+                .OrderBy(x => x.Role.Name)
+                .Select(x => x.Role.Name)
+                .Distinct().ToList();
         }
     }
 }

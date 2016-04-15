@@ -2,6 +2,9 @@
 
     var app = angular.module("school", ["ngRoute", "angularCharts", "ui.bootstrap"]);
 
+    authenticated = false;
+    currentUser = {};
+
     app.constant("schConfig",
         {
             source: "http://localhost:55013/api/",
@@ -18,17 +21,16 @@
             .when("/editCategory/:categoryId", { templateUrl: "editCategory.html", controller: "SkillsCtrl" })
             .when("/qualifications", { templateUrl: "qualifications.html", controller: "QualificationsCtrl" })
             .when("/employeeSummary/:employeeId", { templateUrl: "employeeSummary.html", controller: "EmployeeSummaryCtrl" })
-			.when("/people", { templateUrl: "people.html", controller: "PeopleCtrl" })
             .when("/employeeAssessments/:employeeId", {templateUrl: "employeeAssessments.html", controller: "EmployeeAssessmentsCtrl"})
+            .when("/qualifications", { templateUrl: "qualifications.html", controller: "SkillsCtrl" })
+            .when("/people", { templateUrl: "people.html", controller: "PeopleCtrl" })
             .otherwise({ redirectTo: "/overview" });
-    }
-    //        ).run(function ($rootScope, $location) {
-	//			$rootScope.$on("$routeChangeStart", function (event, next, current) {
-	//				if (!authenticated) {
-	//					if (next.templateUrl != "login.html")
-	//						$location.path("/login");
-    //        }
-    //    })
-    //}
-    );
+    }).run(function ($rootScope, $location) {
+        $rootScope.$on("$routeChangeStart", function (event, next, current) {
+            if (!authenticated) {
+                if (next.templateUrl != "login.html")
+                    $location.path("/login");
+            }
+        })
+    });
 }());

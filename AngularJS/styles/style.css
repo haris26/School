@@ -64,11 +64,8 @@ td:first-child { font-weight: bold; }
 .table-profile td { padding: 8px;}
 .table-profile tr { border-top: 1px solid #719CC4;}
 
-.div-green { background: #5cb85c; border-left: 5px solid #4f9f4f; }
-.div-yellow { background: #f0ad4e; border-left: 5px solid #d89b45; }
-.div-red { background: #d9534f; border-left: 5px solid #b94643; }
-.div-blue { background: #62acec; border-left: 5px solid #5798d1; }
-.div-darkblue { background: #273643; border-left: 5px solid #5798d1;}
+.div-darkblue { background: #273643; border-left: 5px solid #1d2832; }
+.div-blue { background: #668caf; border-left: 5px solid #476988; }
 
 .chart { width:100%; height:300px; }
 .invisibleChart {height: 0px; background-color: white}
