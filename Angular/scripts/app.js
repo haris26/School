@@ -1,8 +1,15 @@
 ﻿(function () {
 
-    var app = angular.module("school", ["ngRoute"]);
+    var app = angular.module("school", ["ngRoute", "ngCookies"]);
     authenticated = false;
-    currentUser = {};
+    currentUser = {
+        id: 0,
+        name: "",
+        roles: [],
+        token: "",
+        expiration: null
+    };
+
 
     app.constant("schConfig",
         {
@@ -25,18 +32,19 @@
             .when("/assets", { templateUrl: "views/AllAssets.html", controller: "AssetsController" })
             .when("/newservicerequests", { templateUrl: "views/SendServiceRequest.html", controller: "NewServiceRequestController" })
              .when("/login", { templateUrl: "views/login.html", controller: "LoginController" })
+            .when("/logout", { template: "", controller: "LogoutController" })
             .when("/people", { templateUrl: "views/people.html", controller: "PeopleController" })
             .when("/teams", { templateUrl: "views/teams.html", controller: "TeamsController" })
             .when("/roles", { templateUrl: "views/roles.html", controller: "RolesController" })
             .when("/engagements", { templateUrl: "views/engagements.html", controller: "EngagementsController" })
-            .otherwise({redirectTo: "/"});
-          }).run(function($rootScope, $location){
-                 $rootScope.$on("$routeChangeStart", function(event, next, current){
-                   if (!authenticated) {
-                      if (next.templateUrl != "views/login.html")
-                         $location.path("/login");
+            .otherwise({ redirectTo: "/" });
+    })
+        .run(function ($rootScope, $location) {
+        $rootScope.$on("$routeChangeStart", function (event, next, current) {
+            if (!authenticated) {
+                if (next.templateUrl != "views/login.html")
+                    $location.path("/login");
             }
         })
     });
-
 }());

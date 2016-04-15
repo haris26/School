@@ -5,15 +5,18 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebApi.Controllers;
+using WebAPI.Controllers;
+using WebAPI.Filters;
+using WebAPI.Helpers;
 using WebAPI.Models;
 
 
 namespace WebAPI.Controllers
 {
+  
     public class RequestsController : BaseController<Request>
     {
-
+        SchoolIdentity ident = new SchoolIdentity();
         public RequestsController(Repository<Request> depo) : base(depo) { }
 
         public Object GetAll(int page = 0)
@@ -50,7 +53,7 @@ namespace WebAPI.Controllers
                 count
             };
         }
-
+      
 
         public IHttpActionResult Get(int id)
 

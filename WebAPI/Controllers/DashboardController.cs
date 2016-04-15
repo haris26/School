@@ -1,10 +1,10 @@
 ﻿using Database;
 using System.Web.Http;
-using WebApi.Filters;
-using WebApi.Helpers;
+using WebAPI.Filters;
+using WebAPI.Helpers;
 using WebAPI.Filters;
 
-namespace WebApi.Controllers
+namespace WebAPI.Controllers
 {
     [SchoolAuthorize(true)]
     public class DashboardController : BaseController<Person>

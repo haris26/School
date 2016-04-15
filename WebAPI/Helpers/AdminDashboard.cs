@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WebApi.Models;
+using WebAPI.Models;
 using WebAPI.Models;
 
-namespace WebApi.Helpers
+namespace WebAPI.Helpers
 {
     public static class AdminDashboard
     {
@@ -25,35 +25,16 @@ namespace WebApi.Helpers
             {            
                if(request.requestType==RequestType.Equipment && request.Status==RequestStatus.InProccess &&  request.AssetType==AssetType.Device)
                 {
-                    //dashboard.EquipmentRequests.Add(new RequestListModel()
-                    //{
-                    //    Id = request.Id,
-                    //    RequestType = request.requestType
-                    //});
                     dashboard.CountEquipmentRequests++;
-                    
-                }
+                 }
 
                else if(request.requestType == RequestType.Service && request.Status == RequestStatus.InProccess && request.AssetType==AssetType.Device)
                 {
-                    //dashboard.ServiceRequests.Add(new RequestListModel()
-                    //{
-                    //    Id = request.Id,
-                    //    RequestType = request.requestType
-                    //});
+                   
                     dashboard.CountServiceRequests++;
                 }
 
-                //else if (request.Status == RequestStatus.InProccess && request.AssetType == AssetType.Device && request.Asset.Status==AssetStatus.OutofOrder)
-                //{
-                //    //dashboard.ServiceRequests.Add(new RequestListModel()
-                //    //{
-                //    //    Id = request.Id,
-                //    //    RequestType = request.requestType
-                //    //});
-
-                //    dashboard.CountOutOfStorage++;
-                //}
+               
             }
 
             //counting assets by type and status
@@ -71,8 +52,7 @@ namespace WebApi.Helpers
 
                 }
             }
-            //dashboard.CountEquipmentRequests = dashboard.EquipmentRequests.Count;
-            //dashboard.CountServiceRequests = dashboard.ServiceRequests.Count;
+         
 
             return dashboard;
         }

@@ -4,7 +4,7 @@ namespace Database
 {
     public class SchoolContext: DbContext
     {
-        public SchoolContext(): base()
+        public SchoolContext(): base("SchoolLocal")
         { }
         // ALPHA
         public DbSet<Education> Educations { get; set; }

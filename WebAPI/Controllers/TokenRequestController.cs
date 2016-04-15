@@ -5,9 +5,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebApi.Controllers;
-using WebApi.Filters;
-using WebApi.Helpers;
+using WebAPI.Controllers;
+using WebAPI.Filters;
+using WebAPI.Helpers;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers

@@ -5,10 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebApi.Models;
+using WebAPI.Models;
 using WebAPI.Models;
 
-namespace WebApi.Controllers
+namespace WebAPI.Controllers
 {
     public class BaseController<T> : ApiController where T : class
     {

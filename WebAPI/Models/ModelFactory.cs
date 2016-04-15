@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WebApi.Models;
+using WebAPI.Models;
 
 namespace WebAPI.Models
 {
@@ -70,7 +70,7 @@ namespace WebAPI.Models
 
         }
 
-      
+
 
         public RoleModel Create(Role role)
         {
@@ -94,38 +94,40 @@ namespace WebAPI.Models
             };
             foreach (var asset in category.Assets)
             {
-                if (asset.User == null) { 
-                model.Assets.Add(new AssetsModel
+                if (asset.User == null)
                 {
-                    Name = asset.Name,
-                    //User = asset.User.Id,
-                    //UserName = asset.User.FullName,
-                    Model = asset.Model,
-                    SerialNumber = asset.SerialNumber,
-                    Vendor = asset.Vendor,
-                    Price = asset.Price,
-                    DateOfTrade = asset.DateOfTrade,
-                    Status = asset.Status.ToString(),
-                    Category = asset.AssetCategory.Id,
-                    CategoryName = asset.AssetCategory.CategoryName
-                }); }
+                    model.Assets.Add(new AssetsModel
+                    {
+                        Name = asset.Name,
+                        //User = asset.User.Id,
+                        //UserName = asset.User.FullName,
+                        Model = asset.Model,
+                        SerialNumber = asset.SerialNumber,
+                        Vendor = asset.Vendor,
+                        Price = asset.Price,
+                        DateOfTrade = asset.DateOfTrade,
+                        Status = asset.Status.ToString(),
+                        Category = asset.AssetCategory.Id,
+                        CategoryName = asset.AssetCategory.CategoryName
+                    });
+                }
                 else
                     model.Assets.Add(new AssetsModel
-                {
-                    Name = asset.Name,
+                    {
+                        Name = asset.Name,
                         User = asset.User.Id,
                         UserName = asset.User.FullName,
                         Model = asset.Model,
-                    SerialNumber = asset.SerialNumber,
-                    Vendor = asset.Vendor,
-                    Price = asset.Price,
-                    DateOfTrade = asset.DateOfTrade,
-                    Status = asset.Status.ToString(),
-                    Category = asset.AssetCategory.Id,
-                    CategoryName = asset.AssetCategory.CategoryName
-                });
+                        SerialNumber = asset.SerialNumber,
+                        Vendor = asset.Vendor,
+                        Price = asset.Price,
+                        DateOfTrade = asset.DateOfTrade,
+                        Status = asset.Status.ToString(),
+                        Category = asset.AssetCategory.Id,
+                        CategoryName = asset.AssetCategory.CategoryName
+                    });
             }
-            
+
             return model;
         }
         public AssetCharsModel Create(AssetChar characteristic)
@@ -133,19 +135,19 @@ namespace WebAPI.Models
             AssetCharsModel model = new AssetCharsModel()
             {
                 Id = characteristic.Id,
-               Name = characteristic.Name,
-             Value=characteristic.Value,
-               Asset = characteristic.Asset.Id,
-              AssetName=characteristic.Asset.Name
+                Name = characteristic.Name,
+                Value = characteristic.Value,
+                Asset = characteristic.Asset.Id,
+                AssetName = characteristic.Asset.Name
 
             };
-            
-              return model;
+
+            return model;
         }
         public AssetsModel Create(Asset asset)
         {
-            
-           AssetsModel model=new AssetsModel()
+
+            AssetsModel model = new AssetsModel()
             {
                 Id = asset.Id,
                 Name = asset.Name,
@@ -159,7 +161,7 @@ namespace WebAPI.Models
                 CategoryName = asset.AssetCategory.CategoryName,
                 DateOfTrade = asset.DateOfTrade,
                 SerialNumber = asset.SerialNumber
-              
+
             };
             return model;
         }

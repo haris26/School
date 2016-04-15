@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Web;
-using WebApi.Models;
+using WebAPI.Models;
 using Database;
 
-namespace WebApi.Helpers
+namespace WebAPI.Helpers
 {
     public class SchoolIdentity
     {

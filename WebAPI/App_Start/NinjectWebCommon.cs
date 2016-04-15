@@ -1,7 +1,7 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WebApi.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WebApi.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WebAPI.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WebAPI.App_Start.NinjectWebCommon), "Stop")]
 
-namespace WebApi.App_Start
+namespace WebAPI.App_Start
 {
     using System;
     using System.Web;
@@ -11,10 +11,10 @@ namespace WebApi.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using System.Web.Http;
-    using WebApiContrib.IoC.Ninject;
+   
     using Database;
     using System.Data.Entity;
-
+    using WebApiContrib.IoC.Ninject;
     public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();

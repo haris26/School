@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebApi.Models
+namespace WebAPI.Models
 {
     public class ListModel
     {
         public string Category { get; set; }
         public int Count { get; set;}
+        public string Message { get; set; }
     }
 
     public class DashboardModel

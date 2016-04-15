@@ -3,10 +3,10 @@ using System;
 using System.Security.Principal;
 using System.Threading;
 using System.Web.Http;
-using WebApi.Helpers;
+using WebAPI.Helpers;
 using WebMatrix.WebData;
 
-namespace WebApi.Controllers
+namespace WebAPI.Controllers
 {
     public class UserModel
     {

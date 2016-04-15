@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WebApi.Models;
+using WebAPI.Models;
 
-namespace WebApi.Helpers
+namespace WebAPI.Helpers
 {
     public static class Dashboard
     {
@@ -24,11 +24,11 @@ namespace WebApi.Helpers
             {
                 dashboard.Assets.Add(new ListModel { Category = asset.type, Count = asset.count });
             }
-            var requests = person.Requests.GroupBy(x => x.RequestDescription).Select(x => new { type = x.Key, count = x.Count() }).ToList();
+            var requests = person.Requests.GroupBy(x => x.RequestDescription).Select(x => new { type = x.Key, count = x.Count(), message=x.Key }).ToList();
 
             foreach (var request in requests)
             {
-                dashboard.Requests.Add(new ListModel { Category = request.type, Count = request.count });
+                dashboard.Requests.Add(new ListModel { Category = request.type, Count = request.count, Message=request.message});
 
 
             }

@@ -2,29 +2,19 @@
 
     var app = angular.module("school");
 
-    app.controller("AdminDashboardController", function ($scope, $rootScope, DataService) {
-
-        var dataSet = "Files";
-        $scope.selString = "";
-        //$scope.sortOrder = "";
-        getFiles();
+    app.controller("AdminDashboardController", function ($scope, $rootScope, DataService, schConfig) {
+        var dataSet = "admindashboard";
+        var num="1";
         fetchData();
 
-        function getFiles() {
-            DataService.list("admindashboard/1", function (data) {
-                $scope.Files= data;
-            });
-        };
-
         function fetchData() {
-            DataService.list(dataSet, function (data) {
-                $scope.Files = data;
+
+            DataService.read(dataSet,num, function (data) {
+                $scope.dashboard = data;
             });
         }
 
-        $scope.transfer = function (item) {
-            $scope.Files = item;
-
-        };
+      
+       
     });
 }());

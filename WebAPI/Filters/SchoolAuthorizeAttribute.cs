@@ -10,9 +10,9 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using Database;
 using WebMatrix.WebData;
-using WebApi.Helpers;
+using WebAPI.Helpers;
 
-namespace WebApi.Filters
+namespace WebAPI.Filters
 {
     public class SchoolAuthorizeAttribute : AuthorizationFilterAttribute
     {

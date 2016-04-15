@@ -7,11 +7,11 @@ using System.Web.Routing;
 
 namespace WebAPI
 {
-    public class WebApiApplication : System.Web.HttpApplication
+    public class WebAPIApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
         {
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            GlobalConfiguration.Configure(WebAPIConfig.Register);
         }
     }
 }

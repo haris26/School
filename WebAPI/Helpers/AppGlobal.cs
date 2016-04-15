@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Web;
 
-namespace WebApi.Helpers
+namespace WebAPI.Helpers
 {
     public static class AppGlobals
     {

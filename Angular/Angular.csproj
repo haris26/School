@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\loading.gif" />
+    <Content Include="library\angular-cookies.js" />
     <Content Include="library\angular-route.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="packages.config" />
@@ -124,6 +125,7 @@
     <Content Include="scripts\controllers\AdminDashboardController.js" />
     <Content Include="scripts\controllers\AssetsController.js" />
     <Content Include="scripts\controllers\EngagementsController.js" />
+    <Content Include="scripts\controllers\HistoryController.js" />
     <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\NewRequestsController.js" />
     <Content Include="scripts\controllers\NewServiceRequestController.js" />
@@ -156,6 +158,7 @@
     <Content Include="views\AdminDashboard.html" />
     <Content Include="views\AllAssets.html" />
     <Content Include="views\engagements.html" />
+    <Content Include="views\History.html" />
     <Content Include="views\login.html" />
     <Content Include="views\NewRequests.html" />
     <Content Include="views\people.html" />

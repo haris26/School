@@ -15,7 +15,6 @@ namespace WebAPI.Models
             public string Description { get; set; }
             public int Person { get; set; }
             public string PersonName { get; set; }
-         
             public int Asset { get; set; }
             public string AssetModel { get; set; }
             public HistoryStatus Status { get; set; }

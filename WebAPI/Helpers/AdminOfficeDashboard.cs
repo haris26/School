@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WebApi.Models;
+using WebAPI.Models;
 using WebAPI.Models;
 
-namespace WebApi.Helpers
+namespace WebAPI.Helpers
 {
     public static class AdminOfficeDashboard
     {
@@ -25,22 +25,14 @@ namespace WebApi.Helpers
             {
                 if (request.requestType == RequestType.Equipment && request.Status == RequestStatus.InProccess && request.AssetType == AssetType.Office)
                 {
-                    //dashboard.EquipmentRequests.Add(new RequestListModel()
-                    //{
-                    //    Id = request.Id,
-                    //    RequestType = request.requestType
-                    //});
+                    
                     dashboard.CountEquipmentRequests++;
 
                 }
 
                 else if (request.requestType == RequestType.Service && request.Status == RequestStatus.InProccess && request.AssetType == AssetType.Office)
                 {
-                    //dashboard.ServiceRequests.Add(new RequestListModel()
-                    //{
-                    //    Id = request.Id,
-                    //    RequestType = request.requestType
-                    //});
+                    
                     dashboard.CountServiceRequests++;
                 }
             }
@@ -63,8 +55,6 @@ namespace WebApi.Helpers
                 }
             }
 
-            //dashboard.CountEquipmentRequests = dashboard.EquipmentRequests.Count;
-            //dashboard.CountServiceRequests = dashboard.ServiceRequests.Count;
 
             return dashboard;
         }

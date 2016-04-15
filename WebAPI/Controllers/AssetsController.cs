@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebApi.Controllers;
+using WebAPI.Controllers;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
@@ -28,8 +28,8 @@ namespace WebAPI.Controllers
 
             IList<AssetsModel> assets =
                 query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
-            
-      
+
+
 
             return new
             {

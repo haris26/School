@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Database;
 using WebAPI.Models;
-using WebApi.Controllers;
+using WebAPI.Controllers;
 
 namespace WebAPI.Controllers
 {
