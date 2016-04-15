@@ -15,7 +15,7 @@
     app.config(function ($routeProvider) {
 
         $routeProvider
-            //.when("/login", { templateUrl: "login.html", controller: "LoginCtrl" })
+            .when("/login", { templateUrl: "login.html", controller: "LoginCtrl" })
 		    .when("/overview", { templateUrl: "overview.html", controller: "OverviewCtrl" })
             .when("/skills", { templateUrl: "skills.html", controller: "SkillsCtrl" })
             .when("/editCategory/:categoryId", { templateUrl: "editCategory.html", controller: "SkillsCtrl" })
