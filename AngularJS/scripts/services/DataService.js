@@ -78,8 +78,18 @@
                    method: 'GET',
                    url: resourceUrl
                });
-           }
+           },
 
+           getAssessmentHistory: function (searchOptions, callback) {
+               $http({ method: "post", url: source + "skillassessmenthistories", data: searchOptions })
+                   .success(function (data) {
+                       callback(data);
+                   })
+                   .error(function (error) {
+                       $rootScope.message = error.message;
+                       callback(false);
+                   })
+           }
         };
     });
 }());

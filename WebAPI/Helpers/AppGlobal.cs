@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WebApi.Helpers
+namespace WebAPI.Helpers
 {
     public static class AppGlobals
     {

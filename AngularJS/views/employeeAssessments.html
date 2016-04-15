@@ -6,15 +6,13 @@
 <div>
     <div id="content">
         <div class="row">
-            <div class="col-md-offset-8 col-md-4">
+            <div class="col-sm-offset-8 col-sm-4">
                 <div class="btn-group" style="width:100%">
-                    <form method="get" action="employeeSummary.html">
-                        <button class="btn btn-primary" style="width:50%">Summary</button>
-                    </form>
+                    <button type="button" class="btn btn-primary" style="width:50%">Summary</button>
                     <button type="button" class="btn btn-primary" style="width:50%">Assessments</button>
                 </div>
             </div>
-        </div>
+        </div><br>
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-user">
@@ -89,39 +87,60 @@
             <div class='col-md-3'>
                 <div class="form-group">
                     <label>From</label>
-                    <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
+                    <p class="input-group">
+                        <input type="text" class="form-control" 
+                               uib-datepicker-popup="{{format}}" 
+                               ng-model="startDate"
+              
+                               is-open="popupStart.opened" 
+                               datepicker-options="dateOptions" 
+                               ng-required="true" 
+                               close-text="Close" 
+                               alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" 
+                                    ng-click="openStart()"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>
-                    </div>
+                    </p>
                 </div>
             </div>
-            <!--<script type="text/javascript">
-                $(function () {
-                    $('#datetimepicker1').datetimepicker();
-                });
-            </script>-->
             <div class='col-md-3'>
-                <label>To</label>
                 <div class="form-group">
-                    <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
+                    <label>To</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" 
+                               uib-datepicker-popup="{{format}}" 
+                               ng-model="endDate" 
+ 
+                               is-open="popupEnd.opened" 
+                               datepicker-options="dateOptions" 
+                               ng-required="true" 
+                               close-text="Close" 
+                               alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" 
+                                    ng-click="openEnd()"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>
-                    </div>
+                    </p>
                 </div>
             </div>
-            <!--<script type="text/javascript">
-                $(function () {
-                    $('#datetimepicker1').datetimepicker();
-                });
-            </script>-->
             <div class="col-md-3">
                 <label>Skill</label>
-                <select ng-model="selectedSkill" class="form-control"
+                <select ng-change="getHistory()"
+                        ng-model="selectedSkill" class="form-control"
                         ng-options="skill.id as skill.name for skill in assessments.availableSkills"></select>
+            </div>
+            <div class="btn btn-primary" ng-click="getHistory()">Get History</div>
+        </div>
+        <div class="row">
+            <div class="dashboard-window clearfix {{visibilityClass}}">
+                <div class="d-w-text-maximum">
+                    <div ac-chart="'line'"
+                         ac-data="data"
+                         ac-config="configChart"
+                         class="chart">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
