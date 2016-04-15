@@ -71,8 +71,10 @@
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
                             $rootScope.message = "";
+
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
                             $scope.wait = false;
+
                         },
                         function (reason) {
                             currentUser = undefined;

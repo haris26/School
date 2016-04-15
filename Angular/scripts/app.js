@@ -2,6 +2,7 @@
 
     var app = angular.module("school", ["ngRoute", "ngCookies"]);
     authenticated = false;
+
     currentUser = {
         id: 0,
         name: "",
@@ -9,6 +10,7 @@
         token: "",
         expiration: null
     };
+
 
 
     app.constant("schConfig",
