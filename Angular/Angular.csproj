@@ -114,6 +114,7 @@
     <Content Include="Global.asax" />
     <Content Include="images\loading.gif" />
     <Content Include="images\spinner.gif" />
+    <Content Include="library\angular-cookies.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">

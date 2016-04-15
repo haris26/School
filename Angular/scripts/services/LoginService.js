@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.factory("LoginService", function ($http, schConfig) {
+    app.factory("LoginService", function ($http, $cookies, schConfig) {
 
         var source = schConfig.source;
 
@@ -18,6 +18,7 @@
                     }
                 })
             },
+
             google: function (email) {
                 return $http({
                     method: "post",
@@ -28,6 +29,49 @@
                         apiKey: schConfig.apiKey
                     }
                 })
+            },
+
+            getCredentials: function () {
+                var authData = $cookies.get('gigiSchool');
+                if (!(authData == "" || authData == null)) {
+                    uss = authData.split(':');
+                    if (uss.length == 1) {
+                        $http.defaults.headers.common['Authorization'] = 'Basic ' + uss[0];
+                        return $http({
+                            method: "post",
+                            url: source + "tokenRequest",
+                            data: {
+                                signature: schConfig.signature,
+                                apiKey: schConfig.apiKey
+                            }
+                        })
+                    }
+                    else return $http({
+                        method: "post",
+                        url: source + "login",
+                        data: {
+                            email: uss[1],
+                            signature: schConfig.signature,
+                            apiKey: schConfig.apiKey
+                        }
+                    })
+                }
+                else {
+                    return false;
+                }
+            },
+
+            setCredentials: function (provider, identity) {
+                var authData;
+                if (provider == "local") {
+                    authData = encode(identity);
+                }
+                else {
+                    authData = provider + ":" + identity;
+                }
+                var expireDate = (new Date());
+                expireDate.setDate(expireDate.getDate() + 1);
+                $cookies.put('gigiSchool', authData, { 'expired': expireDate });
             }
         };
 

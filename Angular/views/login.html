@@ -1,10 +1,15 @@
 ﻿<div class="panel" style="margin: 0 auto;">
-    <div class="label">Username: </div>    <div class="text"><input type="text" ng-model="user.name"></div>
-    <div class="label">Password: </div>    <div class="text"><input type="password" ng-model="user.pass"></div>
-    <div class="label"></div>    <div class="text" ng-show="!wait">      
-      <input type="button" id="loginBtn" value="Login" ng-click="tokenRequest()" />    
-        <input type="button" id="googleBtn" value="Login with Google" />  
-      </div>  
-      <div class="text" ng-show="!wait"></div>   
-    <div class="text" ng-show="wait"><img src="images/loading.gif" /></div>
+    <div class="label">Username: </div>
+    <div class="text"><input type="text" ng-model="user.name"></div>
+    <div class="label">Password: </div>
+    <div class="text"><input type="password" ng-model="user.pass"></div>
+    <div class="label">Remember me <input type="checkbox" ng-model="user.remember" /></div>
+    <div class="text" ng-show="!wait">
+        <input type="button" id="loginBtn" value="Login" ng-click="login()" />
+        <input type="button" id="googleBtn" value="Login with Google" />
+    </div>
+    <div class="label" ng-show="!wait"></div>
+    <div class="text" ng-show="wait"><img src="images/loading.gif" /></div>
+    <div style="clear:both"></div>
+    <div style="text-align:center"><img ng-src="{{ userImage }}"><br>{{ userName }}</div>
 </div>

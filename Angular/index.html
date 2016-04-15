@@ -5,6 +5,7 @@
     <script src="library/angular.js"></script>
     <script src="library/angular-route.js"></script> 
     <script src="library/googleClient.js"></script>
+    <script src="library/angular-cookies.js"></script>
 
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/DetailsController.js"></script>
@@ -23,7 +24,7 @@
 <body>
     <h1>{{ message }}</h1>
 
-    <div><a href="#/people">People</a> | <a href="#/details">Details</a> | <a href="#/calendar">Calendar</a> ||| {{ userName }} |||<hr></div>
+    <div><a href="#/people">People</a> | <a href="#/details">Details</a> | <a href="#/calendar">Calendar</a> <span ng-show="userName">||| {{ userName }} | <a href="#/logout">Logout</a> |||</span><hr></div>
 
     <div ng-view></div>
 </body>
