@@ -2,6 +2,9 @@
 
     var app = angular.module("school", ["ngRoute", "angularCharts"]);
 
+    authenticated = false;
+    currentUser = {};
+
     app.constant("schConfig",
         {
             source: "http://localhost:55013/api/",
@@ -19,8 +22,9 @@
             .when("/qualifications", { templateUrl: "qualifications.html", controller: "QualificationsCtrl" })
             .when("/employeeSummary/:employeeId", { templateUrl: "employeeSummary.html", controller: "EmployeeSummaryCtrl" })
             .when("/qualifications", { templateUrl: "qualifications.html", controller: "SkillsCtrl" })
-            .when("/people", {templateUrl: "people.html", controller:"PeopleCtrl"})
-            .otherwise({ redirectTo: "/login" });
+            .when("/people", { templateUrl: "people.html", controller: "PeopleCtrl" })
+
+            .otherwise({ redirectTo: "/overview" });
     }).run(function ($rootScope, $location) {
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
             if (!authenticated) {

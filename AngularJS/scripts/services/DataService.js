@@ -5,8 +5,8 @@
     app.factory("DataService", function ($http, $rootScope, schConfig) {
 
         var source = schConfig.source;
-        //$http.defaults.headers.common['Token'] = currentUser.token;
-        //$http.defaults.headers.common['ApiKey'] = schConfig.apiKey;
+        $http.defaults.headers.common['Token'] = currentUser.token;
+        $http.defaults.headers.common['ApiKey'] = schConfig.apiKey;
 
         return {
 

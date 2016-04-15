@@ -19,16 +19,22 @@
     <script src="../library/angular-route.js"></script>
     <script src="../library/d3.js"></script>
     <script src="../library/angular-charts.min.js"></script>
+    <script src="../library/googleClient.js"></script>
 
     <script src="../scripts/app.js"></script>
+
+    <!-- controllers -->
     <script src="../scripts/controllers/skillsController.js"></script>
-    <!--<script src="../scripts/controllers/loginController.js"></script>-->
+    <script src="../scripts/controllers/loginController.js"></script>
     <script src="../scripts/controllers/overviewController.js"></script>
     <script src="../scripts/controllers/employeeSummaryController.js"></script>
     <script src="../scripts/controllers/peopleController.js"></script>
     <script src="../scripts/controllers/qualificationsController.js"></script>
+
+    <!-- services -->
     <script src="../scripts/services/DataService.js"></script>
-    <!--<script src="../scripts/services/LoginService.js"></script>-->
+    <script src="../scripts/services/LoginService.js"></script>
+    <script src="../scripts/services/Permission.js"></script>
 
 
 </head>
@@ -46,8 +52,8 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="peopleDetails.html"><span class="glyphicon glyphicon-user"></span> Username</a></li>
-                    <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    <li><a href="peopleDetails.html"><span class="glyphicon glyphicon-user"></span> {{ userName }}</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                 </ul>
 
                 <form class="navbar-form navbar-right">
@@ -63,10 +69,10 @@
                     <table>
                         <tr>
                             <td width="55">
-                                <img src="../images/avatar.jpg" class="user_avatar">
+                                <img ng-src="{{ userImage }}" class="user_avatar">
                             </td>
                             <td valign="top">
-                                <h5 class="user_name_display"><a href="#" class="white-link">Jigsaw</a></h5><p class="user_level_display">Admin</p>
+                                <h5 class="user_name_display"><a href="#" class="white-link">{{ userName }}</a></h5><p class="user_level_display">{{ userEmail }}</p>
                             </td>
                         </tr>
                     </table>

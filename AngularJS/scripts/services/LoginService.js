@@ -11,13 +11,25 @@
                 $http.defaults.headers.common['Authorization'] = 'Basic ' + encode(user.name + ":" + user.pass);
                 return $http({
                     method: "post",
-                    url: source + "/tokenRequest",
+                    url: source + "tokenRequest",
                     data: {
                         signature: schConfig.signature,
                         apiKey: schConfig.apiKey
                     }
                 })
             },
+
+            google: function (email) {
+                return $http({
+                    method: "post",
+                    url: source + "login",
+                    data: {
+                        email: email,
+                        signature: schConfig.signature,
+                        apiKey: schConfig.apiKey
+                    }
+                })
+            }
         };
 
         function encode(input) {
