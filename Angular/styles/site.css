@@ -17,15 +17,12 @@
     float:left;
     margin:6px;
     padding:10px;
-    border:1px solid black;
+    
 }
 
 body {
     padding-top: 150px;
-    padding-bottom: 20px;
-    
-    
-   
+    padding-bottom: 20px;   
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -185,7 +182,7 @@ color: rgba(229, 103, 23, 0.6);
 }
 
 .create{
-    margin-top: -100px;
+    margin-top: -150px;
 }
 
 textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus .dropdown-menu:focus {   

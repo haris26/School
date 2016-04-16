@@ -42,12 +42,14 @@ namespace WebAPI.Controllers
         {
             try
             {
-                List<Detail> detail = Repository.Get().Where(x => x.Day.Person.Id==id).ToList();
+                List<Detail> detail = Repository.Get().Where(x => x.Day.Person.Id == id).ToList();
                 if (detail == null)
                     return NotFound();
-                else {
+                else
+                {
                     List<DetailModel> DetailModel = new List<DetailModel>();
-                    foreach (Detail d in detail) {
+                    foreach (Detail d in detail)
+                    {
                         DetailModel.Add(Factory.Create(d));
 
                     }
