@@ -6,6 +6,8 @@
 
         $scope.message = "Loading data...";
         $scope.sortOrder = "Name";
+        $scope.school = "School";
+        $scope.
 
         fetchEducations();
 

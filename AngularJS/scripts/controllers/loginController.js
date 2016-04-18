@@ -69,6 +69,7 @@
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
                             $rootScope.message = "";
+                            $location.path("/overview");
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
                             $scope.wait = false;
                         },
