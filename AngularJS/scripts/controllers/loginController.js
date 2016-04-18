@@ -87,7 +87,6 @@
     });
 
     app.controller("LogoutCtrl", function ($cookies, $location, $rootScope) {
-        currentUser = {};
         authenticated = false;
         $cookies.remove("gigiSchool");
 

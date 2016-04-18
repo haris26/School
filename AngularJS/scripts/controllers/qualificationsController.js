@@ -2,17 +2,10 @@
 
     var app = angular.module("school");
 
-    app.controller("QualificationsCtrl", function ($scope, DataService) {
+    app.controller("QualificationsCtrl", function ($scope, $log, DataService) {
 
         $scope.message = "Loading data...";
         $scope.sortOrder = "Name";
-
-        $scope.collapsed = {};
-
-        $scope.icon = {
-            true: "glyphicon glyphicon-chevron-down",
-            false: "glyphicon glyphicon-chevron-up"
-        }
 
         fetchEducations();
 
@@ -22,7 +15,5 @@
                 $scope.message = "";
             })
         }
-
     });
-
 }());

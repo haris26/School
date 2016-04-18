@@ -11,7 +11,9 @@
     <br>
     <div class="row">
         <div class="col-md-12">
-            
+            <div ng-repeat="x in educations | orderBy: sortOrder">
+                {{ x.name }}
+            </div>
         </div>
     </div>
 </div>

@@ -1,83 +1,117 @@
 ﻿<!DOCTYPE html>
 <html ng-app="school">
-
 <head>
-    <script src="library/angular.min.js"></script>
-    <script src="scripts/controller.js"></script>
-    <script src="scripts/service.js"></script>
+    <title>Mistral Skills Library</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        .label {
-            float: left;
-            text-align: right;
-            width: 45%;
-            margin: 6px;
-        }
+    <!-- style -->
+    <link rel="stylesheet" href="styles/bootstrap.css" />
+    <link rel="stylesheet" href="styles/jquery-ui.css">
+    <link rel="stylesheet" href="styles/dashboard.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+    <link rel="stylesheet" href="styles/style.css" />
 
-        .text {
-            float: left;
-            width: 45%;
-            margin: 6px;
-        }
+    <!-- scripts -->
+    <script src="library/jquery.min.js"></script>
+    <script src="library/bootstrap.min.js"></script>
+    <script src="library/angular.js"></script>
+    <script src="library/angular-route.js"></script>
+    <script src="library/d3.js"></script>
+    <script src="library/angular-charts.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.1.js"></script>
+    <script src="library/googleClient.js"></script>
+    <script src="library/angular-cookies.js"></script>
 
-        .panel {
-            width: 30%;
-            float: left;
-            margin: 6px;
-            padding: 10px;
-            border: 1px solid black;
-        }
-    </style>
+    <script src="scripts/app.js"></script>
+
+    <!-- controllers -->
+    <script src="scripts/controllers/skillsController.js"></script>
+    <script src="scripts/controllers/loginController.js"></script>
+    <script src="scripts/controllers/overviewController.js"></script>
+    <script src="scripts/controllers/employeeSummaryController.js"></script>
+    <script src="scripts/controllers/peopleController.js"></script>
+    <script src="scripts/controllers/qualificationsController.js"></script>
+    <script src="scripts/controllers/employeeAssessmentsController.js"></script>
+
+    <!-- services -->
+    <script src="scripts/services/DataService.js"></script>
+    <script src="scripts/services/LoginService.js"></script>
+    <script src="scripts/services/Permission.js"></script>
+
 </head>
-
 <body>
-    <div ng-controller="MainCtrl">
-        <h1>{{ message }}</h1>
-        <div class="panel">
-            <div>
-                <input type="button" value="Save data" ng-click="saveData()" />
-                <input type="button" value="New person" ng-click="newPerson()" />
-                <hr>
+    <header class="navbar header navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="images/mistral_logo.png" width="75px" height="45px" /></a>
             </div>
-            <div class="label">Id:</div>
-            <div class="text"><input type="text" ng-model="person.id"></div>
-            <div class="label">First name:</div>
-            <div class="text"><input type="text" ng-model="person.firstName"></div>
-            <div class="label">Last name:</div>
-            <div class="text"><input type="text" ng-model="person.lastName"></div>
-            <div class="label">E-mail:</div>
-            <div class="text"><input type="text" ng-model="person.email"></div>
-            <div class="label">Phone:</div>
-            <div class="text"><input type="text" ng-model="person.phone"></div>
-            <div class="label">Category:</div>
-            <div class="text"><input type="text" ng-model="person.category"></div>
-            <div class="label">Gender:</div>
-            <div class="text"><input type="text" ng-model="person.gender"></div>
-            <div class="label">Zip code:</div>
-            <div class="text"><input type="text" ng-model="person.address.zipCode"></div>
-            <div class="label">Town:</div>
-            <div class="text"><input type="text" ng-model="person.address.town"></div>
-            <div class="label">Road:</div>
-            <div class="text"><input type="text" ng-model="person.address.road"></div>
-            <div class="label">Birth date:</div>
-            <div class="text"><input type="text" ng-model="person.birthDate"></div>
-            <div class="label">Start date:</div>
-            <div class="text"><input type="text" ng-model="person.startDate"></div>
-            <div class="label">Status:</div>
-            <div class="text"><input type="text" ng-model="person.status"></div>
-        </div>
-        <div class="panel">
-            Filter: <input type="search" ng-model="selPerson">
-            Order: <select ng-model="sortOrder">
-                <option value="+lastName">Last Name</option>
-                <option value="+firstName">First Name</option>
-                <option value="-phone">Phone number</option>
-            </select>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul ng-show="userName" class="nav navbar-nav navbar-right">
+                    <li><a href="https://profiles.google.com/me" target="_blank"><span class="glyphicon glyphicon-user"></span> {{ userName }}</a></li>
+                    <li><a href="#/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
 
-            <div ng-repeat="item in people | orderBy: sortOrder | filter: selPerson">
-                <hr><a href="#" ng-click="transfer(item)">{{ item.firstName }}</a> {{ item.lastName }} {{ item.email }} {{ item.phone }}
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" name="search" placeholder="Search ...">
+                </form>
             </div>
         </div>
-    </div>
+    </header>    
+    <nav class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <div style="margin-bottom: 10px">
+                    <table>
+                        <tr>
+                            <td width="55">
+                                <img ng-src="{{ userImage }}" class="user_avatar">
+                            </td>
+                            <td valign="top">
+                                <h5 class="user_name_display"><a href="#" class="white-link">{{ userName }}</a></h5><p class="user_level_display">{{ userEmail }}</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <ul class="newnav nav nav-sidebar">
+                    <li class=""><a href="#/overview"><span class="glyphicon glyphicon-home"></span> Overview</a></li>
+                    <li class=""><a href="#/people"><span class="glyphicon glyphicon-user"></span> People</a></li>
+                    <li class=""><a href="#/qualifications"><span class="glyphicon glyphicon-bookmark"></span> Qualifications</a></li>
+                    <li class=""><a href="#/skills" data-target="#overview"><span class="glyphicon glyphicon-cog"></span>  Skills</a></li>
+                    <li class=""><a href="#/teams"><span class="glyphicon glyphicon-user"></span> Teams</a></li>
+                    <li class=""><a href="#/findPeople"><span class="glyphicon glyphicon-search"></span> Find People</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="row" style="margin:0">
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <div id="responsive-menu-links" class="row">
+                    <select name="link" onchange="window.location.href=$(this).val();" class="form-control">
+                        <option value="#/overview">Overview</option>
+                        <option value="#/people">People</option>
+                        <option value="#/qualifications">Qualifications</option>
+                        <option value="#/skills">Skills</option>
+                        <option value="#/teams">Teams</option>
+                        <option value="#/findPeople">Find People</option>
+                    </select>
+                    <br />
+                </div>
+                <div>
+                    <div ng-view id="content"></div>
+                </div>
+                <hr>
+                <p class="align-center footer-text">Made By Team Alpha</p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

@@ -122,7 +122,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Index.html" />
     <Content Include="library\angular.min.js" />
     <Content Include="scripts\app.js" />
     <Content Include="library\bootstrap.min.js" />
@@ -151,7 +150,7 @@
     <Content Include="views\people.html" />
     <Content Include="views\qualifications.html" />
     <Content Include="views\editCategory.html" />
-    <Content Include="views\index.html" />
+    <Content Include="index.html" />
     <Content Include="views\modals\addCategoryModal.html" />
     <Content Include="views\modals\deleteCategoryModal.html" />
     <Content Include="views\modals\addSkillModal.html" />

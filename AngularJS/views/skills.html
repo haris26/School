@@ -1,9 +1,9 @@
 ﻿<div id="addNewCategoryModal" class="modal fade" role="dialog">
-    <div ng-include="'modals/addCategoryModal.html'"></div>
+    <div ng-include="'views/modals/addCategoryModal.html'"></div>
 </div>
 
 <div id="addNewSkillModal" class="modal fade" role="dialog">
-    <div ng-include="'modals/addSkillModal.html'"></div>
+    <div ng-include="'views/modals/addSkillModal.html'"></div>
 </div>
 
 <div class="db-header clearfix">   
@@ -19,7 +19,7 @@
     {{ message }}
     <br>
     <div class="row">
-        <div class="col-md-12 col-md-offset-2">
+        <div class="col-md-12">
             <div ng-repeat="category in categories | orderBy: sortOrder">
                 <div class="panel-group panel panel-default">
                     <div class="panel-heading" ng-click="collapse(category.id)" data-toggle="collapse" data-target="#{{category.id}}">
