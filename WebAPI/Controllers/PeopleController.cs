@@ -7,9 +7,11 @@ using System.Web.Http;
 using Database;
 using WebAPI.Models;
 using System.Web;
+using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
+    [TokenAuthorize]
     public class PeopleController : BaseController<Person>
     {
         public PeopleController(Repository<Person> depo):base(depo)

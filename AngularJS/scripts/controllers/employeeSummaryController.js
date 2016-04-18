@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("EmployeeSummaryCtrl", function ($scope, $routeParams, $log, DataService) {
+    app.controller("EmployeeSummaryCtrl", function ($scope, $routeParams, $log, $location, DataService) {
 
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
@@ -45,6 +45,10 @@
                     }
                 }
             })
+        }
+
+        $scope.goToAssessment = function () {
+            $location.path('/employeeAssessments/' + $scope.employeeId);
         }
     });
 }());

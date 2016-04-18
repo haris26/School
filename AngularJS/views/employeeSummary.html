@@ -11,7 +11,7 @@
         <div class="col-sm-offset-8 col-sm-4">
             <div class="btn-group" style="width:100%">
                 <button type="button" class="btn btn-primary" style="width:50%">Summary</button>
-                <button type="button" class="btn btn-primary" style="width:50%">Assessments</button>
+                <button ng-click="goToAssessment()" type="button" class="btn btn-primary" style="width:50%">Assessments</button>
             </div>
         </div>
     </div><br>
@@ -45,19 +45,19 @@
                 </table>
             </div>
             <br>
-            <div ng-repeat="qualification in summary.qualifications">
+            <div ng-show="summary.qualifications.length">
             <div id="qualificatins" class="dashboard-window clearfix div-blue">
                 <div class="d-w-text-maximum">
                     <h4><a href="editQualifications.html"><span class="glyphicon glyphicon-edit white-link"></span></a> Qualifications</h4>
                     <ul>
-                        <li>{{ qualification.qualification }}</li>
+                        <li ng-repeat="qualification in summary.qualifications" >{{ qualification.qualification }}</li>
 
                     </ul>
                 </div>
             </div>
             </div>
             <br>
-            <div ng-repeat="project in summary.pastProjects">
+            <div ng-show="summary.pastProjects.length">
                 <div id="pastProjects" class="dashboard-window clearfix div-blue">
                     <div class="d-w-text-maximum">
                         <h4><span class="glyphicon glyphicon-time"></span> Past Projects</h4>
@@ -66,7 +66,7 @@
                                 <td>Project</td>
                                 <td>Role</td>
                             </tr>
-                            <tr>
+                            <tr ng-repeat="project in summary.pastProjects">
                                 <td>{{ project.description }}</td>
                                 <td>{{ project.role }}</td>
                             </tr>

@@ -11,10 +11,10 @@ using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
-    //[TokenAuthorize]
+    [TokenAuthorize]
     public class SkillAssessmentHistoriesController : BaseController<Person>
     {
-        //SchoolIdentity ident = new SchoolIdentity();
+        SchoolIdentity ident = new SchoolIdentity();
 
         public SkillAssessmentHistoriesController(Repository<Person> depo) : base(depo)
         { }
@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
                                                               && x.Tool.Id == search.Skill).ToList()
                                                   .Select(x => new SkillAssessmentModel() {
                                                               Name = x.Tool.Name,
-                                                              Date = x.DateOfSupervisorAssessment.Value,
+                                                              Date = x.DateOfSupervisorAssessment.Value.ToString("d"),
                                                               Level = (int)x.Level }).ToList());
             }
             catch (Exception ex)

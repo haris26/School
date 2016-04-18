@@ -11,10 +11,10 @@ using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
-    //[TokenAuthorize]
+    [TokenAuthorize]
     public class SkillsCategoriesController : BaseController<SkillCategory>
     {
-        //SchoolIdentity ident = new SchoolIdentity();
+        SchoolIdentity ident = new SchoolIdentity();
 
         public SkillsCategoriesController(Repository<SkillCategory> depo) : base(depo)
         { }
