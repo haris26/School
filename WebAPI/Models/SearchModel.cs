@@ -14,5 +14,7 @@ namespace WebAPI.Models
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
         public string CategoryName { get; set; }
+        public string ResourceName { get; set; }
+        public string OsType { get; set; }
     }
 }

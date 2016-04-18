@@ -7,7 +7,8 @@
         <div class="label">Resource category:</div>
         <div class="text">
             <select ng-model="searchParameters.categoryName"
-                    ng-options="category.categoryName as category.categoryName for category in categories"></select>
+                    ng-options="category.categoryName as category.categoryName for category in categories">
+            </select>
         </div>
         <div class="label">Filter:</div>
         <div class="text"><input type="search" ng-model="filterSearch" /></div>

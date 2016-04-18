@@ -2,18 +2,19 @@
 
     var app = angular.module("school");
 
-    app.controller("UserDashboardController", function ($scope, $rootScope, DataService, schConfig) {
+    app.controller("UserDashboardController", function ($scope, $rootScope, DataService, schConfig ) {
         var dataSet = "userreservations";
         $scope.repeatingTypes = schConfig.repeatingType;
         fetchData();
-
+      
         function fetchData() {
             DataService.list(dataSet, function (data) {
                 $scope.dashboard = data;
             });
         }
 
-        $scope.cancelReservation = function (item) {
+        function onClick(item) {
+            console.log("ulazak");
             var index = $scope.dashboard.activeReservations.indexOf(item);
             $scope.eventId = item.id;
             getEvent($scope.eventId);
@@ -21,8 +22,11 @@
                 DataService.remove("events", $scope.reservationEvent.id, function (data) { });
                 $scope.dashboard.activeReservations.splice(index, 1);
             }
-            $scope.$apply();
-        };
+        }
+
+        $scope.cancelReservation = function(item) {
+            onClick(item);
+        }
 
         $scope.extendReservation = function (item) {
             $scope.eventExtend = {

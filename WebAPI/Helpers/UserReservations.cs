@@ -18,12 +18,9 @@ namespace WebAPI.Helpers
             {
                 Id = AppGlobals.currentUser.Id,
                 UserName = AppGlobals.currentUser.FirstName
-                //Id = 4,
-                //UserName = "Martina"
             };
 
             var reservations = new EventUnit(context).Get().ToList().Where(x => (x.User.FullName == AppGlobals.currentUser.FullName && x.EventStart >= System.DateTime.Today)).OrderBy(y => y.EventStart);
-            //var reservations = new EventUnit(context).Get().ToList().Where(x => (x.User.FullName == "Martina Vistica" && x.EventStart.Date >= System.DateTime.Today.Date)).OrderBy(y => y.EventStart);
 
             foreach (var reservation in reservations)
             {
@@ -35,9 +32,7 @@ namespace WebAPI.Helpers
                         EventTitle = reservation.EventTitle,
                         StartDate = reservation.EventStart.ToShortDateString(),
                         EndDate = reservation.EventEnd.ToShortDateString(),
-                        //Person = AppGlobals.currentUser.Id,
                         PersonName = AppGlobals.currentUser.FullName,
-                        //PersonName = "Martina Vistica",
                         ResourceName = reservation.Resource.Name,
                         CategoryName = reservation.Resource.ResourceCategory.CategoryName,
                         Time = reservation.EventStart.ToShortTimeString() + " - " + reservation.EventEnd.ToShortTimeString()
@@ -51,9 +46,7 @@ namespace WebAPI.Helpers
                         EventTitle = reservation.EventTitle,
                         StartDate = reservation.EventStart.ToShortDateString(),
                         EndDate = reservation.EventEnd.ToShortDateString(),
-                        //Person = AppGlobals.currentUser.Id,
                         PersonName = AppGlobals.currentUser.FullName,
-                        //PersonName = "Martina Vistica",
                         ResourceName = reservation.Resource.Name,
                         CategoryName = reservation.Resource.ResourceCategory.CategoryName,
                         Time = reservation.EventStart.ToShortTimeString() + " - " + reservation.EventEnd.ToShortTimeString()
@@ -68,9 +61,7 @@ namespace WebAPI.Helpers
                     EventTitle = activeReservation.EventTitle,
                     StartDate = activeReservation.EventStart.ToShortDateString(),
                     EndDate = activeReservation.EventEnd.ToShortDateString(),
-                    //Person = AppGlobals.currentUser.Id,
                     PersonName = AppGlobals.currentUser.FullName,
-                    //PersonName = "Martina Vistica",
                     ResourceName = activeReservation.Resource.Name,
                     CategoryName = activeReservation.Resource.ResourceCategory.CategoryName,
                     Time = activeReservation.EventStart.ToShortTimeString() + " - " + activeReservation.EventEnd.ToShortTimeString()
