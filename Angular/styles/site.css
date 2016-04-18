@@ -13,7 +13,7 @@
 }
 
 .panel {
-    width:30%;
+    width:100%;
     float:left;
     margin:6px;
     padding:10px;
@@ -45,18 +45,28 @@ textarea {
     max-width: 280px;
 }
 
-
+.tabela{
+    margin-top: -700px;
+}
 
 
 .navbar-default {
     background-color: #273547;
+    margin-bottom: 0;
     
 }
 
 .navbar-nav li:hover {
     background-color: white;
-    color:white;
-    
+    color:white;    
+}
+
+.unos{
+    margin-top:-7%;
+}
+
+.dashboard{
+    margin-top:-7%;
 }
 
 .navbar-nav li:active {
@@ -72,8 +82,9 @@ textarea {
 
 .navbar-default .navbar-nav > li > a {
    color:#F2AE75;
-
 }
+
+
 
 .navbar-nav {
    font-family: 'Oswald', sans-serif;
@@ -81,6 +92,7 @@ textarea {
    text-transform: uppercase;
    color:white; 
    letter-spacing: 1px;
+   margin-bottom: 0;
     
 }
 

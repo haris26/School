@@ -44,7 +44,7 @@
                     $scope.userId = googleUser.getBasicProfile().getId();
                     $scope.userEmail = googleUser.getBasicProfile().getEmail();
                     $scope.userName = googleUser.getBasicProfile().getName();
-                    $scope.userImage = googleUser.getBasicProfile().getImageUrl();
+                    $rootScope.userImage = googleUser.getBasicProfile().getImageUrl();
 
                     LoginService.google($scope.userEmail).then(
                         function (response) {
