@@ -50,5 +50,9 @@
         $scope.goToAssessment = function () {
             $location.path('/employeeAssessments/' + $scope.employeeId);
         }
+
+        $scope.editQualifications = function (employeeId) {
+            $location.path('/editEmployeeQualifications/' + employeeId);
+        }
     });
 }());
