@@ -112,11 +112,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\spinner.gif" />
+    <Content Include="library\angular.min.js" />
+    <Content Include="library\googleClient.js" />
+    <Content Include="library\ui-bootstrap-tpls.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\controllers\CalendarController.js" />
+    <Content Include="library\angular.min.js.map" />
+    <Content Include="scripts\respond.js" />
+    <Content Include="scripts\respond.min.js" />
+    <Content Include="styles\bootstrap.css" />
+    <Content Include="styles\bootstrap.css.map" />
+    <Content Include="styles\bootstrap.min.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,11 +151,13 @@
     <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\MonthController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
+    <Content Include="scripts\services\Permission.js" />
     <Content Include="scripts\controllers\RolesController.js" />
     <Content Include="scripts\controllers\TeamsController.js" />
     <Content Include="scripts\loginService.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="scripts\services\LoginService.js" />
+    <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\calendar.css" />
     <Content Include="styles\site.css" />
     <Content Include="views\calendar.html" />
@@ -161,7 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="images\" />
+    <Folder Include="fonts\" />
     <Folder Include="scripts\directives\" />
   </ItemGroup>
   <PropertyGroup>

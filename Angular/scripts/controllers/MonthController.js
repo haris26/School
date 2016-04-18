@@ -4,35 +4,31 @@
     
     app.controller("MonthController", function ($scope, $rootScope, DataService) {
 
-        var dataSet = "month";
+        var d = new Date();
+        var n = d.getMonth() + 1;
+        var current = "month";
+        var monthId = "1";
+        var next = "month?month=" + n;
+        var dataSet = next;  
+       
         $scope.selMonth = "";
         $scope.sortOrder = "name";
-        getTeams();
         fetchData();
-        getPeople();
-        getDays();
-
-        function getDays() {
-            DataService.list("days", function (data) {
-                $scope.days = data;
-            });
-        };
         $scope.transfer = function (item) {
             $scope.month = item;
+            $scope.colection = item.details;
+            console.log($scope.month.details);
         };
-        function getTeams() {
-            DataService.list("teams", function (data) {
-                $scope.teams = data;
-            });
-        };
-        function getPeople() {
-            DataService.list("people", function (data) {
-                $scope.people = data;
-            });
-        };
+     
+        $scope.change = function () {
+            $scope.n = n + 1;
+            fetchData(dataSet);
+        }
+        $scope.details = [];
+
         function fetchData() {
             DataService.list(dataSet, function (data) {
-                $scope.month = data;
+                $scope.months = data;
             });
         }
     });

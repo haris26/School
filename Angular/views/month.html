@@ -20,18 +20,31 @@
         border: 1px solid black;
     }
 </style>
-<div class="panel panel-default" ">
+<button value="Next" ng-click="change()">Next</button>
+<div class="panel panel-default">
     Filter: <input type="search" ng-model="selMonth">
     Order: <select ng-model="sortOrder">
         <option value="+name">Person</option>
         <option value="+totalHours">Hours worked</option>
         <option value="-emptyDays">Nonentered days</option>
     </select>
-    <div ng-repeat="item in month | orderBy: sortOrder | filter: selMonth">
+    <div ng-repeat="item in months | orderBy: sortOrder | filter: selMonth">
         <hr>
         <table class="table table-bordered">
-            <tr><td><td> {{ item.name }} </td><td> {{ item.totalHours }} </td><td> {{item.emptyDays}}</td></tr>
+            <tr><td><a href="#/months" ng-click="transfer(item)">{{ item.name }}</a><td> {{ item.totalHours }} </td><td> {{item.emptyDays}}</td></tr>
         </table>
     </div>
 </div>
-
+<div class="panel">
+    <div class="label">Person:</div>
+    <div class="text"><input type="text" ng-model="month.name"></div>
+    <div class="label">
+        Teams:
+        <hr>
+             <div ng-repeat="detail in month.details">
+                <table class="table table-bordered">
+                    <tr><td>[{{ detail.category }}] {{detail.count}}</td></tr>
+                </table>
+             </div> 
+    </div>
+    </div>

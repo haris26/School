@@ -1,6 +1,6 @@
 (function(){
 
-    var app = angular.module("school", ["ngRoute"]);
+    var app = angular.module("school", ["ngRoute","ngAnimate", "ui.bootstrap"]);
 
     app.constant("schConfig",
         {
