@@ -6,15 +6,14 @@
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
 
-        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-        $scope.format = $scope.formats[0];
-        $scope.altInputFormats = ['M!/d!/yyyy'];
-
         var chartData = [];
         $scope.data = {};
         $scope.configChart = {};
         $scope.visibilityClass = "invisibleChart";
-        $scope.chartClass = "invisibleChart1";
+
+        $scope.goToSumarry = function () {
+            $location.path('/employeeSummary/' + $scope.employeeId);
+        }
 
         getEmployeeAssessments($scope.employeeId);
 
@@ -27,6 +26,12 @@
                 $scope.message = "";
             })
         }
+
+        //date pickers
+        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+        $scope.format = $scope.formats[0];
+        $scope.altInputFormats = ['M!/d!/yyyy'];
+
         $scope.startDate = new Date();
         $scope.endDate = new Date();
 
@@ -57,6 +62,8 @@
             opened: false
         };
 
+
+        //chart
         $scope.getHistory = function () {
 
             $scope.visibilityClass = "invisibleChart";
@@ -103,10 +110,6 @@
             }
 
             $scope.visibilityClass = "div-darkblue";
-        }
-
-        $scope.goToSumarry = function () {
-            $location.path('/employeeSummary/' + $scope.employeeId);
         }
     });
 }());

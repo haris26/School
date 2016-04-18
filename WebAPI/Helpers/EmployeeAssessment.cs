@@ -36,7 +36,7 @@ namespace WebAPI.Helpers
                 employeeAssessment.SelfAssessment.LastCompleted = lastCompletedSelf.ToString("d");
                 employeeAssessment.SelfAssessment.Status = "Completed";
                 employeeAssessment.SelfAssessment.NextDue = nextDueSelf.ToString("d");
-                if (DateTime.Now.Date > lastCompletedSelf.Date)
+                if (DateTime.Now.Date > nextDueSelf.Date)
                     employeeAssessment.SelfAssessment.Status = "Due";
             }
 
