@@ -119,6 +119,7 @@
     <Content Include="index.html" />
     <Content Include="library\googleClient.js" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />
+    <Content Include="scripts\controllers\DeviceReservation.js" />
     <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\ReservationsController.js" />
     <Content Include="scripts\controllers\userDashboardController.js" />
@@ -133,6 +134,7 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="Global.asax" />
+    <Content Include="views\deviceReservation.html" />
     <Content Include="views\login.html" />
     <Content Include="views\resourceList.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
