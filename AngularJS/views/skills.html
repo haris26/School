@@ -19,7 +19,7 @@
     {{ message }}
     <br>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 col-md-offset-2">
             <div ng-repeat="category in categories | orderBy: sortOrder">
                 <div class="panel-group panel panel-default">
                     <div class="panel-heading" ng-click="collapse(category.id)" data-toggle="collapse" data-target="#{{category.id}}">

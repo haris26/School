@@ -101,6 +101,7 @@
     <Content Include="images\mistral_logo.png" />
     <Content Include="images\skillsBarChart.jpg" />
     <Content Include="library\angular-charts.min.js" />
+    <Content Include="library\angular-cookies.js" />
     <Content Include="library\angular-route.js" />
     <Content Include="library\angular.js" />
     <Content Include="library\d3.js" />

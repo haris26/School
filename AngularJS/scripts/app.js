@@ -1,9 +1,15 @@
 ﻿(function () {
 
-    var app = angular.module("school", ["ngRoute", "angularCharts", "ui.bootstrap"]);
+    var app = angular.module("school", ["ngRoute", "ngCookies", "angularCharts", "ui.bootstrap"]);
 
     authenticated = false;
-    currentUser = {};
+    currentUser = {
+        id: 0,
+        name: "",
+        roles: [],
+        token: "",
+        expiration: null
+    };
 
     app.constant("schConfig",
         {
@@ -24,6 +30,7 @@
             .when("/employeeAssessments/:employeeId", {templateUrl: "employeeAssessments.html", controller: "EmployeeAssessmentsCtrl"})
             .when("/qualifications", { templateUrl: "qualifications.html", controller: "SkillsCtrl" })
             .when("/people", { templateUrl: "people.html", controller: "PeopleCtrl" })
+            .when("/logout", { templateUrl: "", controller: "LogoutCtrl" })
             .otherwise({ redirectTo: "/overview" });
     }).run(function ($rootScope, $location) {
         $rootScope.$on("$routeChangeStart", function (event, next, current) {

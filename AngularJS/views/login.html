@@ -1,13 +1,28 @@
-﻿<div class="panel" style="margin: 0 auto;">
-    <div class="label">Username: </div>
-    <div class="text"><input type="text" ng-model="user.name"></div>
-    <div class="label">Password: </div>
-    <div class="text"><input type="password" ng-model="user.pass"></div>
-    <div class="label"></div>
-    <div ng-show="!wait">
-        <input type="button" id="loginBtn" value="Login" ng-click="tokenRequest()" />
-        <input type="button" id="googleBtn" value="Login with Google" />
+﻿
+
+<div id="login">
+    {{ message }}
+
+    <div class="container">
+        <div class="row top-margin">
+            <div class="col-md-offset-2 col-md-4" style="background:white; border-style:solid; border-width:1px; border-color:#cccccc; padding-top:15px">
+
+                <div class="panel">
+                    <label>Username: </label>
+                    <div><input type="text" class="form-control" ng-model="user.name"></div>
+                    <label>Password: </label>
+                    <div><input type="password" class="form-control" ng-model="user.pass"></div>
+                    <div class="checkbox">Remember me <input type="checkbox" ng-model="user.remember" /></div>
+                    <div>
+                        <input type="button" id="loginBtn" value="Login" class="btn btn-default form-control" ng-click="login()" />
+                        <br>
+                        <br />
+                        <input type="button" id="googleBtn" value="Login with Google" class="btn btn-success form-control" />
+                    </div>
+                </div>
+                <hr />
+
+            </div>
+        </div>
     </div>
-    <div class="text" ng-show="!wait"></div>
-    <div class="text" ng-show="wait"><img src="../images/loading.gif" /></div>
 </div>
