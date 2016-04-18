@@ -9,26 +9,32 @@
             <br />
             <div class="form-group">
                 <div class="control-label col-md-2"><b>Username:</b></div>
-                <div class="col-md-10"><input class="form-control" type="text" ng-model="user.name">
+                <div class="col-md-10">
+                    <input class="form-control" type="text" ng-model="user.name">
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="control-label col-md-2"><b>Password:</b></div>
-                <div class="col-md-10"><input class="form-control" type="password" ng-model="user.pass">
+                <div class="col-md-10">
+                    <input class="form-control" type="password" ng-model="user.pass">
+
                 </div>
             </div>
+
             <div class="label form-group"></div>
             <div class="text" ng-show="!wait">
-            </div>                
-                <div class="text" ng-show="!wait"></div>
-                <div class="text" ng-show="wait"><img src="images/loading.gif" /></div>            
-        </div>            
+            </div>
+            <div class="text" ng-show="!wait"></div>
+            <div class="text" ng-show="wait"><img src="images/loading.gif" /></div>
         </div>
+    </div>
+
     <div>
-        <div class="col-xs-offset-4 col-md-offset-6">
+        <div class="col-xs-offset-4 col-md-offset-4">
+            <div class="col-md-2 col-md-offset-1 control-label" style="color:#F2AE75"><b>Remember me </b><input type="checkbox" ng-model="user.remember" /></div>
             <input type="button" class="btn btn-warning" id="loginBtn" value="Login" ng-click="tokenRequest()" />
-            <input type="button" class="btn btn-warning" id="googleBtn" value="Login with Google" href="#/details"/>
+            <input type="button" class="btn btn-warning" id="googleBtn" value="Login with Google" href="#/details" />
         </div>
     </div>
-    </div>
+</div>

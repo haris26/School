@@ -4,11 +4,26 @@
 
     app.controller("LoginController", function ($scope, $rootScope, $location, LoginService) {
 
-        $scope.user = { name: "", pass: "" };
+        $scope.wait = true;
+        promise = LoginService.getCredentials();
+        if (promise) {
+            promise.then(
+                function (response) {
+                    authenticated = true;
+                    currentUser = response.data;
+                    $rootScope.userName = currentUser.name;
+                    $location.path("/details");
+                },
+                function (reason) {
+                    $rootScope.message = reason.status;
+                    $location.path("/login");
+                })
+        };
         $scope.wait = false;
+        $scope.user = { name: "", pass: "", remember: false };
         startApp('googleBtn');
 
-        $scope.tokenRequest = function () {
+        $scope.login = function () {
 
             $scope.wait = true;
             promise = LoginService.login($scope.user);
@@ -17,8 +32,10 @@
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
+                    console.log($scope.user.remember);
+                    if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
                     $scope.wait = false;
-                    $location.path("/people");
+                    $location.path("/details");
                 },
                 function (reason) {
                     console.log(reason);
@@ -31,8 +48,8 @@
         function startApp(actionButton) {
             gapi.load('auth2', function () {
                 auth2 = gapi.auth2.init({
-                    client_id: '990732731863-in59ar3adprbnpuhmgagtsfdmvcfv9q4.apps.googleusercontent.com'
-                    //cookiepolicy: 'single_host_origin'
+                    client_id: '990732731863-in59ar3adprbnpuhmgagtsfdmvcfv9q4.apps.googleusercontent.com',
+                    cookiepolicy: 'single_host_origin'
                 });
                 attachSignin(document.getElementById(actionButton));
             });
@@ -41,22 +58,26 @@
         function attachSignin(element) {
             auth2.attachClickHandler(element, {},
                 function (googleUser) {
-                    $scope.userId = googleUser.getBasicProfile().getId();
-                    $scope.userEmail = googleUser.getBasicProfile().getEmail();
+                    $scope.wait = true;
+                    var userEmail = googleUser.getBasicProfile().getEmail();
                     $scope.userName = googleUser.getBasicProfile().getName();
                     $rootScope.userImage = googleUser.getBasicProfile().getImageUrl();
 
-                    LoginService.google($scope.userEmail).then(
+                    LoginService.google(userEmail).then(
                         function (response) {
                             currentUser = response.data;
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
                             $rootScope.message = "";
+                            if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
+                            $scope.wait = false;
+                            $location.path("/details");
                         },
                         function (reason) {
                             currentUser = undefined;
                             authenticated = false;
                             $rootScope.message = "Invalid login, try again!";
+                            $scope.wait = false;
                         }
                     );
                 },
@@ -65,4 +86,17 @@
                 });
         };
     });
+
+    app.controller("LogoutController", function ($cookies, $location, $rootScope) {
+        currentUser = {};
+        authenticated = false;
+        $cookies.remove('gigiSchool');
+
+        //$rootScope.userName = "";
+        //$rootScope.userImage = null;
+        //$location.path("/login");
+
+        window.location.reload();
+    });
+
 }());
