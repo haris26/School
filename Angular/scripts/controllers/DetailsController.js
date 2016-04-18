@@ -13,10 +13,10 @@
         getDays();
         function getDays() {
             DataService.read("days", currentUser.id, function (data) {
-                $scope.days= data;
+                $scope.days = data;
             });
         };
-        
+
         function getTeams() {
             DataService.list("teams", function (data) {
                 $scope.teams = data;
@@ -39,7 +39,7 @@
         $scope.reloadRoute = function () {
             $window.location.reload();
         }
-       
+
         $scope.newDetail = function () {
             $scope.detail = {
                 id: 0,
@@ -53,20 +53,20 @@
                 teamName: ""
             }
         };
-        $scope.deleteData = function()
-        {
-                DataService.delete(dataSet, $scope.detail.id, function (data) { fetchData()});   
-           // fetchData();
-            
+        $scope.deleteData = function () {
+            DataService.delete(dataSet, $scope.detail.id, function (data) { fetchData() });
+            // fetchData();
+
         }
 
         $scope.saveData = function () {
+            
             var promise;
             if ($scope.detail.id == 0) {
-                DataService.create(dataSet, $scope.detail, function (data) {fetchData() });
+                DataService.create(dataSet, $scope.detail, function (data) { fetchData() });
             }
             else {
-                DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData()});
+                DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData() });
             }
             //fetchData();
         }

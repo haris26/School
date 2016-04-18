@@ -41,6 +41,5 @@ namespace WebAPI.Helpers
                        .Select(x => x.Role.Name.ToLower())
                        .Distinct().ToList();
         }
-
     }
 }

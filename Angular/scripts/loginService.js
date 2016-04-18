@@ -1,57 +1,38 @@
-(function() {
+(function () {
 
-    var app = angular.module("timeKeeper");
+    var app = angular.module("school");
 
-    var LoginService = function($http, $cookies, timeConfig) {
+    app.factory("LoginService", function ($http, schConfig) {
 
-        var source = timeConfig.source;
+        var source = schConfig.source;
 
         return {
-            login: function(user) {
+            login: function (user) {
                 $http.defaults.headers.common['Authorization'] = 'Basic ' + encode(user.name + ":" + user.pass);
-                /*$http.defaults.headers.common['Access-Control-Allow-Origin'] = "*";
-                $http.defaults.headers.common['Access-Control-Allow-Methods'] = "GET, POST, PUT, DELETE, OPTIONS";
-                $http.defaults.headers.common['Access-Control-Allow-Headers'] = "*";*/
                 return $http({
-                    method: "get",
-                    url: source + "login"
+                    method: "post",
+                    url: source + "/tokenRequest",
+                    data: {
+                        signature: schConfig.signature,
+                        apiKey: schConfig.apiKey
+                    }
                 })
             },
 
-            logout: function() {
+            google: function (email) {
                 return $http({
-                    method: "get",
-                    url: source + "login/1"
+                    method: "post",
+                    url: source + "login",
+                    data: {
+                        email: email,
+                        signature: schConfig.signature,
+                        apiKey: schConfig.apiKey
+                    }
                 })
-            },
-
-            setCredentials: function(user) {
-                var authData = encode(user.name + ":" + user.pass);
-                $cookies['timeAuth'] = authData;
-            },
-
-            getCredentials: function() {
-                var authData = $cookies['timeAuth'];
-                if (!(authData == "" || authData == null)) {
-                    uss = decode(authData).split(':');
-                    return {
-                        name: uss[0],
-                        pass: uss[1]
-                    }
-                }
-                else
-                    return {
-                        name: "",
-                        pass: ""
-                    }
-            },
-
-            clearCredentials: function() {
-                $cookies['timeAuth'] = "";
             }
         };
 
-        function encode (input) {
+        function encode(input) {
 
             var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 
@@ -77,16 +58,16 @@
                 }
 
                 output = output +
-                keyStr.charAt(enc1) +
-                keyStr.charAt(enc2) +
-                keyStr.charAt(enc3) +
-                keyStr.charAt(enc4);
+                    keyStr.charAt(enc1) +
+                    keyStr.charAt(enc2) +
+                    keyStr.charAt(enc3) +
+                    keyStr.charAt(enc4);
                 chr1 = chr2 = chr3 = "";
                 enc1 = enc2 = enc3 = enc4 = "";
             } while (i < input.length);
 
             return output;
-        };
+        }
 
         function decode(input) {
 
@@ -101,8 +82,8 @@
             var base64test = /[^A-Za-z0-9\+\/\=]/g;
             if (base64test.exec(input)) {
                 window.alert("There were invalid base64 characters in the input text.\n" +
-                "Valid base64 characters are A-Z, a-z, 0-9, '+', '/',and '='\n" +
-                "Expect errors in decoding.");
+                    "Valid base64 characters are A-Z, a-z, 0-9, '+', '/',and '='\n" +
+                    "Expect errors in decoding.");
             }
             input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
 
@@ -131,9 +112,6 @@
             } while (i < input.length);
 
             return output;
-        };
-
-    };
-
-    app.factory("LoginService", ['$http', '$cookies', 'timeConfig', LoginService]);
+        }
+    })
 }());

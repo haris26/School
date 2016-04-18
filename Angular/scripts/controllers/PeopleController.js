@@ -1,8 +1,8 @@
-(function(){
+(function () {
 
     var app = angular.module("school");
 
-    app.controller("PeopleController", function($scope, DataService) {
+    app.controller("PeopleController", function ($scope, DataService) {
 
         $scope.modal = false;
         var dataSet = "people";
@@ -21,7 +21,7 @@
             $scope.person = item;
         };
 
-        $scope.newPerson = function() {
+        $scope.newPerson = function () {
             $scope.person = {
                 id: 0,
                 firstName: "",

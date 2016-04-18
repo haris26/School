@@ -29,6 +29,7 @@
             .when("/logout", { template: "", controller: "LogoutController" })
             .when("/calendar", { templateUrl: "views/calendar.html", controller: "CalendarController" })
             .when("/details", { templateUrl: "views/details.html", controller: "DetailsController" })
+            .when("/createdetail", { templateUrl: "views/CreateDetail.html", controller: "DetailsController" })
             .when("/people", {templateUrl: "views/people.html", controller: "PeopleController"})
             .when("/teams", {templateUrl: "views/teams.html", controller: "TeamsController"})
             .when("/roles", {templateUrl: "views/roles.html", controller: "RolesController"})

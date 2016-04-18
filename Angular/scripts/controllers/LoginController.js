@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
 
     var app = angular.module("school");
 
@@ -61,7 +61,7 @@
                     $scope.wait = true;
                     var userEmail = googleUser.getBasicProfile().getEmail();
                     $scope.userName = googleUser.getBasicProfile().getName();
-                    $scope.userImage = googleUser.getBasicProfile().getImageUrl();
+                    $rootScope.userImage = googleUser.getBasicProfile().getImageUrl();
 
                     LoginService.google(userEmail).then(
                         function (response) {
@@ -92,11 +92,11 @@
         authenticated = false;
         $cookies.remove('gigiSchool');
 
-        $rootScope.userName = "";
-        $location.path("/login");
+        //$rootScope.userName = "";
+        //$rootScope.userImage = null;
+        //$location.path("/login");
 
-        //window.location.reload();
+        window.location.reload();
     });
 
 }());
-
