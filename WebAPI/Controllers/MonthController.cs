@@ -35,8 +35,9 @@ namespace WebAPI.Controllers
         //}
 
 
-        public IList<MonthModel> GetByMonth(int month=0)
+        public IList<MonthModel> Get(int id=0)
         {
+           int month = id;
             if (month ==0) {
                 string deadline = System.Configuration.ConfigurationManager.AppSettings["deadline"];
                 if (DateTime.Now.Day<= Convert.ToInt32(deadline))

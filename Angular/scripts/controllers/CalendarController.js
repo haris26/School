@@ -1,76 +1,67 @@
-﻿(function () {
-var app = angular.module("school");
+﻿angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
+angular.module('ui.bootstrap.demo').controller('DatepickerDemoCtrl', function ($scope) {
+  $scope.today = function() {
+    $scope.dt = new Date();
+  };
+  $scope.today();
 
-app.controller("CalendarController", function($scope) {
-    $scope.day = moment();
+  $scope.clear = function() {
+    $scope.dt = null;
+  };
+
+  $scope.options = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: true
+  };
+
+  // Disable weekend selection
+  function disabled(data) {
+    var date = data.date,
+      mode = data.mode;
+    return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+  }
+
+  $scope.toggleMin = function() {
+    $scope.options.minDate = $scope.options.minDate ? null : new Date();
+  };
+
+  $scope.toggleMin();
+
+  $scope.setDate = function(year, month, day) {
+    $scope.dt = new Date(year, month, day);
+  };
+
+  var tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  var afterTomorrow = new Date(tomorrow);
+  afterTomorrow.setDate(tomorrow.getDate() + 1);
+  $scope.events = [
+    {
+      date: tomorrow,
+      status: 'full'
+    },
+    {
+      date: afterTomorrow,
+      status: 'partially'
+    }
+  ];
+
+  function getDayClass(data) {
+    var date = data.date,
+      mode = data.mode;
+    if (mode === 'day') {
+      var dayToCheck = new Date(date).setHours(0,0,0,0);
+
+      for (var i = 0; i < $scope.events.length; i++) {
+        var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
+
+        if (dayToCheck === currentDay) {
+          return $scope.events[i].status;
+        }
+      }
+    }
+
+    return '';
+  }
 });
-
-app.directive("calendar", function() {
-    return {
-        restrict: "E",
-        templateUrl: "view/calendar.html",
-        scope: {
-            selected: "="
-        },
-        link: function(scope) {
-            scope.selected = _removeTime(scope.selected || moment());
-            scope.month = scope.selected.clone();
-
-            var start = scope.selected.clone();
-            start.date(1);
-            _removeTime(start.day(0));
-
-            _buildMonth(scope, start, scope.month);
-
-            scope.select = function(day) {
-                scope.selected = day.date;  
-            };
-
-            scope.next = function() {
-                var next = scope.month.clone();
-                _removeTime(next.month(next.month()+1)).date(1);
-                scope.month.month(scope.month.month()+1);
-                _buildMonth(scope, next, scope.month);
-            };
-
-            scope.previous = function() {
-                var previous = scope.month.clone();
-                _removeTime(previous.month(previous.month()-1).date(1));
-                scope.month.month(scope.month.month()-1);
-                _buildMonth(scope, previous, scope.month);
-            };
-        }
-    };
-    
-    function _removeTime(date) {
-        return date.day(0).hour(0).minute(0).second(0).millisecond(0);
-    }
-
-    function _buildMonth(scope, start, month) {
-        scope.weeks = [];
-        var done = false, date = start.clone(), monthIndex = date.month(), count = 0;
-        while (!done) {
-            scope.weeks.push({ days: _buildWeek(date.clone(), month) });
-            date.add(1, "w");
-            done = count++ > 2 && monthIndex !== date.month();
-            monthIndex = date.month();
-        }
-    }
-
-    function _buildWeek(date, month) {
-        var days = [];
-        for (var i = 0; i < 7; i++) {
-            days.push({
-                name: date.format("dd").substring(0, 1),
-                number: date.date(),
-                isCurrentMonth: date.month() === month.month(),
-                isToday: date.isSame(new Date(), "day"),
-                date: date
-            });
-            date = date.clone();
-            date.add(1, "d");
-        }
-        return days;
-    }
-});
-}());
