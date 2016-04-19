@@ -1,16 +1,16 @@
-﻿using Database;
+﻿﻿using Database;
 using System;
 using System.Linq;
 using System.Security.Principal;
 using System.Threading;
 using System.Web.Http;
-using WebApi.Models;
 using WebAPI.Helpers;
+using WebAPI.Models;
 using WebMatrix.WebData;
 
 namespace WebAPI.Controllers
+{ 
 
-{
     public class UserModel
     {
         public string Email { get; set; }

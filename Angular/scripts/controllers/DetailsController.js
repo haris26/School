@@ -11,23 +11,23 @@
         getPeople();
         getDays();
         function getDays() {
-            DataService.list("days", function (data) {
-                $scope.days= data;
+            DataService.read("days", currentUser.id, function (data) {
+                $scope.days = data;
             });
         };
-        
+
         function getTeams() {
             DataService.list("teams", function (data) {
                 $scope.teams = data;
             });
         };
         function getPeople() {
-            DataService.list("people", function (data) {
+            DataService.read("people", currentUser.id, function (data) {
                 $scope.people = data;
             });
         };
         function fetchData() {
-            DataService.list(dataSet, function (data) {
+            DataService.read(dataSet, currentUser.id, function (data) {
                 $scope.details = data;
             });
         }
@@ -38,44 +38,44 @@
         $scope.reloadRoute = function () {
             $window.location.reload();
         }
-       
+
         $scope.newDetail = function () {
             $scope.detail = {
                 id: 0,
                 day: 0,
                 date: new Date().Date,
-                person: 0,
-                personName: "",
+                person: currentUser.id,
+                personName: currentUser.personName,
                 workTime: "",
                 description: "",
                 team: 0,
                 teamName: ""
             }
         };
-        $scope.deleteData = function()
-        {
-           DataService.delete(dataSet, $scope.detail.id, function (data) { fetchData()});   
-           // fetchData();           
+        $scope.deleteData = function () {
+            DataService.delete(dataSet, $scope.detail.id, function (data) { fetchData() });
+            // fetchData();
         }
 
         $scope.saveData = function () {
+            
             var promise;
             if ($scope.detail.id == 0) {
-                DataService.create(dataSet, $scope.detail, function (data) {fetchData() });
+                DataService.create(dataSet, $scope.detail, function (data) { fetchData() });
             }
             else {
-                DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData()});
+                DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData() });
             }
             //fetchData();
         }
     
         $scope.today = function () {
-            $scope.dt = new Date();
+            $scope.detail.date = new Date();
         };
         $scope.today();
 
         $scope.clear = function () {
-            $scope.dt = null;
+            $scope.detail.date = null;
         };
 
         $scope.inlineOptions = {
@@ -112,7 +112,7 @@
         };
 
         $scope.setDate = function (year, month, day) {
-            $scope.dt = new Date(year, month, day);
+            $scope.detail.date = new Date(year, month, day);
         };
 
         $scope.popup2 = {
@@ -152,3 +152,4 @@
         }
     });
 }());
+

@@ -45,7 +45,8 @@ namespace WebAPI.Controllers
                 List<Detail> detail = Repository.Get().Where(x => x.Day.Person.Id == id).ToList();
                 if (detail == null)
                     return NotFound();
-                else {
+                else
+                {
                     List<DetailModel> DetailModel = new List<DetailModel>();
                     foreach (Detail d in detail)
                     {

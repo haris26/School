@@ -1,5 +1,5 @@
 ﻿using Database;
-using WebApi.Models;
+using WebAPI.Models;
 
 namespace WebAPI.Models
 {

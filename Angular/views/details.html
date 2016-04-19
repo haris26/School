@@ -1,80 +1,101 @@
-﻿  <style>
-        .label {
-            float: left;
-            text-align: right;
-            width: 45%;
-            margin: 6px;
-        }
+<div class="dashboard form-horizontal">
+    <div class="row">
+        <div action="#" class="credit-card-div">
+                      <div class="row col-md-offset-3 col-md-8">
+                        <div action="#" class="credit-card-div">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="profile-content">
+                                        <div class="row">
+                                            <div class="create col-xs-offset-4 col-md-offset-5 col-md-10 col-xs-6">
+                                                <a href="index.html#/createdetail"><img src="../images/mistral4.jpg" class="img-responsive" /> <!--width="280" height="280" />--> </a>
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid ">
+                                            <div style="width:100%" class="panel col-xs-12">
+                                                <span class="form-group">
+                                                    <b>Filter:</b> <input class="input-sm" type="search" ng-model="selDetail">
+                                                    <b>Order:</b> <select class="input-sm" ng-model="sortOrder">
+                                                        <option value="+description">Description</option>
+                                                        <option value="-date">Date</option>
+                                                    </select>
+                                                </span>
+                                                <div>
+                                                    <br />
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th width="30%">Description</th>
+                                                                <th width="30%">Date</th>
+                                                                <th width="20%">Work Time</th>
+                                                                <th width="20%">Team</th>
+                                                            </tr>
+                                                    </table>
+                                                </div>
 
-        .text {
-            float: left;
-            width: 45%;
-            margin: 6px;
-        }
+                                                <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail">
+                                                    <table class="table table-bordered">
+                                                        <tr><td data-toggle="modal" data-target="#editModal" width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
 
-        .panel {
-            width: 30%;
-            float: left;
-            margin: 6px;
-            padding: 10px;
-            border: 1px solid black;
-        }
-         .full button span {
-            background-color: limegreen;
-            border-radius: 32px;
-            color: black;
-        }
 
-        .partially button span {
-            background-color: orange;
-            border-radius: 32px;
-            color: black;
-        }
-    </style>
+            <div id="editModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!--<div class="modal-content">-->
+                    <div class="modal-body">
+                        <form action="#" class="credit-card-div">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row ">
+                                        <div class="col-md-12">
+                                            <span class="help-block text-muted small-font"> Date</span>
+                                            <input class="form-control" type="date" placeholder="Date" ng-model="detail.date" />
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-md-3 col-sm-3 col-xs-3">
+                                            <span class="help-block text-muted small-font"> Work Time</span>
+                                            <input class="form-control" type="text" placeholder="Work Time" ng-model="detail.workTime">
+                                        </div>
+                                        <div class="col-md-8 col-sm-8 col-xs-8">
+                                            <span class="help-block text-muted small-font">  Description</span>
+                                            <input class="form-control" type="text" placeholder="Description" ng-model="detail.description">
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <span class="help-block text-muted small-font">  Team</span>
+                                            <select class="form-control" ng-model="detail.team" placeholder="Team"
+                                                    ng-options="team.id as team.name for team in teams"></select>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-3">
+                                            <img class="glyphicon glyphicon-calendar" />
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                                            <input type="submit" class="btn btn-danger" value="Delete" ng-click="deleteData()" />
+                                            <input type="reset" class="btn btn-success" value="New input" ng-click="newDetail()" />
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                                            <input type="submit" class="btn btn-warning btn-block" value="Save data" ng-click="saveData(); reloadRoute()" />
+                                        </div>
+                                    </div>
 
-    <div class="panel">
-        <div>
-            <input type="button" value="Save data" ng-click="saveData(); reloadRoute()" />
-            <input type="button" value="New detail" ng-click="newDetail()" />
-            <input type="button" value="Delete" ng-click="deleteData()" />
-            <hr>
-        </div>
-    </div>
-<div class="label">Date:</div>
-    <div class="input-group">
-        <input type="text" class="form-control" uib-datepicker-popup ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-        <span class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
-        </span>
-    </div>
-    <!--<div class="label">Date:</div>
-    <div class="text"><input type="date" ng-model="detail.date" /></div>-->
-    <div class="label">Person:</div>
-    <div class="text">
-        <select ng-model="detail.person"
-                ng-options="person.id as person.firstName + ' ' + person.lastName for person in people"></select>
-    </div>
-    <div class="label">Work time:</div>
-    <div class="text"><input type="text" ng-model="detail.workTime"></div>
-    <div class="label">Description:</div>
-    <div class="text"><input type="text" ng-model="detail.description"></div>
-    <div class="label">Team id:</div>
-    <div class="text">
-        <select ng-model="detail.team"
-                ng-options="team.id as team.name for team in teams"></select>
-    </div>
-    
-    <div class="panel panel-default" >
-        Filter: <input type="search" ng-model="selDetail">
-        Order: <select ng-model="sortOrder">
-            <option value="+personName">Person</option>
-            <option value="+description">Description</option>
-            <option value="-date">Date</option>
-        </select>
-        <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail">
-            <hr>
-            <table class="table table-bordered">
-                <tr><td><a href="#/details" ng-click="transfer(item)">{{ item.personName }}</a> </td><td> {{ item.date }} </td><td> {{ item.description }} </td><td> {{item.workTime}}</td><td> {{item.teamName}}</td></tr>
-            </table>
-        </div>
-    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+>>>>>>> aa202710efd6ea366c974562443bdfb988638282
