@@ -61,10 +61,7 @@ namespace WebAPI.Helpers
                                 totalTime += Convert.ToDouble(((timeRestricition - time.EventStart).TotalDays) * 480);
                             }
                         }
-
-
                     }
-
                     ResourceStatistic.Usage = Convert.ToDouble((totalTime / (AdminDashboard.ResultSpan * 480)) * 100);
                     AdminDashboard.ResourceStatistics.Add(ResourceStatistic);
                 }
