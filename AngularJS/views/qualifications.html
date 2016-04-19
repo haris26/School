@@ -11,8 +11,23 @@
     <br>
     <div class="row">
         <div class="col-md-12">
-            <div ng-repeat="x in educations | orderBy: sortOrder">
-                {{ x.name }}
+            <div ng-repeat="education in educations | orderBy: sortOrder">
+                <div class="panel-group panel panel-default">
+                    <div class="panel-heading" ng-click="collapse(education.type)" data-toggle="collapse" data-target="#{{education.type}}">
+                        <h4 class="panel-title">
+                            <span>
+                                <span class="{{icon[collapsed[education.type]]}}"></span>  {{ education.name }}
+                            </span>
+                        </h4>
+                    </div>
+                    <div id="{{ education.type }}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div ng-repeat="education in educations | orderBy: sortOrder">
+                                {{ education.name }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
