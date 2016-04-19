@@ -22,7 +22,10 @@
 
 body {
     padding-top: 150px;
-    padding-bottom: 20px;   
+    padding-bottom: 20px;
+    background-image: url('../images/photo1.jpg');
+    /*background-image: url('../images/buildings.jpg');*/
+    background-size: cover;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -205,5 +208,3 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus .dropdow
 .select:active, .select:hover {
   outline-color: rgba(229, 103, 23, 0.8);
 }
-
-

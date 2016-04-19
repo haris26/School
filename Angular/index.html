@@ -2,6 +2,13 @@
 <html ng-app="school">
 
 <head>
+    <style>
+        @font-face {
+            font-family: 'BorisBlackBloxx';
+            src: url('fonts/BorisBlackBloxx.ttf') format('truetype');
+        }
+
+    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="library/jquery.min.js"></script>
@@ -13,7 +20,6 @@
     <script src="library/angular-cookies.js"></script>
 
     <script src="scripts/app.js"></script>
-    <script src="library/googleClient.js"></script>
     <script src="scripts/controllers/DetailsController.js"></script>
     <script src="scripts/controllers/CalendarController.js"></script>
     <script src="scripts/controllers/PeopleController.js"></script>
@@ -28,12 +34,11 @@
     <link href="styles/sidebar.css" rel="stylesheet" />
     <link href="styles/simple-sidebar.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="styles/clndr.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="pull-right mistral"><img src="images/logo.png" class="img-responsive" style="width: 200px; position: absolute; top: 20px; right: 15px; z-index:998" /></div>
-
+    <div class="pull-right mistral"><img src="images/logo.png" class="img-responsive" style="width: 200px; position: absolute; top: 1%; right: 15px; z-index:998" /></div>
+  
     <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -44,45 +49,47 @@
 
                     </div>
                 </li>
-                <li>
-                    <div> </div>
-                    <div> </div>
-                </li>
 
                 <li>
                     <div class="profile-userpic">
-                        <img ng-src="{{ userImage }}" class="img-rounded" style="margin-top:70px; margin-left:20px" />
+                        <img ng-src="{{ userImage }}" class="img-rounded" style="margin-top:70px; margin-left:40px"/>
                     </div>
                     <div class="profile-usertitle">
                         <div class="profile-usertitle-name">{{userName}}</div>
-                        <div class="profile-usertitle-job" ng-model="detail.team" style="margin-top:-30px; margin-left:-50px">DEVELOPER</div>
+                        <div class="profile-usertitle-job" ng-model="detail.team" style="margin-top:-30px; margin-left:-50px">developer</div>
                     </div>
+                    <div class="profile-userbuttons" style="margin-left:-30px">
+                        <button type="button" class="btn btn-success btn-sm">Follow</button>
+                        <button type="button" class="btn btn-info btn-sm">Message</button>
+                    </div>
+                    <br />
+
                 </li>
                 <li class='active'>
-                    <a class='expandable' href='#/details' title='Dashboard'>
+                    <a class='expandable' href='#/details' id="links" title='Dashboard'>
                         <span class='glyphicon glyphicon-home collapsed-element'></span>
-                        <span class='expanded-element'>    Dashboard</span>
+                        <span class='expanded-element col-md-offset-1' style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:large; letter-spacing: 2px">    DASHBOARD</span>
                     </a>
                 </li>
 
                 <li class='active'>
-                    <a class='expandable' href='#/createdetail' title='New Detail'>
+                    <a class='expandable' href='#/createdetail' id="links2" title='New Detail'>
                         <span class='glyphicon glyphicon-plus collapsed-element'></span>
-                        <span class='expanded-element'>    New Detail</span>
+                        <span class='expanded-element col-md-offset-1' style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:large; vertical-align:middle; letter-spacing: 2px">    NEW DETAIL</span>
                     </a>
                 </li>
 
                 <li class='active'>
-                    <a class='expandable' href='#' title='Contact'>
+                    <a class='expandable' href='#' id="links3" title='Contact'>
                         <span class='glyphicon glyphicon-user collapsed-element'></span>
-                        <span class='expanded-element'>    Contact</span>
+                        <span class='expanded-element col-md-offset-1' style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:large; letter-spacing: 2px">    CONTACT</span>
                     </a>
                 </li>
-
+                
                 <li class='active'>
-                    <a class='expandable' href="#/logout" title='Logout'>
+                    <a class='expandable' href="#/logout" id="links4" title='Logout'>
                         <span class='glyphicon glyphicon-log-out collapsed-element'></span>
-                        <span class='expanded-element'>    Logout</span>
+                        <span class='expanded-element col-md-offset-1' style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:large; letter-spacing: 2px">    LOGOUT</span>
                     </a>
                 </li>
             </ul>
@@ -115,6 +122,13 @@
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
+
+        $("#links, #links2, #links3, #links4").click(function (e) {
+            if ($(window).width() < 900) {
+                $("#wrapper").toggleClass("toggled");
+            }
+        });
+
     </script>
 
     <div ng-view></div>

@@ -2,8 +2,7 @@
 }
 
 .glyphicon {
-    font-size: 30px;
-    color: #F2AE75;
+    color: #37ADE7;
 }
 
 .sidebar{
@@ -37,7 +36,7 @@
 }
 
 .profile-usertitle-name {
-  color: #F2AE75;
+  color: #60B72C;
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 7px;
@@ -117,7 +116,7 @@
 
 .wrapper {
     height: 100%;
-   background-color: #273547;
+   background-color: #2E455C;
   position: fixed;
   width: 250px;
   top: 50px;
