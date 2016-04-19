@@ -66,7 +66,8 @@ namespace WebAPI.Models
             {
                 Id = education.Id,
                 Name = education.Name,
-                Type = education.Type
+                Type = education.Type,
+                NumOfEmployees = education.EmployeeEducation.ToList().Count()
             };
         }
 
