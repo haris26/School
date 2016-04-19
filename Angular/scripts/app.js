@@ -33,7 +33,8 @@
             .when("/people", {templateUrl: "views/people.html", controller: "PeopleController"})
             .when("/teams", {templateUrl: "views/teams.html", controller: "TeamsController"})
             .when("/roles", {templateUrl: "views/roles.html", controller: "RolesController"})
-            .when("/engagements", {templateUrl: "views/engagements.html", controller: "EngagementsController"})
+            .when("/engagements", { templateUrl: "views/engagements.html", controller: "EngagementsController" })
+
             .otherwise({redirectTo: "/details"});
     }).run(function ($rootScope, $location) {
         $rootScope.$on("$routeChangeStart", function (event, next, current) {

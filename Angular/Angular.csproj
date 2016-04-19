@@ -124,6 +124,7 @@
     <Content Include="images\spinner.gif" />
     <Content Include="images\toggle.png" />
     <Content Include="library\jquery.min.js" />
+    <Content Include="library\moment.js" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -131,7 +132,6 @@
     </Content>
     <Content Include="library\bootstrap.js" />
     <Content Include="library\bootstrap.min.js" />
-    <Content Include="scripts\controllers\CalendarController.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -156,6 +156,7 @@
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\app.js" />
+    <Content Include="scripts\controllers\CalendarController.js" />
     <Content Include="scripts\controllers\DetailsController.js" />
     <Content Include="scripts\controllers\EngagementsController.js" />
     <Content Include="scripts\controllers\LoginController.js" />
@@ -163,6 +164,7 @@
     <Content Include="scripts\controllers\PeopleController.js" />
     <Content Include="scripts\controllers\RolesController.js" />
     <Content Include="scripts\controllers\TeamsController.js" />
+    <Content Include="scripts\directives\CalendarDirective.js" />
     <Content Include="scripts\directives\Permission.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="scripts\loginService.js" />
@@ -173,6 +175,7 @@
     <Content Include="styles\sidebar.css" />
     <Content Include="styles\simple-sidebar.css" />
     <Content Include="styles\site.css" />
+    <Content Include="scripts\directives\calendar.html" />
     <Content Include="views\calendar.html" />
     <Content Include="views\CreateDetail.html" />
     <Content Include="views\details.html" />
