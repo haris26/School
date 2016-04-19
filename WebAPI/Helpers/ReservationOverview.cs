@@ -18,71 +18,42 @@ namespace WebAPI.Helpers
 
             var deviceResources = new ResourceUnit(context).Get()
                 .Where(x =>(x.Name == modelParameters.ResourceName) &&(x.ResourceCategory.CategoryName == modelParameters.CategoryName))
-                .ToList();
+                .FirstOrDefault();
 
-            foreach (var device in deviceResources)
+            resource = deviceResources;
+            model.Id = resource.Id;
+            model.Name = resource.Name;
+            foreach (var ch in resource.Characteristics)
             {
-                foreach (var ch in device.Characteristics)
+                model.Characteristics.Add(new CharacteristicsListModel()
                 {
-                    if (ch.Name == "OsType" && ch.Value == modelParameters.OsType)
-                    {
-                        resource = device;
-                        model.Id = resource.Id;
-                        model.Name = resource.Name;                       
-                    }
-                    model.Characteristics.Add(new CharacteristicsListModel()
-                    {
-                        Id = ch.Id,
-                        Name = ch.Name,
-                        Value = ch.Value
-                    });
-                    model.Quantity = CheckQuantity(resource, context);
-                }
+                    Name = ch.Name,
+                    Value = ch.Value
+                });
+                model.Quantity = CheckQuantity(resource, context);
             }
 
             foreach (var ev in resource.Events)
             {
-                if (modelParameters.ToDate != System.DateTime.Today)
+                
+                SetWeeklyInterval(modelParameters.FromDate, modelParameters);
+                if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
+                    modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
                 {
-                    SetWeeklyInterval(modelParameters.FromDate, modelParameters);
-                    if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
-                        modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
+                    if (ev.EventStart >= modelParameters.FromDate && ev.EventStart <= modelParameters.ToDate)
                     {
-                        if (ev.EventStart >= modelParameters.FromDate && ev.EventStart <= modelParameters.ToDate)
+                        model.Events.Add(new EventsListModel()
                         {
-                            model.Events.Add(new EventsListModel()
-                            {
-                                Id = ev.Id,
-                                EventTitle = ev.EventTitle,
-                                FromDate = ev.EventStart.ToShortDateString(),
-                                ToDate = ev.EventEnd.ToShortDateString(),
-                                Person = ev.User.Id,
-                                PersonName = ev.User.FullName,
-                                Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
-                            });
-                        }
-                    }
-                }
-                else
-                {
-                    if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
-                        modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
-                    {
-                        if (ev.EventStart == modelParameters.FromDate)
-                        {
-                            model.Events.Add(new EventsListModel()
-                            {
-                                Id = ev.Id,
-                                EventTitle = ev.EventTitle,
-                                FromDate = ev.EventStart.ToShortDateString(),
-                                ToDate = ev.EventEnd.ToShortDateString(),
-                                Person = ev.User.Id,
-                                PersonName = ev.User.FullName,
-                                Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
-                            });
-                        }
-                    }
-                }
+                            Id = ev.Id,
+                            EventTitle = ev.EventTitle,
+                            FromDate = ev.EventStart.ToShortDateString(),
+                            ToDate = ev.EventEnd.ToShortDateString(),
+                            Person = ev.User.Id,
+                            PersonName = ev.User.FullName,
+                            Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
+                        });
+                    }                 
+                }   
             }
             return model;
         }
@@ -108,7 +79,6 @@ namespace WebAPI.Helpers
                 {
                     model.Characteristics.Add(new CharacteristicsListModel()
                     {
-                        Id = ch.Id,
                         Name = ch.Name,
                         Value = ch.Value,
                     });
