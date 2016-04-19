@@ -6,6 +6,12 @@
 
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
+        $scope.educationTypes = {
+            "1": "Formal Education",
+            "2": "Course",
+            "3": "Certificate"
+        };
+
         fetchEducations($scope.employeeId);
 
         function fetchEducations(id) {
