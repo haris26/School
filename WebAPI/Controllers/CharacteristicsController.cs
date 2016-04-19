@@ -23,15 +23,15 @@ namespace WebAPI.Controllers
             return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
         }
 
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(string type)
         {
             try
             {
-                Characteristic characteristic = Repository.Get(id);
-                if (characteristic == null)
-                    return NotFound();
+                if (type != null)
+
+                    return Ok(CharacteristicValues.Create(type, Repository.BaseContext()));
                 else
-                    return Ok(Factory.Create(characteristic));
+                    return BadRequest();
             }
             catch (Exception ex)
             {

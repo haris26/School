@@ -3,7 +3,7 @@ using Database;
 
 namespace DataSeed
 {
-    class CharacteristicUnit: Repository<Characteristic>
+    public class CharacteristicUnit: Repository<Characteristic>
     {
         public CharacteristicUnit(SchoolContext context) : base(context)
         {

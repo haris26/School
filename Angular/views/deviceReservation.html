@@ -1,0 +1,11 @@
+﻿<div ng-controller="DeviceReservationController">
+    <div class="form-group">
+        <div class="col-md-3 control-label">OS Type:</div>
+        <select ng-options="item as item for item in osType" ng-model="Type" ng-change="getDevices()">
+        </select>
+    </div>
+    <div class="form-group" ng-show="devices">
+        <div class="col-md-3 control-label">Resources</div>
+        <select ng-options="item as item for item in devices" ng-model="resourceName"></select>
+    </div>
+</div>

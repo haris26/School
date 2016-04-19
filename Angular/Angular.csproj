@@ -119,7 +119,7 @@
     <Content Include="index.html" />
     <Content Include="library\googleClient.js" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />
-    <Content Include="scripts\controllers\DeviceReservation.js" />
+    <Content Include="scripts\controllers\DeviceReservationController.js" />
     <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\ReservationsController.js" />
     <Content Include="scripts\controllers\userDashboardController.js" />
