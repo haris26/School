@@ -218,6 +218,7 @@
     <Compile Include="Models\AssessmentSearchModel.cs" />
     <Compile Include="Helpers\TeamSummary.cs" />
     <Compile Include="Models\CategorySkillsSummary.cs" />
+    <Compile Include="Models\EducationCategoryModel.cs" />
     <Compile Include="Models\EmployeeAssessmentModel.cs" />
     <Compile Include="Models\EmployeeSkillsSummary.cs" />
     <Compile Include="Controllers\PeopleController.cs" />

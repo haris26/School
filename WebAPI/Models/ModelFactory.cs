@@ -1,4 +1,5 @@
 ﻿using Database;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace WebAPI.Models
@@ -99,6 +100,27 @@ namespace WebAPI.Models
                 Token = token.Token,
                 Expiration = token.Expiration
             };
+        }
+
+        public EducationCategoryModel Create(IGrouping<EducationType, Education> educations)
+        {
+            Dictionary<int, string> educationNames = new Dictionary<int, string>();
+            educationNames.Add(1, "Formal Education");
+            educationNames.Add(2, "Courses");
+            educationNames.Add(3, "Certificates");
+
+            EducationCategoryModel model = new EducationCategoryModel()
+            {
+                Id = (int)educations.Key,
+                Name = educationNames[(int)educations.Key]
+            };
+
+            foreach (var education in educations.ToList())
+            {
+                model.Educations.Add(Create(education));
+            }
+
+            return model;
         }
     }
 }
