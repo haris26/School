@@ -18,12 +18,10 @@ namespace WebAPI.Helpers
             {
                 Id = AppGlobals.currentUser.Id,
                 UserName = AppGlobals.currentUser.FirstName
-                //Id = 4,
-                //UserName = "Martina"
+           
             };
 
             var reservations = new EventUnit(context).Get().ToList().Where(x => (x.User.FullName == AppGlobals.currentUser.FullName && x.EventStart >= System.DateTime.Today)).OrderBy(y => y.EventStart);
-            //var reservations = new EventUnit(context).Get().ToList().Where(x => (x.User.FullName == "Martina Vistica" && x.EventStart.Date >= System.DateTime.Today.Date)).OrderBy(y => y.EventStart);
 
             foreach (var reservation in reservations)
             {

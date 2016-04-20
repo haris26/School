@@ -1,9 +1,15 @@
 ﻿(function () {
 
-    var app = angular.module("school", ["ngRoute"]);
+    var app = angular.module("school", ["ngRoute", "ui.bootstrap", "ngCookies"]);
 
     authenticated = false;
-    currentUser = {};
+    currentUser = {
+        id: 0,
+        name: "",
+        roles: [],
+        token: "",
+        expiration: null
+    };
 
     app.constant("schConfig",
         {
@@ -21,6 +27,7 @@
 
         $routeProvider
             .when("/login", { templateUrl: "views/login.html", controller: "LoginController" })
+            .when("/logout", { template: "", controller: "LogoutController" })
             .when("/resources", { templateUrl: "views/resourceList.html", controller: "ResourceController" })
             .when("/home", { templateUrl: "views/userDashboard.html", controller: "UserDashboardController" })
             .when("/dashboard", { templateUrl: "views/userDashboard.html", controller: "UserDashboardController" })
