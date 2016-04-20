@@ -43,7 +43,7 @@
             $scope.detail = {
                 id: 0,
                 day: 0,
-                date: $scope.dt,
+                date: dt,
                 person: currentUser.id,
                 personName: currentUser.personName,
                 workTime: "",
