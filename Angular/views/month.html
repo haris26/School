@@ -1,0 +1,51 @@
+﻿<style>
+    .label {
+        float: left;
+        text-align: right;
+        width: 45%;
+        margin: 6px;
+    }
+
+    .text {
+        float: left;
+        width: 45%;
+        margin: 6px;
+    }
+
+    .panel {
+        width: 30%;
+        float: left;
+        margin: 6px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+</style>
+<button value="Previous" ng-click="previous()">Previous</button>
+<button value="Next" ng-click="next()">Next</button>
+<div class="panel panel-default">
+    Filter: <input type="search" ng-model="selMonth">
+    Order: <select ng-model="sortOrder">
+        <option value="+name">Person</option>
+        <option value="+totalHours">Hours worked</option>
+        <option value="-emptyDays">Nonentered days</option>
+    </select>
+    <div ng-repeat="item in months | orderBy: sortOrder | filter: selMonth">
+        <hr>
+        <table class="table table-bordered">
+            <tr><td><a href="#/months" ng-click="transfer(item)">{{ item.name }}</a><td> {{ item.totalHours }} </td><td> {{item.emptyDays}}</td></tr>
+        </table>
+    </div>
+</div>
+<div class="panel">
+    <div class="label">Person:</div>
+    <div class="text"><input type="text" ng-model="month.name"></div>
+    <div class="label">
+        Teams:
+        <hr>
+             <div ng-repeat="detail in month.details">
+                <table class="table table-bordered">
+                    <tr><td>[{{ detail.category }}] {{detail.count}}</td></tr>
+                </table>
+             </div> 
+    </div>
+    </div>

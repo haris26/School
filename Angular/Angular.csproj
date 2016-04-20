@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2390857E-58A2-46CB-B166-7789179E2770}</ProjectGuid>
+    <ProjectGuid>{33243B7D-AA8A-49F5-A5EC-414E6CC6686F}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -130,6 +130,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="scripts\controllers\Calendar2Controller.js" />
+    <Content Include="scripts\respond.js" />
+    <Content Include="scripts\respond.min.js" />
     <Content Include="library\bootstrap.js" />
     <Content Include="library\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -163,6 +166,7 @@
     <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\MonthController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
+    <Content Include="scripts\services\Permission.js" />
     <Content Include="scripts\controllers\RolesController.js" />
     <Content Include="scripts\controllers\TeamsController.js" />
     <Content Include="scripts\directives\CalendarDirective.js" />
@@ -178,9 +182,11 @@
     <Content Include="styles\site.css" />
     <Content Include="scripts\directives\calendar.html" />
     <Content Include="views\calendar.html" />
+    <Content Include="views\calendar2.html" />
     <Content Include="views\CreateDetail.html" />
     <Content Include="views\daymodal.html" />
     <Content Include="views\details.html" />
+    <Content Include="views\month.html" />
     <Content Include="views\login.html" />
     <Content Include="views\people.html" />
     <Content Include="Web.config" />

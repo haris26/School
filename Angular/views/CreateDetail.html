@@ -1,4 +1,17 @@
-﻿<div class="unos form-horizontal">
+﻿<style>
+         .full button span {
+            background-color: limegreen;
+            border-radius: 32px;
+            color: black;
+        }
+
+        .partially button span {
+            background-color: orange;
+            border-radius: 32px;
+            color: black;
+        }
+    </style>
+<div class="unos form-horizontal">
     <div class="row">
         <div class="row">
             <div class="create col-xs-offset-4 col-md-offset-6 col-md-5 col-xs-5" style="margin-top:2%">
@@ -13,8 +26,15 @@
                     <div class="panel-heading">
                         <div class="row ">
                             <div class="col-md-12">
-                                <span class="help-block text-muted small-font" style="color:#2E455C"><b> Date</b></span>
-                                <input class="form-control" type="date" placeholder="Date" ng-model="detail.date" />
+                                <span class="help-block text-muted small-font"> Date</span>
+                                <p class="input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup ng-model="detail.date" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                                <!--<span class="help-block text-muted small-font"> Date</span>
+                                <input class="form-control" type="date" placeholder="Date" ng-model="detail.date" />-->
                             </div>
                         </div>
                         <div class="row ">
@@ -40,8 +60,8 @@
                             <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust col-md-push-4">
                                 <input type="button" class="btn btn-success" value="New input" ng-click="newDetail()" />
                             </div>
-                            <div class="col-md-5 col-sm-6 col-xs-6 pad-adjust col-md-offset-1">
-                                <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData(); $location.path('/details');" />
+                            <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                                <input type="submit" class="btn btn-warning btn-block" value="Save data" ng-click="saveData();" />
                             </div>
                         </div>
 

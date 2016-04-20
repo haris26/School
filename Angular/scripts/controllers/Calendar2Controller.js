@@ -1,11 +1,11 @@
 ﻿(function () {
     var app = angular.module("school");
-    app.controller("DetailsController", function ($scope, $rootScope, DataService) {
+    app.controller("Calendar2Controller", function ($scope, $rootScope, DataService) {
 
         var dataSet = "details";
         $scope.selDetail = "";
         $scope.sortOrder = '-date';
-        
+
         getTeams();
         fetchData();
         getPeople();
@@ -43,7 +43,7 @@
             $scope.detail = {
                 id: 0,
                 day: 0,
-                date: dt,
+                date: $scope.dt,
                 person: currentUser.id,
                 personName: currentUser.personName,
                 workTime: "",
@@ -58,7 +58,7 @@
         }
 
         $scope.saveData = function () {
-            console.log($scope.detail);
+
             var promise;
             if ($scope.detail.id == 0) {
                 DataService.create(dataSet, $scope.detail, function (data) { fetchData() });
@@ -66,11 +66,14 @@
             else {
                 DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData() });
             }
+            
             //fetchData();
         }
-    
+
+
         $scope.today = function () {
             $scope.dt = new Date();
+            console.log($scope.dt);
         };
         $scope.today();
 
@@ -78,18 +81,10 @@
             $scope.dt = null;
         };
 
-        $scope.inlineOptions = {
+        $scope.options = {
             customClass: getDayClass,
             minDate: new Date(),
             showWeeks: true
-        };
-
-        $scope.dateOptions = {
-            dateDisabled: disabled,
-            formatYear: 'yy',
-            maxDate: new Date(2020, 5, 22),
-            minDate: new Date(),
-            startingDay: 1
         };
 
         // Disable weekend selection
@@ -100,28 +95,18 @@
         }
 
         $scope.toggleMin = function () {
-            $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
-            $scope.dateOptions.minDate = $scope.inlineOptions.minDate;
+            $scope.options.minDate = $scope.options.minDate ? null : new Date();
         };
 
         $scope.toggleMin();
-
-
-        $scope.open2 = function () {
-            $scope.popup2.opened = true;
-        };
 
         $scope.setDate = function (year, month, day) {
             $scope.dt = new Date(year, month, day);
         };
 
-        $scope.popup2 = {
-            opened: false
-        };
-
         var tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
-        var afterTomorrow = new Date();
+        var afterTomorrow = new Date(tomorrow);
         afterTomorrow.setDate(tomorrow.getDate() + 1);
         $scope.events = [
           {
@@ -148,6 +133,7 @@
                     }
                 }
             }
+
             return '';
         }
     });
