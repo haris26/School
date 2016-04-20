@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
 
     var app = angular.module("school");
 
@@ -33,7 +33,7 @@
                 backdrop: 'static',
                 size: 'sm',
                 resolve : {
-                   confirmed : function() {
+                    confirmed : function() {
                         return $scope.confirmed;
                     }
                 }
@@ -47,7 +47,7 @@
          
         };
 
-        }
+    
 
 
 
@@ -70,11 +70,12 @@
         };
   
      
-        function getEvent(id) {
-            DataService.read("events", id, function (data) {
-                $scope.reservationEvent = data;
-            });
-        };
+    function getEvent(id) {
+        DataService.read("events", id, function (data) {
+            $scope.reservationEvent = data;
+        });
+    };
+
     });
 
    
