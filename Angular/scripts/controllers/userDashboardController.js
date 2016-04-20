@@ -16,7 +16,7 @@
         }
 
 
-        function onClick(item) {
+        $scope.cancelReservation = function (item){
 
             var index = $scope.dashboard.activeReservations.indexOf(item);
             $scope.eventId = item.id;
