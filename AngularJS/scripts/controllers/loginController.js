@@ -71,6 +71,9 @@
                             $rootScope.message = "";
                             $location.path("/overview");
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
+                            $('.modal').modal('hide');
+                            $('.modal-backdrop').remove();
+                            $('body').removeClass('modal-open');
                             $scope.wait = false;
                         },
                         function (reason) {

@@ -43,7 +43,7 @@
 
 </head>
 <body ng-app="school">
-    <header class="navbar header navbar-inverse navbar-fixed-top">
+    <header class="navbar header navbar-inverse navbar-fixed-top"  ng-show="userName">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -66,7 +66,7 @@
             </div>
         </div>
     </header>
-    <nav class="container-fluid">
+    <nav class="container-fluid"  ng-show="userName">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <div style="margin-bottom: 10px">
@@ -109,8 +109,8 @@
                 <div>
                     <div ng-view id="content"></div>
                 </div>
-                <hr>
-                <p class="align-center footer-text">Made By Team Alpha</p>
+                <hr ng-show="userName">
+                <p class="align-center footer-text" ng-show="userName">Made By Team Alpha</p>
             </div>
         </div>
     </section>
