@@ -157,6 +157,7 @@
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controllers\CalendarController.js" />
+    <Content Include="scripts\controllers\DayModalController.js" />
     <Content Include="scripts\controllers\DetailsController.js" />
     <Content Include="scripts\controllers\EngagementsController.js" />
     <Content Include="scripts\controllers\LoginController.js" />
@@ -178,6 +179,7 @@
     <Content Include="scripts\directives\calendar.html" />
     <Content Include="views\calendar.html" />
     <Content Include="views\CreateDetail.html" />
+    <Content Include="views\daymodal.html" />
     <Content Include="views\details.html" />
     <Content Include="views\login.html" />
     <Content Include="views\people.html" />

@@ -17,8 +17,7 @@ app.directive("calendar", function () {
             _buildMonth(scope, start, scope.month);
 
             scope.select = function(day) {
-                scope.selected = day.date;
-                //console.log(day.date);
+                scope.selected = new Date(day.date);
             };
 
             scope.next = function() {
