@@ -35,6 +35,7 @@
                     console.log($scope.user.remember);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
                     $scope.wait = false;
+                    $rootScope.$broadcast('userLoggedIn');
                     $location.path("/details");
                 },
                 function (reason) {
@@ -71,6 +72,7 @@
                             $rootScope.message = "";
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
                             $scope.wait = false;
+                            $rootScope.$broadcast('userLoggedIn');
                             $location.path("/details");
                         },
                         function (reason) {

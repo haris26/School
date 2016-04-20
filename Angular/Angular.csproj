@@ -124,12 +124,35 @@
     <Content Include="images\mistral4aaa.jpg" />
     <Content Include="images\mistral4.png" />
     <Content Include="images\buildings.jpg" />
+    <Content Include="images\Mlogo1.png" />
+    <Content Include="images\Mlogo2.png" />
+    <Content Include="images\Mlogo3.png" />
     <Content Include="images\photob.jpg" />
     <Content Include="images\photo1.jpg" />
     <Content Include="images\photo.jpg" />
     <Content Include="images\spinner.gif" />
     <Content Include="images\toggle.png" />
+    <Content Include="js\base-admin-responsive.css" />
+    <Content Include="js\base.js" />
+    <Content Include="js\bootstrap-responsive.min.css" />
+    <Content Include="js\bootstrap.css" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.css" />
+    <Content Include="js\chart.min.js" />
+    <Content Include="js\excanvas.min.js" />
+    <Content Include="js\faq.js" />
+    <Content Include="js\font-awesome-ie7.css" />
+    <Content Include="js\font-awesome-ie7.min.css" />
+    <Content Include="js\font-awesome.css" />
+    <Content Include="js\font-awesome.min.css" />
+    <Content Include="js\fullcalendar.css" />
+    <Content Include="js\fullcalendar.min.js" />
+    <Content Include="js\jquery-1.7.2.min.js" />
+    <Content Include="js\signin.js" />
+    <Content Include="js\style.css" />
+    <Content Include="library\jquery.js" />
     <Content Include="library\jquery.min.js" />
+    <Content Include="library\moment.js" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -137,7 +160,6 @@
     </Content>
     <Content Include="library\bootstrap.js" />
     <Content Include="library\bootstrap.min.js" />
-    <Content Include="scripts\controllers\CalendarController.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -148,6 +170,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="fonts\BorisBlackBloxx.ttf" />
     <Content Include="fonts\BorisBlackBloxxDirty.ttf" />
+    <None Include=".bin\bower.cmd" />
+    <None Include=".bin\git.cmd" />
+    <None Include=".bin\node.cmd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -164,13 +189,16 @@
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\app.js" />
+    <Content Include="scripts\controllers\CalendarController.js" />
     <Content Include="scripts\controllers\DetailsController.js" />
     <Content Include="scripts\controllers\EngagementsController.js" />
     <Content Include="scripts\controllers\LoginController.js" />
+    <Content Include="scripts\controllers\MenuController.js" />
     <Content Include="scripts\controllers\MonthController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
     <Content Include="scripts\controllers\RolesController.js" />
     <Content Include="scripts\controllers\TeamsController.js" />
+    <Content Include="scripts\directives\CalendarDirective.js" />
     <Content Include="scripts\directives\Permission.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="scripts\loginService.js" />
@@ -181,7 +209,9 @@
     <Content Include="styles\sidebar.css" />
     <Content Include="styles\simple-sidebar.css" />
     <Content Include="styles\site.css" />
+    <Content Include="scripts\directives\calendar.html" />
     <Content Include="views\calendar.html" />
+    <Content Include="views\calendars.html" />
     <Content Include="views\CreateDetail.html" />
     <Content Include="views\details.html" />
     <Content Include="views\login.html" />
