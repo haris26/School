@@ -124,10 +124,12 @@
     <Content Include="images\versionBlue.png" />
     <Content Include="images\windowsBlue.png" />
     <Content Include="index.html" />
+    <Content Include="library\angular-cookies.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />
     <Content Include="scripts\controllers\DeviceReservationController.js" />
     <Content Include="scripts\controllers\LoginController.js" />
+    <Content Include="scripts\controllers\ModalController.js" />
     <Content Include="scripts\controllers\ReservationsController.js" />
     <Content Include="scripts\controllers\userDashboardController.js" />
     <Content Include="scripts\services\LoginService.js" />
@@ -143,6 +145,8 @@
     <Content Include="Global.asax" />
     <Content Include="views\deviceReservation.html" />
     <Content Include="views\login.html" />
+    <Content Include="views\modals\cancelResModal.html" />
+    <Content Include="views\modals\extendModal.html" />
     <Content Include="views\resourceList.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
@@ -167,6 +171,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

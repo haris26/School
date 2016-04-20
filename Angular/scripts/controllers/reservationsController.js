@@ -8,7 +8,8 @@
         $scope.showme = false;
         $scope.reservationModal = false;
         getCategories();
-      
+        
+
         function getCategories() {
             DataService.list("resourcecategories", function (data) {
                 $scope.categories = data
