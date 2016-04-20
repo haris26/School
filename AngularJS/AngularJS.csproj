@@ -149,6 +149,7 @@
     <Content Include="views\employeeAssessments.html" />
     <Content Include="views\employeeSummary.html" />
     <Content Include="views\login.html" />
+    <Content Include="views\modals\addEmployeeEducationModal.html" />
     <Content Include="views\people.html" />
     <Content Include="views\qualifications.html" />
     <Content Include="views\editCategory.html" />
