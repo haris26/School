@@ -70,17 +70,18 @@ namespace WebAPI.Controllers
                 if (model == null) return NotFound();
                 else
                 {
+                    DateTime DetailDate = new DateTime(model.Date.Year, model.Date.Month, model.Date.Day);
                     Repository<Day> days = new Repository<Day>(sch);
-                    var day = days.Get().Where(x => x.Person.Id == model.Person && x.Date == model.Date).FirstOrDefault();
+                    var day = days.Get().Where(x => x.Person.Id == model.Person && x.Date == DetailDate).FirstOrDefault();
                     if (day == null)
                     {
                         days.Insert(Parser.Create(new DayModel()
                         {
                             Person = model.Person,
-                            Date = model.Date
+                            Date = DetailDate
 
                         }, sch));
-                        day = days.Get().Where(x => x.Person.Id == model.Person && x.Date == model.Date).FirstOrDefault();
+                        day = days.Get().Where(x => x.Person.Id == model.Person && x.Date == DetailDate).FirstOrDefault();
                         model.Day = day.Id;
                         Repository.Insert(Parser.Create(model, sch));
                     }
