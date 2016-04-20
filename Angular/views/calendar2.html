@@ -12,7 +12,7 @@
     }
 </style>
     <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
-<div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail | filter: { date: dt.Date}">
+<div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail | filter: { date: dt}">
     <table class="table table-bordered">
         <tr><td width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
     </table>
