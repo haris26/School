@@ -20,20 +20,22 @@
             });
         }
         $scope.resourceName = "";
-        $scope.searchParameters = {
-            fromDate: Date.now,
-            toDate: Date.now,
-            categoryName: "Device",
-            resourceName: $scope.resourceName,
-            osType: $scope.Type
-        }
+
+        $scope.getParameters = function () {
+            $scope.searchParameters = {
+                fromDate: new Date(),
+                toDate: new Date(),
+                categoryName: "Device",
+                resourceName: $scope.resourceName,
+                osType: $scope.Type
+            };
+        };
 
         $scope.getReservations = function () {
-            console.log($scope.Type);
+            console.log($scope.searchParameters.fromDate);
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
                 console.log(data);
-                $scope.reservations = data;
-                
+                $scope.reservations = data;                
             });
         }
     });
