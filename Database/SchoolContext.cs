@@ -5,7 +5,7 @@ namespace Database
     public class SchoolContext: DbContext
     {
 
-        public SchoolContext(): base("name=School") //("name=School")
+        public SchoolContext(): base() //("name=School")
 
         { }
         // ALPHA

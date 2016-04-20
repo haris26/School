@@ -92,7 +92,7 @@ namespace WebAPI.Models
                 LastName = person.LastName,
                 Category = person.Category,
                 Status = person.Status,
-                Email=person.Email
+                Email = person.Email
             };
         }
         public TokenModel Create(AuthToken token)

@@ -1,4 +1,4 @@
-<div class="dashboard form-horizontal">
+<!--<div class="dashboard form-horizontal">
     <div class="row">
         <div class="row">
             <div class="create col-xs-offset-4 col-md-offset-6 col-md-5 col-xs-5" style="margin-top:-80px">
@@ -16,7 +16,7 @@
                                     <div class="profile-content">
                                        
                                         <div class="container-fluid ">
-                                            <div style="width:100%" class="panel col-xs-12">
+                                            <div style="width:100%" class="col-xs-12">
                                                 <span class="form-group">
                                                     <b>Filter:</b> <input class="input-sm" type="search" ng-model="selDetail">
                                                     <b>Order:</b> <select class="input-sm" ng-model="sortOrder">
@@ -51,7 +51,59 @@
                     </div>
                 </div>
             </div>
+    </div>-->
+
+
+<div class="unos form-horizontal">
+    <div class="container">
+        <div class="row">
+            <div class="create col-xs-offset-4 col-md-offset-6 col-md-3 col-xs-5" style="margin-top:-5%">
+                <a href="index.html#/createdetail"><img src="../images/Mlogo1.png" class="img-responsive" width="280" height="280" /></a>
+            </div>
+        </div>
+        <br />
+
+        <div class="row col-md-offset-2 col-xs-offset-0 col-md-10 col-xs-12">
+            <form action="#" class="credit-card-div col-xs-offset-1">
+                <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
+                    <div class="panel-heading">
+                        <div class="row ">
+                            <div class="container-fluid ">
+                                <div style="width:100%" class="col-xs-12">
+                                    <span class="form-group">
+                                        <b>Filter:</b> <input class="input-sm" type="search" ng-model="selDetail">
+                                        <b>Order:</b> <select class="input-sm" ng-model="sortOrder">
+                                            <option value="+description">Description</option>
+                                            <option value="-date">Date</option>
+                                        </select>
+                                    </span>
+                                    <div>
+                                        <br />
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th width="30%">Description</th>
+                                                    <th width="30%">Date</th>
+                                                    <th width="20%">Work Time</th>
+                                                    <th width="20%">Team</th>
+                                                </tr>
+                                        </table>
+                                    </div>
+
+                                    <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail">
+                                        <table class="table table-bordered">
+                                            <tr><td data-toggle="modal" data-target="#editModal" width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
 
 
             <div id="editModal" class="modal fade" role="dialog">
@@ -59,12 +111,17 @@
                     <!--<div class="modal-content">-->
                     <div class="modal-body">
                         <form action="#" class="credit-card-div">
-                            <div class="panel panel-default">
+                            <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
                                 <div class="panel-heading">
                                     <div class="row ">
                                         <div class="col-md-12">
                                             <span class="help-block text-muted small-font"> Date</span>
-                                            <input class="form-control" type="date" placeholder="Date" ng-model="detail.date" />
+                                            <p class="input-group">
+                                                <input type="text" class="form-control" uib-datepicker-popup ng-model="detail.date" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                </span>
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -87,12 +144,11 @@
                                     </div>
                                     <br />
                                     <div class="row">
-                                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                            <input type="submit" class="btn btn-danger" value="Delete" ng-click="deleteData()" />
-                                            <input type="reset" class="btn btn-success" value="New input" ng-click="newDetail()" />
+                                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust col-md-push-4">
+                                            <input type="button" class="btn btn-success" value="New input" ng-click="newDetail()" />
                                         </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                            <input type="submit" class="btn btn-warning btn-block" value="Save data" ng-click="saveData(); $location.path('/details');" />
+                                        <div class="col-md-5 col-sm-6 col-xs-6 pad-adjust col-md-offset-1">
+                                            <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData(); $location.path('/details');" />
                                         </div>
                                     </div>
 
@@ -102,3 +158,4 @@
                     </div>
                 </div>
             </div>
+
