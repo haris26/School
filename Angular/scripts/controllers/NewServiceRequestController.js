@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("NewServiceRequestController", function ($scope, $rootScope, DataService) {
+    app.controller("NewServiceRequestController", function ($scope, $rootScope, DataService, $location) {
 
         var dataSet = "newservicerequests";
         $scope.requestMessage = "";
@@ -31,7 +31,9 @@
             };
             
             DataService.create("requests", $scope.request, function (response) { });
-           console.log($scope.request)
+            console.log($scope.request)
+            $location.path("/servicerequests")
+
         }
     });
 }());
