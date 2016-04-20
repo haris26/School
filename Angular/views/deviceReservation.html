@@ -1,35 +1,6 @@
 ﻿<div ng-controller="DeviceReservationController">
-    <!--<div class="form-group">
-        <div class="col-md-3 control-label">OS Type:</div>
-        <select class="form-control" ng-options="item as item for item in osType" ng-model="Type" ng-change="getDevices()">
-        </select>
-    </div>
-    <div class="form-group" ng-show="devices">
-        <div class="col-md-3 control-label">Resources</div>
-        <select class="form-control" ng-options="item as item for item in devices" ng-model="resourceName"></select>
-    </div>-->
-    <!--<div id="container">
-        <div class="deviceTitle">Devices Reservations</div>
-        <div class="typeContainer">
-            <div class="row">
-                <div class="col-xs-2">
-                    <label> OS Type </label>
-                    <select class="form-control" ng-options="item as item for item in osType" ng-model="Type" ng-change="getDevices()"></select>
-                </div>
-                <div class="col-xs-4">
-                    <label> Model </label>
-                    <select class="form-control" ng-options="item as item for item in devices" ng-model="resourceName"></select>
-
-                </div>
-                <div class="col-xs-4">
-                    <label></label>
-                    <button type="button" class="btn btn-primary">Show Calendar</button>
-                </div>
-        </div>
-
-    </div>-->
     <div class="row">
-        <div class="form-group" style="display:inline">
+        <div class="form-group" style="display: inline">
             <label class="col-sm-1 control-label">Os Type</label>
             <div class="col-sm-2">
                 <select class="form-control" ng-options="item as item for item in osType" ng-model="Type" ng-change="getDevices()"></select>
@@ -41,7 +12,25 @@
             </div>
 
             <div class="col-sm-2">
-                <button type="button" class="btn btn-primary" ng-click="getReservations()">Show Calendar</button>
+                <button type="button" class="btn btn-primary" ng-click="getReservations()" ng-show="showBtn">Show Calendar</button>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="deviceCharacteristics">
+
+        <div class="col-md-4">
+            <div class="callout-card primary">
+                <div class="card-label">
+                    <div class="label-text">
+                        <p ng-repeat="item in reservations.characteristics" ng-init="setCharacteristics(item)">
+                            <img src="{{images.iOS}}" ng-show="ios"/>
+                            <img src="{{images.Android}}" ng-show="android"/>
+                            <img src="{{images.iOS}}" ng-show="win"/>
+                            {{item.value}}
+                        </p>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
