@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("ServiceRequestsController", function ($scope, $rootScope, DataService, $location) {
+    app.controller("ServiceRequestsController", function ($scope, $rootScope, DataService, $location, $route) {
 
         var dataSet = "servicerequests";
         $scope.selString = "";
@@ -31,13 +31,16 @@
                 requestDate: Date.now(),
                 quantity: 1,
                 asset: item.assetId,
-                assetType: 1,
+                assetType: item.assetType,
                 category: item.category,
                 person: item.user,
                 status: item.status
             }
             DataService.update("servicerequests", $scope.request.id, $scope.request, function (data) { });
-            $location.path("/servicerequests");
+            //$location.path("/servicerequests");
+            console.log($scope.request)
+            getRequests();
+            $route.reload();
         }
 
         $scope.transfer = function (item) {

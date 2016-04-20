@@ -220,6 +220,7 @@
     <Compile Include="Helpers\AdminOfficeDashboard.cs" />
     <Compile Include="Helpers\AppGlobal.cs" />
     <Compile Include="Helpers\Dashboard.cs" />
+    <Compile Include="Helpers\Mail.cs" />
     <Compile Include="Helpers\SchoolIdentity.cs" />
     <Compile Include="Models\AdminDashboardModel.cs" />
     <Compile Include="Models\AssetCategoriesModel.cs" />

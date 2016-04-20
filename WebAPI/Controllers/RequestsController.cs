@@ -83,6 +83,13 @@ namespace WebAPI.Controllers
             try
             {
                 Repository.Insert(Parser.Create(model, Repository.BaseContext()));
+                if (model.AssetType == "1")
+                {
+                    Mail.SendMail("harismistral@gmail.com", "Request Notification", "Dear Haris, you have one new request!");
+                }else if (model.AssetType == "2")
+                {
+                    Mail.SendMail("edibmistral@gmail.com", "Request Notification", "Dear Edib, you have one new request!");
+                }
                 return Ok();
             }
             catch (Exception ex)

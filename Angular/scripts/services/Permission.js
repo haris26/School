@@ -18,7 +18,7 @@
                         break;
                     }
                 }
-                if (allow)
+                if (allow == true)
                     elem.css("display", "block");
                 else
                     elem.css("display", "none");
