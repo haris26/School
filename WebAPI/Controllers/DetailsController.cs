@@ -78,7 +78,7 @@ namespace WebAPI.Controllers
                         days.Insert(Parser.Create(new DayModel()
                         {
                             Person = model.Person,
-                            Date = model.Date
+                            Date = DetailDate
 
                         }, sch));
                         day = days.Get().Where(x => x.Person.Id == model.Person && x.Date == DetailDate).FirstOrDefault();

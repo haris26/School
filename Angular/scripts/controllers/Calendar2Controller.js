@@ -73,6 +73,7 @@
 
         $scope.today = function () {
             $scope.dt = new Date();
+            $scope.dt.setHours(0, 0, 0);
             console.log($scope.dt);
         };
         $scope.today();

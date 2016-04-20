@@ -3,8 +3,12 @@
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
- 
+    transition: all 0.5s ease; 
+}
+
+.glyphicon {
+    font-size: 20px;
+    color: #37ADE7;
 }
 
 #wrapper.toggled {
@@ -24,7 +28,7 @@
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #273547;
+    background: #4B627A;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -66,7 +70,7 @@
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: white;
 }
 
 .sidebar-nav li a:hover {

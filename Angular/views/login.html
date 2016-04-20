@@ -1,40 +1,61 @@
-<div class="form-horizontal">
+﻿<style>
+    @font-face {
+        font-family: 'BorisBlackBloxx';
+        src: url('fonts/BorisBlackBloxx.ttf') format('truetype');
+    }
+</style>
+
+<div class="row col-md-offset-5 col-xs-offset-0 col-md-4 col-xs-11">
     <div class="row">
-        <div class="form container-fluid col-xs-offset-2 col-md-offset-4 col-xs-8 col-md-8">
-            <div class="row">
-                <div class="create col-xs-offset-2 col-md-offset-2 col-sm-6">
-                    <a href="index.html#/createdetail"><img src="../images/mistral4.jpg" class="img-responsive" /></a>
-                </div>
-            </div>
-            <br />
-            <div class="form-group">
-                <div class="control-label col-md-2"><b>Username:</b></div>
-                <div class="col-md-10">
-                    <input class="form-control" type="text" ng-model="user.name">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="control-label col-md-2"><b>Password:</b></div>
-                <div class="col-md-10">
-                    <input class="form-control" type="password" ng-model="user.pass">
-
-                </div>
-            </div>
-
-            <div class="label form-group"></div>
-            <div class="text" ng-show="!wait">
-            </div>
-            <div class="text" ng-show="!wait"></div>
-            <div class="text" ng-show="wait"><img src="images/loading.gif" /></div>
+        <div class="create col-xs-offset-4 col-md-offset-4 col-md-5 col-xs-5" style="margin-top:-50px">
+            <a href="index.html#/createdetail"><img src="../images/Mlogo1.png" class="img-responsive" width="280" height="280" /></a>
         </div>
     </div>
+    <br />
+    <br />
 
-    <div>
-        <div class="col-xs-offset-4 col-md-offset-4">
-            <div class="col-md-2 col-md-offset-1 control-label" style="color:#F2AE75"><b>Remember me </b><input type="checkbox" ng-model="user.remember" /></div>
-            <input type="button" class="btn btn-warning" id="loginBtn" value="Login" ng-click="login()" />
-            <input type="button" class="btn btn-warning" id="googleBtn" value="Login with Google" href="#/details" />
+    <form action="#" class="credit-card-div col-xs-offset-1">
+        <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
+            <div class="panel-heading">
+
+                <h1 style="font-family:BorisBlackBloxx;
+                    font-size:x-large; color: #37ADE7" class="col-md-offset-2 col-xs-offset-1">
+                      welcome. please log in.
+                </h1>
+                <br />
+                <br />
+                <div class="row ">
+                    <div class="form-group">
+                        <div class="control-label col-md-2"><b>Username:</b></div>
+                        <div class="col-md-10">
+                            <input class="form-control col-md-offset-2" type="text" ng-model="user.name">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ">
+                    <div class="form-group">
+                        <div class="control-label col-md-2"><b>Password:</b></div>
+                        <div class="col-md-10">
+                            <input class="form-control col-md-offset-2" type="password" ng-model="user.pass">
+                        </div>
+                    </div>
+
+                    <div class="label form-group"></div>
+                    <div class="text" ng-show="!wait">
+                    </div>
+                    <div class="text" ng-show="!wait"></div>
+                    <div class="text" ng-show="wait"><img src="images/loading.gif" /></div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="col-md-5 col-xs-4 control-label" style="color:#2E455C"><b>Remember me  </b><input type="checkbox" ng-model="user.remember" /></div>
+                        <input type="button" class="btn btn-info" id="loginBtn" value="Login" ng-click="login()" />
+                        <input type="button" class="btn btn-success" id="googleBtn" value="Login with Google" href="#/details" />
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
