@@ -43,7 +43,7 @@
             $scope.detail = {
                 id: 0,
                 day: 0,
-                date: new Date().Date,
+                date: $scope.dt,
                 person: currentUser.id,
                 personName: currentUser.personName,
                 workTime: "",
@@ -70,12 +70,12 @@
         }
     
         $scope.today = function () {
-            $scope.detail.date = new Date();
+            $scope.dt = new Date();
         };
         $scope.today();
 
         $scope.clear = function () {
-            $scope.detail.date = null;
+            $scope.dt = null;
         };
 
         $scope.inlineOptions = {
@@ -112,7 +112,7 @@
         };
 
         $scope.setDate = function (year, month, day) {
-            $scope.detail.date = new Date(year, month, day);
+            $scope.dt = new Date(year, month, day);
         };
 
         $scope.popup2 = {
