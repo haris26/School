@@ -37,7 +37,7 @@
                     console.log($scope.user.remember);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
                     $scope.wait = false;
-                    $location.path("/people");
+                    $location.path("/index");
                 },
                 function (reason) {
                     console.log(reason);

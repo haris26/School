@@ -123,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="scripts\controllers\AdminDashboardController.js" />
+    <Content Include="scripts\controllers\AdminOfficeController.js" />
     <Content Include="scripts\controllers\AssetsController.js" />
     <Content Include="scripts\controllers\EngagementsController.js" />
     <Content Include="scripts\controllers\HistoryController.js" />
@@ -144,6 +145,7 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controllers\AllRequestsController.js" />
     <Content Include="scripts\controllers\TeamsController.js" />
+    <Content Include="scripts\controllers\UserDashboardController.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
@@ -156,10 +158,13 @@
     <Content Include="styles\startmin.css" />
     <Content Include="styles\Style.css" />
     <Content Include="views\AdminDashboard.html" />
+    <Content Include="views\AdminRequests.html" />
     <Content Include="views\AllAssets.html" />
     <Content Include="views\engagements.html" />
+    <Content Include="views\FreeAssets.html" />
     <Content Include="views\History.html" />
     <Content Include="views\login.html" />
+    <Content Include="views\MyAssets.html" />
     <Content Include="views\NewRequests.html" />
     <Content Include="views\people.html" />
     <Content Include="views\roles.html" />
@@ -167,6 +172,7 @@
     <Content Include="views\SendServiceRequest.html" />
     <Content Include="views\ServiceRequests.html" />
     <Content Include="views\teams.html" />
+    <Content Include="views\UserDashboard.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

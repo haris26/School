@@ -12,8 +12,10 @@
     <script src="library/startmin.js"></script>
      <script src="scripts/app.js"></script>
     <script src="scripts/controllers/LoginController.js"></script>
+    <script src="scripts/controllers/AdminOfficeController.js"></script>
     <script src="scripts/controllers/PeopleController.js"></script>
     <script src="scripts/controllers/TeamsController.js"></script>
+    <script src="scripts/controllers/UserDashboardController.js"></script>
     <script src="scripts/controllers/RolesController.js"></script>
     <script src="scripts/controllers/EngagementsController.js"></script>
     <script src="scripts/services/DataService.js"></script>
@@ -79,7 +81,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="login.html">Logout</a>
+                                <a href="#/logout">Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -107,12 +109,16 @@
                          <a><span class="glyphicon glyphicon-list"></span> Inventory <span class="glyphicon glyphicon-menu-down"></span> </a>
                             <ul class="nav nav-third-level">
                                 <li><a href="Inventory.html"><span class="glyphicon glyphicon-plus"></span> Add Inventory </a></li>
-                                <li><a href="Free.html"><span class="glyphicon glyphicon-cog"></span> Free equipment</a></li>
+                                <li><a href="#/free"><span class="glyphicon glyphicon-cog"></span> Free equipment</a></li>
                                 <li><a href="#/assets"><span class="glyphicon glyphicon-cog"></span> Taken</a></li>
                                 <li><a href="Tables.html"><span class="glyphicon glyphicon-cog"></span> Schedule By Room</a></li>
-                                
                                 <li><a href="#/makenewrequest"><span class="glyphicon glyphicon-cog"></span> New Request</a></li>
-                            </ul>
+                                <li><a href="#/userdashboard">  <span class="glyphicon glyphicon-home"></span> History of my requests</a></li>
+                                <li><a href="#/test">  <span class="glyphicon glyphicon-home"></span> Requests/IT(new)</a></li>
+                                <li><a href="#/officer">  <span class="glyphicon glyphicon-home"></span> Dashboard for officer</a></li>
+                                <li><a href="#/userdashboard">  <span class="glyphicon glyphicon-home"></span> Requests/Office(new)</a></li>
+                                <li><a href="#/myassets">  <span class="glyphicon glyphicon-home"></span> Assets for logged user</a></li>
+                             </ul>
                         </li>
                         <li>
                             <a href="#/history"><span class="glyphicon glyphicon-modal-window"></span> Reports</a>

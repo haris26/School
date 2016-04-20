@@ -14,30 +14,29 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                  
-                    <div class="dataTable_wrapper" ng-controller="AssetsController">
-                     
+                    <div class="dataTable_wrapper" ng-controller="UserDashboardController">
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                            
                             <thead>
                                 <tr>
                                     <th>Name</th>
                                     <th>Model</th>
-                                    <th>Status</th>
+                                    <th>SN</th>
                                     <th>Category</th>
-                                    <th>User</th>
-                                    <th>Service </th>
+                                    <th>Vendor</th>
+                                    <th>Date Of Trade</th>
+                                    <th>Status</th>
+                     
                                 </tr>
                             </thead>
                             <tbody>
-                               
-                                <tr ng-repeat="item in assets  | orderBy: sortOrder" class="request-table">
+                                <tr ng-repeat="item in dashboard.assets" class="request-table">
                                     <td>{{item.name}} </td>
                                     <td>{{item.model}}</td>
-                                    <td>{{item.status}}</td>
-                                    <td>{{item.categoryName }}</td>
-                                    <td>{{item.userName}}</td>
-                                    <td><a href="#/newservicerequests" ng-click="transfer(item)">Service</a></td>
+                                    <td>{{item.serialNumber}}</td>
+                                    <td>{{item.category }}</td>
+                                    <td>{{item.vendor }}</td>
+                                    <td>{{item.date|date }}</td>
+                                    <td>{{item.status }}</td>
                                 </tr>
                             </tbody>
                         </table>

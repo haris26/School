@@ -34,6 +34,9 @@ body {
 .navbar-left {
     float: left;
 }
+.label{
+color:black;
+}
 
 .navbar-right {
     text-align: right;

@@ -4,11 +4,14 @@
 
     app.controller("AssetsController", function ($scope, $rootScope, DataService) {
 
+        $scope.modal = false;
         var dataSet = "assets";
         $scope.selString = "";
-        getAssets();
+        $scope.sortOrder = "userName";
         $rootScope.model = {};
         fetchData();
+        getAssets();
+       
 
         function getAssets() {
             DataService.list("assets", function (data) {

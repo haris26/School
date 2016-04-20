@@ -35,11 +35,16 @@
             .when("/newservicerequests", { templateUrl: "views/SendServiceRequest.html", controller: "NewServiceRequestController" })
              .when("/login", { templateUrl: "views/login.html", controller: "LoginController" })
             .when("/logout", { template: "", controller: "LogoutController" })
+            .when("/test", { templateUrl: "views/AdminRequests.html", controller: "AdminDashboardController" })
+            .when("/officer", { templateUrl: "views/AdminDashboard.html", controller: "AdminOfficeController" })
+             .when("/free", { templateUrl: "views/FreeAssets.html", controller: "AdminDashboardController" })
             .when("/people", { templateUrl: "views/people.html", controller: "PeopleController" })
             .when("/teams", { templateUrl: "views/teams.html", controller: "TeamsController" })
             .when("/roles", { templateUrl: "views/roles.html", controller: "RolesController" })
+              .when("/myassets", { templateUrl: "views/MyAssets.html", controller: "UserDashboardController" })
+            .when("/userdashboard", { templateUrl: "views/UserDashboard.html", controller: "UserDashboardController" })
             .when("/engagements", { templateUrl: "views/engagements.html", controller: "EngagementsController" })
-            .otherwise({ redirectTo: "/" });
+            .otherwise({ redirectTo: "/index" });
     })
         .run(function ($rootScope, $location) {
         $rootScope.$on("$routeChangeStart", function (event, next, current) {

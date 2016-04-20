@@ -46,7 +46,10 @@ namespace WebAPI.Helpers
 
         public static List<string> GetRoles(Person currentUser)
         {
-            return currentUser.Roles.Where(x => x.Role.System).OrderBy(x => x.Role.Name).Select(x => x.Role.Name).Distinct().ToList();
+            var query = currentUser.Roles.AsQueryable();
+            query = query.Where(x => x.Role.System);
+            var lista = query.OrderBy(x => x.Role.Name).ToList();
+            return lista.Select(x => x.Role.Name).Distinct().ToList();
         }
     }
 }

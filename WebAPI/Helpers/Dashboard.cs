@@ -19,16 +19,18 @@ namespace WebAPI.Helpers
 
            
 
-            var assets = person.Assets.GroupBy(x => x.AssetCategory.CategoryName).Select(x => new { type = x.Key, count = x.Count() }).ToList();
+            var assets = person.Assets.Select(x => new { x.Status, x.DateOfTrade, x.Model, x.Vendor, x.AssetCategory, x.Name, x.SerialNumber }).ToList();
             foreach (var asset in assets)
             {
-                dashboard.Assets.Add(new ListModel { Category = asset.type, Count = asset.count });
+                dashboard.Assets.Add(new ListModel { Category = asset.AssetCategory.CategoryName.ToString(), Model=asset.Model,Name=asset.Name,Vendor=asset.Vendor, SerialNumber=asset.SerialNumber, Status=asset.Status.ToString(),Date = asset.DateOfTrade.Date });
+
             }
-            var requests = person.Requests.GroupBy(x => x.RequestDescription).Select(x => new { type = x.Key, count = x.Count(), message=x.Key }).ToList();
+
+            var requests = person.Requests.Select(x => new { x.Status, x.RequestDate, x.RequestDescription, x.RequestMessage, x.requestType, x.Quantity, x.AssetCategory }).ToList();
 
             foreach (var request in requests)
             {
-                dashboard.Requests.Add(new ListModel { Category = request.type, Count = request.count, Message=request.message});
+                dashboard.Requests.Add(new ListRequestsModel { Category = request.AssetCategory.CategoryName.ToString(), Description = request.RequestDescription, Message = request.RequestMessage, Type = request.requestType.ToString(),Quantity=request.Quantity, Status=request.Status.ToString(), Date=request.RequestDate.Date});
 
 
             }

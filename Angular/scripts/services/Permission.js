@@ -8,6 +8,7 @@
             link: function (scope, elem, attr) {
                 var perms = attr.permission.split(",");
                 var roles = currentUser.roles;
+             
                 var allow = false;
                 console.log(perms);
                 console.log(roles);
