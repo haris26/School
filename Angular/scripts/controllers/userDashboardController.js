@@ -2,6 +2,7 @@
 
     var app = angular.module("school");
 
+
     app.controller("UserDashboardController", function ($scope, $rootScope, DataService, schConfig, $modal) {
         var dataSet = "userreservations";
         $scope.repeatingTypes = schConfig.repeatingType;
@@ -15,15 +16,15 @@
         }
 
 
-        $scope.cancelReservation = function (item) {
+        function onClick(item) {
 
             var index = $scope.dashboard.activeReservations.indexOf(item);
             $scope.eventId = item.id;
-            console.log($scope.eventId);
             getEvent($scope.eventId);
             $scope.confirmed = {
                 isConfirmed:false
             }
+
 
             var modalInstance = $modal.open({
                 templateUrl: 'views/modals/cancelResModal.html',
@@ -45,6 +46,10 @@
             });
          
         };
+
+        }
+
+
 
         $scope.extendReservation = function (item) {
             $scope.eventExtend = {

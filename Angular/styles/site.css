@@ -74,11 +74,12 @@
     text-align:center;
 }
 .typeContainer{
-    width:750px;
+    width:auto;
     margin: 0 auto;
     margin-top:10px;
     margin-bottom:30px;
 }
+
 .type{
     font-family:Arial;
     font-size:18px;

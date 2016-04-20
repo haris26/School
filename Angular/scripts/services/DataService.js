@@ -7,7 +7,6 @@
         var source = schConfig.source;
         $http.defaults.headers.common['Token'] = currentUser.token;
         $http.defaults.headers.common['ApiKey'] = schConfig.apiKey;
-        console.log(currentUser);
         return {
             list: function (dataSet, callback) {
                 $http.get(source + dataSet)

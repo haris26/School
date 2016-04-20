@@ -33,6 +33,7 @@
             .when("/dashboard", { templateUrl: "views/userDashboard.html", controller: "UserDashboardController" })
             .when("/active", { templateUrl: "views/active.html", controller: "UserDashboardController" })
             .when("/reservations", { templateUrl: "views/resources.html", controller: "ReservationsController" })
+            .when("/device/reservation", {templateUrl: "views/deviceReservation.html", controller: "DeviceReservationController"})
             .otherwise({ redirectTo: "/home" });
 
     }).run(function ($rootScope, $location) {

@@ -120,6 +120,7 @@
     <Content Include="library\angular-cookies.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />
+    <Content Include="scripts\controllers\DeviceReservationController.js" />
     <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\ModalController.js" />
     <Content Include="scripts\controllers\ReservationsController.js" />
@@ -135,6 +136,7 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="Global.asax" />
+    <Content Include="views\deviceReservation.html" />
     <Content Include="views\login.html" />
     <Content Include="views\modals\cancelResModal.html" />
     <Content Include="views\modals\extendModal.html" />
