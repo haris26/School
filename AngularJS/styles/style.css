@@ -13,7 +13,7 @@ body { font-family: "Open Sans"; padding-top: 50px;}
 .header { background: #273643; border-bottom: 1px solid #222324; padding:0px !important}
 .navbar-nav li:hover a { background: #2c6e98 !important;}
 .sidebar { background: #668caf !important; font-size: 13px; color: #FFFFFF;}
-.navbar-brand { padding: 5px 1px 1px 10px !important;}
+.navbar-brand { padding: 15px 0px 0px 15px; vertical-align:middle !important; }
 
 
 /* nav formating */

@@ -10,7 +10,6 @@
     <div class="page-header-title"><span class="glyphicon glyphicon-bookmark"></span> Qualifications</div>
     <div class="db-header-extra">
         <a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addQualificationModal">Add New Qualification</a>
-        <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteQualificationModal">Delete Qualification</a>
     </div>
 </div>
 
@@ -30,9 +29,10 @@
                     </div>
                     <div id="{{ qualification.id }}" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <div ng-repeat="education in qualification.educations | orderBy: sortOrder">
+                            <div ng-repeat="education in qualification.educations | orderBy: sortOrder" class="db-header">
                                 {{ education.name }}
                                 <span style="float:right">
+                                    <a style="color:black" data-toggle="modal" ng-click="editEducation(education)" data-target="#addQualificationModal"><span class="glyphicon glyphicon-edit"></span></a>
                                     <a style="color:black" data-toggle="modal" ng-click="editEducation(education)" data-target="#deleteQualificationModal"><span class="glyphicon glyphicon-trash"></span></a>
                                 </span>
                             </div>

@@ -27,10 +27,6 @@
 
         fetchQualifications();
 
-        if ($scope.categoryId != undefined) {
-            getCategory($scope.categoryId);
-        }
-
         function fetchQualifications() {
             DataService.list("educations", function (data) {
                 $scope.qualifications = data;
@@ -70,9 +66,10 @@
                         getQualification($scope.qualificationItem.type);
                         $('.modal').modal('hide');
                         window.alert($scope.qualificationItem.name + " has been updated!")
+                        fetchQualifications();
                         $scope.qualificationItem.id = 0;
                         $scope.qualificationItem.name = "";
-                        $scope.qualificationItem.category = $scope.qualification.id;
+                        $scope.qualificationItem.category = $scope.qualifications.id;
                     }
                     else {
                         window.alert($scope.qualificationItem.name + " could not be updated!");

@@ -98,6 +98,7 @@
     <Content Include="images\avatar.jpg" />
     <Content Include="images\bg.jpg" />
     <Content Include="images\loading.gif" />
+    <Content Include="images\mistrallogoblue.png" />
     <Content Include="images\mistral_logo.png" />
     <Content Include="images\skillsBarChart.jpg" />
     <Content Include="library\angular-charts.min.js" />
