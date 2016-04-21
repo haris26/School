@@ -12,7 +12,7 @@
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
-                    $location.path("/details");
+                    $location.path("/months");
                 },
                 function (reason) {
                     $rootScope.message = reason.status;
@@ -35,8 +35,7 @@
                     console.log($scope.user.remember);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
                     $scope.wait = false;
-                    $rootScope.$broadcast('userLoggedIn');
-                    $location.path("/details");
+                    $location.path("/months");
                 },
                 function (reason) {
                     console.log(reason);
@@ -72,8 +71,7 @@
                             $rootScope.message = "";
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
                             $scope.wait = false;
-                            $rootScope.$broadcast('userLoggedIn');
-                            $location.path("/details");
+                            $location.path("/months");
                         },
                         function (reason) {
                             currentUser = undefined;

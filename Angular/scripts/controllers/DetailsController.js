@@ -5,7 +5,7 @@
         var dataSet = "details";
         $scope.selDetail = "";
         $scope.sortOrder = '-date';
-        
+
         getTeams();
         fetchData();
         getPeople();
@@ -58,7 +58,7 @@
         }
 
         $scope.saveData = function () {
-            
+
             var promise;
             if ($scope.detail.id == 0) {
                 DataService.create(dataSet, $scope.detail, function (data) { fetchData() });
@@ -68,7 +68,7 @@
             }
             //fetchData();
         }
-    
+
         $scope.today = function () {
             $scope.dt = new Date();
         };
@@ -112,7 +112,7 @@
         };
 
         $scope.setDate = function (year, month, day) {
-            $scope.dt = new Date(year, month, day);
+            $scope.dt = new Date(year, month, day + 1);
         };
 
         $scope.popup2 = {
@@ -152,4 +152,3 @@
         }
     });
 }());
-
