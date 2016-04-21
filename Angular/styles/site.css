@@ -210,6 +210,25 @@ color: rgba(229, 103, 23, 0.6);
     margin-top: -150px;
 }
 
+.date-picker {
+    float: right;
+    padding-right: 225px;
+    display:inline-block;
+    min-height:290px;
+}
+
+.date-picker .btn-default {
+    width:80px;
+    height: 80px;
+    font-size: 18px;
+}
+
+.date-picker .uib-title {
+    width: 480px;
+    font-size: 25px;
+}
+
+
 /*textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus .dropdown-menu:focus {   
     border-color: rgba(229, 103, 23, 0.8);
     box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);

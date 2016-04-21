@@ -159,7 +159,23 @@
             }
 
             return '';
+        };
+
+        $scope.test = function () {
+            console.log('calendar clicked');
         }
+
+        //$scope.openModal = function (selectedDay) {
+        //    var modalInstance = $modal.open({
+        //        templateUrl: 'views/daymodal.html',
+        //        controller: 'DayModalController',
+        //        resolve: {
+        //            day: function () {
+        //                return selectedDay;
+        //            }
+        //        }
+        //    });
+        //}
     });
 }());
 

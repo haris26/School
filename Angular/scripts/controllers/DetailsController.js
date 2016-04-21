@@ -58,7 +58,7 @@
         }
 
         $scope.saveData = function () {
-            
+            console.log($scope.detail);
             var promise;
             if ($scope.detail.id == 0) {
                 DataService.create(dataSet, $scope.detail, function (data) { fetchData() });
