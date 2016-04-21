@@ -2,22 +2,18 @@
 
    var app = angular.module("school");
 
+    app.controller("UserDashboardController", function ($scope, $rootScope, DataService, schConfig, $modal) {
+        var dataSet = "userreservations";
+        $scope.repeatingTypes = schConfig.repeatingType;
+        fetchData();
+       
+        function fetchData() {
+            DataService.list(dataSet, function (data) {
+                $scope.dashboard = data;
+            });
+        }
 
-   app.controller("UserDashboardController", function ($scope, $rootScope, DataService, schConfig, $modal) {
-       var dataSet = "userreservations";
-       $scope.repeatingTypes = schConfig.repeatingType;
-       fetchData();
-     
-
-       function fetchData() {
-           DataService.list(dataSet, function (data) {
-               $scope.dashboard = data;
-           });
-       }
-
-
-       $scope.cancelReservation = function (item){
-
+        $scope.cancelReservation = function (item){
            var index = $scope.dashboard.activeReservations.indexOf(item);
            $scope.eventId = item.id;
            getEvent($scope.eventId);

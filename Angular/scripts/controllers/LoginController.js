@@ -32,7 +32,7 @@
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
-                    console.log($scope.user.remember);
+                    //console.log($scope.user.remember);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
                     $scope.wait = false;
                     $location.path("/home");
