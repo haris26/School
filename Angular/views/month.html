@@ -25,7 +25,7 @@
         <button class="btn btn-info" value="Previous" ng-click="previous()">Previous</button>
         <span> {{mont| monthName}} </span>
         <button class="btn btn-info" value="Next" ng-click="next()">Next</button>
-        <h1>{{$scope.n}}</h1>
+        <h1>Month:</h1>
         <br />
     </span>
     <span>
@@ -41,6 +41,7 @@
             <li class="list-group-item col-md-4">
                 <span class="badge" style="background-color:#60B72C">{{ item.totalHours }} </span><span class="badge">{{item.emptyDays}}</span>
                 <a ng-click="transfer(item)">{{item.name}}</a>
+                <a ng-click="transfer1(item)">{{item.id}}</a>
             </li>
         </ul>
     </div>
@@ -63,6 +64,7 @@
                             <span class="control-label">
                                 Teams:
                             </span>
+
                             <br />
                             <div ng-repeat="detail in month.details">
                                 <ul class="list-group">
@@ -72,6 +74,33 @@
                                         </span>
                                     </li>
                                 </ul>
+                            </div>
+                            <div style="width:100%" class="col-xs-12">
+                                <span class="form-group">
+                                    <b>Filter:</b> <input class="input-sm" type="search" ng-model="selDetail">
+                                    <b>Order:</b> <select class="input-sm" ng-model="sortOrder">
+                                        <option value="+description">Description</option>
+                                        <option value="-date">Date</option>
+                                    </select>
+                                </span>
+                                <div>
+                                    <br />
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th width="30%">Description</th>
+                                                <th width="30%">Date</th>
+                                                <th width="20%">Work Time</th>
+                                                <th width="20%">Team</th>
+                                            </tr>
+                                    </table>
+                                </div>
+
+                                <div ng-repeat="item in detailsBy">
+                                    <table class="table table-bordered">
+                                        <tr><td data-toggle="modal" data-target="#editModal" width="30%">{{ item.description }} </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

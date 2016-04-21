@@ -10,7 +10,7 @@
         };
     });
 
-    app.directive('modalDialog', function () {
+    app.directive('mdlDialog', function () {
         return {
             restrict: 'E',
             scope: { show: '=' },

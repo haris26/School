@@ -162,6 +162,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="scripts\controllers\Calendar2Controller.js" />
+    <Content Include="scripts\controllers\ModalController.js" />
     <Content Include="scripts\respond.js" />
     <Content Include="scripts\respond.min.js" />
     <Content Include="library\bootstrap1.js" />

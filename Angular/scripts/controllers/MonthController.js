@@ -7,19 +7,32 @@
         var d = new Date();
         var n = d.getMonth() + 1;
         var current = "month";
-        var dataSet = "month";
-
+        var dataSet = "month";  
+        var dataSetD = "details";
+        var n1 = 0;
         $scope.mont = new Date().getMonth() + 1;
-       
         $scope.selMonth = "";
         $scope.sortOrder = "name";
         fetchData();
+
+            function fetchDataByUser(n1) {
+                DataService.read(dataSetD, n1, function (data) {
+                    $scope.detailsBy = data;
+                    
+                });
+            }
+      
         $scope.transfer = function (item) {
-            $scope.month = item;
+            $scope.month = item;         
             $scope.colection = item.details;
             console.log($scope.month.details);
         };
-        function fetchMonth( n) {
+        $scope.transfer1 = function (item1) {
+            n1 = item1.id;
+            console.log(n1);
+            fetchDataByUser(n1);
+        };
+        function fetchMonth(n) {
             DataService.read(dataSet, n, function (data) {
                 $scope.months = data;
             });
@@ -42,6 +55,7 @@
         function fetchData() {
             DataService.list(dataSet, function (data) {
                 $scope.months = data;
+                console.log(data);
             });
         }
     });

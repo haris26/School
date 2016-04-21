@@ -66,7 +66,7 @@
             else {
                 DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData() });
             }
-            
+
             //fetchData();
         }
 
