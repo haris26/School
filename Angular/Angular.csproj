@@ -155,6 +155,7 @@
     <Content Include="library\jquery.js" />
     <Content Include="library\jquery.min.js" />
     <Content Include="library\moment.js" />
+    <Content Include="library\ui-bootstrap-tpls-1.3.2.js" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -194,7 +195,7 @@
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\app.js" />
-    <Content Include="scripts\controllers\CalendarController.js" />
+    <Content Include="scripts\controllers\ModalController.js" />
     <Content Include="scripts\controllers\DayModalController.js" />
     <Content Include="scripts\controllers\DetailsController.js" />
     <Content Include="scripts\controllers\EngagementsController.js" />
@@ -213,11 +214,10 @@
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
     <Content Include="styles\calendar.css" />
+    <Content Include="styles\modal.css" />
     <Content Include="styles\sidebar.css" />
     <Content Include="styles\simple-sidebar.css" />
     <Content Include="styles\site.css" />
-    <Content Include="scripts\directives\calendar.html" />
-    <Content Include="views\calendar.html" />
     <Content Include="views\calendar2.html" />
     <Content Include="views\CreateDetail.html" />
     <Content Include="views\daymodal.html" />
