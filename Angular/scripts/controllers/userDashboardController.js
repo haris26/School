@@ -46,11 +46,6 @@
            });
         
        };
-
-   
-
-
-
        $scope.extendReservation = function (item) {
            $scope.eventExtend = {
                id: 0,
