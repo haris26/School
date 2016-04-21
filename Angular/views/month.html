@@ -11,46 +11,94 @@
         color: black;
     }
 </style>
+<div class="alert alert-info col-md-4 col-md-offset-2" style="box-shadow: 8px 8px 100px #2E455C; margin-top:0%">
+    <div class="row ">
+        <h1 style="font-family: Calibri" class="col-md-offset-1">
+            Hello {{userName}}.<br />
+            Welcome to your Dashboard.
+        </h1>
+    </div>
+</div>
+
+<div class="container col-md-5 col-md-pull-4" style="margin-top:12%; margin-left:-1%">
+    <span>
+        <button class="btn btn-info" value="Previous" ng-click="previous()">Previous</button>
+        <button class="btn btn-info" value="Next" ng-click="next()">Next</button>
+        <h1>Month:</h1>
+        <br />
+    </span>
+    <span>
+        <input placeholder="Filter" class="form-control col-md-3" type="search" ng-model="selMonth">
+        <select class="form-control col-md-2" ng-model="sortOrder">
+            <option value="+name">Person</option>
+            <option value="+totalHours">Hours worked</option>
+            <option value="-emptyDays">Nonentered days</option>
+        </select>
+    </span>
+    <div ng-repeat="item in months | orderBy: sortOrder | filter: selMonth" style="margin:0">
+        <ul class="list-group">
+            <li class="list-group-item col-md-4">
+                <span class="badge" style="background-color:#60B72C">{{ item.totalHours }} </span><span class="badge">{{item.emptyDays}}</span>
+                <a ng-click="transfer(item)">{{item.name}}</a>
+                <a ng-click="transfer1(item)">{{item.id}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
 <div class="unos form-horizontal">
-    <div class="row">
-        <!--<div class="row">
-            <div class="create col-xs-offset-4 col-md-offset-6 col-md-3 col-xs-5" style="margin-top:2%">
-                <a href="index.html#/createdetail"><img src="../images/Mlogo1.png" class="img-responsive" width="280" height="280" /></a>
-            </div>
-        </div>-->
+    <div class="container col-md-offset-7 col-xs-offset-0 col-md-4 col-xs-11" style="margin-top: -16%">
         <br />
 
-        <div class="row col-md-offset-5 col-xs-offset-0 col-md-4 col-xs-11">
+        <div class="row">
+
             <form action="#" class="credit-card-div col-xs-offset-1">
                 <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
                     <div class="panel-heading">
+                        <h1 style="font-family:Calibri; color: #37ADE7; margin-top:-4%">Details<span class="glyphicon glyphicon-dashboard col-md-push-7" style="font-size:60px"></span></h1>
+                        <div class="row">
+                            <span class="control-label">Person:</span>
+                            <span><input class="form-control" ng-model="month.name"></span>
+                            <span class="control-label">
+                                Teams:
+                            </span>
 
-                        <div class="row ">
-                            <button value="Previous" ng-click="previous()">Previous</button>
-                            <h1>{{n}}</h1>
-                            <button value="Next" ng-click="next()">Next</button>
-                            <div class="container-fluid">
-
-                                Filter: <input type="search" ng-model="selMonth">
-                                Order: <select ng-model="sortOrder">
-                                    <option value="+name">Person</option>
-                                    <option value="+totalHours">Hours worked</option>
-                                    <option value="-emptyDays">Nonentered days</option>
-                                </select>
-                                <div ng-repeat="item in months | orderBy: sortOrder | filter: selMonth">
-
-                                    <table class="cootabela table table-bordered">
-                                        <tr><td width="20%"><a href="#/months" ng-click="transfer(item)">{{ item.name }}</a><td width="20%"> {{ item.totalHours }} </td><td width="20%"> {{item.emptyDays}}</td></tr>
+                            <br />
+                            <div ng-repeat="detail in month.details">
+                                <ul class="list-group">
+                                    <li class="list-group-item col-md-6">
+                                        [{{ detail.category }}] <span class="badge" style="background-color:#60B72C">
+                                            {{detail.count}} working hours
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div style="width:100%" class="col-xs-12">
+                                <span class="form-group">
+                                    <b>Filter:</b> <input class="input-sm" type="search" ng-model="selDetail">
+                                    <b>Order:</b> <select class="input-sm" ng-model="sortOrder">
+                                        <option value="+description">Description</option>
+                                        <option value="-date">Date</option>
+                                    </select>
+                                </span>
+                                <div>
+                                    <br />
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th width="30%">Description</th>
+                                                <th width="30%">Date</th>
+                                                <th width="20%">Work Time</th>
+                                                <th width="20%">Team</th>
+                                            </tr>
                                     </table>
                                 </div>
-                            </div>
-                            <br />
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust col-md-push-4">
-                                    <input type="button" class="btn btn-success" value="New input" ng-click="newDetail()" />
-                                </div>
-                                <div class="col-md-5 col-sm-6 col-xs-6 pad-adjust col-md-offset-1">
-                                    <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData(); $location.path('/details');" />
+
+                                <div ng-repeat="item in detailsBy">
+                                    <table class="table table-bordered">
+                                        <tr><td data-toggle="modal" data-target="#editModal" width="30%">{{ item.description }} </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -60,3 +108,5 @@
         </div>
     </div>
 </div>
+
+
