@@ -100,12 +100,14 @@
     <Content Include="images\mistrallogobig.png" />
     <Content Include="images\mistrallogoblue.png" />
     <Content Include="images\spinner.gif" />
+    <Content Include="library\angular-animate.min.js" />
     <Content Include="library\angular-charts.min.js" />
     <Content Include="library\angular-cookies.js" />
     <Content Include="library\angular-route.js" />
     <Content Include="library\angular.js" />
     <Content Include="library\d3.js" />
     <Content Include="library\googleClient.js" />
+    <Content Include="library\toaster.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -145,6 +147,7 @@
     <Content Include="styles\jquery-ui.css" />
     <Content Include="styles\responsive.css" />
     <Content Include="styles\style.css" />
+    <Content Include="styles\toaster.min.css" />
     <Content Include="views\editEmployeeQualifications.html" />
     <Content Include="views\employeeAssessments.html" />
     <Content Include="views\employeeSummary.html" />

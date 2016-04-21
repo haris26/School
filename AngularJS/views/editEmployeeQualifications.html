@@ -9,20 +9,22 @@
     </div>
 </div>
 
-<div>
-    <div id="content">
-        <div class="row">
-            <div class="col-md-12">
-                <div ng-repeat="education in educations" style="margin-bottom:5px">
-                    <div class="form-horizontal">
-                        <input class="btn btn-default" type="text" value="{{educationTypes[education.type]}}" disabled>
-                        <input class="btn btn-default" type="text" value="{{education.educationName}}" disabled>
-                        <input ng-show="education.reference" class="btn btn-default" type="text" value="{{education.reference}}">
-                        <button ng-show="education.reference"  class="btn btn-primary" type="button"><span class="glyphicon glyphicon-ok"></span></button>
-                        <button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button>
-                    </div>
+<div id="content">
+    {{ message }}
+    <toaster-container toaster-options="{'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <div ng-repeat="education in educations" style="margin-bottom:5px">
+                <div class="form-horizontal">
+                    <input class="btn btn-default" type="text" value="{{educationTypes[education.type]}}" disabled>
+                    <input class="btn btn-default" type="text" value="{{education.educationName}}" disabled>
+                    <input ng-show="education.reference" class="btn btn-default" type="text" value="{{education.reference}}">
+                    <button ng-show="education.reference" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-ok"></span></button>
+                    <button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+

@@ -1,10 +1,11 @@
 ﻿<script type="text/javascript">
     $(window).load(function(){
         $('#loginModal').modal('show');
+        $('#loginModal').data('bs.modal').$backdrop.css({'opacity': '1.0', 'background-color': '#273643'});
     });
 </script>
 
-<div id="loginModal" class="modal fade" role="dialog">
+<div id="loginModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
     <div ng-include="'views/modals/loginModal.html'"></div>
 </div>
 

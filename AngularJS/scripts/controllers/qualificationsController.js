@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("QualificationsCtrl", function ($scope, $log, DataService) {
+    app.controller("QualificationsCtrl", function ($scope, $log, DataService, toaster) {
 
         $scope.message = "Loading data...";
         $scope.sortOrder = "Name";
@@ -51,12 +51,13 @@
                     if (data != false) {
                         fetchQualifications();
                         getQualification($scope.qualificationItem.type);
-                        window.alert($scope.qualificationItem.name + " added!");
+                        toaster.pop('note', $scope.qualificationItem.name + " added!");
                         $('.modal').modal('hide');
                         $scope.qualificationItem.name = "";
+                        $scope.qualificationItem.category = "";
                     }
                     else {
-                        window.alert($scope.qualificationItem.name + " could not be added!");
+                        toaster.pop('error', $scope.qualificationItem.name + " could not be added!");
                     }
                 })
             }
@@ -65,14 +66,14 @@
                     if (data != false) {
                         getQualification($scope.qualificationItem.type);
                         $('.modal').modal('hide');
-                        window.alert($scope.qualificationItem.name + " has been updated!")
+                        toaster.pop('note', $scope.qualificationItem.name + " has been updated!")
                         fetchQualifications();
                         $scope.qualificationItem.id = 0;
                         $scope.qualificationItem.name = "";
                         $scope.qualificationItem.category = $scope.qualifications.id;
                     }
                     else {
-                        window.alert($scope.qualificationItem.name + " could not be updated!");
+                        toaster.pop('error', $scope.qualificationItem.name + " could not be updated!");
                     }
                 })
             }
@@ -91,15 +92,18 @@
                     if (data != false) {
                         fetchQualifications();
                         $('.modal').modal('hide');
-                        window.alert($scope.qualificationItem.name + " has been deleted!")
+                        toaster.pop('note', $scope.qualificationItem.name + " has been deleted!")
+                        $scope.qualificationItem.id = 0;
+                        $scope.qualificationItem.name = "";
+                        $scope.qualificationItem.category = "";
                     }
                     else {
-                        window.alert($scope.qualificationItem.name + " could not be deleted!");
+                        toaster.pop('error', $scope.qualificationItem.name + " could not be deleted!");
                     }
                 })
             }
             else {
-                window.alert($scope.qualificationItem.name + " could not be deleted because it is assigned to some employees!");
+                toaster.pop('error', $scope.qualificationItem.name + " could not be deleted", "because it is assigned to some employees!");
                 $('.modal').modal('hide');
             }
         }

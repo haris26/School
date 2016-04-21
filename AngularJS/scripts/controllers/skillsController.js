@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("SkillsCtrl", function ($scope, $rootScope, $log, $location, $routeParams, DataService) {
+    app.controller("SkillsCtrl", function ($scope, $rootScope, $log, $location, $routeParams, DataService, toaster) {
 
         $scope.message = "Loading data...";
         $scope.categoryId = $routeParams.categoryId;
@@ -69,10 +69,10 @@
 
             DataService.update("skillscategories", $scope.category.id, skillCategory, function (data) {
                 if (data != false) {
-                    window.alert($scope.category.name + " saved!");
+                    toaster.pop('note', $scope.skillItem.name + " saved!");
                 }
                 else {
-                    window.alert($scope.category.name + " could not be saved!");
+                    toaster.pop('error', $scope.skillItem.name + " could not be saved!");
                 }
             })
         }
@@ -83,12 +83,12 @@
                     if (data != false) {
                         fetchCategories();
                         getCategory($scope.skillItem.category);
-                        window.alert($scope.skillItem.name + " added!");
+                        toaster.pop('note', $scope.skillItem.name + " added!");
                         $('.modal').modal('hide');
                         $scope.skillItem.name = "";
                     }
                     else {
-                        window.alert($scope.skillItem.name + " could not be added!");
+                        toaster.pop('error', $scope.skillItem.name + " could not be added!");
                     }
                 })
             }
@@ -97,7 +97,7 @@
                     if (data != false) {
                         getCategory($scope.skillItem.category);
                         $('#addSkillModal').modal('hide');
-                        window.alert($scope.skillItem.name + " has been updated!")
+                        toaster.pop('note', $scope.skillItem.name + " has been updated!")
                         $scope.skillItem.id = 0;
                         $scope.skillItem.name = "";
                         $scope.skillItem.category = $scope.category.id;
@@ -114,11 +114,11 @@
                 if (data != false) {
                     fetchCategories();
                     $('#addNewCategoryModal').modal('hide');
-                    window.alert($scope.categoryItem.name + " added!");
+                    toaster.pop('note', $scope.categoryItem.name + " added!");
                     $scope.categoryItem.name = "";
                 }
                 else {
-                    window.alert($scope.categoryItem.name + " could not be added!");
+                    toaster.pop('error', $scope.categoryItem.name + " could not be added!");
                 }
             })
         }
@@ -136,15 +136,15 @@
                     if (data != false) {
                         getCategory($scope.skillItem.category);
                         $('#deleteSkillModal').modal('hide');
-                        window.alert($scope.skillItem.name + " has been deleted!")
+                        toaster.pop('note', $scope.skillItem.name + " has been deleted!")
                     }
                     else {
-                        window.alert($scope.skillItem.name + " could not be deleted!");
+                        toaster.pop('error', $scope.skillItem.name + " could not be deleted!");
                     }
                 })
             }
             else {
-                window.alert($scope.skillItem.name + " could not be deleted because it is assigned to some employees!");
+                toaster.pop('error', $scope.skillItem.name + " could not be deleted", "because it is assigned to some employees!");
                 $('.modal').modal('hide');
             }
 
@@ -156,20 +156,20 @@
 
                 DataService.remove("skillscategories", $scope.category.id,  function (data) {
                     if (data != false) {
-                        window.alert($scope.category.name + " has been deleted!");
+                        toaster.pop('note', $scope.category.name + " has been deleted!");
                         $('#deleteCategoryModal').modal('hide');
                         $('.modal-backdrop').remove();
                         $('body').removeClass('modal-open');
                         $location.path("/skills");
                     }
                     else {
-                        window.alert($scope.category.name + " could not be deleted!");
+                        toaster.pop('error', $scope.category.name + " could not be deleted!");
                     }
                 })
 
             }
             else {
-                window.alert($scope.category.name + " could not be deleted because it is not empty!");
+                toaster.pop('error', $scope.category.name + " could not be deleted because it is not empty!");
                 $('.modal').modal('hide');
             }
         }
