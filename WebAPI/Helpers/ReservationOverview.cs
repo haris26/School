@@ -15,14 +15,18 @@ namespace WebAPI.Helpers
             SchoolContext context = new SchoolContext();
             Resource resource = new Resource();
             ReservationOverviewModel model = new ReservationOverviewModel();
+            //IList<DeviceRowModel> days = new List<DeviceRowModel>(5);
+            DeviceTableModel table = new DeviceTableModel(modelParameters.FromDate);
 
-            var deviceResources = new ResourceUnit(context).Get()
+            var deviceResource = new ResourceUnit(context).Get()
                 .Where(x =>(x.Name == modelParameters.ResourceName) &&(x.ResourceCategory.CategoryName == modelParameters.CategoryName))
                 .FirstOrDefault();
 
-            resource = deviceResources;
+            resource = deviceResource;
             model.Id = resource.Id;
             model.Name = resource.Name;
+
+            var events = new EventUnit(context).Get().Where(x => (x.Resource.Name == model.Name) && (x.EventStart >= modelParameters.FromDate && x.EventStart <= modelParameters.ToDate)).ToList();
             foreach (var ch in resource.Characteristics)
             {
                 model.Characteristics.Add(new CharacteristicsListModel()
@@ -33,106 +37,118 @@ namespace WebAPI.Helpers
                 model.Quantity = CheckQuantity(resource, context);
             }
 
-            foreach (var ev in resource.Events)
+            foreach (var ev in events)
             {
-                
-                SetWeeklyInterval(modelParameters.FromDate, modelParameters);
-                if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
-                    modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
+
+                int day = 0;
+                int hour = 0;
+                //set day parametar
+                if (ev.EventStart.DayOfWeek.ToString() == "Monday") { day = 0; }
+                if (ev.EventStart.DayOfWeek.ToString()=="Tuesday") { day = 1; }
+                if (ev.EventStart.DayOfWeek.ToString() == "Wednesday") { day = 1; }
+                if (ev.EventStart.DayOfWeek.ToString() == "Thursday") { day = 1; }
+                if (ev.EventStart.DayOfWeek.ToString() == "Friday") { day = 1; }
+                // ser hour parametar
+                if (ev.EventStart.ToShortTimeString().ToString() == "9:00") { hour = 0; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "10:00") { hour = 1; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "11:00") { hour = 2; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "12:00") { hour = 3; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "13:00") { hour = 4; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "14:00") { hour = 5; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "15:00") { hour = 6; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "16:00") { hour = 7; }
+                // set device cell model
+                var deviceCell = new DeviceCellModel
                 {
-                    if (ev.EventStart >= modelParameters.FromDate && ev.EventStart <= modelParameters.ToDate)
-                    {
-                        model.Events.Add(new EventsListModel()
-                        {
-                            Id = ev.Id,
-                            EventTitle = ev.EventTitle,
-                            FromDate = ev.EventStart.ToShortDateString(),
-                            ToDate = ev.EventEnd.ToShortDateString(),
-                            Person = ev.User.Id,
-                            PersonName = ev.User.FullName,
-                            Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
-                        });
-                    }                 
-                }   
+                    EventTitle = ev.EventTitle,
+                    PersonName = ev.User.FullName,
+                    IsPast = false,
+                    IsReserved = true
+                };
+
+                table.Add(day, hour, deviceCell);
             }
+            model.DeviceTable = table;
             return model;
         }
 
-        public static IList<ReservationOverviewModel> Create(SearchModel modelParameters)
-        {
-            SchoolContext context = new SchoolContext();
-            IList<ReservationOverviewModel> models = new List<ReservationOverviewModel>();
+     
 
-            var resources =
-                new ResourceUnit(context).Get()
-                    .ToList()
-                    .Where(x => (x.ResourceCategory.CategoryName == modelParameters.CategoryName));
-            foreach (var res in resources)
-            {
-                ReservationOverviewModel model = new ReservationOverviewModel()
-                {
-                    Id = res.Id,
-                    Name = res.Name
-                };
+        //public static IList<ReservationOverviewModel> Create(SearchModel modelParameters)
+        //{
+        //    SchoolContext context = new SchoolContext();
+        //    IList<ReservationOverviewModel> models = new List<ReservationOverviewModel>();
 
-                foreach (var ch in res.Characteristics)
-                {
-                    model.Characteristics.Add(new CharacteristicsListModel()
-                    {
-                        Name = ch.Name,
-                        Value = ch.Value,
-                    });
-                    model.Quantity = CheckQuantity(res, context);
-                }
+        //    var resources =
+        //        new ResourceUnit(context).Get()
+        //            .ToList()
+        //            .Where(x => (x.ResourceCategory.CategoryName == modelParameters.CategoryName));
+        //    foreach (var res in resources)
+        //    {
+        //        ReservationOverviewModel model = new ReservationOverviewModel()
+        //        {
+        //            Id = res.Id,
+        //            Name = res.Name
+        //        };
 
-                foreach (var ev in res.Events)
-                {
-                    if (modelParameters.ToDate != System.DateTime.Today)
-                    {
-                        SetWeeklyInterval(modelParameters.FromDate, modelParameters);
-                        if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
-                            modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
-                        {
-                            if (ev.EventStart >= modelParameters.FromDate && ev.EventStart <= modelParameters.ToDate)
-                            {
-                                model.Events.Add(new EventsListModel()
-                                {
-                                    Id = ev.Id,
-                                    EventTitle = ev.EventTitle,
-                                    FromDate = ev.EventStart.ToShortDateString(),
-                                    ToDate = ev.EventEnd.ToShortDateString(),
-                                    Person = ev.User.Id,
-                                    PersonName = ev.User.FullName,
-                                    Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
-                                });
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
-                            modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
-                        {
-                            if (ev.EventStart == modelParameters.FromDate)
-                            {
-                                model.Events.Add(new EventsListModel()
-                                {
-                                    Id = ev.Id,
-                                    EventTitle = ev.EventTitle,
-                                    FromDate = ev.EventStart.ToShortDateString(),
-                                    ToDate = ev.EventEnd.ToShortDateString(),
-                                    Person = ev.User.Id,
-                                    PersonName = ev.User.FullName,
-                                    Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
-                                });
-                            }
-                        }
-                    }
-                }
-                models.Add(model);
-            }
-            return models;
-        }
+        //        foreach (var ch in res.Characteristics)
+        //        {
+        //            model.Characteristics.Add(new CharacteristicsListModel()
+        //            {
+        //                Name = ch.Name,
+        //                Value = ch.Value,
+        //            });
+        //            model.Quantity = CheckQuantity(res, context);
+        //        }
+
+        //        foreach (var ev in res.Events)
+        //        {
+        //            if (modelParameters.ToDate != System.DateTime.Today)
+        //            {
+        //                SetWeeklyInterval(modelParameters.FromDate, modelParameters);
+        //                if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
+        //                    modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
+        //                {
+        //                    if (ev.EventStart >= modelParameters.FromDate && ev.EventStart <= modelParameters.ToDate)
+        //                    {
+        //                        model.Events.Add(new EventsListModel()
+        //                        {
+        //                            Id = ev.Id,
+        //                            EventTitle = ev.EventTitle,
+        //                            FromDate = ev.EventStart.ToShortDateString(),
+        //                            ToDate = ev.EventEnd.ToShortDateString(),
+        //                            Person = ev.User.Id,
+        //                            PersonName = ev.User.FullName,
+        //                            Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
+        //                        });
+        //                    }
+        //                }
+        //            }
+        //            else
+        //            {
+        //                if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
+        //                    modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
+        //                {
+        //                    if (ev.EventStart == modelParameters.FromDate)
+        //                    {
+        //                        model.Events.Add(new EventsListModel()
+        //                        {
+        //                            Id = ev.Id,
+        //                            EventTitle = ev.EventTitle,
+        //                            FromDate = ev.EventStart.ToShortDateString(),
+        //                            ToDate = ev.EventEnd.ToShortDateString(),
+        //                            Person = ev.User.Id,
+        //                            PersonName = ev.User.FullName,
+        //                            Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
+        //                        });
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        models.Add(model);
+        //    }
+        //    return models;
+        //}
 
         public static void SetWeeklyInterval(DateTime date, SearchModel model)
         {
