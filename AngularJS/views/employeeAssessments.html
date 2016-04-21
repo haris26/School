@@ -133,9 +133,10 @@
                         ng-options="skill.id as skill.name for skill in assessments.availableSkills"></select>
                 <br>
             </div>
-            <div class="col-md-3">
-                <div class="btn btn-primary" ng-click="getHistory()">Get History</div>
-            </div>
+            <div class="col-md-3" style="height: 82px;">
+            <span style="display: inline-block; height: 100%; vertical-align: middle;">
+            </span><a style="vertical-align: middle;" ng-click="getHistory()" class="btn btn-primary">Get History</a>
+                </div>
             <br>
         </div>
 
