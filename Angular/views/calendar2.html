@@ -59,7 +59,6 @@
 </div>
 
 
-
 <style>
     .full button span {
         border-radius: 32px;
@@ -79,7 +78,7 @@
 </div>
 
 <div class="date-picker" ng-controller="ModalController">
-    <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></uib-datepicker>
+    <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options" ng-change="toggleModal()"></uib-datepicker>
     <button ng-click="toggleModal()">otvori modal</button>
     <!--<a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#daymodal"></a>-->
 </div>
