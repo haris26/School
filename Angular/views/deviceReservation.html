@@ -1,38 +1,54 @@
 ﻿<div ng-controller="DeviceReservationController">
-    <div class="row">
+    <h2 id="welcome-title"> Device reservations </h2>
+    <br/>
+    <div class="row col-md-offset-2">
         <div class="form-group" style="display: inline">
-            <label class="col-sm-1 control-label">Os Type</label>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
+                <label class="control-label">OS Type</label>
                 <select class="form-control" ng-options="item as item for item in osType" ng-model="Type" ng-change="getDevices()"></select>
             </div>
 
-            <label class="col-sm-1 control-label">Model</label>
             <div class="col-sm-4">
+                <label class="control-label">Model</label>
                 <select class="form-control" ng-options="item as item for item in devices" ng-model="resourceName" ng-change="getParameters()"></select>
             </div>
 
             <div class="col-sm-2">
+                <label>&nbsp;</label>
                 <button type="button" class="btn btn-primary" ng-click="getReservations()" ng-show="showBtn">Show Calendar</button>
             </div>
         </div>
     </div>
+    <br/>
     <div class="row" ng-show="deviceCharacteristics">
-
-        <div class="col-md-4">
-            <div class="callout-card primary">
-                <div class="card-label">
-                    <div class="label-text">
-                        <p ng-repeat="item in reservations.characteristics" ng-init="setCharacteristics(item)">
-                            <img src="{{images.iOS}}" ng-show="ios"/>
-                            <img src="{{images.Android}}" ng-show="android"/>
-                            <img src="{{images.iOS}}" ng-show="win"/>
-                            {{item.value}}
-                        </p>
-
-                    </div>
+        <div class="col-md-offset-3 col-md-6">
+            <div class="characteristics" >
+                <div class="col-md-4">
+                    <p ng-show="mobile" ng-init="setIcon(item)">
+                        <img src="{{images.Mobile}}"/>
+                    </p>
+                    <p ng-show="tablet" ng-init="setIcon(item)">
+                        <img src="{{images.Tablet}}" />
+                    </p>
                 </div>
+                <div class="col-md-4">
+                    <p ng-show="ios">
+                        <img src="{{images.iOS}}" />  {{reservations.characteristics[1].value}}
+                    </p>
+                    <p ng-show="android">
+                        <img src="{{images.Android}}" />  {{reservations.characteristics[1].value}}
+                    </p>
+                    <p ng-show="win">
+                        <img src="{{images.Windows}}" />  {{reservations.characteristics[1].value}}
+                    </p>
+                    <p>
+                        <img src="{{images.OsVersion}}" />  {{reservations.characteristics[2].value}}
+                    </p>
+                    <p>
+                        <img src="{{images.Quantity}}" />  {{reservations.characteristics[3].value}}
+                    </p>
+                </div>                
             </div>
         </div>
     </div>
 </div>
-
