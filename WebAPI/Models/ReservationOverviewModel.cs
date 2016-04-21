@@ -23,17 +23,40 @@ namespace WebAPI.Models
         public string Time { get; set; }
     }
 
+    public class DeviceCellModel
+    {
+        public string EventTitle { get; set; }   
+        public string PersonName { get; set; }
+        public bool IsReserved { get; set; }
+        public bool IsPast { get; set; }
+    }
+
+    public class DeviceRowModel
+    {
+        public string Day { get; set; }
+        public string Date { get; set; }
+        public IList<DeviceCellModel> Hours { get; set; }
+
+        public DeviceRowModel()
+        {
+            Hours = new List<DeviceCellModel>();
+        }
+    }
+
     public class ReservationOverviewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
         public IList<CharacteristicsListModel> Characteristics { get; set; }
-        public IList<EventsListModel> Events { get; set; }
+        //public IList<EventsListModel> Events { get; set; }
+        public IList<DeviceRowModel> table { get; set; }
         public ReservationOverviewModel()
         {
             Characteristics = new List<CharacteristicsListModel>();
-            Events = new List<EventsListModel>();
+            //Events = new List<EventsListModel>();
+            table = new List<DeviceRowModel>();
         }
+
     }
 }

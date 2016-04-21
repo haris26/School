@@ -19,8 +19,8 @@ namespace WebAPI.Controllers
             {
                 if (model.OsType != "" && model.ResourceName != "")
                     return Ok(ReservationOverview.FindDeviceReservations(model));
-                else if (model.CategoryName != null) 
-                    return Ok(ReservationOverview.Create(model)); 
+                //else if (model.CategoryName != null) 
+                //    return Ok(ReservationOverview.Create(model)); 
                 else
                     return NotFound();
             }
