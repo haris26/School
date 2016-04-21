@@ -110,12 +110,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\androidBlue.png" />
     <Content Include="images\confRoom.png" />
     <Content Include="images\devices.png" />
     <Content Include="images\google.png" />
+    <Content Include="images\iosBlue.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\mistral.png" />
+    <Content Include="images\mobileBlue.png" />
+    <Content Include="images\quantityBlue.png" />
     <Content Include="images\spinner.gif" />
+    <Content Include="images\tabletBLue.png" />
+    <Content Include="images\versionBlue.png" />
+    <Content Include="images\windowsBlue.png" />
     <Content Include="index.html" />
     <Content Include="library\angular-cookies.js" />
     <Content Include="library\googleClient.js" />
