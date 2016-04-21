@@ -32,10 +32,13 @@
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
-                    console.log($scope.user.remember);
+                    console.log($scope.userName);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
-                    $scope.wait = false;
                     $location.path("/overview");
+                    $('.modal').modal('hide');
+                    $('.modal-backdrop').remove();
+                    $('body').removeClass('modal-open');
+                    $scope.wait = false;
                 },
                 function (reason) {
                     console.log(reason);
