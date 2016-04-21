@@ -12,14 +12,14 @@
     <link href="styles/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/site.css" />
   
-     <script src="scripts/app.js"></script>
+    <script src="scripts/app.js"></script>
     <script src="scripts/controllers/LoginController.js"></script>
     <script src="scripts/controllers/userDashboardController.js"></script>
     <script src="scripts/controllers/ResourceController.js"></script>
     <script src="scripts/controllers/ReservationsController.js"></script>
     <script src="scripts/controllers/ModalController.js"></script>
     <script src="scripts/controllers/DeviceReservationController.js"></script>
-
+    <script src="scripts/controllers/RecurringReservationsController.js"></script>
 
     <script src="scripts/services/DataService.js"></script>
     <script src="scripts/services/LoginService.js"></script>
@@ -43,7 +43,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:0px;">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#/resources" data-toggle="dropdown" class="dropdown-toggle">Resources <b class="caret"></b></a>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Resources <b class="caret"></b></a>
                         <ul class="dropdown-menu" style="border:none;">
                             <li><a href="#">Rooms</a></li>
                             <li><a href="#device/reservation">Devices</a></li>
@@ -51,16 +51,17 @@
                     </li>
 
                     <li class="dropdown">
-                        <a href="#/reservations" data-toggle="dropdown" class="dropdown-toggle">Reservations <b class="caret"></b></a>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reservations <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#/active">Show active reservation</a></li>
+                            <li><a href="#/reservations/active">Show active reservations</a></li>
+                            <li><a href="#/reservations/recurring">Recurring reservartions</a></li>
                         </ul>
                     </li>
 
                     <li class="dropdown">
-                        <a href="#/dashboard" data-toggle="dropdown" class="dropdown-toggle">Profile <b class="caret"></b></a>
+                        <a href="#/profile" data-toggle="dropdown" class="dropdown-toggle">Profile <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#/dashboard">Home</a></li>
+                            <li><a href="#/profile">Home</a></li>
                             <li><a href="#/logout">Logout</a></li>
                         </ul>
                     </li>

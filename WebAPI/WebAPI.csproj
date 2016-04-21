@@ -196,6 +196,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EventExtendsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\ExtendedOverviewController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\ReservationOverviewController.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="Helpers\Dashboard.cs" />
     <Compile Include="Helpers\EventExtendRestriction.cs" />
     <Compile Include="Helpers\EventRestriction.cs" />
+    <Compile Include="Helpers\ExtendedOverview.cs" />
     <Compile Include="Helpers\ReservationOverview.cs" />
     <Compile Include="Helpers\SchoolIdentity.cs" />
     <Compile Include="Helpers\UserReservations.cs" />
@@ -229,6 +231,7 @@
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\EventExtendModel.cs" />
     <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\ExtendedOverviewModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\ReservationOverviewModel.cs" />
