@@ -45,9 +45,9 @@ namespace WebAPI.Helpers
                 //set day parametar
                 if (ev.EventStart.DayOfWeek.ToString() == "Monday") { day = 0; }
                 if (ev.EventStart.DayOfWeek.ToString()=="Tuesday") { day = 1; }
-                if (ev.EventStart.DayOfWeek.ToString() == "Wednesday") { day = 1; }
-                if (ev.EventStart.DayOfWeek.ToString() == "Thursday") { day = 1; }
-                if (ev.EventStart.DayOfWeek.ToString() == "Friday") { day = 1; }
+                if (ev.EventStart.DayOfWeek.ToString() == "Wednesday") { day = 2; }
+                if (ev.EventStart.DayOfWeek.ToString() == "Thursday") { day = 3; }
+                if (ev.EventStart.DayOfWeek.ToString() == "Friday") { day = 4; }
                 // ser hour parametar
                 if (ev.EventStart.ToShortTimeString().ToString() == "9:00") { hour = 0; }
                 if (ev.EventStart.ToShortTimeString().ToString() == "10:00") { hour = 1; }
