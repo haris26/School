@@ -15,7 +15,8 @@ namespace WebAPI.Helpers
             SchoolContext context = new SchoolContext();
             Resource resource = new Resource();
             ReservationOverviewModel model = new ReservationOverviewModel();
-            IList<DeviceRowModel> days = new List<DeviceRowModel>(5);
+            //IList<DeviceRowModel> days = new List<DeviceRowModel>(5);
+            DeviceTableModel table = new DeviceTableModel(modelParameters.FromDate);
 
             var deviceResource = new ResourceUnit(context).Get()
                 .Where(x =>(x.Name == modelParameters.ResourceName) &&(x.ResourceCategory.CategoryName == modelParameters.CategoryName))
@@ -37,202 +38,41 @@ namespace WebAPI.Helpers
             }
 
             foreach (var ev in events)
-            {               
-                SetWeeklyInterval(modelParameters.FromDate, modelParameters);
-                if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
-                    modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
+            {
+
+                int day = 0;
+                int hour = 0;
+                //set day parametar
+                if (ev.EventStart.DayOfWeek.ToString() == "Monday") { day = 0; }
+                if (ev.EventStart.DayOfWeek.ToString()=="Tuesday") { day = 1; }
+                if (ev.EventStart.DayOfWeek.ToString() == "Wednesday") { day = 1; }
+                if (ev.EventStart.DayOfWeek.ToString() == "Thursday") { day = 1; }
+                if (ev.EventStart.DayOfWeek.ToString() == "Friday") { day = 1; }
+                // ser hour parametar
+                if (ev.EventStart.ToShortTimeString().ToString() == "9:00") { hour = 0; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "10:00") { hour = 1; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "11:00") { hour = 2; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "12:00") { hour = 3; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "13:00") { hour = 4; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "14:00") { hour = 5; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "15:00") { hour = 6; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "16:00") { hour = 7; }
+                // set device cell model
+                var deviceCell = new DeviceCellModel
                 {
-                    if (ev.EventStart.DayOfWeek == DayOfWeek.Monday)
-                    {
-                        DeviceRowModel newDay = new DeviceRowModel();
-                        SetDay(events, ev, newDay);
-                        model.table.Add(newDay);
-                    }
-                    else
-                    {
-                        DeviceRowModel newDay = new DeviceRowModel();
-                        SetFreeDay(events, ev, newDay);
-                        model.table.Add(newDay);
-                    }
+                    EventTitle = ev.EventTitle,
+                    PersonName = ev.User.FullName,
+                    IsPast = false,
+                    IsReserved = true
+                };
 
-                    if (ev.EventStart.DayOfWeek == DayOfWeek.Tuesday)
-                    {
-                        DeviceRowModel newDay = new DeviceRowModel();
-                        SetDay(events, ev, newDay);
-                        model.table.Add(newDay);
-                    }
-                    else
-                    {
-                        DeviceRowModel newDay = new DeviceRowModel();
-                        SetFreeDay(events, ev, newDay);
-                        model.table.Add(newDay);
-                    }
-
-                    if (ev.EventStart.DayOfWeek == DayOfWeek.Wednesday)
-                    {
-                        DeviceRowModel newDay = new DeviceRowModel();
-                        SetDay(events, ev, newDay);
-                        model.table.Add(newDay);
-                    }
-                    else
-                    {
-                        DeviceRowModel newDay = new DeviceRowModel();
-                        SetFreeDay(events, ev, newDay);
-                        model.table.Add(newDay);
-                    }
-
-                    if (ev.EventStart.DayOfWeek == DayOfWeek.Thursday)
-                    {
-                        DeviceRowModel newDay = new DeviceRowModel();
-                        SetDay(events, ev, newDay);
-                        model.table.Add(newDay);
-                    }
-                    else
-                    {
-                        DeviceRowModel newDay = new DeviceRowModel();
-                        SetFreeDay(events, ev, newDay);
-                        model.table.Add(newDay);
-                    }
-
-                    if (ev.EventStart.DayOfWeek == DayOfWeek.Friday)
-                    {
-                        DeviceRowModel newDay = new DeviceRowModel();
-                        SetDay(events, ev, newDay);
-                        model.table.Add(newDay);
-                    }
-                    else
-                    {
-                        DeviceRowModel newDay = new DeviceRowModel();
-                        SetFreeDay(events, ev, newDay);
-                        model.table.Add(newDay);
-                    }
-                }   
+                table.Add(day, hour, deviceCell);
             }
+            model.DeviceTable = table;
             return model;
         }
 
-        public static DeviceRowModel SetDay(IList<Event> events, Event ev, DeviceRowModel day)
-        {
-            day.Day = ev.EventStart.DayOfWeek.ToString();
-            day.Date = ev.EventStart.ToShortDateString();
-            IList<DeviceCellModel> hours = new List<DeviceCellModel>(8);
-            hours = SetHours(hours, events);
-            day.Hours = hours;
-
-            return day;
-        }
-
-        public static DeviceRowModel SetFreeDay(IList<Event> events, Event ev, DeviceRowModel day)
-        {
-            day.Day = "";
-            day.Date = "";
-            IList<DeviceCellModel> hours = new List<DeviceCellModel>(8);
-            hours = SetHours(hours, events);
-            day.Hours = hours;
-
-            return day;
-        }
-
-        public static IList<DeviceCellModel> SetHours(IList<DeviceCellModel> day, IList<Event> events)
-        {
-            foreach (var ev in events)
-            {
-                if (ev.EventStart.ToShortTimeString() == "9:00")
-                {
-                    day.Add(SetHour(ev));
-                }
-                else
-                {
-                    day.Add(SetFree());
-                }
-
-                if (ev.EventStart.ToShortTimeString() == "10:00")
-                {
-                    day.Add(SetHour(ev));
-                }
-                else
-                {
-                    day.Add(SetFree()); ;
-                }
-
-                if (ev.EventStart.ToShortTimeString() == "11:00")
-                {
-                    day.Add(SetHour(ev));
-                }
-                else
-                {
-                    day.Add(SetFree());
-                }
-
-                if (ev.EventStart.ToShortTimeString() == "12:00")
-                {
-                    day.Add(SetHour(ev));
-                }
-                else
-                {
-                    day.Add(SetFree());
-                }
-
-                if (ev.EventStart.ToShortTimeString() == "13:00")
-                {
-                    day.Add(SetHour(ev));
-                }
-                else
-                {
-                    day.Add(SetFree());
-                }
-
-                if (ev.EventStart.ToShortTimeString() == "14:00")
-                {
-                    day.Add(SetHour(ev));
-                }
-                else
-                {
-                    day.Add(SetFree());
-                }
-
-                if (ev.EventStart.ToShortTimeString() == "15:00")
-                {
-                    day.Add(SetHour(ev));
-                }
-                else
-                {
-                    day.Add(SetFree());
-                }
-
-                if (ev.EventStart.ToShortTimeString() == "16:00")
-                {
-                    day.Add(SetHour(ev));
-                }
-                else
-                {
-                    day.Add(SetFree());
-                }
-            }
-            return day;
-        }
-
-        public static DeviceCellModel SetHour(Event ev)
-        {
-            DeviceCellModel hour = new DeviceCellModel()
-            {
-                EventTitle = ev.EventTitle,
-                PersonName = ev.User.FullName,
-                IsReserved = true
-            };
-            return hour;          
-        }
-
-        public static DeviceCellModel SetFree()
-        {
-            DeviceCellModel hour = new DeviceCellModel()
-            {
-                EventTitle = "",
-                PersonName = "",
-                IsReserved = false
-            };
-            return hour;
-        }
+     
 
         //public static IList<ReservationOverviewModel> Create(SearchModel modelParameters)
         //{

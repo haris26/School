@@ -225,6 +225,7 @@
     <Compile Include="Models\CharacteristicNameModel.cs" />
     <Compile Include="Models\DashboardFilterModel.cs" />
     <Compile Include="Models\DashboardModel.cs" />
+    <Compile Include="Models\DeviceTableModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\EventExtendModel.cs" />
     <Compile Include="Models\EventModel.cs" />
