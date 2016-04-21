@@ -32,7 +32,7 @@ namespace WebAPI.Models
 
         public DeviceTableModel(DateTime date) {
 
-            var hours = new List<DeviceCellModel>();
+           
             Days = new List<DeviceRowModel>();
             DateTime startDate = new DateTime();
 
@@ -42,27 +42,33 @@ namespace WebAPI.Models
             if (date.DayOfWeek.ToString() == "Thursday") { startDate = date.AddDays(-3); }
             if (date.DayOfWeek.ToString() == "Friday") { startDate = date.AddDays(-4); }
 
-            for (int j = 0; j < 8; j++)
-            {
-                hours.Add(new DeviceCellModel
-                {
-                    EventTitle = "",
-                    PersonName = "",
-                    IsPast = false,
-                    IsReserved = false
-
-                });
-            }
+           
 
             for (int i = 0; i < 5; i++)
             {
-                Days.Add(new DeviceRowModel
+                var hours = new List<DeviceCellModel>();
+                var day = new DeviceRowModel
                 {
                     Date = startDate.AddDays(i).ToShortDateString(),
                     Day = startDate.AddDays(i).DayOfWeek.ToString(),
-                    Hours = hours
+
+                };
+
+                for (int j = 0; j < 8; j++)
+                {
                     
-                });
+                    hours.Add(new DeviceCellModel
+                    {
+                        EventTitle = "",
+                        PersonName = "",
+                        IsPast = false,
+                        IsReserved = false
+
+                    });
+                }
+
+                day.Hours = hours;
+                Days.Add(day);
             }
             
            
