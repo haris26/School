@@ -118,6 +118,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\background.jpg" />
+    <Content Include="images\eBillity_Time Tracker_logo.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo1.png" />
@@ -131,6 +132,7 @@
     <Content Include="images\photo1.jpg" />
     <Content Include="images\photo.jpg" />
     <Content Include="images\spinner.gif" />
+    <Content Include="images\timetracking.png" />
     <Content Include="images\toggle.png" />
     <Content Include="js\base-admin-responsive.css" />
     <Content Include="js\base.js" />
