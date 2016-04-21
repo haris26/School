@@ -108,6 +108,15 @@
             }
         }
 
+        $scope.clearQualification = function () {
+            $scope.qualificationItem = {
+                id: 0,
+                name: "",
+                type: 0,
+                numOfEmployees: 0
+            };
+        };
+
 
     });
 }());
