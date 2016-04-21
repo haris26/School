@@ -2,6 +2,10 @@
     <div ng-include="'views/modals/addEmployeeEducationModal.html'"></div>
 </div>
 
+<div id="deleteEmpQualModal" class="modal fade" role="dialog">
+    <div ng-include="'views/modals/deleteEmpQualModal.html'"></div>
+</div>
+
 <div class="db-header clearfix">
     <div class="page-header-title"><span class="glyphicon glyphicon-edit"></span> Edit Qualifications</div>
     <div class="db-header-extra">
@@ -19,9 +23,9 @@
                 <div class="form-horizontal">
                     <input class="btn btn-default" type="text" value="{{educationTypes[education.type]}}" disabled>
                     <input class="btn btn-default" type="text" value="{{education.educationName}}" disabled>
-                    <input ng-show="education.reference" class="btn btn-default" type="text" value="{{education.reference}}">
-                    <button ng-show="education.reference" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-ok"></span></button>
-                    <button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button>
+                    <input ng-model="education.reference" ng-show="education.reference" class="btn btn-default" type="text" value="{{education.reference}}">
+                    <button ng-click="updateQualification(education)" ng-show="education.reference" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-ok"></span></button>
+                    <button class="btn btn-danger" type="button" ng-click="selectQualification(education)" data-toggle="modal" data-target="#deleteEmpQualModal"><span class="glyphicon glyphicon-trash"></span></button>
                 </div>
             </div>
         </div>

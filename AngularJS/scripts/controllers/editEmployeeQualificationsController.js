@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("EditEmployeeQualificationsCtrl", function ($scope, $routeParams, $log, $location, DataService) {
+    app.controller("EditEmployeeQualificationsCtrl", function ($scope, $routeParams, $log, $location, DataService, toaster) {
 
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
@@ -78,6 +78,43 @@
                 }
             })
         };
+
+        $scope.selectQualification = function (education) {
+            $scope.selectedQualification = education;
+        }
+
+        $scope.deleteQualification = function (id) {
+
+            DataService.remove("employeeeducations", $scope.selectedQualification.id, function (data) {
+                if (data != false) {
+                    fetchEducations($scope.employeeId);
+                    $('#deleteEmpQualModal').modal('hide');
+                    toaster.pop('note', $scope.selectedQualification.educationName + " has been deleted!")
+                }
+                else {
+                    toaster.pop('error', $scope.selectedQualification.educationName + " could not be deleted!");
+                }
+            })
+        }
+
+        $scope.updateQualification = function (education) {
+
+            var chosenEdu = {
+                id: education.id,
+                employee: $scope.employeeId,
+                education: education.education,
+                reference: education.reference
+            };
+
+            DataService.update("employeeeducations", education.id, chosenEdu, function (data) {
+                if (data != false) {
+                    toaster.pop('note', "The changes have been saved!");
+                }
+                else {
+                    toaster.pop('error', "The changes could not be saved!");
+                }
+            })
+        }
 
         $scope.chooseType();
 
