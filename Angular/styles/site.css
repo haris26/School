@@ -157,3 +157,63 @@
   margin: 1rem 0;
   overflow: hidden;
 }
+
+.deviceImage{
+    margin-top: 25px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tableContainer{
+    float:left;
+    width:100%;
+    height:auto;
+    display:table;
+}
+
+.roomName{
+    display:inline-block;
+    float:left;
+    background-color:deeppink;
+    width:20%;
+    height:40px;
+    border:solid 1px white;
+    text-align:center;
+    justify-content: center;
+    align-items: center; 
+    background-color:#01AB8E;
+    color:#FFFFFF;
+    text-align:center;
+    vertical-align:middle;
+    line-height:40px;
+}
+
+.timeSpan{
+    display:inline-block;
+    float:left;
+    width:10%;
+    height:40px;
+    background-color:transparent;
+    border:solid 1px #e0e0d1;
+    text-align:center;
+    padding-left:2px;
+    color:#3475CD;
+    text-align:center;
+    vertical-align:middle;
+    line-height:40px;
+}
+
+.row1{
+    display:inline-block;
+    float:left;
+    width:100%;
+    display:table;  
+    background-color:transparent;
+    min-height:40px;
+    height:auto;
+}
+
+.container-top {
+	padding-top: 60px;
+	position: 50px;
+}
