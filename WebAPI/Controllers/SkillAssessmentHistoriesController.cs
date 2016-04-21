@@ -26,8 +26,8 @@ namespace WebAPI.Controllers
             { 
             return Ok(Repository.Get(search.EmpId).EmployeeSkills
                                                   .Where(x => x.AssessedBy == AssessmentType.Supervisor 
-                                                              && x.DateOfSupervisorAssessment.Value.Date >= search.StartDate
-                                                              && x.DateOfSupervisorAssessment.Value.Date <= search.EndDate
+                                                              && x.DateOfSupervisorAssessment.Value.Date >= search.StartDate.Date
+                                                              && x.DateOfSupervisorAssessment.Value.Date <= search.EndDate.Date
                                                               && x.Tool.Id == search.Skill).ToList()
                                                   .Select(x => new SkillAssessmentModel() {
                                                               Name = x.Tool.Name,
