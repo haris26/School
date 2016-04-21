@@ -38,11 +38,22 @@
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
                 $scope.reservations = data;
                 console.log(data);
+                console.log($scope.reservations.characteristics[0].name);
+                    $scope.mobile = false;
+                    $scope.tablet = false;
+                    if ($scope.reservations.characteristics[0].name == "DeviceType") {
+                        if ($scope.reservations.characteristics[0].value == "MobilePhone") {
+                            $scope.mobile = true;
+                        }
+                        else if ($scope.reservations.characteristics[0].value == "Tablet") {
+                            $scope.tablet = true;
+                        }
+                    }
+                
             });
             setCharacteristics();
             $scope.deviceCharacteristics = true;
        }
-
        $scope.images = {
            iOS: "images/iosBlue.png",
            Android: "images/androidBlue.png",
@@ -69,19 +80,18 @@
                }
                       
        }
-
-       $scope.setIcon = function (item) {
-           $scope.mobile = false;
-           $scope.tablet = false;
-            if (item.name == "DeviceType") {
-                if (item.value == "MobilePhone") {
-                    $scope.mobile = true;
-                }
-                else if (item.value == "Tablet") {
-                    $scope.tablet = true;
-                }
-            }
-        }
+       //$scope.setIcon = function (item) {
+       //    $scope.mobile = false;
+       //    $scope.tablet = false;
+       //     if (item.name == "DeviceType") {
+       //         if (item.value == "MobilePhone") {
+       //             $scope.mobile = true;
+       //         }
+       //         else if (item.value == "Tablet") {
+       //             $scope.tablet = true;
+       //         }
+       //     }
+       //  }
     });
 }());
 

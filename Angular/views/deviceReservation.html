@@ -21,17 +21,17 @@
     </div>
     <br/>
     <div class="row" ng-show="deviceCharacteristics">
-        <div class="col-md-offset-3 col-md-6">
+        <div class="col-md-offset-4 col-md-4">
             <div class="characteristics" >
                 <div class="col-md-4">
-                    <p ng-show="mobile" ng-init="setIcon(item)">
+                    <p ng-show="mobile">
                         <img src="{{images.Mobile}}"/>
                     </p>
-                    <p ng-show="tablet" ng-init="setIcon(item)">
-                        <img src="{{images.Tablet}}" />
-                    </p>
-                </div>
-                <div class="col-md-4">
+                        <p ng-show="tablet">
+                            <img src="{{images.Tablet}}" />
+                        </p>
+                    </div>
+                <div class="col-md-6">
                     <p ng-show="ios">
                         <img src="{{images.iOS}}" />  {{reservations.characteristics[1].value}}
                     </p>
