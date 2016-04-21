@@ -30,10 +30,11 @@
             .when("/logout", { template: "", controller: "LogoutController" })
             .when("/resources", { templateUrl: "views/resourceList.html", controller: "ResourceController" })
             .when("/home", { templateUrl: "views/userDashboard.html", controller: "UserDashboardController" })
-            .when("/dashboard", { templateUrl: "views/userDashboard.html", controller: "UserDashboardController" })
-            .when("/active", { templateUrl: "views/active.html", controller: "UserDashboardController" })
+            .when("/profile", { templateUrl: "views/userDashboard.html", controller: "UserDashboardController" })
+            .when("/reservations/active", { templateUrl: "views/active.html", controller: "UserDashboardController" })
             .when("/reservations", { templateUrl: "views/resources.html", controller: "ReservationsController" })
-            .when("/device/reservation", {templateUrl: "views/deviceReservation.html", controller: "DeviceReservationController"})
+            .when("/device/reservation", { templateUrl: "views/deviceReservation.html", controller: "DeviceReservationController" })
+            .when("/reservations/recurring", { templateUrl: "views/recurringReservations.html", controller: "RecurringReservationsController" })
             .otherwise({ redirectTo: "/home" });
 
     }).run(function ($rootScope, $location) {
