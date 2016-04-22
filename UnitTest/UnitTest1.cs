@@ -88,7 +88,7 @@ namespace UnitTest
             // Act
             requests.Insert(new Request()
             {
-                requestType = RequestType.Equipment,
+                requestType = RequestType.New,
                 RequestMessage = "Need a new laptop",
                 RequestDescription = "I need a new laptop asap",
                 RequestDate = new DateTime(2016, 3, 5),
@@ -189,7 +189,7 @@ namespace UnitTest
 
             Request req = new Request()
             {
-                requestType = RequestType.Equipment,
+                requestType = RequestType.New,
                 RequestMessage = "Need a new laptop",
                 RequestDescription = "I need a new laptop asap",
                 RequestDate = new DateTime(2016, 3, 5),
@@ -219,7 +219,7 @@ namespace UnitTest
 
             Request req = new Request()
             {
-                requestType = RequestType.Equipment,
+                requestType = RequestType.New,
                 RequestMessage = "Need a new laptop",
                 RequestDescription = "I need a new laptop asap",
                 RequestDate = new DateTime(2016, 3, 5),

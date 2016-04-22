@@ -27,6 +27,8 @@ namespace WebAPI.Filters
             perUser = _perUser;
 
         }
+
+        
         public override void OnAuthorization(HttpActionContext actionContext)
         {
             if (Thread.CurrentPrincipal.Identity.IsAuthenticated) return;

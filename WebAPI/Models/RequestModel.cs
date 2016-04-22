@@ -14,7 +14,7 @@ namespace WebAPI.Models
             RequestDate = DateTime.Now;
             
 
-            requestType = "Equipment";
+            requestType = "New";
 
         
 

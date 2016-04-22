@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script src="library/angular.js"></script>
+    <title>Modal</title>
+
+    <script>
+        app = angular.module("app", []);
+
+        app.controller("Ctrl", function($scope) {
+            $scope.modalShow = false;
+            $scope.toggleModal = function() {
+                $scope.modalShow = !$scope.modalShow;
+            };
+        });
+
+        app.directive('modalDialog', function() {
+            return {
+                restrict: 'E',
+                scope: {show: '=' },
+                    replace: true,
+                    transclude: true,
+                    link: function(scope, element, attrs) {
+                        scope.dialogStyle = {};
+                        if (attrs.width) scope.dialogStyle.width = attrs.width;
+                        if (attrs.height) scope.dialogStyle.height = attrs.height;
+                        scope.hideModal = function() {
+                            scope.show = false;
+                        };
+                    },
+                    template: "<div class='modal' ng-show='show'><div class='modal-overlay' ng-click='hideModal()'></div><div class='modal-dialog' ng-style='dialogStyle'><div class='modal-close' ng-click='hideModal()'>X</div><div class='modal-dialog-content' ng-transclude></div></div></div>"
+                };
+        });
+
+    </script>
+
+    <style>
+        .modal-overlay {
+            position: absolute;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #006;
+            opacity: 0.6;
+        }
+
+        .modal-dialog {
+            z-index: 10000;
+            position: absolute;
+            width: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            background-color: #fff;
+            box-shadow: 4px 4px 80px #000;
+        }
+
+        .modal-dialog-content {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 3px;
+            right: 5px;
+            padding: 5px;
+            cursor: pointer;
+            font-size: 120%;
+            display: inline-block;
+            font-weight: bold;
+            font-family: 'arial', 'sans-serif';
+        }
+    </style>
+
+
+</head>
+<body ng-controller="Ctrl">
+    <button ng-click='toggleModal()'>Open Modal Dialog</button>
+
+    <modal-dialog show='modalShow' width='750px' height='60%'>
+        <p>Modal Content Goes here<p>
+    </modal-dialog>
+
+</body>
+</html>

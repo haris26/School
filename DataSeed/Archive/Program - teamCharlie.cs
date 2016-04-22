@@ -154,7 +154,7 @@
 //                    Vendor = Console.ReadLine();
 //                }
 
-//                Console.Write("Type [1 - Device,  2 - Office Equipment]: ");
+//                Console.Write("Type [1 - Device,  2 - Office New]: ");
 //                string type = Console.ReadLine();
 
 //                if (type == "1")

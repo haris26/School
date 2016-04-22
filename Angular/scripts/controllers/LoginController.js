@@ -1,22 +1,21 @@
-﻿(function () {
+﻿
+(function() {
 
     var app = angular.module("school");
 
-    app.controller("LoginController", function ($scope, $rootScope, $location, LoginService) {
+    app.controller("LoginController", function($scope, $rootScope, $location, LoginService) {
 
-
-        console.log("ulaz...");
         $scope.wait = true;
         promise = LoginService.getCredentials();
         if (promise) {
             promise.then(
-                function (response) {
+                function(response) {
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
                     $location.path("/index");
                 },
-                function (reason) {
+                function(reason) {
                     $rootScope.message = reason.status;
                     $location.path("/login");
                 })
@@ -37,6 +36,9 @@
                     console.log($scope.user.remember);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
                     $scope.wait = false;
+                    console.log(currentUser.roles);
+               
+                    $rootScope.$broadcast('userLoggedIn');
                     $location.path("/index");
                 },
                 function (reason) {
@@ -51,6 +53,7 @@
             gapi.load('auth2', function () {
                 auth2 = gapi.auth2.init({
                     client_id: '990732731863-in59ar3adprbnpuhmgagtsfdmvcfv9q4.apps.googleusercontent.com',
+                    //client_id: '631572104956-70utnet9psnf75tksn2tdntt63slpond.apps.googleusercontent.com',
                     cookiepolicy: 'single_host_origin'
                 });
                 attachSignin(document.getElementById(actionButton));
@@ -71,10 +74,13 @@
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
                             $rootScope.message = "";
-
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
                             $scope.wait = false;
+                            console.log(currentUser.roles);
+                           
 
+                            $rootScope.$broadcast('userLoggedIn');
+                            $location.path("index");
                         },
                         function (reason) {
                             currentUser = undefined;
@@ -90,8 +96,8 @@
         };
     });
 
-    app.controller("LogoutController", function ($cookies, $location, $rootScope) {
-        currentUser = {};
+    app.controller("LogoutController", function($cookies, $location, $rootScope) {
+        currentUser = { };
         authenticated = false;
         $cookies.remove('gigiSchool');
 
@@ -102,3 +108,4 @@
     });
 
 }());
+

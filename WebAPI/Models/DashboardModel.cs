@@ -34,14 +34,19 @@ namespace WebAPI.Models
         {
            
             Assets = new List<ListModel>();
-            Requests = new List<ListRequestsModel>();
+            NewRequests = new List<ListRequestsModel>();
+            ServiceRequests = new List<ListRequestsModel>();
+            countStatusChange = 0;
+           
+
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public int countStatusChange { get; set; }
 
-        
         public IList<ListModel> Assets { get; set; }
-        public IList<ListRequestsModel> Requests { get; set; }
+        public IList<ListRequestsModel> NewRequests { get; set; }
+        public IList<ListRequestsModel> ServiceRequests { get; set; }
     }
 }

@@ -37,14 +37,17 @@ namespace WebAPI.Models
     {
         public AdminDashboardModel()
         {
-            CountEquipmentRequests = 0;
+            CountNewRequests = 0;
             CountServiceRequests = 0;
-            countFreeAssets = 0;
+
+            countOutOfOrderAssets = 0;
             countAssignedAssets = 0;
             countFreeAssets = 0;
             countAllAssets = 0;
+
             Requests = new List<ListReqModel>();
             ServiceRequests = new List<ListReqModel>();
+
             AssignedAssets = new List<ListAssetModel>();
             FreeAssets = new List<ListAssetModel>();
             OutOfOrderAssets = new List<ListAssetModel>();
@@ -54,7 +57,7 @@ namespace WebAPI.Models
 
         public int Id{ get; set; }
         public string Username { get; set; }
-        public int CountEquipmentRequests { get; set; }
+        public int CountNewRequests { get; set; }
         public int CountServiceRequests { get; set; }
         public int countFreeAssets { get; set; }
         public int countAssignedAssets { get; set; }

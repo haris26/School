@@ -174,7 +174,7 @@ namespace ProcurementSystem.Controllers
             ViewBag.CategoryList = new SelectList(new Repository<AssetCategory>(Context).Get().ToList(), "Id", "CategoryName");
            
             ViewBag.CategoryDevice=new SelectList(new Repository<AssetCategory>(Context).Get().ToList().Where(x => (x.assetType == (AssetType)1)), "Id", "CategoryName");
-            ViewBag.CategoryEquipment = new SelectList(new Repository<AssetCategory>(Context).Get().ToList().Where(x => (x.assetType == (AssetType)2)), "Id", "CategoryName");
+            ViewBag.CategoryNew = new SelectList(new Repository<AssetCategory>(Context).Get().ToList().Where(x => (x.assetType == (AssetType)2)), "Id", "CategoryName");
 
 
 

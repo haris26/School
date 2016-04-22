@@ -97,7 +97,7 @@ namespace Database
 
     public enum RequestType
     {
-        Equipment = 1,
+        New = 1,
         Service = 2
     }
     

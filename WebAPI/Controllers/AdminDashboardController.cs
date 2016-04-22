@@ -7,6 +7,7 @@ using WebAPI.Helpers;
 namespace WebAPI.Controllers
 {
     [SchoolAuthorize(true)]
+
     public class AdminDashboardController:ApiController
     {
         

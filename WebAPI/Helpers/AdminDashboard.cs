@@ -21,10 +21,10 @@ namespace WebAPI.Helpers
 
 
             var requests = new RequestUnit(context).Get().
-                Where(x => x.requestType == RequestType.Equipment && x.Status == RequestStatus.InProccess && x.AssetCategory.assetType == AssetType.Device).ToList();
+                Where(x => x.requestType == RequestType.New && x.Status == RequestStatus.InProccess && x.AssetCategory.assetType == AssetType.Device).ToList();
             foreach (var request in requests)
             {            
-             dashboard.CountEquipmentRequests++;
+             dashboard.CountNewRequests++;
               dashboard.Requests.Add(new ListReqModel
               {
                   Category = request.AssetCategory.CategoryName.ToString(),

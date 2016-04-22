@@ -27,23 +27,49 @@
     app.config(function ($routeProvider) {
 
         $routeProvider
-            .when("/requests", { templateUrl: "views/NewRequests.html", controller: "AllRequestsController" })
+
+              .when("/requests", { templateUrl: "views/NewRequests.html", controller: "AllRequestsController" })
             .when("/servicerequests", { templateUrl: "views/ServiceRequests.html", controller: "ServiceRequestsController" })
-            .when("/admindashboard", { templateUrl: "views/AdminDashboard.html", controller: "AdminDashboardController" })
+              .when("/test", { templateUrl: "views/AdminRequests.html", controller: "AdminDashboardController" })
+
+            //Dashboards
+             .when("/admindashboard", { templateUrl: "views/AdminDashboard.html", controller: "AdminDashboardController" })
+             .when("/officer", { templateUrl: "views/AdminDashboard.html", controller: "AdminOfficeController" })
+             .when("/userdashboard", { templateUrl: "views/UserDashboard.html", controller: "UserDashboardController" })
+
+            //User-request manipulation
+            //send new
             .when("/makenewrequest", { templateUrl: "views/SendNewRequest.html", controller: "NewRequestsController" })
-            .when("/assets", { templateUrl: "views/AllAssets.html", controller: "AssetsController" })
+             .when("/assets", { templateUrl: "views/AllAssets.html", controller: "AssetsController" })
+             .when("/servicemyassets", { templateUrl: "views/UserAssetsForService.html", controller: "UserDashboardController" })
             .when("/newservicerequests", { templateUrl: "views/SendServiceRequest.html", controller: "NewServiceRequestController" })
-             .when("/login", { templateUrl: "views/login.html", controller: "LoginController" })
+  
+
+        //Free assets(admin) 
+        .when("/free", { templateUrl: "views/FreeAssets.html", controller: "AdminDashboardController" })
+
+           
+
+            //login and logout controller
+            .when("/login", { templateUrl: "views/login.html", controller: "LoginController" })
             .when("/logout", { template: "", controller: "LogoutController" })
-            .when("/test", { templateUrl: "views/AdminRequests.html", controller: "AdminDashboardController" })
-            .when("/officer", { templateUrl: "views/AdminDashboard.html", controller: "AdminOfficeController" })
-             .when("/free", { templateUrl: "views/FreeAssets.html", controller: "AdminDashboardController" })
-            .when("/people", { templateUrl: "views/people.html", controller: "PeopleController" })
-            .when("/teams", { templateUrl: "views/teams.html", controller: "TeamsController" })
-            .when("/roles", { templateUrl: "views/roles.html", controller: "RolesController" })
+
+
+          
+           
+            
+            //.when("/people", { templateUrl: "views/people.html", controller: "PeopleController" })
+            //.when("/teams", { templateUrl: "views/teams.html", controller: "TeamsController" })
+            //.when("/roles", { templateUrl: "views/roles.html", controller: "RolesController" })
+             //.when("/engagements", { templateUrl: "views/engagements.html", controller: "EngagementsController" })
+          //All assets owned by a user
+
               .when("/myassets", { templateUrl: "views/MyAssets.html", controller: "UserDashboardController" })
-            .when("/userdashboard", { templateUrl: "views/UserDashboard.html", controller: "UserDashboardController" })
-            .when("/engagements", { templateUrl: "views/engagements.html", controller: "EngagementsController" })
+
+            //requests that user sent(user dashboard)
+            .when("/usernewrequests", { templateUrl: "views/UserRequestsForNew.html", controller: "UserDashboardController" })
+             .when("/userservicerequests", { templateUrl: "views/UserRequestsForService.html", controller: "UserDashboardController" })
+        
             .otherwise({ redirectTo: "/index" });
     })
         .run(function ($rootScope, $location) {

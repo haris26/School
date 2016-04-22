@@ -26,7 +26,7 @@ namespace WebAPI.Controllers
                Repository.Get()
                    .OrderBy(x => x.Status)
                    .ThenBy(x => x.RequestDate)
-                   .Where(x => x.requestType == RequestType.Equipment)
+                   .Where(x => x.requestType == RequestType.New)
                    .ToList();
 
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);

@@ -32,7 +32,7 @@
                 requestDescription:"",
                 requestDate: new Date().Date,
                 status:1,
-                requestType: "Equipment",
+                requestType: "New",
                 assetType: "",             
             }
         };

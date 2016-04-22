@@ -2,7 +2,7 @@
 using System.Web.Http;
 using WebAPI.Filters;
 using WebAPI.Helpers;
-using WebAPI.Filters;
+
 
 namespace WebAPI.Controllers
 {
