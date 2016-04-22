@@ -102,7 +102,7 @@
         $cookies.remove('gigiSchool');
 
         $rootScope.userName = "";
-        $location.path("/login");
+        $location.path("/");
 
         //window.location.reload();
     });

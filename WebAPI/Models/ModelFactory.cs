@@ -45,6 +45,7 @@ namespace WebAPI.Models
                     Quantity = request.Quantity,
                     Status = request.Status.ToString(),
                     AssetType = request.AssetType.ToString(),
+                    Email = request.User.Email.ToString()
                 };
             }
             else
@@ -64,8 +65,7 @@ namespace WebAPI.Models
                     Quantity = request.Quantity,
                     Status = request.Status.ToString(),
                     AssetType = request.AssetType.ToString(),
-
-
+                    Email = request.User.Email.ToString()
                 };
 
         }

@@ -30,12 +30,14 @@
                 requestType: 2,
                 requestDate: Date.now(),
                 quantity: 1,
-                asset: item.assetId,
+                asset: item.asset,
                 assetType: item.assetType,
                 category: item.category,
-                person: item.user,
-                status: item.status
+                person: item.person,               
+                status: item.status,
+                email: item.email
             }
+          
             DataService.update("servicerequests", $scope.request.id, $scope.request, function (data) { });
             //$location.path("/servicerequests");
             console.log($scope.request)

@@ -130,10 +130,6 @@
     <Compile Include="DataAccess\EmployeeEducationUnit.cs" />
     <Compile Include="Delta\NameControl.cs" />
     <Compile Include="Delta\SymbolControl.cs" />
-    <Compile Include="Migrations\201603110922471_sule.cs" />
-    <Compile Include="Migrations\201603110922471_sule.Designer.cs">
-      <DependentUpon>201603110922471_sule.cs</DependentUpon>
-    </Compile>
     <Compile Include="Omega\Engagement.cs" />
     <Compile Include="Enumerators.cs" />
     <Compile Include="DataAccess\EventUnit.cs" />
@@ -161,11 +157,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603110922471_sule.resx">
-      <DependentUpon>201603110922471_sule.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
