@@ -84,6 +84,10 @@
        $scope.pop = function () {
            toaster.pop('note', "Haris", "bravo majstore");
        }
+
+      
     });
+
+   
 }());
 
