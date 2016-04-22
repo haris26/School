@@ -56,7 +56,6 @@
                 if (data != false) {
                     $scope.showNewCertificate = false;
                     $scope.chooseType();
-                    $('.modal').modal('hide');
                     toaster.pop('note', $scope.newCertificate.name + " added!");
                     $scope.newCertificate.name = "";
                 }

@@ -12,7 +12,9 @@
                     <label>Username: </label>
                     <div><input type="text" class="form-control" ng-model="user.name"></div>
                     <label>Password: </label>
-                    <div><input type="password" class="form-control" ng-model="user.pass"></div>
+                    <div>
+                        <input type="password" class="form-control" ng-model="user.pass">
+                    </div>
                     <div class="checkbox">Remember me <input type="checkbox" ng-model="user.remember" /></div>
                     <div>
                         <input type="button" id="loginBtn" value="Login" class="btn btn-primary form-control" ng-click="login()" />
