@@ -7,21 +7,19 @@
             restrict: "AE",
             replace: true,
             link: function (scope, elem, attrs) {
-                elem.bind('click', function () {
-                    //console.log(scope.$parent.day.day);
-                    //console.log("nesto");
-                    //console.log(scope.hour.hour);
-                    
+                elem.bind('click', function () {                            
                     var dayDate = scope.$parent.day.date;
-                    var eventDate = new Date(dayDate);
-                    eventDate.setHours(scope.hour.hour);
-                    console.log(eventDate);
+                    var split = dayDate.split(".");
+                    //console.log(scope.hour.hour);
+                    var eventDate = new Date(split[2], split[1]-1, split[0], scope.hour.hour+1, 0, 0, 0);
+                    var endDate = new Date(split[2], split[1]-1, split[0], scope.hour.hour+2, 0, 0, 0);
+                
                     if (scope.hour.isReserved == false) {
                         scope.newEvent = {
                             id: 0,
                             eventTitle: "",
                             startDate: eventDate,
-                            endDate: eventDate,
+                            endDate: endDate,
                             resource: scope.$parent.reservations.id,
                             resourceName: scope.$parent.reservations.resourceName,
                             category: 1,
