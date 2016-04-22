@@ -32,7 +32,8 @@
 
         $scope.createReservation = function () {
             DataService.create("events", $scope.newEvent, function (data) { });
-            $modalInstance.close();
+            var result = true;
+            $modalInstance.close(result);
         };
 
         $scope.cancel = function () {
