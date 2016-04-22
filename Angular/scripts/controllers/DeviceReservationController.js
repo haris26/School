@@ -85,10 +85,6 @@
            toaster.pop('note', "Haris", "bravo majstore");
        }
 
-
-
     });
-
-   
 }());
 

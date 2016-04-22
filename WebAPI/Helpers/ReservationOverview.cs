@@ -45,6 +45,7 @@ namespace WebAPI.Helpers
 
                 int day = 0;
                 int hour = 0;
+                int hourValue = 0;
                 //set day parametar
                 if (ev.EventStart.DayOfWeek.ToString() == "Monday") { day = 0; }
                 if (ev.EventStart.DayOfWeek.ToString()=="Tuesday") { day = 1; }
@@ -52,30 +53,29 @@ namespace WebAPI.Helpers
                 if (ev.EventStart.DayOfWeek.ToString() == "Thursday") { day = 3; }
                 if (ev.EventStart.DayOfWeek.ToString() == "Friday") { day = 4; }
                 // ser hour parametar
-                if (ev.EventStart.ToShortTimeString().ToString() == "9:00") { hour = 0; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "10:00") { hour = 1; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "11:00") { hour = 2; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "12:00") { hour = 3; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "13:00") { hour = 4; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "14:00") { hour = 5; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "15:00") { hour = 6; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "16:00") { hour = 7; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "9:00") { hour = 0; hourValue = 9; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "10:00") { hour = 1; hourValue = 10; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "11:00") { hour = 2; hourValue = 11; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "12:00") { hour = 3; hourValue = 12; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "13:00") { hour = 4; hourValue = 13; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "14:00") { hour = 5; hourValue = 14; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "15:00") { hour = 6; hourValue = 15; }
+                if (ev.EventStart.ToShortTimeString().ToString() == "16:00") { hour = 7; hourValue = 16; }
                 // set device cell model
                 var deviceCell = new DeviceCellModel
                 {
                     EventTitle = ev.EventTitle,
                     PersonName = ev.User.FullName,
+                    Hour = hourValue,
                     IsPast = false,
                     IsReserved = true
                 };
 
-                table.Add(day, hour, deviceCell);
+                table.Add(day, hour, deviceCell, hourValue);
             }
             model.DeviceTable = table;
             return model;
         }
-
-     
 
         //public static IList<ReservationOverviewModel> Create(SearchModel modelParameters)
         //{

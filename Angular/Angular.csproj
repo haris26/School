@@ -135,6 +135,7 @@
     <Content Include="scripts\controllers\RecurringReservationsController.js" />
     <Content Include="scripts\controllers\ReservationsController.js" />
     <Content Include="scripts\controllers\userDashboardController.js" />
+    <Content Include="scripts\services\DeviceDirective.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
     <Content Include="scripts\toaster.js" />

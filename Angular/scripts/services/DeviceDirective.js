@@ -8,14 +8,15 @@
             replace: true,
             link: function (scope, elem, attrs) {
                 elem.bind('click', function () {
-                    console.log(scope.$parent.day.day);
-                    console.log("nesto");
-                    console.log(scope.hour);
-                   
+                    //console.log(scope.$parent.day.day);
+                    //console.log("nesto");
+                    //console.log(scope.hour.hour);
+                    
+                    var dayDate = scope.$parent.day.date;
+                    var eventDate = new Date(dayDate);
+                    eventDate.setHours(scope.hour.hour);
+                    console.log(eventDate);
                     if (scope.hour.isReserved == false) {
-                        var dayDate = scope.$parent.day.date;
-                        var eventDate = new Date(dayDate);
-                        //var time = scope.$parent.day.hours.
                         scope.newEvent = {
                             id: 0,
                             eventTitle: "",
@@ -33,15 +34,12 @@
                             backdrop: 'static',
                             size: 'md',
                             scope: scope
-                        });
-                        
+                        });                        
                     }
-
-
                 })
                 //elem.bind('mouseover', function () { elem.css('color', 'red'); })
                 elem.bind('mouseout', function () {
-                    if (scope.hour.isReserved == false) {
+                    if (scope.hour.isReserved == true) {
                         elem.css('background-color', '#B01E5F');
                     }
                 })
