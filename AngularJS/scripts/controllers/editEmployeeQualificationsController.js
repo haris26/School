@@ -56,7 +56,8 @@
                 if (data != false) {
                     $scope.showNewCertificate = false;
                     $scope.chooseType();
-                    window.alert($scope.newCertificate.name + " added!");
+                    $('.modal').modal('hide');
+                    toaster.pop('note', $scope.newCertificate.name + " added!");
                     $scope.newCertificate.name = "";
                 }
                 else {
@@ -71,10 +72,11 @@
                     fetchEducations($scope.employeeId);
                     $scope.eduItem.education = 0;
                     $scope.eduItem.reference = "";
-                    window.alert("New qualification has been added!");
+                    $('.modal').modal('hide');
+                    toaster.pop('note',"New qualification has been added!");
                 }
                 else {
-                    window.alert("New qualification could not be added!");
+                    toaster.pop('error', "New qualification could not be added!");
                 }
             })
         };

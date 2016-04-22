@@ -99,6 +99,9 @@
                     }
                     else {
                         toaster.pop('error', $scope.qualificationItem.name + " could not be deleted!");
+                        $scope.qualificationItem.id = 0;
+                        $scope.qualificationItem.name = "";
+                        $scope.qualificationItem.category = "";
                     }
                 })
             }

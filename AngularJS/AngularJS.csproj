@@ -140,7 +140,6 @@
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
     <Content Include="styles\bootstrap.css" />
-    <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\dashboard.css" />
     <Content Include="styles\jquery-ui.css" />
     <Content Include="styles\responsive.css" />

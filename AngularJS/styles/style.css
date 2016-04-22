@@ -69,9 +69,7 @@ svg text { fill: white; }
 
 
 /* toast */
-.toast-top-left { top:12px; left:12px; }
-.toast-top-right { top:12px; right:12px; }
-.toast-top-center { top:50px; }
+.toast-bottom-right { top:85%; right:18px; }
 
 #toast-container>div{ margin:0 0 6px;
                      padding:15px 15px 15px 50px;
