@@ -212,22 +212,66 @@ color: rgba(229, 103, 23, 0.6);
 
 .date-picker {
     float: right;
-    padding-right: 225px;
+    padding-right: 270px;
     display:inline-block;
-    min-height:290px;
+    min-height:290px;  
+    color: #37ADE7;
+    margin-top: 170px;
 }
 
 .date-picker .btn-default {
-    width:80px;
-    height: 80px;
-    font-size: 18px;
+    width:100px;
+    height: 60px;
+    font-size: 18px;    
+    background-color: white;
+     color: #37ADE7;
 }
 
 .date-picker .uib-title {
-    width: 480px;
+    width: 600px;
     font-size: 25px;
+    background-color: white;
+    color:#37ADE7;
 }
 
+.uib-weeks{
+    color:#37ADE7;
+    font-size: 14px;
+    font-weight:bold;
+    background-color:white;
+}
+
+.day-modal-content .row {
+    margin: 0;
+}
+
+.day-modal-content .row:first-child {
+    margin-top: 11px;
+    text-align: center;
+}
+.day-modal-content .row:nth-child(n+1){
+    margin-top: 7px;
+}
+    .day-modal-content .row:nth-child(n+1) .form-group >label {
+        width: 125px;
+        line-height: 35px;
+        margin-left: 135px;
+    }
+
+.day-modal-content .row:first-child >span {
+    font-size: 18px;
+    font-weight: bold
+}
+
+.day-modal-content .row .form-group >label {
+    font-size: 16px;
+    float: left;
+}
+
+.day-modal-content .row .form-group >input,
+ ay-modal-content .row .form-group >select {
+    float: left;
+}
 
 /*textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus .dropdown-menu:focus {   
     border-color: rgba(229, 103, 23, 0.8);

@@ -112,7 +112,8 @@
         };
 
         $scope.setDate = function (year, month, day) {
-            $scope.dt = new Date(year, month, day + 1);
+            $scope.dt = new Date(year, month, day);
+            $scope.dt.setHours(2, 0, 0);
         };
 
         $scope.popup2 = {

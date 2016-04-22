@@ -30,13 +30,14 @@
                                                     <th width="30%">Date</th>
                                                     <th width="20%">Work Time</th>
                                                     <th width="20%">Team</th>
+                                                    <th width="20%">Delete</th>
                                                 </tr>
                                         </table>
                                     </div>
 
                                     <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail">
                                         <table class="table table-bordered">
-                                            <tr><td data-toggle="modal" data-target="#editModal" width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
+                                            <tr><td data-toggle="modal" data-target="#editModal" width="30%"><a href="#/details" ng-click="transfer(item)" style="color:#4B627A"><b>{{ item.description }}</b></a> </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td><td><button class="glyphicon glyphicon-trash" style="color:red" ng-click="transfer(item); deleteData();"></button></td></tr>
                                         </table>
                                     </div>
                                 </div>
@@ -58,7 +59,11 @@
                             <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
                                 <div class="panel-heading">
                                     <div class="row ">
-                                        <div class="col-md-12">
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            <span class="help-block text-muted small-font" style="color:#2E455C"><b>Date</b></span>
+                                            <input class="form-control" type="text" placeholder="Date" ng-model="detail.date">
+                                        </div>
+                                        <!--<div class="col-md-12">
                                             <span class="help-block text-muted small-font"> Date</span>
                                             <p class="input-group">
                                                 <input type="text" class="form-control" uib-datepicker-popup ng-model="detail.date" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
@@ -66,7 +71,7 @@
                                                     <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
                                                 </span>
                                             </p>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <div class="row ">
                                         <div class="col-md-3 col-sm-3 col-xs-3">
@@ -88,10 +93,13 @@
                                     </div>
                                     <br />
                                     <div class="row">
-                                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust col-md-push-4">
+                                        <div class="col-md-4 col-sm-6 col-xs-6 pad-adjust col-md-push-3">
+                                            <input type="button" class="btn btn-danger" value="Delete" ng-click="deleteData()" />
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 col-xs-6 pad-adjust col-md-push-1">
                                             <input type="button" class="btn btn-success" value="New input" ng-click="newDetail()" />
                                         </div>
-                                        <div class="col-md-5 col-sm-6 col-xs-6 pad-adjust col-md-offset-1">
+                                        <div class="col-md-4 col-sm-6 col-xs-6 pad-adjust col-md-offset-0">
                                             <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData(); $location.path('/details');" />
                                         </div>
                                     </div>

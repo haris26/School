@@ -6,6 +6,9 @@
         $scope.selDetail = "";
         $scope.sortOrder = '-date';
 
+        $scope.startDate = new Date("2016/04/22");
+        $scope.endDate = new Date("2016/04/23");
+
         getTeams();
         fetchData();
         getPeople();
@@ -80,8 +83,8 @@
             // fetchData();
         }
 
-        $scope.saveData = function () {
-
+        $scope.saveData = function (selectedDate) {
+            $scope.detail.date = new Date(selectedDate).toISOString();
             var promise;
             if ($scope.detail.id == 0) {
                 DataService.create(dataSet, $scope.detail, function (data) { fetchData() });
@@ -89,15 +92,14 @@
             else {
                 DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData() });
             }
-            
+
             //fetchData();
         }
 
 
         $scope.today = function () {
             $scope.dt = new Date();
-            $scope.dt.setHours(0, 0, 0);
-            console.log($scope.dt);
+            //console.log($scope.dt);
         };
         $scope.today();
 
@@ -126,6 +128,7 @@
 
         $scope.setDate = function (year, month, day) {
             $scope.dt = new Date(year, month, day);
+            $scope.dt.setHours(2, 0, 0);
         };
 
         var tomorrow = new Date();
@@ -165,6 +168,7 @@
             console.log('calendar clicked');
         }
 
+
         //$scope.openModal = function (selectedDay) {
         //    var modalInstance = $modal.open({
         //        templateUrl: 'views/daymodal.html',
@@ -177,5 +181,22 @@
         //    });
         //}
     });
-}());
+    app.filter('dateRange', function () {
+        return function (input, startDate, endDate) {
 
+            var retArray = [];
+
+            angular.forEach(input, function (obj) {
+                var receivedDate = new Date (obj.date);
+                console.log(receivedDate);
+
+                if (receivedDate >= startDate && receivedDate < endDate) {
+                    console.log("poredjenje");
+                    retArray.push(obj);
+                }
+            });
+
+            return retArray;
+        };
+    });
+}());
