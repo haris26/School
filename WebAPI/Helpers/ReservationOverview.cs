@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Core.Common.CommandTrees;
 using System.Linq;
 using System.Web;
@@ -15,8 +16,8 @@ namespace WebAPI.Helpers
             SchoolContext context = new SchoolContext();
             Resource resource = new Resource();
             ReservationOverviewModel model = new ReservationOverviewModel();
-            //IList<DeviceRowModel> days = new List<DeviceRowModel>(5);
-            DeviceTableModel table = new DeviceTableModel(modelParameters.FromDate);
+            SetWeeklyInterval(modelParameters.FromDate, modelParameters);
+            DeviceTableModel table = new DeviceTableModel(modelParameters.FromDate);          
 
             var deviceResource = new ResourceUnit(context).Get()
                 .Where(x =>(x.Name == modelParameters.ResourceName) &&(x.ResourceCategory.CategoryName == modelParameters.CategoryName))
@@ -26,7 +27,9 @@ namespace WebAPI.Helpers
             model.Id = resource.Id;
             model.Name = resource.Name;
 
-            var events = new EventUnit(context).Get().Where(x => (x.Resource.Name == model.Name) && (x.EventStart >= modelParameters.FromDate && x.EventStart <= modelParameters.ToDate)).ToList();
+            var events = new EventUnit(context).Get()
+                .Where(x => (x.Resource.Name == model.Name) && 
+                (DbFunctions.TruncateTime(x.EventStart) >= DbFunctions.TruncateTime(modelParameters.FromDate) && DbFunctions.TruncateTime(x.EventStart) <= DbFunctions.TruncateTime(modelParameters.ToDate))).ToList();
             foreach (var ch in resource.Characteristics)
             {
                 model.Characteristics.Add(new CharacteristicsListModel()
