@@ -33,6 +33,6 @@ namespace WebAPI.Models
         public string CategoryName { get; set; }
         public int Quantity { get; set; }
         public string AssetType { get; set; }
-
+        public string Email { get; set; }
     }
 }
