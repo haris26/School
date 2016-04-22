@@ -95,7 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="images\avatar.jpg" />
+    <Content Include="images\avatar.png" />
     <Content Include="images\bg.jpg" />
     <Content Include="images\mistrallogobig.png" />
     <Content Include="images\mistrallogoblue.png" />

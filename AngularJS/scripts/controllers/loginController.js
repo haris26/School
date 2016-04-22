@@ -32,7 +32,7 @@
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
-                    console.log($scope.userName);
+                    $rootScope.userId = currentUser.id;
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
                     $location.path("/overview");
                     $('.modal').modal('hide');
@@ -71,6 +71,7 @@
                             currentUser = response.data;
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
+                            $rootScope.userId = currentUser.id;
                             $rootScope.message = "";
                             $location.path("/overview");
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
