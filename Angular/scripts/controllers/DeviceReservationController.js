@@ -86,21 +86,6 @@
        }
 
 
-       $scope.newEvent = {
-           id: 0,
-           eventTitle: "",
-           startDate: new Date(),
-           endDate: new Date(),
-           resource: $scope.reservations.id,
-           resourceName: $scope.resourceName,
-           category: 1,
-           categoryName: "Device"
-       };
-
-       $scope.createEvent = function () {
-           DataService.create("events", $scope.newEvent, function (data) { });
-       }
-
 
     });
 

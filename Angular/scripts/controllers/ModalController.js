@@ -28,6 +28,17 @@
         };
     });
 
+    app.controller("createEventCtrl", function ($scope, $modalInstance, DataService, schConfig) {
+
+        $scope.createReservation = function () {
+            DataService.create("events", $scope.newEvent, function (data) { });
+            $modalInstance.close();
+        };
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+    });
 
  
 }());
