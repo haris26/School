@@ -2,20 +2,20 @@
 
     var app = angular.module("school");
 
-    app.directive("deviceRes", function ($modal) {
+    app.directive("deviceRes", function ($modal,  schConfig) {
         return {
             restrict: "AE",
             replace: true,
             link: function (scope, elem, attrs) {
+                if (scope.hour.isReserved == true) {
+                    elem.css('background-color', '#B01E5F')
+                    if (scope.hour.personName == currentUser.name) {
+                        elem.css('background-color', '#01AB8E');
+                    }
+
+                }
                 elem.bind('click', function () {                            
-					if (scope.hour.isReserved == true) {
-						elem.css('background-color', '#B01E5F')
-						if (scope.hour.personName == $rootScope.currentUser.name)
-						{
-							elem.css('background-color', '#01AB8E');
-						}
 					
-					}
                     var dayDate = scope.$parent.day.date;
                     var split = dayDate.split(".");
                     //console.log(scope.hour.hour);
@@ -49,13 +49,8 @@
                             }
                         });                         
                     }
-                })
-
-                    }
-                })
-               
-            }
-           
+                })             
+            }           
         };
     });
 
