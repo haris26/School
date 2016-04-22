@@ -7,6 +7,14 @@
             restrict: "AE",
             replace: true,
             link: function (scope, elem, attrs) {
+                if (scope.hour.isReserved == true) {
+                    elem.css('background-color', '#B01E5F')
+                    if (scope.hour.personName == $rootScope.currentUser.name)
+                    {
+                        elem.css('background-color', '#01AB8E');
+                    }
+                    
+                }
                 elem.bind('click', function () {
                     //console.log(scope.$parent.day.day);
                     //console.log("nesto");
@@ -34,16 +42,22 @@
                             backdrop: 'static',
                             size: 'md',
                             scope: scope
-                        });                        
+
+                        }).result.then(function(result) {
+                            scope.hour.isReserved = result;
+                            if (scope.hour.isReserved == true)
+                            {
+                                elem.css('background-color', '#01AB8E');
+                            }
+                        });                         
                     }
                 })
-                //elem.bind('mouseover', function () { elem.css('color', 'red'); })
-                elem.bind('mouseout', function () {
-                    if (scope.hour.isReserved == true) {
-                        elem.css('background-color', '#B01E5F');
+
                     }
                 })
+               
             }
+           
         };
     });
 
