@@ -38,8 +38,8 @@
        $scope.getReservations = function () {
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
                 $scope.reservations = data;
-                console.log(data);
-                console.log($scope.reservations.characteristics[0].name);
+                //console.log(data);
+                //console.log($scope.reservations.characteristics[0].name);
                     $scope.mobile = false;
                     $scope.tablet = false;
                     if ($scope.reservations.characteristics[0].name == "DeviceType") {
@@ -70,17 +70,21 @@
            $scope.android = false;
            $scope.windows = false;
 
-               if ($scope.Type == "iOS") {
-                   $scope.ios = true;
-               }
-               else if ($scope.Type == "Android") {
-                   $scope.android = true;
-               }
-               else if ($scope.Type == "Windows") {
-                   $scope.windows = true;
-               }
-                      
+            if ($scope.Type == "iOS") {
+                $scope.ios = true;
+            }
+            else if ($scope.Type == "Android") {
+                $scope.android = true;
+            }
+            else if ($scope.Type == "Windows") {
+                $scope.windows = true;
+            }                     
        }
+
+
+
     });
+
+   
 }());
 
