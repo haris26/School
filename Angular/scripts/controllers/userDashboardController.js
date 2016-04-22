@@ -2,7 +2,7 @@
 
    var app = angular.module("school");
 
-    app.controller("UserDashboardController", function ($scope, $rootScope, DataService, schConfig, $modal) {
+    app.controller("UserDashboardController", function ($scope, $rootScope, DataService, schConfig, $modal, toaster) {
         var dataSet = "userreservations";
         $scope.repeatingTypes = schConfig.repeatingType;
         fetchData();
@@ -65,6 +65,9 @@
        DataService.read("events", id, function (data) {
            $scope.reservationEvent = data;
        });
+   };
+   $scope.pop = function () {
+       toaster.pop('note', "Confirmation", "Successfully canceled reservation!");
    };
 
    });

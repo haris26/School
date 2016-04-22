@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("DeviceReservationController", function ($scope, $rootScope, DataService, toaster) {
+    app.controller("DeviceReservationController", function ($scope, $rootScope, DataService) {
 
         var dataSet = "characteristics";
         getOsType();
@@ -79,10 +79,6 @@
             else if ($scope.Type == "Windows") {
                 $scope.windows = true;
             }                     
-       }
-
-       $scope.pop = function () {
-           toaster.pop('note', "Haris", "bravo majstore");
        }
 
     });
