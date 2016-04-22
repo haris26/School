@@ -71,14 +71,17 @@
     }
 </style>
 <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
-<div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail | filter: { date: dt.Date}">
-    <table class="table table-bordered">
-        <tr><td width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
-    </table>
-</div>
-<div class="date-picker" ng-controller="ModalController">
-    <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options" ng-change="toggleModal()"></uib-datepicker>
-    <button ng-click="toggleModal()">otvori modal</button>
-    <!--<a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#daymodal"></a>-->
-</div>
-<hr />
+<div id="showmenu">See details</div>
+<div class="menu" style="display: none;">
+    <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail | filter: { date: dt.Date}">
+        <table class="table table-bordered">
+            <tr><td width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
+        </table>
+    </div>
+    </div>
+    <div class="date-picker" ng-controller="ModalController">
+        <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options" ng-click="newDetail()"></uib-datepicker>
+        <button ng-click="toggleModal()">otvori modal</button>
+        <!--<a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#daymodal"></a>-->
+    </div>
+    <hr />
