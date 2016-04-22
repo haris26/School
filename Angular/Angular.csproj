@@ -137,10 +137,10 @@
     <Content Include="scripts\controllers\userDashboardController.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
-    <Content Include="scripts\toaster.js" />
+    <Content Include="scripts\toaster.min.js" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\site.css" />
-    <Content Include="styles\toaster.css" />
+    <Content Include="styles\toaster.min.css" />
     <Content Include="views\active.html" />
     <Content Include="library\angular-route.js" />
     <Content Include="library\angular.js" />
