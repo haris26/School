@@ -140,7 +140,7 @@
                     $rootScope.userName = currentUser.name;
                     console.log($scope.userName);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
-                    $location.path("/overview");
+                    $location.path("/months");
                     $('.modal').modal('hide');
                     $('.modal-backdrop').remove();
                     $('body').removeClass('modal-open');
@@ -179,7 +179,7 @@
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
                             $rootScope.message = "";
-                            $location.path("/overview");
+                            $location.path("/months");
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
                             $('.modal').modal('hide');
                             $('.modal-backdrop').remove();

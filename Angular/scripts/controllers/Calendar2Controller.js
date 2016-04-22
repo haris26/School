@@ -64,7 +64,7 @@
         $scope.reloadRoute = function () {
             $window.location.reload();
         }
-      
+
         $scope.newDetail = function () {
             $scope.detail = {
                 id: 0,
@@ -187,7 +187,7 @@
             var retArray = [];
 
             angular.forEach(input, function (obj) {
-                var receivedDate = new Date (obj.date);
+                var receivedDate = new Date(obj.date);
                 console.log(receivedDate);
 
                 if (receivedDate >= startDate && receivedDate < endDate) {
