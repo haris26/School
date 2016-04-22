@@ -117,7 +117,7 @@
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
-                    $location.path("/overview");
+                    $location.path("/calendar2");
                 },
                 function (reason) {
                     $rootScope.message = reason.status;
