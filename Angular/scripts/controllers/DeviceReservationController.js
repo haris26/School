@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("DeviceReservationController", function ($scope, $rootScope, DataService) {
+    app.controller("DeviceReservationController", function ($scope, $rootScope, DataService, toaster) {
 
         var dataSet = "characteristics";
         getOsType();
@@ -19,6 +19,7 @@
         $scope.getDevices = function () {
             DataService.read(dataSet, "?type=" + $scope.Type, function (data) {
                 $scope.devices = data;
+                $scope.deviceCharacteristics = false;
             });
         }
 
@@ -38,19 +39,30 @@
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
                 $scope.reservations = data;
                 console.log(data);
+                console.log($scope.reservations.characteristics[0].name);
+                    $scope.mobile = false;
+                    $scope.tablet = false;
+                    if ($scope.reservations.characteristics[0].name == "DeviceType") {
+                        if ($scope.reservations.characteristics[0].value == "MobilePhone") {
+                            $scope.mobile = true;
+                        }
+                        else if ($scope.reservations.characteristics[0].value == "Tablet") {
+                            $scope.tablet = true;
+                        }
+                    }
+                
             });
             setCharacteristics();
             $scope.deviceCharacteristics = true;
        }
-
        $scope.images = {
            iOS: "images/iosBlue.png",
            Android: "images/androidBlue.png",
            Windows: "images/windowsBlue.png",
            OsVersion: "images/versionBlue.png",
            Quantity: "images/quantityBlue.png",
-           Mobile: "images/mobile.png",
-           Tablet: "images/tablet.png"
+           Mobile: "images/mobile2.png",
+           Tablet: "images/tablet2.png"
        }
 
        function setCharacteristics () {
@@ -65,23 +77,13 @@
                    $scope.android = true;
                }
                else if ($scope.Type == "Windows") {
-                   $scope.win = true;
+                   $scope.windows = true;
                }
                       
        }
-
-       $scope.setIcon = function (item) {
-           $scope.mobile = false;
-           $scope.tablet = false;
-            if (item.name == "DeviceType") {
-                if (item.value == "MobilePhone") {
-                    $scope.mobile = true;
-                }
-                else if (item.value == "Tablet") {
-                    $scope.tablet = true;
-                }
-            }
-        }
+       $scope.pop = function () {
+           toaster.pop('note', "Haris", "bravo majstore");
+       }
     });
 }());
 

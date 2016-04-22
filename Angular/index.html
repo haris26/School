@@ -9,8 +9,10 @@
     <script src="library/ui-bootstrap-tpls.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
     <script src="library/angular-cookies.js"></script>
+    <script src="scripts/toaster.js"></script>
     <link href="styles/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/site.css" />
+    <link rel="stylesheet" href="styles/toaster.css" />
   
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/LoginController.js"></script>
@@ -26,6 +28,7 @@
     <script src="scripts/services/Permission.js"></script>
 </head>
 <body>
+    <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
     <header>
         <div class="navbar navbar-default">
             <div class="navbar-header" >

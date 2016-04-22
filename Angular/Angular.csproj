@@ -118,9 +118,11 @@
     <Content Include="images\loading.gif" />
     <Content Include="images\mistral.png" />
     <Content Include="images\mobile.png" />
+    <Content Include="images\mobile2.png" />
     <Content Include="images\quantityBlue.png" />
     <Content Include="images\spinner.gif" />
     <Content Include="images\tablet.png" />
+    <Content Include="images\tablet2.png" />
     <Content Include="images\versionBlue.png" />
     <Content Include="images\windowsBlue.png" />
     <Content Include="index.html" />
@@ -135,8 +137,10 @@
     <Content Include="scripts\controllers\userDashboardController.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
+    <Content Include="scripts\toaster.js" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\site.css" />
+    <Content Include="styles\toaster.css" />
     <Content Include="views\active.html" />
     <Content Include="library\angular-route.js" />
     <Content Include="library\angular.js" />
