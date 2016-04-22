@@ -8,18 +8,18 @@
 <div class="modal-body">
     <form>
         <div class="form-group">
-            <label for="rptUntil">Repeat until: </label>
-            <input type="date" ng-model="eventExtend.repeatUntil" id="rptUntil">
+            <label for="rptUntil" class="control-label">Repeat until: </label>
+            <input ng-model="eventExtend.repeatUntil" id="rptUntil" class="form-control" type="date">
 
         </div>
         <div class="form-group">
-            <label for="rptType">Repeating type: </label>
+            <label for="rptType" class="control-label">Repeating type: </label>
             <select ng-model="eventExtend.repeatingType"
-                    ng-options="repeatingTypes.indexOf(type) as type for type in repeatingTypes" id="rptType"></select>
+                    ng-options="repeatingTypes.indexOf(type) as type for type in repeatingTypes" id="rptType" class="form-control"></select>
         </div>
         <div class="form-group">
-            <label for="frequency">Frequency: </label>
-            <input type="number" ng-model="eventExtend.frequency" id="frequency">
+            <label for="frequency" class="control-label">Frequency: </label>
+            <input type="number" ng-model="eventExtend.frequency" id="frequency" class="form-control">
         </div>
     </form>
     <div class="modal-footer">
