@@ -157,8 +157,10 @@
     <Content Include="library\jquery.js" />
     <Content Include="library\jquery.min.js" />
     <Content Include="library\moment.js" />
+    <Content Include="library\simplecalendar.js" />
     <Content Include="library\ui-bootstrap-tpls-1.3.2.js" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />
+    <Content Include="library\zabuto_calendar.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -221,6 +223,8 @@
     <Content Include="styles\sidebar.css" />
     <Content Include="styles\simple-sidebar.css" />
     <Content Include="styles\site.css" />
+    <Content Include="styles\style.css" />
+    <Content Include="styles\zabuto_calendar.min.css" />
     <Content Include="views\calendar2.html" />
     <Content Include="views\CreateDetail.html" />
     <Content Include="views\daymodal.html" />

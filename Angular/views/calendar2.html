@@ -1,5 +1,4 @@
-a
-<style>
+<!--<style>
     .full button span {
         border-radius: 32px;
         color: black;
@@ -45,7 +44,7 @@ a
 
 <div id="calendarModal" class="modal fade" role="dialog" style="top:10%">
     <div class="modal-dialog">
-        <!--<div class="modal-content">-->
+        <div class="modal-content">
         <div class="modal-body">
             <form action="#" class="credit-card-div">
                 <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
@@ -108,8 +107,8 @@ a
                             <input type="text" class="form-control" ng-model="detail.date" ng-required="true" />
 
                         </p>
-                        <!--<span class="help-block text-muted small-font"> Date</span>
-                        <input class="form-control" type="date" placeholder="Date" ng-model="detail.date" />-->
+                        <span class="help-block text-muted small-font"> Date</span>
+                        <input class="form-control" type="date" placeholder="Date" ng-model="detail.date" />
                     </div>
                 </div>
                 <div class="row ">
@@ -140,5 +139,12 @@ a
             </div>
         </div>
     </form>
-</div>
+</div>-->
 
+<div id="my-calendar"></div>
+
+<script type="application/javascript">
+    $(document).ready(function () {
+        $("#my-calendar").zabuto_calendar({language: "en"});
+    });
+</script>

@@ -29,14 +29,14 @@
         <span class="col-md-offset-0"><h class="badge" style="margin-top:10px; margin-right:5px">EMPTY DAYS</h><h class="badge col-md-offset-0" style="background-color:#60B72C; margin-top:10px">HOURS WORKED</h></span>
     </span>   
 
-    <span class="col-md-offset-7 col-md-11" style="right:-19px; padding:0">
+    <!--<span class="col-md-offset-7 col-md-11" style="right:-19px; padding:0">
         <input placeholder="Filter" class="form-control col-md-3" type="search" ng-model="selMonth" style="width:20%; height:20%; padding:0">
         <select class="form-control col-md-4" ng-model="sortOrder" style="width:20%; left:10px; height:30%; padding:0">
             <option value="+name">Person</option>
             <option value="+totalHours">Hours worked</option>
             <option value="-emptyDays">Nonentered days</option>
         </select>
-    </span>
+    </span>-->
 
     <div ng-repeat="item in months | orderBy: sortOrder | filter: selMonth" style="margin:0">
         <ul class="list-group">
@@ -64,7 +64,7 @@
                             <div ng-repeat="detail in month.details">
                                 <ul class="list-group">
                                     <li class="list-group-item col-md-6">
-                                        <label class="col-md-4 label label-info">[{{ detail.category }}]</label> <span class="badge" style="background-color:#60B72C; margin-top:3%">
+                                        <label class="col-md-4 badge" style="background-color:#37ADE7">[{{ detail.category }}]</label> <span class="badge" style="background-color:#60B72C; margin-top:0">
                                             {{detail.count}} working hours
                                         </span>
                                     </li>
