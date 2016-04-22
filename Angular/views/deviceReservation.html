@@ -22,32 +22,32 @@
     <br/>
     <div class="row" ng-show="deviceCharacteristics">
         <div class="col-md-offset-3 col-md-6">
-            <div class="characteristics" >
+            <div class="characteristics">
                 <div class="col-md-4">
                     <p ng-show="mobile" ng-init="setIcon(item)">
                         <img src="{{images.Mobile}}"/>
                     </p>
                     <p ng-show="tablet" ng-init="setIcon(item)">
-                        <img src="{{images.Tablet}}" />
+                        <img src="{{images.Tablet}}"/>
                     </p>
                 </div>
                 <div class="col-md-4">
                     <p ng-show="ios">
-                        <img src="{{images.iOS}}" />  {{reservations.characteristics[1].value}}
+                        <img src="{{images.iOS}}"/> {{reservations.characteristics[1].value}}
                     </p>
                     <p ng-show="android">
-                        <img src="{{images.Android}}" />  {{reservations.characteristics[1].value}}
+                        <img src="{{images.Android}}"/> {{reservations.characteristics[1].value}}
                     </p>
                     <p ng-show="win">
-                        <img src="{{images.Windows}}" />  {{reservations.characteristics[1].value}}
+                        <img src="{{images.Windows}}"/> {{reservations.characteristics[1].value}}
                     </p>
                     <p>
-                        <img src="{{images.OsVersion}}" />  {{reservations.characteristics[2].value}}
+                        <img src="{{images.OsVersion}}"/> {{reservations.characteristics[2].value}}
                     </p>
                     <p>
-                        <img src="{{images.Quantity}}" />  {{reservations.characteristics[3].value}}
+                        <img src="{{images.Quantity}}"/> {{reservations.characteristics[3].value}}
                     </p>
-                </div>                
+                </div>
             </div>
         </div>
     </div>
