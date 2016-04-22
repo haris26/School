@@ -2,10 +2,8 @@
     <div ng-include="'views/daymodal.html'"></div>
 </div>-->
 
-<mdl-dialog show='modalShow' width='750px' height='90%'>
-    modal content
-</mdl-dialog>
-<div class="unos form-horizontal">
+
+<!--<div class="unos form-horizontal">
     <div class="row">
         <div class="row">
         </div>
@@ -22,8 +20,8 @@
                                     <input type="text" class="form-control" ng-model="detail.date" ng-required="true" />
 
                                 </p>
-                                <!--<span class="help-block text-muted small-font"> Date</span>
-                                <input class="form-control" type="date" placeholder="Date" ng-model="detail.date" />-->
+                                <span class="help-block text-muted small-font"> Date</span>
+                                <input class="form-control" type="date" placeholder="Date" ng-model="detail.date" />
                             </div>
                         </div>
                         <div class="row ">
@@ -56,7 +54,7 @@
             </form>
         </div>
     </div>
-</div>
+</div>-->
 
 
 <style>
@@ -70,16 +68,53 @@
         color: black;
     }
 </style>
-<pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
-<div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail | filter: { date: dt.Date}">
+<!--<pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>-->
+<!--<div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail | filter: { date: dt.Date}">
     <table class="table table-bordered">
         <tr><td width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
     </table>
-</div>
+</div>-->
 
 <div class="date-picker" ng-controller="ModalController">
-    <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options" ng-change="toggleModal()"></uib-datepicker>
-    <button ng-click="toggleModal()">otvori modal</button>
+    <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options" ng-click="toggleModal(dt); newDetail()"></uib-datepicker>
+    <button ng-click="toggleModal(dt)">otvori modal</button>
     <!--<a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#daymodal"></a>-->
+    <modal-dialog show='modalShow' width='750px' height='90%'>
+       <div class="day-modal-content">
+           <div class="row">
+               <span>Date : {{selectedDate | date:'dd MMMM yyyy'}}</span>
+           </div>
+           <hr />
+           <div class="row">
+               <div class="form-group">
+                   <label>Description:</label>
+                   <input type="text" class="form-control" placeholder="Description" ng-model="detail.description">
+               </div>
+           </div>
+           <div class="row">
+               <div class="form-group">
+                   <label >Work Time:</label>
+                   <input type="text" class="form-control" placeholder="Work Time" ng-model="detail.workTime">
+               </div>
+           </div>
+           <div class="row">
+               <div class="form-group">
+                   <label for="sel1">Team:</label>
+                   <select class="form-control" ng-model="detail.team" placeholder="Team" ng-options="team.id as team.name for team in teams">
+                   </select>
+               </div>
+           </div>
+           <div class="row">
+               <input type="submit" class="btn btn-warning btn-block" value="Save data" ng-click="saveData(selectedDate)" />
+           </div>
+           <hr />
+           <div ng-repeat="item in details | filter: selectedDate ">
+               <table class="table table-bordered">
+                   <tr><td width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
+               </table>
+           </div>
+        </div>
+    </modal-dialog>
 </div>
+
 <hr />
