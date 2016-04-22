@@ -64,8 +64,8 @@
             // fetchData();
         }
 
-        $scope.saveData = function () {
-
+        $scope.saveData = function (selectedDate) {
+            $scope.detail.date = new Date(selectedDate).toISOString();
             var promise;
             if ($scope.detail.id == 0) {
                 DataService.create(dataSet, $scope.detail, function (data) { fetchData() });
@@ -73,14 +73,14 @@
             else {
                 DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData() });
             }
-            
+
             //fetchData();
         }
 
 
         $scope.today = function () {
             $scope.dt = new Date();
-            $scope.dt.setHours(0, 0, 0);
+            
             console.log($scope.dt);
         };
         $scope.today();
@@ -110,6 +110,7 @@
 
         $scope.setDate = function (year, month, day) {
             $scope.dt = new Date(year, month, day);
+            $scope.dt.setHours(2, 0, 0);
         };
 
         var tomorrow = new Date();
