@@ -42,6 +42,7 @@
             if ($scope.request.id == 0) {
                 DataService.create(dataSet, $scope.request, function (data) { });
                 console.log($scope.request);
+               
             }
             else {
                 DataService.update(dataSet, $scope.request.id, $scope.request, function (data) { });

@@ -25,15 +25,21 @@ namespace WebAPI.Helpers
             foreach (var request in requests)
             {            
              dashboard.CountNewRequests++;
-              dashboard.Requests.Add(new ListReqModel
-              {   Id=request.Id, 
-                  Category = request.AssetCategory.CategoryName.ToString(),
-                  Description = request.RequestDescription,
-                  Message = request.RequestMessage,
-                  Type = request.requestType.ToString(),
-                  Quantity = request.Quantity,
-                  Status = request.Status.ToString(),
-                  Date = request.RequestDate.Date,User=request.User.FirstName.ToString() });
+
+                dashboard.Requests.Add(new ListReqModel
+                {
+                    Id = request.Id,
+                    Category = request.AssetCategory.CategoryName.ToString(),
+                    Description = request.RequestDescription,
+                    Message = request.RequestMessage,
+                    Type = request.requestType.ToString(),
+                    Quantity = request.Quantity,
+                    Status = request.Status.ToString(),
+                    Date = request.RequestDate.Date,
+                    User = request.User.FirstName.ToString(),
+                    AssetType = request.AssetCategory.assetType.ToString()
+              });
+
                 }
 
 
@@ -44,13 +50,16 @@ namespace WebAPI.Helpers
                dashboard.CountServiceRequests++;
                 dashboard.ServiceRequests.Add(new ListReqModel
                 {
+                    Id = request.Id,
                     Category = request.AssetCategory.CategoryName.ToString(),
                     Description = request.RequestDescription,
                     Message = request.RequestMessage,
                     Type = request.requestType.ToString(),
                     Quantity = request.Quantity,
-                    Status = request.Status.ToString(), Date = request.RequestDate.Date,
-                    User = request.User.FirstName.ToString() });
+                    Status = request.Status.ToString(),
+                    Date = request.RequestDate.Date,
+                    User = request.User.FirstName.ToString()
+                });
             }
 
 
@@ -68,7 +77,9 @@ namespace WebAPI.Helpers
                     Vendor = asset.Vendor,
                     SerialNumber = asset.SerialNumber,
                     Status = asset.Status.ToString(),
-                    Date = asset.DateOfTrade.Date });
+                    Date = asset.DateOfTrade.Date,
+                    
+                });
             }
 
             var allassets = new AssetsUnit(context).Get().ToList();

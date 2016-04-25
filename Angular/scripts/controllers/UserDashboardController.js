@@ -5,11 +5,12 @@
     app.controller("UserDashboardController", function ($scope, $rootScope, DataService, schConfig) {
         var dataSet = "dashboard";
        // $scope.modal = false;
+
         //$rootScope.model = {};
         $rootScope.model = {};
         fetchData();
        
-       
+
       
        
         function fetchData() {
@@ -18,11 +19,14 @@
             });
         }
 
+
+
         //function getAssets() {
-        //    DataService.list("assets", function (data) {
-        //        $scope.assets = data.allAssets;
+        //    DataService.list(dataSet, function (data) {
+        //        $scope.dashboard = data.assets;
         //    });
-        //};
+        //}
+
 
         $scope.transfer = function transfer(item) {
             $rootScope.model = item;

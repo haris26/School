@@ -2,12 +2,13 @@
 
     var app = angular.module("school");
 
-    app.controller("AdminDashboardController", function ($scope, $rootScope, DataService, schConfig) {
+    app.controller("AdminDashboardController", function ($scope, $rootScope, DataService, schConfig, $route) {
         var dataSet = "admindashboard";
         var num="1";
         fetchData();
         $scope.selString = "";
         $scope.sortOrder = "";
+        $rootScope.model = {};
        
 
         function fetchData() {
@@ -17,23 +18,29 @@
             });
         }
 
+        function getRequests() {
+            DataService.list(dataSet, function (data) {
+                $scope.requests = data.allRequests;
+            });
+        };
+
         $scope.changeStatus = function (item) {
             $scope.request = {
                 id: item.id,
-                requestMessage: item.requestMessage,
-                requestDescription: item.requestDescription,
-                requestType: 1,
+                requestMessage: item.message,
+                requestDescription: item.description,
+                requestType: item.type,
                 requestDate: Date.now(),
                 quantity: item.quantity,
                 assetType: item.assetType,
                 category: item.category,
-                person: item.personName,
+                person: item.user,
                 status: item.status
             }
-            DataService.update("requests", $scope.request.id, $scope.request, function (data) { });
+            DataService.update("admindashboard", $scope.request.id, $scope.request, function (data) { });
             //$location.path("/servicerequests");
             console.log($scope.request);
-            getRequests();
+         
             $route.reload();
         }
 

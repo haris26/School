@@ -10,7 +10,9 @@
         var assetCategories = {
             "Laptop": 1
         };
-    
+
+   
+
         function fetchNewServiceRequests() {
             DataService.list(dataSet, function (data) {
                 $scope.newservicerequests = data;
@@ -33,10 +35,10 @@
                 status:1
 
             };
-            
+           
             DataService.create("requests", $scope.request, function (response) { });
             console.log($scope.request)
-            $location.path("/servicerequests")
+            $location.path("/userservicerequests")
 
         }
     });
