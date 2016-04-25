@@ -84,8 +84,8 @@ namespace WebAPI.Models
             {
                 Id = ev.Id,
                 EventTitle = ev.EventTitle,
-                StartDate = ev.EventStart,
-                EndDate = ev.EventEnd,
+                StartDate = ev.EventStart.ToString(),
+                EndDate = ev.EventEnd.ToString(),
                 Person = ev.User.Id,
                 PersonName = ev.User.FirstName + " " + ev.User.LastName,
                 Resource = ev.Resource.Id,

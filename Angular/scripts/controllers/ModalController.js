@@ -43,7 +43,7 @@
             var result = true;
             $modalInstance.close(result);
         };
-
+        console.log($scope.newEvent);
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };

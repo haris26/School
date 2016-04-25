@@ -18,16 +18,20 @@
 					
                     var dayDate = scope.$parent.day.date;
                     var split = dayDate.split(".");
+                    //console.log(split);
                     //console.log(scope.hour.hour);
-                    var eventDate = new Date(split[2], split[1]-1, split[0], scope.hour.hour+1, 0, 0, 0);
-                    var endDate = new Date(split[2], split[1]-1, split[0], scope.hour.hour+2, 0, 0, 0);
-                
+                    var eventDate = new Date(split[2], split[1]-1, split[0], scope.hour.hour, 0, 0, 0);
+                    var endDate = new Date(split[2], split[1] - 1, split[0], scope.hour.hour + 1, 0, 0, 0);
+                    var endTime = scope.hour.hour + 1 + ":00:00";
+                    console.log(eventDate);
+                    //console.log(endDate);
                     if (scope.hour.isReserved == false) {
+                        console.log(eventDate);
                         scope.newEvent = {
                             id: 0,
                             eventTitle: "",
-                            startDate: eventDate,
-                            endDate: endDate,
+                            startDate: scope.$parent.day.date.toString(),
+                            endDate: endDate.toLocaleDateString() + endTime,
                             resource: scope.$parent.reservations.id,
                             resourceName: scope.$parent.reservations.resourceName,
                             category: 1,

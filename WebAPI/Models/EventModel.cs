@@ -9,8 +9,8 @@ namespace WebAPI.Models
     {
         public int Id { get; set; }
         public string EventTitle { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
         public int Person { get; set; }
         public string PersonName { get; set; }
         public int Resource { get; set; }

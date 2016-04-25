@@ -52,7 +52,7 @@ namespace WebAPI.Helpers
                 if (ev.EventStart.DayOfWeek.ToString() == "Wednesday") { day = 2; }
                 if (ev.EventStart.DayOfWeek.ToString() == "Thursday") { day = 3; }
                 if (ev.EventStart.DayOfWeek.ToString() == "Friday") { day = 4; }
-                // ser hour parametar
+                // set hour parametar
                 if (ev.EventStart.ToShortTimeString().ToString() == "9:00") { hour = 0; hourValue = 9; }
                 if (ev.EventStart.ToShortTimeString().ToString() == "10:00") { hour = 1; hourValue = 10; }
                 if (ev.EventStart.ToShortTimeString().ToString() == "11:00") { hour = 2; hourValue = 11; }
@@ -70,7 +70,10 @@ namespace WebAPI.Helpers
                     IsPast = false,
                     IsReserved = true
                 };
-
+                //if (DbFunctions.TruncateTime(ev.EventStart)< DbFunctions.TruncateTime(System.DateTime.Today))
+                //{
+                //    deviceCell.IsPast = true;
+                //}
                 table.Add(day, hour, deviceCell, hourValue);
             }
             model.DeviceTable = table;

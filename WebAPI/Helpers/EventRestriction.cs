@@ -18,15 +18,18 @@ namespace WebAPI.Helpers
                 Id = model.Id,
                 EventTitle = model.EventTitle,
                 User = context.People.Find(AppGlobals.currentUser.Id),
-                //User = context.People.Find(4),
                 Resource = context.Resources.Find(model.Resource)
             };
-            if ((model.StartDate.DayOfWeek != DayOfWeek.Saturday && model.StartDate.DayOfWeek != DayOfWeek.Sunday) 
-                && (model.EndDate.DayOfWeek != DayOfWeek.Saturday && model.EndDate.DayOfWeek != DayOfWeek.Sunday)
-                && (model.StartDate >= DateTime.Today && model.StartDate <= model.EndDate))
+
+            DateTime start = Convert.ToDateTime(model.StartDate);
+            DateTime end = Convert.ToDateTime(model.EndDate);
+
+            if ((start.DayOfWeek != DayOfWeek.Saturday && start.DayOfWeek != DayOfWeek.Sunday) 
+                && (end.DayOfWeek != DayOfWeek.Saturday && end.DayOfWeek != DayOfWeek.Sunday)
+                && (start >= DateTime.Today && start <= end))
             {
-                ev.EventStart = model.StartDate;
-                ev.EventEnd = model.EndDate;
+                ev.EventStart = start;
+                ev.EventEnd = end;
             }
 
             return ev;

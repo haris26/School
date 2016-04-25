@@ -46,8 +46,8 @@ namespace WebAPI.Models
             {
                 Id = model.Id,
                 EventTitle = model.EventTitle,
-                EventStart = model.StartDate,
-                EventEnd = model.EndDate,
+                EventStart = Convert.ToDateTime(model.StartDate),
+                EventEnd = Convert.ToDateTime(model.EndDate),
                 User = context.People.Find(model.Person),
                 Resource = context.Resources.Find(model.Resource)
             };
