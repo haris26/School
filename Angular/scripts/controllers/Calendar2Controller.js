@@ -8,6 +8,7 @@
 
         $scope.startDate = new Date("2016/04/22");
         $scope.endDate = new Date("2016/04/23");
+        $scope.currentDay = new Date();
 
         getTeams();
         fetchData();
@@ -164,6 +165,8 @@
             return '';
         };
 
+        
+       
         $scope.test = function () {
             console.log('calendar clicked');
         }

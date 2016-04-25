@@ -37,7 +37,7 @@
 
                                     <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail">
                                         <table class="table table-bordered">
-                                            <tr><td data-toggle="modal" data-target="#editModal" width="30%"><a href="#/details" ng-click="transfer(item)" style="color:#4B627A"><b>{{ item.description }}</b></a> </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td><td><button class="glyphicon glyphicon-trash" style="color:red" ng-click="transfer(item); deleteData();"></button></td></tr>
+                                            <tr><td data-toggle="modal" data-target="#editModal" width="30%"><a href="#/details" ng-click="transfer(item)" style="color:#4B627A"><b>{{ item.description }}</b></a> </td><td width="30%"> {{ item.date | date:shortDate }}</td><td width="20%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td><td><button class="glyphicon glyphicon-trash" style="color:red" ng-click="transfer(item); deleteData();"></button></td></tr>
                                         </table>
                                     </div>
                                 </div>
