@@ -20,7 +20,6 @@ namespace WebAPI.Helpers
                 User = context.People.Find(AppGlobals.currentUser.Id),
                 Resource = context.Resources.Find(model.Resource)
             };
-
             DateTime start = Convert.ToDateTime(model.StartDate);
             DateTime end = Convert.ToDateTime(model.EndDate);
 
@@ -28,11 +27,16 @@ namespace WebAPI.Helpers
                 && (end.DayOfWeek != DayOfWeek.Saturday && end.DayOfWeek != DayOfWeek.Sunday)
                 && (start >= DateTime.Today && start <= end))
             {
-                ev.EventStart = start;
-                ev.EventEnd = end;
+                ev.EventStart = SetTime(start,model.StartTime);
+                ev.EventEnd = SetTime(end, model.EndTime);
             }
 
             return ev;
+        }
+
+        public static DateTime SetTime(DateTime date, string time)
+        {
+            return date.AddHours(Convert.ToInt32(time)); 
         }
 
         public static void DecreaseQuantity(EventModel model, SchoolContext context)

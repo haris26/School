@@ -17,6 +17,7 @@ namespace WebAPI.Models
         public string ResourceName { get; set; }
         public int Category { get; set; }
         public string CategoryName { get; set; }
-        public string Time { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
     }
 }
