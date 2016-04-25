@@ -14,6 +14,8 @@ namespace WebAPI.Models
         public string Status { get; set; }
         public string SerialNumber { get; set; }
         public string Vendor { get; set; }
+        public int Asset { get; set; }
+        public int User { get; set; }
 
     }
 
@@ -25,6 +27,7 @@ namespace WebAPI.Models
         public string Status { get; set; }
         public int Quantity { get; set; }
         public DateTime Date { get; set; }
+    
     }
 
 
@@ -44,7 +47,7 @@ namespace WebAPI.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int countStatusChange { get; set; }
-
+      
         public IList<ListModel> Assets { get; set; }
         public IList<ListRequestsModel> NewRequests { get; set; }
         public IList<ListRequestsModel> ServiceRequests { get; set; }

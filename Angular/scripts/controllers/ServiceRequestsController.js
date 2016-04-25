@@ -33,7 +33,7 @@
                 asset: item.asset,
                 assetType: item.assetType,
                 category: item.category,
-                person: item.person,               
+                person: item.user,               
                 status: item.status,
                 email: item.email
             }

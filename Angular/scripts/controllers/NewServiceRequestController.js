@@ -2,11 +2,14 @@
 
     var app = angular.module("school");
 
-    app.controller("NewServiceRequestController", function ($scope, $rootScope, DataService, $location) {
+    app.controller("NewServiceRequestController", function ($scope, $rootScope, $log, DataService, $location) {
 
         var dataSet = "newservicerequests";
         $scope.requestMessage = "";
         $scope.requestDescription = "";
+        var assetCategories = {
+            "Laptop": 1
+        };
     
         function fetchNewServiceRequests() {
             DataService.list(dataSet, function (data) {
@@ -15,6 +18,7 @@
         };
         $scope.save = function save() {
             var model = $rootScope.model;
+            $log.info($rootScope.model);
             $scope.request = {
                 id: 0,
                 requestMessage: $scope.requestMessage,
@@ -22,9 +26,9 @@
                 requestType: 2,
                 requestDate: Date.now(),
                 quantity: 1,
-                asset: model.id,
+                asset: model.asset,
                 assetType: 1,
-                category: model.category,
+                category: assetCategories[model.category],
                 person: model.user,
                 status:1
 

@@ -26,7 +26,7 @@ namespace WebAPI.Helpers
             {            
              dashboard.CountNewRequests++;
               dashboard.Requests.Add(new ListReqModel
-              {
+              {   Id=request.Id, 
                   Category = request.AssetCategory.CategoryName.ToString(),
                   Description = request.RequestDescription,
                   Message = request.RequestMessage,
