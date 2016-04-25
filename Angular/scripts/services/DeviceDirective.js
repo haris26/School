@@ -12,27 +12,24 @@
                     if (scope.hour.personName == currentUser.name) {
                         elem.css('background-color', '#01AB8E');
                     }
-
                 }
-                elem.bind('click', function () {                            
-					
-                    var dayDate = scope.$parent.day.date;
-                    var split = dayDate.split(".");
-                    //console.log(scope.hour.hour);
-                    var eventDate = new Date(split[2], split[1]-1, split[0], scope.hour.hour+1, 0, 0, 0);
-                    var endDate = new Date(split[2], split[1]-1, split[0], scope.hour.hour+2, 0, 0, 0);
-                
+                elem.bind('click', function () {                            		
+                    var sTime = scope.hour.hour;
+                    var Day = scope.day.day;
                     if (scope.hour.isReserved == false) {
                         scope.newEvent = {
                             id: 0,
                             eventTitle: "",
-                            startDate: eventDate,
-                            endDate: endDate,
+                            startDate: scope.$parent.day.date,
+                            endDate: scope.$parent.day.date,
                             resource: scope.$parent.reservations.id,
                             resourceName: scope.$parent.reservations.resourceName,
                             category: 1,
-                            categoryName: "Device"
+                            categoryName: "Device",
+                            startTime: sTime,
+                            endTime: sTime+1
                         };
+                        console.log(scope.newEvent);
                         var modalInstance = $modal.open({
                             templateUrl: 'views/modals/createEventModal.html',
                             controller: 'createEventCtrl',
@@ -53,5 +50,4 @@
             }           
         };
     });
-
 }());
