@@ -6,16 +6,35 @@
         $scope.selDetail = "";
         $scope.sortOrder = '-date';
 
+        $scope.startDate = new Date($scope.dt);
+        $scope.endDate = new Date($scope.dt);
+
         getTeams();
         fetchData();
         getPeople();
         getDays();
-        
-        $(document).ready(function () {
-            $('#showmenu').click(function () {
-                $('.menu').slideToggle("fast");
-            });
-        });
+        //$scope.modalShow = false;
+        //$scope.toggleModal = function () {
+        //    $scope.modalShow = !$scope.modalShow;
+        //};
+        //app.directive('modalDialog', function () {
+        //    return {
+        //        restrict: 'E',
+        //        scope: { show: '=' },
+        //        replace: true,
+        //        transclude: true,
+        //        link: function (scope, element, attrs) {
+        //            scope.dialogStyle = {};
+        //            if (attrs.width) scope.dialogStyle.width = attrs.width;
+        //            if (attrs.height) scope.dialogStyle.height = attrs.height;
+        //            scope.hideModal = function () {
+        //                scope.show = false;
+        //            };
+        //        },
+        //        template: "<div class='modal' ng-show='show'><div class='modal-overlay' ng-click='hideModal()'></div><div class='modal-dialog' ng-style='dialogStyle'><div class='modal-close' ng-click='hideModal()'>X</div><div class='modal-dialog-content' ng-transclude></div></div></div>"
+        //    };
+        //});
+
 
         function getDays() {
             DataService.read("days", currentUser.id, function (data) {
@@ -45,7 +64,7 @@
         $scope.reloadRoute = function () {
             $window.location.reload();
         }
-      
+
         $scope.newDetail = function () {
             $scope.detail = {
                 id: 0,
@@ -80,8 +99,7 @@
 
         $scope.today = function () {
             $scope.dt = new Date();
-            
-            console.log($scope.dt);
+            //console.log($scope.dt);
         };
         $scope.today();
 
@@ -150,6 +168,7 @@
             console.log('calendar clicked');
         }
 
+
         //$scope.openModal = function (selectedDay) {
         //    var modalInstance = $modal.open({
         //        templateUrl: 'views/daymodal.html',
@@ -162,5 +181,22 @@
         //    });
         //}
     });
-}());
+    app.filter('dateRange', function () {
+        return function (input, startDate, endDate) {
 
+            var retArray = [];
+
+            angular.forEach(input, function (obj) {
+                var receivedDate = new Date(obj.date);
+                console.log(receivedDate);
+
+                if (receivedDate >= startDate && receivedDate < endDate) {
+                    console.log("poredjenje");
+                    retArray.push(obj);
+                }
+            });
+
+            return retArray;
+        };
+    });
+}());
