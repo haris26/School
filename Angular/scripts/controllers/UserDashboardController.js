@@ -4,10 +4,10 @@
 
     app.controller("UserDashboardController", function ($scope, $rootScope, DataService, schConfig) {
         var dataSet = "dashboard";
-        $scope.modal = false;
+       // $scope.modal = false;
        $rootScope.model = {};
         fetchData();
-        getAssets();
+    //   getAssets();
        
       
        
@@ -18,11 +18,11 @@
         }
 
 
-        function getAssets() {
-            DataService.list(dataSet, function (data) {
-                $scope.dashboard = data.assets;
-            });
-        }
+        //function getAssets() {
+        //    DataService.list(dataSet, function (data) {
+        //        $scope.dashboard = data.assets;
+        //    });
+        //}
 
         $scope.transfer = function transfer(item) {
             $rootScope.model = item;

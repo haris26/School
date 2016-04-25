@@ -14,6 +14,8 @@ namespace WebAPI.Models
         public string Status { get; set; }
         public string SerialNumber { get; set; }
         public string Vendor { get; set; }
+        public int User { get; set; }
+        public int Asset { get; set; }
 
     }
 

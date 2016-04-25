@@ -85,18 +85,18 @@ namespace WebAPI.Controllers
                 Repository.Insert(Parser.Create(model, Repository.BaseContext()));
                 if (model.AssetType == "2" && model.requestType == "2")
                 {
-                    Mail.SendMail("harismistral@gmail.com", "Request Notification", "Dear Haris, you have one service request from!");
-                }else if ((model.AssetType == "2" || model.AssetType == "Office") && (model.requestType == "1" || model.requestType == "Equipment"))
+                    Mail.SendMail("harismistral@gmail.com", "Request Notification", "Dear Haris, you have one service request!");
+                }else if ((model.AssetType == "2" || model.AssetType == "Office") && (model.requestType == "1" || model.requestType == "New"))
                 {
                     Mail.SendMail("harismistral@gmail.com", "Request Notification", "Dear Haris, you have one new equipment request!");
                 }
                 else if (model.AssetType == "1" && model.requestType == "2")
                 {
-                    Mail.SendMail("edibmistral@gmail.com", "Request Notification", "Dear Edib, you have one service request from!");
+                    Mail.SendMail("edibmistral@gmail.com", "Request Notification", "Dear Edib, you have one service request!");
                 }
-                else if((model.AssetType == "1" || model.AssetType == "Device") && (model.requestType == "1" || model.requestType == "Equipment"))
+                else if((model.AssetType == "1" || model.AssetType == "Device") && (model.requestType == "1" || model.requestType == "New"))
                 {
-                    Mail.SendMail("edibmistral@gmail.com", "Request Notification", "Dear Edib, you have one service request from");
+                    Mail.SendMail("edibmistral@gmail.com", "Request Notification", "Dear Edib, you have one new equipment request");
                 }
                 return Ok();
             }
@@ -132,7 +132,10 @@ namespace WebAPI.Controllers
                     model.Status = "Cancelled";
               }
                 Mail.SendMail(model.Email, "Request status", "Your request status is now: " + model.Status);
-
+                if(model.Status == "2" || model.Status == "Waiting for approval")
+                {
+                    Mail.SendMail("alen.bumbulovic@live.com", "Request approval", "There is a request that needs Your approval: ");
+                }
                 return Ok(model);
             }
             catch (Exception ex)

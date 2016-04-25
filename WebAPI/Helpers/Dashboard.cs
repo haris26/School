@@ -20,11 +20,20 @@ namespace WebAPI.Helpers
            
 
             var assets = person.Assets.Select
-                (x => new { x.Status, x.DateOfTrade, x.Model, x.Vendor, x.AssetCategory,
+                (x => new { x.Id,x.Status, x.DateOfTrade, x.Model, x.Vendor, x.AssetCategory,
                     x.Name, x.SerialNumber }).ToList();
             foreach (var asset in assets)
             {
-                dashboard.Assets.Add(new ListModel { Category = asset.AssetCategory.CategoryName.ToString(), Model=asset.Model,Name=asset.Name,Vendor=asset.Vendor, SerialNumber=asset.SerialNumber, Status=asset.Status.ToString(),Date = asset.DateOfTrade.Date });
+                dashboard.Assets.Add(new ListModel
+                { Category = asset.AssetCategory.CategoryName.ToString(),
+                    Model =asset.Model,Name=asset.Name,
+                    Vendor =asset.Vendor,
+                    SerialNumber =asset.SerialNumber,
+                    Status=asset.Status.ToString(),
+                    Date = asset.DateOfTrade.Date,
+                     User=person.Id,
+                    Asset = asset.Id
+                });
 
             }
 

@@ -8,6 +8,8 @@ namespace WebAPI.Models
 {
     public class ListReqModel
     {
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
         public string Type { get; set; }
         public string User { get; set; }
         public string Category { get; set; }
@@ -15,7 +17,7 @@ namespace WebAPI.Models
         public string Message { get; set; }
         public string Status { get; set; }
         public int Quantity { get; set; }
-        public DateTime Date { get; set; }
+        public string AssetType { get; set; }
 
     }
 
