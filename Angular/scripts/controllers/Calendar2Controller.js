@@ -8,7 +8,6 @@
 
         $scope.startDate = new Date("2016/04/22");
         $scope.endDate = new Date("2016/04/23");
-        $scope.currentDay = new Date();
 
         getTeams();
         fetchData();
@@ -165,8 +164,6 @@
             return '';
         };
 
-        
-       
         $scope.test = function () {
             console.log('calendar clicked');
         }
@@ -190,6 +187,7 @@
             var retArray = [];
 
             angular.forEach(input, function (obj) {
+
                 var receivedDate = new Date(obj.date);
                 console.log(receivedDate);
 

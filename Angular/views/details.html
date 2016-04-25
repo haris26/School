@@ -7,6 +7,12 @@
         </div>
         <br />
 
+        <script>
+            $('#editModal').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        </script>
+
         <div class="row col-md-offset-2 col-xs-offset-0 col-md-10 col-xs-12">
             <form action="#" class="credit-card-div col-xs-offset-1">
                 <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
@@ -100,7 +106,7 @@
                                             <input type="button" class="btn btn-success" value="New input" ng-click="newDetail()" />
                                         </div>
                                         <div class="col-md-4 col-sm-6 col-xs-6 pad-adjust col-md-offset-0">
-                                            <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData(); $location.path('/details');" />
+                                            <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData()" />
                                         </div>
                                     </div>
 

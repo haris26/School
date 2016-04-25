@@ -34,7 +34,7 @@
             .when("/roles", {templateUrl: "views/roles.html", controller: "RolesController"})
             .when("/months", { templateUrl: "views/month.html", controller: "MonthController" })
             .when("/engagements", {templateUrl: "views/engagements.html", controller: "EngagementsController"})
-            .otherwise({redirectTo: "/months"});
+            .otherwise({redirectTo: "/details"});
     }).run(function ($rootScope, $location) {
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
             if (!authenticated) {
