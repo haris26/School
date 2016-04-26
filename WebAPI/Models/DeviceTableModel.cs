@@ -70,7 +70,7 @@ namespace WebAPI.Models
             }
         }
 
-        public void Add(int i, int j , DeviceCellModel newEvent, int hour)
+        public void Add(int i, int j , DeviceCellModel newEvent)
         {
             Days[i].Hours[j] = newEvent;
         }
