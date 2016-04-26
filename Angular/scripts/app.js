@@ -24,6 +24,7 @@
     app.config(function($routeProvider) {
 
         $routeProvider
+            .when("/notif", {templateUrl:"views/notification.html", controller: "NotificationController"})
             .when("/login", { templateUrl: "views/login.html", controller: "LoginController" })
             .when("/logout", { template: "", controller: "LogoutController" })
             .when("/calendar", { templateUrl: "views/calendar.html", controller: "CalendarController" })

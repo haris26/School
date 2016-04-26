@@ -1,60 +1,3 @@
-<!--<div id="daymodal" class="modal fade" role="dialog">
-    <div ng-include="'views/daymodal.html'"></div>
-</div>-->
-<!--<div class="unos form-horizontal">
-    <div class="row">
-        <div class="row">
-        </div>
-        <br />
-
-        <div class="row col-md-offset-5 col-xs-offset-0 col-md-4 col-xs-11">
-            <form action="#" class="credit-card-div col-xs-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row ">
-                            <div class="col-md-12">
-                                <span class="help-block text-muted small-font"> Date</span>
-                                <p class="input-group">
-                                    <input type="text" class="form-control" ng-model="detail.date" ng-required="true" />
-
-                                </p>
-                                <span class="help-block text-muted small-font"> Date</span>
-                                <input class="form-control" type="date" placeholder="Date" ng-model="detail.date" />
-                            </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col-md-3 col-sm-3 col-xs-3">
-                                <span class="help-block text-muted small-font"> Work Time</span>
-                                <input class="form-control" type="text" placeholder="Work Time" ng-model="detail.workTime">
-                            </div>
-                            <div class="col-md-8 col-sm-8 col-xs-8">
-                                <span class="help-block text-muted small-font">  Description</span>
-                                <input class="form-control" type="text" placeholder="Description" ng-model="detail.description">
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <span class="help-block text-muted small-font">  Team</span>
-                                <select class="form-control" ng-model="detail.team" placeholder="Team"
-                                        ng-options="team.id as team.name for team in teams"></select>
-                            </div>
-                            <div class="col-md-3 col-sm-3 col-xs-3">
-                                <img class="glyphicon glyphicon-calendar" />
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                <input type="submit" class="btn btn-warning btn-block" value="Save data" ng-click="saveData();" />
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>-->
-
-
 <style>
     .full button span {
         border-radius: 32px;
@@ -73,42 +16,43 @@
     </table>
 </div>-->
 
-<div class="date-picker" ng-controller="ModalController">
+<div class="date-picker" ng-controller="ModalController" ng-onload="flash.pop({ title: msgTitle, body: msgBody, type: msgType })">
     <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options" ng-click="toggleModal(dt); newDetail()"></uib-datepicker>
     <!--<a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#daymodal"></a>-->
     <modal-dialog show='modalShow' width='750px' height='90%'>
-        <div class="day-modal-content">
-            <div class="row">
-                <span>Date : {{selectedDate | date:'dd MMMM yyyy'}}</span>
-            </div>
-            <hr />
-            <div class="row">
-                <div class="form-group">
-                    <label>Description:</label>
-                    <input type="text" class="form-control" placeholder="Description" ng-model="detail.description">
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group">
-                    <label>Work Time:</label>
-                    <input type="text" class="form-control" placeholder="Work Time" ng-model="detail.workTime">
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group">
-                    <label for="sel1">Team:</label>
-                    <select class="form-control" ng-model="detail.team" placeholder="Team" ng-options="team.id as team.name for team in teams"></select>
-                </div>
-            </div>
-            <div class="row">
-                <input type="submit" class="btn btn-warning btn-block" value="Save data" ng-click="saveData(selectedDate)" />
-            </div>
-            <hr />
-            <div ng-repeat="item in details | dateRange: startDate: endDate">
-                <table class="table table-bordered">
-                    <tr><td width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
-                </table>
-            </div>
+       <div class="day-modal-content">
+           <div class="row">
+               <span>Date : {{selectedDate | date:'yyyy MMMM dd'}}</span>
+           </div>
+           <hr />
+           <div class="row">
+               <div class="form-group">
+                   <label>Description:</label>
+                   <input type="text" class="form-control" placeholder="Description" ng-model="detail.description">
+               </div>
+           </div>
+           <div class="row">
+               <div class="form-group">
+                   <label >Work Time:</label>
+                   <input type="text" class="form-control" placeholder="Work Time" ng-model="detail.workTime">
+               </div>
+           </div>
+           <div class="row">
+               <div class="form-group">
+                   <label for="sel1">Team:</label>
+                   <select class="form-control" ng-model="detail.team" placeholder="Team" ng-options="team.id as team.name for team in teams">
+                   </select>
+               </div>
+           </div>
+           <div class="row">
+               <input type="submit" class="btn btn-warning btn-block" value="Save data" ng-click="saveData(selectedDate)" />
+           </div>
+           <hr />
+           <div ng-repeat="item in details | dateRange: startDate: endDate">
+               <table class="table table-bordered">
+                   <tr><td width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date }}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td> </td><td width="20%"><button ng-click="transfer(item); deleteData();">Delete</button>  </td></tr>
+               </table>
+           </div>
         </div>
     </modal-dialog>
 </div>

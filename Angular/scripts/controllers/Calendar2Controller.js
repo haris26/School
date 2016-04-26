@@ -5,10 +5,11 @@
         var dataSet = "details";
         $scope.selDetail = "";
         $scope.sortOrder = '-date';
+       
+        $scope.startDate = $scope.dt;
+        $scope.endDate = $scope.dt;
 
-        $scope.startDate = new Date($scope.dt);
-        $scope.endDate = new Date($scope.dt);
-
+        
         getTeams();
         fetchData();
         getPeople();
@@ -35,6 +36,10 @@
         //    };
         //});
 
+        var nDay = new Date();
+        if (nDay.getDate() <= 27 && nDay.getDate() > 23) {
+            console.log(nDay.getDate());
+        }
 
         function getDays() {
             DataService.read("days", currentUser.id, function (data) {
@@ -92,7 +97,7 @@
             else {
                 DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData() });
             }
-
+            console.log(dt);
             //fetchData();
         }
 
@@ -187,7 +192,8 @@
             var retArray = [];
 
             angular.forEach(input, function (obj) {
-                var receivedDate = new Date(obj.date);
+
+                var receivedDate = new Date (obj.date);
                 console.log(receivedDate);
 
                 if (receivedDate >= startDate && receivedDate < endDate) {

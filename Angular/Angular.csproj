@@ -163,6 +163,7 @@
     </Content>
     <Content Include="scripts\controllers\Calendar2Controller.js" />
     <Content Include="scripts\controllers\ModalController.js" />
+    <Content Include="scripts\controllers\NotificationController.js" />
     <Content Include="scripts\respond.js" />
     <Content Include="scripts\respond.min.js" />
     <Content Include="library\bootstrap1.js" />
@@ -215,6 +216,7 @@
     <Content Include="scripts\services\Permission.js" />
     <Content Include="styles\calendar.css" />
     <Content Include="styles\modal.css" />
+    <Content Include="styles\notification.css" />
     <Content Include="styles\sidebar.css" />
     <Content Include="styles\simple-sidebar.css" />
     <Content Include="styles\site.css" />
@@ -224,6 +226,7 @@
     <Content Include="views\details.html" />
     <Content Include="views\month.html" />
     <Content Include="views\login.html" />
+    <Content Include="views\notification.html" />
     <Content Include="views\people.html" />
     <Content Include="Web.config" />
   </ItemGroup>
