@@ -320,3 +320,26 @@
 .edit {
     color: #5bc0de;
 }
+
+/* date calendar */
+.date-body{
+  background-color: #F8A519;padding-bottom: 5px;
+}
+.date-body .date-title{
+  color: white;
+}
+
+.date-body .date-content{
+  background-color: white;margin-left: 5px;margin-right: 5px;
+}
+.date-body .date-content p.dia{
+  margin: 0; font-size: 45px; font-weight: bold;
+}
+.nomargin{
+  margin: 0;
+}
+
+.row-date {
+    position: absolute;
+    right: 30px;
+}

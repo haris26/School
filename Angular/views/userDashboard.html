@@ -1,37 +1,52 @@
 ﻿<div class="row" ng-controller="UserDashboardController">
+    <div class="row-date">
+        <div class="text-center date-body" style="width: 150px">
+            <label for="" class="date-title">{{todayDate | date: 'MMMM'}} {{todayDate | date: 'yyyy'}}</label>
+            <div class="date-content">
+                <p class="dia">{{todayDate | date: 'd'}}</p>
+                <hr class="nomargin"/>
+                <p class="nomargin"><strong>{{todayDate | date: 'EEEE'}}</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+    <br/>
     <h2 id="welcome-title">Welcome {{dashboard.userName}}</h2>
-    <div class="col-sm-6">
-        <h3>Today reservations</h3>
-        <p ng-if="dashboard.countToday > 1">
-            <span class="label label-info"> {{dashboard.countToday}} </span><span> reservations </span>
-        </p>
-        <p ng-if="dashboard.countToday == 1">
-            <span class="label label-info"> {{dashboard.countToday}} </span>  <span>  reservation </span>
-        </p>
-        <hr/>
-        <div class="notice notice-today"ng-repeat="item in dashboard.todayReservations">
-            <p>
-                <i id="today-title">{{ item.eventTitle}}</i> <br/>
-                You have reservation for <strong>{{ item.resourceName }}</strong> at <i class="glyphicon glyphicon-time"> </i> {{item.time}}
-            </p>
-        </div>
-    </div>
 
-    <div class="col-sm-6">
-        <h3>Upcoming reservations</h3>
-        <p ng-if="dashboard.countUpcoming > 1">
-            <span class="label label-warning"> {{dashboard.countUpcoming}} </span>  reservations
-        </p>
-        <p ng-if="dashboard.countUpcoming == 1">
-            <span class="label label-warning"> {{dashboard.countUpcoming}} </span>  reservation
-        </p>
-        <hr/>
-        <div class="notice notice-upcoming" ng-repeat="item in dashboard.upcomingReservations">
-            <p>
-                <i id="upcoming-title">{{item.eventTitle}}</i> <br/>
-                You have reservation for <strong>{{ item.resourceName }}</strong> on <i class="glyphicon glyphicon-calendar"> </i>{{item.startDate}}<br />
-                at <i class="glyphicon glyphicon-time"> </i> {{item.time}}
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Today reservations</h3>
+            <p ng-if="dashboard.countToday > 1">
+                <span class="label label-info"> {{dashboard.countToday}} </span><span> reservations </span>
             </p>
+            <p ng-if="dashboard.countToday == 1">
+                <span class="label label-info"> {{dashboard.countToday}} </span>  <span>  reservation </span>
+            </p>
+            <hr />
+            <div class="notice notice-today" ng-repeat="item in dashboard.todayReservations">
+                <p>
+                    <i id="today-title">{{ item.eventTitle}}</i> <br />
+                    You have reservation for <strong>{{ item.resourceName }}</strong> at <i class="glyphicon glyphicon-time"> </i> {{item.time}}
+                </p>
+            </div>
         </div>
-    </div>
+
+        <div class="col-sm-6">
+            <h3>Upcoming reservations</h3>
+            <p ng-if="dashboard.countUpcoming > 1">
+                <span class="label label-warning"> {{dashboard.countUpcoming}} </span>  reservations
+            </p>
+            <p ng-if="dashboard.countUpcoming == 1">
+                <span class="label label-warning"> {{dashboard.countUpcoming}} </span>  reservation
+            </p>
+            <hr />
+            <div class="notice notice-upcoming" ng-repeat="item in dashboard.upcomingReservations">
+                <p>
+                    <i id="upcoming-title">{{item.eventTitle}}</i> <br />
+                    You have reservation for <strong>{{ item.resourceName }}</strong> on <i class="glyphicon glyphicon-calendar"> </i>{{item.startDate}}<br />
+                    at <i class="glyphicon glyphicon-time"> </i> {{item.time}}
+                </p>
+            </div>
+        </div>
+    </div>    
 </div>
