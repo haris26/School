@@ -63,17 +63,17 @@ namespace WebAPI.Helpers
                 // set device cell model
                 var deviceCell = new DeviceCellModel
                 {
-                    EventTitle = ev.EventTitle,
-                    PersonName = ev.User.FullName,
-                    Hour = hourValue,
-                    IsPast = false,
+                    //EventTitle = ev.EventTitle,
+                    //PersonName = ev.User.FullName,
+                    //Hour = hourValue,
+                    //IsPast = false,
                     IsReserved = true
                 };
                 //if (DbFunctions.TruncateTime(ev.EventStart)< DbFunctions.TruncateTime(System.DateTime.Today))
                 //{
                 //    deviceCell.IsPast = true;
                 //}
-                table.Add(day, hour, deviceCell, hourValue);
+                table.Add(day, hour, deviceCell);
             }
             model.DeviceTable = table;
             return model;
