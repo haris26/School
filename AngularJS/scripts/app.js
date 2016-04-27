@@ -29,6 +29,7 @@
             .when("/employeeSummary/:employeeId", { templateUrl: "views/employeeSummary.html", controller: "EmployeeSummaryCtrl" })
             .when("/employeeAssessments/:employeeId", { templateUrl: "views/employeeAssessments.html", controller: "EmployeeAssessmentsCtrl" })
             .when("/people", { templateUrl: "views/people.html", controller: "PeopleCtrl", resolve: { factory: userRouting } })
+            .when("/supervisorAssessment/:employeeId", { templateUrl: "views/supervisorAssessment.html", controller: "SupervisorAssessmentCtrl" })
             .when("/editEmployeeQualifications/:employeeId", { templateUrl: "views/editEmployeeQualifications.html", controller: "EditEmployeeQualificationsCtrl" })
             .when("/selfAssessment/:employeeId", { templateUrl: "views/selfAssessment.html", controller: "SelfAssessmentCtrl" })
             .when("/findPeople", { templateUrl: "views/findPeople.html", controller: "FindPeopleCtrl" })
