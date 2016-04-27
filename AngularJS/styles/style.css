@@ -20,7 +20,7 @@ body { font-family: "Open Sans"; padding-top: 50px;}
 .newnav li .active { background: #455d74 !important; color: #FFFFFF !important; border-left: 4px solid #273643;}
 .user_level_display { font-size: 12px; padding-top: 0px;}
 .user_name_display { padding: 0px; margin: 0px; font-weight: bold; padding-bottom: 5px;}
-.user_avatar { width: 45px; height: 45px;}
+.user_avatar { width: 95px; height: 95px; border-radius: 4px; border: 1px solid #000000; }
 .white-link { color: #FFFFFF; }
 .white-link:hover { color: #DCE8E8; text-decoration: none;}
 .newnav a { color: #FFFFFF !important; border-left: 4px solid #668caf;}

@@ -1,0 +1,74 @@
+﻿<div class="db-header clearfix">
+    <div class="page-header-title"><span class="glyphicon glyphicon-search"></span> Find People</div>
+    <div class="db-header-extra"></div>
+</div>
+
+
+<div id="content">
+    {{ message }}
+    <br>
+
+    <!-- Search by Skill-->
+    <div class="row">
+        <div class="col-md-3">
+            <form class="form-inline">
+                <select class="form-control" id="sel1">
+                    <option selected disabled>Category</option>
+                    <option ng-repeat="category in categories">{{ category.name }}</option>
+                </select>
+            </form>
+        </div>
+        <div class="col-md-2">
+            <form class="form-inline">
+                <select class="form-control">
+                    <option selected disabled>Skills</option>
+                    <option>C#</option>
+                    <option>JavaScript</option>
+                    <option>AngularJS</option>
+                    <option>Java</option>
+                    <option>Objective-C</option>
+                </select>
+            </form>
+        </div>
+        <div class="col-md-2">
+            <form class="form-inline">
+                <select class="form-control">
+                    <option selected disabled>Skill Level</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </form>
+        </div>
+        <div class="col-md-2">
+            <form class="form-inline">
+                <input type="number" placeholder="Years of Experience" onfocus="this.type='number';" class="form-control" />
+
+            </form>
+        </div>
+
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary">Add More Criteria</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-offset-8 col-md-2">
+            <form method="get" action="findPeopleResult.html">
+                <button class="btn btn-primary" style="width:100%">Find</button>
+            </form>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary" style="width:100%">Reset</button>
+        </div>
+    </div>
+
+</div>

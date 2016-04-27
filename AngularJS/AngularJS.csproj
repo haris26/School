@@ -130,7 +130,9 @@
     <Content Include="scripts\controllers\editEmployeeQualificationsController.js" />
     <Content Include="scripts\controllers\employeeAssessmentsController.js" />
     <Content Include="scripts\controllers\employeeSummaryController.js" />
+    <Content Include="scripts\controllers\findPeopleController.js" />
     <Content Include="scripts\controllers\loginController.js" />
+    <Content Include="scripts\controllers\menuController.js" />
     <Content Include="scripts\controllers\overviewController.js" />
     <Content Include="scripts\controllers\peopleController.js" />
     <Content Include="scripts\controllers\qualificationsController.js" />
@@ -154,6 +156,7 @@
     <Content Include="views\modals\loginModal.html" />
     <Content Include="views\modals\deleteQualificationModal.html" />
     <Content Include="views\modals\addEmployeeEducationModal.html" />
+    <Content Include="views\findPeople.html" />
     <Content Include="views\people.html" />
     <Content Include="views\qualifications.html" />
     <Content Include="views\editCategory.html" />
