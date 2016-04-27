@@ -12,7 +12,7 @@
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
-                    $location.path("/calendar");
+                    $location.path("/months");
                 },
                 function (reason) {
                     $rootScope.message = reason.status;
