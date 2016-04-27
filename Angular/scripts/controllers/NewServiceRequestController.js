@@ -7,11 +7,8 @@
         var dataSet = "newservicerequests";
         $scope.requestMessage = "";
         $scope.requestDescription = "";
-        var assetCategories = {
-            "Laptop": 1
-        };
 
-   
+      
 
         function fetchNewServiceRequests() {
             DataService.list(dataSet, function (data) {
@@ -30,7 +27,8 @@
                 quantity: 1,
                 asset: model.asset,
                 assetType: 1,
-                category: assetCategories[model.category],
+                category: model.category,
+                categoryName:model.categoryName,
                 person: model.user,
                 status:1
 

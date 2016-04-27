@@ -7,7 +7,8 @@ namespace WebAPI.Models
 {
     public class ListModel
     {
-        public string Category { get; set; }
+        public string CategoryName { get; set; }
+        public int Category { get; set; }
         public string Model { get; set; }
         public string Name { get; set; }
         public DateTime Date { get; set; }
@@ -22,7 +23,8 @@ namespace WebAPI.Models
 
     public class ListRequestsModel {
         public string Type { get; set; }
-        public string Category { get; set; }
+        public int Category { get; set; }
+        public string CategoryName { get; set; }
         public string Description  { get; set; }
         public string Message { get; set; }
         public string Status { get; set; }
