@@ -59,7 +59,7 @@ namespace WebAPI.Models
             {
                 Id = model.Id,
                 ParentEvent = context.Events.Find(model.ParentEvent),
-                RepeatUntil = model.RepeatUntil,
+                RepeatUntil = Convert.ToDateTime(model.RepeatUntil),
                 RepeatingType = model.RepeatingType,
                 Frequency = model.Frequency
             };

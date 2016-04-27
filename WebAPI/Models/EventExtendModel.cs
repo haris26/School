@@ -10,7 +10,7 @@ namespace WebAPI.Models
     {
         public int Id { get; set; }
         public int ParentEvent { get; set; }
-        public DateTime RepeatUntil { get; set; }
+        public string RepeatUntil { get; set; }
         public RepeatType RepeatingType { get; set; }
         public int Frequency { get; set; }
     }

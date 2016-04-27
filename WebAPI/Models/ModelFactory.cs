@@ -101,7 +101,7 @@ namespace WebAPI.Models
             {
                 Id = exEvent.Id,
                 ParentEvent = exEvent.ParentEvent.Id,
-                RepeatUntil = exEvent.RepeatUntil,
+                RepeatUntil = exEvent.RepeatUntil.ToString(),
                 RepeatingType = exEvent.RepeatingType,
                 Frequency = exEvent.Frequency
             };

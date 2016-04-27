@@ -151,8 +151,10 @@
     <Content Include="Global.asax" />
     <Content Include="views\deviceReservation.html" />
     <Content Include="views\login.html" />
+    <Content Include="views\modals\cancelExtendedModal.html" />
     <Content Include="views\modals\cancelResModal.html" />
     <Content Include="views\modals\createEventModal.html" />
+    <Content Include="views\modals\editExtendedModal.html" />
     <Content Include="views\modals\extendModal.html" />
     <Content Include="views\recurringReservations.html" />
     <Content Include="views\resourceList.html" />
