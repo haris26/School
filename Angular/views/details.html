@@ -26,7 +26,10 @@
                                             <option value="+description">Description</option>
                                             <option value="-date">Date</option>
                                         </select>
+                                        <a ng-click="selDetail='Day Off'" class="label label-primary">DAYS OFF</a>
+                                        <a ng-click="selDetail=''" class="label label-success">CLEAR FILTER</a>
                                     </span>
+
                                     <div>
                                         <br />
                                         <table class="table table-bordered">
@@ -43,7 +46,7 @@
 
                                     <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail">
                                         <table class="table table-bordered">
-                                            <tr><td data-toggle="modal" data-target="#editModal" width="30%"><a href="#/details" ng-click="transfer(item)" style="color:#4B627A"><b>{{ item.description }}</b></a> </td><td width="30%"> {{ item.date | date:shortDate }}</td><td width="20%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td><td><input type="button" class="glyphicon glyphicon-trash" style="color:red" ng-click="transfer(item); deleteData();"></td></tr>
+                                            <tr><td data-toggle="modal" data-target="#editModal" width="30%"><a href="#/details" ng-click="transfer(item)" style="color:#4B627A"><b>{{ item.description }}</b></a> </td><td width="30%"> {{ item.date | date:shortDate }}</td><td width="20%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td><td><button type="button" value="Delete" class="glyphicon glyphicon-trash" style="color:red" ng-click="transfer(item); deleteData();"></button></td></tr>
                                         </table>
                                     </div>
                                 </div>
@@ -57,63 +60,63 @@
 </div>
 
 
-            <div id="editModal" class="modal fade" role="dialog" style="top:10%">
-                <div class="modal-dialog">
-                    <!--<div class="modal-content">-->
-                    <div class="modal-body">
-                        <form action="#" class="credit-card-div">
-                            <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
-                                <div class="panel-heading">
-                                    <div class="row ">
-                                        <div class="col-md-4 col-sm-4 col-xs-4">
-                                            <span class="help-block text-muted small-font" style="color:#2E455C"><b>Date</b></span>
-                                            <input class="form-control" type="text" placeholder="Date" ng-model="detail.date">
-                                        </div>
-                                        <!--<div class="col-md-12">
-                                            <span class="help-block text-muted small-font"> Date</span>
-                                            <p class="input-group">
-                                                <input type="text" class="form-control" uib-datepicker-popup ng-model="detail.date" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                                                <span class="input-group-btn col-md-pull-4">
-                                                    <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
-                                                </span>
-                                            </p>
-                                        </div>-->
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-md-3 col-sm-3 col-xs-3">
-                                            <span class="help-block text-muted small-font"> Work Time</span>
-                                            <input class="form-control" type="text" placeholder="Work Time" ng-model="detail.workTime">
-                                        </div>
-                                        <div class="col-md-8 col-sm-8 col-xs-8">
-                                            <span class="help-block text-muted small-font">  Description</span>
-                                            <input class="form-control" type="text" placeholder="Description" ng-model="detail.description">
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <span class="help-block text-muted small-font">  Team</span>
-                                            <select class="form-control" ng-model="detail.team" placeholder="Team"
-                                                    ng-options="team.id as team.name for team in teams"></select>
-                                        </div>
-                                        <div class="col-md-3 col-sm-3 col-xs-3">
-                                            <img class="glyphicon glyphicon-calendar" />
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div class="row">
-                                        <div class="col-md-4 col-sm-6 col-xs-6 pad-adjust col-md-push-3">
-                                            <input type="button" class="btn btn-danger" value="Delete" ng-click="deleteData()" />
-                                        </div>
-                                        <div class="col-md-4 col-sm-6 col-xs-6 pad-adjust col-md-push-1">
-                                            <input type="button" class="btn btn-success" value="New input" ng-click="newDetail()" />
-                                        </div>
-                                        <div class="col-md-4 col-sm-6 col-xs-6 pad-adjust col-md-offset-0">
-                                            <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData()" />
-                                        </div>
-                                    </div>
-
-                                </div>
+<div id="editModal" class="modal fade" role="dialog" style="top:10%">
+    <div class="modal-dialog">
+        <!--<div class="modal-content">-->
+        <div class="modal-body">
+            <form action="#" class="credit-card-div">
+                <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
+                    <div class="panel-heading">
+                        <div class="row ">
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <span class="help-block text-muted small-font" style="color:#2E455C"><b>Date</b></span>
+                                <input class="form-control" type="text" placeholder="Date" ng-model="detail.date">
                             </div>
-                        </form>
+                            <!--<div class="col-md-12">
+                                <span class="help-block text-muted small-font"> Date</span>
+                                <p class="input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup ng-model="detail.date" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                    <span class="input-group-btn col-md-pull-4">
+                                        <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>-->
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <span class="help-block text-muted small-font"> Work Time</span>
+                                <input class="form-control" type="text" placeholder="Work Time" ng-model="detail.workTime">
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                <span class="help-block text-muted small-font">  Description</span>
+                                <input class="form-control" type="text" placeholder="Description" ng-model="detail.description">
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <span class="help-block text-muted small-font">  Team</span>
+                                <select class="form-control" ng-model="detail.team" placeholder="Team"
+                                        ng-options="team.id as team.name for team in teams"></select>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <img class="glyphicon glyphicon-calendar" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-xs-6 pad-adjust col-md-push-3">
+                                <input type="button" class="btn btn-danger" value="Delete" ng-click="deleteData()" />
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-6 pad-adjust col-md-push-1">
+                                <input type="button" class="btn btn-success" value="New input" ng-click="newDetail()" />
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-6 pad-adjust col-md-offset-0">
+                                <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData()" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
+            </form>
+        </div>
+    </div>
+</div>
 

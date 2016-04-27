@@ -2,11 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Models;
 using System.Web;
+using WebAPI.Helpers;
 
 namespace WebAPI.Controllers
 {
@@ -84,11 +83,30 @@ namespace WebAPI.Controllers
                         day = days.Get().Where(x => x.Person.Id == model.Person && x.Date == DetailDate).FirstOrDefault();
                         model.Day = day.Id;
                         Repository.Insert(Parser.Create(model, sch));
+                        if (model.Team == 4 || model.TeamName == "Day Off")
+                        {
+                            Mail.SendMail("dzanang@gmail.com", "An employee has taken a Day Off", "Dear Azra! One of your employees" + model.PersonName + "has taken a Day Off");
+                        }
+
+                        //int deadline = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["deadline"]);
+                        if (DateTime.Now.Day < 30 && DateTime.Now.Day > 1)
+                        {
+                            Mail.SendMail("dzanang@gmail.com", "Deadline is soon", "Please fill in your time for last month!");
+                        }
                     }
                     else
                     {
                         model.Day = day.Id;
                         Repository.Insert(Parser.Create(model, sch));
+                        if (model.Team == 4 || model.TeamName == "Day Off")
+                        {
+                            Mail.SendMail("dzanang@gmail.com", "An employee has taken a Day Off", "Dear Azra! One of your employees " + model.PersonName + " has taken a Day Off");
+                        }
+
+                        if (DateTime.Now.Day < 30 && DateTime.Now.Day > 1)
+                        {
+                            Mail.SendMail("dzanang@gmail.com", "Deadline is soon", "Please fill in your time for last month!");
+                        }
                     }
                     return Ok(model);
                 }
@@ -98,6 +116,7 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
+
         public IHttpActionResult Put(int id, DetailModel model)
         {
             var sch = Repository.BaseContext();
@@ -119,13 +138,22 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Delete(int id)
         {
+            //var sch = Repository.BaseContext();
             try
             {
+                //Repository<Day> days = new Repository<Day>(sch);
+                
                 Detail detail = Repository.Get(id);
+                //var day = days.Get().Where(x => x.Id == detail.Day.Id).FirstOrDefault();
                 if (detail == null)
                     return NotFound();
                 else
                     Repository.Delete(id);
+
+                //if(day.WorkTime == 0)
+                //{
+                //    Repository.Delete(day.Id);
+                //}
                 return Ok();
             }
             catch (Exception ex)

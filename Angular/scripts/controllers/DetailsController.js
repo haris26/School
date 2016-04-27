@@ -4,6 +4,7 @@
 
         var dataSet = "details";
         $scope.selDetail = "";
+        $scope.selTeam = "Day Off";
         $scope.sortOrder = '-date';
 
         getTeams();

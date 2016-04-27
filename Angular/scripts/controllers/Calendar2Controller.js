@@ -6,8 +6,12 @@
         $scope.selDetail = "";
         $scope.sortOrder = '-date';
 
-        $scope.startDate = new Date("2016/04/22");
-        $scope.endDate = new Date("2016/04/23");
+        //var date = new Date();
+        //var day = date.getTime();
+        //console.log($scope.dt);
+
+        //$scope.startDate = $scope.today;
+        //$scope.endDate = $scope.today;
 
         getTeams();
         fetchData();
@@ -160,10 +164,8 @@
                     }
                 }
             }
-
             return '';
         };
-
         $scope.test = function () {
             console.log('calendar clicked');
         }
@@ -181,23 +183,22 @@
         //    });
         //}
     });
-    app.filter('dateRange', function () {
-        return function (input, startDate, endDate) {
+    //app.filter('dateRange', function () {
+    //    return function (input, startDate, endDate) {
 
-            var retArray = [];
+    //        var retArray = [];
 
-            angular.forEach(input, function (obj) {
+    //        angular.forEach(input, function (obj) {
 
-                var receivedDate = new Date(obj.date);
-                console.log(receivedDate);
+    //            var receivedDate = new Date(obj.date).getTime();
+    //            console.log(receivedDate);
 
-                if (receivedDate >= startDate && receivedDate < endDate) {
-                    console.log("poredjenje");
-                    retArray.push(obj);
-                }
-            });
-
-            return retArray;
-        };
-    });
+    //            if (receivedDate >= startDate && receivedDate < endDate) {
+    //                console.log("poredjenje");
+    //                retArray.push(obj);
+    //            }
+    //        });
+    //        return retArray;
+    //    };
+    //});
 }());

@@ -4,8 +4,9 @@
     </div>
 </div>
 
+
 <div class="date-picker" ng-controller="ModalController">
-    <div style="margin-top:-15%; box-shadow: 8px 8px 100px #2E455C;">
+    <div id="calendar" style="margin-top:-15%; box-shadow: 8px 8px 100px #2E455C;">
         <uib-datepicker ng-model="dt" datepicker-options="options" ng-click="toggleModal(dt); newDetail()"></uib-datepicker>
     </div>
 
@@ -45,9 +46,9 @@
                                     </div>
                                 </div>
                                 <hr />
-                                <div ng-repeat="item in details | dateRange: startDate: endDate">
+                                <div ng-repeat="item in details | filter : $scope.selectedDate ">
                                     <table class="table table-bordered">
-                                        <tr><td width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date | date:shortDate}}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td> </td><td width="20%"><button ng-click="transfer(item); deleteData();">Delete</button>  </td></tr>
+                                        <tr><td width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date | date:shortDate}}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td><td width="20%"><button ng-click="transfer(item); deleteData();">Delete</button>  </td></tr>
                                     </table>
                                 </div>
                             </div>

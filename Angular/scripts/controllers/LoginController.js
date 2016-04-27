@@ -12,7 +12,7 @@
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
-                    $location.path("/calendar");
+                    $location.path("/months");
                 },
                 function (reason) {
                     $rootScope.message = reason.status;
@@ -34,10 +34,10 @@
                     $rootScope.userName = currentUser.name;
                     console.log($scope.userName);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
-                    $location.path("/calendar");
-                    //$('.modal').modal('hide');
-                    //$('.modal-backdrop').remove();
-                    //$('body').removeClass('modal-open');
+                    $location.path("/months");
+                    $('.modal').modal('hide');
+                    $('.modal-backdrop').remove();
+                    $('body').removeClass('modal-open');
                     $scope.wait = false;
                 },
                 function (reason) {
@@ -71,12 +71,12 @@
                             currentUser = response.data;
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
-                            $rootScope.message = "";
-                            $location.path("/calendar");
+                            $rootScope.message = "";                            
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
-                            //$('.modal').modal('hide');
-                            //$('.modal-backdrop').remove();
-                            //$('body').removeClass('modal-open');
+                            $location.path("/months");
+                            $('.modal').modal('hide');
+                            $('.modal-backdrop').remove();
+                            $('body').removeClass('modal-open');
                             $scope.wait = false;
                         },
                         function (reason) {
