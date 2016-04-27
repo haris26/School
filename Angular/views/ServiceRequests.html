@@ -24,6 +24,7 @@
                                     <th>Date</th>
                                     <th>Request Message</th>
                                     <th>Request Description</th>
+                                    <th>Service Type</th>
                                     <th>Request status</th>
                                     <th>Change Status</th>
                                     <th>Save</th>
@@ -37,6 +38,7 @@
                                     <td>{{item.requestDate|date}}</td>
                                     <td>{{item.requestMessage}}</td>
                                     <td>{{item.requestDescription}}</td>
+                                    <td>{{item.serviceType}}</td>
                                     <td>{{item.status}}</td>
                                     <td><select ng-model="item.status"><option value="1">In Proccess</option>
                                            <option value="2">Awaiting for approval</option>

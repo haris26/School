@@ -41,7 +41,15 @@ namespace WebAPI.Helpers
             }
 
             
-            var requests = person.Requests.Select(x => new { x.Status, x.RequestDate, x.RequestDescription, x.RequestMessage, x.requestType, x.Quantity, x.AssetCategory }).ToList();
+            var requests = person.Requests.Select(x => 
+            new { x.Status,
+                x.RequestDate,
+                x.RequestDescription,
+                x.RequestMessage,
+                x.requestType,
+                x.Quantity,
+                x.AssetCategory,
+            x.ServiceType}).ToList();
 
             foreach (var request in requests)
             {
@@ -67,7 +75,9 @@ namespace WebAPI.Helpers
                         Type = request.requestType.ToString(),
                         Quantity = request.Quantity,
                         Status = request.Status.ToString(),
-                        Date = request.RequestDate.Date });
+                        Date = request.RequestDate.Date,
+                        ServiceType=request.ServiceType.ToString()
+                       });
                 }
 
                 if (request.Status != RequestStatus.InProccess)

@@ -30,7 +30,8 @@ namespace WebAPI.Models
         public string Status { get; set; }
         public int Quantity { get; set; }
         public DateTime Date { get; set; }
-    
+        public string ServiceType { get; set; }
+
     }
 
 

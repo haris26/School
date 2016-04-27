@@ -30,9 +30,11 @@
                 category: model.category,
                 categoryName:model.categoryName,
                 person: model.user,
-                status:1
+                status: 1,
+                serviceType:$scope.serviceType
 
             };
+           
            
             DataService.create("requests", $scope.request, function (response) { });
             console.log($scope.request)
