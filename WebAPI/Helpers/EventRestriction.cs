@@ -11,9 +11,7 @@ namespace WebAPI.Helpers
     {
         public static Event Create(EventModel model, SchoolContext context)
         {
-            int id = AppGlobals.currentUser.Id;
-            Person p = context.People.Find(id);
-            Event ev = new Event()
+           Event ev = new Event()
             {
                 Id = model.Id,
                 EventTitle = model.EventTitle,
@@ -31,6 +29,37 @@ namespace WebAPI.Helpers
             }
 
             return ev;
+        }
+
+        public static int GetEventDuration(EventModel model)
+        {
+            return Convert.ToInt32(model.EndTime) - Convert.ToInt32(model.StartTime);
+        }
+
+        public static IList<EventModel> CreateEvent(EventModel model, SchoolContext context)
+        {
+            IList<EventModel> events = new List<EventModel>();
+            int start = Convert.ToInt32(model.StartTime);
+            int end = Convert.ToInt32(model.EndTime);
+            for (int i = start; i < end; i++)
+            {
+                EventModel newEvent = new EventModel()
+                {
+                    Person = model.Person,
+                    PersonName = model.PersonName,
+                    Category = model.Category,
+                    CategoryName = model.CategoryName,
+                    Resource = model.Resource,
+                    ResourceName = model.ResourceName,
+                    EventTitle = model.EventTitle,
+                    StartDate = model.StartDate,
+                    EndDate = model.EndDate
+                };
+                newEvent.StartTime = i.ToString();
+                newEvent.EndTime = (i + 1).ToString();
+                events.Add(newEvent);
+            }
+            return events;            
         }
 
         public static DateTime SetTime(DateTime date, string time)

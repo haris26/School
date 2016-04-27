@@ -35,7 +35,8 @@
             };
         };
 
-       $scope.getReservations = function () {
+        $scope.getReservations = function ()
+        {
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
                 $scope.reservations = data;
                     $scope.mobile = false;
@@ -51,7 +52,10 @@
             });
             setCharacteristics();
             $scope.deviceCharacteristics = true;
-       }
+        }
+        $rootScope.refreshTable = function() {
+            $scope.getReservations();
+        }
        $scope.images = {
            iOS: "images/iosBlue.png",
            Android: "images/androidBlue.png",

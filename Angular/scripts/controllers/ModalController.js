@@ -36,12 +36,14 @@
         };
     });
 
-    app.controller("createEventCtrl", function ($scope, $modalInstance, DataService, schConfig) {
+    app.controller("createEventCtrl", function ($scope, $modalInstance, DataService, schConfig, $rootScope) {
 
         $scope.createReservation = function () {
-            DataService.create("events", $scope.newEvent, function (data) { });
-            var result = true;
-            $modalInstance.close(result);
+            DataService.create("events", $scope.newEvent, function(data) {
+                var result = true;
+                $rootScope.refreshTable();
+                $modalInstance.close(result);
+            });
         };
 
         $scope.cancel = function () {
