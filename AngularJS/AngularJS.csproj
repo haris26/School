@@ -136,6 +136,7 @@
     <Content Include="scripts\controllers\qualificationsController.js" />
     <Content Include="scripts\controllers\skillsController.js" />
     <Content Include="library\jquery.min.js" />
+    <Content Include="scripts\controllers\supervisorAssessmentController.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
@@ -164,6 +165,7 @@
     <Content Include="views\modals\deleteSkillModal.html" />
     <Content Include="views\overview.html" />
     <Content Include="views\skills.html" />
+    <Content Include="views\supervisorAssessment.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

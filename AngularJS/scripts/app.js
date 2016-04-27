@@ -28,6 +28,7 @@
             .when("/qualifications", { templateUrl: "views/qualifications.html", controller: "QualificationsCtrl" })
             .when("/employeeSummary/:employeeId", { templateUrl: "views/employeeSummary.html", controller: "EmployeeSummaryCtrl" })
             .when("/employeeAssessments/:employeeId", { templateUrl: "views/employeeAssessments.html", controller: "EmployeeAssessmentsCtrl" })
+            .when("/supervisorAssessment/:employeeId", { templateUrl: "views/supervisorAssessment.html", controller: "SupervisorAssessmentCtrl" })
             .when("/people", { templateUrl: "views/people.html", controller: "PeopleCtrl" })
             .when("/editEmployeeQualifications/:employeeId", { templateUrl: "views/editEmployeeQualifications.html", controller: "EditEmployeeQualificationsCtrl" })
             .when("/logout", { template: "", controller: "LogoutCtrl" })

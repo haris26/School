@@ -1,0 +1,61 @@
+﻿<div class="db-header clearfix">
+    <div class="page-header-title"><span class="glyphicon glyphicon-bookmark"></span> Qualifications</div>
+    <div class="db-header-extra">
+    </div>
+</div>
+
+<div id="content">
+    {{ message }}
+
+    <br>
+    <div id="content">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Employee:  <a>{{assessments.fullName}}</a></p>
+                <p>Showing responses (in <span style="background:#668caf">blue</span>) from self-assessment completed on {{assessments.selfAssessmentDate | date:'dd MMM yyyy'}}.</p>
+            </div>
+            <div class="col-md-offset-3 col-md-6" ng-repeat="skills in assessments.skills">
+                <h2 class="align-center">{{skills.categoryName}}</h2><br />
+                <div class="row" ng-repeat="skills in skills.skills">
+                    <div class="col-md-5">
+                        <h4>{{skills.skill}}</h4>
+                    </div>
+                    <div class="col-md-7">
+                        <table class="table">
+                            <tr style="background:#668caf; text-align:center">
+                                <td><span class="glyphicon glyphicon-chevron-down" style="visibility:hidden"></span></td>
+                                <td><span class="glyphicon glyphicon-chevron-down" style="visibility:hidden"></span></td>
+                                <td><span class="glyphicon glyphicon-chevron-down" style="visibility:hidden"></span></td>
+                                <td><span class="glyphicon glyphicon-chevron-down"></span></td>
+                                <td><span class="glyphicon glyphicon-chevron-down" style="visibility:hidden"></span></td>
+                            </tr>
+                            <tr style="text-align:center">
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                            <tr style="text-align:center">
+                                <td><input type="radio" name="skill" checked></td>
+                                <td><input type="radio" name="skill"></td>
+                                <td><input type="radio" name="skill"></td>
+                                <td><input type="radio" name="skill"></td>
+                                <td><input type="radio" name="skill"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <hr />
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <form method="get" action="employeeAssessTab.html">
+                    <button class="btn btn-primary form-control">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
