@@ -4,12 +4,13 @@
 
     app.controller("ServiceRequestsController", function ($scope, $rootScope, DataService, $location, $route) {
 
+        $scope.modal = false;
         var dataSet = "servicerequests";
         $scope.selString = "";
-        //$scope.sortOrder = "";
+        $scope.sortOrder = "date";
         getRequests();
         fetchData();
-
+     
         function getRequests() {
             DataService.list(dataSet, function (data) {
                 $scope.serviceRequests = data.allRequests;
@@ -43,7 +44,10 @@
           
             DataService.update("servicerequests", $scope.request.id, $scope.request, function (data) { });
             //$location.path("/servicerequests");
+
             console.log($scope.request.person)
+            $scope.modal = false;
+
             getRequests();
             $route.reload();
         }

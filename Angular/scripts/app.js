@@ -58,10 +58,11 @@
           
            
             
-            //.when("/people", { templateUrl: "views/people.html", controller: "PeopleController" })
-            //.when("/teams", { templateUrl: "views/teams.html", controller: "TeamsController" })
-            //.when("/roles", { templateUrl: "views/roles.html", controller: "RolesController" })
-             //.when("/engagements", { templateUrl: "views/engagements.html", controller: "EngagementsController" })
+            .when("/people", { templateUrl: "views/people.html", controller: "PeopleController" })
+            .when("/teams", { templateUrl: "views/teams.html", controller: "TeamsController" })
+            .when("/roles", { templateUrl: "views/roles.html", controller: "RolesController" })
+             .when("/engagements", { templateUrl: "views/engagements.html", controller: "EngagementsController" })
+
           //All assets owned by a user
 
               .when("/myassets", { templateUrl: "views/MyAssets.html", controller: "UserDashboardController" })
