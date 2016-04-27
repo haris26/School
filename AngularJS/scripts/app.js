@@ -22,14 +22,16 @@
 
         $routeProvider
             .when("/login", { templateUrl: "views/login.html", controller: "LoginCtrl" })
-		    .when("/overview", { templateUrl: "views/overview.html", controller: "OverviewCtrl" })
-            .when("/skills", { templateUrl: "views/skills.html", controller: "SkillsCtrl" })
-            .when("/editCategory/:categoryId", { templateUrl: "views/editCategory.html", controller: "SkillsCtrl" })
-            .when("/qualifications", { templateUrl: "views/qualifications.html", controller: "QualificationsCtrl" })
+		    .when("/overview", { templateUrl: "views/overview.html", controller: "OverviewCtrl", resolve: { factory: userRouting } })
+            .when("/skills", { templateUrl: "views/skills.html", controller: "SkillsCtrl", resolve: { factory: userRouting } })
+            .when("/editCategory/:categoryId", { templateUrl: "views/editCategory.html", controller: "SkillsCtrl", resolve: { factory: userRouting } })
+            .when("/qualifications", { templateUrl: "views/qualifications.html", controller: "QualificationsCtrl", resolve: { factory: userRouting } })
             .when("/employeeSummary/:employeeId", { templateUrl: "views/employeeSummary.html", controller: "EmployeeSummaryCtrl" })
             .when("/employeeAssessments/:employeeId", { templateUrl: "views/employeeAssessments.html", controller: "EmployeeAssessmentsCtrl" })
-            .when("/people", { templateUrl: "views/people.html", controller: "PeopleCtrl" })
+            .when("/people", { templateUrl: "views/people.html", controller: "PeopleCtrl", resolve: { factory: userRouting } })
             .when("/editEmployeeQualifications/:employeeId", { templateUrl: "views/editEmployeeQualifications.html", controller: "EditEmployeeQualificationsCtrl" })
+            .when("/selfAssessment/:employeeId", { templateUrl: "views/selfAssessment.html", controller: "SelfAssessmentCtrl" })
+            .when("/findPeople", { templateUrl: "views/findPeople.html", controller: "FindPeopleCtrl" })
             .when("/logout", { template: "", controller: "LogoutCtrl" })
             .otherwise({ redirectTo: "/overview" });
     }).run(function ($rootScope, $location) {
@@ -40,4 +42,13 @@
             }
         })
     });
+
+    var userRouting = function ($location) {
+        if (currentUser.roles.indexOf("Admin") > -1) {
+            return true;
+        } else {
+            return $location.path("/employeeSummary/" + currentUser.id);
+        }
+    };
+
 }());
