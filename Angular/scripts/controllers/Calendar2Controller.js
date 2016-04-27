@@ -1,24 +1,48 @@
 ﻿(function () {
     var app = angular.module("school");
-    app.controller("Calendar2Controller", function ($scope, $rootScope, DataService) {
+    app.controller("Calendar2Controller", function ($scope, $rootScope, DataService, toaster, $window, $timeout) {
 
         var dataSet = "details";
         $scope.selDetail = "";
         $scope.sortOrder = '-date';
-       
-        $scope.startDate = $scope.dt;
-        $scope.endDate = $scope.dt;
 
-        fetchData();
+        //var date = new Date();
+        //var day = date.getTime();
+        //console.log($scope.dt);
+
+        //$scope.startDate = $scope.today;
+        //$scope.endDate = $scope.today;
+
         getTeams();
+        fetchData();
         getPeople();
         getDays();
 
+        $scope.$watch('$viewContentLoaded', function () {
+            $timeout(function () {
+                var nDay = new Date();
+                var day = nDay.getDate();
 
-        //var nDay = new Date();
-        //if (nDay.getDate() <= 27 && nDay.getDate() > 23) {
-        //    console.log(nDay.getDate());
-        //}
+                if (day <= 28 && day > 23) {
+                    $scope.dayL = 30 - day;
+                    $scope.pop($scope.dayL);
+                    console.log($scope.dayL);
+                }
+                else if (day = 30) {
+                    $scope.pop();
+                }
+
+            }, 0);
+        });
+        $scope.pop = function () {
+            toaster.pop('info', "Please complete your time log", "myTemplate.html", null, 'template');
+        };
+        $scope.goToLink = function (toaster) {
+            var match = toaster.body.match(/http[s]?:\/\/[^\s]+/);
+            if (match) $window.open(match[0]);
+            return true;
+        };
+       
 
         function getDays() {
             DataService.read("days", currentUser.id, function (data) {
@@ -76,7 +100,7 @@
             else {
                 DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData() });
             }
-            console.log(dt);
+
             //fetchData();
         }
 
@@ -151,21 +175,22 @@
         }
 
     });
-    app.filter('dateRange', function () {
-        return function (input, startDate, endDate) {
+    //app.filter('dateRange', function () {
+    //    return function (input, startDate, endDate) {
 
-            angular.forEach(input, function (obj) {
-                var receivedDate = new Date (obj.date)
-                console.log(receivedDate);
-            var retArray = [];
-    
-            if (receivedDate >= startDate && receivedDate < endDate) {
-                                console.log("poredjenje");
-                                retArray.push(obj);
-                            }
-                        });
+    //        var retArray = [];
 
-            return retArray;
-        };
-    });
+    //        angular.forEach(input, function (obj) {
+
+    //            var receivedDate = new Date(obj.date).getTime();
+    //            console.log(receivedDate);
+
+    //            if (receivedDate >= startDate && receivedDate < endDate) {
+    //                console.log("poredjenje");
+    //                retArray.push(obj);
+    //            }
+    //        });
+    //        return retArray;
+    //    };
+    //});
 }());
