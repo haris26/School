@@ -17,7 +17,6 @@
                     var sTime = scope.hour.hour;
                     var Day = scope.day.day;
                     if (scope.hour.isReserved == false) {
-                        console.log(eventDate);
                         scope.newEvent = {
                             id: 0,
                             eventTitle: "",
