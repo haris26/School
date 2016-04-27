@@ -13,6 +13,8 @@
             });
         }
 
+        $scope.todayDate = new Date();
+
         $scope.cancelReservation = function (item){
            var index = $scope.dashboard.activeReservations.indexOf(item);
            $scope.eventId = item.id;
@@ -20,7 +22,6 @@
            $scope.confirmed = {
                isConfirmed:false
            }
-
 
            var modalInstance = $modal.open({
                templateUrl: 'views/modals/cancelResModal.html',
@@ -51,26 +52,23 @@
                frequency: 0
            }
            var modalInstance = $modal.open({
-               templateUrl: 'views/modals/extendModal.html',
-               controller:'ExtendModalCtrl',
-               windowClass: 'app-modal-window',
-               backdrop: 'static',
-               size: 'md',
-               scope: $scope
-           });
-       };
- 
-    
-   function getEvent(id) {
-       DataService.read("events", id, function (data) {
-           $scope.reservationEvent = data;
-       });
-   };
-   $scope.pop = function () {
-       toaster.pop('note', "Confirmation", "Successfully canceled reservation!");
-   };
-
-   });
-
+                templateUrl: 'views/modals/extendModal.html',
+                controller:'ExtendModalCtrl',
+                windowClass: 'app-modal-window',
+                backdrop: 'static',
+                size: 'md',
+                scope: $scope
+            });
+        };
   
+        function getEvent(id) {
+            DataService.read("events", id, function (data) {
+                $scope.reservationEvent = data;
+            });
+        };
+        $scope.pop = function () {
+            toaster.pop('note', "Confirmation", "Successfully canceled reservation!");
+        };
+
+    });
 }());

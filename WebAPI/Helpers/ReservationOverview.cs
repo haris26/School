@@ -42,7 +42,6 @@ namespace WebAPI.Helpers
 
             foreach (var ev in events)
             {
-
                 int day = 0;
                 int hour = 0;
                 int hourValue = 0;
@@ -52,15 +51,15 @@ namespace WebAPI.Helpers
                 if (ev.EventStart.DayOfWeek.ToString() == "Wednesday") { day = 2; }
                 if (ev.EventStart.DayOfWeek.ToString() == "Thursday") { day = 3; }
                 if (ev.EventStart.DayOfWeek.ToString() == "Friday") { day = 4; }
-                // set hour parametar
-                if (ev.EventStart.ToShortTimeString().ToString() == "9:00") { hour = 0; hourValue = 9; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "10:00") { hour = 1; hourValue = 10; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "11:00") { hour = 2; hourValue = 11; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "12:00") { hour = 3; hourValue = 12; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "13:00") { hour = 4; hourValue = 13; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "14:00") { hour = 5; hourValue = 14; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "15:00") { hour = 6; hourValue = 15; }
-                if (ev.EventStart.ToShortTimeString().ToString() == "16:00") { hour = 7; hourValue = 16; }
+                // ser hour parametar
+                if (ev.EventStart.ToShortTimeString() == "9:00") { hour = 0; hourValue = 9; }
+                if (ev.EventStart.ToShortTimeString() == "10:00") { hour = 1; hourValue = 10; }
+                if (ev.EventStart.ToShortTimeString() == "11:00") { hour = 2; hourValue = 11; }
+                if (ev.EventStart.ToShortTimeString() == "12:00") { hour = 3; hourValue = 12; }
+                if (ev.EventStart.ToShortTimeString() == "13:00") { hour = 4; hourValue = 13; }
+                if (ev.EventStart.ToShortTimeString() == "14:00") { hour = 5; hourValue = 14; }
+                if (ev.EventStart.ToShortTimeString() == "15:00") { hour = 6; hourValue = 15; }
+                if (ev.EventStart.ToShortTimeString() == "16:00") { hour = 7; hourValue = 16; }
                 // set device cell model
                 var deviceCell = new DeviceCellModel
                 {

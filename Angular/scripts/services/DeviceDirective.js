@@ -7,6 +7,16 @@
             restrict: "AE",
             replace: true,
             link: function (scope, elem, attrs) {
+                var eventDate = new Date(scope.day.date);
+                var todayDate = new Date();
+
+                var today = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
+
+                if (eventDate < today || (eventDate <= today && scope.hour.hour <= todayDate.getHours())) {
+                    elem.css('background-color', '#F2F2F2');
+                    scope.hour.isPast = true;
+                }
+
                 if (scope.hour.isReserved == true) {
                     elem.css('background-color', '#B01E5F')
                     if (scope.hour.personName == currentUser.name) {
@@ -15,8 +25,7 @@
                 }
                 elem.bind('click', function () {                            		
                     var sTime = scope.hour.hour;
-                    var Day = scope.day.day;
-                    if (scope.hour.isReserved == false) {
+                    if (scope.hour.isReserved == false && scope.hour.isPast != true) {
                         scope.newEvent = {
                             id: 0,
                             eventTitle: "",
@@ -43,7 +52,8 @@
                             if (scope.hour.isReserved == true)
                             {
                                 elem.css('background-color', '#01AB8E');
-                            }
+                                attrs.popover = currentUser.FullName;
+                        }
                         });                         
                     }
                 })             
