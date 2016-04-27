@@ -52,8 +52,7 @@
                             if (scope.hour.isReserved == true)
                             {
                                 elem.css('background-color', '#01AB8E');
-                                attrs.popover = currentUser.FullName;
-                        }
+                            }
                         });                         
                     }
                 })             
