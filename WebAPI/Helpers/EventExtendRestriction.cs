@@ -14,17 +14,18 @@ namespace WebAPI.Helpers
             ExtendedEvent extendedEvent = new ExtendedEvent();
 
             var extendedEvents = new ExtendedEventUnit(context).Get().Where(x => x.ParentEvent.Id == model.ParentEvent).Count();
-            if (extendedEvents == 0)
-            {
+            //if (extendedEvents <= 1)
+            //{
                 extendedEvent.Id = model.Id;
                 extendedEvent.ParentEvent = context.Events.Find(model.ParentEvent);
                 extendedEvent.RepeatingType = model.RepeatingType;
                 extendedEvent.Frequency = model.Frequency;
-            }
-           
-            if (model.RepeatUntil.DayOfWeek != DayOfWeek.Saturday && model.RepeatUntil.DayOfWeek != DayOfWeek.Sunday
-                && model.RepeatUntil >= extendedEvent.ParentEvent.EventEnd)
-                extendedEvent.RepeatUntil = model.RepeatUntil;
+            //}
+            DateTime RepeatUntil = Convert.ToDateTime(model.RepeatUntil);
+
+            if (RepeatUntil.DayOfWeek != DayOfWeek.Saturday && RepeatUntil.DayOfWeek != DayOfWeek.Sunday
+                && RepeatUntil >= extendedEvent.ParentEvent.EventEnd)
+                extendedEvent.RepeatUntil = RepeatUntil;
 
             return extendedEvent;
         }

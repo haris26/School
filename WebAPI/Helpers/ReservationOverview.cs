@@ -69,7 +69,10 @@ namespace WebAPI.Helpers
                     IsPast = false,
                     IsReserved = true
                 };
-
+                //if (DbFunctions.TruncateTime(ev.EventStart)< DbFunctions.TruncateTime(System.DateTime.Today))
+                //{
+                //    deviceCell.IsPast = true;
+                //}
                 table.Add(day, hour, deviceCell);
             }
             model.DeviceTable = table;

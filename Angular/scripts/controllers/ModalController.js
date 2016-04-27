@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("ExtendModalCtrl", function($scope, $modalInstance, DataService, schConfig, toaster) {
+    app.controller("ExtendModalCtrl", function($scope, $modalInstance, DataService, schConfig, toaster, $rootScope) {
 
         $scope.saveData = function () {
             DataService.create("eventextends", $scope.eventExtend, function (data) { });
@@ -45,11 +45,36 @@
                 $modalInstance.close(result);
             });
         };
-
+        console.log($scope.newEvent);
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
     });
 
- 
+    app.controller("CancelExtendedCtrl", function ($scope, $modalInstance, DataService, schConfig, confirmed) {
+        $scope.confirmed = confirmed;
+
+        $scope.yes = function () {
+            $scope.isConfirmed = true;
+            $modalInstance.close($scope.isConfirmed);
+        };
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+    });
+
+    app.controller("EditExtendedCtrl", function ($scope, $modalInstance, DataService, schConfig, $rootScope) {
+        $scope.saveData = function () {
+            DataService.update("eventextends", $scope.event.id, $scope.event, function (data) {
+                var result = true;
+                $rootScope.refreshRecc();
+                $modalInstance.close(result)
+            });
+;
+        };
+        console.log($scope.extendedEvent);
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+    });
 }());

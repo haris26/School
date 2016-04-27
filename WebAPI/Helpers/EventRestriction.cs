@@ -20,6 +20,7 @@ namespace WebAPI.Helpers
             };
             DateTime start = Convert.ToDateTime(model.StartDate);
             DateTime end = Convert.ToDateTime(model.EndDate);
+
             if ((start.DayOfWeek != DayOfWeek.Saturday && start.DayOfWeek != DayOfWeek.Sunday) 
                 && (end.DayOfWeek != DayOfWeek.Saturday && end.DayOfWeek != DayOfWeek.Sunday)
                 && (start >= DateTime.Today && start <= end))
