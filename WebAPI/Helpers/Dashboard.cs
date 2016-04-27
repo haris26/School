@@ -26,7 +26,8 @@ namespace WebAPI.Helpers
             foreach (var asset in assets)
             {
                 dashboard.Assets.Add(new ListModel
-                { Category = asset.AssetCategory.CategoryName.ToString(),
+                { Category = asset.AssetCategory.Id,
+                CategoryName=asset.AssetCategory.CategoryName.ToString(),
                     Model =asset.Model,Name=asset.Name,
                     Vendor =asset.Vendor,
                     SerialNumber =asset.SerialNumber,
@@ -40,18 +41,45 @@ namespace WebAPI.Helpers
             }
 
             
-            var requests = person.Requests.Select(x => new { x.Status, x.RequestDate, x.RequestDescription, x.RequestMessage, x.requestType, x.Quantity, x.AssetCategory }).ToList();
+            var requests = person.Requests.Select(x => 
+            new { x.Status,
+                x.RequestDate,
+                x.RequestDescription,
+                x.RequestMessage,
+                x.requestType,
+                x.Quantity,
+                x.AssetCategory,
+            x.ServiceType}).ToList();
 
             foreach (var request in requests)
             {
                 if (request.requestType == RequestType.New)
                 {
-                    dashboard.NewRequests.Add(new ListRequestsModel { Category = request.AssetCategory.CategoryName.ToString(), Description = request.RequestDescription, Message = request.RequestMessage, Type = request.requestType.ToString(), Quantity = request.Quantity, Status = request.Status.ToString(), Date = request.RequestDate.Date });
+                    dashboard.NewRequests.Add(new ListRequestsModel {
+                        Category=request.AssetCategory.Id,
+                        CategoryName = request.AssetCategory.CategoryName.ToString(),
+                        Description = request.RequestDescription,
+                        Message = request.RequestMessage,
+                        Type = request.requestType.ToString(),
+                        Quantity = request.Quantity,
+                        Status = request.Status.ToString(),
+                        Date = request.RequestDate.Date });
                 }
                 else if (request.requestType == RequestType.Service)
                 {
-                    dashboard.ServiceRequests.Add(new ListRequestsModel { Category = request.AssetCategory.CategoryName.ToString(), Description = request.RequestDescription, Message = request.RequestMessage, Type = request.requestType.ToString(), Quantity = request.Quantity, Status = request.Status.ToString(), Date = request.RequestDate.Date });
+                    dashboard.ServiceRequests.Add(new ListRequestsModel {
+                        Category = request.AssetCategory.Id,
+                        CategoryName=request.AssetCategory.CategoryName.ToString(),
+                        Description = request.RequestDescription,
+                        Message = request.RequestMessage,
+                        Type = request.requestType.ToString(),
+                        Quantity = request.Quantity,
+                        Status = request.Status.ToString(),
+                        Date = request.RequestDate.Date,
+                        ServiceType=request.ServiceType.ToString()
+                       });
                 }
+
                 if (request.Status != RequestStatus.InProccess)
                     dashboard.countStatusChange++;
             }

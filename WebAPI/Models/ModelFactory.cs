@@ -39,7 +39,7 @@ namespace WebAPI.Models
                     //Asset = request.Asset.Id,
                     //AssetModel = request.Asset.Name,
                     Person = request.User.Id,
-                    PersonName = request.User.FirstName + " " + request.User.LastName,
+                    PersonName = request.User.FullName.ToString(),
                     Category = request.AssetCategory.Id,
                     CategoryName = request.AssetCategory.CategoryName,
                     Quantity = request.Quantity,
@@ -59,13 +59,14 @@ namespace WebAPI.Models
                     Asset = request.Asset.Id,
                     AssetModel = request.Asset.Name,
                     Person = request.User.Id,
-                    PersonName = request.User.FirstName + " " + request.User.LastName,
+                    PersonName = request.User.FullName.ToString(),
                     Category = request.AssetCategory.Id,
                     CategoryName = request.AssetCategory.CategoryName,
                     Quantity = request.Quantity,
                     Status = request.Status.ToString(),
                     AssetType = request.AssetType.ToString(),
-                    Email = request.User.Email.ToString()
+                    Email = request.User.Email.ToString(),
+                    ServiceType=request.ServiceType.ToString()
                 };
 
         }

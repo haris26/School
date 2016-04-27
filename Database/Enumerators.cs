@@ -100,8 +100,12 @@ namespace Database
         New = 1,
         Service = 2
     }
-    
-// Time Tracking
+    public enum ServiceType {
+    HW=1,
+    SW=2
+    }
+
+    // Time Tracking
 
     public enum EntryStatus
     {

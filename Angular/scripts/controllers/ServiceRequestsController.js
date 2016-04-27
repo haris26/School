@@ -35,8 +35,10 @@
                 category: item.category,
                 person: item.person,
                 personName: item.personName,
+                categoryName:item.categoryName,
                 status: item.status,
-                email: item.email
+                email: item.email,
+                serviceType:item.serviceType
             }
           
             DataService.update("servicerequests", $scope.request.id, $scope.request, function (data) { });

@@ -24,7 +24,8 @@ namespace WebAPI.Models
                 AssetCategory = context.AssetCategories.Find(model.Category),
                 Quantity = model.Quantity,
                 Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), model.Status),
-                AssetType = (AssetType)Enum.Parse(typeof(AssetType), model.AssetType)
+                AssetType = (AssetType)Enum.Parse(typeof(AssetType), model.AssetType),
+                ServiceType=(ServiceType)Enum.Parse(typeof(ServiceType),model.ServiceType)
 
 
             };

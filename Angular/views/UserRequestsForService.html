@@ -23,6 +23,7 @@
                                     <th>Description</th>
                                     <th>Message</th>
                                     <th>Quantity</th>
+                                    <th>Service Type</th>
                                     <th>Date</th>
                                     <th>Status</th>
                                 </tr>
@@ -30,10 +31,11 @@
                             <tbody>
                                 <tr ng-repeat="item in dashboard.serviceRequests" class="request-table">
                                     <td>{{item.type}} </td>
-                                    <td>{{item.category}}</td>
+                                    <td>{{item.categoryName}}</td>
                                     <td>{{item.description}}</td>
                                     <td>{{item.message}}</td>
                                     <td>{{item.quantity}}</td>
+                                    <td>{{item.serviceType}}</td>
                                     <td>{{item.date|date}}</td>
                                     <td>{{item.status}}</td>
                               </tr>

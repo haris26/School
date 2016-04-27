@@ -18,6 +18,7 @@ namespace Database
         public AssetType AssetType { get; set; }
         public virtual Asset Asset { get; set; }
         public virtual Person User { get; set; }
+        public ServiceType ServiceType { get; set; }
     }
 
 

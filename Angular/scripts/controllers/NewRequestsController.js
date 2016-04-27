@@ -2,7 +2,8 @@
 
     var app = angular.module("school");
 
-    app.controller("NewRequestsController", function ($scope, $rootScope, DataService, $route) {
+    app.controller("NewRequestsController", function ($scope, $rootScope, DataService,$route, $location) {
+
 
         var dataSet = "requests";
         getCategories();       
@@ -30,10 +31,11 @@
                 asset:0,
                 requestMessage:"",
                 requestDescription:"",
-                requestDate: new Date().Date,
+                requestDate: new Date(),
                 status:1,
                 requestType: "New",
-                assetType: "",             
+                assetType: "",
+           serviceType:0,
             }
         };
        
@@ -44,6 +46,7 @@
                 console.log($scope.request);
                 $route.reload();
                
+                $location.path("/usernewrequests")
             }
             else {
                 DataService.update(dataSet, $scope.request.id, $scope.request, function (data) { });
@@ -53,7 +56,10 @@
 
         $scope.setCategory = function () {
             $scope.request.category = $scope.selectedCategory.id
-            $scope.request.assetType=$scope.selectedCategory.type                    
+            $scope.request.categoryName = $scope.selectedCategory.categoryName
+
+            $scope.request.assetType = $scope.selectedCategory.type
+
         }
     });
 
