@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("NewRequestsController", function ($scope, $rootScope, DataService, $location) {
+    app.controller("NewRequestsController", function ($scope, $rootScope, DataService,$route, $location) {
 
         var dataSet = "requests";
         getCategories();       
