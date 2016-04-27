@@ -95,6 +95,8 @@ namespace WebAPI.Controllers
                 {
                     Mail.SendMail("edibmistral@gmail.com", "Request Notification", "Dear Edib, you have one new equpiment request.");
                 }
+
+                
                 return Ok();
             }
             catch (Exception ex)
@@ -108,6 +110,11 @@ namespace WebAPI.Controllers
             try
             {
                 Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
+                if (model.Status == "2")
+                {
+                    Mail.SendMail("alen.bumbulovic@live.com", "Request approval", "There is a request that needs Your approval." + "<br/>" + " From: " + model.PersonName + "<br/>" + " Request Message: " + model.RequestMessage + "<br/>" + " Request description: " + model.RequestDescription + "<br/>" + " Quantity: " + model.Quantity);
+                }
+
                 if (model.Status == "1")
                 {
                     model.Status = "InProccess";
@@ -129,6 +136,8 @@ namespace WebAPI.Controllers
                     model.Status = "Cancelled";
                 }
                 Mail.SendMail(model.Email, "Request status", "Your request status is now: " + model.Status);
+
+              
                 return Ok(model);
             }
             catch (Exception ex)

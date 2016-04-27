@@ -35,6 +35,10 @@
                     $rootScope.userName = currentUser.name;
                     console.log($scope.user.remember);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
+                    $location.path("/overview");
+                    $('.modal').modal('hide');
+                    $('.modal-backdrop').remove();
+                    $('body').removeClass('modal-open');
                     $scope.wait = false;
                     console.log(currentUser.roles);
                
@@ -74,7 +78,11 @@
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
                             $rootScope.message = "";
+                            $location.path("/userdashboard");
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
+                            $('.modal').modal('hide');
+                            $('.modal-backdrop').remove();
+                            $('body').removeClass('modal-open');
                             $scope.wait = false;
                             console.log(currentUser.roles);
                            
@@ -101,10 +109,10 @@
         authenticated = false;
         $cookies.remove('gigiSchool');
 
-        $rootScope.userName = "";
-        $location.path("/");
+        //$rootScope.userName = "";
+        //$location.path("/");
 
-        //window.location.reload();
+        window.location.reload();
     });
 
 }());

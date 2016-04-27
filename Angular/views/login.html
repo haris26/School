@@ -1,4 +1,15 @@
-﻿<div class="container">
+﻿<script type="text/javascript">
+    $(window).load(function(){
+        $('#loginModal').modal('show');
+        $('#loginModal').data('bs.modal').$backdrop.css({'opacity': '0.8', 'background-color': 'light-blue'});
+    });
+</script>
+
+<div id="loginModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div ng-include="'views/loginModal.html'"></div>
+</div>
+
+<!--<div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
@@ -37,5 +48,5 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 

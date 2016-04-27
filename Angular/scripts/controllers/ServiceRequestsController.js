@@ -33,14 +33,15 @@
                 asset: item.asset,
                 assetType: item.assetType,
                 category: item.category,
-                person: item.user,               
+                person: item.person,
+                personName: item.personName,
                 status: item.status,
                 email: item.email
             }
           
             DataService.update("servicerequests", $scope.request.id, $scope.request, function (data) { });
             //$location.path("/servicerequests");
-            console.log($scope.request)
+            console.log($scope.request.person)
             getRequests();
             $route.reload();
         }

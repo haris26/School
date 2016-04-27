@@ -8,8 +8,8 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
+            <div class="panel panel-default" id="table-panel">
+                <div class="panel-heading" id="table-heading">
                     Assets
                 </div>
                 <!-- /.panel-heading -->
@@ -23,9 +23,8 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Model</th>
-                                    <th>Status</th>
-                                    <th>Category</th>
-                                    <th>User</th>
+                                   <th>Vendor</th>
+                                    <th>Category</th>                                
                                     <th>Service </th>
                                 </tr>
                             </thead>
@@ -34,8 +33,7 @@
                                 <tr ng-repeat="item in dashboard.assets  | orderBy: sortOrder" class="request-table">
                                     <td>{{item.name}} </td>
                                     <td>{{item.model}}</td>
-                                    <td>{{item.vendor}}</td>
-                                    <td>{{item.status}}</td>
+                                    <td>{{item.vendor}}</td>                                   
                                     <td>{{item.category}}</td>
                                     
                                     <td><a href="#/newservicerequests" ng-click="transfer(item)">Service</a></td>

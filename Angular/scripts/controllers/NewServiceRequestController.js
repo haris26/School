@@ -8,7 +8,10 @@
         $scope.requestMessage = "";
         $scope.requestDescription = "";
         var assetCategories = {
-            "Laptop": 1
+            "Laptop": 1,
+            "Monitor": 2,
+            
+
         };
 
    

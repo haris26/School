@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\loading.gif" />
+    <Content Include="images\mistrallogobig.png" />
     <Content Include="library\angular-cookies.js" />
     <Content Include="library\angular-route.js" />
     <Content Include="library\googleClient.js" />
@@ -152,18 +153,22 @@
     <Content Include="scripts\services\Permission.js" />
     <Content Include="styles\bootstrap-social.css" />
     <Content Include="styles\bootstrap-theme.min.css" />
+    <Content Include="styles\bootstrap.css" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="styles\jquery-ui.css" />
     <Content Include="styles\Site.css" />
     <Content Include="styles\startmin.css" />
     <Content Include="styles\Style.css" />
+    <Content Include="styles\tables.css" />
     <Content Include="views\AdminDashboard.html" />
     <Content Include="views\AdminRequests.html" />
     <Content Include="views\AllAssets.html" />
     <Content Include="views\engagements.html" />
     <Content Include="views\FreeAssets.html" />
     <Content Include="views\History.html" />
+    <Content Include="views\loginModal.html" />
     <Content Include="views\UserAssetsForService.html" />
     <Content Include="views\login.html" />
     <Content Include="modal.html" />

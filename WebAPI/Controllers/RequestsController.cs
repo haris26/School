@@ -111,6 +111,11 @@ namespace WebAPI.Controllers
             try
             {
                 Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
+                if (model.Status == "2")
+                {
+                    Mail.SendMail("alen.bumbulovic@live.com", "Request approval", "There is a request that needs Your approval." + "\n\r" + " From: " + model.PersonName + "\n\r" + " Request Message: " + model.RequestMessage + "\n\r" + " Request description: " + model.RequestDescription + "\n\r" + " Quantity: " + model.Quantity);
+                }
+
                 if (model.Status == "1")
                 {
                     model.Status = "InProccess";
@@ -132,10 +137,7 @@ namespace WebAPI.Controllers
                     model.Status = "Cancelled";
               }
                 Mail.SendMail(model.Email, "Request status", "Your request status is now: " + model.Status);
-                if(model.Status == "2" || model.Status == "Waiting for approval")
-                {
-                    Mail.SendMail("alen.bumbulovic@live.com", "Request approval", "There is a request that needs Your approval: ");
-                }
+               
                 return Ok(model);
             }
             catch (Exception ex)

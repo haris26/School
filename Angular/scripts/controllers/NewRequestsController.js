@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("NewRequestsController", function ($scope, $rootScope, DataService) {
+    app.controller("NewRequestsController", function ($scope, $rootScope, DataService, $route) {
 
         var dataSet = "requests";
         getCategories();       
@@ -42,6 +42,7 @@
             if ($scope.request.id == 0) {
                 DataService.create(dataSet, $scope.request, function (data) { });
                 console.log($scope.request);
+                $route.reload();
                
             }
             else {
