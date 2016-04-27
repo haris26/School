@@ -12,7 +12,7 @@
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
-                    $location.path("/calendar2");
+                    $location.path("/calendar");
                 },
                 function (reason) {
                     $rootScope.message = reason.status;
@@ -34,7 +34,7 @@
                     $rootScope.userName = currentUser.name;
                     console.log($scope.userName);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
-                    $location.path("/calendar2");
+                    $location.path("/calendar");
                     $('.modal').modal('hide');
                     $('.modal-backdrop').remove();
                     $('body').removeClass('modal-open');
@@ -72,8 +72,8 @@
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
                             $rootScope.message = "";
-                            $location.path("/calendar2");
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
+                            $location.path("/calendar");
                             $('.modal').modal('hide');
                             $('.modal-backdrop').remove();
                             $('body').removeClass('modal-open');

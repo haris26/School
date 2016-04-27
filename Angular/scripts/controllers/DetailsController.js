@@ -5,7 +5,7 @@
         var dataSet = "details";
         $scope.selDetail = "";
         $scope.sortOrder = '-date';
-        
+
         getTeams();
         fetchData();
         getPeople();
@@ -68,7 +68,7 @@
             }
             //fetchData();
         }
-    
+
         $scope.today = function () {
             $scope.dt = new Date();
         };
@@ -113,6 +113,7 @@
 
         $scope.setDate = function (year, month, day) {
             $scope.dt = new Date(year, month, day);
+            $scope.dt.setHours(2, 0, 0);
         };
 
         $scope.popup2 = {
@@ -152,4 +153,3 @@
         }
     });
 }());
-

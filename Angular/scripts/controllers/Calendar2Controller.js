@@ -36,10 +36,10 @@
         //    };
         //});
 
-        var nDay = new Date();
-        if (nDay.getDate() <= 27 && nDay.getDate() > 23) {
-            console.log(nDay.getDate());
-        }
+        //var nDay = new Date();
+        //if (nDay.getDate() <= 27 && nDay.getDate() > 23) {
+        //    console.log(nDay.getDate());
+        //}
 
         function getDays() {
             DataService.read("days", currentUser.id, function (data) {
@@ -192,8 +192,7 @@
             var retArray = [];
 
             angular.forEach(input, function (obj) {
-
-                var receivedDate = new Date (obj.date);
+                var receivedDate = new Date (obj.date)
                 console.log(receivedDate);
 
                 if (receivedDate >= startDate && receivedDate < endDate) {
@@ -206,3 +205,4 @@
         };
     });
 }());
+

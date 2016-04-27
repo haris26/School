@@ -118,6 +118,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\background.jpg" />
+    <Content Include="images\eBillity_Time Tracker_logo.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo1.png" />
@@ -131,6 +132,7 @@
     <Content Include="images\photo1.jpg" />
     <Content Include="images\photo.jpg" />
     <Content Include="images\spinner.gif" />
+    <Content Include="images\timetracking.png" />
     <Content Include="images\toggle.png" />
     <Content Include="js\base-admin-responsive.css" />
     <Content Include="js\base.js" />
@@ -214,19 +216,22 @@
     <Content Include="scripts\services\DataService.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
+    <Content Include="scripts\toaster.js" />
     <Content Include="styles\calendar.css" />
     <Content Include="styles\modal.css" />
     <Content Include="styles\notification.css" />
     <Content Include="styles\sidebar.css" />
     <Content Include="styles\simple-sidebar.css" />
     <Content Include="styles\site.css" />
+    <Content Include="styles\toaster.css" />
     <Content Include="views\calendar2.html" />
     <Content Include="views\CreateDetail.html" />
     <Content Include="views\daymodal.html" />
     <Content Include="views\details.html" />
-    <Content Include="views\month.html" />
     <Content Include="views\login.html" />
     <Content Include="views\notification.html" />
+    <Content Include="views\month.html" />
+    <Content Include="views\modals\loginModal.html" />
     <Content Include="views\people.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -239,7 +244,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="views\modals\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

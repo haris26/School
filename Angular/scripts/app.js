@@ -1,6 +1,6 @@
 (function () {
 
-    var app = angular.module("school", ["ngRoute","ngAnimate", "ui.bootstrap", "ngCookies"]);
+    var app = angular.module("school", ["ngRoute", "ngAnimate", "ui.bootstrap", "ngCookies", "toaster"]);
 
     authenticated = false;
     currentUser = {
@@ -27,8 +27,7 @@
             .when("/notif", {templateUrl:"views/notification.html", controller: "NotificationController"})
             .when("/login", { templateUrl: "views/login.html", controller: "LoginController" })
             .when("/logout", { template: "", controller: "LogoutController" })
-            .when("/calendar", { templateUrl: "views/calendar.html", controller: "CalendarController" })
-            .when("/calendar2", { templateUrl: "views/calendar2.html", controller: "Calendar2Controller" })
+            .when("/calendar", { templateUrl: "views/calendar2.html", controller: "Calendar2Controller", controller: "NotificationController" })
             .when("/details", { templateUrl: "views/details.html", controller: "DetailsController" })
             .when("/createdetail", { templateUrl: "views/CreateDetail.html", controller: "DetailsController" })
             .when("/people", {templateUrl: "views/people.html", controller: "PeopleController"})
