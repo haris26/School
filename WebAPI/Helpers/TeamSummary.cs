@@ -16,7 +16,8 @@ namespace WebAPI.Helpers
                 Name = team.Name
             };
 
-            var distinctMembers = team.Roles.GroupBy(x => x.Person)
+            var distinctMembers = team.Roles.Where(x => x.EndDate == null)
+                                            .GroupBy(x => x.Person)
                                             .Select(x => x.Key)
                                             .ToList();
 
