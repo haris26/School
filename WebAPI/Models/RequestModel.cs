@@ -12,15 +12,14 @@ namespace WebAPI.Models
         {
             Status = "in Process";
             RequestDate = DateTime.Now;
-            
-
-            requestType = "New";
+            RequestType = "New";
+            ServiceType = "Default";
 
         
 
         }
         public int Id { get; set; }
-        public string requestType { get; set; }
+        public string RequestType { get; set; }
         public string RequestDescription { get; set; }
         public string RequestMessage { get; set; }
         public DateTime RequestDate { get; set; }
@@ -34,6 +33,6 @@ namespace WebAPI.Models
         public int Quantity { get; set; }
         public string AssetType { get; set; }
         public string Email { get; set; }
-        public string ServiceType { get; set; }
+        public string ServiceType { get; set; }        
     }
 }

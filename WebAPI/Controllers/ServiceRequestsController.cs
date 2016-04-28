@@ -79,19 +79,19 @@ namespace WebAPI.Controllers
             try
             {
                 Repository.Insert(Parser.Create(model, Repository.BaseContext()));
-                if (model.AssetType == "2" && model.requestType == "2")
+                if (model.AssetType == "2" && model.RequestType == "2")
                 {
                     Mail.SendMail("harismistral@gmail.com", "Request Notification", "Dear Haris, you have one service request!");
                 }
-                else if ((model.AssetType == "2" || model.AssetType == "Office") && (model.requestType == "1" || model.requestType == "New"))
+                else if ((model.AssetType == "2" || model.AssetType == "Office") && (model.RequestType == "1" || model.RequestType == "New"))
                 {
                     Mail.SendMail("harismistral@gmail.com", "Request Notification", "Dear Haris, you have one new equipment request!");
                 }
-                else if (model.AssetType == "1" && model.requestType == "2")
+                else if (model.AssetType == "1" && model.RequestType == "2")
                 {
                     Mail.SendMail("edibmistral@gmail.com", "Request Notification", "Dear Edib, you have one service request!");
                 }
-                else if ((model.AssetType == "1" || model.AssetType == "Device") && (model.requestType == "1" || model.requestType == "New"))
+                else if ((model.AssetType == "1" || model.AssetType == "Device") && (model.RequestType == "1" || model.RequestType == "New"))
                 {
                     Mail.SendMail("edibmistral@gmail.com", "Request Notification", "Dear Edib, you have one new equpiment request.");
                 }

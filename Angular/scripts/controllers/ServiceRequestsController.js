@@ -44,8 +44,7 @@
           
             DataService.update("servicerequests", $scope.request.id, $scope.request, function (data) { });
             //$location.path("/servicerequests");
-
-            console.log($scope.request.person)
+            console.log($scope.request)
             $scope.modal = false;
 
             getRequests();

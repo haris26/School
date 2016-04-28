@@ -83,18 +83,17 @@ namespace WebAPI.Controllers
             try
             {
                 Repository.Insert(Parser.Create(model, Repository.BaseContext()));
-                if (model.AssetType == "2" && model.requestType == "2")
+                if (model.AssetType == "2" && model.RequestType == "2")
                 {
                     Mail.SendMail("harismistral@gmail.com", "Request Notification", "Dear Haris, you have one service request!");
-                }else if ((model.AssetType == "2" || model.AssetType == "Office") && (model.requestType == "1" || model.requestType == "New"))
+                }else if ((model.AssetType == "2" || model.AssetType == "Office") && (model.RequestType == "1" || model.RequestType == "New"))
                 {
                     Mail.SendMail("harismistral@gmail.com", "Request Notification", "Dear Haris, you have one new equipment request!");
                 }
-                else if (model.AssetType == "1" && model.requestType == "2")
+                else if (model.AssetType == "1" && model.RequestType == "2")
                 {
                     Mail.SendMail("edibmistral@gmail.com", "Request Notification", "Dear Edib, you have one service request!");
                 }
-                else if((model.AssetType == "1" || model.AssetType == "Device") && (model.requestType == "1" || model.requestType == "New"))
                 {
                     Mail.SendMail("edibmistral@gmail.com", "Request Notification", "Dear Edib, you have one new equipment request");
                 }
@@ -110,35 +109,44 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
-                if (model.Status == "2")
+                Request r = Repository.Get(id);
+                if (r == null)
                 {
-                    Mail.SendMail("alen.bumbulovic@live.com", "Request approval", "There is a request that needs Your approval." + "\n\r" + " From: " + model.PersonName + "\n\r" + " Request Message: " + model.RequestMessage + "\n\r" + " Request description: " + model.RequestDescription + "\n\r" + " Quantity: " + model.Quantity);
+                    return NotFound();
                 }
+                else
+                {
+                    Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
+                    if (model.Status == "2")
+                    {
+                        Mail.SendMail("alen.bumbulovic@live.com", "Request approval", "There is a request that needs Your approval." + "\n\r" + " From: " + model.PersonName + "\n\r" + " Request Message: " + model.RequestMessage + "\n\r" + " Request description: " + model.RequestDescription + "\n\r" + " Quantity: " + model.Quantity);
+                    }
 
-                if (model.Status == "1")
-                {
-                    model.Status = "InProccess";
-            }
-                else if (model.Status == "2")
-                {
-                    model.Status = "Waiting for approval";
-              }
-                else if (model.Status == "3")
-                {
-                    model.Status = "Approved";
-              }
-                else if (model.Status == "4")
-                {
-                    model.Status = "Completed";
-              }
-                else if (model.Status == "5")
-                {
-                    model.Status = "Cancelled";
-              }
-                Mail.SendMail(model.Email, "Request status", "Your request status is now: " + model.Status);
-               
-                return Ok(model);
+                    if (model.Status == "1")
+                    {
+                        model.Status = "InProccess";
+                    }
+                    else if (model.Status == "2")
+                    {
+                        model.Status = "Waiting for approval";
+                    }
+                    else if (model.Status == "3")
+                    {
+                        model.Status = "Approved";
+                    }
+                    else if (model.Status == "4")
+                    {
+                        model.Status = "Completed";
+                    }
+                    else if (model.Status == "5")
+                    {
+                        model.Status = "Cancelled";
+                    }
+                    Mail.SendMail(model.Email, "Request status", "Your request status is now: " + model.Status);
+
+                    return Ok(model);
+                }
+                
             }
             catch (Exception ex)
             {

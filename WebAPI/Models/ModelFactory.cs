@@ -32,7 +32,7 @@ namespace WebAPI.Models
                 return new RequestModel()
                 {
                     Id = request.Id,
-                    requestType = request.requestType.ToString(),
+                    RequestType = request.requestType.ToString(),
                     RequestDescription = request.RequestDescription,
                     RequestMessage = request.RequestMessage,
                     RequestDate = request.RequestDate,
@@ -45,14 +45,15 @@ namespace WebAPI.Models
                     Quantity = request.Quantity,
                     Status = request.Status.ToString(),
                     AssetType = request.AssetType.ToString(),
-                    Email = request.User.Email.ToString()
+                    Email = request.User.Email.ToString(),
+                    ServiceType = request.ServiceType.ToString()
                 };
             }
             else
                 return new RequestModel()
                 {
                     Id = request.Id,
-                    requestType = request.requestType.ToString(),
+                    RequestType = request.requestType.ToString(),
                     RequestDescription = request.RequestDescription,
                     RequestMessage = request.RequestMessage,
                     RequestDate = request.RequestDate,

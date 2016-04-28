@@ -26,9 +26,12 @@
                 quantity: item.quantity,              
                 assetType: item.assetType,
                 category: item.category,
-                person: item.personName,
+                categoryName: item.categoryName,
+                person: item.person,
+                personName:item.personName,
                 status: item.status,
-                email: item.email
+                email: item.email,
+                serviceType: item.serviceType
             }
             DataService.update("requests", $scope.request.id, $scope.request, function (data) { });
             //$location.path("/servicerequests");

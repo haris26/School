@@ -98,7 +98,8 @@ namespace Database
     public enum RequestType
     {
         New = 1,
-        Service = 2
+        Service = 2,
+        Default = 3
     }
     public enum ServiceType {
     HW=1,

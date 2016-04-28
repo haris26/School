@@ -15,7 +15,7 @@ namespace WebAPI.Models
             return new Request()
             {
                 Id = model.Id,
-                requestType = (RequestType)Enum.Parse(typeof(RequestType), model.requestType),
+                requestType = (RequestType)Enum.Parse(typeof(RequestType), model.RequestType),
                 RequestDescription = model.RequestDescription,
                 RequestMessage = model.RequestMessage,
                 RequestDate = model.RequestDate,
