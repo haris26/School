@@ -46,7 +46,7 @@
   
 
         //Free assets(admin) 
-        .when("/free", { templateUrl: "views/FreeAssets.html", controller: "AdminDashboardController" })
+        .when("/free", { templateUrl: "views/FreeAssets.html", controller: "AssetsController" })
 
            
 

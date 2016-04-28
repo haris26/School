@@ -27,16 +27,19 @@ namespace WebAPI.Controllers
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
 
             IList<AssetsModel> assets =
-                query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
+                query.Skip(PageSize * page).Take(PageSize).ToList().Where(x=>x.Status==AssetStatus.Assigned).Select(x => Factory.Create(x)).ToList();
 
+            IList<AssetsModel> freeassets =
+                query.Skip(PageSize * page).Take(PageSize).ToList().Where(x=>x.User==null && x.Status==AssetStatus.Free).Select(x => Factory.Create(x)).ToList();
 
-
+           
             return new
             {
                 pageSize = PageSize,
                 currentPage = page,
                 pageCount = TotalPages,
-                allAssets = assets
+                allAssets = assets,
+                freeAssets=freeassets
             };
         }
 

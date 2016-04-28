@@ -7,7 +7,7 @@
         var num="1";
         fetchData();
         $scope.selString = "";
-        $scope.sortOrder = "";
+        $scope.sortOrder = "userName";
         $rootScope.model = {};
        
 
@@ -23,6 +23,7 @@
                 $scope.requests = data.allRequests;
             });
         };
+        
 
         $scope.changeStatus = function (item) {
             $scope.request = {

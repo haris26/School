@@ -18,7 +18,7 @@ namespace WebAPI.Models
                 requestType = (RequestType)Enum.Parse(typeof(RequestType), model.RequestType),
                 RequestDescription = model.RequestDescription,
                 RequestMessage = model.RequestMessage,
-                RequestDate = model.RequestDate,
+                RequestDate = Convert.ToDateTime(model.RequestDate),
                 Asset = context.Assets.Find(model.Asset),
                 User = context.People.Find(model.Person),
                 AssetCategory = context.AssetCategories.Find(model.Category),
@@ -41,10 +41,10 @@ namespace WebAPI.Models
                 Name = model.Name,
                 Model = model.Model,
                 User = context.People.Find(model.User),
-              Status = (AssetStatus)Enum.Parse(typeof(AssetStatus), model.Status),
-            Vendor = model.Vendor,
+                Status = (AssetStatus)Enum.Parse(typeof(AssetStatus), model.Status),
+                Vendor = model.Vendor,
                 AssetCategory = context.AssetCategories.Find(model.Category),
-                DateOfTrade = model.DateOfTrade,
+                DateOfTrade = Convert.ToDateTime(model.DateOfTrade),
                 SerialNumber = model.SerialNumber,
                 Price = model.Price
  };

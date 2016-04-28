@@ -32,6 +32,7 @@
                 status: item.status,
                 email: item.email,
                 serviceType: item.serviceType
+
             }
             DataService.update("requests", $scope.request.id, $scope.request, function (data) { });
             //$location.path("/servicerequests");

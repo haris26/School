@@ -27,7 +27,8 @@
             $scope.request = {
                 id: item.id,
                 requestMessage: item.requestMessage,
-                requestDescription: item.requestDescription,
+                requestDescription: item
+                    .requestDescription,
                 requestType: 2,
                 requestDate: Date.now(),
                 quantity: 1,

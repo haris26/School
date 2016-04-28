@@ -36,7 +36,8 @@ namespace WebAPI.Helpers
                     Quantity = request.Quantity,
                     Status = request.Status.ToString(),
                     Date = request.RequestDate.Date,
-                    User = request.User.FirstName.ToString(),
+                    User = request.User.Id,
+                    UserName=request.User.FullName.ToString(),
                     AssetType = request.AssetCategory.assetType.ToString()
               });
 
@@ -58,45 +59,77 @@ namespace WebAPI.Helpers
                     Quantity = request.Quantity,
                     Status = request.Status.ToString(),
                     Date = request.RequestDate.Date,
-                    User = request.User.FirstName.ToString()
+                    User = request.User.Id,
+                    UserName=request.User.FullName.ToString()
                 });
             }
 
 
 
             //counting assets by type and status
-            var freeassets = new AssetsUnit(context).Get().Where(x => x.AssetCategory.assetType == AssetType.Device && x.Status == AssetStatus.Free).ToList();
+            var freeassets = new AssetsUnit(context).Get()
+                .Where(x => 
+                x.AssetCategory.assetType == AssetType.Device && x.Status == AssetStatus.Free && x.User==null)
+                .ToList();
             foreach (var asset in freeassets)
             {
                 dashboard.countFreeAssets++;
 
                 dashboard.FreeAssets.Add(new ListAssetModel
                 {
-                    Category = asset.AssetCategory.CategoryName.ToString(),
+                    Category = asset.AssetCategory.Id,
+                    CategoryName=asset.AssetCategory.CategoryName.ToString(),
+                    Price=asset.Price,
                     Model = asset.Model, Name = asset.Name,
                     Vendor = asset.Vendor,
                     SerialNumber = asset.SerialNumber,
                     Status = asset.Status.ToString(),
                     Date = asset.DateOfTrade.Date,
+                    User=0,
+                    UserName=""
+                 
                     
                 });
             }
+            
 
-            var allassets = new AssetsUnit(context).Get().ToList();
+
+        var allassets = new AssetsUnit(context).Get().ToList();
             foreach (var asset in allassets)
             {
                 dashboard.countAllAssets++;
-
-                dashboard.AllAssets.Add(new ListAssetModel
+                if (asset.User != null)
                 {
-                    Category = asset.AssetCategory.CategoryName.ToString(),
-                    Model = asset.Model,
-                    Name = asset.Name,
-                    Vendor = asset.Vendor,
-                    SerialNumber = asset.SerialNumber,
-                    Status = asset.Status.ToString(),
-                    Date = asset.DateOfTrade.Date
-                });
+                    dashboard.AllAssets.Add(new ListAssetModel
+                    {
+                        Category = asset.AssetCategory.Id,
+                        CategoryName = asset.AssetCategory.CategoryName.ToString(),
+                        Model = asset.Model,
+                        Name = asset.Name,
+                        Vendor = asset.Vendor,
+                        SerialNumber = asset.SerialNumber,
+                        Status = asset.Status.ToString(),
+                        Date = asset.DateOfTrade.Date,
+                        User = asset.User.Id,
+                        UserName = asset.User.FullName.ToString()
+                    });
+                }
+
+                else
+                {
+                    dashboard.AllAssets.Add(new ListAssetModel
+                    {
+                        Category = asset.AssetCategory.Id,
+                        CategoryName = asset.AssetCategory.CategoryName.ToString(),
+                        Model = asset.Model,
+                        Name = asset.Name,
+                        Vendor = asset.Vendor,
+                        SerialNumber = asset.SerialNumber,
+                        Status = asset.Status.ToString(),
+                        Date = asset.DateOfTrade.Date
+                       
+                    });
+                }
             }
 
 
@@ -107,13 +140,16 @@ namespace WebAPI.Helpers
               dashboard.countOutOfOrderAssets++;
                 dashboard.OutOfOrderAssets.Add(new ListAssetModel
                 {
-                    Category = asset.AssetCategory.CategoryName.ToString(),
+                    Category = asset.AssetCategory.Id,
+                    CategoryName=asset.AssetCategory.CategoryName.ToString(),
                     Model = asset.Model,
                     Name = asset.Name,
                     Vendor = asset.Vendor,
                     SerialNumber = asset.SerialNumber,
                     Status = asset.Status.ToString(),
-                    Date = asset.DateOfTrade.Date
+                    Date = asset.DateOfTrade.Date,
+                    User = asset.User.Id,
+                    UserName = asset.User.FullName.ToString()
                 });
             }
 
@@ -124,14 +160,16 @@ namespace WebAPI.Helpers
                 dashboard.countAssignedAssets++;
                 dashboard.AssignedAssets.Add(new ListAssetModel
                 {
-                    Category = asset.AssetCategory.CategoryName.ToString(),
+                    Category = asset.AssetCategory.Id,
+                    CategoryName=asset.AssetCategory.CategoryName.ToString(),
                     Model = asset.Model,
                     Name = asset.Name,
                     Vendor = asset.Vendor,
                     SerialNumber = asset.SerialNumber,
                     Status = asset.Status.ToString(),
                     Date = asset.DateOfTrade.Date,
-                    User = asset.User.FullName.ToString()
+                    User = asset.User.Id,
+                    UserName = asset.User.FullName.ToString()
                 });
             }
 

@@ -13,7 +13,8 @@ namespace WebAPI.Models
         public DateTime Date { get; set; }
 
         public string Type { get; set; }
-        public string User { get; set; }
+        public int User { get; set; }
+        public string UserName { get; set; }
         public string Category { get; set; }
         public string Description { get; set; }
         public string Message { get; set; }
@@ -25,17 +26,21 @@ namespace WebAPI.Models
 
     public class ListAssetModel {
 
-        public string Category { get; set; }
-        public string User { get; set; }
+        public int Id { get; set; }
+        public double Price { get; set; }
+        public int Category { get; set; }
+        public string CategoryName { get; set; }
+        public int? User { get; set; }
+        public string UserName { get; set; }
         public string Model { get; set; }
         public string Name { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
         public string Status { get; set; }
         public string SerialNumber { get; set; }
         public string Vendor { get; set; }
 
     }
-
+   
 
     public class AdminDashboardModel
     {
