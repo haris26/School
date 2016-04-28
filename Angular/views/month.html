@@ -91,8 +91,7 @@
                                             </tr>
                                     </table>
                                 </div>
-
-                                <div ng-repeat="item in detailsBy">
+                                <div ng-repeat="item in detailsBy | filter : monthName">
                                     <table class="table table-bordered">
                                         <tr><td data-toggle="modal" data-target="#editModal" width="30%"><b style="color:#4B627A">{{ item.description }}</b> </td><td width="30%"> {{ item.date| date:shortDate }}</td><td width="20%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
                                     </table>
