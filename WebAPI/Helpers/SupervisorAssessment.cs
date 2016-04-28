@@ -16,7 +16,7 @@ namespace WebAPI.Helpers
                 Id = person.Id,
                 FullName = person.FullName,
                 SelfAssessmentDate = person.EmployeeSkills.ToList().Max(x => x.DateOfSelfAssessment),
-                Skills = person.EmployeeSkills
+                Skills = person.EmployeeSkills.Where(x=>x.AssessedBy== AssessmentType.Self)
                                            .GroupBy(x => x.Tool.Category)
                                            .Select(x => EmployeeSummary.CreateEmployeeSkillsSummary(x, AssessmentType.Self)).ToList()
             };

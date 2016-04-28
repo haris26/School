@@ -14,11 +14,11 @@
                 <p>Employee:  <a>{{assessments.fullName}}</a></p>
                 <p>Showing responses (in <span style="background:#668caf">blue</span>) from self-assessment completed on {{assessments.selfAssessmentDate | date:'dd MMM yyyy'}}.</p>
             </div>
-            <div class="col-md-offset-3 col-md-6" ng-repeat="skills in assessments.skills">
-                <h2 class="align-center">{{skills.categoryName}}</h2><br />
-                <div class="row" ng-repeat="skill in skills.skills">
+            <div class="col-md-offset-3 col-md-6" ng-repeat="category in assessments.skills">
+                <h2 class="align-center">{{category.categoryName}}</h2><br />
+                <div class="row" ng-repeat="skill in category.skills">
                     <div class="col-md-5">
-                        <h4>{{skills.skill}}</h4>
+                        <h4>{{skill.skill}}</h4>
                     </div>
                     <div class="col-md-7">
                         <table class="table">
@@ -37,7 +37,7 @@
                                 <td>5</td>
                             </tr>
                             <tr style="text-align:center">
-                                <td><input type="radio" name="{{skill.skillId}}" value="1" ng-model="skill.level" <!--ng-change="updateEmployeeSkill(skill.employeeSkillId, skill.skillsId, 1, skills.experience, assessments.selfAssessmentDate)"-->></td>
+                                <td><input type="radio" name="{{skill.skillId}}" value="1" ng-model="skill.level" ></td>
                                 <td><input type="radio" name="{{skill.skillId}}" value="2" ng-model="skill.level" ></td>
                                 <td><input type="radio" name="{{skill.skillId}}" value="3" ng-model="skill.level"></td>
                                 <td><input type="radio" name="{{skill.skillId}}" value="4" ng-model="skill.level" ></td>
