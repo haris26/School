@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("SupervisorAssessmentCtrl", function ($scope, $routeParams, $log, $location, DataService) {
+    app.controller("SupervisorAssessmentCtrl", function ($scope, $routeParams, $log, $location, DataService, toaster) {
 
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
@@ -18,7 +18,7 @@
             })
         }
 
-        $scope.updateEmployeeSkill = function (skill,dateOfSelfAssessment ) {
+        $scope.updateEmployeeSkill = function (skill, dateOfSelfAssessment ) {
 
             var employeeSkill = {
                 id: skill.employeeSkillId,
@@ -26,13 +26,14 @@
                 skillId: skill.skillId,
                 level: skill.level,
                 experience: skill.experience,
+                skill:skill.skill,
                 dateOfSelfAssessment: dateOfSelfAssessment,
                 dateOfSupervisorAssessment: new Date(),
-                assessedBy: 1
+                assessedBy: 1,
             }
 
             DataService.update("employeeskills", skill.employeeSkillId, employeeSkill, function (data) {
-               // getEmployee($scope.employeeId);
+                toaster.pop('note', skill.skill + " assessed");
             });
         }
     });

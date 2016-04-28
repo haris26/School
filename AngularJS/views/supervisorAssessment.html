@@ -11,32 +11,18 @@
     <div id="content">
         <div class="row">
             <div class="col-md-12">
-                <p>Employee:  <a>{{assessments.fullName}}</a></p>
+                <p>Employee:  <a href="#/employeeSummary/{{assessments.id}}">{{assessments.fullName}}</a></p>
                 <p>Showing responses (in <span style="background:#668caf">blue</span>) from self-assessment completed on {{assessments.selfAssessmentDate | date:'dd MMM yyyy'}}.</p>
             </div>
             <div class="col-md-offset-3 col-md-6" ng-repeat="category in assessments.skills">
-                <h2 class="align-center">{{category.categoryName}}</h2><br />
+                <h4 class="align-center">{{category.categoryName}}</h4><br />
                 <div class="row" ng-repeat="skill in category.skills">
-                    <div class="col-md-5">
-                        <h4>{{skill.skill}}</h4>
+                    <div class="col-md-3">
+                        <h5>{{skill.skill}}</h5>
                     </div>
                     <div class="col-md-7">
-                        <table class="table">
-                            <tr style="background:#668caf; text-align:center">
-                                <td><span class="glyphicon glyphicon-chevron-down" style="visibility:hidden"></span></td>
-                                <td><span class="glyphicon glyphicon-chevron-down" style="visibility:hidden"></span></td>
-                                <td><span class="glyphicon glyphicon-chevron-down" style="visibility:hidden"></span></td>
-                                <td><span class="glyphicon glyphicon-chevron-down"></span></td>
-                                <td><span class="glyphicon glyphicon-chevron-down" style="visibility:hidden"></span></td>
-                            </tr>
-                            <tr style="text-align:center">
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                            </tr>
-                            <tr style="text-align:center">
+                        <table class="table-assessment">
+                            <tr style="text-align:center;">
                                 <td><input type="radio" name="{{skill.skillId}}" value="1" ng-model="skill.level" ></td>
                                 <td><input type="radio" name="{{skill.skillId}}" value="2" ng-model="skill.level" ></td>
                                 <td><input type="radio" name="{{skill.skillId}}" value="3" ng-model="skill.level"></td>
@@ -45,16 +31,13 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="row">
-                        <div class="col-md-offset-3 col-md-6">
-                            <button class="btn btn-primary form-control" ng-click="updateEmployeeSkill(skill, assessments.selfAssessmentDate)">Submit</button>
+                        <div class="col-md-2">
+                            <a class="btn btn-primary btn-sm" ng-click="updateEmployeeSkill(skill, assessments.selfAssessmentDate)"><span class="glyphicon glyphicon-ok"></span></a>
                         </div>
-                    </div>
                 </div>
                 <hr />
-
             </div>
         </div>
-        
     </div>
 </div>
+<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'position-class': 'toast-bottom-right'}"></toaster-container>
