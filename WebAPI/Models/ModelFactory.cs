@@ -36,8 +36,6 @@ namespace WebAPI.Models
                     RequestDescription = request.RequestDescription,
                     RequestMessage = request.RequestMessage,
                     RequestDate = request.RequestDate,
-                    //Asset = request.Asset.Id,
-                    //AssetModel = request.Asset.Name,
                     Person = request.User.Id,
                     PersonName = request.User.FullName.ToString(),
                     Category = request.AssetCategory.Id,
@@ -117,7 +115,7 @@ namespace WebAPI.Models
                     {
                         Name = asset.Name,
                         User = asset.User.Id,
-                        UserName = asset.User.FullName,
+                        UserName = asset.User.FullName.ToString(),
                         Model = asset.Model,
                         SerialNumber = asset.SerialNumber,
                         Vendor = asset.Vendor,
@@ -147,25 +145,43 @@ namespace WebAPI.Models
         }
         public AssetsModel Create(Asset asset)
         {
-
-            AssetsModel model = new AssetsModel()
+            if (asset.User == null)
             {
-                Id = asset.Id,
-                Name = asset.Name,
-                Model = asset.Model,
-                User = asset.User.Id,
-                UserName = asset.User.FirstName,
-                Vendor = asset.Vendor,
-                Price = asset.Price,
-                Status = asset.Status.ToString(),
-                Category = asset.AssetCategory.Id,
-                CategoryName = asset.AssetCategory.CategoryName,
-                DateOfTrade = asset.DateOfTrade,
-                SerialNumber = asset.SerialNumber
+               return new AssetsModel()
+                {
+                    Id = asset.Id,
+                    Name = asset.Name,
+                    Model = asset.Model,
+                    //User = asset.User.Id,
+                    //UserName = asset.User.FirstName,
+                    Vendor = asset.Vendor,
+                    Price = asset.Price,
+                    Status = asset.Status.ToString(),
+                    Category = asset.AssetCategory.Id,
+                    CategoryName = asset.AssetCategory.CategoryName,
+                    DateOfTrade = asset.DateOfTrade,
+                    SerialNumber = asset.SerialNumber
 
-            };
-            return model;
-        }
+                };
+            }
+            else  
+                return new AssetsModel()
+                {
+                    Id = asset.Id,
+                    Name = asset.Name,
+                    Model = asset.Model,
+                    User = asset.User.Id,
+                    UserName = asset.User.FirstName,
+                    Vendor = asset.Vendor,
+                    Price = asset.Price,
+                    Status = asset.Status.ToString(),
+                    Category = asset.AssetCategory.Id,
+                    CategoryName = asset.AssetCategory.CategoryName,
+                    DateOfTrade = asset.DateOfTrade,
+                    SerialNumber = asset.SerialNumber
+
+                };
+  }
 
 
         public PeopleModel Create(Person person)

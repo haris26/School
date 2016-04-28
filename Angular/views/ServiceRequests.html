@@ -9,8 +9,8 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default" id="table-panel">
-                <div class="panel-heading" id="table-heading">
+            <div class="panel panel-default">
+                <div class="panel-heading">
                     Requests New service
                 </div>
                 <!-- /.panel-heading -->
@@ -46,7 +46,6 @@
                             </thead>
                             <tbody>
 
-
                                     <tr ng-repeat="item in serviceRequests| orderBy: sortOrder | filter: selString" class="request-table">
 
                                         <td>{{item.personName}} </td>
@@ -68,7 +67,6 @@
                                         <td><button class="btn btn-success" ng-click="changeStatus(item)">Save</button></td>
                                     </tr>
 </tbody>
-
                         </table>
                     </div>
                     <!-- /.table-responsive -->

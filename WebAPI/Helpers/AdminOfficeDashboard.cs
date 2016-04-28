@@ -34,7 +34,8 @@ namespace WebAPI.Helpers
                     Quantity = request.Quantity,
                     Status = request.Status.ToString(),
                     Date = request.RequestDate.Date,
-                    User = request.User.FirstName.ToString()
+                    User=request.User.Id,
+                    UserName = request.User.FullName.ToString()
                 });
             }
 
@@ -53,7 +54,8 @@ namespace WebAPI.Helpers
                     Quantity = request.Quantity,
                     Status = request.Status.ToString(),
                     Date = request.RequestDate.Date,
-                    User = request.User.FirstName.ToString()
+                    User = request.User.Id,
+                    UserName=request.User.FullName.ToString()
                 });
             }
 
@@ -67,13 +69,16 @@ namespace WebAPI.Helpers
 
                 dashboard.FreeAssets.Add(new ListAssetModel
                 {
-                    Category = asset.AssetCategory.CategoryName.ToString(),
+                    Category = asset.AssetCategory.Id,
+                    CategoryName=asset.AssetCategory.CategoryName.ToString(),
                     Model = asset.Model,
                     Name = asset.Name,
                     Vendor = asset.Vendor,
                     SerialNumber = asset.SerialNumber,
                     Status = asset.Status.ToString(),
                     Date = asset.DateOfTrade.Date
+                   
+                    
                 });
             }
 
@@ -83,7 +88,8 @@ namespace WebAPI.Helpers
                 dashboard.countOutOfOrderAssets++;
                 dashboard.OutOfOrderAssets.Add(new ListAssetModel
                 {
-                    Category = asset.AssetCategory.CategoryName.ToString(),
+                    Category = asset.AssetCategory.Id,
+                    CategoryName=asset.AssetCategory.CategoryName.ToString(),
                     Model = asset.Model,
                     Name = asset.Name,
                     Vendor = asset.Vendor,
@@ -100,14 +106,16 @@ namespace WebAPI.Helpers
                 dashboard.countAssignedAssets++;
                 dashboard.AssignedAssets.Add(new ListAssetModel
                 {
-                    Category = asset.AssetCategory.CategoryName.ToString(),
+                    Category = asset.AssetCategory.Id,
+                    CategoryName=asset.AssetCategory.CategoryName.ToString(),
                     Model = asset.Model,
                     Name = asset.Name,
                     Vendor = asset.Vendor,
                     SerialNumber = asset.SerialNumber,
                     Status = asset.Status.ToString(),
                     Date = asset.DateOfTrade.Date,
-                    User = asset.User.FullName.ToString()
+                    User = asset.User.Id,
+                    UserName = asset.User.FullName.ToString()
                 });
             }
 

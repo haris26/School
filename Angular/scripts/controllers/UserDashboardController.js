@@ -7,6 +7,8 @@
        // $scope.modal = false;
 
         //$rootScope.model = {};
+        $scope.selString = "";
+        $scope.sortOrder = "";
         $rootScope.model = {};
         fetchData();
        

@@ -27,7 +27,7 @@ namespace WebAPI.Models
         public string Status { get; set; }
         public int? Asset { get; set; }
         public string AssetModel { get; set; }
-        public int Person { get; set; }
+        public int? Person { get; set; }
         public string PersonName { get; set; }
         public int? Category { get; set; }
         public string CategoryName { get; set; }
