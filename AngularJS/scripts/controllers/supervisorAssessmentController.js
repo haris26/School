@@ -18,7 +18,7 @@
         }
 
         function saveAssessment() {
-            DataService.update("employeeskill", id, )
+            DataService.update("employeeskill", id);
         }
 
     });

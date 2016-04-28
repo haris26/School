@@ -89,6 +89,17 @@
                        $rootScope.message = error.message;
                        callback(false);
                    })
+           },
+
+           findPeople: function (searchModel, callback) {
+               $http({ method: "post", url: source + "findpeople", data: searchModel })
+                   .success(function (data) {
+                       callback(data);
+                   })
+                   .error(function (error) {
+                       $rootScope.message = error.message;
+                       callback(false);
+                   })
            }
         };
     });
