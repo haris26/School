@@ -35,7 +35,5 @@
                // getEmployee($scope.employeeId);
             });
         }
-
-
     });
 }());

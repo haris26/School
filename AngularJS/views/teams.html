@@ -1,0 +1,37 @@
+﻿<div class="db-header clearfix">
+    <div class="page-header-title"><span class="glyphicon glyphicon-user"></span> Teams</div>
+    <div class="db-header-extra"></div>
+</div>
+
+<div id="content">
+    {{ message }}
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <uib-tabset active="activeJustified" justified="true">
+                <uib-tab ng-repeat="team in teams" heading="{{ team.name }}"><br>
+                    <div class="col-md-3">
+                        <div class="overviewSpanDark spanLighter" style="height: auto">
+                            <p><span>Supervisor: </span><span>Jon Doe</span></p>
+                            <p><span>People in Team: </span><span>{{ team.peopleInTeam }}</span></p>
+                            <p><span>Skills: </span><span></span></p>
+                            <p><span>Average Skills Level: </span><span></span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <table class="table table-bordered">
+                            <tr class="table-header">
+                                <th></th>
+                                <th ng-repeat="member in team.members"> {{ member.firstName }} {{ member.lastName }}</th>
+                                <th>Average</th>
+                            </tr>
+                            <tr ng-repeat="requiredSkill in team.requiredSkills">
+                                <th>{{ requiredSkill.skill }}</th>
+                            </tr>
+                        </table>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>
