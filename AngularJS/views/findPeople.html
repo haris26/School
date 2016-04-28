@@ -10,44 +10,50 @@
 
     <!-- Search by Skill-->
     <div class="row" ng-repeat="criteria in searchCriteria track by $index">
-        <div class="col-md-3">
-            <form class="form-inline">
-                <select ng-model="criteria.category" class="form-control" ng-change="selectCategory($index)"
-                        ng-options="category as category.name for category in categories">
-                </select>
-            </form>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <label>Skill Category / Qualification</label>
+                    <form class="form-inline">
+                        <select ng-model="criteria.category" class="form-control" ng-change="selectCategory($index)"
+                                ng-options="category as category.name for category in categories"></select>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <label>Skill</label>
+                    <form class="form-inline">
+                        <select ng-model="criteria.skill" class="form-control"
+                                ng-options="skill.id as skill.name for skill in criteria.skills"></select>
+                    </form>
+                </div>
+                <div ng-hide="criteria.category.categoryType" class="col-md-2">
+                    <form class="form-inline">
+                        <label>Level</label>
+                        <select ng-model="criteria.level" class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </form>
+                </div>
+                <div ng-hide="criteria.category.categoryType" class="col-md-2">
+                    <form class="form-inline">
+                        <label>Experience</label>
+                        <input ng-model="criteria.experience" type="number" placeholder="Years of Experience" onfocus="this.type='number';" class="form-control" min="0" />
+                    </form>
+                </div>
+                <div class="col-md-1" style="height: 59px;">
+                    <span style="display: inline-block; height: 100%; vertical-align: bottom;">
+                    </span><a ng-click="removeCriteria($index)" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+                </div>
+            </div>
         </div>
-        <div class="col-md-2">
-            <form class="form-inline">
-                <select ng-model="criteria.skill" class="form-control"
-                        ng-options="skill.id as skill.name for skill in criteria.skills">
-                </select>
-            </form>
+        <div class="col-md-12">
+            <hr>
         </div>
-        <div ng-hide="criteria.category.categoryType" class="col-md-2">
-            <form class="form-inline">
-                <select ng-model="criteria.level" class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </form>
-        </div>
-        <div ng-hide="criteria.category.categoryType" class="col-md-2">
-            <form class="form-inline">
-                <input ng-model="criteria.experience" type="number" placeholder="Years of Experience" onfocus="this.type='number';" class="form-control" min="0"/>
-            </form>
-        </div>
-        <div>
-            <button type="button" ng-click="removeCriteria($index)" class="btn btn-danger btn-sm">
-                <span class="glyphicon glyphicon-remove"></span>
-            </button>
-        </div>
-
     </div>
-    <hr>
 
     <div class="row">
         <div class="col-md-12">
@@ -69,25 +75,32 @@
     <div ng-show="exactMatches.length">
         <h4>Exact Matches</h4>
         <div class="row">
-            <div ng-repeat="match in exactMatches" class="col-md-3">
-                <div id="user" class="dashboard-window clearfix" style="background: #62acec; border-left: 5px solid #5798d1;">
+            <div ng-repeat="match in exactMatches" class="col-md-4">
+                <div id="user" class="dashboard-window clearfix div-darkblue">
                     <div class="d-w-text-maximum">
                         <a href="#/employeeSummary/{{match.employeeId}}" class="user_name_display white-link">{{match.fullName}}</a><br />
+                        <div ng-repeat="engagement in match.engagements">Team: {{ engagement.team }}</div>
+                        <div ng-repeat="skill in match.skills">{{ skill.skill }}: {{ skill.level }}, {{ skill.experience }} years exp.</div>
+                        <div ng-repeat="education in match.educations">{{ education.qualification }}</div>
                     </div>
-                </div>
+                </div><br />
             </div>
-        </div><hr />
+        </div>
     </div>
 
     <div ng-show="closeMatches.length">
+        <hr />
         <h4>Close Matches</h4>
         <div class="row">
-            <div ng-repeat="match in closeMatches" class="col-md-3">
-                <div id="user" class="dashboard-window clearfix" style="background: #62acec; border-left: 5px solid #5798d1;">
+            <div ng-repeat="match in closeMatches" class="col-md-4">
+                <div id="user" class="dashboard-window clearfix div-blue">
                     <div class="d-w-text-maximum">
-                        <a href="#/employeeSummary/{{match.employeeId}}" class="user_name_display white-link">{{match.fullName}}</a><br />
+                        <a href="#/employeeSummary/{{ match.employeeId }}" class="user_name_display white-link">{{ match.fullName }}</a><br />
+                        <div ng-repeat="engagement in match.engagements">Team: {{ engagement.team }}</div>
+                        <div ng-repeat="skill in match.skills">{{ skill.skill }}: {{ skill.level }}, {{ skill.experience }} years exp.</div>
+                        <div ng-repeat="education in match.educations">{{ education.qualification }}</div>
                     </div>
-                </div>
+                </div><br />
             </div>
         </div>
     </div>

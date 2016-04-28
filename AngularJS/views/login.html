@@ -1,16 +1,10 @@
-﻿<script type="text/javascript">
-    $(window).load(function(){
-        $('#loginModal').modal('show' );
-        $('#loginModal').data('bs.modal')
-    });
-</script>
-
-<div id="loginModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+﻿<div id="loginModal" class="modal in" role="dialog" data-backdrop="static" data-keyboard="false">
     <div ng-include="'views/modals/loginModal.html'"></div>
 </div>
 
 <style>
-    .modal-backdrop.fade.in {
+    .modal.in {
+        display:block;
         background-color: #273643;
         opacity: 1;
         filter: alpha(opacity=100);
