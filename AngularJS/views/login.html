@@ -1,7 +1,7 @@
 ﻿<script type="text/javascript">
     $(window).load(function(){
-        $('#loginModal').modal('show');
-        $('#loginModal').data('bs.modal').$backdrop.css({'opacity': '1.0', 'background-color': '#273643'});
+        $('#loginModal').modal('show' );
+        $('#loginModal').data('bs.modal')
     });
 </script>
 
@@ -9,7 +9,13 @@
     <div ng-include="'views/modals/loginModal.html'"></div>
 </div>
 
-
+<style>
+    .modal-backdrop.fade.in {
+        background-color: #273643;
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+</style>
 
 
 

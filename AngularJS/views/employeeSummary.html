@@ -3,11 +3,9 @@
     <div class="db-header-extra"></div>
 </div>
 
-<div>
-    {{ message }}
-</div>
 
 <div id="content">
+    {{ message }}
     <br>
         <div ng-hide="message" class="row">
             <div class="col-sm-offset-8 col-sm-4">
@@ -23,7 +21,7 @@
                     <table class="table-profile-user">
                         <tr>
                             <td>
-                                <img src="../images/avatar.png" width="95px" height="95px">
+                                <img ng-src="../images/avatar.png" class="user_avatar">
                             </td>
                         </tr>
                         <tr>

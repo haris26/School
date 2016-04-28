@@ -39,10 +39,12 @@
                     $('.modal-backdrop').remove();
                     $('body').removeClass('modal-open');
                     $scope.wait = false;
+                    $rootScope.$broadcast('userLoggedIn');
                 },
                 function (reason) {
-                    console.log(reason);
-                    $rootScope.message = reason.status;
+                    currentUser = undefined;
+                    authenticated = false;
+                    $rootScope.message = "Invalid login, try again!";
                     $scope.wait = false;
                 }
             )
@@ -79,6 +81,7 @@
                             $('.modal-backdrop').remove();
                             $('body').removeClass('modal-open');
                             $scope.wait = false;
+                            $rootScope.$broadcast('userLoggedIn');
                         },
                         function (reason) {
                             currentUser = undefined;
@@ -87,9 +90,6 @@
                             $scope.wait = false;
                         }
                     );
-                },
-                function (error) {
-                    console.log(error);
                 });
         };
     });

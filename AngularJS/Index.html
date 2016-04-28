@@ -40,7 +40,7 @@
     <script src="scripts/controllers/menuController.js"></script>
     <script src="scripts/controllers/findPeopleController.js"></script>
     <script src="scripts/controllers/supervisorAssessmentController.js"></script>
-
+    <script src="scripts/controllers/teamSummaryController.js"></script>
 
     <!-- services -->
     <script src="scripts/services/DataService.js"></script>
@@ -75,9 +75,8 @@
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <div style="margin-bottom: 10px">
-                    <table class="table-profile-user">
+                    <table class="table-profile-user" ng-show="userImage">
                         <tr>
-                            <td width="55" ng-show="userImage">
                             <td align="center">
                                 <img ng-src="{{ userImage }}" class="user_avatar">
                             </td>

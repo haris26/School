@@ -33,6 +33,7 @@
             .when("/editEmployeeQualifications/:employeeId", { templateUrl: "views/editEmployeeQualifications.html", controller: "EditEmployeeQualificationsCtrl" })
             .when("/selfAssessment/:employeeId", { templateUrl: "views/selfAssessment.html", controller: "SelfAssessmentCtrl" })
             .when("/findPeople", { templateUrl: "views/findPeople.html", controller: "FindPeopleCtrl" })
+            .when("/teams", { templateUrl: "views/teams.html", controller: "TeamsSummaryCtrl" })
             .when("/logout", { template: "", controller: "LogoutCtrl" })
             .otherwise({ redirectTo: "/overview" });
     }).run(function ($rootScope, $location) {
