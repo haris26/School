@@ -35,6 +35,8 @@
             .when("/reservations", { templateUrl: "views/resources.html", controller: "ReservationsController" })
             .when("/device/reservation", { templateUrl: "views/deviceReservation.html", controller: "DeviceReservationController" })
             .when("/reservations/recurring", { templateUrl: "views/recurringReservations.html", controller: "RecurringReservationsController" })
+            .when("/room/reservation", { templateUrl: "views/roomReservation.html", controller: "RoomReservationController" })
+
             .otherwise({ redirectTo: "/home" });
 
     }).run(function ($rootScope, $location) {

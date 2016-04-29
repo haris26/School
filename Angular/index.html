@@ -22,11 +22,13 @@
     <script src="scripts/controllers/ModalController.js"></script>
     <script src="scripts/controllers/DeviceReservationController.js"></script>
     <script src="scripts/controllers/RecurringReservationsController.js"></script>
+    <script src="scripts/controllers/RoomReservationController.js"></script>
 
     <script src="scripts/services/DataService.js"></script>
     <script src="scripts/services/LoginService.js"></script>
     <script src="scripts/services/Permission.js"></script>
     <script src="scripts/services/DeviceDirective.js"></script>
+    <script src="scripts/services/RoomDirective.js"></script>
 </head>
 <body>
     <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'position-class': 'toast-bottom-right'}"></toaster-container>
@@ -49,7 +51,7 @@
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Resources <b class="caret"></b></a>
                         <ul class="dropdown-menu" style="border:none;">
-                            <li><a href="#">Rooms</a></li>
+                            <li><a href="#room/reservation">Rooms</a></li>
                             <li><a href="#device/reservation">Devices</a></li>
                         </ul>
                     </li>
