@@ -129,6 +129,7 @@
     <Content Include="library\bootstrap.min.js" />
     <Content Include="scripts\controllers\editEmployeeQualificationsController.js" />
     <Content Include="scripts\controllers\employeeAssessmentsController.js" />
+    <Content Include="scripts\controllers\selfAssessmentController.js" />
     <Content Include="scripts\controllers\teamSummaryController.js" />
     <Content Include="scripts\controllers\employeeSummaryController.js" />
     <Content Include="scripts\controllers\findPeopleController.js" />
@@ -168,6 +169,7 @@
     <Content Include="views\modals\addSkillModal.html" />
     <Content Include="views\modals\deleteSkillModal.html" />
     <Content Include="views\overview.html" />
+    <Content Include="views\selfAssessment.html" />
     <Content Include="views\skills.html" />
     <Content Include="views\supervisorAssessment.html" />
     <Content Include="views\teams.html" />
