@@ -11,16 +11,16 @@ namespace WebAPI.Helpers
 {
     public static class ReservationOverview
     {
-        public static ReservationOverviewModel FindDeviceReservations(SearchModel modelParameters)
+        public static DeviceOverviewModel FindDeviceReservations(SearchModel modelParameters)
         {
             SchoolContext context = new SchoolContext();
             Resource resource = new Resource();
-            ReservationOverviewModel model = new ReservationOverviewModel();
+            DeviceOverviewModel model = new DeviceOverviewModel();
             SetWeeklyInterval(modelParameters.FromDate, modelParameters);
-            DeviceTableModel table = new DeviceTableModel(modelParameters.FromDate);          
+            DeviceTableModel table = new DeviceTableModel(modelParameters.FromDate);
 
             var deviceResource = new ResourceUnit(context).Get()
-                .Where(x =>(x.Name == modelParameters.ResourceName) &&(x.ResourceCategory.CategoryName == modelParameters.CategoryName))
+                .Where(x => (x.Name == modelParameters.ResourceName) && (x.ResourceCategory.CategoryName == modelParameters.CategoryName))
                 .FirstOrDefault();
 
             resource = deviceResource;
@@ -28,7 +28,7 @@ namespace WebAPI.Helpers
             model.Name = resource.Name;
 
             var events = new EventUnit(context).Get()
-                .Where(x => (x.Resource.Name == model.Name) && 
+                .Where(x => (x.Resource.Name == model.Name) &&
                 (DbFunctions.TruncateTime(x.EventStart) >= DbFunctions.TruncateTime(modelParameters.FromDate) && DbFunctions.TruncateTime(x.EventStart) <= DbFunctions.TruncateTime(modelParameters.ToDate))).ToList();
             foreach (var ch in resource.Characteristics)
             {
@@ -47,7 +47,7 @@ namespace WebAPI.Helpers
                 int hourValue = 0;
                 //set day parametar
                 if (ev.EventStart.DayOfWeek.ToString() == "Monday") { day = 0; }
-                if (ev.EventStart.DayOfWeek.ToString()=="Tuesday") { day = 1; }
+                if (ev.EventStart.DayOfWeek.ToString() == "Tuesday") { day = 1; }
                 if (ev.EventStart.DayOfWeek.ToString() == "Wednesday") { day = 2; }
                 if (ev.EventStart.DayOfWeek.ToString() == "Thursday") { day = 3; }
                 if (ev.EventStart.DayOfWeek.ToString() == "Friday") { day = 4; }
@@ -63,22 +63,50 @@ namespace WebAPI.Helpers
                 // set device cell model
                 var deviceCell = new DeviceCellModel
                 {
-                    //EventTitle = ev.EventTitle,
-                    //PersonName = ev.User.FullName,
-                    //Hour = hourValue,
-                    //IsPast = false,
+                    EventTitle = ev.EventTitle,
+                    PersonName = ev.User.FullName,
+                    Hour = hourValue,
+                    IsPast = false,
                     IsReserved = true
                 };
-                //if (DbFunctions.TruncateTime(ev.EventStart)< DbFunctions.TruncateTime(System.DateTime.Today))
-                //{
-                //    deviceCell.IsPast = true;
-                //}
                 table.Add(day, hour, deviceCell);
             }
             model.DeviceTable = table;
             return model;
         }
 
+        public static IList<RoomTableModel> FindRoomReservations(SearchModel modelParameters)
+        {
+            SchoolContext context = new SchoolContext();
+            List<RoomTableModel> models = new List<RoomTableModel>();
+
+            var rooms = new ResourceUnit(context).Get().Where(x => x.ResourceCategory.CategoryName == modelParameters.CategoryName).ToList();
+            foreach (var room in rooms)
+            {
+                RoomTableModel roomModel = new RoomTableModel(modelParameters.FromDate, room);
+                var events = new EventUnit(context).Get()
+                .Where(x => (x.Resource.ResourceCategory.CategoryName == modelParameters.CategoryName && x.Resource.Name == room.Name) &&
+                (DbFunctions.TruncateTime(x.EventStart) >= DbFunctions.TruncateTime(modelParameters.FromDate) && DbFunctions.TruncateTime(x.EventStart) <= DbFunctions.TruncateTime(modelParameters.ToDate))).ToList();
+
+                foreach (var ev in events)
+                {
+                    foreach (var timeSlot in roomModel.Room.TimeSlots)
+                    {
+                        if (ev.EventStart == Convert.ToDateTime(timeSlot.EventStart))
+                        {
+                            timeSlot.EventTitle = ev.EventTitle;
+                            timeSlot.EventStart = ev.EventStart.ToString();
+                            timeSlot.EventEnd = ev.EventEnd.ToString();
+                            timeSlot.PersonName = ev.User.FullName;
+                            timeSlot.IsReserved = true;
+                        }
+                    }
+                }
+                models.Add(roomModel);
+            }
+
+            return models;
+        } 
         //public static IList<ReservationOverviewModel> Create(SearchModel modelParameters)
         //{
         //    SchoolContext context = new SchoolContext();

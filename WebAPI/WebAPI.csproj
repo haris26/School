@@ -238,6 +238,7 @@
     <Compile Include="Models\ResourceCategoryModel.cs" />
     <Compile Include="Models\ResourceModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
+    <Compile Include="Models\RoomTableModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Models\TokenModel.cs" />

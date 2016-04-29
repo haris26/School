@@ -23,14 +23,14 @@ namespace WebAPI.Models
         public string Time { get; set; }
     }
 
-    public class ReservationOverviewModel
+    public class DeviceOverviewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
         public IList<CharacteristicsListModel> Characteristics { get; set; }
         public DeviceTableModel DeviceTable { get; set; }
-        public ReservationOverviewModel()
+        public DeviceOverviewModel()
         {
             Characteristics = new List<CharacteristicsListModel>();          
         }

@@ -68,9 +68,9 @@
             DataService.update("eventextends", $scope.event.id, $scope.event, function (data) {
                 var result = true;
                 $rootScope.refreshRecc();
-                $modalInstance.close(result)
+                $modalInstance.close(result);
             });
-;
+
         };
         console.log($scope.extendedEvent);
         $scope.cancel = function () {
