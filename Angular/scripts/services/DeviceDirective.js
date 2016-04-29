@@ -16,6 +16,8 @@
                     elem.css('background-color', '#F2F2F2');
                     scope.hour.isPast = true;
                 }
+                //console.log(eventDate, today);
+                //console.log(scope.day.date);
 
                 if (scope.hour.isReserved == true) {
                     elem.css('background-color', '#B01E5F')

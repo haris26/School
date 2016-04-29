@@ -26,14 +26,13 @@ namespace WebAPI.Models
             Hours = new List<DeviceCellModel>();
         }
     }
+
     public class DeviceTableModel
     {
-       
-        public IList<DeviceRowModel> Days {get;set;}
+        public IList<DeviceRowModel> Days { get; set; }
 
-        public DeviceTableModel(DateTime date) {
-
-           
+        public DeviceTableModel(DateTime date)
+        {
             Days = new List<DeviceRowModel>();
             DateTime startDate = new DateTime();
 
@@ -70,7 +69,7 @@ namespace WebAPI.Models
             }
         }
 
-        public void Add(int i, int j , DeviceCellModel newEvent)
+        public void Add(int i, int j, DeviceCellModel newEvent)
         {
             Days[i].Hours[j] = newEvent;
         }
