@@ -14,6 +14,19 @@
                         <div class="overviewSpanDark spanLighter" style="height: auto">
                             <p><span>People in Team: </span><span>{{ team.peopleInTeam }}</span></p>
                         </div>
+                        <div>
+                            <h4>Required skills:</h4>
+                            <table class="table table-bordered">
+                                <tr class="table-header">
+                                    <th>Skill</th>
+                                    <th>Level</th>
+                                </tr>
+                                <tr ng-repeat="skill in team.requiredSkills">
+                                    <th> {{ skill.skill }}</th>
+                                    <th> {{ skill.level }}</th>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <div ng-repeat="category in team.skills">
