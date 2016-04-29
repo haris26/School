@@ -343,3 +343,56 @@
     position: absolute;
     right: 30px;
 }
+
+.room-cell{
+    display:inline-block;
+    float:left;
+    max-width:2.5%;
+    min-width:2.5%;
+    height:100%;
+    background-color:transparent;
+    border: 1px solid #e0e0d1;
+    overflow:no-content;
+ }
+
+ .room-name{
+    display:inline-block;
+    float:left;
+    background-color:deeppink;
+    width:20%;
+    height:100%;
+    border:solid 1px white;
+    text-align:center;
+	justify-content: center;
+	align-items: center; 
+	background-color:#d6e2f5;
+	color:#3475CD;
+ }
+
+ .day-name{
+	text-align:center;
+	justify-content: center;
+	align-items: center; 
+	background-color:transparent;
+	color:white;
+    display:inline-block;
+    float:left;
+    width:20%;
+    height:100%;
+    border:solid 1px white;
+ }
+
+ .table-container {
+    float: left;
+    width: 100%;
+    height: auto;
+    display: table;
+}
+
+ .room-row{
+    display:inline-block;
+    float:left;
+    width:100%;
+    display:table;  
+    background-color:transparent;	
+ }
