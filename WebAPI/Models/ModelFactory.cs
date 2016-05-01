@@ -50,7 +50,7 @@ namespace WebAPI.Models
 
         public DayModel Create(Day day)
         {
-            return new DayModel()
+            DayModel model = new DayModel()
             {
                 Id = day.Id,
                 Person = day.Person.Id,
@@ -60,8 +60,11 @@ namespace WebAPI.Models
                 PtoTime = day.PtoTime,
                 EntryStatus = day.EntryStatus
             };
-
-
+            foreach (var detail in day.Details)
+            {
+                model.Details.Add(new DetailModel() { WorkTime = detail.WorkTime, Description = detail.Description, TeamName = detail.Team.Name, Date = detail.Day.Date });
+            }
+            return model;
         }
         public DetailModel Create(Detail detail)
         {

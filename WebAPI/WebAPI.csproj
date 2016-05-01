@@ -210,6 +210,7 @@
     </Compile>
     <Compile Include="Helpers\AppGlobals.cs" />
     <Compile Include="Helpers\Dashboard.cs" />
+    <Compile Include="Helpers\ListDetails.cs" />
     <Compile Include="Helpers\Mail.cs" />
     <Compile Include="Helpers\MonthList.cs" />
     <Compile Include="Helpers\ListTeams.cs" />

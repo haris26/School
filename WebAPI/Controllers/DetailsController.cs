@@ -38,11 +38,12 @@ namespace WebAPI.Controllers
             return details;
         }
 
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(int id, int m)
         {
             try
             {
-                List<Detail> detail = Repository.Get().Where(x => x.Day.Person.Id == id).ToList();
+                List<Detail> detail = Repository.Get().Where(x => x.Day.Person.Id == id && x.Day.Date.Month == m).ToList();
+
                 if (detail == null)
                     return NotFound();
                 else

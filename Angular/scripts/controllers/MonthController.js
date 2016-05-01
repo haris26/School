@@ -15,12 +15,6 @@
         $scope.sortOrder = "name";
         fetchData();
 
-            function fetchDataByUser(n1) {
-                DataService.read(dataSetD, n1, function (data) {
-                    $scope.detailsBy = data;
-                    
-                });
-            }
       
         $scope.transfer = function (item) {
             $scope.month = item;         
@@ -29,9 +23,14 @@
         };
         $scope.transfer1 = function (item1) {
             n1 = item1.id;
-            console.log(n1);
+            console.log(n1,n);
             fetchDataByUser(n1);
         };
+        function fetchDataByUser(n1) {
+            DataService.read1(dataSetD, n1, n, function (data) {
+                $scope.detailsBy = data;
+            });
+        }
         function fetchMonth(n) {
             DataService.read(dataSet, n, function (data) {
                 $scope.months = data;

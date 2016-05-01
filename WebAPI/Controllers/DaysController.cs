@@ -19,22 +19,22 @@ namespace WebAPI.Controllers
             int PageSize = 5;
             var query = Repository.Get().OrderBy(x => x.Person.LastName).ThenBy(x => x.Person.FirstName).ThenBy(x => x.Date);
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
-           
-                IList<DayModel> days = query.Skip(PageSize * page)
-                        .Take(PageSize).ToList()
-                        .Select(x => Factory.Create(x))
-                        .ToList();
-                var PageHeader = new
-                {
-                    pageSize = PageSize,
-                    currentPage = page,
-                    pageCount = TotalPages,
-                };
 
-                HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
-                return days;
+            IList<DayModel> days = query.Skip(PageSize * page)
+                    .Take(PageSize).ToList()
+                    .Select(x => Factory.Create(x))
+                    .ToList();
+            var PageHeader = new
+            {
+                pageSize = PageSize,
+                currentPage = page,
+                pageCount = TotalPages,
+            };
+
+            HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+            return days;
         }
-       
+
 
         public IHttpActionResult Get(int id)
         {
@@ -42,13 +42,31 @@ namespace WebAPI.Controllers
                 Day day = Repository.Get(id);
                 if (day == null) return NotFound();
                 else
-                return Ok(Factory.Create(Repository.Get(id)));
+                    return Ok(Factory.Create(Repository.Get(id)));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest();
             }
         }
+
+        public IList<DayModel> Get(int id, int m, int y)
+        {
+
+            
+            var day = Repository.Get().Where(x => x.Person.Id == id && x.Date.Month == m && x.Date.Year == y).ToList();
+          
+           
+            List<DayModel> DayModel = new List<DayModel>();
+               
+            foreach (Day d in day)
+            { 
+                DayModel.Add(Factory.Create(d));               
+            }
+                return DayModel;        
+            }
+    
+        
         public IHttpActionResult Post(DayModel model)
         {
             var sch = Repository.BaseContext();

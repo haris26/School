@@ -3,9 +3,19 @@
     app.controller("Calendar2Controller", function ($scope, $rootScope, DataService, toaster, $window, $timeout) {
 
         var dataSet = "details";
+        var dataSet2 = "days"
         $scope.selDetail = "";
         $scope.sortOrder = '-date';
-
+        $scope.monthd = new Date().getMonth();
+        $scope.yeard = new Date().getYear();
+        
+       
+        function fetchDataByDay() {
+            DataService.readD(dataSet2, currentUser.id, monthd, yeard,  function (data) {
+                $scope.detailsBy = data;
+            });
+        }
+        
         //var date = new Date();
         //var day = date.getTime();
         //console.log($scope.dt);
@@ -103,10 +113,11 @@
 
             //fetchData();
         }
-
+        
 
         $scope.today = function () {
             $scope.dt = new Date();
+
             //console.log($scope.dt);
         };
         $scope.today();
@@ -137,7 +148,11 @@
         $scope.setDate = function (year, month, day) {
             $scope.dt = new Date(year, month, day);
             $scope.dt.setHours(2, 0, 0);
+            $scope.monthd = $scope.dt.month + 1;
+            $scope.yeard = $scope.dt.year;
+            console.log($scope.monthd);
         };
+       
 
         var tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);

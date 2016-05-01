@@ -44,8 +44,6 @@ namespace WebAPI.Helpers
               
             }
 
-
-
             var details = person.Days.SelectMany(x => x.Details).GroupBy(x => x.Team.Name).Select(x => new { team = x.Key, time = x.Sum(y => y.WorkTime) }).ToList();
             foreach (var detail in details)
             {
