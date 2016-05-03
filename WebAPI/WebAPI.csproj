@@ -194,9 +194,11 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FindPeopleController.cs" />
     <Compile Include="Controllers\OverviewController.cs" />
+    <Compile Include="Controllers\SelfAssessmentsController.cs" />
     <Compile Include="Helpers\Criteria.cs" />
     <Compile Include="Helpers\Overview.cs" />
     <Compile Include="Helpers\SearchResult.cs" />
+    <Compile Include="Helpers\SelfAssessment.cs" />
     <Compile Include="Models\CriteriaModel.cs" />
     <Compile Include="Controllers\EditEducationsController.cs" />
     <Compile Include="Controllers\EmployeeAssessmentsController.cs" />
@@ -243,6 +245,7 @@
     <Compile Include="Models\ResultModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
+    <Compile Include="Models\SelfAssessmentModel.cs" />
     <Compile Include="Models\SkillAssessmentModel.cs" />
     <Compile Include="Models\SkillsCategoryModel.cs" />
     <Compile Include="Models\SupervisorAssessmentModel.cs" />

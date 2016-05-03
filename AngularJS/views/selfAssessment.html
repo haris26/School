@@ -1,1 +1,50 @@
-﻿
+﻿<div class="db-header clearfix">
+    <div class="page-header-title"><span class="glyphicon glyphicon-bookmark"></span> Self Assessment </div>
+    <div class="db-header-extra">
+    </div>
+</div>
+
+<div id="content">
+    {{ message }}
+
+    <br>
+    <div id="content">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Employee:  <a href="#/employeeSummary/{{assessments.id}}">{{assessments.fullName}}</a></p>
+            </div>
+            <div class="col-md-offset-3 col-md-6" ng-repeat="category in assessments.skills">
+                <h4 class="align-center">{{category.categoryName}}</h4><br />
+                <div class="row" ng-repeat="skill in category.skills">
+                    <div class="col-md-3">
+                        <h5>{{skill.skill}}</h5>
+                    </div>
+                    <div class="col-md-7">
+                        <table class="table-assessment">
+                            <tr style="text-align:center;">
+                                <td><input type="radio" name="{{skill.skillId}}" value="1" ng-model="skill.level"></td>
+                                <td><input type="radio" name="{{skill.skillId}}" value="2" ng-model="skill.level"></td>
+                                <td><input type="radio" name="{{skill.skillId}}" value="3" ng-model="skill.level"></td>
+                                <td><input type="radio" name="{{skill.skillId}}" value="4" ng-model="skill.level"></td>
+                                <td><input type="radio" name="{{skill.skillId}}" value="5" ng-model="skill.level"></td>
+                            </tr>
+                        </table>
+                        <div class="col-md-4">
+                            <div class="btn" disabled>
+                                Experience:
+                            </div>
+                            <div>
+                                <input ng-model="skill.experience" type="number" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn-primary btn-sm" ng-click="createEmployeeSkill(skill)"><span class="glyphicon glyphicon-ok"></span></a>
+                    </div>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>
+<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'position-class': 'toast-bottom-right'}"></toaster-container>
