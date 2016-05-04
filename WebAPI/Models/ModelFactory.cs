@@ -98,6 +98,7 @@ namespace WebAPI.Models
                 {
                     model.Assets.Add(new AssetsModel
                     {
+                        Id = asset.Id,
                         Name = asset.Name,
                         //User = asset.User.Id,
                         //UserName = asset.User.FullName,
@@ -114,6 +115,7 @@ namespace WebAPI.Models
                 else
                     model.Assets.Add(new AssetsModel
                     {
+                        Id = asset.Id,
                         Name = asset.Name,
                         User = asset.User.Id,
                         UserName = asset.User.FullName.ToString(),
@@ -172,7 +174,7 @@ namespace WebAPI.Models
                     Name = asset.Name,
                     Model = asset.Model,
                     User = asset.User.Id,
-                    UserName = asset.User.FirstName,
+                    UserName = asset.User.FirstName + ' ' + asset.User.LastName,
                     Vendor = asset.Vendor,
                     Price = asset.Price,
                     Status = asset.Status.ToString(),

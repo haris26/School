@@ -26,20 +26,22 @@
                                     <th>Vendor</th>
                                     <th>Status</th>
                                     <th>Category</th>
+                                    <th>Users</th>
+                                    <th>Assign</th>
                                     <!--<th>Details</th>-->
                                    
                                 </tr>
                             </thead>
                             <tbody>
 
-                                <tr ng-repeat="item in freeassets  | orderBy: sortOrder" class="request-table">
+                                <tr ng-repeat="item in freeassets  | orderBy: sortOrder" class="request-table">                                
                                     <td>{{item.name}} </td>
                                     <td>{{item.model}}</td>
                                     <td>{{item.vendor}}</td>
                                     <td>{{item.status}}</td>
                                     <td>{{item.categoryName }}</td>
-                                  
-                                    <!--<td><a href="#/newservicerequests" ng-click="transfer(item)">Service</a></td>-->
+                                    <td><select ng-options="person as (person.firstName + ' ' + person.lastName) for person in users"  ng-model="selectedUser" id="status-select"></select></td>                                 
+                                    <td><button class="btn btn-success" ng-click="assignDevice(item, selectedUser)">Assign</button></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -9,10 +9,24 @@
         $scope.sortOrder = "";
         getRequests();
         fetchData();
+        getDeviceRequests();
+        getOfficeRequests();
 
         function getRequests() {
             DataService.list(dataSet, function (data) {
                 $scope.requests = data.allRequests;
+            });
+        };
+
+        function getOfficeRequests() {
+            DataService.list(dataSet, function (data) {
+                $scope.officerequests = data.officeRequests;
+            });
+        };
+
+        function getDeviceRequests() {
+            DataService.list(dataSet, function (data) {
+                $scope.devicerequests = data.deviceRequests;
             });
         };
 

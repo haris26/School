@@ -41,6 +41,7 @@ namespace Database
             if (oldEntity != null)
             {
                 context.Entry(oldEntity).CurrentValues.SetValues(entity);
+                if (entity.GetType() == typeof(Asset)) ChangeUser(oldEntity as Asset, entity as Asset);
                 context.SaveChanges();
             }
         }
@@ -53,6 +54,11 @@ namespace Database
                 dbSet.Remove(oldEntity);
                 context.SaveChanges();
             }
+        }
+
+        static void ChangeUser(Asset old, Asset newe)
+        {
+            old.User = newe.User;
         }
     }
 }

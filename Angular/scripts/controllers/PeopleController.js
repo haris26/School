@@ -6,9 +6,17 @@
 
         $scope.modal = false;
         var dataSet = "people";
+        
         $scope.selPerson = "";
         $scope.sortOrder = "lastName";
         fetchPeople();
+        getUsers();
+
+        function getUsers() {
+            DataService.list("people", function (data) {
+                $scope.users = data;
+            });
+        };
 
         function fetchPeople() {
             DataService.list("people", function (data) {
@@ -33,7 +41,8 @@
                 address: {},
                 birthDate: "",
                 startDate: new Date(),
-                status: "Active"
+                status: "Active",
+  
             }
         };
 

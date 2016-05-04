@@ -44,12 +44,19 @@ namespace WebAPI.Controllers
                 }
             }
 
+            IList<RequestModel> devicerequests =
+               query.Skip(PageSize * page).Take(PageSize).ToList().Where(x=> x.AssetType == AssetType.Device).Select(x => Factory.Create(x)).ToList();
+
+            IList<RequestModel> officerequests =
+               query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.AssetType == AssetType.Office).Select(x => Factory.Create(x)).ToList();
             return new
             {
                 pageSize = PageSize,
                 currentPage = page,
                 pageCount = TotalPages,
                 allRequests = requests,
+                deviceRequests = devicerequests,
+                officeRequests = officerequests,
                 count
             };
         }

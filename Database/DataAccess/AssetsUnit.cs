@@ -29,6 +29,17 @@ namespace Database
 
         }
 
+        public override void Update(Asset entity, int Id)
+        {
+            Asset oldEntity = Get(Id);
+            if (oldEntity != null)
+            {
+                context.Entry(oldEntity).CurrentValues.SetValues(entity);
+                oldEntity.User = entity.User;
+                context.SaveChanges();
+            }
+
+        }
     }
 }
    
