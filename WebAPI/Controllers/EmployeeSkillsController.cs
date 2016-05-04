@@ -11,7 +11,7 @@ using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    //[TokenAuthorize]
     public class EmployeeSkillsController : BaseController<EmployeeSkill>
     {
         SchoolIdentity ident = new SchoolIdentity();
@@ -21,14 +21,22 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Post(EmployeeSkillModel model)
         {
-            try
+            var skillAssessment = Repository.Get().ToList().Where(x => x.Employee.Id==model.Employee && x.Tool.Id==model.Tool && x.AssessedBy==AssessmentType.Self).FirstOrDefault();
+            if (skillAssessment == null)
             {
-                Repository.Insert(Parser.Create(model, Repository.BaseContext()));
-                return Ok(model);
+                try
+                {
+                    Repository.Insert(Parser.Create(model, Repository.BaseContext()));
+                    return Ok(model);
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest();
+                }
             }
-            catch (Exception ex)
-            {
-                return BadRequest();
+            else {
+                model.Id = skillAssessment.Id;
+                return Put(skillAssessment.Id,model);
             }
         }
 

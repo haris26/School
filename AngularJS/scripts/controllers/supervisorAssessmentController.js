@@ -19,7 +19,7 @@
         }
 
         $scope.updateEmployeeSkill = function (skill, dateOfSelfAssessment ) {
-            $log.info(skill);
+            //$log.info(skill);
             var employeeSkill = {
                 id: skill.employeeSkillId,
                 employee: $scope.employeeId,
@@ -32,7 +32,7 @@
                 assessedBy: 1,
             }
 
-            $log.info(employeeSkill);
+            //$log.info(employeeSkill);
 
             DataService.update("employeeskills", skill.employeeSkillId, employeeSkill, function (data) {
                 toaster.pop('note', skill.skill + " assessed");
