@@ -1,0 +1,28 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">&times;</button>
+    <h4 class="modal-title ">Create reservation</h4>
+</div>
+
+<div class="modal-body">
+    <form>
+        <h3 for="evTitle" id="welcome-title"> {{day.day}} {{newEvent.startDate}}</h3>
+        <div class="form-group">
+            <label for="evTitle" class="control-label">Event title: </label>
+            <input ng-model="newEvent.eventTitle" id="evTitle" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            <label for="evStartTime" class="control-label">Start time: </label>
+            <input ng-model="newEvent.startTime" id="evStartTime" class="form-control" type="datetime-local"
+                    placeholder="yyyy-MM-ddTHH:mm" min={{newEvent.startDate}} max={{newEvent.startDate}} required  />
+        </div>
+        <div class="form-group">
+            <label for="evEndTime" class="control-label">End time: </label>
+            <input ng-model="newEvent.endTime" id="evEndTime" class="form-control" type="datetime-local" 
+                   placeholder="yyyy-MM-ddTHH:mm" min={{newEvent.startDate}} max={{todayDate}} required/>
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" ng-click="cancel()">Cancel</button>
+        <button type="button" class="btn btn-success" ng-click="createReservation()">Add</button>
+    </div>
+</div>

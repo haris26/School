@@ -197,7 +197,7 @@
     border:solid 1px #e0e0d1;
     text-align:center;
     padding-left:2px;
-    color:#3475CD;
+    color:#01AB8E;
     text-align:center;
     vertical-align:middle;
     line-height:40px;
@@ -365,8 +365,8 @@
     text-align:center;
 	justify-content: center;
 	align-items: center; 
-	background-color:#d6e2f5;
-	color:#3475CD;
+	background-color:#01AB8E;
+	color:#FFFFFF;
  }
 
  .day-name{

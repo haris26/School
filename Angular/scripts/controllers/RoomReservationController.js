@@ -21,9 +21,9 @@
        }
        getReservation();
 
-        $rootScope.refreshTable = function () {
-            $scope.getReservations();
-        }
+       // $rootScope.refreshTable = function () {
+       //     $scope.getReservations();
+       // }
         
     });
 }());
