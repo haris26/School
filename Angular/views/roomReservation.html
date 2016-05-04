@@ -23,6 +23,7 @@
         </div>
         <div class="room-row" ng-repeat="room in reservations">
             <div class="room-name" data-toggle="popover">{{room.room.roomName}}</div>
-            <div class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" >&nbsp;</div>
-        </div>           
+            <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
+        </div>
     </div>
+</div>

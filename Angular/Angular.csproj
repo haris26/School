@@ -155,6 +155,7 @@
     <Content Include="views\login.html" />
     <Content Include="views\modals\cancelExtendedModal.html" />
     <Content Include="views\modals\cancelResModal.html" />
+    <Content Include="views\modals\createRoomEventModal.html" />
     <Content Include="views\modals\createEventModal.html" />
     <Content Include="views\modals\editExtendedModal.html" />
     <Content Include="views\modals\extendModal.html" />
