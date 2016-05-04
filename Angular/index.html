@@ -6,11 +6,15 @@
     <script src="library/angular.js"></script>
     <script src="library/angular-route.js"></script>
     <script src="library/angular-cookies.js"></script>
+    <script src="library/toaster.min.js"></script>
     <script src="library/googleClient.js"></script>
     <script src="library/bootstrap.min.js"></script>
     <script src="library/metisMenu.min.js"></script>
+   
     <script src="library/startmin.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
      <script src="scripts/app.js"></script>
+
     <script src="scripts/controllers/LoginController.js"></script>
     <script src="scripts/controllers/MenuController.js"></script>
     <script src="scripts/controllers/AdminOfficeController.js"></script>
@@ -29,16 +33,20 @@
     <script src="scripts/controllers/AssetsController.js"></script>
     <script src="scripts/controllers/NewRequestsController.js"></script>
     <script src="scripts/controllers/NewServiceRequestController.js"></script>
+
     <link rel="stylesheet" type="text/css" href="styles/bootstrap-social.css">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
     <link href="styles/bootstrap.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="styles/startmin.css">
+
+    <link href="styles/toaster.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="styles/tables.css">
     <link href="styles/jquery-ui.css" rel="stylesheet" />
   
 </head>
 <body>
+    <toaster-container toaster-options="{'time-out':4000,'close-button':true,'position-class':'toast-bottom-right'}"></toaster-container>
     <div>    
             <!-- Navigation -->
             <div class="navbar navbar-inverse navbar-fixed-top" ng-show="userName">
@@ -146,7 +154,11 @@
           
             <div id="page-wrapper" ng-view>
 
-         
+                <div>
+                    <div>
+                       
+                    </div>
+                </div>
                         <!-- /#page-wrapper -->
            </div>
                     <!-- /#wrapper -->

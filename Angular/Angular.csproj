@@ -103,6 +103,7 @@
     <Content Include="library\angular-cookies.js" />
     <Content Include="library\angular-route.js" />
     <Content Include="library\googleClient.js" />
+    <Content Include="library\toaster.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -139,7 +140,6 @@
     <Content Include="library\bootstrap.min.js" />
     <Content Include="library\jquery.min.js" />
     <Content Include="library\metisMenu.min.js" />
-    <Content Include="library\proba.js" />
     <Content Include="library\startmin.js" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
@@ -162,6 +162,7 @@
     <Content Include="styles\startmin.css" />
     <Content Include="styles\Style.css" />
     <Content Include="styles\tables.css" />
+    <Content Include="styles\toaster.min.css" />
     <Content Include="views\AdminDashboard.html" />
     <Content Include="views\AdminRequests.html" />
     <Content Include="views\AllAssets.html" />

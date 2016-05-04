@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("NewServiceRequestController", function ($scope, $rootScope, $log, DataService, $location) {
+    app.controller("NewServiceRequestController", function ($scope, $rootScope, $log,toaster, DataService, $location) {
 
         var dataSet = "newservicerequests";
         $scope.requestMessage = "";
@@ -13,6 +13,12 @@
                 $scope.newservicerequests = data;
             });
         };
+
+        pop = function () {
+            toaster.pop('success', "Success", " You have sent your request!");
+
+        };
+
         $scope.save = function save() {
             var model = $rootScope.model;
             $log.info($rootScope.model);
@@ -35,6 +41,7 @@
            
            
             DataService.create("requests", $scope.request, function (response) { });
+            pop();
             console.log($scope.request)
             $location.path("/userservicerequests")
 

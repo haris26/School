@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("NewRequestsController", function ($scope, $rootScope, DataService,$route, $location) {
+    app.controller("NewRequestsController", function ($scope, $rootScope, DataService,$route,toaster, $location) {
 
 
         var dataSet = "requests";
@@ -21,6 +21,11 @@
             });
         }
       
+        pop = function () {
+            toaster.pop('success', "Success", " You have sent your request!");
+
+        };
+
         $scope.newRequest = function () {
             $scope.request = {
                 id: 0,
@@ -43,6 +48,7 @@
             var promise;
             if ($scope.request.id == 0) {
                 DataService.create(dataSet, $scope.request, function (data) { });
+                pop();
                 console.log($scope.request);
                 $route.reload();
                
