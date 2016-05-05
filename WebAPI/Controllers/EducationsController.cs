@@ -11,7 +11,7 @@ using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    //[TokenAuthorize]
     public class EducationsController : BaseController<Education>
     {
         SchoolIdentity ident = new SchoolIdentity();

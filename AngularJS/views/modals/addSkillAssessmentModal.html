@@ -1,0 +1,33 @@
+﻿<div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add New Skill to Assessment</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-md-2">Category</label>
+                    <div class="col-md-10">
+                        <select ng-model="skillItem.category" ng-change="selectCategory()" class="form-control"
+                                ng-options="category.id as category.name for category in categories"></select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Skill</label>
+                    <div class="col-md-10">
+                        <select ng-model="skillItem.name" class="form-control"
+                                ng-options="skillItem.id as skillItem.name for name in skillItem.category"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" ng-click="addEmployeeSkill()">Add</button>
+        </div>
+    </div>
+</div>
+

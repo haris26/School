@@ -11,6 +11,26 @@
         $scope.assessmentClass = {
             true: "btn btn-success btn-sm",
             false: "btn btn-primary btn-sm"
+
+        $scope.categoryItem = {
+            id: 0,
+            name: ""
+        };
+
+        $scope.skillItem = {
+            id: 0,
+            name: "",
+            category: 0,
+            numOfEmployees: 0
+        };
+
+        fetchCategories();
+
+        function fetchCategories() {
+            DataService.list("skillscategories", function (data) {
+                $scope.categories = data;
+                $scope.message = "";
+            })
         }
 
         getEmployee($scope.employeeId);

@@ -15,6 +15,14 @@
             $location.path('/employeeSummary/' + $scope.employeeId);
         }
 
+        $scope.goToSelfAssessment = function () {
+            $location.path('/selfAssessment/' + $scope.employeeId);
+        }
+
+        $scope.goToSupervisorAssessment = function () {
+            $location.path('/supervisorAssessment/' + $scope.employeeId);
+        }
+
         getEmployeeAssessments($scope.employeeId);
 
         function getEmployeeAssessments(id) {

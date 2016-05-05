@@ -1,6 +1,39 @@
-﻿<div class="db-header clearfix">
-    <div class="page-header-title"><span class="glyphicon glyphicon-bookmark"></span> Self Assessment </div>
+﻿<div id="addSkillAssessmentModal" class="modal fade" role="dialog">
+    <div ng-include="'views/modals/addSkillAssessmentModal.html'"></div>
+</div>
+
+<div id="legend" class="alert alert-dismissible legend" style="width:130px; height:150px; ">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Skill level</strong><br>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>Very Low</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Basic capability</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Competent</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Developed skills</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Highly skilled</td>
+        </tr>
+    </table>
+</div>
+
+
+<div class="db-header clearfix">
+    <div class="page-header-title"><span class="glyphicon glyphicon-bookmark"></span> Self Assessment</div>
     <div class="db-header-extra">
+        <a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addSkillAssessmentModal" ng-click="">Add New Skill</a>
     </div>
 </div>
 
@@ -11,15 +44,15 @@
     <div id="content">
         <div class="row">
             <div class="col-md-12">
-                <p>Employee:  <a href="#/employeeSummary/{{assessments.id}}">{{assessments.fullName}}</a></p>
+                <p>Employee: <a href="#/employeeSummary/{{assessments.id}}">{{assessments.fullName}}</a></p>
             </div>
-            <div class="col-md-offset-3 col-md-6" ng-repeat="category in assessments.skills">
+            <div class="col-md-offset-2 col-md-8" ng-repeat="category in assessments.skills">
                 <h4 class="align-center">{{category.categoryName}}</h4><br />
                 <div class="row" ng-repeat="skill in category.skills">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <h5>{{skill.skill}}</h5>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-5">
                         <table class="table-assessment">
                             <tr style="text-align:center;">
                                 <td><input type="radio" name="{{skill.skillId}}" value="1" ng-model="skill.level"></td>
@@ -29,15 +62,8 @@
                                 <td><input type="radio" name="{{skill.skillId}}" value="5" ng-model="skill.level"></td>
                             </tr>
                         </table>
-                        <div class="col-md-4">
-                            <div class="btn" disabled>
-                                Experience:
-                            </div>
-                            <div>
-                                <input ng-model="skill.experience" type="number" class="form-control" />
-                            </div>
-                        </div>
                     </div>
+                    <div class="col-md-2">Experience</div>
                     <div class="col-md-2">
                         <a class="{{assessmentClass[assessed[category.categoryName][skill.skillId]]}}" ng-click="createEmployeeSkill(skill, category.categoryName)"><span class="glyphicon glyphicon-ok"></span></a>
                     </div>

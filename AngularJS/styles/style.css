@@ -84,3 +84,5 @@ svg text { fill: white; }
                      color:#fff;
                      opacity:.8;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
                      filter:alpha(opacity=80)}
+
+.legend { z-index: 10; position: fixed; right: 10px; top: 200px; background:#668caf; color:white; font-size:10px; padding:10px ;}

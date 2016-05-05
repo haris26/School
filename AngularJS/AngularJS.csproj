@@ -155,6 +155,7 @@
     <Content Include="views\employeeSummary.html" />
     <Content Include="views\login.html" />
     <Content Include="views\modals\addQualificationModal.html" />
+    <Content Include="views\modals\addSkillAssessmentModal.html" />
     <Content Include="views\modals\deleteEmpQualModal.html" />
     <Content Include="views\modals\loginModal.html" />
     <Content Include="views\modals\deleteQualificationModal.html" />
