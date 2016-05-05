@@ -14,6 +14,7 @@
                     elem.css('background-color', '#F2F2F2');
                     scope.timeSlot.isPast = true;
                 }
+
                 var i = 1;
                 //for ( i ; i < scope.$parent.reservations.length; i++) {
                 //    if (scope.timeSlot.$id == 10 + i || scope.timeSlot.$id == 14
