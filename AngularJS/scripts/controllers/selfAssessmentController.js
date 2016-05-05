@@ -7,8 +7,28 @@
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
 
-        getEmployee($scope.employeeId);
+        $scope.categoryItem = {
+            id: 0,
+            name: ""
+        };
 
+        $scope.skillItem = {
+            id: 0,
+            name: "",
+            category: 0,
+            numOfEmployees: 0
+        };
+
+        fetchCategories();
+
+        function fetchCategories() {
+            DataService.list("skillscategories", function (data) {
+                $scope.categories = data;
+                $scope.message = "";
+            })
+        }
+
+        getEmployee($scope.employeeId);
 
         function getEmployee(id) {
             DataService.read("selfassessments", id, function (data) {
@@ -35,6 +55,8 @@
                 toaster.pop('note', skill.skill + " assessed");
             });
         }
+
+
       
     });
 }());

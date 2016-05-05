@@ -12,10 +12,10 @@ using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
-    [TokenAuthorize]
+    //[TokenAuthorize]
     public class TeamSummariesController : BaseController<Team>
     {
-        SchoolIdentity ident = new SchoolIdentity();
+       // SchoolIdentity ident = new SchoolIdentity();
 
         public TeamSummariesController(Repository<Team> depo) : base(depo)
         { }
