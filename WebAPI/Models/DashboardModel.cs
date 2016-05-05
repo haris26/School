@@ -54,6 +54,7 @@ namespace WebAPI.Models
       
         public IList<ListModel> Assets { get; set; }
         public IList<ListRequestsModel> NewRequests { get; set; }
+       
         public IList<ListRequestsModel> ServiceRequests { get; set; }
     }
 }

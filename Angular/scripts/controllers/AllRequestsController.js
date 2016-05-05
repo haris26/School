@@ -8,6 +8,7 @@
         $scope.selString = "";
         $scope.sortOrder = "";
         getRequests();
+        getCompletedRequests();
         fetchData();
         getDeviceRequests();
         getOfficeRequests();
@@ -61,8 +62,16 @@
             });
         }
 
+        function getCompletedRequests() {
+            DataService.list(dataSet, function (data) {
+                $scope.completedrequests = data.completedRequests;
+                console.log($scope.completedrequests);
+            });
+        }
+
         $scope.transfer = function (item) {
-            $scope.requests = item;    
+            $scope.requests = item;
+            
         };      
     });
 }());

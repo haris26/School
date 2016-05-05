@@ -32,6 +32,8 @@ namespace WebAPI.Controllers
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
             IList<RequestModel> requests =
                query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
+            IList<RequestModel> completedrequests =
+              query.Skip(PageSize * page).Take(PageSize).ToList().Where(x=>x.Status==RequestStatus.Completed).Select(x => Factory.Create(x)).ToList();
 
             int count = 0;
 
@@ -55,8 +57,11 @@ namespace WebAPI.Controllers
                 currentPage = page,
                 pageCount = TotalPages,
                 allRequests = requests,
+
                 deviceRequests = devicerequests,
                 officeRequests = officerequests,
+
+                completedRequests=completedrequests,
                 count
             };
         }

@@ -11,6 +11,7 @@ namespace WebAPI.Helpers
     {
         public static DashboardModel Create(Person person)
         {
+            SchoolContext context = new SchoolContext();
             DashboardModel dashboard = new DashboardModel()
             {
                 Id = person.Id,

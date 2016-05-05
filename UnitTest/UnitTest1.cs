@@ -92,7 +92,7 @@ namespace UnitTest
                 RequestMessage = "Need a new laptop",
                 RequestDescription = "I need a new laptop asap",
                 RequestDate = new DateTime(2016, 3, 5),
-                Status = RequestStatus.AvaitingForApprovale,
+                Status = RequestStatus.WaitingForApproval,
                 User = people.Get().Where(x => x.FirstName == "Dalila").FirstOrDefault(),
                 Asset = assets.Get().Where(x => x.Model == "Inspiron 13 7347").FirstOrDefault()
             
@@ -193,7 +193,7 @@ namespace UnitTest
                 RequestMessage = "Need a new laptop",
                 RequestDescription = "I need a new laptop asap",
                 RequestDate = new DateTime(2016, 3, 5),
-                Status = RequestStatus.AvaitingForApprovale,
+                Status = RequestStatus.WaitingForApproval,
                 User = people.Get().Where(x => x.FirstName == "Dalila").FirstOrDefault(),
                 Asset = assets.Get().Where(x => x.Model == "Inspiron 13 7347").FirstOrDefault()
             };
@@ -223,7 +223,7 @@ namespace UnitTest
                 RequestMessage = "Need a new laptop",
                 RequestDescription = "I need a new laptop asap",
                 RequestDate = new DateTime(2016, 3, 5),
-                Status = RequestStatus.AvaitingForApprovale,
+                Status = RequestStatus.WaitingForApproval,
                 User = people.Get().Where(x => x.FirstName == "Dalila").FirstOrDefault(),
                 Asset = assets.Get().Where(x => x.Model == "Inspiron 13 7347").FirstOrDefault()
             };
