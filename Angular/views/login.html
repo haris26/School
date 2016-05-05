@@ -5,7 +5,7 @@
     }
 </style>
 
-        <div class="row col-md-offset-4 col-xs-offset-0 col-md-4 col-xs-11" style="margin-top:4%">
+        <div class="row col-md-offset-4 col-xs-offset-0 col-md-4 col-xs-11" style="margin-top:1%">
             <div class="row">
                 <div class="create col-xs-offset-4 col-md-offset-4 col-md-5 col-xs-5" style="margin-top:-50px">
                     <img src="../images/Mlogo1.png" class="img-responsive" width="280" height="280" />
@@ -40,12 +40,10 @@
                                     <input class="form-control col-md-offset-2" type="password" ng-model="user.pass">
                                 </div>
                             </div>
-
-                            <div class="label form-group"></div>
                             <div class="text" ng-show="!wait">
                             </div>
                             <div class="text" ng-show="!wait"></div>
-                            <div class="text" ng-show="wait"><img src="images/loading.gif" /></div>
+                            <div class="text" ng-show="wait"><img src="images/loading.gif" /></div>                           
                         </div>
                         <br />
                         <div class="row">
@@ -53,8 +51,9 @@
                                 <div class="col-md-5 col-xs-4 control-label" style="color:#2E455C"><b>Remember me  </b><input type="checkbox" ng-model="user.remember" /></div>
                                 <input type="button" class="btn btn-info" id="loginBtn" value="Login" ng-click="login(); tokenRequest()"  />
                                 <input type="button" class="btn btn-success" id="googleBtn" value="Login with Google" href="#/months" />
+
                             </div>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
             </form>

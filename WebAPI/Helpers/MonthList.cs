@@ -17,6 +17,7 @@ namespace WebAPI.Helpers
             {
                 Id = person.Id,
                 Name = person.FullName,
+                Email = person.Email
 
             };
             //int dd = DateTime.Now.Month; //(year: 2016, month: 3, day: 1);

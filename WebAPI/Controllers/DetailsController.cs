@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Models;
 using System.Web;
+using WebAPI.Helpers;
 
 namespace WebAPI.Controllers
 {
@@ -14,6 +15,8 @@ namespace WebAPI.Controllers
     {
         public DetailsController(Repository<Detail> depo) : base(depo)
         { }
+
+        int deadline = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["deadline"]);
 
         public IList<DetailModel> GetAll(int page = 0)
         {
@@ -35,6 +38,7 @@ namespace WebAPI.Controllers
             };
 
             HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+
             return details;
         }
 
@@ -42,8 +46,13 @@ namespace WebAPI.Controllers
         {
             try
             {
+                if (DateTime.Now.Day < deadline && DateTime.Now.Day > 1)
+                {
+                    Mail.SendMail("dzanang@gmail.com", "Deadline is soon", "Please fill in your time for last month!");
+                }
+      
                 List<Detail> detail = Repository.Get().Where(x => x.Day.Person.Id == id && x.Day.Date.Month == m).ToList();
-
+                
                 if (detail == null)
                     return NotFound();
                 else
@@ -52,7 +61,6 @@ namespace WebAPI.Controllers
                     foreach (Detail d in detail)
                     {
                         DetailModel.Add(Factory.Create(d));
-
                     }
                     return Ok(DetailModel);
                 }
@@ -62,6 +70,7 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
+
         public IHttpActionResult Post(DetailModel model)
         {
             var sch = Repository.BaseContext();
@@ -85,11 +94,20 @@ namespace WebAPI.Controllers
                         day = days.Get().Where(x => x.Person.Id == model.Person && x.Date == DetailDate).FirstOrDefault();
                         model.Day = day.Id;
                         Repository.Insert(Parser.Create(model, sch));
+                        if (model.Team == 4 || model.TeamName == "Day Off")
+                        {
+                            Mail.SendMail("dzanang@gmail.com", "An employee has taken a Day Off", "Dear Azra! One of your employees" + model.PersonName + "has taken a Day Off");
+                        }
                     }
                     else
                     {
                         model.Day = day.Id;
                         Repository.Insert(Parser.Create(model, sch));
+
+                        if (model.Team == 4 || model.TeamName == "Day Off")
+                        {
+                            Mail.SendMail("dzanang@gmail.com", "An employee has taken a Day Off", "Dear Azra! One of your employees " + model.PersonName + " has taken a Day Off");
+                        }
                     }
                     return Ok(model);
                 }

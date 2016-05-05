@@ -34,7 +34,7 @@
                     $rootScope.userName = currentUser.name;
                     console.log($scope.userName);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
-                    $location.path("/calendar");
+                    $location.path("/months");
                     $('.modal').modal('hide');
                     $('.modal-backdrop').remove();
                     $('body').removeClass('modal-open');
@@ -73,7 +73,7 @@
                             $rootScope.userName = currentUser.name;
                             $rootScope.message = "";
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
-                            $location.path("/calendar");
+                            $location.path("/months");
                             $('.modal').modal('hide');
                             $('.modal-backdrop').remove();
                             $('body').removeClass('modal-open');
