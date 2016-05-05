@@ -152,6 +152,7 @@
     <Content Include="js\jquery-1.7.2.min.js" />
     <Content Include="js\signin.js" />
     <Content Include="js\style.css" />
+    <Content Include="library\angular-mailto.js" />
     <Content Include="library\bootstrap.css" />
     <Content Include="library\bootstrap.min.css" />
     <Content Include="library\jquery.js" />
@@ -165,6 +166,7 @@
     </Content>
     <Content Include="scripts\controllers\Calendar2Controller.js" />
     <Content Include="scripts\controllers\ModalController.js" />
+    <Content Include="scripts\controllers\NotificationController.js" />
     <Content Include="scripts\respond.js" />
     <Content Include="scripts\respond.min.js" />
     <Content Include="library\bootstrap1.js" />
@@ -198,7 +200,6 @@
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\app.js" />
-    <Content Include="scripts\controllers\ModalController.js" />
     <Content Include="scripts\controllers\DayModalController.js" />
     <Content Include="scripts\controllers\DetailsController.js" />
     <Content Include="scripts\controllers\EngagementsController.js" />
@@ -216,16 +217,20 @@
     <Content Include="scripts\services\DataService.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
+    <Content Include="scripts\toaster.js" />
     <Content Include="styles\calendar.css" />
     <Content Include="styles\modal.css" />
+    <Content Include="styles\notification.css" />
     <Content Include="styles\sidebar.css" />
     <Content Include="styles\simple-sidebar.css" />
     <Content Include="styles\site.css" />
+    <Content Include="styles\toaster.css" />
     <Content Include="views\calendar2.html" />
     <Content Include="views\CreateDetail.html" />
     <Content Include="views\daymodal.html" />
     <Content Include="views\details.html" />
     <Content Include="views\login.html" />
+    <Content Include="views\notification.html" />
     <Content Include="views\month.html" />
     <Content Include="views\modals\loginModal.html" />
     <Content Include="views\people.html" />

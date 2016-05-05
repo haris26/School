@@ -10,7 +10,7 @@ namespace WebAPI.Models
     {
         public DayModel()
         {
-            Detail detail = new Detail();
+            Details = new List<CountModel>();
             EntryStatus = EntryStatus.Unlocked;
         }
 
@@ -22,6 +22,7 @@ namespace WebAPI.Models
         public double WorkTime { get; set; }
         public double PtoTime { get; set; }
         public EntryStatus EntryStatus { get; set; }
+        public IList<CountModel> Details { get; set; }
         //public int DetailId { get; set; }
         //public IList<string> Detail { get; set; }
     }

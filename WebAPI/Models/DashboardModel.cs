@@ -12,6 +12,13 @@ namespace WebAPI.Models
         public int Count { get; set; }
     }
 
+    public class DetModel
+    {
+        public int WorkTime { get; set; }
+        //public string Description { get; set; }
+        //public string TeamName { get; set; }
+    }
+
     public class EmptyModel
     {
         public string Category { get; set; }

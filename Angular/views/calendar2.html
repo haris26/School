@@ -1,10 +1,17 @@
+<script type="text/ng-template" id="toasterBodyTmpl.html">
+    <p>Render a default template!</p>
+</script>
+
+<script type="text/ng-template" id="myTemplate.html">
+    <span>You have {{dayL}} days left</span>
+</script>
 <div class="row">
     <div class="create col-xs-offset-4 col-md-offset-6 col-md-3 col-xs-5" style="margin-top:-10%">
         <img src="../images/Mlogo1.png" class="img-responsive" width="280" height="280" />
     </div>
 </div>
 
-
+<toaster-container toaster-options="{'time-out': 6000, 'close-button':true, 'position-class':'toast-bottom-right'}"></toaster-container>
 <div class="date-picker" ng-controller="ModalController">
     <div id="calendar" style="margin-top:-15%; box-shadow: 8px 8px 100px #2E455C;">
         <uib-datepicker ng-model="dt" datepicker-options="options" ng-click="toggleModal(dt); newDetail()"></uib-datepicker>
@@ -61,3 +68,4 @@
         </div>
     </modal-dialog>
 </div>
+

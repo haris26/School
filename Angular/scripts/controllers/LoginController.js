@@ -12,7 +12,7 @@
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
-                    $location.path("/month");
+                    $location.path("/months");
                 },
                 function (reason) {
                     $rootScope.message = reason.status;
@@ -71,7 +71,7 @@
                             currentUser = response.data;
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
-                            $rootScope.message = "";                            
+                            $rootScope.message = "";
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
                             $location.path("/months");
                             $('.modal').modal('hide');

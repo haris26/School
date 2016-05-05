@@ -21,11 +21,15 @@
                     
                 });
             }
+
+       
       
         $scope.transfer = function (item) {
-            $scope.month = item;         
+            $scope.month = item;
+            $scope.recepient = item.email;
             $scope.colection = item.details;
             console.log($scope.month.details);
+            console.log($scope.recepient);
         };
         $scope.transfer1 = function (item1) {
             n1 = item1.id;
@@ -65,5 +69,5 @@
                 'July', 'August', 'September', 'October', 'November', 'December'];
             return monthNames[monthNumber - 1];
         }
-    }]);
+    }]);    
 }());

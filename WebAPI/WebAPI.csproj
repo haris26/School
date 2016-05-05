@@ -193,6 +193,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\PrsnController.cs" />
     <Compile Include="Controllers\DaysController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
     <Compile Include="Controllers\ListTeamController.cs" />
@@ -210,6 +211,7 @@
     </Compile>
     <Compile Include="Helpers\AppGlobals.cs" />
     <Compile Include="Helpers\Dashboard.cs" />
+    <Compile Include="Helpers\PersonHelper.cs" />
     <Compile Include="Helpers\Mail.cs" />
     <Compile Include="Helpers\MonthList.cs" />
     <Compile Include="Helpers\ListTeams.cs" />
@@ -217,6 +219,7 @@
     <Compile Include="Models\DashboardModel.cs" />
     <Compile Include="Models\DayModel.cs" />
     <Compile Include="Models\DetailModel.cs" />
+    <Compile Include="Models\PrsnModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\ListTeamsModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />

@@ -24,6 +24,7 @@ namespace WebAPI.Models
         }
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Email { get; set; }
         public IList<CountModel> Days { get; set; }
        // public IList<EmptyDayModel> EmptyDays { get; set; }
         public IList<ListModel> Details { get; set; }

@@ -89,7 +89,7 @@
             dateDisabled: disabled,
             formatYear: 'yy',
             maxDate: new Date(2020, 5, 22),
-            minDate: new Date(),
+            minDate: new Date(2011, 5, 22),
             startingDay: 1
         };
 
