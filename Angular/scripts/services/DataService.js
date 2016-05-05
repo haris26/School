@@ -20,8 +20,8 @@
                      });
             },
 
-            readD: function (dataSet, id, m, y, callback) {
-                $http.get(source + dataSet + "/" + id + "/" + m + "/" +y)
+            readD: function (dataSet, id, m, y, d, callback) {
+                $http.get(source + dataSet + "/" + id + "/" + m + "/" + y + "/" + d)
                      .success(function (data) {
                          return callback(data);
                      })

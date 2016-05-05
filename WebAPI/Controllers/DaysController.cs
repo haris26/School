@@ -50,11 +50,11 @@ namespace WebAPI.Controllers
             }
         }
 
-        public IList<DayModel> Get(int id, int m, int y)
+        public IList<DayModel> Get(int id, int m, int y, int dd)
         {
 
             
-            var day = Repository.Get().Where(x => x.Person.Id == id && x.Date.Month == m && x.Date.Year == y).ToList();
+            var day = Repository.Get().Where(x => x.Person.Id == id && x.Date.Month == m && x.Date.Year == y && x.Date.Day == dd).ToList();
           
            
             List<DayModel> DayModel = new List<DayModel>();
