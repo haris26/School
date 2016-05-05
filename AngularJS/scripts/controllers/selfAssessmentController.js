@@ -11,6 +11,7 @@
         $scope.assessmentClass = {
             true: "btn btn-success btn-sm",
             false: "btn btn-primary btn-sm"
+        }
 
         $scope.categoryItem = {
             id: 0,
