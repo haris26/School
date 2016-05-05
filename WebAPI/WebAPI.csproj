@@ -194,6 +194,7 @@
     <Compile Include="Controllers\CharacteristicNamesController.cs" />
     <Compile Include="Controllers\CharacteristicsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DatePickerController.cs" />
     <Compile Include="Controllers\EventExtendsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\ExtendedOverviewController.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="Models\CharacteristicNameModel.cs" />
     <Compile Include="Models\DashboardFilterModel.cs" />
     <Compile Include="Models\DashboardModel.cs" />
+    <Compile Include="Models\DatePickerModel.cs" />
     <Compile Include="Models\DeviceTableModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\EventExtendModel.cs" />
