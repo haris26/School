@@ -19,9 +19,9 @@
             DataService.read("selfassessments", id, function (data) {
                 $scope.assessments = data;
                 for (i = 0; i < $scope.assessments.skills.length; i++) {
-                    $scope.assessed[$scope.assessments.skills[i].categoryName] = {};
+                    //$scope.assessed[$scope.assessments.skills[i].categoryName] = {};
                     for (j = 0; j < $scope.assessments.skills[i].skills.length; j++) {
-                        $scope.assessed[$scope.assessments.skills[i].categoryName][$scope.assessments.skills[i].skills[j].skillId] = false;
+                        $scope.assessed[$scope.assessments.skills[i].skills[j].skillId] = false;
                     }
                 }
                 $scope.message = "";
@@ -29,7 +29,7 @@
             })
         }
 
-        $scope.createEmployeeSkill = function (skill, categoryName) {
+        $scope.createEmployeeSkill = function (skill) {
                 var employeeSkill = {
                     employee: $scope.employeeId,
                     tool: skill.skillId,
@@ -41,8 +41,13 @@
                 }
 
                 DataService.create("employeeskills", employeeSkill, function (data) {
-                    $scope.assessed[categoryName][skill.skillId] = true;
-                    toaster.pop('note', skill.skill + " assessed");
+                    if (data != false) {
+                        $scope.assessed[skill.skillId] = true;
+                        toaster.pop('note', skill.skill + " assessed");
+                    }
+                    else {
+                        toaster.pop('error', skill.skill + " could not be assessed!");
+                    }
                 });
             
         }

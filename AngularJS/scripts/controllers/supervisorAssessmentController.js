@@ -35,7 +35,12 @@
             //$log.info(employeeSkill);
 
             DataService.update("employeeskills", skill.employeeSkillId, employeeSkill, function (data) {
-                toaster.pop('note', skill.skill + " assessed");
+                if (data != false) {
+                    toaster.pop('note', skill.skill + " assessed");
+                }
+                else {
+                    toaster.pop('error', skill.skill + " could not be assessed!");
+                }
             });
         }
     });
