@@ -20,6 +20,27 @@
                      });
             },
 
+            readD: function (dataSet, id, m, y, callback) {
+                $http.get(source + dataSet + "/" + id + "/" + m + "/" +y)
+                     .success(function (data) {
+                         return callback(data);
+                     })
+                     .error(function (error) {
+                         $rootScope.message = error.message;
+                         callback(false);
+                     })
+            },
+            read1: function (dataSet, id, m, callback) {
+                $http.get(source + dataSet + "/" + id + "/" + m )
+                     .success(function (data) {
+                         return callback(data);
+                     })
+                     .error(function (error) {
+                         $rootScope.message = error.message;
+                         callback(false);
+                     })
+            },
+            
             read: function (dataSet, id, callback) {
                 $http.get(source + dataSet + "/" + id)
                      .success(function (data) {

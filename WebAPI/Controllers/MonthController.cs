@@ -17,23 +17,6 @@ namespace WebAPI.Controllers
         public MonthController(Repository<Person> depo) : base(depo)
         { }
 
-        //public IList<MonthModel> Get()
-
-        //{
-
-        //    var people = Repository.Get().OrderBy(x => x.LastName).ThenBy(x => x.FirstName)
-        //                .ToList();
-
-
-        //    List<MonthModel> list = new List<MonthModel>();
-        //    foreach (var p in people)
-        //    {
-        //        list.Add(MonthList.Create(p));
-
-        //    }
-        //    return list;
-        //}
-
 
         public IList<MonthModel> GetByMonth(int id=0)
         {
