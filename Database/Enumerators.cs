@@ -76,7 +76,7 @@ namespace Database
     {
         Assigned = 1,
         Free = 2,
-        OutofOrder = 3
+        OutOfStock = 3
     }
 
     public enum HistoryStatus
@@ -88,7 +88,7 @@ namespace Database
   
     public enum RequestStatus
     {
-        AvaitingForApprovale = 2,
+        WaitingForApproval = 2,
         Cancelled = 5,
         Approved = 3,
         Completed = 4,

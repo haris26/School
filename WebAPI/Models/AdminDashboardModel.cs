@@ -49,7 +49,7 @@ namespace WebAPI.Models
             CountNewRequests = 0;
             CountServiceRequests = 0;
 
-            countOutOfOrderAssets = 0;
+            countOutOfStockAssets = 0;
             countAssignedAssets = 0;
             countFreeAssets = 0;
             countAllAssets = 0;
@@ -59,7 +59,7 @@ namespace WebAPI.Models
 
             AssignedAssets = new List<ListAssetModel>();
             FreeAssets = new List<ListAssetModel>();
-            OutOfOrderAssets = new List<ListAssetModel>();
+            OutOfStockAssets = new List<ListAssetModel>();
             AllAssets = new List<ListAssetModel>();
 
         }
@@ -70,13 +70,13 @@ namespace WebAPI.Models
         public int CountServiceRequests { get; set; }
         public int countFreeAssets { get; set; }
         public int countAssignedAssets { get; set; }
-        public int countOutOfOrderAssets { get; set; }
+        public int countOutOfStockAssets { get; set; }
         public int countAllAssets { get; set; }
         public IList<ListReqModel> Requests { get; set; }
         public IList <ListReqModel>ServiceRequests { get; set; }
         public IList<ListAssetModel> AssignedAssets { get; set; }
         public IList<ListAssetModel> FreeAssets { get; set; }
-        public IList<ListAssetModel> OutOfOrderAssets { get; set; }
+        public IList<ListAssetModel> OutOfStockAssets { get; set; }
         public IList<ListAssetModel> AllAssets { get; set; }
 
     }

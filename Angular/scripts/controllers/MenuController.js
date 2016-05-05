@@ -45,6 +45,7 @@
             $rootScope.menuItems.push({ link: "userservicerequests", text: "Requests(service)" });
             $rootScope.menuItems.push({ link: "userdashboard" });
             $rootScope.menuItems.push({ link: "myassets", text: "My Assets" });
+            $rootScope.menuItems.push({ link: "completedrequests", text: "Completed requests" });
         };
     
      

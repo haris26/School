@@ -82,11 +82,11 @@ namespace WebAPI.Helpers
                 });
             }
 
-            var outoforderassets = new AssetsUnit(context).Get().Where(x => x.AssetCategory.assetType == AssetType.Office && x.Status == AssetStatus.OutofOrder).ToList();
-            foreach (var asset in outoforderassets)
+            var OutOfStockassets = new AssetsUnit(context).Get().Where(x => x.AssetCategory.assetType == AssetType.Office && x.Status == AssetStatus.OutOfStock).ToList();
+            foreach (var asset in OutOfStockassets)
             {
-                dashboard.countOutOfOrderAssets++;
-                dashboard.OutOfOrderAssets.Add(new ListAssetModel
+                dashboard.countOutOfStockAssets++;
+                dashboard.OutOfStockAssets.Add(new ListAssetModel
                 {
                     Category = asset.AssetCategory.Id,
                     CategoryName=asset.AssetCategory.CategoryName.ToString(),
