@@ -14,22 +14,12 @@
                     elem.css('background-color', '#F2F2F2');
                     scope.timeSlot.isPast = true;
                 }
-                var i = 1;
-                //for ( i ; i < scope.$parent.reservations.length; i++) {
-                //    if (scope.timeSlot.$id == 10 + i || scope.timeSlot.$id == 14
-                //    || scope.timeSlot.$id == 18 || scope.timeSlot.$id == 22 || scope.timeSlot.$id == 26
-                //    || scope.timeSlot.$id == 30 || scope.timeSlot.$id == 34 || scope.timeSlot.$id == 38
-                //    || scope.timeSlot.$id == 48) {
-                //        elem.css('border-right-color', 'black ')
-                //    }
-                //    i = i + 38;
-                //}
-                    if (scope.timeSlot.$id == 10+i || scope.timeSlot.$id == 14
-                   || scope.timeSlot.$id == 18 || scope.timeSlot.$id == 22 || scope.timeSlot.$id == 26
-                   || scope.timeSlot.$id == 30 || scope.timeSlot.$id == 34 || scope.timeSlot.$id == 38
-                   || scope.timeSlot.$id == 48) {
-                        elem.css('border-right-color', 'black ')
-                    }           
+               
+                if (scope.timeSlot.$id == 10 || scope.timeSlot.$id == 14
+                || scope.timeSlot.$id == 18 || scope.timeSlot.$id == 22 || scope.timeSlot.$id == 26
+                || scope.timeSlot.$id == 30 || scope.timeSlot.$id == 34 || scope.timeSlot.$id == 48) {
+                    elem.css('border-right-color', '#2E2E2E ')
+                }           
                              
                 if (scope.timeSlot.isReserved == true) {elem.css('background-color', '#B01E5F ')
                     if (scope.timeSlot.personName == currentUser.name) {

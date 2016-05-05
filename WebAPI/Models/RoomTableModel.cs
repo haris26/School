@@ -1,6 +1,7 @@
 using Database;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,8 @@ namespace WebAPI.Models
         public string PersonName { get; set; }
         public string EventStart { get; set; }
         public string EventEnd { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
         public bool IsReserved { get; set; }
         public bool IsPast { get; set; }
     }
@@ -57,21 +60,18 @@ namespace WebAPI.Models
 
             for (int i = 0; i < 32; i++)
             {
-            Room.TimeSlots.Add(new RoomCellModel
+                Room.TimeSlots.Add(new RoomCellModel
                 {
                     EventTitle = "",
                     PersonName = "",
                     EventStart = Convert.ToString(date.AddMinutes(i * 15)),
                     EventEnd = Convert.ToString(date.AddMinutes((i * 15) + 15)),
+                    StartTime = date.AddMinutes(i * 15).ToShortTimeString(),
+                    EndTime = date.AddMinutes((i * 15)+15).ToShortTimeString(),
                     IsReserved = false,
                     IsPast = false
                 });
             }
-        }
-
-        public void Add(int i, RoomCellModel newEvent)
-        {
-            Room.TimeSlots[i] = newEvent;
         }
     }
 }
