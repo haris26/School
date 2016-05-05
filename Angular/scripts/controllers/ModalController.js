@@ -40,7 +40,7 @@
         $scope.createReservation = function () {
             DataService.create("events", $scope.newEvent, function(data) {
                 var result = true;
-                //$rootScope.refreshTable();
+                $rootScope.refreshTable();
                 $modalInstance.close(result);
             });
         };

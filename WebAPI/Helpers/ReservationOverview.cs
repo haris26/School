@@ -97,6 +97,8 @@ namespace WebAPI.Helpers
                             timeSlot.EventTitle = ev.EventTitle;
                             timeSlot.EventStart = ev.EventStart.ToString();
                             timeSlot.EventEnd = ev.EventEnd.ToString();
+                            timeSlot.StartTime = ev.EventStart.ToShortTimeString();
+                            timeSlot.EndTime = ev.EventEnd.ToShortTimeString();
                             timeSlot.PersonName = ev.User.FullName;
                             timeSlot.IsReserved = true;
                         }

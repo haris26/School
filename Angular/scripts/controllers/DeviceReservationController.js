@@ -63,13 +63,13 @@
             $scope.getReservations();
         }
        $scope.images = {
-           iOS: "images/iosBlue.png",
-           Android: "images/androidBlue.png",
-           Windows: "images/windowsBlue.png",
-           OsVersion: "images/versionBlue.png",
-           Quantity: "images/quantityBlue.png",
-           Mobile: "images/mobile2.png",
-           Tablet: "images/tablet2.png"
+           iOS: "images/iosYes.png",
+           Android: "images/androidYes.png",
+           Windows: "images/windowsYes.png",
+           OsVersion: "images/versionYes.png",
+           Quantity: "images/quantityYes.png",
+           Mobile: "images/mobile.png",
+           Tablet: "images/tablet.png"
        }
 
        function setCharacteristics () {
