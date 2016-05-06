@@ -12,15 +12,16 @@ namespace WebAPI.Helpers
     {
         public static Person currentUser
         {
-            get
-            {
-                if (!Thread.CurrentPrincipal.Identity.IsAuthenticated) return null;
-                string username = Thread.CurrentPrincipal.Identity.Name;
-                if (username == null) username = HttpContext.Current.User.Identity.Name;
-                var person = (new Repository<Person>(new SchoolContext())).Get().Where(x => x.FirstName == username).FirstOrDefault();
-                if (person == null) person = (new Repository<Person>(new SchoolContext())).Get().Where(x => x.FirstName + x.LastName.Substring(0, 1) == username).FirstOrDefault();
-                return person;
-            }
+            get; set;
+            //get
+            //{
+            //    if (!Thread.CurrentPrincipal.Identity.IsAuthenticated) return null;
+            //    string username = Thread.CurrentPrincipal.Identity.Name;
+            //    if (username == null) username = HttpContext.Current.User.Identity.Name;
+            //    var person = (new Repository<Person>(new SchoolContext())).Get().Where(x => x.FirstName == username).FirstOrDefault();
+            //    if (person == null) person = (new Repository<Person>(new SchoolContext())).Get().Where(x => x.FirstName + x.LastName.Substring(0, 1) == username).FirstOrDefault();
+            //    return person;
+            //}
         }
 
         public static string Signature(string Secret, string AppId)

@@ -51,9 +51,12 @@ namespace WebAPI.Filters
                     {
                         var principal = new GenericIdentity(username);
                         Thread.CurrentPrincipal = new GenericPrincipal(principal, null);
+                        SchoolContext context = new SchoolContext();
+                        AppGlobals.currentUser = context.People.Where(x => x.FirstName == username).FirstOrDefault();
                         return;
                     }
                 }
+       
             }
             actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
             actionContext.Response.Headers.Add("WWW-Authenticate", "Basic Scheme='SchoolContext' location=''");
