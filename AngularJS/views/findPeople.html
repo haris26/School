@@ -79,7 +79,7 @@
                 <div id="user" class="dashboard-window clearfix div-darkblue">
                     <div class="d-w-text-maximum">
                         <a href="#/employeeSummary/{{match.employeeId}}" class="user_name_display white-link">{{match.fullName}}</a><br />
-                        <div ng-repeat="engagement in match.engagements">Team: {{ engagement.team }}</div>
+                        <div ng-repeat="engagement in match.engagements">Team: {{ engagement.team }}, {{ engagement.role }}</div>
                         <div ng-repeat="skill in match.skills">{{ skill.skill }}: {{ skill.level }}, {{ skill.experience }} years exp.</div>
                         <div ng-repeat="education in match.educations">{{ education.qualification }}</div>
                     </div>
@@ -96,7 +96,7 @@
                 <div id="user" class="dashboard-window clearfix div-blue">
                     <div class="d-w-text-maximum">
                         <a href="#/employeeSummary/{{ match.employeeId }}" class="user_name_display white-link">{{ match.fullName }}</a><br />
-                        <div ng-repeat="engagement in match.engagements">Team: {{ engagement.team }}</div>
+                        <div ng-repeat="engagement in match.engagements">Team: {{ engagement.team }}, {{ engagement.role }}</div>
                         <div ng-repeat="skill in match.skills">{{ skill.skill }}: {{ skill.level }}, {{ skill.experience }} years exp.</div>
                         <div ng-repeat="education in match.educations">{{ education.qualification }}</div>
                     </div>

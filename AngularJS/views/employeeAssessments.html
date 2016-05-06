@@ -58,7 +58,7 @@
                         <br>
                         <br>
                     </div>
-                    <div class="col-md-offset-6">
+                    <div ng-show="permissions.showUser" class="col-md-offset-6">
                         <button ng-click="goToSelfAssessment()" class="btn btn-default" style="width:100%">Assess</button>
                     </div>
                 </div>
@@ -74,13 +74,11 @@
                         Last Completed: {{assessments.supervisorAssessment.lastCompleted}}
                         <hr />
                         Next Due: {{assessments.supervisorAssessment.nextDue}}
-                        <hr />
-                        Assessed By: {{assessments.supervisorAssessment.assessedBy }}
                         <br>
                         <br>
                     </div>
 
-                    <div class="col-md-offset-6">
+                    <div ng-show="permissions.showAdmin" class="col-md-offset-6">
                         <button ng-click="goToSupervisorAssessment()" class="btn btn-default" style="width:100%">Assess</button>
                     </div>
                 </div>

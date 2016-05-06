@@ -38,5 +38,9 @@
                 toaster.pop('note', skill.skill + " assessed");
             });
         }
+
+        $scope.goToAssessment = function () {
+            $location.path('/employeeAssessments/' + $scope.employeeId);
+        }
     });
 }());
