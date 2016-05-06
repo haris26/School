@@ -34,7 +34,13 @@
                 osType: $scope.Type
             };
         };
-
+        $scope.searchParameters = {
+            fromDate: new Date(),
+            toDate: new Date(),
+            categoryName: "Device",
+            resourceName: $scope.resourceName,
+            osType: $scope.Type
+        };
         $scope.getReservations = function ()
         {
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
@@ -48,7 +54,7 @@
                         else if ($scope.reservations.characteristics[0].value == "Tablet") {
                             $scope.tablet = true;
                         }
-                    }                
+                    }
             });
             setCharacteristics();
             $scope.deviceCharacteristics = true;

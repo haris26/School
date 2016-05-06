@@ -12,14 +12,14 @@
             osType: ""
         };
         
-       function getReservation() {
-            DataService.create("reservationoverview", $scope.searchParameters, function (data) {
-                $scope.reservations = data;
-                console.log($scope.reservations);
-            });
-
+    
+       $scope.getReservations = function () {
+           DataService.create("reservationoverview", $scope.searchParameters, function (data) {
+               $scope.reservations = data;
+               console.log($scope.reservations);
+           });
        }
-       getReservation();
+       $scope.getReservations();
 
        // $rootScope.refreshTable = function () {
        //     $scope.getReservations();

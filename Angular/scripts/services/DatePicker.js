@@ -2,48 +2,72 @@
 
     var app = angular.module("school");
 
-    app.directive("datePicker", function ($modal, schConfig) {
+    app.directive("datePicker", function ($modal, schConfig,DataService,$rootScope) {
         return {
             restrict: "AE",
-            replace:true,
-            templateUrl:'views/datePicker.html',
-            scope: {
-                today: '=',
-                week: '=',
-            },
+            replace: true,
+            templateUrl:"views/datePicker.html",
             link: function (scope, elem, attrs) {
-                
-                var setToday = new Date();
-                scope.today = setToday.setUTCHours(-2);
-              
-
-                scope.week = {
-                    start: new Date(setToday.getFullYear(),setToday.getMonth(),(setToday.getDate()-setToday.getDay()+2)),
-                    end: new Date(setToday.getFullYear(),setToday.getMonth(),(setToday.getDate()-setToday.getDay()+6))
-                };
-                
-
-            scope.next=function () {
-                     scope.week = {
-                         start: new Date(scope.week.start.getFullYear(), scope.week.start.getMonth(), scope.week.start.getDate() +6),
-                         end: new Date(scope.week.end.getFullYear(), scope.week.end.getMonth(), scope.week.end.getDate() +6),
-                     };
-                     
-                     scope.$parent.getWeek(scope.week);
-                     
+                scope.show = true;
+                console.log(scope);
+                if (attrs.type == "daily") {
+                    scope.show = false;
                 }
-          
-      
-               scope.previous = function () {
-                   scope.week = {
-                       start: new Date(scope.week.start.getFullYear(), scope.week.start.getMonth(), scope.week.start.getDate() - 7),
-                       end: new Date(scope.week.end.getFullYear(), scope.week.end.getMonth(), scope.week.end.getDate() - 7),
-                       
-                   };
-                   scope.$parent.getWeek(scope.week);
+                scope.day = {
+                    today: "",
+                    type: attrs.type,
+                    step: 0
+                };
+                var count = 0;
+                   getDay= function (){
+                   DataService.create("datepicker", scope.day, function (data) {
+                       scope.newDay = data;
+                   });
                }
+                   getDay();
+
+               scope.goNext = function () {
+                   scope.day = {
+                       today: "",
+                       type: scope.day.type,
+                       step: scope.day.step+1
+                       
+                   }
+                   console.log("param", scope.searchParameters);
+                   DataService.create("datepicker", scope.day, function (data) {
+                       scope.newDay = data;
+
+                       scope.searchParameters.fromDate = scope.newDay.weekStart;
+                       scope.searchParameters.toDate = scope.newDay.weekEnd;
+                       if (attrs.type == "daily") {
+                           scope.searchParameters.fromDate = scope.newDay.today;
+                           scope.searchParameters.toDate = scope.newDay.today;
+                       }
+                       scope.getReservations();
+                     
+                   });
+                   count++;
+               }
+               scope.goPrevious = function () {
+      
+                   if (count != 0) {
+                       scope.day = {
+                           today: "",
+                           type: scope.day.type,
+                           step: scope.day.step - 1
+
+                       }
+                       DataService.create("datepicker", scope.day, function (data) {
+                           scope.newDay = data;
+                           scope.searchParameters.fromDate = scope.newDay.weekStart;
+                           scope.searchParameters.toDate = scope.newDay.weekEnd;
+                           scope.getReservations();
+                       });
+                       count--;
+                   }
+                   }
+                   
             }
-            
-        };
+        }
     });
 }());
