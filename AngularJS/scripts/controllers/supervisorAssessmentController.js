@@ -43,5 +43,9 @@
                 }
             });
         }
+
+        $scope.goToAssessment = function () {
+            $location.path('/employeeAssessments/' + $scope.employeeId);
+        }
     });
 }());

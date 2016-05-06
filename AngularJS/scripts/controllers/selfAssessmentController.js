@@ -4,6 +4,8 @@
 
     app.controller("SelfAssessmentCtrl", function ($scope, $routeParams, $log, $location, DataService, toaster) {
 
+        var categories = {};
+
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
         $scope.assessed = {};
@@ -14,13 +16,18 @@
             false: "btn btn-primary btn-sm"
         }
 
-        fetchCategories();
-
         function fetchCategories() {
             DataService.list("skillscategories", function (data) {
                 $scope.categories = data;
                 $scope.selectedCategory = $scope.categories[0];
                 $scope.message = "";
+                for (i = 0; i < $scope.categories.length; i++) {
+                    var ids = categories[$scope.categories[i].name];
+                    var filteredTools = $scope.categories[i].tools.filter(function (obj) {
+                                                                            return !(obj.id in ids);
+                    });
+                    $scope.categories[i].tools = filteredTools;
+                }
             })
         }
 
@@ -30,11 +37,13 @@
             DataService.read("selfassessments", id, function (data) {
                 $scope.assessments = data;
                 for (i = 0; i < $scope.assessments.skills.length; i++) {
-                    //$scope.assessed[$scope.assessments.skills[i].categoryName] = {};
+					categories[$scope.assessments.skills[i].categoryName] = {};
                     for (j = 0; j < $scope.assessments.skills[i].skills.length; j++) {
                         $scope.assessed[$scope.assessments.skills[i].skills[j].skillId] = false;
+                        categories[$scope.assessments.skills[i].categoryName][$scope.assessments.skills[i].skills[j].skillId] = $scope.assessments.skills[i].skills[j];
                     }
                 }
+                fetchCategories();
                 $scope.message = "";
                 $scope.data = [];
             })
@@ -61,5 +70,10 @@
                     }
                 });
         }
+
+        $scope.goToAssessment = function () {
+            $location.path('/employeeAssessments/' + $scope.employeeId);
+        }
+
     });
 }());

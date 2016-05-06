@@ -32,8 +32,8 @@
             .when("/supervisorAssessment/:employeeId", { templateUrl: "views/supervisorAssessment.html", controller: "SupervisorAssessmentCtrl" })
             .when("/selfAssessment/:employeeId", { templateUrl: "views/selfAssessment.html", controller: "SelfAssessmentCtrl" })
             .when("/editEmployeeQualifications/:employeeId", { templateUrl: "views/editEmployeeQualifications.html", controller: "EditEmployeeQualificationsCtrl" })
-            .when("/findPeople", { templateUrl: "views/findPeople.html", controller: "FindPeopleCtrl" })
-            .when("/teams", { templateUrl: "views/teams.html", controller: "TeamsSummaryCtrl" })
+            .when("/findPeople", { templateUrl: "views/findPeople.html", controller: "FindPeopleCtrl", resolve: { factory: userRouting } })
+            .when("/teams", { templateUrl: "views/teams.html", controller: "TeamsSummaryCtrl", resolve: { factory: userRouting } })
             .when("/logout", { template: "", controller: "LogoutCtrl" })
             .otherwise({ redirectTo: "/overview" });
     }).run(function ($rootScope, $location) {
