@@ -25,8 +25,9 @@ namespace WebAPI.Helpers
 
             teamSummary.PeopleInTeam = teamSummary.Members.Count();
 
-            var memberSkills = distinctMembers.Select(x => x.EmployeeSkills.GroupBy(y => y.Tool.Name)
-                                                                           .Select(y => y.ToList().Where(z => z.AssessedBy == AssessmentType.Supervisor)
+            var memberSkills = distinctMembers.Select(x => x.EmployeeSkills.Where(z => z.AssessedBy == AssessmentType.Supervisor)
+                                                                           .GroupBy(y => y.Tool.Name)
+                                                                           .Select(y => y.ToList()
                                                                            .OrderByDescending(z => z.DateOfSupervisorAssessment)
                                                                            .FirstOrDefault()).ToList()).ToList();
 

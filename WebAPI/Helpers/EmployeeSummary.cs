@@ -31,6 +31,7 @@ namespace WebAPI.Helpers
                                                     }).ToList();
 
             employeeSummary.Skills = person.EmployeeSkills
+                                           .Where(x => x.AssessedBy == AssessmentType.Supervisor)
                                            .GroupBy(x => x.Tool.Category)
                                            .Select(x => CreateEmployeeSkillsSummary(x, AssessmentType.Supervisor)).ToList();
 

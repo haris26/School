@@ -189,7 +189,7 @@ namespace WebAPI.Helpers
         //get all current skills of a person 
         public static List<EmployeeSkill> GetCurrentSkills(Person person)
         {
-            var currentSkills = person.EmployeeSkills
+            var currentSkills = person.EmployeeSkills.Where(x => x.AssessedBy == AssessmentType.Supervisor)
                                       .GroupBy(x => x.Tool)
                                       .Select(x => x.ToList().Where(y => y.AssessedBy == AssessmentType.Supervisor)
                                                              .OrderByDescending(y => y.DateOfSupervisorAssessment)
