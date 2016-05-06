@@ -21,8 +21,8 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Get (int id = 0)
         {
-            try
-            {
+            //try
+            //{
                 Person person;
                 if (id == 0)
                     person = ident.currentUser;
@@ -35,11 +35,11 @@ namespace WebAPI.Controllers
                     }
                 }
                 return Ok(EmployeeSummary.Create(person));
-            }    
-            catch (Exception ex)
-            {
-                return BadRequest();
-            }
+            //}    
+            //catch (Exception ex)
+            //{
+            //    return BadRequest();
+            //}
         }
     }
 }

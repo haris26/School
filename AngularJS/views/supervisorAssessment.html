@@ -32,8 +32,8 @@
                         </table>
                     </div>
                     <div class="col-md-2">
-                        <a class="btn btn-primary btn-sm" ng-click="updateEmployeeSkill(skill, assessments.selfAssessmentDate)"><span class="glyphicon glyphicon-ok"></span></a>
-                    </div>
+                        <a class="{{assessmentClass[assessed[skill.skillId]]}}" ng-click="updateEmployeeSkill(skill, assessments.selfAssessmentDate)"><span class="glyphicon glyphicon-ok"></span></a>
+                      </div>
                 </div>
                 <hr />
             </div>
