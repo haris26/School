@@ -26,7 +26,7 @@
             <div class="notice notice-today" ng-repeat="item in dashboard.todayReservations">
                 <p>
                     <i id="today-title">{{ item.eventTitle}}</i> <br />
-                    You have reservation for <strong>{{ item.resourceName }}</strong> at <i class="glyphicon glyphicon-time"> </i> {{item.time}}
+                    You have reservation for <strong>{{ item.resourceName }}</strong> from <i class="glyphicon glyphicon-time"> </i> {{item.time}}
                 </p>
             </div>
         </div>
@@ -43,8 +43,8 @@
             <div class="notice notice-upcoming" ng-repeat="item in dashboard.upcomingReservations">
                 <p>
                     <i id="upcoming-title">{{item.eventTitle}}</i> <br />
-                    You have reservation for <strong>{{ item.resourceName }}</strong> on <i class="glyphicon glyphicon-calendar"> </i>{{item.startDate}}<br />
-                    at <i class="glyphicon glyphicon-time"> </i> {{item.time}}
+                    You have reservation for <strong>{{ item.resourceName }}</strong> on <i class="glyphicon glyphicon-calendar"> </i> {{item.startDate}}<br />
+                    from <i class="glyphicon glyphicon-time"> </i> {{item.time}}
                 </p>
             </div>
         </div>

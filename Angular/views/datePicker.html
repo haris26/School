@@ -1,9 +1,13 @@
-﻿
-    <div class="dateConteiner">
-        
-            <span class="glyphicon glyphicon-chevron-left" ng-click="goPrevious()"></span>
-            <span class="dateInfo" ng-show="show">{{newDay.weekStartDay}}-{{newDay.weekEndDay}}</span>
-            <span class="dateInfo" ng-show="!show">{{newDay.todayDay}}</span>
-            <span class="glyphicon glyphicon-chevron-right" ng-click="goNext()"></span>   
-     </div>
+﻿<div class="dateContainer">
+    <div class="dateContent" ng-show="!show">
+        <span class="glyphicon glyphicon-chevron-left" ng-click="goPrevious()"></span>
+        <span id="dayInfo" ng-show="!show">{{newDay.todayDay}}</span>
+        <span class="glyphicon glyphicon-chevron-right" ng-click="goNext()"></span>
+    </div>
+    <div ng-show="show">
+        <span class="glyphicon glyphicon-chevron-left" ng-click="goPrevious()"></span>
+        <span id="dateInfo">{{newDay.weekStartDay}} - {{newDay.weekEndDay}}</span>
+        <span class="glyphicon glyphicon-chevron-right" ng-click="goNext()"></span>  
+    </div>  
+</div>
 

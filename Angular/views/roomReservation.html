@@ -2,10 +2,8 @@
 
     <h2 id="welcome-title"> Room Reservations </h2>
     <br />
-
     <div date-picker type="daily"></div>
-
-
+    <br />
     <div class="table-container">
         <div class="room-row">
             <div class="day-name"></div>
@@ -19,7 +17,7 @@
             <div class="timeSpan"> 16</div>
         </div>
         <div class="room-row" ng-repeat="room in reservations">
-            <div class="room-name" data-toggle="popover">{{room.room.roomName}}</div>
+            <div class="room-name" popover-placement="bottom" popover-trigger="mouseenter" popover="{{room.room.roomName}}">{{room.room.roomName}}</div>
             <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
         </div>
     </div>

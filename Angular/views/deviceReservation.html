@@ -55,7 +55,8 @@
 
     <div class="container container-top" ng-show="deviceCharacteristics">
         <div class="tableContainer">
-             <div date-picker type="weekly"></div>
+            <div date-picker type="weekly"></div>
+            <br/>
             <div class="row1">
                 <div class="roomName">Day/Hours</div>
                 <div class="timeSpan">09:00</div>
@@ -67,15 +68,16 @@
                 <div class="timeSpan">15:00</div>
                 <div class="timeSpan">16:00</div>
             </div>
-          
+
             <div ng-repeat="day in reservations.deviceTable.days">
                 <div class="row1">
                     <div class="roomName">{{day.day}} </div>
                     <div ng-repeat="hour in day.hours">
                         <div class="timeSpan" device-Res popover-placement="right" popover-trigger="mouseenter" popover="{{hour.personName}}">&nbsp;</div>
-                    </div>                   
+                    </div>
                 </div>
             </div>
+            <br/> <br/>
         </div>
     </div>
 </div>

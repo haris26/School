@@ -8,7 +8,10 @@
                     <img ng-if="item.categoryName=='Device'" src="images/devices.png">
                     <img ng-if="item.categoryName=='Room'" src="images/confRoom.png">
                     <div class="caption">
-                        <h4>{{item.resourceName}} </h4>
+                        <h4>{{item.eventTitle}} </h4>
+                        <p>
+                            {{item.resourceName}}
+                        </p>
                         <p>
                             <i class="glyphicon glyphicon-calendar"> </i>  {{item.startDate}}
                         </p>

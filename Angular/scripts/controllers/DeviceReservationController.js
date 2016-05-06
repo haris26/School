@@ -87,7 +87,6 @@
                 $scope.windows = true;
             }                     
        }
-
     });
 }());
 

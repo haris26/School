@@ -397,36 +397,50 @@
     background-color:transparent;	
  }
 
-.glyphicon-chevron-left {
-     
-    width:50px;
-    height:50px;
+.glyphicon-chevron-left {    
+    width:45px;
+    height:45px;
     font-size:40px;
-    color:#3475CD;
-
+    color:#F8A519;
 }
 
- .glyphicon-chevron-right{
-        
-    width:50px;
-    height:50px;
+.glyphicon-chevron-right{        
+    width:45px;
+    height:45px;
     font-size:40px;
-    color:#3475CD;
- 
+    color:#F8A519;
 }
- .dateInfo{
 
-    min-width:200px;
+#dateInfo{
     min-height:50px;
-    font-size:20px;
+    font-size:30px;
+    vertical-align: top;
     margin-bottom:15px;
-    color:#3475CD;
+    color:#01AB8E;
+    text-align: center;
 }
 
-.dateConteiner {
+#dayInfo{
+    width: 350px;
+    text-align: center;
+    min-height:50px;
+    font-size:30px;
+    vertical-align: top;
+    margin-bottom:15px;
+    color:#01AB8E;
+}
 
-  width: 300px;
-  height:50px;
-  margin-left: auto;
-  margin-right: auto;
+.dateContainer {
+    width: 350px;
+    height:50px;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    alignment-adjust: central;
+    horiz-align: center;
+}
+
+.dateContent {
+    width: 60%;
+    margin: 0 auto;
 }

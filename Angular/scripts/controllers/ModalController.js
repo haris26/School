@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("ExtendModalCtrl", function($scope, $modalInstance, DataService, schConfig, toaster, $rootScope) {
+    app.controller("ExtendModalCtrl", function($scope, $modalInstance, DataService, schConfig, toaster) {
 
         $scope.saveData = function () {
             DataService.create("eventextends", $scope.eventExtend, function (data) { });
@@ -44,7 +44,7 @@
                 $modalInstance.close(result);
             });
         };
-        console.log($scope.newEvent);
+        //console.log($scope.newEvent);
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
@@ -61,7 +61,7 @@
                 $modalInstance.close(result);
             });
         };
-        console.log($scope.newEvent);
+        //console.log($scope.newEvent);
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
@@ -88,7 +88,7 @@
             });
 
         };
-        console.log($scope.extendedEvent);
+        //console.log($scope.extendedEvent);
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };

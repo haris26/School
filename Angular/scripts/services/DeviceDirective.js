@@ -2,21 +2,20 @@
 
     var app = angular.module("school");
 
-    app.directive("deviceRes", function ($modal,  schConfig) {
+    app.directive("deviceRes", function ($modal) {
         return {
             restrict: "AE",
             replace: true,
             link: function (scope, elem, attrs) {
                 var eventDate = new Date(scope.day.date);
                 var todayDate = new Date();
-
                 var today = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
 
                 if (eventDate < today || (eventDate <= today && scope.hour.hour < todayDate.getHours())) {
                     elem.css('background-color', '#F2F2F2');
                     scope.hour.isPast = true;
                 }
-                console.log(scope.hour.hour);
+                //console.log(scope.hour.hour);
                 //console.log(scope.day.date);
 
                 if (scope.hour.isReserved == true) {
