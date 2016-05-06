@@ -26,9 +26,37 @@ table#dataTables-example th {
 #nedimModal{
     position:relative;
     right:110%;
+    background-color:#1F2F3E;
+        border-style: solid;
+    border-color: #59B3D2
     
 }
 
+
+#irmapanel{
+  
+    background-color:#1F2F3E;
+    
+}
+
+
+.irmalabel{
+  
+    color:white;
+        font-weight: normal;
+    
+}
+
+#irmalabel{
+    color:white;
+        margin-left: -15px;
+}
+
+#irmaimg{
+
+  vertical-align: middle;
+    margin-left: 40px;
+}
 #status-select{
     width:95px;
 }

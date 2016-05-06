@@ -5,23 +5,25 @@
             <div id="login">
                 <div class="align-center">
                     <br>
-                    <img src="images/mistrallogobig.png" width="200px" height="100px" />
+                    <img src="images/mistrallogowhite.png" id="irmaimg" width="200px" height="100px" />
                 </div>
                 <br>
-                <div class="panel" ng-show="!wait">
-                    <label>Username: </label>
+                <div class="panel" id="irmapanel" ng-show="!wait">
+                    <label class="irmalabel">Username: </label>
                     <div><input type="text" class="form-control" ng-model="user.name"></div>
-                    <label>Password: </label>
+                    <label class="irmalabel">Password: </label>
                     <div>
                         <input type="password" class="form-control" ng-model="user.pass">
                     </div>
-                    <div class="checkbox">Remember me <input style="margin-left:10px;" type="checkbox" ng-model="user.remember" /></div>
+                    <br>
                     <div>
                         <input type="button" id="loginBtn" value="Login" class="btn btn-primary form-control" ng-click="login()" />
                         <br>
-                        <br/>
+                        <br />
                         <input type="button" id="googleBtn" value="Login with Google" class="btn btn-success form-control" />
                     </div>
+
+                    <div class="checkbox" id="irmalabel">Remember me <input style="margin-left:10px;" type="checkbox" ng-model="user.remember" /></div>
                 </div>
                 <div class="text" ng-show="!wait"></div>
                 <div class="text text-center" ng-show="wait"><br><img src="images/loading.gif" /><br></div>

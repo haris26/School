@@ -11,7 +11,7 @@ namespace WebAPI.Helpers
     {
         public static DashboardModel Create(Person person)
         {
-            SchoolContext context = new SchoolContext();
+
             DashboardModel dashboard = new DashboardModel()
             {
                 Id = person.Id,
@@ -20,9 +20,7 @@ namespace WebAPI.Helpers
 
            
 
-            var assets = person.Assets.Select
-
-                (x => new { x.Id,x.Status, x.DateOfTrade, x.Model, x.Vendor, x.AssetCategory,
+            var assets = person.Assets.Select (x => new { x.Id,x.Status, x.DateOfTrade, x.Model, x.Vendor, x.AssetCategory,
                     x.Name, x.SerialNumber }).ToList();
             foreach (var asset in assets)
             {
@@ -54,7 +52,7 @@ namespace WebAPI.Helpers
 
             foreach (var request in requests)
             {
-                if (request.requestType == RequestType.New)
+                if ((request.requestType == RequestType.New) &&(request.Status==RequestStatus.InProccess))
                 {
                     dashboard.NewRequests.Add(new ListRequestsModel {
                         Category=request.AssetCategory.Id,
@@ -66,7 +64,7 @@ namespace WebAPI.Helpers
                         Status = request.Status.ToString(),
                         Date = request.RequestDate.Date });
                 }
-                else if (request.requestType == RequestType.Service)
+                else if ((request.requestType == RequestType.Service)&&(request.Status==RequestStatus.InProccess))
                 {
                     dashboard.ServiceRequests.Add(new ListRequestsModel {
                         Category = request.AssetCategory.Id,
