@@ -16,12 +16,12 @@
                 </div>
             </div>
             <div id="showSkills" ng-repeat="tool in selectedCategory.tools">
-                <input type="checkbox"> {{ tool.name }}<br>
+                <input ng-model="newSkills[tool.id]" ng-true-value="{{tool}}" type="checkbox" > {{ tool.name }}<br>
             </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" ng-click="addEmployeeSkill()">Add</button>
+            <button type="button" class="btn btn-primary" ng-click="addEmployeeSkill()" data-dismiss="modal">Add</button>
         </div>
     </div>
 </div>
