@@ -87,8 +87,17 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Repository.Update(Parser.Create(model, Repository.BaseContext()), model.Id);
-                return Ok(model);
+                Asset a = Repository.Get(id);
+                if (a == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    var entity = Parser.Create(model, Repository.BaseContext());
+                    Repository.Update(entity, model.Id);
+                    return Ok(model);
+                }
             }
             catch (Exception ex)
             {

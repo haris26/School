@@ -20,7 +20,7 @@ namespace Database
         public double Price { get; set; }           // price
         public DateTime DateOfTrade { get; set; } //Date of trade in
         public virtual Person User { get; set; }            // person who use particular asset 
-        public AssetStatus Status { get; set; } // Assigned = 1,Free = 2, OutofOrder = 3
+        public AssetStatus Status { get; set; } // Assigned = 1,Free = 2, OutOfStock = 3
        
 
 

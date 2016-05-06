@@ -8,11 +8,26 @@
         $scope.selString = "";
         $scope.sortOrder = "";
         getRequests();
+        getCompletedRequests();
         fetchData();
+        getDeviceRequests();
+        getOfficeRequests();
 
         function getRequests() {
             DataService.list(dataSet, function (data) {
                 $scope.requests = data.allRequests;
+            });
+        };
+
+        function getOfficeRequests() {
+            DataService.list(dataSet, function (data) {
+                $scope.officerequests = data.officeRequests;
+            });
+        };
+
+        function getDeviceRequests() {
+            DataService.list(dataSet, function (data) {
+                $scope.devicerequests = data.deviceRequests;
             });
         };
 
@@ -47,8 +62,16 @@
             });
         }
 
+        function getCompletedRequests() {
+            DataService.list(dataSet, function (data) {
+                $scope.completedrequests = data.completedRequests;
+                console.log($scope.completedrequests);
+            });
+        }
+
         $scope.transfer = function (item) {
-            $scope.requests = item;    
+            $scope.requests = item;
+            
         };      
     });
 }());
