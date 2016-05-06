@@ -33,6 +33,7 @@
 //            foreach (var det in members)
 //            {
 //                    prsn.Details.Add(new DetailModel { Category = "", Count = (int)det.time, EmptyDays = businessDaysInMonth.Count() - det.empty });
+
 //            }
 
 //            //Getting details for the entire team and forwarding overall team work time invested

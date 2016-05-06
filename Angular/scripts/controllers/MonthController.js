@@ -15,7 +15,8 @@
         $scope.sortOrder = "name";
         fetchData();
 
-       $scope.transfer = function (item) {
+     
+        $scope.transfer = function (item) {
             $scope.month = item;
             $scope.recepient = item.email;
             $scope.colection = item.details;
