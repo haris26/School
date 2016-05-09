@@ -61,41 +61,43 @@
                         <!--<div class="control-label" style="margin-left:-64px">Teams:</div>-->
                         <br />
                         <br />
-                        
+
                         <div ng-repeat="detail in month.details">
                             <ul class="list-group">
                                 <li class="list-group-item col-md-6">
                                     <label class="col-md-4 badge" style="background-color:#37ADE7">[{{ detail.category }}]</label> <span class="badge" style="background-color:#60B72C; margin-top:0">
-                                        {{detail.count}} working hours
+                                        {{detail.count}} hours logged
                                     </span>
                                 </li>
                             </ul>
                         </div>
 
-                    <div style="width:100%" class="col-xs-12" ng-show="month.name">
-                        <!--<span class="form-group">
-                            <b>Filter:</b> <input class="input-sm" type="search" ng-model="selDetail">
-                            <b>Order:</b> <select class="input-sm" ng-model="sortOrder">
-                                <option value="+description">Description</option>
-                                <option value="-date">Date</option>
-                            </select>
-                        </span>-->
-                        <div>
-                            <br />
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr style="background-color:#37ADE7;">
-                                        <th width="30%">Description</th>
-                                        <th width="30%">Date</th>
-                                        <th width="20%">Work Time</th>
-                                        <th width="20%">Team</th>
-                                    </tr>
-                            </table>
-                        </div>
-                        <div ng-repeat="item in detailsBy | filter : monthName">
-                            <table class="table table-bordered">
-                                <tr><td width="30%"><b style="color:#4B627A">{{ item.description }}</b> </td><td width="30%"> {{ item.date| date:shortDate }}</td><td width="20%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
-                            </table>
+                        <div style="width:100%" class="col-xs-12" ng-show="month.name">
+                            <!--<span class="form-group">
+                                <b>Filter:</b> <input class="input-sm" type="search" ng-model="selDetail">
+                                <b>Order:</b> <select class="input-sm" ng-model="sortOrder">
+                                    <option value="+description">Description</option>
+                                    <option value="-date">Date</option>
+                                </select>
+                            </span>-->
+                            <div>
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr style="background-color:#37ADE7;">
+                                            <th width="30%">Description</th>
+                                            <th width="30%">Date</th>
+                                            <th width="20%">Work Time</th>
+                                            <th width="20%">Team</th>
+                                        </tr>
+                                </table>
+                            </div>
+                            <div ng-repeat="item in detailsBy | filter : monthName">
+                                <table class="table table-bordered">
+                                    <tr><td width="30%"><b style="color:#4B627A"> {{ item.description }}</b> </td><td width="30%"> {{ item.date| date:shortDate }}</td><td width="20%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
+                                </table>
+                            </div>
+                            <span class="badge col-md-offset-1" style="background-color:#D62929"><b>{{warning}} for {{month.name}}</b></span>
                         </div>
                     </div>
                 </div>
@@ -103,11 +105,10 @@
         </div>
     </div>
 </div>
-    </div>
 
-<div id="mailModal" class="modal fade" role="dialog" style="top:10%">
+<!--<div id="mailModal" class="modal fade" role="dialog" style="top:10%">
     <div class="modal-dialog">
-        <!--<div class="modal-content">-->
+        <div class="modal-content">
         <div class="modal-body">
             <form action="#" class="credit-card-div">
                 <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
@@ -142,6 +143,4 @@
             </form>
         </div>
     </div>
-</div>
-
-
+</div>-->

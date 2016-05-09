@@ -1,4 +1,21 @@
-﻿<style>
+﻿<!--<script type="text/javascript">
+// Using jQuery.
+
+$(function() {
+    $('form').each(function() {
+        $(this).find('input').keypress(function(e) {
+            // Enter pressed?
+            if(e.which == 10 || e.which == 13) {
+                this.form.submit();
+            }
+        });
+
+        $(this).find('input[type=submit]').hide();
+    });
+});
+</script>-->
+
+<style>
     @font-face {
         font-family: 'BorisBlackBloxx';
         src: url('fonts/BorisBlackBloxx.ttf') format('truetype');
@@ -49,9 +66,9 @@
                 <div class="row">
                     <div class="col-md-12 col-xs-12">
                         <div class="col-md-5 col-xs-4 control-label" style="color:#2E455C"><b>Remember me  </b><input type="checkbox" ng-model="user.remember" /></div>
-                        <input type="button" class="btn btn-info" id="loginBtn" value="Login" ng-click="login(); tokenRequest()" />
+                        <input type="button" class="btn btn-info" id="loginBtn" value="Login" ng-click="login(); tokenRequest()"/>
                         <input type="button" class="btn btn-success" id="googleBtn" value="Login with Google" href="#/months" />
-
+                        <input type="submit"/>
                     </div>
                 </div>
             </div>

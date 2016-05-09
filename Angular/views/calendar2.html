@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <hr />
-                                <div ng-repeat="item in detail.detail">
+                                <div ng-repeat="item in details">
                                     <table class="table table-bordered">
                                         <tr><td width="30%"><a href="#/details" ng-click="transfer(item)">{{ item.description }}</a> </td><td width="30%"> {{ item.date | date:shortDate}}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td><td width="20%"><button ng-click="transfer(item); deleteData();">Delete</button>  </td></tr>
                                     </table>

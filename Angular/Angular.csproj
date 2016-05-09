@@ -207,16 +207,14 @@
     <Content Include="scripts\controllers\MenuController.js" />
     <Content Include="scripts\controllers\MonthController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
-    <Content Include="scripts\services\Permission.js" />
     <Content Include="scripts\controllers\RolesController.js" />
     <Content Include="scripts\controllers\TeamsController.js" />
     <Content Include="scripts\directives\CalendarDirective.js" />
-    <Content Include="scripts\directives\Permission.js" />
+    <Content Include="scripts\services\Permission.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="scripts\loginService.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="scripts\services\LoginService.js" />
-    <Content Include="scripts\services\Permission.js" />
     <Content Include="scripts\toaster.js" />
     <Content Include="styles\calendar.css" />
     <Content Include="styles\modal.css" />

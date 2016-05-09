@@ -23,16 +23,23 @@
             console.log($scope.month.details);
             console.log($scope.recepient);
         };
+
         $scope.transfer1 = function (item1) {
             n1 = item1.id;
             console.log(n1,n);
             fetchDataByUser(n1);
         };
+
         function fetchDataByUser(n1) {
             DataService.read1(dataSetD, n1, n, function (data) {
                 $scope.detailsBy = data;
+                if ($scope.detailsBy == null) {
+                    $scope.warning = "There are no entries in this month";
+                    console.log($scope.warning);
+                };
             });
         }
+
         function fetchMonth(n) {
             DataService.read(dataSet, n, function (data) {
                 $scope.months = data;

@@ -8,12 +8,22 @@
 
         function buildMenu() {
             $rootScope.menuItems = [];
-            $rootScope.menuItems.push({ link: "people", text: "People" });
-            //if (currentUser.roles.indexOf("admin") > -1) {
-            //    $rootScope.menuItems.push({ link: "roles", text: "Roles" });
-            //    $rootScope.menuItems.push({ link: "teams", text: "Teams" });
-            //};
-            //$rootScope.menuItems.push({ link: "engagements", text: "Engagements" });
+            
+
+
+            if (currentUser.roles.indexOf("admin") > -1) {
+                $rootScope.menuItems.push({ link: "months", class: "glyphicon glyphicon-home", text: "Dashboard" });
+                $rootScope.menuItems.push({ link: "calendar", class: "glyphicon glyphicon-calendar", text: "Log Time" });
+                $rootScope.menuItems.push({ link: "details", class: "glyphicon glyphicon-dashboard", text: "Entries" });
+                $rootScope.menuItems.push({ link: "logout", class: "glyphicon glyphicon-log-out", text: "Log Out" });
+              
+            };
+            if (currentUser.roles.indexOf("developer") > -1) {
+                $rootScope.menuItems.push({ link: "calendar", class: "glyphicon glyphicon-calendar", text: "Log Time" });
+                $rootScope.menuItems.push({ link: "details", class: "glyphicon glyphicon-dashboard", text: "Entries" });
+                $rootScope.menuItems.push({ link: "logout", class: "glyphicon glyphicon-log-out", text: "Log Out" });
+            };
+
         };
 
         $rootScope.$on('userLoggedIn', function () {

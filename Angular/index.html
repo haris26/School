@@ -19,6 +19,7 @@
     <script src="library/angular-cookies.js"></script>
     <script src="library/moment.js"></script>
     <script src="library/angular-mailto.js"></script>
+    <script src="scripts/services/Permission.js"></script>
 
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/DetailsController.js"></script>
@@ -26,7 +27,7 @@
     <script src="scripts/controllers/LoginController.js"></script>
     <script src="scripts/controllers/MenuController.js"></script>
     <script src="scripts/controllers/Calendar2Controller.js"></script>
-    <script src="scripts/controllers/MonthController.js"></script> 
+    <script src="scripts/controllers/MonthController.js"></script>
     <script src="scripts/controllers/NotificationController.js"></script>
     <script src="scripts/toaster.js"></script>
     <script src="scripts/controllers/ModalController.js"></script>
@@ -36,7 +37,6 @@
     <link rel="stylesheet" href="styles/site.css">
     <link href="styles/calendar.css" rel="stylesheet" />
     <link href="styles/toaster.css" rel="stylesheet" />
-    <script src="scripts/services/Permission.js"></script>
     <link href="styles/sidebar.css" rel="stylesheet" />
     <link href="styles/simple-sidebar.css" rel="stylesheet" />
     <!--<link href="Content/bootstrap.min.css" rel="stylesheet" />-->
@@ -46,11 +46,9 @@
 
 </head>
 
-
-
 <body>
-    <div class="pull-right mistral"><img src="images/logo.png" class="img-responsive" style="width: 200px; position: fixed; top: 1%; right: 10px; z-index:998; text-shadow:8px 8px #2E455C" /></div>
-   
+    <!--<div class="pull-right mistral"><img src="images/logo.png" class="img-responsive" style="width: 200px; position: fixed; top: 1%; right: 10px; z-index:998; text-shadow:8px 8px #2E455C" /></div>-->
+
     <div id="wrapper" ng-show="userName">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -58,7 +56,6 @@
                 <li class="sidebar-brand">
                     <div>
                         <a href="/" class="navbar-brand"><img id="img_logo" alt="Logo" src="images/logo1.png" height="60" style="margin-left:50px; margin-top:20px" /></a>
-
                     </div>
                 </li>
 
@@ -68,56 +65,47 @@
                     </div>
                     <div class="profile-usertitle">
                         <div class="profile-usertitle-name">{{userName}}</div>
-                        <div class="profile-usertitle-job" ng-model="detail.team" style="margin-top:-30px; margin-left:-50px">developer</div>
+                        <div class="profile-usertitle-job" ng-model="detail.team" style="margin-top:-30px; margin-left:-50px">DEVELOPER</div>
                     </div>
                     <div class="profile-userbuttons" style="margin-left:-30px">
                         <button type="button" class="btn btn-success btn-sm">Settings</button>
                         <button type="button" class="btn btn-info btn-sm">Profile</button>
                     </div>
-                        <br />
-
+                    <br />
                 </li>
-                <li class='active'>
-                    <a class='expandable' href='#/months' id="links" title='Dashboard'>
+
+                <span ng-controller="MenuController">
+                    <li class="" ng-repeat="item in menuItems" style="font-family:Calibri; text-transform:uppercase"><a href="#/{{ item.link }}"><span class="{{ item.class }}"></span><span class="col-md-offset-1"> {{ item.text }}</span></a></li>
+                </span>
+
+                <!--<li class='active'>
+                    <a class='expandable' href='#{{menuItems[3].link}}' id="links" title='Dashboard'>
                         <span class='glyphicon glyphicon-home collapsed-element'></span>
-                        <span class='expanded-element col-md-offset-1' style="font-family:Calibri">    DASHBOARD</span>
+                        <span class='expanded-element col-md-offset-1' style="font-family:Calibri; text-transform:uppercase">{{menuItems[3].text}}</span>
                     </a>
                 </li>
 
-                <!--<li class='active'>
-                    <a class='expandable' href='#/createdetail' id="links2" title='New Detail'>
-                        <span class='glyphicon glyphicon-plus collapsed-element'></span>
-                        <span class='expanded-element col-md-offset-1' style="font-family:Calibri">    NEW DETAIL</span>
-                    </a>
-                </li>-->
-
-                <!--<li class='active'>
-                    <a class='expandable' href='#' id="links3" title='Contact'>
-                        <span class='glyphicon glyphicon-user collapsed-element'></span>
-                        <span class='expanded-element col-md-offset-1' style="font-family:Calibri">    CONTACT</span>
-                    </a>
-                </li>-->
                 <li class='active'>
-                    <a class='expandable' href='#calendar' id="links5" title='Calendar'>
+                    <a class='expandable' href='#{{menuItems[0].link}}' id="links5" title='Calendar'>
                         <span class='glyphicon glyphicon-calendar collapsed-element'></span>
-                        <span class='expanded-element col-md-offset-1' style="font-family:Calibri">    LOG TIME</span>
+                        <span class='expanded-element col-md-offset-1' style="font-family:Calibri; text-transform:uppercase">{{menuItems[0].text}}</span>
                     </a>
                 </li>
 
                 <li class='active'>
-                    <a class='expandable' href='#details' id="links5" title='Calendar'>
+                    <a class='expandable' href='#{{menuItems[1].link}}' id="links5" title='Calendar'>
                         <span class='glyphicon glyphicon-dashboard collapsed-element'></span>
-                        <span class='expanded-element col-md-offset-1' style="font-family:Calibri">    ENTRIES</span>
+                        <span class='expanded-element col-md-offset-1' style="font-family:Calibri; text-transform:uppercase">{{menuItems[1].text}}</span>
                     </a>
                 </li>
                 <li class='active'>
-                    <a class='expandable' href="#/logout" id="links4" title='Logout'>
+                    <a class='expandable' href="#{{menuItems[2].link}}" id="links4" title='Logout'>
                         <span class='glyphicon glyphicon-log-out collapsed-element'></span>
-                        <span class='expanded-element col-md-offset-1' style="font-family:Calibri">    LOGOUT</span>
+                        <span class='expanded-element col-md-offset-1' style="font-family:Calibri; text-transform:uppercase">{{menuItems[2].text}}</span>
                     </a>
-                </li>
+                </li>-->
             </ul>
-            
+
         </div>
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
@@ -156,7 +144,7 @@
         });
 
     </script>
-    
+
 
     <div ng-view></div>
 </body>
