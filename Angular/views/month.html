@@ -41,7 +41,7 @@
     <div ng-repeat="item in months | orderBy: sortOrder | filter: selMonth" style="margin:0">
         <ul class="list-group">
             <li class="list-group-item col-md-6">
-                <span class="badge" style="background-color:#60B72C">{{ item.totalHours }} </span><span class="badge">{{item.emptyDays}}</span><a  class="glyphicon glyphicon-envelope" ng-click="transfer(item); sendMail();"></a>
+                <span class="badge" style="background-color:#60B72C">{{ item.totalHours }} </span><span class="badge">{{item.emptyDays}}</span><a  class="glyphicon glyphicon-envelope" ng-click="transfer(item);sendEmail()"></a>
                 <a ng-click="transfer(item); transfer1(item)">{{item.name}}</a>
             </li>
         </ul>
