@@ -44,13 +44,9 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Get(int id, int m)
         {
+            Person person = new Person();
             try
-            {
-                if (DateTime.Now.Day < deadline && DateTime.Now.Day > 1)
-                {
-                    Mail.SendMail("dzanang@gmail.com", "Deadline is soon", "Please fill in your time for last month!");
-                }
-      
+            {      
                 List<Detail> detail = Repository.Get().Where(x => x.Day.Person.Id == id && x.Day.Date.Month == m).ToList();
                 
                 if (detail == null)

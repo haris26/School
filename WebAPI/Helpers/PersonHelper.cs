@@ -32,7 +32,8 @@
 //            var members = day.Details.GroupBy(x => x.Day).Select(x => new { person = x.Key, time = x.Sum(y => y.WorkTime), empty = x.GroupBy(z => z.Day.Date).Count() }).ToList();
 //            foreach (var det in members)
 //            {
-//                    prsn.Details.Add(new CountModel { Category = "", Count = (int)det.time, EmptyDays = businessDaysInMonth.Count() - det.empty });
+//                    prsn.Details.Add(new DetailModel { Category = "", Count = (int)det.time, EmptyDays = businessDaysInMonth.Count() - det.empty });
+
 //            }
 
 //            //Getting details for the entire team and forwarding overall team work time invested
