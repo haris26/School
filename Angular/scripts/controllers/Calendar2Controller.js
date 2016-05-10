@@ -7,16 +7,10 @@
         $scope.selDetail = "";
         $scope.sortOrder = '-date';
         var month = new Date();
-        month.setDate(month.getMonth() + 1);
-        console.log(month);
-        var day = new Date();
-        day.setDate(day.getDate());
-        var year = new Date();
-        year.setDate(year.getFullYear());
         fetchDataByDay();
         function fetchDataByDay() {
-            DataService.readD(dataSet2, currentUser.id, month.getMonth(), year.getFullYear(), day.getDate(), function (data) {
-                $scope.details = data;
+            DataService.readD(dataSet2, currentUser.id, "5", "2016", "6", function (data) {
+                $scope.days = data;
             });
         }
 
@@ -30,8 +24,8 @@
                 var nDay = new Date();
                 var day = nDay.getDate();
 
-                if (day <= 5 && day > 1) {
-                    $scope.dayL = 5 - day;
+                if (day <= 10 && day > 5) {
+                    $scope.dayL = 10 - day;
                     $scope.pop($scope.dayL);
                     console.log($scope.dayL);
                 }
@@ -106,7 +100,6 @@
             var promise;
             if ($scope.detail.id == 0) {
                 DataService.create(dataSet, $scope.detail, function (data) { fetchData() });
-                console.log(selectedDate.getFullYear() + '-' + ('0' + (selectedDate.getMonth() + 1)).slice(-2) + '-' + ('0' + selectedDate.getDate()).slice(-2));
             }
             else {
                 DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData() });

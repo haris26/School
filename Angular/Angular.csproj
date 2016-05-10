@@ -115,6 +115,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\background.jpg" />
@@ -134,24 +135,6 @@
     <Content Include="images\spinner.gif" />
     <Content Include="images\timetracking.png" />
     <Content Include="images\toggle.png" />
-    <Content Include="js\base-admin-responsive.css" />
-    <Content Include="js\base.js" />
-    <Content Include="js\bootstrap-responsive.min.css" />
-    <Content Include="js\bootstrap.css" />
-    <Content Include="js\bootstrap.js" />
-    <Content Include="js\bootstrap.min.css" />
-    <Content Include="js\chart.min.js" />
-    <Content Include="js\excanvas.min.js" />
-    <Content Include="js\faq.js" />
-    <Content Include="js\font-awesome-ie7.css" />
-    <Content Include="js\font-awesome-ie7.min.css" />
-    <Content Include="js\font-awesome.css" />
-    <Content Include="js\font-awesome.min.css" />
-    <Content Include="js\fullcalendar.css" />
-    <Content Include="js\fullcalendar.min.js" />
-    <Content Include="js\jquery-1.7.2.min.js" />
-    <Content Include="js\signin.js" />
-    <Content Include="js\style.css" />
     <Content Include="library\angular-mailto.js" />
     <Content Include="library\bootstrap.css" />
     <Content Include="library\bootstrap.min.css" />
@@ -167,8 +150,6 @@
     <Content Include="scripts\controllers\Calendar2Controller.js" />
     <Content Include="scripts\controllers\ModalController.js" />
     <Content Include="scripts\controllers\NotificationController.js" />
-    <Content Include="scripts\respond.js" />
-    <Content Include="scripts\respond.min.js" />
     <Content Include="library\bootstrap1.js" />
     <Content Include="library\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -192,13 +173,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="angular-route.js" />
-    <Content Include="angular.js" />
     <Content Include="index.html" />
     <Content Include="library\angular-route.js" />
     <Content Include="library\angular.js" />
-    <Content Include="scripts\ai.0.15.0-build58334.js" />
-    <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controllers\DayModalController.js" />
     <Content Include="scripts\controllers\DetailsController.js" />
@@ -209,10 +186,8 @@
     <Content Include="scripts\controllers\PeopleController.js" />
     <Content Include="scripts\controllers\RolesController.js" />
     <Content Include="scripts\controllers\TeamsController.js" />
-    <Content Include="scripts\directives\CalendarDirective.js" />
     <Content Include="scripts\services\Permission.js" />
     <Content Include="library\googleClient.js" />
-    <Content Include="scripts\loginService.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\toaster.js" />
@@ -243,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="scripts\directives\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

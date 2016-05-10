@@ -46,8 +46,9 @@
     var userRouting = function ($location) {
         if (currentUser.roles.indexOf("admin") > -1) {
             return true;
-        } else {
-            return $location.path("/calendar");
+        } else if (currentUser.roles.indexOf("developer") > -1)
+        {
+            return $location.path("calendar");
         }
     };
 

@@ -19,6 +19,8 @@
                     else {
                         $location.path("/calendar")
                     }
+                    $scope.wait = false;
+                    $rootScope.$broadcast('userLoggedIn');
                 },
                 function (reason) {
                     $rootScope.message = reason.status;
@@ -37,6 +39,7 @@
                 function (response) {
                     authenticated = true;
                     currentUser = response.data;
+                    $rootScope.role = currentUser.roles;
                     $rootScope.userName = currentUser.name;
                     console.log($scope.userName);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);

@@ -10,18 +10,32 @@
         var dataSet = "month";  
         var dataSetD = "details";
         var n1 = 0;
+        var mailSet = "sendmail/sendmailnotification";
+
         $scope.mont = new Date().getMonth() + 1;
         $scope.selMonth = "";
         $scope.sortOrder = "name";
         fetchData();
-
-     
-        $scope.transfer = function (item) {
+        var recepient = "";
+        function newEmail () {
+            $scope.email = {
+                emailId: recepient
+            }
+        };
+       
+        $scope.sendEmail = function()
+        {
+            DataService.create(mailSet, $scope.email, function (data) { });
+            console.log($scope.email.emailId);
+        };
+       $scope.transfer = function (item) {
             $scope.month = item;
-            $scope.recepient = item.email;
             $scope.colection = item.details;
+            recepient = item.email;
+            newEmail();
             console.log($scope.month.details);
-            console.log($scope.recepient);
+            console.log(recepient);
+
         };
 
         $scope.transfer1 = function (item1) {
