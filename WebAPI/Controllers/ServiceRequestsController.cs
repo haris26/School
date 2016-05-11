@@ -29,9 +29,12 @@ namespace WebAPI.Controllers
                    .ToList();
 
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
-            IList<RequestModel> requests =
-               query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
 
+            IList<RequestModel> requests =
+                query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.Asset.AssetCategory.assetType==AssetType.Device).Select(x => Factory.Create(x)).ToList();
+
+            IList<RequestModel> serviceofficerequests =
+              query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.Asset.AssetCategory.assetType==AssetType.Office ).Select(x => Factory.Create(x)).ToList();
             int count = 0;
             for (int i = 0; i < requests.Count(); i++)
             {
@@ -41,12 +44,23 @@ namespace WebAPI.Controllers
                 }
             }
 
+            for (int i = 0; i < serviceofficerequests.Count(); i++)
+            {
+                if (serviceofficerequests[i].Status == (RequestStatus.InProccess).ToString())
+                {
+                    count++;
+                }
+            }
+
+          
+
             return new
             {
                 pageSize = PageSize,
                 currentPage = page,
                 pageCount = TotalPages,
                 allRequests = requests,
+                serviceOfficeRequests=serviceofficerequests,
                 count
             };
         }

@@ -9,6 +9,8 @@ namespace WebAPI.Models
     {
         public string CategoryName { get; set; }
         public int Category { get; set; }
+        public string assetType { get; set; }
+     
         public string Model { get; set; }
         public string Name { get; set; }
         public DateTime Date { get; set; }
@@ -25,6 +27,9 @@ namespace WebAPI.Models
         public string Type { get; set; }
         public int Category { get; set; }
         public string CategoryName { get; set; }
+
+        public string assetType { get; set; }
+
         public string Description  { get; set; }
         public string Message { get; set; }
         public string Status { get; set; }

@@ -103,7 +103,8 @@ namespace Database
     }
     public enum ServiceType {
     HW=1,
-    SW=2
+    SW=2,
+    Default=0
     }
 
     // Time Tracking

@@ -177,8 +177,11 @@
     <Content Include="views\CompletedRequestsForUser.html" />
     <Content Include="views\engagements.html" />
     <Content Include="views\FreeAssets.html" />
+    <Content Include="views\FreeOfficeAssets.html" />
     <Content Include="views\History.html" />
     <Content Include="views\loginModal.html" />
+    <Content Include="views\NewOfficeRequests.html" />
+    <Content Include="views\ServiceOfficeRequests.html" />
     <Content Include="views\UserAssetsForService.html" />
     <Content Include="views\login.html" />
     <Content Include="modal.html" />

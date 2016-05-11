@@ -23,12 +23,7 @@
 
 
 
-        //function getAssets() {
-        //    DataService.list(dataSet, function (data) {
-        //        $scope.dashboard = data.assets;
-        //    });
-        //}
-
+      
 
         $scope.transfer = function transfer(item) {
             $rootScope.model = item;

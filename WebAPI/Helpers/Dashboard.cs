@@ -20,13 +20,14 @@ namespace WebAPI.Helpers
 
            
 
-            var assets = person.Assets.Select (x => new { x.Id,x.Status, x.DateOfTrade, x.Model, x.Vendor, x.AssetCategory,
+            var assets = person.Assets.Select (x => new { x.Id,x.Status, x.DateOfTrade, x.Model,x.AssetCategory.assetType, x.Vendor, x.AssetCategory,
                     x.Name, x.SerialNumber }).ToList();
             foreach (var asset in assets)
             {
                 dashboard.Assets.Add(new ListModel
                 { Category = asset.AssetCategory.Id,
                 CategoryName=asset.AssetCategory.CategoryName.ToString(),
+                assetType=asset.assetType.ToString(),
                     Model =asset.Model,Name=asset.Name,
                     Vendor =asset.Vendor,
                     SerialNumber =asset.SerialNumber,
@@ -48,6 +49,7 @@ namespace WebAPI.Helpers
                 x.requestType,
                 x.Quantity,
                 x.AssetCategory,
+                x.AssetType,
             x.ServiceType}).ToList();
 
             foreach (var request in requests)
@@ -57,6 +59,7 @@ namespace WebAPI.Helpers
                     dashboard.NewRequests.Add(new ListRequestsModel {
                         Category=request.AssetCategory.Id,
                         CategoryName = request.AssetCategory.CategoryName.ToString(),
+                        assetType=request.AssetType.ToString(),
                         Description = request.RequestDescription,
                         Message = request.RequestMessage,
                         Type = request.requestType.ToString(),
@@ -69,6 +72,7 @@ namespace WebAPI.Helpers
                     dashboard.ServiceRequests.Add(new ListRequestsModel {
                         Category = request.AssetCategory.Id,
                         CategoryName=request.AssetCategory.CategoryName.ToString(),
+                        assetType = request.AssetType.ToString(),
                         Description = request.RequestDescription,
                         Message = request.RequestMessage,
                         Type = request.requestType.ToString(),

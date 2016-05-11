@@ -13,10 +13,18 @@
         getPeople();
         getAssets();
         getFreeAssets();
+       getFreeOfficeAssets();
         
         function getAssets() {
             DataService.list("assets", function (data) {
                 $scope.assets = data.allAssets;
+            });
+        };
+
+        function getFreeOfficeAssets() {
+            DataService.list("assets", function (data) {
+                $scope.officeassets = data.officeFreeAssets;
+               
             });
         };
 

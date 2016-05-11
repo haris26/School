@@ -30,7 +30,7 @@
                 requestDate: Date.now(),
                 quantity: 1,
                 asset: model.asset,
-                assetType: 1,
+                assetType:model.assetType,
                 category: model.category,
                 categoryName:model.categoryName,
                 person: model.user,

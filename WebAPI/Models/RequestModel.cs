@@ -12,7 +12,6 @@ namespace WebAPI.Models
         {
             Status = "in Process";
             RequestDate = DateTime.Now;
-            RequestType = "New";
             ServiceType = "Default";
 
         

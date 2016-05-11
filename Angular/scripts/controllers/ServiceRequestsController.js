@@ -9,11 +9,18 @@
         $scope.selString = "";
         $scope.sortOrder = "date";
         getRequests();
+        getOfficeRequests();
         fetchData();
      
         function getRequests() {
             DataService.list(dataSet, function (data) {
                 $scope.serviceRequests = data.allRequests;
+            });
+        };
+
+        function getOfficeRequests() {
+            DataService.list(dataSet, function (data) {
+                $scope.serviceOfficeRequests = data.serviceOfficeRequests;
             });
         };
 

@@ -30,10 +30,12 @@
                                 <tr>
                                     <th>Request Type</th>
                                     <th>Asset Category</th>
+                                    <th>Type</th>
                                     <th>Description</th>
                                     <th>Message</th>
                                     <th>Quantity</th>
                                     <th>Service Type</th>
+
                                     <th>Date</th>
                                     <th>Status</th>
                                 </tr>
@@ -42,6 +44,7 @@
                                 <tr ng-repeat="item in dashboard.serviceRequests | orderBy: sortOrder" class="request-table">
                                     <td>{{item.type}} </td>
                                     <td>{{item.categoryName}}</td>
+                                    <td>{{item.assetType}}</td>
                                     <td>{{item.description}}</td>
                                     <td>{{item.message}}</td>
                                     <td>{{item.quantity}}</td>

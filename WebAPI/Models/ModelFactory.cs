@@ -132,6 +132,7 @@ namespace WebAPI.Models
 
             return model;
         }
+
         public AssetCharsModel Create(AssetChar characteristic)
         {
             AssetCharsModel model = new AssetCharsModel()

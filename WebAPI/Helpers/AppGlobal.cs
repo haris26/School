@@ -39,7 +39,7 @@ namespace WebAPI.Helpers
         public static string GenerateToken(ApiUser user)
         {
             var provider = new System.Security.Cryptography.HMACSHA256(Convert.FromBase64String(user.AppId));
-            var rawTokenInfo = string.Concat(user.AppId + DateTime.UtcNow.ToString("d"));
+            var rawTokenInfo = string.Concat(user.AppId + DateTime.UtcNow.ToString("s"));
             var rawTokenByte = Encoding.UTF8.GetBytes(rawTokenInfo);
             var token = provider.ComputeHash(rawTokenByte);
             return Convert.ToBase64String(token);

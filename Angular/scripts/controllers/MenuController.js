@@ -25,8 +25,8 @@
 
 
          if (currentUser.roles.indexOf("OfficeManager") > -1) {
-            $rootScope.menuItems.push({ link: "myassets", text: "New Asset" });
-            $rootScope.menuItems.push({ link: "myassets", text: "Service Asset" });
+             $rootScope.menuItems.push({ link: "officerequests", text: "New Asset" });
+             $rootScope.menuItems.push({ link: "officeservicerequests", text: "Service Asset" });
             $rootScope.menuItems.push({ text: "Inventory" });
             $rootScope.menuItems.push({ link: "assets", text: "Add new equipment" });
             $rootScope.menuItems.push({ link: "assets", text: "Assigned equipment" });
@@ -34,7 +34,7 @@
            
              $rootScope.menuItems.push({ link: "officer" });
              $rootScope.menuItems.push({ link: "free", text: "Reports" });
-             $rootScope.menuItems.push({ link: "free", text: "Free equipment" });
+             $rootScope.menuItems.push({ link: "freeoffice", text: "Free equipment" });
          };
 
         if (currentUser.roles.indexOf("User") > -1) {
