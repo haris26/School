@@ -120,11 +120,15 @@
     <Content Include="images\mistral.png" />
     <Content Include="images\mobile.png" />
     <Content Include="images\quantityYes.png" />
-    <Content Include="images\speakerGray.png" />
+    <Content Include="images\speakerNo.png" />
     <Content Include="images\speakerYes.png" />
     <Content Include="images\spinner.gif" />
     <Content Include="images\tablet.png" />
+    <Content Include="images\tvNo.png" />
+    <Content Include="images\tvYes.png" />
     <Content Include="images\versionYes.png" />
+    <Content Include="images\whiteboardNo.png" />
+    <Content Include="images\whiteboardYes.png" />
     <Content Include="images\windowsYes.png" />
     <Content Include="index.html" />
     <Content Include="library\angular-cookies.js" />
@@ -141,6 +145,7 @@
     <Content Include="scripts\services\DeviceDirective.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
+    <Content Include="scripts\services\PopoverDirective.js" />
     <Content Include="scripts\services\RoomDirective.js" />
     <Content Include="scripts\toaster.min.js" />
     <Content Include="styles\bootstrap.min.css" />
@@ -160,6 +165,7 @@
     <Content Include="views\modals\cancelResModal.html" />
     <Content Include="views\modals\createRoomEventModal.html" />
     <Content Include="views\modals\createEventModal.html" />
+    <Content Include="views\modals\editDeviceRes.html" />
     <Content Include="views\modals\editExtendedModal.html" />
     <Content Include="views\modals\extendModal.html" />
     <Content Include="views\recurringReservations.html" />

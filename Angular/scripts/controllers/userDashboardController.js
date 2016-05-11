@@ -10,7 +10,11 @@
         function fetchData() {
             DataService.list(dataSet, function (data) {
                 $scope.dashboard = data;
+                console.log($scope.dashboard);
             });
+        }
+        $rootScope.refreshActive = function () {
+            fetchData();
         }
 
         $scope.todayDate = new Date();
@@ -59,7 +63,30 @@
                 size: 'md',
                 scope: $scope
             });
-        };
+       };
+       $scope.editReservation = function (item) {
+           $scope.editEvent = {
+               id: item.id,
+               eventTitle: item.eventTitle,
+               startDate: item.startDate,
+               endDate: item.endDate,
+               resource: item.resource,
+               resourceName: item.resourceName,
+               startTime: item.startTime,
+               endTime: item.endTime,
+               category: item.category,
+               person: item.person
+               
+           }
+           var modalInstance = $modal.open({
+               templateUrl: 'views/modals/editDeviceRes.html',
+               controller: 'EditDeviceModalCtrl',
+               windowClass: 'app-modal-window',
+               backdrop: 'static',
+               size: 'md',
+               scope: $scope
+           });
+       };
   
         function getEvent(id) {
             DataService.read("events", id, function (data) {

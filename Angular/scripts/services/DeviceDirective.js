@@ -11,7 +11,7 @@
                 var todayDate = new Date();
                 var today = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
 
-                if (eventDate < today || (eventDate <= today && scope.hour.hour < todayDate.getHours())) {
+                if (eventDate < today || (eventDate <= today && scope.hour.hour <= todayDate.getHours())) {
                     elem.css('background-color', '#F2F2F2');
                     scope.hour.isPast = true;
                 }
@@ -53,11 +53,13 @@
                             if (scope.hour.isReserved == true)
                             {
                                 elem.css('background-color', '#01AB8E');
+                                console.log(scope.newEvent);
                             }
                         });                         
                     }
-                })             
-            }           
+                })
+            }
+            
         };
     });
 }());

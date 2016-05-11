@@ -15,6 +15,11 @@ namespace WebAPI.Models
         public string ResourceName { get; set; }
         public string CategoryName { get; set; }
         public string Time { get; set; }
+        public int StartTime { get; set; }
+        public int EndTime { get; set; }
+        public int Resource { get; set; }
+        public int Person { get; set; }
+        public int Category { get; set; }
     }
 
     public class UserReservationsModel
