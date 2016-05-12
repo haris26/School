@@ -51,5 +51,4 @@
             return $location.path("calendar");
         }
     };
-
 }());

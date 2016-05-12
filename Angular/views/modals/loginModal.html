@@ -4,60 +4,60 @@
         src: url('fonts/BorisBlackBloxx.ttf') format('truetype');
     }
 </style>
-
+<br />
+<br />
 <div class="container">
     <div class="row">
-        <div class="col-md-offset-3 col-md-6 col-xs-11 col-sm-7 col-sm-offset-2" style="margin-top:1%">
-        <div class="create col-xs-offset-4 col-md-7 col-md-pull-1 col-xs-5" style="margin-top:50px">
-            <img src="../images/Mlogo1.png" class="img img-responsive"/>
+        <div class="col-md-offset-4 col-md-4 col-xs-11 col-sm-8 col-sm-offset-2" style="margin-top:1%">
+            <div class="create col-xs-offset-4 col-md-7 col-md-pull-1 col-xs-5" style="margin-top:1%">
+                <img src="../images/mistral4.png" class="img img-responsive" />
+                <br />
+                <br />
+            </div>
             <br />
-        </div>
-    <br />
-    <br />
 
-    <form action="#" class="credit-card-div col-xs-offset-1">
-        <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
-            <div class="panel-heading">
+                <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
+                    <div class="panel-heading">
+                        <h1 style="font-family:BorisBlackBloxx; font-size:x-large; color: #37ADE7; text-align:center" class="col-md-offset-0">
+                            welcome. please log in.
+                        </h1>
+                        <br />
+                        <br />
 
-                <h1 style="font-family:BorisBlackBloxx;
-                    font-size:x-large; color: #37ADE7" class="col-md-offset-2 col-xs-offset-1">
-                    welcome. please log in.
-                </h1>
-                <br />
-                <br />
-                <div class="row ">
-                    <div class="form-group">
-                        <div class="control-label col-md-2"><b>Username:</b></div>
-                        <div class="col-md-10">
-                            <input class="form-control col-md-offset-2" type="text" ng-model="user.name">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="control-label col-md-2"><b>Username:</b></div>
+                                <div class="col-md-9">
+                                    <input class="form-control col-md-offset-2" type="text" ng-model="user.name">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="row ">
-                    <div class="form-group">
-                        <div class="control-label col-md-2" ng-keypress="login(); tokenRequest()"><b>Password:</b></div>
-                        <div class="col-md-10">
-                            <input class="form-control col-md-offset-2" type="password" ng-model="user.pass">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="control-label col-md-2"><b>Password:</b></div>
+                                <div class="col-md-9">
+                                    <input class="form-control col-md-offset-2" ng-keypress="login(); tokenRequest()" type="password" ng-model="user.pass">
+                                    <br />
+                                </div>
+                                <div class="col-md-6 col-md-push-0 col-xs-6 control-label" style="color:#2E455C"><input type="checkbox" ng-model="user.remember" /><b>Remember me</b></div>
+                            </div>
+
+                            <div class="text" ng-show="!wait"></div>
+                            <div class="text" ng-show="!wait"></div>
+
+                            <div class="text col-md-2 col-md-push-5" ng-show="wait"><img src="images/loading.gif" /></div>
                         </div>
-                    </div>
-                    <div class="text" ng-show="!wait">
-                    </div>
-                    <div class="text" ng-show="!wait"></div>
-                    <div class="text col-md-2 col-md-push-5" ng-show="wait"><img src="images/loading.gif" /></div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="col-md-12 col-xs-12 col-sm-12 col-md-offset-1 col-sm-offset-1">
-                        <div class="col-md-5 col-xs-4 control-label" style="color:#2E455C"><b>Remember me</b><input type="checkbox" ng-model="user.remember" /></div>
-                        <input type="button" class="btn btn-info" id="loginBtn" value="Login" ng-click="login(); tokenRequest()"/>
-                        <input type="button" class="btn btn-success" id="googleBtn" value="Google Login"/>
-                        
+                        <br />
+
+                        <div class="row">                            
+                            <div class="col-md-8 col-md-push-4 col-xs-push-3 col-sm-push-5">                                
+                                <input type="button" class="btn btn-info" id="loginBtn" value="Login" ng-click="login(); tokenRequest()" />
+                                <input type="button" class="btn btn-success" id="googleBtn" value="Google Login" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
-</div>
-</div>
-</div>
+    </div>
