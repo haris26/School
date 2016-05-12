@@ -10,7 +10,9 @@
         $scope.employeeId = $routeParams.employeeId;
         $scope.assessed = {};
         $scope.selectedCategory = {};
-        $scope.newSkills={};
+        $scope.newSkills = {};
+        $scope.showAdd = true;
+        $scope.showUpdate = false;
 
         $scope.assessmentClass = {
             true: "btn btn-success btn-sm",
@@ -97,13 +99,48 @@
                     dateOfSelfAssessment: new Date(),
                     assessedBy: 0,
                 }
-               newCategory.skills.push(newEmployeeSkill);
+                newCategory.skills.push(newEmployeeSkill);
+                $scope.currentLength = newCategory.skills.length;
             });
+            if ($scope.currentLength != null) {
+                console.log($scope.currentLength);
+                $scope.assessments.skills.push(newCategory);
+                for (j = 0; j < $scope.assessments.skills[$scope.assessments.skills.length - 1].skills.length; j++) {
+                    $scope.assessed[$scope.assessments.skills[$scope.assessments.skills.length - 1].skills[j].skillId] = false;
+                }
+                $scope.showAdd = false;
+                $scope.showUpdate = true;
+            }
+        }
 
+        $scope.updateEmployeeSkill = function () {
+
+            var newCategory = {
+                categoryName: "New Skills",
+                skills: []
+            };
+
+            angular.forEach($scope.newSkills, function (tool) {
+                var newEmployeeSkill = {
+                    employee: $scope.employeeId,
+                    skillId: tool.id,
+                    level: 1,
+                    experience: 0,
+                    skill: tool.name,
+                    dateOfSelfAssessment: new Date(),
+                    assessedBy: 0,
+                }
+                newCategory.skills.push(newEmployeeSkill);
+                $scope.currentLength = newCategory.skills.length;
+            });
+            if ($scope.currentLength != null) {
+                console.log($scope.currentLength);
+                $scope.assessments.skills.pop(newCategory);
             $scope.assessments.skills.push(newCategory);
             for (j = 0; j < $scope.assessments.skills[$scope.assessments.skills.length - 1].skills.length; j++) {
                 $scope.assessed[$scope.assessments.skills[$scope.assessments.skills.length - 1].skills[j].skillId] = false;
             }
-            }
+        }
+        }
     });
 }());
