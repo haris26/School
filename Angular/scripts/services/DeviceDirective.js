@@ -10,13 +10,13 @@
                 var eventDate = new Date(scope.day.date);
                 var todayDate = new Date();
                 var today = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
+                
 
-                if (eventDate < today || (eventDate <= today && scope.hour.hour < todayDate.getHours())) {
+                if (eventDate < today || (eventDate <= today && scope.hour.hour <= todayDate.getHours())) {
                     elem.css('background-color', '#F2F2F2');
                     scope.hour.isPast = true;
                 }
-                //console.log(scope.hour.hour);
-                //console.log(scope.day.date);
+               
 
                 if (scope.hour.isReserved == true) {
                     elem.css('background-color', '#B01E5F')
@@ -24,8 +24,9 @@
                         elem.css('background-color', '#01AB8E');
                     }
                 }
-                elem.bind('click', function () {                            		
-                    var sTime = scope.hour.hour;
+                elem.bind('click', function () {
+                    console.log(scope, "daj skop");
+                    
                     if (scope.hour.isReserved == false && scope.hour.isPast != true) {
                         scope.newEvent = {
                             id: 0,
@@ -36,10 +37,23 @@
                             resourceName: scope.$parent.reservations.resourceName,
                             category: 1,
                             categoryName: "Device",
-                            startTime: sTime,
-                            endTime: sTime+1
+                            startTime: scope.hour.hour,
+                            endTime: scope.hour.hour + 1,
+                            endTimes: []
                         };
-                        console.log(scope.newEvent);
+
+                        for (var i = 0; i < scope.$parent.day.hours.length; i++) {
+                            if (scope.$parent.day.hours[i].isReserved == false && scope.hour.hour <= scope.$parent.day.hours[i].hour) {
+                                scope.newEvent.endTimes.push(scope.$parent.day.hours[i].hour+1);
+
+                            }
+                            if (scope.$parent.day.hours[i].isReserved == true && scope.hour.hour <= scope.$parent.day.hours[i].hour) {
+                                break;
+                            }
+                            
+                        }
+                        
+                        
                         var modalInstance = $modal.open({
                             templateUrl: 'views/modals/createEventModal.html',
                             controller: 'createEventCtrl',
@@ -52,6 +66,7 @@
                             scope.hour.isReserved = result;
                             if (scope.hour.isReserved == true)
                             {
+                                scope.$parent.$parent.getDevices();
                                 elem.css('background-color', '#01AB8E');
                             }
                         });                         

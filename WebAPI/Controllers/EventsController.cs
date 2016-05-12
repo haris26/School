@@ -48,16 +48,29 @@ namespace WebAPI.Controllers
                 if (quantity > 0)
                 {
                     EventRestriction.DecreaseQuantity(ev, Repository.BaseContext());
-                    if (EventRestriction.GetEventDuration(ev) > 1)
+                    if (ev.CategoryName == "Device")
                     {
-                        IList<EventModel> events = EventRestriction.CreateEvent(ev, Repository.BaseContext());
+                        if (EventRestriction.GetEventDuration(ev) > 1 && ev.CategoryName == "Device")
+                        {
+                            IList<EventModel> events = EventRestriction.CreateEvent(ev, Repository.BaseContext());
+                            foreach (var newEvent in events)
+                            {
+                                Repository.Insert(EventRestriction.Create(newEvent, Repository.BaseContext()));
+                            }
+                        }
+                        else
+                            Repository.Insert(EventRestriction.Create(ev, Repository.BaseContext()));
+                    }
+                    
+                    else if (ev.CategoryName == "Room")
+                    {
+                        IList<EventModel> events = EventRestriction.CreateRoomEvent(ev, Repository.BaseContext());
                         foreach (var newEvent in events)
                         {
                             Repository.Insert(EventRestriction.Create(newEvent, Repository.BaseContext()));
                         }
                     }
-                    else 
-                        Repository.Insert(EventRestriction.Create(ev, Repository.BaseContext()));
+                  
                     return Ok();
                 }
                 else

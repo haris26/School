@@ -54,8 +54,8 @@
                        }
                        DataService.create("datepicker", scope.day, function (data) {
                            scope.newDay = data;
-                           scope.searchParameters.fromDate = scope.newDay.weekStart;
-                           scope.searchParameters.toDate = scope.newDay.weekEnd;
+                           scope.searchParameters.fromDate = scope.newDay.today;
+                           scope.searchParameters.toDate = scope.newDay.today;
                            scope.getReservations();
                        });
                        count--;

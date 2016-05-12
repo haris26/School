@@ -63,6 +63,35 @@ namespace WebAPI.Helpers
             return events;            
         }
 
+        public static IList<EventModel> CreateRoomEvent(EventModel model, SchoolContext context)
+        {
+            IList<EventModel> events = new List<EventModel>();
+          
+            while (model.StartDate!=model.EndDate)
+            {
+                var  newStart= Convert.ToDateTime(model.StartDate);
+                var  newEnd = newStart.AddMinutes(15);
+
+                EventModel newEvent = new EventModel()
+                {
+                    Person = model.Person,
+                    PersonName = model.PersonName,
+                    Category = model.Category,
+                    CategoryName = model.CategoryName,
+                    Resource = model.Resource,
+                    ResourceName = model.ResourceName,
+                    EventTitle = model.EventTitle,
+                    StartDate = newStart.ToString(),
+                    EndDate = newEnd.ToString()
+                };
+                
+                model.StartDate = newEnd.ToString();
+    
+                events.Add(newEvent);
+            }
+            return events;
+        }
+
         public static DateTime SetTime(DateTime date, string time)
         {
             return date.AddHours(Convert.ToInt32(time)); 

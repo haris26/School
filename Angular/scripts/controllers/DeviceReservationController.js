@@ -41,6 +41,7 @@
             resourceName: $scope.resourceName,
             osType: $scope.Type
         };
+       
         $scope.getReservations = function ()
         {
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
@@ -61,7 +62,9 @@
         }
         $rootScope.refreshTable = function() {
             $scope.getReservations();
+            console.log("scope: ", $scope.reservations);
         }
+        
        $scope.images = {
            iOS: "images/iosYes.png",
            Android: "images/androidYes.png",
@@ -87,6 +90,7 @@
                 $scope.windows = true;
             }                     
        }
+      
     });
 }());
 

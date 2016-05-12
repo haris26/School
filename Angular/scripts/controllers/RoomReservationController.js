@@ -18,12 +18,9 @@
                //console.log($scope.reservations);
            });
        }
+
        $scope.getReservations();
 
-       // $rootScope.refreshTable = function () {
-       //     $scope.getReservations();
-       // }
-        
     });
 }());
 

@@ -36,32 +36,32 @@
         };
     });
 
-    app.controller("createEventCtrl", function ($scope, $modalInstance, DataService, schConfig, $rootScope) {
+    app.controller("createEventCtrl", function ($scope, $modalInstance, DataService, schConfig) {
         $scope.createReservation = function () {
+            console.log($scope.newEvent,"daj event");
             DataService.create("events", $scope.newEvent, function(data) {
                 var result = true;
-                $rootScope.refreshTable();
                 $modalInstance.close(result);
             });
         };
-        //console.log($scope.newEvent);
+        
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
     });
 
     app.controller("createRoomEventCtrl", function ($scope, $modalInstance, DataService, $rootScope) {
-        var todayDate = new Date();
-        var today = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate(), 17, 00,00).toJSON();
-        $scope.todayDate = today;
+       
         $scope.createReservation = function () {
+            
+            $scope.newEvent.endDate = $scope.newEvent.endDate.substring(0, 11) + " "+ $scope.newEvent.endTime+":00";
+            console.log($scope.newEvent, "u modalu");
             DataService.create("events", $scope.newEvent, function (data) {
                 var result = true;
                 //$rootScope.refreshTable();
                 $modalInstance.close(result);
             });
         };
-        //console.log($scope.newEvent);
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };

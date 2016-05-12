@@ -9,7 +9,7 @@
             link: function (scope, elem, attrs) {
                 var eventDate = new Date(scope.timeSlot.eventStart);
                 var todayDate = new Date();
-
+                
                 if (eventDate <= todayDate) {
                     elem.css('background-color', '#F2F2F2');
                     scope.timeSlot.isPast = true;
@@ -31,11 +31,11 @@
                     if(step == 38 || step == 76 || step == 114 || step == 152 || step == 190 || step == 228){
                         step = step + 6;
                     }
+
                 } while (step < 266)
-                //console.log('room scope', scope);
-
+               
                 elem.bind('click', function() {
-
+                
                     if (scope.timeSlot.isReserved == false && scope.timeSlot.isPast == false) {
                         scope.newEvent = {
                             id: 0,
@@ -45,9 +45,24 @@
                             resource: scope.$parent.room.room.id,
                             resourceName: scope.$parent.room.room.roomName,
                             category: 2,
-                            categoryName: "Room"
+                            categoryName: "Room",
+                            startTime: scope.timeSlot.startTime,
+                            endTime: scope.timeSlot.endTime,
+                            endTimes: []
+                            
                         };
-                        //console.log(scope.newEvent);
+
+                        for (var i = 0; i < scope.$parent.room.room.timeSlots.length; i++) {
+                            if (scope.$parent.room.room.timeSlots[i].isReserved == false && scope.timeSlot.startTime <= scope.$parent.room.room.timeSlots[i].startTime) {
+                                scope.newEvent.endTimes.push(scope.$parent.room.room.timeSlots[i].endTime);              
+                            }
+                            if (scope.$parent.room.room.timeSlots[i].isReserved == true && scope.timeSlot.startTime <= scope.$parent.room.room.timeSlots[i].startTime) {
+                                break;
+                            }  
+                        }
+                        
+                        
+                        
                         var modalInstance = $modal.open({
                             templateUrl: 'views/modals/createRoomEventModal.html',
                             controller: 'createRoomEventCtrl',
