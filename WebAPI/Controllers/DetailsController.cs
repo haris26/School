@@ -18,14 +18,12 @@ namespace WebAPI.Controllers
 
         int deadline = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["deadline"]);
 
-        public IList<DetailModel> GetAll(int page = 0)
+        public IList<DetailModel> GetAll(int page, int PageSize)
         {
-            int PageSize = 200;
             var query = Repository.Get().OrderBy(x => x.Day.Date)
                                         .ThenBy(x => x.Day.Person.LastName);
 
-            int TotalPages = (int)Math.Ceiling
-                            ((double)query.Count() / PageSize);
+            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
             IList<DetailModel> details = query.Skip(PageSize * page)
                                               .Take(PageSize).ToList()
                                               .Select(x => Factory.Create(x))
@@ -38,7 +36,7 @@ namespace WebAPI.Controllers
             };
 
             HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
-
+            HttpContext.Current.Response.Headers.Add("Access-Control-Expose-Headers", "Pagination");
             return details;
         }
 

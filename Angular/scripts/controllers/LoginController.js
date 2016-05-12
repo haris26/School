@@ -11,8 +11,16 @@
                 function (response) {
                     authenticated = true;
                     currentUser = response.data;
+                    $rootScope.role = currentUser.roles;
                     $rootScope.userName = currentUser.name;
-                    $location.path("/months");
+                    if(currentUser.roles == "admin"){
+                        $location.path("/months");
+                    }
+                    else {
+                        $location.path("/calendar")
+                    }
+                    $scope.wait = false;
+                    $rootScope.$broadcast('userLoggedIn');
                 },
                 function (reason) {
                     $rootScope.message = reason.status;
@@ -31,14 +39,23 @@
                 function (response) {
                     authenticated = true;
                     currentUser = response.data;
+                    $rootScope.role = currentUser.roles;
                     $rootScope.userName = currentUser.name;
                     console.log($scope.userName);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
-                    $location.path("/months");
+                    if (currentUser.roles == "admin") {
+                        console.log(currentUser.roles);
+                        $location.path("/months");
+                    }
+                    else {
+                        $location.path("/calendar")
+                    }
                     $('.modal').modal('hide');
                     $('.modal-backdrop').remove();
                     $('body').removeClass('modal-open');
                     $scope.wait = false;
+                    $rootScope.$broadcast('userLoggedIn');
+                    
                 },
                 function (reason) {
                     console.log(reason);
@@ -73,11 +90,17 @@
                             $rootScope.userName = currentUser.name;
                             $rootScope.message = "";
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
-                            $location.path("/months");
+                            if (currentUser.roles == "admin") {
+                                $location.path("/months");
+                            }
+                            else {
+                                $location.path("/calendar")
+                            }
                             $('.modal').modal('hide');
                             $('.modal-backdrop').remove();
                             $('body').removeClass('modal-open');
                             $scope.wait = false;
+                            $rootScope.$broadcast('userLoggedIn');
                         },
                         function (reason) {
                             currentUser = undefined;

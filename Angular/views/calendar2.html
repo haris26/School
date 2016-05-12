@@ -1,7 +1,3 @@
-<script type="text/ng-template" id="toasterBodyTmpl.html">
-    <p>Render a default template!</p>
-</script>
-
 <script type="text/ng-template" id="myTemplate.html">
     <span>You have {{dayL}} days left</span>
 </script>
@@ -17,7 +13,7 @@
         <uib-datepicker ng-model="dt" datepicker-options="options" ng-click="toggleModal(dt); newDetail()"></uib-datepicker>
     </div>
 
-    <modal-dialog show='modalShow' class="col-md-offset-0 col-xs-offset-0 col-md-4 col-xs-11 col-md-pull-0" style="top:-500px">
+    <modal-dialog show='modalShow' class="col-md-4 col-xs-11" style="top:-500px">
         <div class="day-modal-content">
             <div class="unos form-horizontal">
                 <div class="row">
@@ -53,12 +49,13 @@
                                     </div>
                                 </div>
                                 <hr />
+
                                 <div ng-repeat="item in days">
                                     <div ng-repeat="detail in item.details">
-                                    <table class="table table-bordered">
-                                        <tr><td width="30%"><a href="#/details" ng-click="transfer(detail)">{{ detail.description }}</a> </td><td width="30%"> {{ detail.date | date:shortDate}}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{detail.workTime}}</b></td><td width="20%"> {{detail.teamName}}</td><td width="20%"><button ng-click="transfer(detail); deleteData();">Delete</button>  </td></tr>
-                                    </table>
-                                   </div>
+                                        <table class="table table-bordered">
+                                            <tr><td width="30%"><a href="#/details" ng-click="transfer(detail)">{{ detail.description }}</a> </td><td width="30%"> {{ detail.date | date:shortDate}}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{detail.workTime}}</b></td><td width="20%"> {{detail.teamName}}</td><td width="20%"><button ng-click="transfer(detail); deleteData();">Delete</button>  </td></tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
