@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6E187CB3-DD09-41E7-B0B1-1AD88BDE388C}</ProjectGuid>
+    <ProjectGuid>{33243B7D-AA8A-49F5-A5EC-414E6CC6686F}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -147,9 +147,10 @@
     <Content Include="js\font-awesome-ie7.min.css" />
     <Content Include="js\font-awesome.css" />
     <Content Include="js\font-awesome.min.css" />
-    <Content Include="js\fullcalendar.css" />
-    <Content Include="js\fullcalendar.min.js" />
     <Content Include="js\jquery-1.7.2.min.js" />
+    <Content Include="js\jquery-ui.custom.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\moment.min.js" />
     <Content Include="js\signin.js" />
     <Content Include="js\style.css" />
     <Content Include="library\angular-mailto.js" />
