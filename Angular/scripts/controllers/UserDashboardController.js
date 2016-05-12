@@ -27,6 +27,7 @@
             $scope.confirmed = {
                 isConfirmed: false
             }
+
             var modalInstance = $modal.open({
                 templateUrl: 'views/cancelRequestModal.html',
                 controller: 'CancelReqCtrl',

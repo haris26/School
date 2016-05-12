@@ -32,6 +32,23 @@ table#dataTables-example th {
     
 }
 
+#irmaModal{
+    position:relative;
+    right:110%;
+    background-color:floralwhite;
+        border-style: solid;
+    border-color: #59B3D2
+    
+}
+
+.modal-title{
+    color:#428bca;
+}
+
+.text-center{
+    padding:10px;
+    font:18px arial, verdana;
+}
 
 #irmapanel{
   
