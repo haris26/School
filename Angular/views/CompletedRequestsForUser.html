@@ -16,7 +16,7 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <div class="dataTable_wrapper" ng-controller="AllRequestsController">
+                    <div class="dataTable_wrapper" ng-controller="UserDashboardController">
                         Filter: <input type="search" ng-model="selString">
                         Order:
                         <select ng-model="sortOrder">
@@ -36,11 +36,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="item in completedrequests | orderBy: sortOrder" class="request-table">
-                                    <td>{{item.requestType}} </td>
+                                <tr ng-repeat="item in dashboard.completedRequests | orderBy: sortOrder" class="request-table">
+                                    <td>{{item.type}} </td>
                                     <td>{{item.categoryName}}</td>
                                
-                                  <td>{{item.requestDate|date}}</td>
+                                  <td>{{item.date|date}}</td>
                                     <td>{{item.status}}</td>
                                 </tr>
 

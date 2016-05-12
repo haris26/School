@@ -112,6 +112,7 @@
     <Content Include="library\angular-route.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="library\toaster.min.js" />
+    <Content Include="library\ui-bootstrap-tpls.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -139,6 +140,7 @@
     <Content Include="scripts\controllers\HistoryController.js" />
     <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\MenuController.js" />
+    <Content Include="scripts\controllers\ModalController.js" />
     <Content Include="scripts\controllers\NewRequestsController.js" />
     <Content Include="scripts\controllers\NewServiceRequestController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
@@ -174,6 +176,7 @@
     <Content Include="views\AdminDashboard.html" />
     <Content Include="views\AdminRequests.html" />
     <Content Include="views\AllAssets.html" />
+    <Content Include="views\cancelRequestModal.html" />
     <Content Include="views\CompletedRequestsForUser.html" />
     <Content Include="views\engagements.html" />
     <Content Include="views\FreeAssets.html" />

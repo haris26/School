@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    var app = angular.module("school", ["ngRoute", "ngCookies",'toaster',"ngAnimate"]);
+    var app = angular.module("school", ["ngRoute", "ngCookies", "ui.bootstrap", "toaster","ngAnimate"]);
     authenticated = false;
 
     currentUser = {
@@ -70,7 +70,7 @@
             //requests that user sent(user dashboard)
             .when("/usernewrequests", { templateUrl: "views/UserRequestsForNew.html", controller: "UserDashboardController"})
              .when("/userservicerequests", { templateUrl: "views/UserRequestsForService.html", controller: "UserDashboardController"})
-                     .when("/completedrequests", { templateUrl: "views/CompletedRequestsForUser.html", controller: "AllRequestsController" })
+                     .when("/completedrequests", { templateUrl: "views/CompletedRequestsForUser.html", controller: "UserDashboardController" })
             .otherwise({ redirectTo: "/login" });
     })
         .run(function ($rootScope, $location) {

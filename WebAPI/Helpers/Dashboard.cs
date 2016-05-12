@@ -25,7 +25,8 @@ namespace WebAPI.Helpers
             foreach (var asset in assets)
             {
                 dashboard.Assets.Add(new ListModel
-                { Category = asset.AssetCategory.Id,
+                {   Id=asset.Id,
+                    Category = asset.AssetCategory.Id,
                 CategoryName=asset.AssetCategory.CategoryName.ToString(),
                     Model =asset.Model,Name=asset.Name,
                     Vendor =asset.Vendor,
@@ -41,7 +42,8 @@ namespace WebAPI.Helpers
 
             
             var requests = person.Requests.Select(x => 
-            new { x.Status,
+            new { x.Id,
+                x.Status,
                 x.RequestDate,
                 x.RequestDescription,
                 x.RequestMessage,
@@ -52,9 +54,10 @@ namespace WebAPI.Helpers
 
             foreach (var request in requests)
             {
-                if ((request.requestType == RequestType.New) &&(request.Status==RequestStatus.InProccess))
+                if ((request.requestType == RequestType.New) && (request.Status!=RequestStatus.Completed))
                 {
                     dashboard.NewRequests.Add(new ListRequestsModel {
+                        Id=request.Id,
                         Category=request.AssetCategory.Id,
                         CategoryName = request.AssetCategory.CategoryName.ToString(),
                         Description = request.RequestDescription,
@@ -64,9 +67,11 @@ namespace WebAPI.Helpers
                         Status = request.Status.ToString(),
                         Date = request.RequestDate.Date });
                 }
-                else if ((request.requestType == RequestType.Service)&&(request.Status==RequestStatus.InProccess))
+
+                else if ((request.requestType == RequestType.Service) && (request.Status!=RequestStatus.Completed))
                 {
                     dashboard.ServiceRequests.Add(new ListRequestsModel {
+                        Id=request.Id,
                         Category = request.AssetCategory.Id,
                         CategoryName=request.AssetCategory.CategoryName.ToString(),
                         Description = request.RequestDescription,
@@ -78,6 +83,24 @@ namespace WebAPI.Helpers
                         ServiceType=request.ServiceType.ToString()
                        });
                 }
+
+                else if ((request.requestType == RequestType.Service) && (request.Status == RequestStatus.Completed))
+                {
+                    dashboard.CompletedRequests.Add(new ListRequestsModel
+                    {
+                        Id=request.Id,
+                        Category = request.AssetCategory.Id,
+                        CategoryName = request.AssetCategory.CategoryName.ToString(),
+                        Description = request.RequestDescription,
+                        Message = request.RequestMessage,
+                        Type = request.requestType.ToString(),
+                        Quantity = request.Quantity,
+                        Status = request.Status.ToString(),
+                        Date = request.RequestDate.Date,
+                        ServiceType = request.ServiceType.ToString()
+                    });
+                }
+
 
                 if (request.Status != RequestStatus.InProccess)
                     dashboard.countStatusChange++;

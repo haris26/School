@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("ServiceRequestsController", function ($scope, $rootScope, DataService, $location, $route) {
+    app.controller("ServiceRequestsController", function ($scope, $rootScope, toaster, DataService, $location, $route) {
 
         $scope.modal = false;
         var dataSet = "servicerequests";
@@ -23,12 +23,17 @@
             });
         }
 
+        pop = function () {
+            toaster.pop('success', "Success", " You have changed status of request!");
+
+        };
+
+
         $scope.changeStatus = function (item) {
             $scope.request = {
                 id: item.id,
                 requestMessage: item.requestMessage,
-                requestDescription: item
-                    .requestDescription,
+                requestDescription: item.requestDescription,
                 requestType: 2,
                 requestDate: Date.now(),
                 quantity: 1,
@@ -46,10 +51,12 @@
             DataService.update("servicerequests", $scope.request.id, $scope.request, function (data) { });
             //$location.path("/servicerequests");
             console.log($scope.request)
-            $scope.modal = false;
-
-            getRequests();
-            $route.reload();
+           
+            pop();
+             $route.reload();         
+             getRequests();
+             $route.reload();
+            $location.path("/servicerequests")
         }
 
         $scope.transfer = function (item) {
