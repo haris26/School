@@ -21,7 +21,9 @@
                     <table class="table-profile-user">
                         <tr>
                             <td>
-                                <img ng-src="../images/avatar.png" class="user_avatar">
+                                <img ng-if="summary.avatar" ng-src="{{ summary.avatar }}" class="user_avatar">
+                                <img ng-if="!summary.avatar && summary.gender==2" ng-src="../images/avatar_male.png" class="user_avatar">
+                                <img ng-if="!summary.avatar && summary.gender==1" ng-src="../images/avatar_female.png" class="user_avatar">
                             </td>
                         </tr>
                         <tr>
@@ -112,3 +114,4 @@
             </div>
         </div>
     </div>
+<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'position-class': 'toast-bottom-right'}"></toaster-container>

@@ -1,5 +1,4 @@
-﻿
-<div class="db-header clearfix">
+﻿<div class="db-header clearfix">
     <div class="page-header-title"><span class="glyphicon glyphicon-user"></span> User</div>
     <div class="db-header-extra"></div>
 </div>
@@ -20,7 +19,9 @@
                     <table class="table-profile-user">
                         <tr>
                             <td>
-                                <img src="../images/avatar.png" width="95px" height="95px">
+                                <img ng-if="assessments.avatar" ng-src="{{ assessments.avatar }}" class="user_avatar">
+                                <img ng-if="!assessments.avatar && assessments.gender==2" ng-src="../images/avatar_male.png" class="user_avatar">
+                                <img ng-if="!assessments.avatar && assessments.gender==1" ng-src="../images/avatar_female.png" class="user_avatar">
                             </td>
                         </tr>
                         <tr>

@@ -66,9 +66,6 @@
                     <li><a href="#/employeeSummary/{{ userId }}"><span class="glyphicon glyphicon-user"></span> {{ userName }}</a></li>
                     <li><a href="#/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                 </ul>
-                <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" name="search" placeholder="Search ...">
-                </form>
             </div>
         </div>
     </header>
@@ -85,7 +82,7 @@
                     </table>
                 </div>
                 <ul class="newnav nav nav-sidebar" ng-controller="MenuController">
-                    <li class="" ng-repeat="item in menuItems"><a href="#/{{ item.link }}"><span class="{{ item.class }}"></span> {{ item.text }}</a></li>
+                    <li ng-repeat="item in menuItems"><a href="#/{{ item.link }}"><span class="{{ item.class }}"></span> {{ item.text }}</a></li>
                 </ul>
             </div>
         </div>

@@ -13,6 +13,8 @@
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
                     $location.path("/overview");
+                    $scope.wait = false;
+                    $rootScope.$broadcast('userLoggedIn');
                 },
                 function (reason) {
                     $rootScope.message = reason.status;
@@ -81,7 +83,7 @@
                             $('.modal-backdrop').remove();
                             $('body').removeClass('modal-open');
                             $scope.wait = false;
-                            $rootScope.$broadcast('userLoggedIn');
+                            $rootScope.$broadcast('userLoggedIn');  
                         },
                         function (reason) {
                             currentUser = undefined;

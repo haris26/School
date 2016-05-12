@@ -14,7 +14,9 @@ namespace WebAPI.Helpers
             EmployeeAssessmentModel employeeAssessment = new EmployeeAssessmentModel()
             {
                 Id = person.Id,
-                FullName = person.FullName
+                FullName = person.FullName,
+                Avatar = person.Image,
+                Gender = (int)person.Gender
             };
 
             employeeAssessment.Engagements = person.Roles.Where(x => x.EndDate == null && x.Time > 0).ToList()

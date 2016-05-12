@@ -15,7 +15,9 @@ namespace WebAPI.Helpers
             EmployeeSummaryModel employeeSummary = new EmployeeSummaryModel()
             {
                 Id = person.Id,
-                FullName = person.FullName
+                FullName = person.FullName,
+                Avatar = person.Image,
+                Gender = (int)person.Gender
             };
 
             employeeSummary.Engagements = person.Roles.Where(x => x.EndDate == null && x.Time>0).ToList()

@@ -27,6 +27,8 @@ namespace WebAPI.Models
 
         public int Id { get; set; }
         public string FullName { get; set; }
+        public string Avatar { get; set; }
+        public int Gender { get; set; }
         public IList<EngagementDetail> Engagements { get; set; }
         public IList<AvailableSkill> AvailableSkills { get; set; }
         public Assessment SelfAssessment { get; set; }

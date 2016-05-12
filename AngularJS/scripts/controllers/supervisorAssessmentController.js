@@ -15,8 +15,6 @@
 
         getEmployee($scope.employeeId);
 
-
-
         function getEmployee(id) {
             DataService.read("supervisorassessments", id, function (data) {
                 $scope.assessments = data;

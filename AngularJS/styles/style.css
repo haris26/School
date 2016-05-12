@@ -7,7 +7,7 @@ body { font-family: "Open Sans"; padding-top: 50px;}
 .align-right { text-align: right; }
 .align-left { text-align: left; }
 .align-center { text-align: center; }
-.footer-text { font-size: 12px; }
+.footer-text { font-size: 11px; }
 
 /* header formating */
 .header { background: #273643; border-bottom: 1px solid #222324; padding:0px !important}

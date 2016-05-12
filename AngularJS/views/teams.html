@@ -27,6 +27,7 @@
                     </div>
                     <div class="col-md-9">
                         <div ng-repeat="category in team.skills">
+
                             <uib-accordion>
                                 <uib-accordion-group is-open="status.open">
                                     <uib-accordion-heading>
@@ -54,40 +55,6 @@
                             
                         </div>
                         <br>
-                        <!--<div ng-repeat="category in team.skills">
-                            <div class="panel-group panel panel-default">
-                                <div class="panel-heading" ng-click="collapse(category.categoryName)" data-toggle="collapse" data-target="#{{team.name}} {{category.categoryName}}">
-                                    <h4 class="panel-title">
-                                            <span class="{{icon[collapsed[category.categoryName]]}}"></span>  {{ category.categoryName }}
-                                    </h4>
-                                </div>
-                                <div id="{{team.name}} {{category.categoryName }}" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <table class="table table-bordered">
-                                            <tr class="table-header">
-                                                <th></th>
-                                                <th ng-repeat="member in team.members"> {{ member.firstName }} {{ member.lastName }}</th>
-                                                <th>Average</th>
-                                            </tr>
-                                            <tr ng-repeat="availableSkill in category.availableSkills">
-                                                <th>{{ availableSkill.name }}</th>
-                                                <td ng-repeat="member in team.members">{{category.skills[availableSkill.id].memberSkills[member.id].level}}</td>
-                                                <th>{{category.skills[availableSkill.id].averageLevel | number:1}}</th>
-                                            </tr>
-                                            <tr>
-                                                <th>Average</th>
-                                                <td ng-repeat="member in team.members">{{category.employeeSkillAverage[member.id] | number:1}}</td>
-                                                <th>{{category.avgSkillLevel | number:1}}</th>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                
-
-                            </div>
-                            </div>-->
-
                     </div>
                 </uib-tab>
             </uib-tabset>

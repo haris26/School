@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12">
                 <p>Employee:  <a href="#/employeeSummary/{{assessments.id}}">{{assessments.fullName}}</a></p>
-                <p>Showing responses (in <span style="background:#668caf">blue</span>) from self-assessment completed on {{assessments.selfAssessmentDate | date:'dd MMM yyyy'}}.</p>
+                <p>Showing responses from self-assessment completed on {{assessments.selfAssessmentDate | date:'dd MMM yyyy'}}.</p>
             </div>
             <div class="col-md-offset-3 col-md-6" ng-repeat="category in assessments.skills">
                 <h4 class="align-center">{{category.categoryName}}</h4><br />

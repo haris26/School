@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("EmployeeSummaryCtrl", function ($scope, $routeParams, $log, $location, DataService) {
+    app.controller("EmployeeSummaryCtrl", function ($scope, $routeParams, $log, $location, DataService, toaster) {
 
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;

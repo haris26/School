@@ -19,7 +19,6 @@
             if (currentUser.roles.indexOf("User") > -1) {
                 $rootScope.menuItems.push({ link: "employeeSummary", class: "glyphicon glyphicon-user", text: "User Profile" });
             };
-            
         };
 
         $rootScope.$on('userLoggedIn', function () {

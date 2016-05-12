@@ -95,7 +95,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="images\avatar.png" />
+    <Content Include="images\avatar_female.png" />
+    <Content Include="images\avatar_male.png" />
     <Content Include="images\bg.jpg" />
     <Content Include="images\mistrallogobig.png" />
     <Content Include="images\mistrallogoblue.png" />
@@ -154,6 +155,7 @@
     <Content Include="views\employeeAssessments.html" />
     <Content Include="views\employeeSummary.html" />
     <Content Include="views\login.html" />
+    <Content Include="views\modals\editAvatarModal.html" />
     <Content Include="views\modals\addQualificationModal.html" />
     <Content Include="views\modals\addSkillAssessmentModal.html" />
     <Content Include="views\modals\deleteEmpQualModal.html" />

@@ -8,7 +8,7 @@
 
         $scope.permissions = {
             showAdmin: currentUser.roles.indexOf("Admin") > -1,
-            showUser: currentUser.roles.indexOf("User") > -1,
+            showUser: currentUser.id == $scope.employeeId
         }
 
         var chartData = [];
