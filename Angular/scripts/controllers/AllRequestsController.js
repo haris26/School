@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("AllRequestsController", function ($scope, $rootScope, DataService, $route) {
+    app.controller("AllRequestsController", function ($scope, $rootScope,toaster, DataService, $route) {
 
         var dataSet = "requests";
         $scope.selString = "";
@@ -31,6 +31,12 @@
             });
         };
 
+        pop = function () {
+            toaster.pop('success', "Success", " You have changed status of this request!");
+
+        };
+
+
         $scope.changeStatus = function (item) {
             $scope.request = {
                 id: item.id,
@@ -50,6 +56,7 @@
 
             }
             DataService.update("requests", $scope.request.id, $scope.request, function (data) { });
+            pop();
             //$location.path("/servicerequests");
             console.log($scope.request);
             getRequests();
