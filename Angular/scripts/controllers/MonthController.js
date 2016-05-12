@@ -87,5 +87,5 @@
                 'July', 'August', 'September', 'October', 'November', 'December'];
             return monthNames[monthNumber - 1];
         }
-    }]);    
+    }]);
 }());

@@ -83,7 +83,19 @@
                         $rootScope.message = "Error deleting data!";
                         callback(false);
                     })
-            }
+            },
+
+            getDetail: function (page, pageSize) {
+                var resourceUrl = "";
+               resourceUrl = source + "details/?page=" + page + "&pagesize=" + pageSize
+               
+
+                return $http({
+                    method: 'GET',
+                    url: resourceUrl
+                });
+            },
+
         };
     });
 }());

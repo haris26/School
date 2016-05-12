@@ -1,16 +1,50 @@
 ﻿(function () {
     var app = angular.module("school");
-    app.controller("DetailsController", function ($scope, $rootScope, DataService) {
+    app.controller("DetailsController", function ($scope, $rootScope, DataService, $http) {
 
         var dataSet = "details";
-        $scope.selDetail = "";
+        $scope.selDetail = [];
         $scope.selTeam = "Day Off";
-        $scope.sortOrder = '-date';
+        //$scope.sortOrder = "-date";
 
         getTeams();
         fetchData();
         getPeople();
         getDays();
+
+        $scope.message = "Fetching Details...";
+        $scope.pageSizes = [5, 10, 15];
+        $scope.pageSize = 10;
+        $scope.currentPage = 0;
+
+        $scope.changePage = function (page) {
+            $scope.currentPage = page - 1;
+            $scope.fetchDetails();
+        }
+
+        $scope.fetchDetails = function () {
+            $scope.pages = [];
+            DataService.getDetail($scope.currentPage, $scope.pageSize).then(function (response) {
+                $scope.details = response.data;
+                $scope.pagination = JSON.parse(response.headers("pagination"));
+                console.log($scope.pagination);
+                for (var i = 1; i <= $scope.pagination.pageCount ; i++) {
+                    $scope.pages.push(i);
+                }
+
+                if ($scope.currentPage > $scope.pagination.pageCount - 1) {
+                    $scope.currentPage = $scope.pagination.pageCount - 1;
+                    $scope.fetchDetails();
+                }
+
+                $scope.message = "";
+            }, function (reason) {
+                $scope.message = reason;
+            })
+        }
+
+        $scope.fetchDetails();
+
         function getDays() {
             DataService.read("days", currentUser.id, function (data) {
                 $scope.days = data;
@@ -55,7 +89,6 @@
         };
         $scope.deleteData = function () {
             DataService.delete(dataSet, $scope.detail.id, function (data) { fetchData() });
-            // fetchData();
         }
 
         $scope.saveData = function () {
@@ -67,7 +100,6 @@
             else {
                 DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData() });
             }
-            //fetchData();
         }
 
         $scope.today = function () {

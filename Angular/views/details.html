@@ -1,3 +1,9 @@
+<script>
+    $('#editModal').modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
+</script>
+
 <div class="unos form-horizontal">
     <div class="container">
         <div class="row">
@@ -7,57 +13,78 @@
         </div>
         <br />
 
-        <script>
-            $('#editModal').modal('hide');
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
-        </script>
-
-        <div class="row col-md-offset-2 col-xs-offset-0 col-md-10 col-xs-12">
-            <form action="#" class="credit-card-div col-xs-offset-1">
+        <div class="row">
+            <div action="#" class="credit-card-div col-md-offset-2 col-xs-offset-0 col-md-10 col-xs-12">
                 <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
                     <div class="panel-heading">
                         <div class="row ">
-                            <div class="container-fluid ">
-                                <div style="width:100%" class="col-xs-12">
-                                    <span class="form-group">
-                                        <b>Filter:</b> <input class="input-sm" type="search" ng-model="selDetail">
-                                        <b>Order:</b> <select class="input-sm" ng-model="sortOrder">
-                                            <option value="+description">Description</option>
-                                            <option value="-date">Date</option>
-                                        </select>
-                                        <a ng-click="selDetail='Day Off'" class="label label-primary">DAYS OFF</a>
-                                        <a ng-click="selDetail=''" class="label label-success">CLEAR FILTER</a>
-                                    </span>
+                            <!--<div class="container-fluid ">-->
+                            <div class="col-xs-12">
+                                <span class="form-group col-xs-10">
+                                    <b>Filter:</b> <input class="input-sm" type="search" ng-model="selDetail">
+                                    <!--<b>Order:</b> <select class="input-sm" ng-model="sortOrder">
+                                        <option value="+description">Description</option>
+                                        <option value="-date">Date</option>
+                                    </select>-->
+                                    <a ng-click="selDetail='Day Off'" class="label label-primary">DAYS OFF</a>
+                                    <a ng-click="selDetail=''" class="label label-success">CLEAR FILTER</a>
+                                </span>
 
-                                    <div>
-                                        <br />
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th width="30%">Description</th>
-                                                    <th width="30%">Date</th>
-                                                    <th width="20%">Work Time</th>
-                                                    <th width="20%">Team</th>
-                                                    <th width="20%">Delete</th>
-                                                </tr>
-                                        </table>
+                                <div>
+                                    <br />
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th width="30%">Description</th>
+                                                <th width="30%">Date</th>
+                                                <th width="15%">Work Time</th>
+                                                <th width="20%">Team</th>
+                                                <th width="20%">Delete</th>
+                                            </tr>
+                                    </table>
+                                </div>
+
+                                <div ng-repeat="item in details | filter: 'selDetail'">
+                                    <table class="table table-bordered">
+                                        <tr><td width="30%"><a href="#/details" style="color:#4B627A"><b data-toggle="modal" data-target="#editModal" ng-click="transfer(item)">{{ item.description }}</b></a> </td><td width="30%"> {{ item.date | date:shortDate }}</td><td width="15%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td><td><button type="button" value="Delete" class="glyphicon glyphicon-trash" style="color:red" ng-click="transfer(item); deleteData();"></button></td></tr>
+                                    </table>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3 col-md-offset-5">
+                                        <div>
+                                            <ul class="pagination">
+                                                <li ng-class="{ active : page == currentPage + 1 }" ng-click="changePage(page)" ng-repeat="page in pages"><a>{{page}}</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
 
-                                    <div ng-repeat="item in details | orderBy: sortOrder | filter: selDetail">
-                                        <table class="table table-bordered">
-                                            <tr><td width="30%"><a href="#/details" style="color:#4B627A"><b data-toggle="modal" data-target="#editModal" ng-click="transfer(item)">{{ item.description }}</b></a> </td><td width="30%"> {{ item.date | date:shortDate }}</td><td width="20%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td><td><button type="button" value="Delete" class="glyphicon glyphicon-trash" style="color:red" ng-click="transfer(item); deleteData();"></button></td></tr>
-                                        </table>
+                                    <div class="col-md-3 col-md-offset-1">
+                                        <div class="form-inline">
+                                            <select ng-change="fetchDetails()" ng-model="pageSize" class="form-control"
+                                                    ng-options="pageSize as pageSize for pageSize in pageSizes"></select>
+                                            <span>per page</span>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <!--<div ng-repeat="item in details | filter: detailsPerPage" total-items="detailsPerPage" current-page="pagination.current">
+                                    <table>
+                                        <tr><td width="30%"><a href="#/details" style="color:#4B627A"><b data-toggle="modal" data-target="#editModal" ng-click="transfer(item)">{{ item.description }}</b></a> </td><td width="30%"> {{ item.date | date:shortDate }}</td><td width="15%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td><td><button type="button" value="Delete" class="glyphicon glyphicon-trash" style="color:red" ng-click="transfer(item); deleteData();"></button></td></tr>
+                                    </table>
+                                </div>
+
+                                <pagination on-page-change="pageChanged(newPageNumber)"></pagination>-->
+
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
+<!--</div>-->
 
 
 <div id="editModal" class="modal fade" role="dialog" style="top:10%">
