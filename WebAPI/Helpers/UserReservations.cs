@@ -36,7 +36,12 @@ namespace WebAPI.Helpers
                         PersonName = AppGlobals.currentUser.FullName,
                         ResourceName = reservation.Resource.Name,
                         CategoryName = reservation.Resource.ResourceCategory.CategoryName,
-                        Time = reservation.EventStart.ToShortTimeString() + " - " + reservation.EventEnd.ToShortTimeString()
+                        Time = reservation.EventStart.ToShortTimeString() + " - " + reservation.EventEnd.ToShortTimeString(),
+                        Resource = reservation.Resource.Id,
+                        StartTime = Int32.Parse(reservation.EventStart.ToShortTimeString().Split(':')[0]),
+                        EndTime = Int32.Parse(reservation.EventEnd.ToShortTimeString().Split(':')[0]),
+                        Person = reservation.User.Id,
+                        Category = reservation.Resource.ResourceCategory.Id
                     });
                 }
                 else if (reservation.EventStart.Date > System.DateTime.Now.Date)
@@ -50,7 +55,12 @@ namespace WebAPI.Helpers
                         PersonName = AppGlobals.currentUser.FullName,
                         ResourceName = reservation.Resource.Name,
                         CategoryName = reservation.Resource.ResourceCategory.CategoryName,
-                        Time = reservation.EventStart.ToShortTimeString() + " - " + reservation.EventEnd.ToShortTimeString()
+                        Time = reservation.EventStart.ToShortTimeString() + " - " + reservation.EventEnd.ToShortTimeString(),
+                        Resource = reservation.Resource.Id,
+                        StartTime = Int32.Parse(reservation.EventStart.ToShortTimeString().Split(':')[0]),
+                        EndTime = Int32.Parse(reservation.EventEnd.ToShortTimeString().Split(':')[0]),
+                        Person = reservation.User.Id,
+                        Category = reservation.Resource.ResourceCategory.Id
                     });
                 }  
             }
@@ -65,7 +75,12 @@ namespace WebAPI.Helpers
                     PersonName = AppGlobals.currentUser.FullName,
                     ResourceName = activeReservation.Resource.Name,
                     CategoryName = activeReservation.Resource.ResourceCategory.CategoryName,
-                    Time = activeReservation.EventStart.ToShortTimeString() + " - " + activeReservation.EventEnd.ToShortTimeString()
+                    Time = activeReservation.EventStart.ToShortTimeString() + " - " + activeReservation.EventEnd.ToShortTimeString(),
+                    Resource = activeReservation.Resource.Id,
+                    StartTime = Int32.Parse(activeReservation.EventStart.ToShortTimeString().Split(':')[0]),
+                    EndTime = Int32.Parse(activeReservation.EventEnd.ToShortTimeString().Split(':')[0]),
+                    Person = activeReservation.User.Id,
+                    Category = activeReservation.Resource.ResourceCategory.Id
                 });
             }
 

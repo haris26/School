@@ -1,0 +1,17 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">&times;</button>
+    <h4 class="modal-title ">Create reservation</h4>
+</div>
+
+<div class="modal-body">
+    <form>
+        <div class="form-group">
+            <label for="evTitle" class="control-label">Event title: </label>
+            <input ng-model="editEvent.eventTitle" id="evTitle" class="form-control" type="text">
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" ng-click="cancel()">Cancel</button>
+        <button type="button" class="btn btn-success" ng-click="saveReservation()">Save</button>
+    </div>
+</div>

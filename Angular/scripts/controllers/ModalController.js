@@ -93,4 +93,17 @@
             $modalInstance.dismiss('cancel');
         };
     });
+    app.controller("EditDeviceModalCtrl", function ($scope, $modalInstance, DataService, schConfig, $rootScope) {
+        $scope.saveReservation = function () {
+            DataService.update("events", $scope.editEvent.id, $scope.editEvent, function (data) {
+                var result = true;
+                $rootScope.refreshActive();
+                $modalInstance.close(result);
+                console.log($scope.editEvent);
+            });
+        };
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+    });
 }());

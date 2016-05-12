@@ -12,6 +12,7 @@
                         <p>
                             {{item.resourceName}}
                         </p>
+                        <p>{{item.resource}}</p>
                         <p>
                             <i class="glyphicon glyphicon-calendar"> </i>  {{item.startDate}}
                         </p>
@@ -19,8 +20,9 @@
                             <i class="glyphicon glyphicon-time"> </i>  {{item.time}}
                         </p>
                         <p>
-                            <button class="btn btn-danger btn-sm" ng-click="cancelReservation(item)">Cancel</button>
-                            <button class ="btn btn-info btn-sm"   ng-click="extendReservation(item)">Extend</button>
+                            <i class="glyphicon glyphicon-remove remove" ng-click="cancelReservation(item)"></i>
+                          | <i class="glyphicon glyphicon-pencil edit" ng-click="editReservation(item)"></i>
+                            <button style="float:right" class ="btn btn-info btn-sm" ng-click="extendReservation(item)">Extend</button>
                         </p>
                     </div>
                 </div>

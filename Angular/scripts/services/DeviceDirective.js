@@ -68,11 +68,13 @@
                             {
                                 scope.$parent.$parent.getDevices();
                                 elem.css('background-color', '#01AB8E');
+                                console.log(scope.newEvent);
                             }
                         });                         
                     }
-                })             
-            }           
+                })
+            }
+            
         };
     });
 }());
