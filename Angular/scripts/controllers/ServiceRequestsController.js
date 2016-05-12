@@ -2,6 +2,7 @@
 
     var app = angular.module("school");
 
+
     app.controller("ServiceRequestsController", function ($scope, $rootScope, toaster, DataService, $location, $route) {
 
         $scope.modal = false;
@@ -31,7 +32,7 @@
         }
 
         pop = function () {
-            toaster.pop('success', "Success", " You have changed status of request!");
+            toaster.pop('success', "Success", " You have changed status of this request!");
 
         };
 
@@ -56,6 +57,7 @@
             }
           
             DataService.update("servicerequests", $scope.request.id, $scope.request, function (data) { });
+            pop();
             //$location.path("/servicerequests");
             console.log($scope.request)
            

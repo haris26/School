@@ -4,6 +4,7 @@
 
     app.controller("AllRequestsController", function ($scope, $rootScope, toaster, DataService, $route, $location) {
 
+
         var dataSet = "requests";
         $scope.selString = "";
         $scope.sortOrder = "";
@@ -32,10 +33,12 @@
         };
 
 
+
         pop = function () {
             toaster.pop('success', "Success", " You have changed status of request!");
 
         };
+
         $scope.changeStatus = function (item) {
             $scope.request = {
                 id: item.id,
@@ -55,6 +58,7 @@
 
             }
             DataService.update("requests", $scope.request.id, $scope.request, function (data) { });
+            pop();
             //$location.path("/servicerequests");
             console.log($scope.request);
             pop();

@@ -24,6 +24,11 @@
             });
         };
         
+        $scope.permissions = {
+            showAdminIT: currentUser.roles.indexOf("ITOfficer") > -1,
+            showAdminOfficer: currentUser.roles.indexOf("OfficeManager") > -1
+      
+        }
 
         $scope.changeStatus = function (item) {
             $scope.request = {

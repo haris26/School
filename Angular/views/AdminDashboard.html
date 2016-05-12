@@ -1,16 +1,29 @@
 ﻿
     <div class="container-fluid">
         <div class="row">
-            <div  class="col-lg-12">
+            <div  ng-show="permissions.showAdminIT" class="col-lg-12">
                 <h1 class="page-header">Welcome, {{userName}}</h1>
                 <hr />
                     <h4> You have <span class="badge">{{dashboard.countNewRequests}}</span> <a href="#/requests">requests </a>for <span class="label label-primary"> NEW</span> equipment.</h4>
                     <hr>
+          
                     <h4> You have <span class="badge">{{dashboard.countServiceRequests}}</span><a href="#/servicerequests"> requests</a> for <span class="label label-warning"> SERVICE </span> equipment. </h4>
                     <hr>
                     <h4><span class="badge">{{dashboard.countOutOfStockAssets}}</span> <a href="Taken.html">assets</a> are out of stock. You should make an order. </h4>
                 <hr />
-</div>
+              </div>
+
+            <div ng-show="permissions.showAdminOfficer" class="col-lg-12" >
+                <h1 class="page-header">Welcome, {{userName}}</h1>
+                <hr />
+                <h4> You have <span class="badge">{{dashboard.countNewRequests}}</span> <a href="#/officerequests">requests </a>for <span class="label label-primary"> NEW</span> equipment.</h4>
+                <hr>
+
+                <h4> You have <span class="badge">{{dashboard.countServiceRequests}}</span><a href="#/officeservicerequests"> requests</a> for <span class="label label-warning"> SERVICE </span> equipment. </h4>
+                <hr>
+                <h4><span class="badge">{{dashboard.countOutOfStockAssets}}</span> <a href="Taken.html">assets</a> are out of stock. You should make an order. </h4>
+                <hr />
+            </div>
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
