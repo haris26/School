@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("NewRequestsController", function ($scope, $rootScope, DataService,$route,toaster, $location) {
+    app.controller("NewRequestsController", function ($scope, $rootScope, toaster, DataService, $location,$route) {
 
 
         var dataSet = "requests";
@@ -22,7 +22,7 @@
         }
       
         pop = function () {
-            toaster.pop('success', "Success", " You have sent your request!");
+            toaster.pop('success', "Success", " Your request is sent!");
 
         };
 
@@ -50,14 +50,18 @@
                 DataService.create(dataSet, $scope.request, function (data) { });
                 pop();
                 console.log($scope.request);
-                $route.reload();
-               
+                $route.reload();             
                 $location.path("/usernewrequests")
             }
             else {
                 DataService.update(dataSet, $scope.request.id, $scope.request, function (data) { });
+                pop();
+                console.log($scope.request);
+                $route.reload();
+                fetchData();
+                $location.path("/usernewrequests")
             }
-            fetchData();
+            
         }
 
         $scope.setCategory = function () {

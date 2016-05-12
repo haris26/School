@@ -7,6 +7,7 @@ namespace WebAPI.Models
 {
     public class ListModel
     {
+        public int Id { get; set; }
         public string CategoryName { get; set; }
         public int Category { get; set; }
         public string assetType { get; set; }
@@ -24,6 +25,7 @@ namespace WebAPI.Models
     }
 
     public class ListRequestsModel {
+        public int Id { get; set; }
         public string Type { get; set; }
         public int Category { get; set; }
         public string CategoryName { get; set; }
@@ -48,6 +50,7 @@ namespace WebAPI.Models
             Assets = new List<ListModel>();
             NewRequests = new List<ListRequestsModel>();
             ServiceRequests = new List<ListRequestsModel>();
+            CompletedRequests = new List<ListRequestsModel>();
             countStatusChange = 0;
            
 
@@ -59,7 +62,7 @@ namespace WebAPI.Models
       
         public IList<ListModel> Assets { get; set; }
         public IList<ListRequestsModel> NewRequests { get; set; }
-       
+        public IList <ListRequestsModel> CompletedRequests { get; set; }
         public IList<ListRequestsModel> ServiceRequests { get; set; }
     }
 }

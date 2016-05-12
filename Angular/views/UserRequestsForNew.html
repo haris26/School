@@ -35,6 +35,7 @@
                                     <th>Quantity</th>
                                     <th>Date</th>
                                     <th>Status</th>
+                                    <th>Cancel Request</th> 
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,10 +47,8 @@
                                     <td>{{item.quantity}}</td>
                                     <td>{{item.date|date}}</td>
                                     <td>{{item.status}}</td>
-                                   
-                                   
-                                </tr>
-                               
+                                    <td><button ng-show="item.status ==='InProccess'" class="btn btn-danger" ng-click="getRequest(item)">Cancel</button></td>                                                                                                 
+                                </tr>                               
                             </tbody>
                         </table>
                     </div>
