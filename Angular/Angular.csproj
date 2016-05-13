@@ -115,6 +115,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fullcalendar.css" />
     <Content Include="font-awesome\css\font-awesome-animation.css" />
     <Content Include="font-awesome\css\font-awesome.css" />
     <Content Include="font-awesome\css\font-awesome.min.css" />
@@ -153,9 +154,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="scripts\angular.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\calendar.js" />
     <Content Include="scripts\controllers\Calendar2Controller.js" />
+    <Content Include="scripts\controllers\CalendarController.js" />
     <Content Include="scripts\controllers\ModalController.js" />
     <Content Include="scripts\controllers\NotificationController.js" />
     <Content Include="library\bootstrap1.js" />
@@ -207,6 +211,10 @@
     <Content Include="font-awesome\scss\_stacked.scss" />
     <Content Include="font-awesome\scss\_variables.scss" />
     <Content Include="library\angular.min.js.map" />
+    <Content Include="scripts\fullcalendar.js" />
+    <Content Include="scripts\gcal.js" />
+    <Content Include="scripts\jquery-1.11.3.js" />
+    <Content Include="scripts\moment.js" />
     <Content Include="styles\bootstrap.css.map" />
     <Content Include="styles\bootstrap.min.css.map" />
     <None Include="Web.Debug.config">
@@ -246,6 +254,7 @@
     <Content Include="styles\simple-sidebar.css" />
     <Content Include="styles\site.css" />
     <Content Include="styles\toaster.css" />
+    <Content Include="views\calendar.html" />
     <Content Include="views\calendar2.html" />
     <Content Include="views\CreateDetail.html" />
     <Content Include="views\daymodal.html" />

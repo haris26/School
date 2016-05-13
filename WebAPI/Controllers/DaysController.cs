@@ -81,8 +81,21 @@ namespace WebAPI.Controllers
             }
                 return DayModel;        
             }
-    
-        
+        public IList<DayModel> Get(int id, int m, int y)
+        {
+
+            var day = Repository.Get().Where(x => x.Person.Id == id && x.Date.Month == m && x.Date.Year == y).ToList();
+
+            List<DayModel> DayModel = new List<DayModel>();
+
+            foreach (Day d in day)
+            {
+                DayModel.Add(Factory.Create(d));
+            }
+            return DayModel;
+        }
+
+
         public IHttpActionResult Post(DayModel model)
         {
             var sch = Repository.BaseContext();
