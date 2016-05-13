@@ -1,9 +1,3 @@
-<script>
-    $('#editModal').modal('hide');
-    $('body').removeClass('modal-open');
-    $('.modal-backdrop').remove();
-</script>
-
 <div class="unos form-horizontal">
     <div class="container">
         <div class="row">
@@ -44,7 +38,7 @@
                                     </table>
                                 </div>
 
-                                <div ng-repeat="item in details ">
+                                <div ng-repeat="item in details | filter: selDetail">
                                     <table class="table table-bordered">
                                         <tr><td width="30%"><a href="#/details" style="color:#4B627A"><b data-toggle="modal" data-target="#editModal" ng-click="transfer(item)">{{ item.description }}</b></a> </td><td width="30%"> {{ item.date | date:shortDate }}</td><td width="15%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td><td><button type="button" value="Delete" class="glyphicon glyphicon-trash" style="color:red" ng-click="transfer(item); deleteData();"></button></td></tr>
                                     </table>

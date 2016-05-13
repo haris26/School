@@ -50,9 +50,6 @@
                     else {
                         $location.path("/calendar")
                     }
-                    $('.modal').modal('hide');
-                    $('.modal-backdrop').remove();
-                    $('body').removeClass('modal-open');
                     $scope.wait = false;
                     $rootScope.$broadcast('userLoggedIn');
                     
@@ -96,9 +93,6 @@
                             else {
                                 $location.path("/calendar")
                             }
-                            $('.modal').modal('hide');
-                            $('.modal-backdrop').remove();
-                            $('body').removeClass('modal-open');
                             $scope.wait = false;
                             $rootScope.$broadcast('userLoggedIn');
                         },
