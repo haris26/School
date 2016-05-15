@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.directive("deviceRes", function ($modal) {
+    app.directive("deviceRes", function ($modal, $rootScope) {
         return {
             restrict: "AE",
             replace: true,
@@ -66,7 +66,7 @@
                             scope.hour.isReserved = result;
                             if (scope.hour.isReserved == true)
                             {
-                                scope.$parent.$parent.getDevices();
+                                $rootScope.refreshTable();
                                 elem.css('background-color', '#01AB8E');
                                 console.log(scope.newEvent);
                             }

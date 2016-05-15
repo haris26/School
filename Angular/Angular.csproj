@@ -145,8 +145,8 @@
     <Content Include="scripts\services\DeviceDirective.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
-    <Content Include="scripts\services\PopoverDirective.js" />
     <Content Include="scripts\services\RoomDirective.js" />
+    <Content Include="scripts\services\TooltipDirective.js" />
     <Content Include="scripts\toaster.min.js" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\site.css" />
@@ -175,6 +175,7 @@
     <Content Include="scripts\controllers\ResourceController.js" />
     <Content Include="views\resources.html" />
     <Content Include="views\roomReservation.html" />
+    <Content Include="views\tooltipView.html" />
     <Content Include="views\userDashboard.html" />
     <Content Include="Web.config" />
   </ItemGroup>

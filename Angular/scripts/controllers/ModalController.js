@@ -14,7 +14,7 @@
             $modalInstance.dismiss('cancel');
         };
         pop = function () {
-            toaster.pop('note', "Confirmation", "Reservation successfully extended!");
+            toaster.pop('success', "Confirmation", "Reservation successfully extended!");
         };
     });
 
@@ -36,7 +36,7 @@
         };
     });
 
-    app.controller("createEventCtrl", function ($scope, $modalInstance, DataService, schConfig) {
+    app.controller("createEventCtrl", function ($scope, $modalInstance, DataService, schConfig, $rootScope) {
         $scope.createReservation = function () {
             console.log($scope.newEvent,"daj event");
             DataService.create("events", $scope.newEvent, function(data) {
@@ -54,7 +54,7 @@
        
         $scope.createReservation = function () {
             
-            $scope.newEvent.endDate = $scope.newEvent.endDate.substring(0, 11) + " "+ $scope.newEvent.endTime+":00";
+            $scope.newEvent.endDate = $scope.newEvent.endDate.substring(0,10) + $scope.newEvent.endTime+":00";
             console.log($scope.newEvent, "u modalu");
             DataService.create("events", $scope.newEvent, function (data) {
                 var result = true;
