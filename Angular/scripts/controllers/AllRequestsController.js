@@ -8,6 +8,10 @@
         var dataSet = "requests";
         $scope.selString = "";
         $scope.sortOrder = "";
+
+        $scope.currentPage = 1;
+        $scope.pageSize = 10;
+
         getRequests();
         getCompletedRequests();
         fetchData();

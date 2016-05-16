@@ -47,7 +47,7 @@ namespace WebAPI.Controllers
             }
 
             IList<RequestModel> devicerequests =
-               query.Skip(PageSize * page).Take(PageSize).ToList().Where(x=> x.AssetType == AssetType.Device).Select(x => Factory.Create(x)).ToList();
+               query.Skip(PageSize * page).Take(PageSize).ToList().Where(x=> x.AssetCategory.assetType==AssetType.Device).Select(x => Factory.Create(x)).ToList();
 
             IList<RequestModel> officerequests =
                query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.AssetType == AssetType.Office).Select(x => Factory.Create(x)).ToList();

@@ -110,6 +110,7 @@
     <Content Include="images\mistrallogobig.png" />
     <Content Include="library\angular-cookies.js" />
     <Content Include="library\angular-route.js" />
+    <Content Include="library\dirPagination.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="library\toaster.min.js" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />

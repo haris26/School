@@ -21,7 +21,7 @@
                         Filter: <input type="search" ng-model="selString">
                         Order:
                         <select ng-model="sortOrder">
-                            <option value="+serviceType">Service Type</option>
+                            <!--<option value="+userName">Service Type</option>-->
                             <option value="+date">Date</option>
 
                         </select>
@@ -40,7 +40,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="item in devicerequests" class="request-table">
+                                <tr dir-paginate="item in devicerequests | itemsPerPage:5" class="request-table">
                                     <td>{{item.personName}} </td>
                                     <td>{{item.categoryName}}</td>
                                     <td>{{item.requestDate|date}}</td>
@@ -59,8 +59,14 @@
 
                                     <td><button class="btn btn-success" ng-click="changeStatus(item)">Save</button></td>
                                 </tr>
+
+                                
                             </tbody>
                         </table>
+                        <dir-pagination-controls [max-size="5"
+                                                 [direction-links="true"
+                                                 [boundary-links="true">
+                        </dir-pagination-controls>
                     </div>
                     <!-- /.table-responsive -->
                 </div>

@@ -9,6 +9,8 @@
         $scope.selString = "";
         $scope.sortOrder = "";
         $rootScope.model = {};
+        $scope.currentPage = 1;
+        $scope.pageSize = 10;
        
      
         function fetchData() {
