@@ -82,6 +82,18 @@ namespace WebAPI.Models
             };
         }
 
+        public AssetCharacteristicNamesModel Create(AssetCharacteristicNames charNames)
+        {
+            AssetCharacteristicNamesModel model = new AssetCharacteristicNamesModel()
+            {
+                Id = charNames.Id,
+                CategoryName = charNames.AssetCategory.CategoryName.ToString(),
+                Category = charNames.AssetCategory.Id,
+                Name = charNames.Name.ToString()
+            };
+            return model;
+        }
+
 
         public AssetCategoriesModel Create(AssetCategory category)
         {
@@ -89,9 +101,12 @@ namespace WebAPI.Models
             {
                 Id = category.Id,
                 CategoryName = category.CategoryName,
-                Type = category.assetType.ToString()
+                Type = category.assetType.ToString(),
+                Assets=new List<AssetsModel>(),
+                AssetCharacteristicNames = new List<AssetCharacteristicNamesModel>()
+                 
 
-            };
+        };
             foreach (var asset in category.Assets)
             {
                 if (asset.User == null)
@@ -141,7 +156,7 @@ namespace WebAPI.Models
                 Name = characteristic.Name,
                 Value = characteristic.Value,
                 Asset = characteristic.Asset.Id,
-                AssetName = characteristic.Asset.Name
+                AssetName = characteristic.Asset.Name.ToString()
 
             };
 

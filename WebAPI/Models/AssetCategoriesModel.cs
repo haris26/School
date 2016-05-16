@@ -9,8 +9,10 @@ namespace WebAPI.Models
 
     public class AssetCharacteristicNamesModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
-        public string Category { get; set; }
+        public string CategoryName { get; set; }
+        public int Category { get; set; }
 
     }
 
