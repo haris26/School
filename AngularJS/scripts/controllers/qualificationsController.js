@@ -6,6 +6,7 @@
 
         $scope.message = "Loading data...";
         $scope.sortOrder = "Name";
+        $scope.name = false;
 
         $scope.qualificationItem = {
             id: 0,
@@ -118,6 +119,21 @@
                 type: 0,
                 numOfEmployees: 0
             };
+        };
+        function nameCheck(name) {
+            if (name != "") {
+                DataService.qualificationCheck("educations", name, function (data) {
+                    console.log(data.length);
+                    $scope.name = data.length!=0;
+                    console.log($scope.name);
+                })
+            }
+        };
+
+        $scope.validate = function () {
+            nameCheck($scope.qualificationItem.name);
+            if ($scope.qualificationItem.name && $scope.qualificationItem.type) return false;
+            else return true;
         };
 
 

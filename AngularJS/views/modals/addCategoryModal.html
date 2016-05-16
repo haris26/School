@@ -11,13 +11,16 @@
                     <label class="control-label col-md-2">Name</label>
                     <div class="col-md-10">
                         <input ng-model="categoryItem.name" class="form-control text-box single-line" type="text" />
+                        <span style="color:red">
+                            <span ng-show="nameCheckCategory()">The name already exists.</span>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" ng-click="addCategory()">Save</button>
+            <button type="button" class="btn btn-primary" ng-disabled="validateCatgory()" ng-click="addCategory()">Save</button>
         </div>
     </div>
 </div>

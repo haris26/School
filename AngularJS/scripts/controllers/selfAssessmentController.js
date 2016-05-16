@@ -88,7 +88,6 @@
                 categoryName: "New Skills",
                 skills: []
             };
-          
             angular.forEach($scope.newSkills, function (tool) {
                 var newEmployeeSkill = {
                     employee: $scope.employeeId,
@@ -102,6 +101,7 @@
                 newCategory.skills.push(newEmployeeSkill);
                 $scope.currentLength = newCategory.skills.length;
             });
+            console.log($scope.newSkills);
             if ($scope.currentLength != null) {
                 console.log($scope.currentLength);
                 $scope.assessments.skills.push(newCategory);
@@ -118,20 +118,24 @@
             var newCategory = {
                 categoryName: "New Skills",
                 skills: []
-            };
+            }; 
 
             angular.forEach($scope.newSkills, function (tool) {
-                var newEmployeeSkill = {
-                    employee: $scope.employeeId,
-                    skillId: tool.id,
-                    level: 1,
-                    experience: 0,
-                    skill: tool.name,
-                    dateOfSelfAssessment: new Date(),
-                    assessedBy: 0,
+                if ($scope.newSkills.length > 0) {
+                    if (tool) {
+                        var newEmployeeSkill = {
+                            employee: $scope.employeeId,
+                            skillId: tool.id,
+                            level: 1,
+                            experience: 0,
+                            skill: tool.name,
+                            dateOfSelfAssessment: new Date(),
+                            assessedBy: 0,
+                        }
+                        newCategory.skills.push(newEmployeeSkill);
+                        $scope.currentLength = newCategory.skills.length;
+                    }
                 }
-                newCategory.skills.push(newEmployeeSkill);
-                $scope.currentLength = newCategory.skills.length;
             });
             if ($scope.currentLength != null) {
                 console.log($scope.currentLength);
@@ -140,7 +144,7 @@
             for (j = 0; j < $scope.assessments.skills[$scope.assessments.skills.length - 1].skills.length; j++) {
                 $scope.assessed[$scope.assessments.skills[$scope.assessments.skills.length - 1].skills[j].skillId] = false;
             }
-        }
+            }
         }
     });
 }());

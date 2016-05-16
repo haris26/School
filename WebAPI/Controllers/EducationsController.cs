@@ -12,6 +12,7 @@ using WebAPI.Services;
 namespace WebAPI.Controllers
 {
     //[TokenAuthorize]
+    [RoutePrefix("api/educations")]
     public class EducationsController : BaseController<Education>
     {
         SchoolIdentity ident = new SchoolIdentity();
@@ -19,6 +20,7 @@ namespace WebAPI.Controllers
         public EducationsController(Repository<Education> depo) : base(depo)
         { }
 
+        [Route("{id:int}")]
         public List<EducationModel> Get(int id)
         {
             return Repository.Get().Where(x => x.Type == (EducationType)id).ToList()
@@ -28,6 +30,14 @@ namespace WebAPI.Controllers
         public IList<EducationCategoryModel> Get()
         {
             return Repository.Get().ToList().GroupBy(x => x.Type).Select(x => Factory.Create(x)).ToList();
+        }
+
+        [Route("{name}")]
+        public List<EducationModel> Get(string name)
+        {
+            return Repository.Get().Where(x => x.Name == name).ToList()
+                             .Select(x => Factory.Create(x)).ToList();
+            
         }
 
         public IHttpActionResult Post(Education education)
