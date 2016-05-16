@@ -19,12 +19,6 @@
             DataService.list("teamsummaries", function (data) {
                 $scope.teams = data;
                 $scope.message = "";
-                for (i = 0; i < $scope.teams[i].skills.length; i++) {
-                    for (var j = 0; j < $scope.teams[i].skills[j]; j++){
-                        $scope.collapsed[$scope.teams[i].skills[j].categoryName] = true;
-                        
-                    }
-                }
             })
         }
     });

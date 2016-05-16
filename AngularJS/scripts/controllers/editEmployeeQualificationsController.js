@@ -6,6 +6,12 @@
 
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
+
+        $scope.permissions = {
+            showAdmin: currentUser.roles.indexOf("Admin") > -1,
+            showUser: currentUser.id == $scope.employeeId
+        }
+
         $scope.eduItem = {
             id: 0,
             employee: $scope.employeeId,
@@ -38,8 +44,14 @@
             if (eduType == 3) {
                 $scope.showReference = true;
             }
+            else if(eduType == 1)
+            {
+                $scope.showFormalEducation = true;
+                $scope.showReference = false;
+            }
             else {
                 $scope.showReference = false;
+                $scope.showFormalEducation = false;
                 $scope.showNewCertificate = false;
             }
             DataService.read("educations", eduType, function (data) {

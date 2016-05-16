@@ -10,6 +10,7 @@
             $rootScope.menuItems = [];
             if (currentUser.roles.indexOf("Admin") > -1) {
                 $rootScope.menuItems.push({ link: "overview", class: "glyphicon glyphicon-home", text: "Overview" });
+                $rootScope.menuItems.push({ link: "pendingAssessments", class: "glyphicon glyphicon-check", text: "Pending Assessments" });
                 $rootScope.menuItems.push({ link: "teams", class: "glyphicon glyphicon-user", text: "Teams" });
                 $rootScope.menuItems.push({ link: "people", class: "glyphicon glyphicon-user", text: "People" });
                 $rootScope.menuItems.push({ link: "qualifications", class: "glyphicon glyphicon-bookmark", text: "Qualifications" });

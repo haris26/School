@@ -80,6 +80,15 @@
                });
            },
 
+           getPendingAssessments: function (page, pageSize, callback) {
+                   resourceUrl = source + "people/?page=" + page + "&pagesize=" + pageSize
+
+               return $http({
+                   method: 'GET',
+                   url: resourceUrl
+               });
+           },
+
            getAssessmentHistory: function (searchOptions, callback) {
                $http({ method: "post", url: source + "skillassessmenthistories", data: searchOptions })
                    .success(function (data) {

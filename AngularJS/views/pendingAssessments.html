@@ -1,0 +1,51 @@
+﻿<div class="db-header clearfix">
+    <div class="page-header-title"><span class="glyphicon glyphicon-check"></span> Pending Assessments</div>
+    <div class="db-header-extra"></div>
+</div>
+
+<div>
+    <div>
+        {{message}}
+    </div>
+    <br>
+    <div ng-hide="message" id="content">
+
+        <!-- Table -->
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr class="table-header">
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr ng-repeat="person in people">
+                            <td><a href="#/employeeSummary/{{person.id}}">{{person.firstName}} {{person.lastName}}</a></td>
+                            <td><a href="#/supervisorAssessment/{{person.id}}"><strong>Assess</strong></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="row">
+            <div class="col-md-3 col-md-offset-5">
+                <div>
+                    <ul class="pagination">
+                        <li ng-class="{ active : page == currentPage + 1 }" ng-click="changePage(page)" ng-repeat="page in pages"><a>{{page}}</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-md-offset-2">
+                <div class="form-inline">
+                    <select ng-change="fetchPeople()" ng-model="pageSize" class="form-control"
+                            ng-options="pageSize as pageSize for pageSize in pageSizes"></select>
+                    <span>per page</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

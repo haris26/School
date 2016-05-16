@@ -30,6 +30,7 @@
             .when("/supervisorAssessment/:employeeId", { templateUrl: "views/supervisorAssessment.html", controller: "SupervisorAssessmentCtrl", resolve: { factory: userRouting } })
             .when("/findPeople", { templateUrl: "views/findPeople.html", controller: "FindPeopleCtrl", resolve: { factory: userRouting } })
             .when("/teams", { templateUrl: "views/teams.html", controller: "TeamsSummaryCtrl", resolve: { factory: userRouting } })
+            .when("/pendingAssessments", { templateUrl: "views/pendingAssessments.html", controller: "PendingAssessmentsCtrl", resolve: { factory: userRouting } })
 
             //employeeId
             .when("/employeeSummary/:employeeId", { templateUrl: "views/employeeSummary.html", controller: "EmployeeSummaryCtrl", resolve: { factory: userRouting } })
@@ -68,7 +69,11 @@
     };
 
     var userRoutingQualification = function ($location) {
+        if (currentUser.roles.indexOf("Admin") > -1) {
+            return true;
+        } else {
             return $location.path("/editEmployeeQualifications/" + currentUser.id);
+        }
     };
 
 

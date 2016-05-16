@@ -26,7 +26,8 @@
             <td>5</td>
             <td>Highly skilled</td>
         </tr>
-    </table>
+    </table><br />
+    * Experiance in years
 </div>
 
 
@@ -65,7 +66,7 @@
                     </div>
                     <div ng-if="skill.skill" class="col-md-2">Experience</div>
                     <div ng-if="skill.skill" class="col-md-2">
-                        <input ng-model="skill.experience" type="number" class="form-control" />
+                        <input ng-model="skill.experience" type="number" class="form-control" min="0"/>
                     </div>
                     <div ng-if="skill.skill" class="col-md-1">
 

@@ -1,4 +1,4 @@
-﻿<div class="db-header clearfix">   
+﻿<div class="db-header clearfix">
     <div class="page-header-title"><span class="glyphicon glyphicon-home"></span> Overview</div>
     <div class="db-header-extra"></div>
 </div>
@@ -6,6 +6,22 @@
 
 <div id="content">
     {{ message }}
+    <br>
+    <div class="row" ng-show="overview">
+
+        <!-- People to assess -->
+        <div class="col-md-6" ng-controller="PendingAssessmentsCtrl">
+            <div id="people" class="dashboard-window clearfix div-darkblue">
+                <div class="d-w-icon">
+                    <span class="glyphicon glyphicon-check giant-white-icon"></span>
+                </div>
+                <div class="d-w-text" style="font-size:larger">
+                    <a href="#/pendingAssessments" class="white-link">14 Pending Assessments</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
     <br>
     <div class="row" ng-show="overview">
 

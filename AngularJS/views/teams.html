@@ -29,10 +29,11 @@
                         <div ng-repeat="category in team.skills">
 
                             <uib-accordion>
-                                <uib-accordion-group is-open="status.open">
+                                <uib-accordion-group>
                                     <uib-accordion-heading>
                                         <i class="pull-left glyphicon" ng-class="{'glyphicon-chevron-up': status.open, 'glyphicon-chevron-down': !status.open}"></i>{{ category.categoryName }}
                                     </uib-accordion-heading>
+                                    <div style="overflow-x:scroll">
                                     <table class="table table-bordered">
                                         <tr class="table-header">
                                             <th></th>
@@ -50,6 +51,7 @@
                                             <th>{{category.avgSkillLevel | number:1}}</th>
                                         </tr>
                                     </table>
+                                    </div>
                                 </uib-accordion-group>
                             </uib-accordion><br />
                             
