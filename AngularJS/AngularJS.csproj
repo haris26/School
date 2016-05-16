@@ -143,6 +143,7 @@
     <Content Include="scripts\controllers\skillsController.js" />
     <Content Include="library\jquery.min.js" />
     <Content Include="scripts\controllers\supervisorAssessmentController.js" />
+    <Content Include="scripts\controllers\validateController.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />

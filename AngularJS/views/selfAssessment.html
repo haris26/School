@@ -48,7 +48,7 @@
                 <p>Employee: <a href="#/employeeSummary/{{assessments.id}}">{{assessments.fullName}}</a></p>
             </div>
             <div class="col-md-offset-2 col-md-8" ng-repeat="category in assessments.skills">
-                <h4 class="align-center">{{category.categoryName}}</h4><br />
+                <h4 ng-show="category.skills.length>0" class="align-center">{{category.categoryName}}</h4><br />
                 <div class="row" ng-repeat="skill in category.skills">
                     <div ng-if="skill.skill"  class="col-md-2">
                         <h5>{{skill.skill}}</h5>
@@ -73,7 +73,7 @@
                         <a class="{{assessmentClass[assessed[skill.skillId]]}}" ng-click="createEmployeeSkill(skill)"><span class="glyphicon glyphicon-ok"></span></a>
                     </div>
                 </div>
-                <hr />
+                <hr ng-show="category.skills.length>0" />
             </div>
             <div class="col-md-offset-2 col-md-8">
                 <button class="btn btn-primary form-control" ng-click="goToAssessment()">Finish Assessment</button>

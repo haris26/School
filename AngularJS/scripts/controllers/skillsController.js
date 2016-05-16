@@ -185,6 +185,11 @@
 
             $scope.skillItem.category = $scope.category.id;
         }
+        $scope.validateCatgory = function () {
+            if ($scope.categoryItem.name) return false;
+            else return true;
+        }
+
     });
 
 }());
