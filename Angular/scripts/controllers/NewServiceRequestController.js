@@ -16,8 +16,11 @@
 
         pop = function () {
             toaster.pop('success', "Success", " You have sent your request!");
-
         };
+
+        errorPop = function () {
+            toaster.pop('error', "Error", "All fields are required");
+        }
 
         $scope.save = function save() {
             var model = $rootScope.model;
@@ -36,15 +39,16 @@
                 person: model.user,
                 status: 1,
                 serviceType:$scope.serviceType
-
             };
-           
-           
-            DataService.create("requests", $scope.request, function (response) { });
-            pop();
-            console.log($scope.request)
-            $location.path("/userservicerequests")
-
+            if ($scope.request.requestDescription == "" || $scope.request.requestMessage == "" || $scope.request.requestType == "") {
+                errorPop();
+                return                
+            } else {
+                DataService.create("requests", $scope.request, function (response) { });
+                pop();
+                console.log($scope.request)
+                $location.path("/userservicerequests")
+            }
         }
     });
 }());

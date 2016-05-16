@@ -1,50 +1,47 @@
-﻿<div class="container-fluid" data-ng-init="newRequest()">
-    <div class="row">
-        <div class="col-lg-12">
+﻿<form id="requesttable_irma" name="requestForm">
+    <div class="container-fluid" data-ng-init="newRequest()">
+        <div class="row">
+            <div class="col-lg-12">
 
-           
-            <div class="col-lg-4">
-                <div class="container4" action="NewRequest.html" id="form1">
-                    <hr/>
-                    <h3 class="irmatitle">Request for new equipment</h3>
-                    <form id="requesttable_irma">
-                        <div class="form-group">                            
+                <div class="col-lg-4">
+                    <div class="container4" action="NewRequest.html" id="form1">
+                        <hr />
+                        <h3 class="irmatitle">Request for new equipment</h3>
+
+                        <div class="form-group">
                             <br>
                             <div class="text">
-                                <label for="exampleInputEmail1">Category</label>
+                                <label for="exampleInputEmail1">Category*</label>
                                 <select class="form-control" id="sel" ng-change="setCategory()" ng-model="selectedCategory"
                                         ng-options="category as category.categoryName for category in categories" required></select>
-                             </div>                        
-                             <!--<div class="text">
+                            </div>
+                            <!--<div class="text">
                                 <label for="exampleInputEmail1">Type</label>
                                 <select class="form-control" id="sel" ng-model="request.type"
                                         ng-options="category.type for category in categories"></select>
                                <label for="exampleInputEmail1">Type</label>
                             </div>-->
-                       <!--  -->
+                            <!--  -->
                             <label for="number">Type</label></br>
                             <div class="text"><input type="text" ng-model="request.assetType" disabled></div>
                         </div>
-                        <label for="number" >Quantity</label></br>
+                        <label for="number">Quantity*</label></br>
                         <input type="number" id="replyNumber" min="1" data-bind="value:replyNumber" ng-model="request.quantity" required />
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Request Description</label>
-                            <textarea class="form-control" rows="1" id="comment" ng-model="request.requestDescription" required></textarea>
+                            <label for="exampleInputPassword1">Request Description*</label>
+                            <textarea class="form-control" rows="1" id="comment" ng-model="request.requestDescription"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Request Message</label>
-                            <textarea class="form-control" rows="5" id="comment" ng-model="request.requestMessage" required></textarea>
+                            <label for="exampleInputPassword1">Request Message*</label>
+                            <textarea class="form-control" rows="5" id="comment" ng-model="request.requestMessage"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" value="Send" ng-click="saveData()">Submit</button>
-                         
-                        
-                        
-                    </form>
 
+                    </div>
                 </div>
+                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.col-lg-12 -->
+            <!-- /.row -->
         </div>
-        <!-- /.row -->
     </div>
-    </div>
+</form>

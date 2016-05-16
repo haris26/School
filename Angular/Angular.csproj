@@ -109,6 +109,7 @@
     <Content Include="images\loading.gif" />
     <Content Include="images\mistrallogobig.png" />
     <Content Include="library\angular-cookies.js" />
+    <Content Include="library\angular-messages.min.js" />
     <Content Include="library\angular-route.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="library\toaster.min.js" />

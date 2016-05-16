@@ -23,7 +23,10 @@
       
         pop = function () {
             toaster.pop('success', "Success", " Your request is sent!");
+        };
 
+        errorPop = function () {
+            toaster.pop('error', "Error", " All fields are required!");
         };
 
         $scope.newRequest = function () {
@@ -40,29 +43,35 @@
                 status:1,
                 requestType: "New",
                 assetType: "",
-           serviceType:0,
+                serviceType:0,
             }
         };
        
         $scope.saveData = function () {
             var promise;
-            if ($scope.request.id == 0) {
-                DataService.create(dataSet, $scope.request, function (data) { });
-                pop();
-                console.log($scope.request);
-                $route.reload();             
-                $location.path("/usernewrequests")
+            if($scope.request.requestDescription == "" || $scope.request.requestMessage == "" || $scope.request.quantity == null)
+            {
+                errorPop();
+                return
+            }else{
+                //if ($scope.request.id == 0) {
+                    DataService.create(dataSet, $scope.request, function (data) { });
+                    pop();
+                    console.log($scope.request);
+                    $route.reload();             
+                    $location.path("/usernewrequests")
+                //}else {
+                //    DataService.update(dataSet, $scope.request.id, $scope.request, function (data) { });
+                //    pop();
+                //    console.log($scope.request);
+                //    $route.reload();
+                //    fetchData();
+                //    $location.path("/usernewrequests")
+                //}
+                
             }
-            else {
-                DataService.update(dataSet, $scope.request.id, $scope.request, function (data) { });
-                pop();
-                console.log($scope.request);
-                $route.reload();
-                fetchData();
-                $location.path("/usernewrequests")
-            }
-            
         }
+       
 
         $scope.setCategory = function () {
             $scope.request.category = $scope.selectedCategory.id

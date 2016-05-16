@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    var app = angular.module("school", ["ngRoute", "ngCookies", "ui.bootstrap", "toaster","ngAnimate"]);
+    var app = angular.module("school", ["ngRoute", "ngCookies", "ui.bootstrap", "toaster", "ngAnimate", "ngMessages"]);
     authenticated = false;
 
     currentUser = {

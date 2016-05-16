@@ -1,33 +1,33 @@
-﻿<div ng-controller="NewServiceRequestController">
-    <div class="panel">
+﻿<form name="serviceForm" required>
+    <div ng-controller="NewServiceRequestController">
+        <div class="panel">
+            <div>
+                <br />
+                <br />
+            </div>
+            <div class="label" style="color:black; font-size:20px; ">New Service Request</div><hr />
+            <div class="form-group">
+                <label for="exampleInputPassword1">Request Message*</label>
+                <textarea class="form-control" rows="1" id="comment" ng-model="requestMessage" name="userRequestMessage" style="width:300px;"></textarea>                
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Request Description*</label>
+                <textarea class="form-control" rows="5" id="comment" ng-model="requestDescription" name="userRequestDescription" style="width:300px;" placeholder="More information about malfunction..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Service Type*</label>
+                <select ng-model="serviceType" name="userServiceType">
+                    <option value="1">Hardware</option>
+                    <option value="2" selected>Software</option>
+                </select>
+            </div>
+        </div>
         <div>
             <br />
-            <br />
-        </div>
-            <div class="label" style="color:black; font-size:20px; ">New Service Request</div><hr />
-        <div class="form-group">
-            <label for="exampleInputPassword1">Request Message</label>
-            <textarea class="form-control" rows="1" id="comment" ng-model="requestMessage" style="width:300px;" required></textarea>
-        </div>
-        <div class="form-group">
-              <label for="exampleInputPassword1">Request Description</label>
-              <textarea class="form-control" rows="5" id="comment" ng-model="requestDescription" style="width:300px;" placeholder="More information about malfunction..." required></textarea>
-        </div>
+            <button type="submit" class="btn btn-primary" value="Send Request" ng-click="save()">Send Request</button>
+            <label for="exampleInputPassword1"></label>
+            <hr>
 
-      
-        <div class="form-group">
-            <label for="exampleInputPassword1">Service Type</label>
-            <select ng-model="serviceType">
-                <option value="1">Hardware</option>
-                <option value="2">Software</option>
-
-            </select>
         </div>
     </div>
-    <div>
-        <br />
-        <button type="submit" class="btn btn-primary"  value="Send Request" ng-click="save()">Send Request</button>
-        <label for="exampleInputPassword1"></label>
-        <hr>       
-    </div>
-</div>
+</form>

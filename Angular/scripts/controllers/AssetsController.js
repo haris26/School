@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("AssetsController", function ($scope, $rootScope, DataService, $route) {
+    app.controller("AssetsController", function ($scope, $rootScope, toaster, DataService, $route) {
 
         $scope.modal = false;
         var dataSet = "assets";
@@ -45,6 +45,10 @@
                 $scope.assets = data.allAssets;
             });
         }
+
+        pop = function () {
+            toaster.pop('success', "Success", " You assigned this asset!");
+        };
         
 
         $scope.assignDevice = function (item, selectedUser) {
@@ -67,6 +71,7 @@
             DataService.update("assets", $scope.asset.id, $scope.asset, function (data) { });
             console.log($scope.asset);
             $route.reload();
+            pop();
             getAssets();
         }
 

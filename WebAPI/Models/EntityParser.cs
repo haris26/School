@@ -103,5 +103,16 @@ namespace WebAPI.Models
             };
 
         }
+
+        public AssetCharacteristicNames Create(AssetCharacteristicNamesModel model, SchoolContext context)
+        {
+            return new AssetCharacteristicNames()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                AssetCategory = context.AssetCategories.Find(model.Category),
+            };
+
+        }
     }
 }
