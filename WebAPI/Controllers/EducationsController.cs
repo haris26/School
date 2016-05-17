@@ -39,7 +39,7 @@ namespace WebAPI.Controllers
                              .Select(x => Factory.Create(x)).ToList();
             
         }
-
+        [HttpPost]
         public IHttpActionResult Post(Education education)
         {
             try
@@ -53,6 +53,8 @@ namespace WebAPI.Controllers
             }
         }
 
+        [Route("{id:int}")]
+        [HttpPut]
         public IHttpActionResult Put(int id, Education education)
         {
             try
@@ -70,6 +72,8 @@ namespace WebAPI.Controllers
             }
         }
 
+        [Route("{id:int}")]
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             try
