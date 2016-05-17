@@ -14,7 +14,7 @@
              $rootScope.menuItems.push({ link: "requests", text: "New Asset" });
              $rootScope.menuItems.push({ link: "servicerequests", text: "Service Asset" });
              $rootScope.menuItems.push({ text: "Inventory" });
-             $rootScope.menuItems.push({ link: "assets", text: "Add new equipment" });
+             $rootScope.menuItems.push({ link: "addasset", text: "Add new equipment" });
              $rootScope.menuItems.push({ link: "assets", text: "Assigned equipment" });
              
                  $rootScope.menuItems.push({ link: "admindashboard" });
@@ -28,8 +28,8 @@
              $rootScope.menuItems.push({ link: "officerequests", text: "New Asset" });
              $rootScope.menuItems.push({ link: "officeservicerequests", text: "Service Asset" });
             $rootScope.menuItems.push({ text: "Inventory" });
-            $rootScope.menuItems.push({ link: "assets", text: "Add new equipment" });
-            $rootScope.menuItems.push({ link: "assets", text: "Assigned equipment" });
+            $rootScope.menuItems.push({ link: "addasset", text: "Add new equipment" });
+            $rootScope.menuItems.push({ link: "officeassets", text: "Assigned equipment" });
         
            
              $rootScope.menuItems.push({ link: "officer" });

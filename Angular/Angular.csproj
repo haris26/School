@@ -143,6 +143,7 @@
     <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\MenuController.js" />
     <Content Include="scripts\controllers\ModalController.js" />
+    <Content Include="scripts\controllers\NewAssetController.js" />
     <Content Include="scripts\controllers\NewRequestsController.js" />
     <Content Include="scripts\controllers\NewServiceRequestController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
@@ -175,6 +176,7 @@
     <Content Include="styles\Style.css" />
     <Content Include="styles\tables.css" />
     <Content Include="styles\toaster.min.css" />
+    <Content Include="views\AddNewAsset.html" />
     <Content Include="views\AdminDashboard.html" />
     <Content Include="views\AdminRequests.html" />
     <Content Include="views\AllAssets.html" />
@@ -186,6 +188,7 @@
     <Content Include="views\History.html" />
     <Content Include="views\loginModal.html" />
     <Content Include="views\NewOfficeRequests.html" />
+    <Content Include="views\OfficeAssignedAssets.html" />
     <Content Include="views\ServiceOfficeRequests.html" />
     <Content Include="views\UserAssetsForService.html" />
     <Content Include="views\login.html" />

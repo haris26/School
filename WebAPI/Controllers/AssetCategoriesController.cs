@@ -12,14 +12,39 @@ namespace WebAPI.Controllers
 {
     public class AssetCategoriesController : BaseController<AssetCategory>
     {
+        SchoolContext context = new SchoolContext();
         public AssetCategoriesController(Repository<AssetCategory> depo) : base(depo)
         { }
 
-        public List<AssetCategoriesModel> Get()
+        public Object GetAll(int page = 0)
         {
-            return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
-        }
+            int PageSize = 15;
+            var query =
+               Repository.Get()
+                   .OrderBy(x => x.CategoryName)
+                   .ToList();
 
+            int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+
+            IList<AssetCategoriesModel> officeCategories =
+                query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.assetType==AssetType.Office).Select(x => Factory.Create(x)).ToList();
+
+            IList<AssetCategoriesModel> deviceCategories =
+                query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.assetType == AssetType.Device).Select(x => Factory.Create(x)).ToList();
+
+          
+
+
+            return new
+            {
+                pageSize = PageSize,
+                currentPage = page,
+                pageCount = TotalPages,
+                deviceCategories = deviceCategories,
+                officeCategories = officeCategories,
+            
+            };
+        }
         public IHttpActionResult Get(int id)
         {
             try

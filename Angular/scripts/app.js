@@ -38,10 +38,13 @@
              .when("/officer", { templateUrl: "views/AdminDashboard.html", controller: "AdminOfficeController", resolve: { factory: userRouting } })
              .when("/userdashboard", { templateUrl: "views/UserDashboard.html", controller: "UserDashboardController", resolve: { factory: userRouting } })
 
+              .when("/addasset", { templateUrl: "views/AddNewAsset.html", controller: "NewAssetController" })
+
             //User-request manipulation
             //send new
             .when("/makenewrequest", { templateUrl: "views/SendNewRequest.html", controller: "NewRequestsController" })
              .when("/assets", { templateUrl: "views/AllAssets.html", controller: "AssetsController" })
+             .when("/officeassets", { templateUrl: "views/OfficeAssignedAssets.html", controller: "AssetsController" })
              .when("/servicemyassets", { templateUrl: "views/UserAssetsForService.html", controller: "UserDashboardController" })
             .when("/newservicerequests", { templateUrl: "views/SendServiceRequest.html", controller: "NewServiceRequestController" })
   

@@ -12,6 +12,8 @@
         fetchData();
         getPeople();
         getAssets();
+        getDeviceAssets();
+        getOfficeAssets();
         getFreeAssets();
        getFreeOfficeAssets();
         
@@ -23,11 +25,23 @@
 
         function getFreeOfficeAssets() {
             DataService.list("assets", function (data) {
-                $scope.officeassets = data.officeFreeAssets;
+                $scope.freeofficeassets = data.officeFreeAssets;
                
             });
         };
 
+        function getOfficeAssets() {
+            DataService.list("assets", function (data) {
+                $scope.officeassets = data.officeAssets;
+
+            });
+        };
+        function getDeviceAssets() {
+            DataService.list("assets", function (data) {
+                $scope.deviceassets = data.deviceAssets;
+
+            });
+        };
         function getFreeAssets() {
             DataService.list("assets", function (data) {
                 $scope.freeassets = data.freeAssets;
