@@ -10,7 +10,6 @@ namespace WebAPI.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ReservationStatus Status { get; set; }
         public int ResourceCategory { get; set; }
         public string ResourceCategoryName { get; set; }
     }

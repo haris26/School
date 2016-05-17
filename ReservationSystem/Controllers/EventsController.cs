@@ -84,20 +84,19 @@ namespace ReservationSystem.Controllers
         {
             Event evnt = new EventUnit(Context).Get(id);
             Resource res = new ResourceUnit(Context).Get(evnt.Resource.Id);
-            res.Status = ReservationStatus.Available;
             new EventUnit(Context).Delete(id);
             return RedirectToAction("Index");
         }
 
         void FillBag()
         {
-            ViewBag.ResourceList = new SelectList(new Repository<Resource>(Context).Get().ToList().Where(x => x.Status == ReservationStatus.Available), "Id", "Name");
+            ViewBag.ResourceList = new SelectList(new Repository<Resource>(Context).Get().ToList(), "Id", "Name");
             ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
         }
 
         void FillResources(string catName)
         {
-            ViewBag.ResourceList = new SelectList(new Repository<Resource>(Context).Get().ToList().Where(x => (x.ResourceCategory.CategoryName == catName && x.Status == ReservationStatus.Available)), "Id", "Name");
+            ViewBag.ResourceList = new SelectList(new Repository<Resource>(Context).Get().ToList().Where(x => (x.ResourceCategory.CategoryName == catName)), "Id", "Name");
             ViewBag.PeopleList = new SelectList(new Repository<Person>(Context).Get().ToList(), "Id", "FirstName");
         }
 

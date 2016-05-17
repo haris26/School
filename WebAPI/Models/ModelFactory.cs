@@ -39,7 +39,6 @@ namespace WebAPI.Models
             {
                 Id = resource.Id,
                 Name = resource.Name,
-                Status = resource.Status,
                 ResourceCategory = resource.ResourceCategory.Id,
                 ResourceCategoryName = resource.ResourceCategory.CategoryName
             };

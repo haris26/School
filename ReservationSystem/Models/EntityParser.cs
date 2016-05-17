@@ -65,7 +65,6 @@ namespace ReservationSystem.Models
             {
                 Id = model.Id,
                 Name = model.Name,
-                Status = model.Status,
                 ResourceCategory = context.ResourceCategories.Find(model.ResourceCategory)
             };
         }

@@ -30,7 +30,7 @@
                         else {
                             $rootScope.board = "images/whiteboardNo.png";
                         }
-                        $rootScope.tooltipContent = '<span><img src="' + $rootScope.chair + '"/></span><span>' + $rootScope.chairsNum + '</span>' +
+                        $rootScope.tooltipContent = '<span><img src="' + $rootScope.chair + '"/></span><span style="color:black;"">' + $rootScope.chairsNum + '</span>' +
                                 '<span style="padding-left:8px"><img src="' + $rootScope.speaker + '"/></span>' +
                                 '<span style="padding-left:8px"><img src="' + $rootScope.tv + '"/></span>' +
                                 '<span style="padding-left:8px"><img src="' + $rootScope.board + '"/></span>';

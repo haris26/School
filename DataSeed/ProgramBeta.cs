@@ -354,7 +354,7 @@ namespace DataSeed
                 foreach (var resource in allResources)
                 {
                     Console.WriteLine(resource.Id + ": " + resource.Name + " | " +
-                                      resource.ResourceCategory.CategoryName + " | " + resource.Status);
+                                      resource.ResourceCategory.CategoryName + " | ");
                 }
                 Console.WriteLine("--------------------------------------------------");
             }
@@ -375,7 +375,7 @@ namespace DataSeed
                     if (resource != null)
                     {
                         Console.WriteLine(resource.Id + ": " + resource.Name + " | " +
-                                          resource.ResourceCategory.CategoryName + " | " + resource.Status);
+                                          resource.ResourceCategory.CategoryName + " | ");
                     }
                     Console.WriteLine("--------------------------------------------");
                 }
@@ -403,7 +403,6 @@ namespace DataSeed
                     Resource resource = new Resource()
                     {
                         Name = name,
-                        Status = (ReservationStatus)Convert.ToInt32(status),
                         ResourceCategory = cat
                     };
                     resources.Insert(resource);
@@ -431,7 +430,6 @@ namespace DataSeed
                         resource.Name = Console.ReadLine();
                         Console.WriteLine("Edit resource status [1 - available, 2 - reserved]: ");
                         string status = Console.ReadLine();
-                        resource.Status = (ReservationStatus)Convert.ToInt32(status);
                         Console.WriteLine("Edit resource category: ");
                         showAllCategories();
                         int categoryId = Convert.ToInt32(Console.ReadLine());

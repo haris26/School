@@ -11,8 +11,6 @@ namespace Database
         public int Id { get; set; }                                         // Identity[1]
         [ResourceControl]
         public string Name { get; set; }                                    // Name
-        [StatusControl]
-        public ReservationStatus Status { get; set; }                       // Reservation status of resource
         public virtual ResourceCategory  ResourceCategory { get; set;}      // Navigation to the resource category
         public virtual ICollection<Characteristic> Characteristics { get; set; }
         public virtual ICollection<Event> Events { get; set; }

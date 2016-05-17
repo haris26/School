@@ -40,7 +40,6 @@ namespace UnitTest
             resources.Insert(new Resource()
             {
                 Name = "Resource test",
-                Status = ReservationStatus.Available,
                 ResourceCategory = resCat.Get(1)
             });
             int id = resources.Get().Max(x => x.Id);
@@ -59,14 +58,11 @@ namespace UnitTest
             CreateTestRes();
             var oldRes = resources.Get().ToList().Last();
             string oldName = oldRes.Name;
-            ReservationStatus oldStatus = oldRes.Status;
 
             oldRes.Name = "edit test res";
-            oldRes.Status = ReservationStatus.Reserved;
             resources.Update(oldRes, oldRes.Id);
 
             Assert.AreNotEqual(oldName, oldRes.Name);
-            Assert.AreNotEqual(oldStatus, oldRes.Status);
             resources.Delete(oldRes.Id);
         }
 
@@ -79,7 +75,6 @@ namespace UnitTest
             {
                 Name = "test res",
                 ResourceCategory = new Repository<ResourceCategory>(context).Get(1),
-                Status = ReservationStatus.Available
             };
             resources.Insert(newRes);
         }
