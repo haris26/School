@@ -1,4 +1,9 @@
-﻿<div class="container" style="margin-top:-10%">
+﻿<script type="text/ng-template" id="myTemplate.html">
+    <span>An email has been sent to {{month.name}}.</span>
+</script>
+<toaster-container toaster-options="{'time-out': 6000, 'close-button':true, 'position-class':'toast-bottom-right'}"></toaster-container>
+
+<div class="container" style="margin-top:-10%">
     <div class="row">
         <div class="col-md-offset-2">
             <div class="col-md-6">
@@ -11,7 +16,7 @@
                 <div class="row">
                     <div class="col-md-13">
                         <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C; margin-left:-2px">
-                            <h1 style="font-family:Calibri; color: #37ADE7; margin-top:-1%">Time Logs<span class="glyphicon glyphicon-dashboard col-md-push-5" style="font-size:60px"></span></h1>
+                            <h1 style="font-family:Calibri; color: #37ADE7; margin-top:-1%">Time Logs<span class="glyphicon glyphicon-dashboard col-md-push-5 col-sm-push-8" style="font-size:60px"></span></h1>
                             <br />
                             <input class="form-control col-md-12" ng-model="month.name">
                             <br />
@@ -19,15 +24,16 @@
                             <br />
                             <div ng-repeat="detail in month.details">
                                 
-                                <span>
-                                    <span class="col-md-6">
-                                        <label class="col-xs-2 col-md-4 badge" style="background-color:#37ADE7">{{ detail.category }}</label> <label class="badge" style="background-color:#60B72C; margin-top:0">
+                                <span class="col-md-13 col-sm-13">
+                                    <span class="col-md-6 col-sm-6">
+                                        <label class="col-xs-6 col-md-5 badge" style="background-color:#37ADE7">{{ detail.category }}</label>
+                                         <label class="badge" style="background-color:#60B72C; margin-top:0">
                                             {{detail.count}} hours logged
                                         </label>
                                     </span>
                                 </span>
                             </div>
-
+                            
                             <div style="width:100%" class="col-xs-12" ng-show="month.name">
                                 <!--<span class="form-group">
                                     <b>Filter:</b> <input class="input-sm" type="search" ng-model="selDetail">
@@ -36,25 +42,42 @@
                                         <option value="-date">Date</option>
                                     </select>
                                 </span>-->
+                                <span class="text-danger" style="text-align:center"><b>{{warning}}</b></span>
                                 <div>
                                     <br />
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr style="background-color:#37ADE7;">
-                                                <th width="30%">Description</th>
-                                                <th width="30%">Date</th>
-                                                <th width="20%">Work Time</th>
-                                                <th width="20%">Team</th>
+                                    <table class="table-fill">
+                                        <!--<thead>
+                                            <tr>
+                                                <th style="background-color:#37ADE7" width="30%">Description</th>
+                                                <th style="background-color:#37ADE7" width="30%">Date</th>
+                                                <th style="background-color:#37ADE7" width="15%">Work Time</th>
+                                                <th style="background-color:#37ADE7" width="20%">Team</th>
                                             </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                                <div ng-repeat="item in detailsBy | filter : monthName">
-                                    <table class="table table-bordered">
-                                        <tr><td width="30%"><b style="color:#4B627A"> {{ item.description }}</b> </td><td width="30%"> {{ item.date| date:shortDate }}</td><td width="20%" style="color:#37ADE7; font-size:medium"> <b>{{item.workTime}}</b></td><td width="20%"> {{item.teamName}}</td></tr>
-                                    </table>
-                                </div>
-                                <span class="badge col-md-offset-1" style="background-color:#D62929"><b>{{warning}} for {{month.name}}</b></span>
+                                        </thead>-->
+                                        <tbody class="table-hover" ng-repeat="item in detailsP | filter: monthName">
+                                            <tr>
+                                                <td width="40%" data-toggle="tooltip" title="Description">
+                                                    <span style="color:#37ADE7"><span>{{ item.description }}</span></span>
+                                                </td>
+                                                <td width="30%" data-toggle="tooltip" title="Date"> {{ item.date | date:shortDate }}</td>
+                                                <td width="10%" style="color:#37ADE7; font-size:medium" data-toggle="tooltip" title="Work Time">
+                                                    <b>{{item.workTime}}</b>
+                                                </td>
+                                                <td width="20%" data-toggle="tooltip" title="Team"> {{item.teamName}}</td>
+                                                
+                                            </tr>
+                                        </tbody>
+                                    </table>  
+                                    <div class="row">
+                                        <div style="text-align:center">
+                                            <div>
+                                                <ul class="pagination">
+                                                    <li ng-class="{ active : page == currentPage + 1 }" ng-click="changePage(page)" ng-repeat="page in pages"><a style="background-color:#37ADE7; color:white;">{{page}}</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>                                 
+                                </div>                                
                             </div>
                         </div>
                     </div>
@@ -63,27 +86,33 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <span class="col-xs-push-1" style="box-shadow: 8px 8px 100px #2E455C">
+                    <span style="box-shadow: 8px 8px 100px #2E455C; align-items:center">
                         <span><button class="btn btn-info col-md-3 col-xs-3" style="border-top: hidden; border-bottom:hidden;" value="Previous" ng-click="previous()">Previous</button></span>
-                        <span class="btn btn-info col-md-6 col-xs-5 col-sm-7" style="border-top: hidden; border-bottom:hidden; border-color: white"> {{mont| monthName}} </span>
-                        <button class="btn btn-info col-xs-2" value="Next" ng-click="next()" style="width:110px; border-top: hidden; border-bottom:hidden;">Next</button>
-
+                        <span class="btn btn-info col-md-6 col-xs-6 col-sm-6" style="border-top: hidden; border-bottom:hidden; border-color: white">{{mont| monthName}}</span>
+                        <button class="btn btn-info col-md-3 col-sm-3 col-xs-3" value="Next" ng-click="next()" style="border-top: hidden; border-bottom:hidden;">Next</button>
                     </span>
-                    <span><h class="badge" style="margin-top:10px; margin-right:5px">EMPTY DAYS</h><h class="badge" style="background-color:#60B72C; margin-top:10px">HOURS WORKED</h></span>
+                    <div class="row">
+                        <span class="col-md-7">
+                            <span><h class="badge" style="margin-top:10px; margin-right:5px">EMPTY DAYS</h><h class="badge" style="background-color:#60B72C; margin-top:10px">HOURS WORKED</h></span>
+                        </span>
+                        <span class="col-md-5 col-xs-5">
+                            <input style="max-height:20px; background:transparent; border-color:#37ADE7; border:hidden; margin-top:10px; color:white" placeholder="Filter" class="input-sm" type="search" ng-model="selMonth">
+                        </span>
+                    </div>
 
-                    <!--<span class="col-md-offset-7 col-md-11" style="right:-19px; padding:0">
-                        <input placeholder="Filter" class="form-control col-md-3" type="search" ng-model="selMonth" style="width:20%; height:20%; padding:0">
-                        <select class="form-control col-md-4" ng-model="sortOrder" style="width:20%; left:10px; height:30%; padding:0">
+                       <!-- <select class="form-control col-md-4" ng-model="sortOrder" style="width:20%; left:10px; height:30%; padding:0">
                             <option value="+name">Person</option>
                             <option value="+totalHours">Hours worked</option>
                             <option value="-emptyDays">Nonentered days</option>
                         </select>
                     </span>-->
-
-                    <div ng-repeat="item in months | orderBy: sortOrder | filter: selMonth" style="margin:0">
+                    <!--<span class="col-md-4">
+                        <input style="max-height:30px; background:transparent; border-color:#37ADE7; border:hidden; color:white" placeholder="Filter" class="input-sm" type="search" ng-model="selMonth">
+                    </span>-->
+                    <div ng-repeat="item in months | orderBy: sortOrder | filter: selMonth track by $index">
                         <ul class="list-group">
                             <li class="list-group-item col-md-6">
-                                <span class="badge" style="background-color:#60B72C">{{ item.totalHours }} </span><span class="badge">{{item.emptyDays}}</span><a class="glyphicon glyphicon-envelope" ng-click="transfer(item);sendEmail()"></a>
+                                <span class="badge" style="background-color:#60B72C">{{ item.totalHours }} </span><span class="badge">{{item.emptyDays}}</span><a ng-controller="NotificationController" class="glyphicon glyphicon-envelope" ng-click="transfer(item); sendEmail(); info();"></a>
                                 <a ng-click="transfer(item); transfer1(item);">{{item.name}}</a>
                             </li>
                         </ul>

@@ -22,12 +22,16 @@
             $scope.fetchDetails();
         }
 
+        $scope.setSize = function (pageNo) {
+            $scope.pageSize = pageNo;
+            $scope.fetchDetails();
+        };
+
         $scope.fetchDetails = function () {
             $scope.pages = [];
-            DataService.getDetail($scope.currentPage, $scope.pageSize).then(function (response) {
+            DataService.getDetail(currentUser.id, $scope.currentPage, $scope.pageSize).then(function (response) {
                 $scope.details = response.data;
-                $scope.pagination = JSON.parse(response.headers("pagination"));
-                console.log($scope.pagination);
+                $scope.pagination = JSON.parse(response.headers("pagination"));               
                 for (var i = 1; i <= $scope.pagination.pageCount ; i++) {
                     $scope.pages.push(i);
                 }
@@ -42,7 +46,6 @@
                 $scope.message = reason;
             })
         }
-
         $scope.fetchDetails();
 
         function getDays() {
@@ -98,7 +101,7 @@
                 DataService.create(dataSet, $scope.detail, function (data) { fetchData() });
             }
             else {
-                DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData() });
+                DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchDetails() });
             }
         }
 

@@ -85,10 +85,20 @@
                     })
             },
 
-            getDetail: function (page, pageSize) {
+            getDetail: function (id, page, pageSize) {
                 var resourceUrl = "";
-               resourceUrl = source + "details/?page=" + page + "&pagesize=" + pageSize
+               resourceUrl = source + "details" + "/" + id + "?page=" + page + "&pagesize=" + pageSize
                
+
+                return $http({
+                    method: 'GET',
+                    url: resourceUrl
+                });
+            },
+
+            getDet: function (id, m, page, pageSize) {
+                var resourceUrl = "";
+                resourceUrl = source + "details" + "/" + id + "?m=" + m + "&page=" + page + "&pagesize=" + pageSize
 
                 return $http({
                     method: 'GET',
