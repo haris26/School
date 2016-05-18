@@ -82,15 +82,15 @@
 
         $scope.saveData = function (item) {
             $scope.asset = {
-
-
+                name: item.name,
+                model: item.model,
                 serialNumber: item.serialNumber,
                 vendor: item.vendor,
                 price: item.price,
                 dateOfTrade: new Date(),
                 status: 2,
-                category:$scope.item.selectedCategory.id,
-                categoryName: $scope.item.selectedCategory.categoryName
+                category:$scope.selectedCategory.id,
+                categoryName: $scope.selectedCategory.categoryName
             }
      
             
