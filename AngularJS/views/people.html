@@ -36,11 +36,9 @@
                     <tbody>
                         <tr class="table-header">
                             <th>Name</th>
-                            <th>Action</th>
                         </tr>
                         <tr ng-repeat="person in people">
                             <td><a href="#/employeeSummary/{{person.id}}">{{person.firstName}} {{person.lastName}}</a></td>
-                            <td><a href="#/supervisorAssessment/{{person.id}}"><strong>Assess</strong></a></td>
                         </tr>
                     </tbody>
                 </table>

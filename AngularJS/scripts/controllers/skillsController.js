@@ -68,12 +68,15 @@
             };
 
             DataService.update("skillscategories", $scope.category.id, skillCategory, function (data) {
-                if (data != false) {
-                    toaster.pop('note', $scope.category.name + " saved!");
-                    fetchCategories();
-                }
-                else {
-                    toaster.pop('error', $scope.category.name + " could not be saved!");
+                $scope.validateCategory();
+                if ($scope.categoryValidation) {
+                    if (data != false) {
+                        toaster.pop('note', $scope.category.name + " saved!");
+                        fetchCategories();
+                    }
+                    else {
+                        toaster.pop('error', $scope.category.name + " could not be saved!");
+                    }
                 }
             })
         }
@@ -208,7 +211,7 @@
 
 
         $scope.validateCategory = function () {
-            if (!$scope.categoryItem.name) {
+            if (!$scope.categoryItem.name || !scope.skillItem.category.name) {
                 $scope.categoryValidation = false;
                 $scope.errorEmptyCategory = true;
             }

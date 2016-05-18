@@ -28,7 +28,11 @@
                 <div class="control-label col-md-2 col-sm-2">Name</div>
                 <div class="col-md-10">
                     <div class="col-md-4">
-                        <input class="form-control text-box single-line" type="text" ng-model="category.name" />
+                        <input class="form-control text-box single-line" type="text" ng-model="category.name" required/>
+                        <span style="color:red">
+                            <span ng-show="errorCheckCategory">The name already exists.</span>
+                            <span ng-show="errorEmptyCategory">This field is required.</span>
+                        </span>
                     </div>
                     <div class="col-offset-md-2 col-md-10">
                         <br>
