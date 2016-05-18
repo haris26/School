@@ -13,6 +13,7 @@ using WebAPI.Services;
 namespace WebAPI.Controllers
 {
     //[TokenAuthorize]
+    [RoutePrefix("api/tools")]
     public class ToolsController : BaseController<Tool>
     {
         //SchoolIdentity ident = new SchoolIdentity();
@@ -32,6 +33,7 @@ namespace WebAPI.Controllers
             }
         }
 
+        [Route("{id:int}")]
         public IHttpActionResult Get(int id)
         {
             try
@@ -48,6 +50,15 @@ namespace WebAPI.Controllers
             }
         }
 
+        [Route("{name}")]
+        public List<ToolModel> Get(string name)
+        {
+            return Repository.Get().Where(x => x.Name == name).ToList()
+                             .Select(x => Factory.Create(x)).ToList();
+
+        }
+
+        [HttpPost]
         public IHttpActionResult Post(ToolModel model)
         {
             try
@@ -61,6 +72,8 @@ namespace WebAPI.Controllers
             }
         }
 
+        [Route("{id:int}")]
+        [HttpPut]
         public IHttpActionResult Put(int id, ToolModel model)
         {
             try
@@ -75,6 +88,8 @@ namespace WebAPI.Controllers
             }
         }
 
+        [Route("{id:int}")]
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             try

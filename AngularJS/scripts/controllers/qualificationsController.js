@@ -65,20 +65,20 @@
                     })
                 }
                 else {
-                    DataService.update("educations", $scope.qualificationItem.id, $scope.qualificationItem, function (data) {
-                        if (data != false) {
-                            getQualification($scope.qualificationItem.type);
-                            $('.modal').modal('hide');
-                            toaster.pop('note', $scope.qualificationItem.name + " has been updated!")
-                            fetchQualifications();
-                            $scope.qualificationItem.id = 0;
-                            $scope.qualificationItem.name = "";
-                            $scope.qualificationItem.category = $scope.qualifications.id;
-                        }
-                        else {
-                            toaster.pop('error', $scope.qualificationItem.name + " could not be updated!");
-                        }
-                    })
+                        DataService.update("educations", $scope.qualificationItem.id, $scope.qualificationItem, function (data) {
+                            if (data != false) {
+                                getQualification($scope.qualificationItem.type);
+                                $('.modal').modal('hide');
+                                toaster.pop('note', $scope.qualificationItem.name + " has been updated!")
+                                fetchQualifications();
+                                $scope.qualificationItem.id = 0;
+                                $scope.qualificationItem.name = "";
+                                $scope.qualificationItem.category = $scope.qualifications.id;
+                            }
+                            else {
+                                toaster.pop('error', $scope.qualificationItem.name + " could not be updated!");
+                            }
+                        })
                 }
             }
         }
@@ -126,7 +126,7 @@
         function nameCheck(name) {
             if (name != "") {
                 DataService.qualificationCheck("educations", name, function (data) {
-                    $scope.name = data.length!=0;
+                    $scope.name = (data.length!=0);
                 })
             }
         };
@@ -134,7 +134,7 @@
         $scope.validate = function () {
             $scope.errorEmpty = false;
             nameCheck($scope.qualificationItem.name);
-            if (!$scope.qualificationItem.name || !$scope.name || !$scope.qualificationItem.type) $scope.validation = false;
+            if (!$scope.qualificationItem.name || $scope.name || !$scope.qualificationItem.type) $scope.validation = false;
             //if (!$scope.qualificationItem.name) { $scope.errorEmpty = true; }
             //if ($scope.name) { $scope.errorExists = true; }
             //if (!$scope.qualificationItem.type) { $scpe, errorTypeEmpty = true; }

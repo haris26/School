@@ -19,6 +19,23 @@ namespace WebAPI.Controllers
         public EmployeeSkillsController(Repository<EmployeeSkill> depo) : base(depo)
         { }
 
+        public IHttpActionResult Get()
+        {
+            try
+            {
+                var pendingAssessments = Repository.Get().ToList().Where(x => x.AssessedBy == AssessmentType.Self)
+                                                  .Select(x => x.Employee)
+                                                  .Distinct()
+                                                  .Select(x => new PersonModel() { Id = x.Id, FirstName = x.FirstName, LastName = x.LastName })
+                                                  .ToList();
+                return Ok(pendingAssessments);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
         public IHttpActionResult Post(EmployeeSkillModel model)
         {
             var skillAssessment = Repository.Get().ToList().Where(x => x.Employee.Id==model.Employee && x.Tool.Id==model.Tool && x.AssessedBy==AssessmentType.Self).FirstOrDefault();

@@ -12,6 +12,7 @@ using WebAPI.Services;
 namespace WebAPI.Controllers
 {
     //[TokenAuthorize]
+    [RoutePrefix("api/skillscategories")]
     public class SkillsCategoriesController : BaseController<SkillCategory>
     {
         SchoolIdentity ident = new SchoolIdentity();
@@ -23,7 +24,7 @@ namespace WebAPI.Controllers
         {
             return Repository.Get().ToList().Select(x => Factory.Create(x)).ToList();
         }
-
+        [Route("{id:int}")]
         public IHttpActionResult Get(int id)
         {
             try
@@ -40,6 +41,15 @@ namespace WebAPI.Controllers
             }
         }
 
+        [Route("{name}")]
+        public List<SkillCategoryModel> Get(string name)
+        {
+            return Repository.Get().Where(x => x.Name == name).ToList()
+                             .Select(x => Factory.Create(x)).ToList();
+
+        }
+
+        [HttpPost]
         public IHttpActionResult Post(SkillCategory skillcategory)
         {
             try
@@ -52,7 +62,8 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
-
+        [Route("{id:int}")]
+        [HttpPut]
         public IHttpActionResult Put(int id, SkillCategory skillcategory)
         {
             try
@@ -69,7 +80,8 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
-
+        [Route("{id:int}")]
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             try

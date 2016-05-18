@@ -8,6 +8,7 @@ using Database;
 using WebAPI.Helpers;
 using WebAPI.Filters;
 using WebAPI.Services;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
@@ -35,5 +36,7 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
         }
+
     }
 }
+
