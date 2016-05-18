@@ -11,7 +11,7 @@
                
         function getCategories() {
             DataService.list("assetcategories", function (data) {
-                $scope.categories = data;
+                $scope.categories = data.allCategories;
             });
         };
             
@@ -47,6 +47,7 @@
             }
         };
        
+        console.log($scope.newRequest);
         $scope.saveData = function () {
             var promise;
             if($scope.request.requestDescription == "" || $scope.request.requestMessage == "" || $scope.request.quantity == null)

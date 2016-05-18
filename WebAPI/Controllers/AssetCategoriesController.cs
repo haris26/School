@@ -32,7 +32,10 @@ namespace WebAPI.Controllers
             IList<AssetCategoriesModel> deviceCategories =
                 query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.assetType == AssetType.Device).Select(x => Factory.Create(x)).ToList();
 
-          
+
+            IList<AssetCategoriesModel> allCategories =
+                          query.Skip(PageSize * page).Take(PageSize).Select(x => Factory.Create(x)).ToList();
+
 
 
             return new
@@ -42,6 +45,7 @@ namespace WebAPI.Controllers
                 pageCount = TotalPages,
                 deviceCategories = deviceCategories,
                 officeCategories = officeCategories,
+                allCategories=allCategories
             
             };
         }

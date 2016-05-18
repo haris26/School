@@ -4,129 +4,70 @@
 
     app.controller("NewAssetController", function ($scope, $rootScope, toaster, DataService, $location, $route) {
 
-        $scope.modal = false;
+
         var dataSet = "assets";
-        getdeviceCategories();
-        getofficeCategories();
-        getCharacteristics()
-        getAssets();
+        getCategories();
+        fetchData();
+        $scope.asset = {};
+ 
 
-        $rootScope.model = {};
-      
-        function getdeviceCategories() {
+        function getCategories() {
             DataService.list("assetcategories", function (data) {
-                $scope.deviceCategories = data.deviceCategories;
+                $scope.devicecategories = data.deviceCategories;
             });
         };
 
-        function getofficeCategories() {
-            DataService.list("assetcategories", function (data) {
-                $scope.officeCategories = data.officeCategories;
-            });
-        };
-
-        function getAssets() {
-            DataService.list("assets", function (data) {
+        function fetchData() {
+            DataService.list(dataSet, function (data) {
                 $scope.assets = data.allAssets;
             });
+        }
+
+        pop = function () {
+            toaster.pop('success', "Success", " You added a new asset!");
         };
-
-        function getCharacteristics() {
-            DataService.list("assetcharacteristicnames", function (data) {
-                $scope.assetNames = data;
-
-            });
-        };
-
-      
-
-
 
         errorPop = function () {
             toaster.pop('error', "Error", " All fields are required!");
         };
+
        
-        pop = function () {
-            toaster.pop('success', "Success", " You added asset!");
-        };
-
-        //$scope.asset = {
-        //    id: 0,
-        //    name: "",
-        //    model: "",
-        //    serialNumber: "",
-        //    vendor: "",
-        //    price: "",
-        //    dateOfTrade: new Date(),
-        //    status: 2,
-        //    category: 0,
-        //    categoryName: ""
-        //}
-
-        $scope.addAsset = function (item) {
             $scope.asset = {
                 id: 0,
                 name: "",
+                user: 0,
+                userName:"",
                 model: "",
-                serialNumber: "",
-                vendor: "",
-                price: "",
+                serialNumber:"",
+                vendor:"",
+                price:"",
                 dateOfTrade: new Date(),
                 status: 2,
                 category: 0,
                 categoryName:""
             }
-         
-        };
+       
 
-
-        $scope.saveData = function (item) {
-            $scope.asset = {
-                name: item.name,
-                model: item.model,
-                serialNumber: item.serialNumber,
-                vendor: item.vendor,
-                price: item.price,
-                dateOfTrade: new Date(),
-                status: 2,
-                category:$scope.selectedCategory.id,
-                categoryName: $scope.selectedCategory.categoryName
-            }
-     
-            
-      
-            if ($scope.item.serialNumber == "" || $scope.item.vendor == "" ) {
+        $scope.saveData = function () {
+            if ($scope.asset.serialNumber == "") {
                 errorPop();
                 return
             } else {
+                DataService.create(dataSet, $scope.asset, function (data) { });
+                console.log($scope.asset);
+                    pop();
+                   
+                }
 
-               
-                console.log("kakav je ovdje", $scope.selectedCategory);
-                console.log("nikakav", $scope.asset.category);
-                DataService.create(dataSet, $scope.asset, function (data) {
-                    console.log($scope.asset);
-                });
-                pop();
-            }
+            
         }
-
 
 
         $scope.setCategory = function () {
-            console.log($scope.selectedCategory);
-            $scope.category = $scope.selectedCategory.id;
-            $scope.categoryName = $scope.selectedCategory.categoryName
+            $scope.asset.category = $scope.selectedCategory.id
+            $scope.asset.categoryName = $scope.selectedCategory.categoryName
 
-         
         }
-     
+        });
 
-        $scope.transfer = function transfer(item) {
-            $rootScope.model = item;
-        }
-
-        
-
-      
-    });
-}());
+    }());

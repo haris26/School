@@ -200,7 +200,6 @@
     <Compile Include="Controllers\AssetCategoriesController.cs" />
     <Compile Include="Controllers\AssetCharacteristicNamesController.cs" />
     <Compile Include="Controllers\AssetCharsController.cs" />
-    <Compile Include="Controllers\AssetController.cs" />
     <Compile Include="Controllers\AssetsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
