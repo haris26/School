@@ -27,6 +27,7 @@
         }
 
         fetchQualifications();
+        
 
         function fetchQualifications() {
             DataService.list("educations", function (data) {
@@ -47,8 +48,8 @@
         }
 
         $scope.addQualification = function () {
-            $scope.validate();
-            if ($scope.validation) {
+            console.log("add", $scope.isValid);
+            //if ($scope.isValid) {
                 if ($scope.qualificationItem.id == 0) {
                     DataService.create("educations", $scope.qualificationItem, function (data) {
                         if (data != false) {
@@ -80,7 +81,7 @@
                             }
                         })
                 }
-            }
+            //}
         }
 
         $scope.editEducation = function (education) {
@@ -124,26 +125,37 @@
             };
         };
 
-        function nameCheck(name) {
-            if (name != "") {
-                DataService.nameCheck("educations", name, function (data) {
-                    $scope.name = data.length!=0;
-                })
-            }
-        };
+        //function nameCheck(name) {
+        //    if (name != "") {
+        //        DataService.nameCheck("educations", name, function (data) {
+        //            var name = data.length != 0;
+        //            console.log(name);
+        //        })
+        //    }
+        //};
 
-        $scope.validate = function () {
-            $scope.errorEmpty = false;
-            nameCheck($scope.qualificationItem.name);
-            console.log($scope.qualificationItem.name);
-            console.log($scope.name);
-            if (!$scope.qualificationItem.name || !$scope.name || !$scope.qualificationItem.type) {
-                $scope.validation = false;
-                console.log($scope.qualificationItem.name);
-                console.log($scope.name);
-            }
-            else $scope.validation = true;
-            console.log($scope.validation);
-        };
+        //$scope.validate = function () {
+        //    $scope.errorEmpty = false;
+        //    //nameCheck($scope.qualificationItem.name);
+        //    //nameCheck($scope.qualificationItem.name);
+        //    if (!$scope.qualificationItem.name || $scope.name  || !$scope.qualificationItem.type) {
+        //        $scope.validation = false;
+        //        console.log($scope.qualificationItem.name);
+        //    }
+        //    else $scope.validation = true;
+        //};
+        $scope.validate = function (name) {
+            DataService.nameCheck("educations", name, function (data) {
+                $scope.name = data.length != 0;
+                console.log("scope.name",$scope.name);
+                $scope.setParametar(!$scope.name);
+            });    
+        }
+        $scope.setParametar=function(parametar){
+            $scope.isValid = parametar;
+            console.log("set param", $scope.isValid);
+            if ($scope.isValid && $scope.qualificationItem.name && $scope.qualificationItem.type)
+            $scope.addQualification();
+        }
     });
 }());
