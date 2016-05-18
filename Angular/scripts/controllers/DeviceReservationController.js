@@ -62,7 +62,7 @@
         }
         $rootScope.refreshTable = function() {
             $scope.getReservations();
-            console.log("scope: ", $scope.reservations);
+            //console.log("scope: ", $scope.reservations);
         }
         
        $scope.images = {

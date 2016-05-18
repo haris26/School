@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("RoomReservationController", function ($scope, $rootScope, DataService, $sce) {
+    app.controller("RoomReservationController", function ($scope, $rootScope, DataService) {
 
         $scope.searchParameters = {
             fromDate: new Date(),
@@ -13,17 +13,11 @@
         };
 
         $scope.getReservations = function () {
-           DataService.create("reservationoverview", $scope.searchParameters, function (data) {
-               $scope.reservations = data;   
-           });
-       }
-       
-       $scope.getReservations();
-       
-      
-     
-        
-
+            DataService.create("reservationoverview", $scope.searchParameters, function (data) {
+                $scope.reservations = data;
+            });
+        };
+        $scope.getReservations();        
     });
 }());
 

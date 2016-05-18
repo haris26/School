@@ -19,7 +19,7 @@ namespace ReservationSystem.Controllers
         public ActionResult Rooms()
         {
             IList<ReservationModel> models = new List<ReservationModel>();
-            var resources = new ResourceUnit(Context).Get().ToList().Where(x => (x.ResourceCategory.CategoryName == "Room" && x.Status == ReservationStatus.Available));
+            var resources = new ResourceUnit(Context).Get().ToList().Where(x => (x.ResourceCategory.CategoryName == "Room"));
             var events = new EventUnit(Context).Get().ToList().Where(x => x.Resource.ResourceCategory.CategoryName == "Room");
             foreach (var res in resources)
             {
@@ -96,7 +96,7 @@ namespace ReservationSystem.Controllers
         public ActionResult Devices()
         { 
         	IList<ReservationModel> models = new List<ReservationModel>();
-            var resources = new ResourceUnit(Context).Get().ToList().Where(x => (x.ResourceCategory.CategoryName == "Device" && x.Status == ReservationStatus.Available));
+            var resources = new ResourceUnit(Context).Get().ToList().Where(x => (x.ResourceCategory.CategoryName == "Device"));
             var events = new EventUnit(Context).Get().ToList().Where(x => x.Resource.ResourceCategory.CategoryName == "Device");
             foreach (var res in resources)
             {

@@ -67,7 +67,6 @@
                             if (scope.hour.isReserved == true)
                             {
                                 $rootScope.refreshTable();
-                                           
                                 elem.css('background-color', '#01AB8E');
                                 console.log(scope.newEvent);
                             }

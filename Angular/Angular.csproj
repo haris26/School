@@ -134,6 +134,7 @@
     <Content Include="library\angular-cookies.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />
+    <Content Include="scripts\controllers\AddEditResourceController.js" />
     <Content Include="scripts\controllers\DeviceReservationController.js" />
     <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\ModalController.js" />
@@ -146,8 +147,8 @@
     <Content Include="scripts\services\DeviceDirective.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
-    <Content Include="scripts\services\PopoverDirective.js" />
     <Content Include="scripts\services\RoomDirective.js" />
+    <Content Include="scripts\services\TooltipDirective.js" />
     <Content Include="scripts\toaster.min.js" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\site.css" />
@@ -159,6 +160,7 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="Global.asax" />
+    <Content Include="views\addEditResources.html" />
     <Content Include="views\datePicker.html" />
     <Content Include="views\deviceReservation.html" />
     <Content Include="views\login.html" />
@@ -177,6 +179,7 @@
     <Content Include="views\resources.html" />
     <Content Include="views\roomReservation.html" />
     <Content Include="views\roomReservationWeekly.html" />
+    <Content Include="views\tooltipView.html" />
     <Content Include="views\userDashboard.html" />
     <Content Include="Web.config" />
   </ItemGroup>
