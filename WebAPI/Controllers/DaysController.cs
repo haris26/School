@@ -79,8 +79,9 @@ namespace WebAPI.Controllers
             { 
                 DayModel.Add(Factory.Create(d));               
             }
-                return DayModel;        
-            }
+                return DayModel;
+
+        }
         public IList<DayModel> Get(int id, int m, int y)
         {
 

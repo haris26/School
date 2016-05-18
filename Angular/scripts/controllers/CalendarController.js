@@ -8,9 +8,9 @@
         var n = d.getMonth() + 1;
         var y = d.getFullYear();
         $scope.mont = new Date().getMonth() + 1;
-        var dataSet = "days";
+        var dataSet = "calendar";
         $scope.selDay = "";
-        $scope.sortOrder = "date";
+        $scope.sortOrder = "team";
         fetchData();
         getTeams();
         function getTeams() {
@@ -23,11 +23,13 @@
             $scope.colection = item.details;
 
         };
+       
 
         function fetchData() {
             console.log(n, y);
             DataService.readDd(dataSet, currentUser.id, n, y, function (data) {
-                $scope.days = data;
+                $scope.mjesec = data;
+                console.log($scope.mjesec);
             });
         }
         $scope.saveData = function () {
@@ -63,6 +65,13 @@
             console.log(n);
         }
         $scope.details = [];
+       $scope.datum = new Date();
+        
+        $scope.transfer = function (d) {
+            $scope.datum.setMonth(n-1,d);
+            $scope.dayD = $scope.datum;
+            console.log($scope.datum);
+        };
 
         $scope.newDetail = function () {
             $scope.detail = {

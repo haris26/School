@@ -31,7 +31,7 @@
                      })
             },
             readDd: function (dataSet, id, m, y, callback) {
-                $http.get(source + dataSet + "/" + id + "/" + m + "/" + y)
+                $http.get(source + dataSet + "/" + id + "/" + y + "/" + m)
                      .success(function (data) {
                          return callback(data);
                      })

@@ -10,12 +10,14 @@
                     <span class="btn btn-info col-md-7 col-xs-5" style="border-top: hidden; border-bottom:hidden; border-color: white"> {{mont| monthName}} </span>
                     <button class="btn btn-info col-xs-2" value="Next" ng-click="next()" style="width:100px; border-top: hidden; border-bottom:hidden;">Next</button>
                 </span>
-                <div ng-repeat="item in days | orderBy: sortOrder | filter: selDay" style="margin:0">
-                    <ul class="list-group jumper">
-                        <li class="list-group-item col-md-6">
-                            <a ng-click="transfer(item);toggleModal(day.date); newDetail()">{{item.date | date: 'dd'}}</a>
-                        </li>
-                    </ul>
+                <div ng-repeat="item in mjesec.lista" style="margin:0">     
+                    <div ng-repeat="d in item.days">                               
+                        <ul class="list-group">
+                            <li class="list-group-item col-md-6">   
+                                <a ng-click="transfer(d.day)">{{d.day}}</a>
+                            </li>
+                        </ul>          
+                    </div>
                 </div>
             </div>
         </div>
