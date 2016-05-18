@@ -41,8 +41,7 @@
                 if ($scope.detailsP.length == 0) {
                     $scope.warning = "There are no entries in this month for " + $rootScope.month.name;
                 };
-                console.log($scope.detailsP.length);
-                
+                console.log($scope.detailsP.length);               
                 $scope.pagination = JSON.parse(response.headers("pagination"));
                 for (var i = 1; i <= $scope.pagination.pageCount ; i++) {
                     $scope.pages.push(i);
@@ -70,9 +69,11 @@
             $rootScope.month = item;
             $scope.colection = item.details;
             recepient = item.email;
+            $scope.mail = item.email;
             newEmail();
-            //console.log($scope.month.details);
-            //console.log(recepient);
+            console.log($scope.month.details);
+            console.log(recepient);
+            $scope.warning = "";
         };
 
         $scope.transfer1 = function (item1) {

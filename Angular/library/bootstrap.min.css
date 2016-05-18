@@ -1358,7 +1358,7 @@ html {
 }
 
 body {
-    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: sans-serif;
     font-size: 15px;
     line-height: 1.4;
     color: #222222;
@@ -5309,7 +5309,7 @@ a.label:hover, a.label:focus {
     display: inline-block;
     min-width: 10px;
     padding: 3px 7px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
     color: #ffffff;
     line-height: 1;
