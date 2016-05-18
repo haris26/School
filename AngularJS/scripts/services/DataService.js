@@ -31,16 +31,6 @@
                          callback(false);
                      });
            },
-           qualificationCheck: function (dataSet, name, callback){
-               $http.get(source + dataSet + "/" + name)
-               .success(function (data) {
-                   return callback(data);
-               })
-                     .error(function (error) {
-                         $rootScope.message = error.message;
-                         callback(false);
-                     });
-           },
 
            create: function (dataSet, data, callback) {
                 $http({ method: "post", url: source + dataSet, data: data })
@@ -73,7 +63,18 @@
                         $rootScope.message = error.message;
                         callback(false);
                     })
-            },
+           },
+
+           nameCheck: function (dataSet, name, callback) {
+               $http.get(source + dataSet + "/" + name)
+                   .success(function (data) {
+                       return callback(data);
+                   })
+               .error(function (error) {
+                   $rootScope.message = error.message;
+                   callback(false);
+               });
+           },
 
            getPeople: function (searchedString, page, pageSize) {
                var resourceUrl = "";
@@ -120,6 +121,7 @@
                        callback(false);
                    })
            }
+
         };
     });
 }());

@@ -79,49 +79,55 @@
         }
 
         $scope.addSkill = function () {
-            if ($scope.skillItem.id == 0) {
-                DataService.create("tools", $scope.skillItem, function (data) {
-                    if (data != false) {
-                        fetchCategories();
-                        getCategory($scope.skillItem.category);
-                        toaster.pop('note', $scope.skillItem.name + " added!");
-                        $('.modal').modal('hide');
-                        $scope.skillItem.name = "";
-                    }
-                    else {
-                        toaster.pop('error', $scope.skillItem.name + " could not be added!");
-                    }
-                })
-            }
-            else {
-                DataService.update("tools", $scope.skillItem.id, $scope.skillItem, function (data) {
-                    if (data != false) {
-                        getCategory($scope.skillItem.category);
-                        $('#addSkillModal').modal('hide');
-                        toaster.pop('note', $scope.skillItem.name + " has been updated!")
-                        $scope.skillItem.id = 0;
-                        $scope.skillItem.name = "";
-                        $scope.skillItem.category = $scope.category.id;
-                    }
-                    else {
-                        window.alert($scope.skillItem.name + " could not be updated!");
-                    }
-                })
+            $scope.validateSkill();
+            if ($scope.skillValidation) {
+                if ($scope.skillItem.id == 0) {
+                    DataService.create("tools", $scope.skillItem, function (data) {
+                        if (data != false) {
+                            fetchCategories();
+                            getCategory($scope.skillItem.category);
+                            toaster.pop('note', $scope.skillItem.name + " added!");
+                            $('.modal').modal('hide');
+                            $scope.skillItem.name = "";
+                        }
+                        else {
+                            toaster.pop('error', $scope.skillItem.name + " could not be added!");
+                        }
+                    })
+                }
+                else {
+                    DataService.update("tools", $scope.skillItem.id, $scope.skillItem, function (data) {
+                        if (data != false) {
+                            getCategory($scope.skillItem.category);
+                            $('#addSkillModal').modal('hide');
+                            toaster.pop('note', $scope.skillItem.name + " has been updated!")
+                            $scope.skillItem.id = 0;
+                            $scope.skillItem.name = "";
+                            $scope.skillItem.category = $scope.category.id;
+                        }
+                        else {
+                            window.alert($scope.skillItem.name + " could not be updated!");
+                        }
+                    })
+                }
             }
         }
 
         $scope.addCategory = function () {
-            DataService.create("skillscategories", $scope.categoryItem, function (data) {
-                if (data != false) {
-                    fetchCategories();
-                    $('#addNewCategoryModal').modal('hide');
-                    toaster.pop('note', $scope.categoryItem.name + " added!");
-                    $scope.categoryItem.name = "";
-                }
-                else {
-                    toaster.pop('error', $scope.categoryItem.name + " could not be added!");
-                }
-            })
+            $scope.validateCategory();
+            if ($scope.categoryValidation) {
+                DataService.create("skillscategories", $scope.categoryItem, function (data) {
+                    if (data != false) {
+                        fetchCategories();
+                        $('#addNewCategoryModal').modal('hide');
+                        toaster.pop('note', $scope.categoryItem.name + " added!");
+                        $scope.categoryItem.name = "";
+                    }
+                    else {
+                        toaster.pop('error', $scope.categoryItem.name + " could not be added!");
+                    }
+                })
+            }
         }
 
         $scope.editSkill = function (tool) {
@@ -148,8 +154,6 @@
                 toaster.pop('error', $scope.skillItem.name + " could not be deleted", "because it is assigned to some employees!");
                 $('.modal').modal('hide');
             }
-
-
         }
 
         $scope.deleteCategory = function () {
@@ -185,11 +189,51 @@
 
             $scope.skillItem.category = $scope.category.id;
         }
-        $scope.validateCatgory = function () {
-            if ($scope.categoryItem.name) return false;
-            else return true;
-        }
+
+        function nameCheckCategory(name) {
+            if (name != "") {
+                DataService.nameCheck("skillscategories", name, function (data) {
+                    $scope.name = data.length != 0;
+                })
+            }
+        };
+
+        function nameCheckTool(name) {
+            if (name != "") {
+                DataService.nameCheck("tools", name, function (data) {
+                    $scope.name = data.length != 0;
+                })
+            }
+        };
+
+
+        $scope.validateCategory = function () {
+            if (!$scope.categoryItem.name) {
+                $scope.categoryValidation = false;
+                $scope.errorEmptyCategory = true;
+            }
+            else $scope.categoryValidation = true;
+        };
+
+        $scope.validateSkill = function () {
+
+            if (!$scope.skillItem.name && !$scope.skillItem.category) {
+                $scope.skillValidation = false;
+                $scope.errorNoCategory = true;
+                $scope.errorEmptySkillName = true;
+            }
+            else if (!$scope.skillItem.category) {
+                $scope.skillValidation = false;
+                $scope.errorNoCategory = true;
+                $scope.errorEmptySkillName = false;
+            }
+            else if (!$scope.skillItem.name) {
+                $scope.skillValidation = false;
+                $scope.errorEmptySkillName = true;
+                $scope.errorNoCategory = false;
+            }
+            else $scope.skillValidation = true;
+        };
 
     });
-
 }());

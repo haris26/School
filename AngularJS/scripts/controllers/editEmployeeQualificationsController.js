@@ -78,18 +78,21 @@
         };
 
         $scope.saveNewQualification = function () {
-            DataService.create("employeeEducations", $scope.eduItem, function (data) {
-                if (data != false) {
-                    fetchEducations($scope.employeeId);
-                    $scope.eduItem.education = 0;
-                    $scope.eduItem.reference = "";
-                    $('.modal').modal('hide');
-                    toaster.pop('note',"New qualification has been added!");
-                }
-                else {
-                    toaster.pop('error', "New qualification could not be added!");
-                }
-            })
+            $scope.validate();
+            if ($scope.validation) {
+                DataService.create("employeeEducations", $scope.eduItem, function (data) {
+                    if (data != false) {
+                        fetchEducations($scope.employeeId);
+                        $scope.eduItem.education = 0;
+                        $scope.eduItem.reference = "";
+                        $('.modal').modal('hide');
+                        toaster.pop('note', "New qualification has been added!");
+                    }
+                    else {
+                        toaster.pop('error', "New qualification could not be added!");
+                    }
+                })
+            }
         };
 
         $scope.selectQualification = function (education) {
@@ -130,6 +133,15 @@
         }
 
         $scope.chooseType();
+
+        $scope.validate = function () {
+            $scope.errorEmpty = false;
+            if (!$scope.eduItem.education) {
+                $scope.validation = false;
+                $scope.errorEmpty = true;
+            }
+            else $scope.validation = true;
+        };
 
     });
 }());
