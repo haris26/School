@@ -67,7 +67,7 @@
             $scope.asset = {
                 id: 0,
                 name: "",
-                 model: "",
+                model: "",
                 serialNumber: "",
                 vendor: "",
                 price: "",
@@ -76,9 +76,9 @@
                 category: 0,
                 categoryName:""
             }
-
-           
+         
         };
+
 
         $scope.saveData = function (item) {
             $scope.asset = {
@@ -106,11 +106,7 @@
                 DataService.create(dataSet, $scope.asset, function (data) {
                     console.log($scope.asset);
                 });
-
                 pop();
-              
-               
-               
             }
         }
 
