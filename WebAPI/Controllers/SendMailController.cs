@@ -17,8 +17,8 @@ namespace WebAPI.Controllers
 
     public class EMailHelper
     {
-        public static readonly string EMAIL_SENDER = "leyladzeko@gmail.com";
-        public static readonly string EMAIL_CREDENTIALS = "superwoofer"; 
+        public static readonly string EMAIL_SENDER = "procurementmistral@gmail.com";
+        public static readonly string EMAIL_CREDENTIALS = "mistral123"; 
         public static readonly string SMTP_CLIENT = "smtp.gmail.com";       
         public static readonly string EMAIL_BODY = "Deadline for inserting your time logs has passed. Please do it ASAP";
         public static readonly string EMAIL_SUBJECT = "Time logs";

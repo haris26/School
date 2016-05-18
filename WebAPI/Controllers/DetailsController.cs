@@ -18,9 +18,31 @@ namespace WebAPI.Controllers
 
         int deadline = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["deadline"]);
 
-        public IList<DetailModel> GetAll(int page, int PageSize)
+        //public IList<DetailModel> GetAll(int PageSize, int page)
+        //{
+        //    var query = Repository.Get().OrderBy(x => x.Day.Date)
+        //                                .ThenBy(x => x.Day.Person.LastName);
+
+        //    int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+        //    IList<DetailModel> details = query.Skip(PageSize * page)
+        //                                      .Take(PageSize).ToList()
+        //                                      .Select(x => Factory.Create(x))
+        //                                      .ToList();
+        //    var PageHeader = new
+        //    {
+        //        pageSize = PageSize,
+        //        currentPage = page,
+        //        pageCount = TotalPages
+        //    };
+
+        //    HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+        //    HttpContext.Current.Response.Headers.Add("Access-Control-Expose-Headers", "Pagination");
+        //    return details;
+        //}
+
+        public IList<DetailModel> Get(int id, int PageSize, int page)
         {
-            var query = Repository.Get().OrderBy(x => x.Day.Date)
+            var query = Repository.Get().Where(x=> x.Day.Person.Id == id).OrderBy(x => x.Day.Date)
                                         .ThenBy(x => x.Day.Person.LastName);
 
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
@@ -40,29 +62,37 @@ namespace WebAPI.Controllers
             return details;
         }
 
-        public IHttpActionResult Get(int id, int m)
-        {
-            Person person = new Person();
-            try
-            {      
-                List<Detail> detail = Repository.Get().Where(x => x.Day.Person.Id == id && x.Day.Date.Month == m).ToList();
-                
-                if (detail == null)
-                    return NotFound();
-                else
+        public IList<DetailModel> Get(int id, int m, int page, int PageSize)
+        {    
+                var query = Repository.Get().Where(x => x.Day.Person.Id == id && x.Day.Date.Month == m).ToList();
+                int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
+                IList<DetailModel> details = query.Skip(PageSize * page)
+                                                  .Take(PageSize).ToList()
+                                                  .Select(x => Factory.Create(x))
+                                                  .ToList();
+                var PageHeader = new
                 {
-                    List<DetailModel> DetailModel = new List<DetailModel>();
-                    foreach (Detail d in detail)
-                    {
-                        DetailModel.Add(Factory.Create(d));
-                    }
-                    return Ok(DetailModel);
-                }
-            }
-            catch (Exception ex)
-            {
-                return BadRequest();
-            }
+                    pageSize = PageSize,
+                    currentPage = page,
+                    pageCount = TotalPages
+                };
+            HttpContext.Current.Response.Headers.Add("Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(PageHeader));
+            HttpContext.Current.Response.Headers.Add("Access-Control-Expose-Headers", "Pagination");
+            return details;
+                //List<Detail> detail = Repository.Get().Where(x => x.Day.Person.Id == id && x.Day.Date.Month == m).ToList();
+
+                //if (detail == null)
+                //    return NotFound();
+                //else
+                //{
+                //    List<DetailModel> DetailModel = new List<DetailModel>();
+                //    foreach (Detail d in detail)
+                //    {
+                //        DetailModel.Add(Factory.Create(d));
+                //    }
+                //    return Ok(DetailModel);
+                //}
+           
         }
 
         public IHttpActionResult Post(DetailModel model)

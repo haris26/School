@@ -283,5 +283,53 @@ color: rgba(229, 103, 23, 0.6);
     outline: 0 none;
 }
 .select:active, .select:hover {
-  outline-color: rgba(229, 103, 23, 0.8);*/
+  outline-color: rgba(229, 103, 23, 0.8);
+}*/
+
+::-webkit-input-placeholder {
+   color: #37ADE7;
+   font-weight:bold;
+   text-transform:uppercase;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #37ADE7;  
+   font-weight:bold;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #37ADE7; 
+   font-weight:bold; 
+}
+
+:-ms-input-placeholder {  
+   color: #37ADE7;  
+   font-weight:bold;
+}
+.social-login{
+  width: 150%;
+  padding: 10px 0 15px 0;
+  
+}
+.social-login span{
+  width:calc(40% - 8px);
+  color: #fff;
+  border: 1px solid rgba(0,0,0,0.05);
+  padding: 12px;
+  border-radius: 2px;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 0 3%;
+  text-align:center;
+  cursor:pointer;
+}
+.social-login span i{
+  width: 20px;
+  top: 2px;
+}
+.social-login span:first-child{
+  background-color: #49639F;
+}
+.social-login span:last-child{
+  background-color: #DF4A32;
 }
