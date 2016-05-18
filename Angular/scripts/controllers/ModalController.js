@@ -53,12 +53,10 @@
     app.controller("createRoomEventCtrl", function ($scope, $modalInstance, DataService, $rootScope) {
        
         $scope.createReservation = function () {
-            
-            $scope.newEvent.endDate = $scope.newEvent.endDate.substring(0, 11) + " "+ $scope.newEvent.endTime+":00";
-            console.log($scope.newEvent, "u modalu");
+            $scope.newEvent.endDate = $scope.newEvent.endDate.substring(0, 10) + $scope.newEvent.endTime + ":00";
+            console.log("event koji ide u bazu", $scope.newEvent);
             DataService.create("events", $scope.newEvent, function (data) {
                 var result = true;
-                //$rootScope.refreshTable();
                 $modalInstance.close(result);
             });
         };
@@ -68,8 +66,8 @@
     });
 
     app.controller("CancelExtendedCtrl", function ($scope, $modalInstance, DataService, schConfig, confirmed) {
-        $scope.confirmed = confirmed;
 
+        $scope.confirmed = confirmed;
         $scope.yes = function () {
             $scope.isConfirmed = true;
             $modalInstance.close($scope.isConfirmed);
@@ -88,11 +86,11 @@
             });
 
         };
-        //console.log($scope.extendedEvent);
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
     });
+
     app.controller("EditDeviceModalCtrl", function ($scope, $modalInstance, DataService, schConfig, $rootScope) {
         $scope.saveReservation = function () {
             DataService.update("events", $scope.editEvent.id, $scope.editEvent, function (data) {

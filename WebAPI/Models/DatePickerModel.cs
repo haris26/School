@@ -14,7 +14,7 @@ namespace WebAPI.Models
 
     public class DayPickerModel
     {
-        public DateTime today { get; set; }
+       public DateTime today { get; set; }
        public string todayDay { get; set; }
 
     }
@@ -24,8 +24,13 @@ namespace WebAPI.Models
        public DateTime today { get; set; }
        public DateTime weekStart { get; set; }
        public string weekStartDay { get; set; }
+       public DateTime Tuesday { get; set; }
+       public string TuesdayDay { get; set; }
+       public DateTime Wednesday { get; set; }
+       public string WednesdayDay { get; set; }
+       public DateTime Thursday { get; set; }
+       public string ThursdayDay { get; set; }
        public DateTime weekEnd { get; set; }
        public string weekEndDay { get; set; }
-       public string month { get; set; }
     }
 }

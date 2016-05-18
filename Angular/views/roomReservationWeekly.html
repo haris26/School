@@ -1,0 +1,133 @@
+﻿<div class="container container-top">
+    <h2 id="welcome-title"> Room Reservations </h2>
+    <br />
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <span class="roomNavButton"><a href="#/room/reservation">Daily</a></span>
+            <span class="roomNavButton"><a href="#/room/reservation/weekly">Weekly</a></span>
+        </div>
+        <div class="col-md-4"> </div>
+    </div>
+    <br />
+    <div date-picker type="weekly" view="weekly"></div>
+    <br />
+   
+    <accordion close-others="true">
+        <accordion-group is-open="setAccordion.mondayOpen" is-disabled="setAccordion.mondayDisabled">
+            <accordion-heading  >
+                <span  ng-click="getNewReservations(newDay.weekStart)">Monday, {{newDay.weekStartDay}}</span>
+            </accordion-heading> 
+            <div class="table-container">
+                <div class="room-row">
+                    <div class="day-name"></div>
+                    <div class="timeSpan"> 9</div>
+                    <div class="timeSpan"> 10</div>
+                    <div class="timeSpan"> 11</div>
+                    <div class="timeSpan"> 12</div>
+                    <div class="timeSpan"> 13</div>
+                    <div class="timeSpan"> 14</div>
+                    <div class="timeSpan"> 15</div>
+                    <div class="timeSpan"> 16</div>
+                </div>
+                <div class="room-row" ng-repeat="room in mondayReservations">
+                    <div popover-room class="room-name" popover-html="Haris">{{room.room.roomName}}</div>
+                    <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
+                </div>
+            </div>
+
+        </accordion-group>
+        <accordion-group is-open="setAccordion.tuesdayOpen" is-disabled="setAccordion.tuesdayDisabled">
+            <accordion-heading>
+                <span ng-click="getNewReservations(newDay.tuesdayDay)">Tuesday, {{newDay.tuesdayDay}}</span>
+            </accordion-heading>
+            <div class="table-container">
+                <div class="room-row">
+                    <div class="day-name"></div>
+                    <div class="timeSpan"> 9</div>
+                    <div class="timeSpan"> 10</div>
+                    <div class="timeSpan"> 11</div>
+                    <div class="timeSpan"> 12</div>
+                    <div class="timeSpan"> 13</div>
+                    <div class="timeSpan"> 14</div>
+                    <div class="timeSpan"> 15</div>
+                    <div class="timeSpan"> 16</div>
+                </div>
+                <div class="room-row" ng-repeat="room in tuesdayReservations">
+                    <div popover-room class="room-name" popover-html="Haris">{{room.room.roomName}}</div>
+                    <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
+                </div>
+            </div>
+            
+        </accordion-group> 
+        <accordion-group  is-open="setAccordion.wednesdayOpen" is-disabled="setAccordion.wednesdayDisabled">
+            <accordion-heading>
+                <span ng-click="getNewReservations(newDay.wednesday)">Wednesday, {{newDay.wednesdayDay}}</span>
+            </accordion-heading>
+            <div class="table-container">
+                <div class="room-row">
+                    <div class="day-name"></div>
+                    <div class="timeSpan"> 9</div>
+                    <div class="timeSpan"> 10</div>
+                    <div class="timeSpan"> 11</div>
+                    <div class="timeSpan"> 12</div>
+                    <div class="timeSpan"> 13</div>
+                    <div class="timeSpan"> 14</div>
+                    <div class="timeSpan"> 15</div>
+                    <div class="timeSpan"> 16</div>
+                </div>
+                <div class="room-row" ng-repeat="room in wednesdayReservations">
+                    <div popover-room class="room-name" popover-html="Haris">{{room.room.roomName}}</div>
+                    <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
+                </div>
+            </div>
+        </accordion-group>
+        <accordion-group is-open="setAccordion.thurdayOpen" is-disabled="setAccordion.thursdayDisabled">
+            <accordion-heading>
+                <span ng-click="getNewReservations(newDay.thursday)">Thursday, {{newDay.thursdayDay}}</span>
+            </accordion-heading>
+            <div class="table-container">
+                <div class="room-row">
+                    <div class="day-name"></div>
+                    <div class="timeSpan"> 9</div>
+                    <div class="timeSpan"> 10</div>
+                    <div class="timeSpan"> 11</div>
+                    <div class="timeSpan"> 12</div>
+                    <div class="timeSpan"> 13</div>
+                    <div class="timeSpan"> 14</div>
+                    <div class="timeSpan"> 15</div>
+                    <div class="timeSpan"> 16</div>
+                </div>
+                <div class="room-row" ng-repeat="room in thursdayReservations">
+                    <div popover-room class="room-name" popover-html="Haris">{{room.room.roomName}}</div>
+                    <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
+                </div>
+            </div>
+        </accordion-group>  
+        <accordion-group is-open="setAccordion.fridayOpen" is-disabled="setAccordion.fridayDisabled">
+            <accordion-heading>
+                <span ng-click="getNewReservations(newDay.weekEnd)">Friday, {{newDay.weekEndDay}}</span>
+            </accordion-heading>
+            <div class="table-container">
+                <div class="room-row">
+                    <div class="day-name"></div>
+                    <div class="timeSpan"> 9</div>
+                    <div class="timeSpan"> 10</div>
+                    <div class="timeSpan"> 11</div>
+                    <div class="timeSpan"> 12</div>
+                    <div class="timeSpan"> 13</div>
+                    <div class="timeSpan"> 14</div>
+                    <div class="timeSpan"> 15</div>
+                    <div class="timeSpan"> 16</div>
+                </div>
+                <div class="room-row" ng-repeat="room in fridayReservations">
+                    <div popover-room class="room-name" popover-html="Haris">{{room.room.roomName}}</div>
+                    <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
+                </div>
+            </div>
+        </accordion-group>       
+    </accordion>
+    <br />
+    <br />
+  </div>
+

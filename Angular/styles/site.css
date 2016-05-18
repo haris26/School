@@ -444,3 +444,20 @@
     width: 60%;
     margin: 0 auto;
 }
+
+.roomNavButton {
+    background-color: #01AB8E; 
+    border-radius: 2px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    width:47%;
+}
+
+.roomNavButton a {
+color:white;
+font-weight: bold;
+}
+

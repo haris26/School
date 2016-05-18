@@ -9,7 +9,6 @@
             templateUrl:"views/datePicker.html",
             link: function (scope, elem, attrs) {
                 scope.show = true;
-                //console.log(scope);
                 if (attrs.type == "daily") {
                     scope.show = false;
                 }
@@ -22,17 +21,19 @@
                    getDay= function (){
                    DataService.create("datepicker", scope.day, function (data) {
                        scope.newDay = data;
+                       if (attrs.view == "weekly") {
+                           scope.getWeekReservations(scope.newDay);
+                       }                      
                    });
                }
-               getDay();
-
+                   getDay();
                scope.goNext = function () {
                    scope.day = {
                        today: "",
                        type: scope.day.type,
                        step: scope.day.step+1                      
                    }
-                   //console.log("param", scope.searchParameters);
+                
                    DataService.create("datepicker", scope.day, function (data) {
                        scope.newDay = data;
                        scope.searchParameters.fromDate = scope.newDay.weekStart;
@@ -41,7 +42,16 @@
                            scope.searchParameters.fromDate = scope.newDay.today;
                            scope.searchParameters.toDate = scope.newDay.today;
                        }
-                       scope.getReservations();                    
+                       if (attrs.view == "weekly") {
+                           if (count == 0) {
+                               scope.disable = true;
+                           }
+                           scope.disable = false;
+                          
+                           scope.getWeekReservations(scope.newDay);
+                       }
+                       else scope.getReservations();
+                           
                    });
                    count++;
                }
@@ -54,9 +64,21 @@
                        }
                        DataService.create("datepicker", scope.day, function (data) {
                            scope.newDay = data;
-                           scope.searchParameters.fromDate = scope.newDay.today;
-                           scope.searchParameters.toDate = scope.newDay.today;
-                           scope.getReservations();
+                           scope.searchParameters.fromDate = scope.newDay.weekStart;
+                           scope.searchParameters.toDate = scope.newDay.weekEnd;
+                           if (attrs.type == "daily") {
+                               scope.searchParameters.fromDate = scope.newDay.today;
+                               scope.searchParameters.toDate = scope.newDay.today;
+                           }
+                           if (attrs.view == "weekly") {
+                               if (count == 0 ) {
+                                   scope.disable = true;
+                               }
+                               scope.disable = false;
+                               scope.getWeekReservations(scope.newDay);
+                           }
+                           else scope.getReservations();
+                           
                        });
                        count--;
                    }

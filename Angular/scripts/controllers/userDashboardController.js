@@ -10,7 +10,6 @@
         function fetchData() {
             DataService.list(dataSet, function (data) {
                 $scope.dashboard = data;
-                console.log($scope.dashboard);
             });
         }
         $rootScope.refreshActive = function () {

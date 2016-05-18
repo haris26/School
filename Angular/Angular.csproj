@@ -141,6 +141,7 @@
     <Content Include="scripts\controllers\ReservationsController.js" />
     <Content Include="scripts\controllers\RoomReservationController.js" />
     <Content Include="scripts\controllers\userDashboardController.js" />
+    <Content Include="scripts\controllers\WeeklyRoomReservationController.js" />
     <Content Include="scripts\services\DatePicker.js" />
     <Content Include="scripts\services\DeviceDirective.js" />
     <Content Include="scripts\services\LoginService.js" />
@@ -175,6 +176,7 @@
     <Content Include="scripts\controllers\ResourceController.js" />
     <Content Include="views\resources.html" />
     <Content Include="views\roomReservation.html" />
+    <Content Include="views\roomReservationWeekly.html" />
     <Content Include="views\userDashboard.html" />
     <Content Include="Web.config" />
   </ItemGroup>
