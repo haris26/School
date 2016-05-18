@@ -10,9 +10,10 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">Name</label>
                     <div class="col-md-10">
-                        <input ng-model="categoryItem.name" class="form-control text-box single-line" type="text" />
+                        <input ng-model="categoryItem.name" class="form-control text-box single-line" type="text" required/>
                         <span style="color:red">
-                            <span ng-show="nameCheckCategory()">The name already exists.</span>
+                            <span ng-show="errorCheckCategory">The name already exists.</span>
+                            <span ng-show="errorEmptyCategory">This field is required.</span>
                         </span>
                     </div>
                 </div>

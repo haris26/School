@@ -22,9 +22,8 @@
                 <div class="form-horizontal">
                     <input class="btn btn-default" type="text" value="{{educationTypes[education.type]}}" disabled>
                     <input class="btn btn-default" type="text" value="{{education.educationName}}" disabled>
-                    <input ng-show="permissions.showAdmin" class="btn btn-default" type="text" value="{{education.reference}}" disabled>
-                    <input ng-show="permissions.showUser && (education.type == '3' || education.type == '1')" ng-model="education.reference" class="btn btn-default" type="text" value="{{education.reference}}">
-                    <button ng-show="permissions.showUser && (education.type == '3' || education.type == '1')" ng-click="updateQualification(education)" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-ok"></span></button>
+                    <input ng-model="education.reference" ng-show="permissions.showUser && education.type == '3'" class="btn btn-default" type="text" value="{{education.reference}}">
+                    <button ng-click="updateQualification(education)" ng-show="permissions.showUser && education.type == '3'" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-ok"></span></button>
                     <button ng-show="permissions.showUser" class="btn btn-danger" type="button" ng-click="selectQualification(education)" data-toggle="modal" data-target="#deleteEmpQualModal"><span class="glyphicon glyphicon-trash"></span></button>
                 </div>
             </div>

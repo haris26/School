@@ -19,7 +19,10 @@
                     <label class="control-label col-md-4">{{educationTypes[eduItem.type]}}</label>
                     <div class="col-md-8">
                         <select ng-model="eduItem.education" class="form-control"
-                                ng-options="education.id as education.name for education in eduOptions"></select>
+                                ng-options="education.id as education.name for education in eduOptions" required></select>
+                        <span style="color:red">
+                            <span ng-show="errorEmpty">This field is required.</span>
+                        </span>
                     </div>
                 </div>
 

@@ -123,9 +123,10 @@
                 numOfEmployees: 0
             };
         };
+
         function nameCheck(name) {
             if (name != "") {
-                DataService.qualificationCheck("educations", name, function (data) {
+                DataService.nameCheck("educations", name, function (data) {
                     $scope.name = data.length!=0;
                 })
             }
@@ -134,14 +135,16 @@
         $scope.validate = function () {
             $scope.errorEmpty = false;
             nameCheck($scope.qualificationItem.name);
-            if (!$scope.qualificationItem.name || !$scope.name || !$scope.qualificationItem.type) $scope.validation = false;
-            //if (!$scope.qualificationItem.name) { $scope.errorEmpty = true; }
-            //if ($scope.name) { $scope.errorExists = true; }
-            //if (!$scope.qualificationItem.type) { $scpe, errorTypeEmpty = true; }
+            console.log($scope.qualificationItem.name);
+            console.log($scope.name);
+            if (!$scope.qualificationItem.name || !$scope.name || !$scope.qualificationItem.type) {
+                $scope.validation = false;
+                console.log($scope.qualificationItem.name);
+                console.log($scope.name);
+            }
             else $scope.validation = true;
             console.log($scope.validation);
         };
-
 
     });
 }());
