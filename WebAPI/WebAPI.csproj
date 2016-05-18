@@ -198,6 +198,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminDashboardController.cs" />
     <Compile Include="Controllers\AssetCategoriesController.cs" />
+    <Compile Include="Controllers\AssetCharacteristicNamesController.cs" />
     <Compile Include="Controllers\AssetCharsController.cs" />
     <Compile Include="Controllers\AssetController.cs" />
     <Compile Include="Controllers\AssetsController.cs" />
@@ -225,6 +226,7 @@
     <Compile Include="Helpers\SchoolIdentity.cs" />
     <Compile Include="Models\AdminDashboardModel.cs" />
     <Compile Include="Models\AssetCategoriesModel.cs" />
+    <Compile Include="Models\AssetCharacteristicNamesModel.cs" />
     <Compile Include="Models\AssetCharsModel.cs" />
     <Compile Include="Models\AssetsModel.cs" />
     <Compile Include="Models\DashboardModel.cs" />

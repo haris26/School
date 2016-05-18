@@ -8,6 +8,7 @@
         var dataSet = "assets";
         getdeviceCategories();
         getofficeCategories();
+        getCharacteristics()
         getAssets();
 
         $rootScope.model = {};
@@ -30,6 +31,13 @@
             });
         };
 
+        function getCharacteristics() {
+            DataService.list("assetcharacteristicnames", function (data) {
+                $scope.assetNames = data;
+
+            });
+        };
+
       
 
 
@@ -39,39 +47,65 @@
         };
        
         pop = function () {
-            toaster.pop('success', "Success", " You assigned this asset!");
+            toaster.pop('success', "Success", " You added asset!");
         };
 
-      
+        //$scope.asset = {
+        //    id: 0,
+        //    name: "",
+        //    model: "",
+        //    serialNumber: "",
+        //    vendor: "",
+        //    price: "",
+        //    dateOfTrade: new Date(),
+        //    status: 2,
+        //    category: 0,
+        //    categoryName: ""
+        //}
 
         $scope.addAsset = function (item) {
             $scope.asset = {
                 id: 0,
                 name: "",
-
-                model: "",
+                 model: "",
                 serialNumber: "",
                 vendor: "",
                 price: "",
                 dateOfTrade: new Date(),
                 status: 2,
-                category: $scope.selectedCategory.id,
-                categoryName: $scope.selectedCategory.categoryName
+                category: 0,
+                categoryName:""
             }
 
            
         };
 
-        $scope.saveData = function () {
-            
+        $scope.saveData = function (item) {
+            $scope.asset = {
+
+
+                serialNumber: item.serialNumber,
+                vendor: item.vendor,
+                price: item.price,
+                dateOfTrade: new Date(),
+                status: 2,
+                category:$scope.item.selectedCategory.id,
+                categoryName: $scope.item.selectedCategory.categoryName
+            }
      
-            console.log($scope.asset);
-            if ($scope.asset.serialNumber == "" || $scope.asset.vendor == "" ) {
+            
+      
+            if ($scope.item.serialNumber == "" || $scope.item.vendor == "" ) {
                 errorPop();
                 return
             } else {
-            
-                DataService.create(dataSet, $scope.asset, function (data) { });
+
+               
+                console.log("kakav je ovdje", $scope.selectedCategory);
+                console.log("nikakav", $scope.asset.category);
+                DataService.create(dataSet, $scope.asset, function (data) {
+                    console.log($scope.asset);
+                });
 
                 pop();
               
@@ -81,14 +115,21 @@
         }
 
 
+
+        $scope.setCategory = function () {
+            console.log($scope.selectedCategory);
+            $scope.category = $scope.selectedCategory.id;
+            $scope.categoryName = $scope.selectedCategory.categoryName
+
          
+        }
      
 
         $scope.transfer = function transfer(item) {
             $rootScope.model = item;
         }
 
-
+        
 
       
     });

@@ -99,8 +99,9 @@ namespace WebAPI.Models
         {
             AssetCategoriesModel model = new AssetCategoriesModel()
             {
-                Id = category.Id,
+               Id=category.Id,
                 CategoryName = category.CategoryName,
+                
                 Type = category.assetType.ToString(),
                 Assets=new List<AssetsModel>(),
                 AssetCharacteristicNames = new List<AssetCharacteristicNamesModel>()
@@ -145,6 +146,19 @@ namespace WebAPI.Models
                     });
             }
 
+            foreach (var characteristic in category.AssetCharacteristicNames)
+            {
+               
+                    model.AssetCharacteristicNames.Add(new AssetCharacteristicNamesModel
+                    {
+                        Id = characteristic.Id,
+                        Name = characteristic.Name,
+                       CategoryName=characteristic.AssetCategory.CategoryName.ToString(),
+                       Category=characteristic.AssetCategory.Id
+                       
+                    });
+            }
+
             return model;
         }
 
@@ -162,6 +176,9 @@ namespace WebAPI.Models
 
             return model;
         }
+
+      
+
         public AssetsModel Create(Asset asset)
         {
             if (asset.User == null)
