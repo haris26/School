@@ -48,7 +48,6 @@
             $scope.asset = {
                 id: 0,
                 name: "",
-
                 model: "",
                 serialNumber: "",
                 vendor: "",
@@ -58,25 +57,17 @@
                 category: $scope.selectedCategory.id,
                 categoryName: $scope.selectedCategory.categoryName
             }
-
-           
+         
         };
 
         $scope.saveData = function () {
-            
-     
             console.log($scope.asset);
             if ($scope.asset.serialNumber == "" || $scope.asset.vendor == "" ) {
                 errorPop();
                 return
-            } else {
-            
+            } else {            
                 DataService.create(dataSet, $scope.asset, function (data) { });
-
                 pop();
-              
-               
-               
             }
         }
 

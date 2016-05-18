@@ -16,18 +16,21 @@
                                         ng-options="category as category.categoryName for category in deviceCategories" required></select>
                             
                             </div>
-                            <select class="form-control" id="sel" ng-model="selectedChar"
-                                    ng-options="characteristic as characteristic.name for characteristics in deviceCategories.assetCharacteristicNames" required></select>
+                            <!--<select class="form-control" id="sel" ng-model="selectedChar"
+                                    ng-options="characteristic as characteristic.name for characteristics in deviceCategories.assetCharacteristicNames" required></select>-->
                           
                             <!--<label for="number">Type</label></br>
                             <div class="text"><input type="text" ng-model="request.assetType" disabled></div>-->
                         </div>
                         
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Serial Number*</label>
-                            <textarea class="form-control" rows="1" id="comment" ng-model="asset.serialNumber"></textarea>
+                            <label for="exampleInputPassword1">Model*</label>
+                            <textarea class="form-control" rows="1" id="comment" ng-model="asset.model"></textarea>
                         </div>
-
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Name*</label>
+                            <textarea class="form-control" rows="1" id="comment" ng-model="asset.name"></textarea>
+                        </div>
 
                         <div class="form-group">
                             <label for="exampleInputPassword1">Vendor*</label>
@@ -37,7 +40,11 @@
 
                         <div class="form-group">
                             <label for="exampleInputPassword1">Serial Number*</label>
-                            <textarea class="form-control" rows="1" id="comment" ng-model="asset.price"></textarea>
+                            <textarea class="form-control" rows="1" id="comment" ng-model="asset.serialNumber"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Price*</label>
+                            <input type="number" name="currency" min="0" max="9999" step="0.01" size="4" class="form-control" rows="1" id="comment" ng-model="asset.price" />
                         </div>
                        
                         <button type="submit" class="btn btn-primary" value="Send" ng-click="saveData()">Submit</button>
