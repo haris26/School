@@ -154,8 +154,30 @@
         $scope.setParametar=function(parametar){
             $scope.isValid = parametar;
             console.log("set param", $scope.isValid);
-            if ($scope.isValid && $scope.qualificationItem.name && $scope.qualificationItem.type)
-            $scope.addQualification();
+            if ($scope.isValid && $scope.qualificationItem.name && $scope.qualificationItem.type) {
+                $scope.addQualification();
+            }
+            else {
+                if (!$scope.qualificationItem.name && !$scope.qualificationItem.type) {
+                    $scope.errorEmpty = true;
+                    $scope.errorTypeEmpty = true;
+                }
+                else if (!$scope.qualificationItem.name) {
+                    $scope.errorEmpty = true;
+                    $scope.errorExists = false;
+                    $scope.errorTypeEmpty = false;
+                }
+                else if (!$scope.qualificationItem.type) {
+                    $scope.errorTypeEmpty = true;
+                    $scope.errorEmpty = false;
+                    $scope.errorExists = false;
+                }
+                else if (!$scope.isValid) {
+                    $scope.errorExists = true;
+                    $scope.errorEmpty = false;
+                    $scope.errorTypeEmpty = false;
+                }
+            }
         }
     });
 }());
