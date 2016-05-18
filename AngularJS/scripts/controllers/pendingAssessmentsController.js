@@ -12,6 +12,7 @@
             DataService.list("employeeskills", function (data) {
                 $scope.pendingAssessment = data;
                 $scope.message = "";
+                $scope.numPendingAssessments = data.length;
             })
         }
     });

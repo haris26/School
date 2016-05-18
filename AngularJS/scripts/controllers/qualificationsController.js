@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("QualificationsCtrl", function ($scope, $log, DataService, toaster) {
+    app.controller("QualificationsCtrl", function ($scope, $log, DataService, toaster, $rootScope) {
 
         $scope.message = "Loading data...";
         $scope.sortOrder = "Name";
