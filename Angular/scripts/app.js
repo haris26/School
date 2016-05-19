@@ -1,6 +1,6 @@
 (function () {
 
-    var app = angular.module("school", ["ngRoute", "ngAnimate", "ui.bootstrap", "ngCookies", "angularCharts", "toaster"]);
+    var app = angular.module("school", ["ngRoute", "ngAnimate", "ui.bootstrap", "ngCookies", "angularCharts", "toaster", "angularUtils.directives.dirPagination"]);
 
     authenticated = false;
     currentUser = {
@@ -34,6 +34,7 @@
             .when("/roles", { templateUrl: "views/roles.html", controller: "RolesController"})
             .when("/months", { templateUrl: "views/month.html", controller: "MonthController", resolve: { factory: userRouting } })
             .when("/engagements", { templateUrl: "views/engagements.html", controller: "EngagementsController" })
+            .when("/calendar1", { templateUrl: "views/calendar.html", controller: "CalendarController" })
             .otherwise({redirectTo: "/calendar"});
     }).run(function ($rootScope, $location) {
         $rootScope.$on("$routeChangeStart", function (event, next, current) {

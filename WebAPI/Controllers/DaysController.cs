@@ -36,19 +36,35 @@ namespace WebAPI.Controllers
         }
 
 
-        public IHttpActionResult Get(int id)
+        //public IHttpActionResult Get(int id)
+        //{
+        //    try {
+        //        Day day = Repository.Get(id);
+        //        if (day == null) return NotFound();
+        //        else
+        //            return Ok(Factory.Create(Repository.Get(id)));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest();
+        //    }
+        //}
+        public IList<DayModel> Get(int id)
         {
-            try {
-                Day day = Repository.Get(id);
-                if (day == null) return NotFound();
-                else
-                    return Ok(Factory.Create(Repository.Get(id)));
-            }
-            catch (Exception ex)
+
+
+            var day = Repository.Get().Where(x => x.Person.Id == id).ToList();
+
+
+            List<DayModel> DayModel = new List<DayModel>();
+
+            foreach (Day d in day)
             {
-                return BadRequest();
+                DayModel.Add(Factory.Create(d));
             }
+            return DayModel;
         }
+
 
         public IList<DayModel> Get(int id, int m, int y, int dd)
         {
@@ -63,10 +79,24 @@ namespace WebAPI.Controllers
             { 
                 DayModel.Add(Factory.Create(d));               
             }
-                return DayModel;        
+                return DayModel;
+
+        }
+        public IList<DayModel> Get(int id, int m, int y)
+        {
+
+            var day = Repository.Get().Where(x => x.Person.Id == id && x.Date.Month == m && x.Date.Year == y).ToList();
+
+            List<DayModel> DayModel = new List<DayModel>();
+
+            foreach (Day d in day)
+            {
+                DayModel.Add(Factory.Create(d));
             }
-    
-        
+            return DayModel;
+        }
+
+
         public IHttpActionResult Post(DayModel model)
         {
             var sch = Repository.BaseContext();

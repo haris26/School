@@ -1,5 +1,6 @@
 ﻿using Database;
 using WebAPI.Models;
+using WebAPI.Controllers;
 
 namespace WebAPI.Models
 {
@@ -106,5 +107,6 @@ namespace WebAPI.Models
                 Expiration = token.Expiration
             };
         }
+        
     }
 }

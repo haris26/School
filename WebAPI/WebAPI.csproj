@@ -192,6 +192,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\PrsnController.cs" />
     <Compile Include="Controllers\DaysController.cs" />
@@ -211,6 +212,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AppGlobals.cs" />
+    <Compile Include="Helpers\CalendarHelper.cs" />
     <Compile Include="Helpers\Dashboard.cs" />
     <Compile Include="Helpers\PersonHelper.cs" />
     <Compile Include="Helpers\ListDetails.cs" />

@@ -3,7 +3,7 @@
     app.controller("DetailsController", function ($scope, $rootScope, DataService, $http) {
 
         var dataSet = "details";
-        $scope.selDetail = [];
+        //$scope.selDetail = [];
         $scope.selTeam = "Day Off";
         //$scope.sortOrder = "-date";
 

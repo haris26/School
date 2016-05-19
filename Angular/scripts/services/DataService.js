@@ -30,6 +30,16 @@
                          callback(false);
                      })
             },
+            readDd: function (dataSet, id, m, y, callback) {
+                $http.get(source + dataSet + "/" + id + "/" + y + "/" + m)
+                     .success(function (data) {
+                         return callback(data);
+                     })
+                     .error(function (error) {
+                         $rootScope.message = error.message;
+                         callback(false);
+                     })
+            },
             read1: function (dataSet, id, m, callback) {
                 $http.get(source + dataSet + "/" + id + "/" + m )
                      .success(function (data) {
@@ -99,6 +109,16 @@
             getDet: function (id, m, page, pageSize) {
                 var resourceUrl = "";
                 resourceUrl = source + "details" + "/" + id + "?m=" + m + "&page=" + page + "&pagesize=" + pageSize
+
+                return $http({
+                    method: 'GET',
+                    url: resourceUrl
+                });
+            },
+
+            getMonth: function (id, page, pageSize) {
+                var resourceUrl = "";
+                resourceUrl = source + "month" + "/" + id + "&page=" + page + "&pagesize=" + pageSize
 
                 return $http({
                     method: 'GET',

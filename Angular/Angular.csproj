@@ -127,10 +127,10 @@
     <Content Include="images\spinner.gif" />
     <Content Include="images\toggle.png" />
     <Content Include="library\angular-animate.js" />
-    <Content Include="library\angular-charts.min.js" />
     <Content Include="library\bootstrap.css" />
     <Content Include="library\bootstrap.min.css" />
     <Content Include="library\d3.min.js" />
+    <Content Include="library\dirPagination.js" />
     <Content Include="library\jquery.min.js" />
     <Content Include="library\moment.js" />
     <Content Include="library\ui-bootstrap-tpls-1.3.2.js" />
@@ -138,7 +138,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="scripts\angular.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\calendar.js" />
     <Content Include="scripts\controllers\Calendar2Controller.js" />
+    <Content Include="scripts\controllers\CalendarController.js" />
     <Content Include="scripts\controllers\ModalController.js" />
     <Content Include="scripts\controllers\NotificationController.js" />
     <Content Include="library\bootstrap.min.js" />
@@ -175,14 +180,17 @@
     <Content Include="scripts\controllers\MenuController.js" />
     <Content Include="scripts\controllers\MonthController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
-    <Content Include="scripts\controllers\RolesController.js" />
-    <Content Include="scripts\controllers\TeamsController.js" />
     <Content Include="scripts\services\PaginationService.js" />
     <Content Include="scripts\services\Permission.js" />
+    <Content Include="scripts\controllers\RolesController.js" />
+    <Content Include="scripts\controllers\TeamsController.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="scripts\services\LoginService.js" />
+    <Content Include="scripts\services\Permission.js" />
     <Content Include="scripts\toaster.js" />
+    <Content Include="styles\bootstrap.css" />
+    <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\calendar.css" />
     <Content Include="styles\modal.css" />
     <Content Include="styles\notification.css" />
@@ -190,6 +198,7 @@
     <Content Include="styles\site.css" />
     <Content Include="styles\details-table.css" />
     <Content Include="styles\toaster.css" />
+    <Content Include="views\calendar.html" />
     <Content Include="views\calendar2.html" />
     <Content Include="views\CreateDetail.html" />
     <Content Include="views\daymodal.html" />
@@ -206,6 +215,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

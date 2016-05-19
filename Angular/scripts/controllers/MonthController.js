@@ -57,8 +57,7 @@
                 $scope.message = reason;
             })
         }
-        $scope.fetchDetails();
-        
+        $scope.fetchDetails();        
        
         $scope.sendEmail = function()
         {
