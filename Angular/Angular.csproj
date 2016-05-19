@@ -134,7 +134,7 @@
     <Content Include="library\angular-cookies.js" />
     <Content Include="library\googleClient.js" />
     <Content Include="library\ui-bootstrap-tpls.min.js" />
-    <Content Include="scripts\controllers\AddEditResourceController.js" />
+    <Content Include="scripts\controllers\AddResourceController.js" />
     <Content Include="scripts\controllers\DeviceReservationController.js" />
     <Content Include="scripts\controllers\LoginController.js" />
     <Content Include="scripts\controllers\ModalController.js" />
@@ -145,6 +145,7 @@
     <Content Include="scripts\controllers\WeeklyRoomReservationController.js" />
     <Content Include="scripts\services\DatePicker.js" />
     <Content Include="scripts\services\DeviceDirective.js" />
+    <Content Include="scripts\services\DeviceService.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
     <Content Include="scripts\services\RoomDirective.js" />
@@ -160,7 +161,7 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\services\DataService.js" />
     <Content Include="Global.asax" />
-    <Content Include="views\addEditResources.html" />
+    <Content Include="views\addResources.html" />
     <Content Include="views\datePicker.html" />
     <Content Include="views\deviceReservation.html" />
     <Content Include="views\login.html" />
@@ -168,8 +169,10 @@
     <Content Include="views\modals\cancelResModal.html" />
     <Content Include="views\modals\createRoomEventModal.html" />
     <Content Include="views\modals\createEventModal.html" />
+    <Content Include="views\modals\editDeviceModal.html" />
     <Content Include="views\modals\editDeviceRes.html" />
     <Content Include="views\modals\editExtendedModal.html" />
+    <Content Include="views\modals\editRoomModal.html" />
     <Content Include="views\modals\extendModal.html" />
     <Content Include="views\recurringReservations.html" />
     <Content Include="views\resourceList.html" />
@@ -179,7 +182,6 @@
     <Content Include="views\resources.html" />
     <Content Include="views\roomReservation.html" />
     <Content Include="views\roomReservationWeekly.html" />
-    <Content Include="views\tooltipView.html" />
     <Content Include="views\userDashboard.html" />
     <Content Include="Web.config" />
   </ItemGroup>

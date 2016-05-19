@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("AddEditResourceController", function ($scope, $rootScope, DataService) {
+    app.controller("AddResourceController", function ($scope, $rootScope, DataService, toaster) {
         
         var dataSet = "resourcecategories";
         getResourceCategories();
@@ -24,6 +24,8 @@
         function getResourceCategories() {
             DataService.list(dataSet, function (data) {
                 $scope.categories = data;
+                $scope.device = false;
+                $scope.room = false;
                 console.log($scope.categories);
             });
         };
@@ -49,7 +51,12 @@
                 $scope.device = false;
             };
         };
-        
+        newRoomPop = function () {
+            toaster.pop('success', "Confirmation", "New room successfully added!");
+        };
+        newDevicePop = function () {
+            toaster.pop('success', "Confirmation", "New device successfully added!");
+        };
         $scope.addDevice = function () {
             $scope.newDevice = {
                 id: 0,
@@ -82,7 +89,9 @@
                         DataService.create("characteristics", $scope.osVersionCharac, function (data) { });
                     });
                 });
-            });            
+            });
+            newDevicePop();
+            getResourceCategories();
         }
         $scope.addRoom = function () {
             $scope.newRoom = {
@@ -125,6 +134,9 @@
                     });
                 });
             });
+            newRoomPop();
+            getResourceCategories();
+
         }
     });
 

@@ -31,7 +31,7 @@
                     <div class="timeSpan"> 16</div>
                 </div>
                 <div class="room-row" ng-repeat="room in mondayReservations">
-                    <div popover-room class="room-name" popover-html="Haris">{{room.room.roomName}}</div>
+                    <div popover-room class="room-name" tooltip-directive tooltip-html-unsafe="{{tooltipContent}}" data-toggle="tooltip" data-placement="top">{{room.room.roomName}}</div>
                     <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                     <div class="timeSpan"> 16</div>
                 </div>
                 <div class="room-row" ng-repeat="room in tuesdayReservations">
-                    <div popover-room class="room-name" popover-html="Haris">{{room.room.roomName}}</div>
+                    <div popover-room class="room-name" tooltip-directive tooltip-html-unsafe="{{tooltipContent}}" data-toggle="tooltip" data-placement="top">{{room.room.roomName}}</div>
                     <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                     <div class="timeSpan"> 16</div>
                 </div>
                 <div class="room-row" ng-repeat="room in wednesdayReservations">
-                    <div popover-room class="room-name" popover-html="Haris">{{room.room.roomName}}</div>
+                    <div popover-room class="room-name" tooltip-directive tooltip-html-unsafe="{{tooltipContent}}" data-toggle="tooltip" data-placement="top">{{room.room.roomName}}</div>
                     <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                     <div class="timeSpan"> 16</div>
                 </div>
                 <div class="room-row" ng-repeat="room in thursdayReservations">
-                    <div popover-room class="room-name" popover-html="Haris">{{room.room.roomName}}</div>
+                    <div popover-room class="room-name" tooltip-directive tooltip-html-unsafe="{{tooltipContent}}" data-toggle="tooltip" data-placement="top">{{room.room.roomName}}</div>
                     <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                     <div class="timeSpan"> 16</div>
                 </div>
                 <div class="room-row" ng-repeat="room in fridayReservations">
-                    <div popover-room class="room-name" popover-html="Haris">{{room.room.roomName}}</div>
+                    <div popover-room class="room-name" tooltip-directive tooltip-html-unsafe="{{tooltipContent}}" data-toggle="tooltip" data-placement="top">{{room.room.roomName}}</div>
                     <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
                 </div>
             </div>

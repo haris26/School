@@ -32,7 +32,7 @@
             $modalInstance.dismiss('cancel');
         };
          pop = function () {
-            toaster.pop('note', "Confirmation", "Reservation successfully canceled!");
+            toaster.pop('success', "Confirmation", "Reservation successfully canceled!");
         };
     });
 
@@ -90,7 +90,7 @@
         };
     });
 
-    app.controller("EditDeviceModalCtrl", function ($scope, $modalInstance, DataService, schConfig, $rootScope) {
+    app.controller("EditDeviceEventModalCtrl", function ($scope, $modalInstance, DataService, schConfig, $rootScope) {
         $scope.saveReservation = function () {
             DataService.update("events", $scope.editEvent.id, $scope.editEvent, function (data) {
                 var result = true;
@@ -102,5 +102,42 @@
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
+    });
+
+    app.controller("EditDeviceModalCtrl", function ($scope, $modalInstance, DataService, $rootScope, $location, $route) {
+        $scope.saveChanges = function () {
+            DataService.update("resources", $scope.device.id, $scope.device, function (data) {
+                DataService.update("characteristics", $scope.deviceTypeCharac.id, $scope.deviceTypeCharac, function (data) {
+                    DataService.update("characteristics", $scope.osTypeCharac.id, $scope.osTypeCharac, function (data) {
+                        DataService.update("characteristics", $scope.osVersionCharac.id, $scope.osVersionCharac, function (data){})
+                    })
+                })
+                var result = true;
+                $route.reload();
+                $modalInstance.close(result);
+            });
+        };
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        }
+    });
+
+    app.controller("EditRoomModalCtrl", function ($scope, $modalInstance, DataService, $rootScope) {
+        $scope.saveChanges = function () {
+            DataService.update("resources", $scope.editR.id, $scope.editR, function (data) {
+                DataService.update("characteristics", $scope.roomChairCharac.id, $scope.roomChairCharac, function (data) {
+                    DataService.update("characteristics", $scope.roomSpeakerCharac.id, $scope.roomSpeakerCharac, function (data){
+                        DataService.update("characteristics", $scope.roomTvCharac.id, $scope.roomTvCharac, function (data){
+                            DataService.update("characteristics", $scope.roomBoardCharac.id, $scope.roomBoardCharac, function (data){})
+                            })
+                        })                    
+                })
+                var result = true;
+                $modalInstance.close(result);
+            });            
+        };
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        }
     });
 }());

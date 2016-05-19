@@ -79,7 +79,7 @@
            }
            var modalInstance = $modal.open({
                templateUrl: 'views/modals/editDeviceRes.html',
-               controller: 'EditDeviceModalCtrl',
+               controller: 'EditDeviceEventModalCtrl',
                windowClass: 'app-modal-window',
                backdrop: 'static',
                size: 'md',

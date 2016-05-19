@@ -37,7 +37,7 @@
             .when("/reservations/recurring", { templateUrl: "views/recurringReservations.html", controller: "RecurringReservationsController" })
             .when("/room/reservation", { templateUrl: "views/roomReservation.html", controller: "RoomReservationController" })
             .when("/room/reservation/weekly", { templateUrl: "views/roomReservationWeekly.html", controller: "WeeklyRoomReservationController" })
-            .when("/resources/addEdit", {templateUrl: "views/addEditResources.html", controller: "AddEditResourceController"})
+            .when("/resources/addResource", {templateUrl: "views/addResources.html", controller: "AddResourceController"})
             .otherwise({ redirectTo: "/home" });
 
     }).run(function ($rootScope, $location) {

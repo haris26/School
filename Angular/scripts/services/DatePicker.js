@@ -71,9 +71,6 @@
                                scope.searchParameters.toDate = scope.newDay.today;
                            }
                            if (attrs.view == "weekly") {
-                               if (count == 0 ) {
-                                   scope.disable = true;
-                               }
                                scope.disable = false;
                                scope.getWeekReservations(scope.newDay);
                            }
@@ -81,6 +78,9 @@
                            
                        });
                        count--;
+                       if (count == 0) {
+                           scope.disable = true;
+                       }
                    }
                 } 
             }

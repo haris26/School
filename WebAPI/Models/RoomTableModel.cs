@@ -53,6 +53,7 @@ namespace WebAPI.Models
             {
             Room.Characteristics.Add(new CharacteristicsListModel
                 {
+                    Id = ch.Id,
                     Name = ch.Name,
                     Value = ch.Value
                 });

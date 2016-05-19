@@ -2,18 +2,20 @@
 
     var app = angular.module("school");
 
-    app.controller("DeviceReservationController", function ($scope, $rootScope, DataService) {
+    app.controller("DeviceReservationController", function ($scope, $rootScope, DataService, $modal, DeviceService, toaster) {
+
+        $scope.permission = {
+            showAdmin: currentUser.roles.indexOf("Admin") > -1
+        }
 
         var dataSet = "characteristics";
-        getOsType();
+        DeviceService.getOsType();
 
         $scope.Type = "";
         $scope.showBtn = false;
       
-        function getOsType() {
-            DataService.read(dataSet, "?type=OsType", function (data) {
-                $scope.osType = data;
-            });
+        $rootScope.refreshPage = function () {
+            DeviceService.getOsType();
         }
 
         $scope.getDevices = function () {
@@ -24,7 +26,7 @@
         }
 
         $scope.resourceName = "";
-        $scope.getParameters = function () {
+        $rootScope.getParameters = function () {
             $scope.showBtn = true;
             $scope.searchParameters = {
                 fromDate: new Date(),
@@ -46,6 +48,7 @@
         {
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
                 $scope.reservations = data;
+                console.log($scope.reservations);
                     $scope.mobile = false;
                     $scope.tablet = false;
                     if ($scope.reservations.characteristics[0].name == "DeviceType") {
@@ -62,7 +65,7 @@
         }
         $rootScope.refreshTable = function() {
             $scope.getReservations();
-            //console.log("scope: ", $scope.reservations);
+
         }
         
        $scope.images = {
@@ -90,6 +93,42 @@
                 $scope.windows = true;
             }                     
        }
+       $scope.editDevice = function (item) {
+           DeviceService.getDeviceType();
+
+           $scope.device = {
+               id: item.id,
+               name: item.name,
+               recourceCategory: 1
+           }
+           $scope.deviceTypeCharac = {
+               id: item.characteristics[0].id,
+               name: item.characteristics[0].name,
+               value: item.characteristics[0].value,
+               resource: item.id
+           }
+           $scope.osTypeCharac = {
+               id: item.characteristics[1].id,
+               name: item.characteristics[1].name,
+               value: item.characteristics[1].value,
+               resource: item.id
+           }
+           $scope.osVersionCharac = {
+               id: item.characteristics[2].id,
+               name: item.characteristics[2].name,
+               value: item.characteristics[2].value,
+               resource: item.id
+           }
+           var modalInstance = $modal.open({
+               templateUrl: 'views/modals/editDeviceModal.html',
+               controller: 'EditDeviceModalCtrl',
+               windowClass: 'app-modal-window',
+               backdrop: 'static',
+               size: 'md',
+               scope: $scope
+           });
+           
+       };
       
     });
 }());

@@ -25,10 +25,11 @@
     <script src="scripts/controllers/RecurringReservationsController.js"></script>
     <script src="scripts/controllers/RoomReservationController.js"></script>
     <script src="scripts/controllers/WeeklyRoomReservationController.js"></script>
-    <script src="scripts/controllers/AddEditResourceController.js"></script>
+    <script src="scripts/controllers/AddResourceController.js"></script>
 
 
     <script src="scripts/services/DataService.js"></script>
+    <script src="scripts/services/DeviceService.js"></script>
     <script src="scripts/services/LoginService.js"></script>
     <script src="scripts/services/Permission.js"></script>
     <script src="scripts/services/DeviceDirective.js"></script>
@@ -59,7 +60,7 @@
                         <ul class="dropdown-menu" style="border:none;">
                             <li><a href="#room/reservation">Rooms</a></li>
                             <li><a href="#device/reservation">Devices</a></li>
-                            <li><a href="#resources/addEdit">Add/Edit Resources</a></li>
+                            <li ng-show="userName"><a href="#resources/addResource">Add Resources</a></li>
                         </ul>
                     </li>
 
