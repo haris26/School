@@ -142,7 +142,6 @@
     <Content Include="scripts\controllers\ReservationsController.js" />
     <Content Include="scripts\controllers\RoomReservationController.js" />
     <Content Include="scripts\controllers\userDashboardController.js" />
-    <Content Include="scripts\controllers\WeeklyRoomReservationController.js" />
     <Content Include="scripts\services\DatePicker.js" />
     <Content Include="scripts\services\DeviceDirective.js" />
     <Content Include="scripts\services\LoginService.js" />

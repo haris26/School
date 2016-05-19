@@ -42,36 +42,62 @@ namespace WebAPI.Helpers
 
             foreach (var ev in events)
             {
-                int day = 0;
-                int hour = 0;
-                int hourValue = 0;
-                //set day parametar
-                if (ev.EventStart.DayOfWeek.ToString() == "Monday") { day = 0; }
-                if (ev.EventStart.DayOfWeek.ToString() == "Tuesday") { day = 1; }
-                if (ev.EventStart.DayOfWeek.ToString() == "Wednesday") { day = 2; }
-                if (ev.EventStart.DayOfWeek.ToString() == "Thursday") { day = 3; }
-                if (ev.EventStart.DayOfWeek.ToString() == "Friday") { day = 4; }
-                // ser hour parametar
-                if (ev.EventStart.ToShortTimeString() == "9:00") { hour = 0; hourValue = 9; }
-                if (ev.EventStart.ToShortTimeString() == "10:00") { hour = 1; hourValue = 10; }
-                if (ev.EventStart.ToShortTimeString() == "11:00") { hour = 2; hourValue = 11; }
-                if (ev.EventStart.ToShortTimeString() == "12:00") { hour = 3; hourValue = 12; }
-                if (ev.EventStart.ToShortTimeString() == "13:00") { hour = 4; hourValue = 13; }
-                if (ev.EventStart.ToShortTimeString() == "14:00") { hour = 5; hourValue = 14; }
-                if (ev.EventStart.ToShortTimeString() == "15:00") { hour = 6; hourValue = 15; }
-                if (ev.EventStart.ToShortTimeString() == "16:00") { hour = 7; hourValue = 16; }
-                // set device cell model
-                var deviceCell = new DeviceCellModel
+                IList<Event> DeviceEvents = new List<Event>();
+
+                while (ev.EventStart != ev.EventEnd)
                 {
-                    EventTitle = ev.EventTitle,
-                    PersonName = ev.User.FullName,
-                    Hour = hourValue,
-                    IsPast = false,
-                    IsReserved = true
-                };
-                table.Add(day, hour, deviceCell);
+                    var newStart = Convert.ToDateTime(ev.EventStart);
+                    var newEnd = newStart.AddHours(1);
+
+                    Event newEvent = new Event()
+                    {
+                        Id = ev.Id,
+                        User=ev.User,
+                        Resource = ev.Resource,
+                        EventTitle = ev.EventTitle,
+                        EventStart=ev.EventStart,
+                        EventEnd=ev.EventEnd,
+                        
+                    };
+
+                    ev.EventStart = newEnd;
+
+                    DeviceEvents.Add(newEvent);
+                }
+                foreach(var deviceEv in DeviceEvents)
+                {
+                    int day = 0;
+                    int hour = 0;
+                    int hourValue = 0;
+                    //set day parametar
+                    if (deviceEv.EventStart.DayOfWeek.ToString() == "Monday") { day = 0; }
+                    if (deviceEv.EventStart.DayOfWeek.ToString() == "Tuesday") { day = 1; }
+                    if (deviceEv.EventStart.DayOfWeek.ToString() == "Wednesday") { day = 2; }
+                    if (deviceEv.EventStart.DayOfWeek.ToString() == "Thursday") { day = 3; }
+                    if (deviceEv.EventStart.DayOfWeek.ToString() == "Friday") { day = 4; }
+                    // set hour parametar
+                    if (deviceEv.EventStart.ToShortTimeString() == "9:00") { hour = 0; hourValue = 9; }
+                    if (deviceEv.EventStart.ToShortTimeString() == "10:00") { hour = 1; hourValue = 10; }
+                    if (deviceEv.EventStart.ToShortTimeString() == "11:00") { hour = 2; hourValue = 11; }
+                    if (deviceEv.EventStart.ToShortTimeString() == "12:00") { hour = 3; hourValue = 12; }
+                    if (deviceEv.EventStart.ToShortTimeString() == "13:00") { hour = 4; hourValue = 13; }
+                    if (deviceEv.EventStart.ToShortTimeString() == "14:00") { hour = 5; hourValue = 14; }
+                    if (deviceEv.EventStart.ToShortTimeString() == "15:00") { hour = 6; hourValue = 15; }
+                    if (deviceEv.EventStart.ToShortTimeString() == "16:00") { hour = 7; hourValue = 16; }
+                    // set device cell model
+                    var deviceCell = new DeviceCellModel
+                    {
+                        EventTitle = deviceEv.EventTitle,
+                        PersonName = deviceEv.User.FullName,
+                        Hour = hourValue,
+                        IsPast = false,
+                        IsReserved = true
+                    };
+                    table.Add(day, hour, deviceCell);
+                }
+                model.DeviceTable = table;
             }
-            model.DeviceTable = table;
+                
             return model;
         }
 
@@ -87,19 +113,44 @@ namespace WebAPI.Helpers
                 var events = new EventUnit(context).Get()
                 .Where(x => (x.Resource.ResourceCategory.CategoryName == modelParameters.CategoryName && x.Resource.Name == room.Name) &&
                 (DbFunctions.TruncateTime(x.EventStart) >= DbFunctions.TruncateTime(modelParameters.FromDate) && DbFunctions.TruncateTime(x.EventStart) <= DbFunctions.TruncateTime(modelParameters.ToDate))).ToList();
-
+                IList<Event> RoomEvents = new List<Event>();
                 foreach (var ev in events)
                 {
+                   
+
+                    while (ev.EventStart != ev.EventEnd)
+                    {
+                        var newStart = Convert.ToDateTime(ev.EventStart);
+                        var newEnd = newStart.AddMinutes(15);
+
+                        Event newEvent = new Event()
+                        {
+                            Id = ev.Id,
+                            User = ev.User,
+                            Resource = ev.Resource,
+                            EventTitle = ev.EventTitle,
+                            EventStart = ev.EventStart,
+                            EventEnd = ev.EventEnd,
+
+                        };
+
+                        ev.EventStart = newEnd;
+
+                        RoomEvents.Add(newEvent);
+                    }
+                }
+
+                    foreach (var roomEv in RoomEvents){
                     foreach (var timeSlot in roomModel.Room.TimeSlots)
                     {
-                        if (ev.EventStart == Convert.ToDateTime(timeSlot.EventStart))
+                        if (roomEv.EventStart == Convert.ToDateTime(timeSlot.EventStart))
                         {
-                            timeSlot.EventTitle = ev.EventTitle;
-                            timeSlot.EventStart = ev.EventStart.ToString();
-                            timeSlot.EventEnd = ev.EventEnd.ToString();
-                            timeSlot.StartTime = ev.EventStart.ToShortTimeString();
-                            timeSlot.EndTime = ev.EventEnd.ToShortTimeString();
-                            timeSlot.PersonName = ev.User.FullName;
+                            timeSlot.EventTitle = roomEv.EventTitle;
+                            timeSlot.EventStart = roomEv.EventStart.ToString();
+                            timeSlot.EventEnd = roomEv.EventEnd.ToString();
+                            timeSlot.StartTime = roomEv.EventStart.ToShortTimeString();
+                            timeSlot.EndTime = roomEv.EventEnd.ToShortTimeString();
+                            timeSlot.PersonName = roomEv.User.FullName;
                             timeSlot.IsReserved = true;
                         }
                     }

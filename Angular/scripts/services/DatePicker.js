@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.directive("datePicker", function ($modal, schConfig, DataService) {
+    app.directive("datePicker", function ($modal, schConfig, DataService,$rootScope) {
         return {
             restrict: "AE",
             replace: true,
@@ -21,21 +21,25 @@
                    getDay= function (){
                    DataService.create("datepicker", scope.day, function (data) {
                        scope.newDay = data;
+                       $rootScope.currentDay = scope.newDay;
                        if (attrs.view == "weekly") {
+                           $rootScope.currentDay = scope.newDay;
                            scope.getWeekReservations(scope.newDay);
                        }                      
                    });
                }
                    getDay();
+                   
                scope.goNext = function () {
                    scope.day = {
                        today: "",
                        type: scope.day.type,
                        step: scope.day.step+1                      
                    }
-                
+                   scope.status = 1;
                    DataService.create("datepicker", scope.day, function (data) {
                        scope.newDay = data;
+                       $rootScope.currentDay = scope.newDay;
                        scope.searchParameters.fromDate = scope.newDay.weekStart;
                        scope.searchParameters.toDate = scope.newDay.weekEnd;
                        if (attrs.type == "daily") {
@@ -62,8 +66,10 @@
                            type: scope.day.type,
                            step: scope.day.step - 1
                        }
+                       scope.status = 1;
                        DataService.create("datepicker", scope.day, function (data) {
                            scope.newDay = data;
+                           $rootScope.currentDay = scope.newDay;
                            scope.searchParameters.fromDate = scope.newDay.weekStart;
                            scope.searchParameters.toDate = scope.newDay.weekEnd;
                            if (attrs.type == "daily") {
@@ -71,9 +77,7 @@
                                scope.searchParameters.toDate = scope.newDay.today;
                            }
                            if (attrs.view == "weekly") {
-                               if (count == 0 ) {
-                                   scope.disable = true;
-                               }
+                              
                                scope.disable = false;
                                scope.getWeekReservations(scope.newDay);
                            }
@@ -81,6 +85,9 @@
                            
                        });
                        count--;
+                       if (count == 0) {
+                           scope.status = 0;
+                       }
                    }
                 } 
             }

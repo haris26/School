@@ -44,38 +44,18 @@ namespace WebAPI.Controllers
         {
             try
             {
-                int quantity = EventRestriction.GetResourceQuantity(ev, Repository.BaseContext());
-                if (quantity > 0)
+                if (ev == null)
                 {
-                    EventRestriction.DecreaseQuantity(ev, Repository.BaseContext());
-                    if (ev.CategoryName == "Device")
-                    {
-                        if (EventRestriction.GetEventDuration(ev) > 1 && ev.CategoryName == "Device")
-                        {
-                            IList<EventModel> events = EventRestriction.CreateEvent(ev, Repository.BaseContext());
-                            foreach (var newEvent in events)
-                            {
-                                Repository.Insert(EventRestriction.Create(newEvent, Repository.BaseContext()));
-                            }
-                        }
-                        else
-                            Repository.Insert(EventRestriction.Create(ev, Repository.BaseContext()));
-                    }
-                    
-                    else if (ev.CategoryName == "Room")
-                    {
-                        IList<EventModel> events = EventRestriction.CreateRoomEvent(ev, Repository.BaseContext());
-                        foreach (var newEvent in events)
-                        {
-                            Repository.Insert(EventRestriction.Create(newEvent, Repository.BaseContext()));
-                        }
-                    }
-                  
+                    return BadRequest();
+                }
+
+                else {
+                    Repository.Insert(EventRestriction.Create(ev, Repository.BaseContext()));
                     return Ok();
                 }
-                else
-                    return BadRequest();
+
             }
+               
             catch (Exception ex)
             {
                 return BadRequest();
@@ -110,7 +90,7 @@ namespace WebAPI.Controllers
                     return NotFound();
                 else
                 {
-                    EventRestriction.IncreaseQuantity(e, Repository.BaseContext());
+                   
                     Repository.Delete(id);                    
                     return Ok();
                 }

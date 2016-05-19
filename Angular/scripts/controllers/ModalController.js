@@ -53,7 +53,7 @@
     app.controller("createRoomEventCtrl", function ($scope, $modalInstance, DataService, $rootScope) {
        
         $scope.createReservation = function () {
-            $scope.newEvent.endDate = $scope.newEvent.endDate.substring(0, 10) + $scope.newEvent.endTime + ":00";
+            $scope.newEvent.endDate = $scope.newEvent.endDate.substring(0, 10) +" "+ $scope.newEvent.endTime + ":00";
             DataService.create("events", $scope.newEvent, function (data) {
                 var result = true;
                 $modalInstance.close(result);

@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.directive("roomRes", function ($modal) {
+    app.directive("roomRes", function ($modal, $rootScope) {
         return {
             restrict: "AE",
             replace: true,
@@ -59,10 +59,7 @@
                             if (scope.$parent.room.room.timeSlots[i].isReserved == true && scope.timeSlot.startTime <= scope.$parent.room.room.timeSlots[i].startTime) {
                                 break;
                             }  
-                        }
-                        
-                        
-                        
+                        }                        
                         var modalInstance = $modal.open({
                             templateUrl: 'views/modals/createRoomEventModal.html',
                             controller: 'createRoomEventCtrl',
@@ -72,8 +69,10 @@
                             scope: scope
                         }).result.then(function(result) {
                             scope.timeSlot.isReserved = result;
+                            console.log("scoppe ovdje", scope);
                             if (scope.timeSlot.isReserved == true) {
                                 scope.getReservations();
+                                $rootScope.refreshWeek();
                                 elem.css('background-color', '#01AB8E');
                             }
                         });

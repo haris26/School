@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
     {
         public IHttpActionResult Get(string username, string password)
         {
-            if (!WebSecurity.Initialized) WebSecurity.InitializeDatabaseConnection("School", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+            if (!WebSecurity.Initialized) WebSecurity.InitializeDatabaseConnection("SchoolLocal", "UserProfile", "UserId", "UserName", autoCreateTables: true);
             WebSecurity.CreateUserAndAccount(username, password, false);
             return Ok();
         }
