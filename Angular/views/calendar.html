@@ -10,15 +10,33 @@
                     <span class="btn btn-info col-md-7 col-xs-5" style="border-top: hidden; border-bottom:hidden; border-color: white"> {{mont| monthName}} </span>
                     <button class="btn btn-info col-xs-2" value="Next" ng-click="next()" style="width:100px; border-top: hidden; border-bottom:hidden;">Next</button>
                 </span>
-                <div ng-repeat="item in mjesec.lista" style="margin:0">     
-                    <div ng-repeat="d in item.days">                               
-                        <ul class="list-group">
-                            <li class="list-group-item col-md-6">   
-                                <a ng-click="transfer(d.day)">{{d.day}}</a>
-                            </li>
-                        </ul>          
+                <br />
+                
+            </div>
+            <div ng-repeat="item in mjesec.lista" style="margin:0">
+      
+                            <!--<tr>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thur</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                                <th>Sun</th>
+                            </tr>-->
+                <div class="mjesec">
+                    <div ng-repeat="s in item.skip">
+                        <div class="skip">                  
+                        </div>
                     </div>
-                </div>
+                    <div ng-repeat="d in item.days">
+                        <div class="dan">
+                            <a ng-click="toggleModal(datum); newDetail();transfer(d.day)">{{d.day}}</a>
+                        </div>
+                    </div>
+
+                </div>   
+                               
             </div>
         </div>
         <modal-dialog show='modalShow' class="col-md-4 col-xs-11" style="top:-100px">
