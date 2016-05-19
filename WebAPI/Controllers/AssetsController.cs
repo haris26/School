@@ -93,7 +93,7 @@ namespace WebAPI.Controllers
             try
             {
                 Repository.Insert(Parser.Create(model, Repository.BaseContext()));
-                return Ok();
+                return Ok(Repository.BaseContext().Assets.ToList().Select(x => x.Id).Last());
             }
             catch (Exception ex)
             {

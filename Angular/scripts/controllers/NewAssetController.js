@@ -57,13 +57,14 @@
                 id: 0,
                 name: "",
                 value: "",
-                asset: $scope.asset.id,
+                asset:0,
                 assetName:""
             }
 
 
             $scope.transfer = function transfer(item) {
                 $rootScope.model = item;
+                $scope.asset= item;
             }
 
 
@@ -72,9 +73,12 @@
                 errorPop();
                 return
             } else {
-                DataService.create(dataSet, $scope.asset, function (data) { });
-
-              
+                DataService.create(dataSet, $scope.asset, function (data) {
+                    $scope.savedasset = data;
+                    console.log($scope.savedasset);
+                });
+                
+                $scope.transfer($scope.asset);
  
                 pop();     
                 }    
@@ -86,6 +90,7 @@
             //    errorPop();
             //    return
             //} else {
+        
             DataService.create("assetchars", $scope.chars, function (data) { });
             console.log($scope.chars);
             console.log($scope.asset);
