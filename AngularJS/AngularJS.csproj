@@ -157,6 +157,7 @@
     <Content Include="views\employeeAssessments.html" />
     <Content Include="views\employeeSummary.html" />
     <Content Include="views\login.html" />
+    <Content Include="views\modals\finishAssessmentModal.html" />
     <Content Include="views\modals\editAvatarModal.html" />
     <Content Include="views\modals\addQualificationModal.html" />
     <Content Include="views\modals\addSkillAssessmentModal.html" />

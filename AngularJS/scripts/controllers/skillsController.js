@@ -191,7 +191,7 @@
                 name: ""
             };
             $scope.errorEmptyCategory = false;
-            $scope.errorExistSCategory = false;
+            $scope.errorExistsCategory = false;
         }
 
 
@@ -210,6 +210,7 @@
             else {
                 if (!$scope.categoryItem.name) {
                     $scope.errorEmptyCategory = true;
+                    $scope.errorExistsCategory = false;
                 }
                 else if (!$scope.isValid) {
                     $scope.errorExistsCategory = true;

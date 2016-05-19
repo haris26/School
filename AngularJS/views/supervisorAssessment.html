@@ -1,4 +1,8 @@
-﻿<div class="db-header clearfix">
+﻿<div id="finishAssessmentModal" class="modal fade" role="dialog">
+    <div ng-include="'views/modals/finishAssessmentModal.html'"></div>
+</div>
+
+<div class="db-header clearfix">
     <div class="page-header-title"><span class="glyphicon glyphicon-bookmark"></span> Supervisor Assessment </div>
     <div class="db-header-extra">
     </div>
@@ -38,7 +42,7 @@
                 <hr />
             </div>
             <div class="col-md-offset-2 col-md-8">
-                <button class="btn btn-primary form-control" ng-click="goToAssessment()">Finish Assessment</button>
+                <a href="" class="btn btn-primary form-control" data-toggle="modal" data-target="#finishAssessmentModal">Finish Assessment</a>
             </div>
         </div>
     </div>

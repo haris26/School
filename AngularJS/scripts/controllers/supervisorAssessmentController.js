@@ -7,6 +7,7 @@
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
         $scope.assessed = {};
+        $scope.leftToAssess = {};
 
         $scope.assessmentClass = {
             true: "btn btn-success btn-sm",
@@ -20,7 +21,7 @@
                 $scope.assessments = data;
                 for(var i=0; i<$scope.assessments.skills.length; i++){
                     for (var j = 0; j < $scope.assessments.skills[i].skills.length; j++) {
-                        $scope.assessed[$scope.assessments.skills[i].skills[j].skillId]=false;
+                        $scope.assessed[$scope.assessments.skills[i].skills[j].skillId] = false;
                 }
                 }
                 $scope.message = "";
@@ -29,7 +30,6 @@
         }
 
         $scope.updateEmployeeSkill = function (skill, dateOfSelfAssessment ) {
-            //$log.info(skill);
             var employeeSkill = {
                 id: skill.employeeSkillId,
                 employee: $scope.employeeId,
@@ -41,8 +41,6 @@
                 dateOfSupervisorAssessment: new Date(),
                 assessedBy: 1,
             }
-
-            //$log.info(employeeSkill);
 
             DataService.update("employeeskills", skill.employeeSkillId, employeeSkill, function (data) {
                 if (data != false) {
@@ -57,6 +55,9 @@
 
         $scope.goToAssessment = function () {
             $location.path('/employeeAssessments/' + $scope.employeeId);
+            $('#finishAssessmentModal').modal('hide');
+            $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
         }
     });
 }());
