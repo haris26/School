@@ -10,7 +10,7 @@
         token: "",
         expiration: null
     };
-
+    
     app.constant("schConfig",
         {
             source: "http://localhost:50169/api/",
@@ -36,8 +36,9 @@
             .when("/device/reservation", { templateUrl: "views/deviceReservation.html", controller: "DeviceReservationController" })
             .when("/reservations/recurring", { templateUrl: "views/recurringReservations.html", controller: "RecurringReservationsController" })
             .when("/room/reservation", { templateUrl: "views/roomReservation.html", controller: "RoomReservationController" })
-            .when("/room/reservation/weekly", { templateUrl: "views/roomReservationWeekly.html", controller: "WeeklyRoomReservationController" })
             .when("/resources/addResource", {templateUrl: "views/addResources.html", controller: "AddResourceController"})
+            .when("/room/reservation/weekly", { templateUrl: "views/roomReservationWeekly.html", controller: "RoomReservationController" })
+
             .otherwise({ redirectTo: "/home" });
 
     }).run(function ($rootScope, $location) {

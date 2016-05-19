@@ -24,7 +24,6 @@
     <script src="scripts/controllers/DeviceReservationController.js"></script>
     <script src="scripts/controllers/RecurringReservationsController.js"></script>
     <script src="scripts/controllers/RoomReservationController.js"></script>
-    <script src="scripts/controllers/WeeklyRoomReservationController.js"></script>
     <script src="scripts/controllers/AddResourceController.js"></script>
 
 
@@ -38,8 +37,8 @@
     <script src="scripts/services/TooltipDirective.js"></script>
 </head>
 <body>
-    <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'position-class': 'toast-bottom-right'}"></toaster-container>
-    <header>
+    <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'position-class': 'toast-bottom-right'}"></toaster-container> 
+     <header ng-show="showNav">
         <div class="navbar navbar-default">
             <div class="navbar-header" >
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">

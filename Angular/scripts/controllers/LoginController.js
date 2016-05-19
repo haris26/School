@@ -3,12 +3,13 @@
     var app = angular.module("school");
 
     app.controller("LoginController", function ($scope, $rootScope, $location, LoginService) {
-
+        $rootScope.showNav = false;
         $scope.wait = true;
         promise = LoginService.getCredentials();
         if (promise) {
             promise.then(
                 function (response) {
+                   
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
@@ -35,6 +36,7 @@
                     //console.log($scope.user.remember);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
                     $scope.wait = false;
+                    $rootScope.showNav = true;
                     $location.path("/home");
                 },
                 function (reason) {

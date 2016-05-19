@@ -10,7 +10,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-   // [TokenAuthorize]
+    [TokenAuthorize]
     public class ReservationOverviewController : ApiController
     {
         public IHttpActionResult Post(SearchModel model)
