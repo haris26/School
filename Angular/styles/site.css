@@ -336,7 +336,7 @@ color: rgba(229, 103, 23, 0.6);
 .mjesec {
     /*border: 2px solid white;*/
     background-color:white;
-    width: 1028px;
+    width: 883px;
     display: table;
     opacity:0.8;
 }
@@ -345,15 +345,14 @@ color: rgba(229, 103, 23, 0.6);
     border-right-width:0px;
     background-color: white;
     color: #37ADE7;
-    /*margin: 2px;*/
-    width: 146px;
+    width: 126px;
     height: 70px;  
     float: left;
-    font-size:30px;
+    font-size:24px;
     text-align:center;
     text-shadow: 5px black;
     display: table-cell;
-    line-height:2.2em;
+    line-height:2.7em;
     cursor:pointer;
     
 }
@@ -365,7 +364,7 @@ color: rgba(229, 103, 23, 0.6);
 .skip{   
     background-color: transparent;
     /*margin: 2px;*/
-    width: 146px;
+    width: 126px;
     height: 70px;  
     float: left;
 }
@@ -374,10 +373,11 @@ color: rgba(229, 103, 23, 0.6);
     background-color: white;
     color: #37ADE7;
     /*margin: 2px;*/
-    width: 146.9px;
+    width: 126.2px;
     height: 50px;  
     float: left;
-    font-size:30px;
+    font-size:24px;
     text-align:center;
-    opacity:0.8;	
+    opacity:0.8;
+    border-bottom: 1px solid #37ADE7;	
 }
