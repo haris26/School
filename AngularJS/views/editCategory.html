@@ -13,7 +13,7 @@
 <div class="db-header clearfix">
     <div class="page-header-title"><span class="glyphicon glyphicon-cog"></span> Edit Category</div>
     <div class="db-header-extra">
-        <a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addSkillModal" ng-click="clearSkill()">Add New Skill</a>
+        <a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addSkillModal" ng-click="clearSkill(); skillItem.category = category.id">Add New Skill</a>
         <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteCategoryModal">Delete Category</a>
     </div>
 </div>
@@ -30,13 +30,13 @@
                     <div class="col-md-4">
                         <input class="form-control text-box single-line" type="text" ng-model="category.name" required/>
                         <span style="color:red">
-                            <span ng-show="errorCheckCategory">The name already exists.</span>
+                            <span ng-show="errorExistsCategory">The name already exists.</span>
                             <span ng-show="errorEmptyCategory">This field is required.</span>
                         </span>
                     </div>
                     <div class="col-offset-md-2 col-md-10">
                         <br>
-                        <input type="submit" value="Save" class="btn btn-primary" ng-click="updateCategory()" />
+                        <input type="submit" value="Save" class="btn btn-primary" ng-click="clearCategoryUpdateError(); validateCategoryUpdate(category.name)" />
                     </div>
                 </div>
             </div>

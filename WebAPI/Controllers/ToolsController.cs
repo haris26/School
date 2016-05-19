@@ -9,6 +9,7 @@ using WebAPI.Models;
 using WebAPI.Helpers;
 using WebAPI.Filters;
 using WebAPI.Services;
+using System.Text;
 
 namespace WebAPI.Controllers
 {
@@ -53,7 +54,9 @@ namespace WebAPI.Controllers
         [Route("{name}")]
         public List<ToolModel> Get(string name)
         {
-            return Repository.Get().Where(x => x.Name == name).ToList()
+            byte[] aName = Convert.FromBase64String(name);
+            string realName = Encoding.UTF8.GetString(aName);
+            return Repository.Get().Where(x => x.Name == realName).ToList()
                              .Select(x => Factory.Create(x)).ToList();
 
         }

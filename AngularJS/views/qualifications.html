@@ -33,7 +33,7 @@
                             <div ng-repeat="education in qualification.educations | orderBy: sortOrder" class="db-header">
                                 {{ education.name }}
                                 <span style="float:right">
-                                    <a style="color:black" data-toggle="modal" ng-click="editEducation(education)" data-target="#addQualificationModal"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a style="color:black" data-toggle="modal" ng-click="clearQualification(); editEducation(education)" data-target="#addQualificationModal"><span class="glyphicon glyphicon-edit"></span></a>
                                     <a style="color:black" data-toggle="modal" ng-click="editEducation(education)" data-target="#deleteQualificationModal"><span class="glyphicon glyphicon-trash"></span></a>
                                 </span>
                             </div>

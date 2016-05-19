@@ -61,15 +61,12 @@
         }
 
         $scope.updateCategory = function () {
-
             var skillCategory = {
                 id: $scope.category.id,
                 name : $scope.category.name,
             };
 
             DataService.update("skillscategories", $scope.category.id, skillCategory, function (data) {
-                $scope.validateCategory();
-                if ($scope.categoryValidation) {
                     if (data != false) {
                         toaster.pop('note', $scope.category.name + " saved!");
                         fetchCategories();
@@ -77,13 +74,10 @@
                     else {
                         toaster.pop('error', $scope.category.name + " could not be saved!");
                     }
-                }
             })
         }
 
         $scope.addSkill = function () {
-            $scope.validateSkill();
-            if ($scope.skillValidation) {
                 if ($scope.skillItem.id == 0) {
                     DataService.create("tools", $scope.skillItem, function (data) {
                         if (data != false) {
@@ -113,12 +107,9 @@
                         }
                     })
                 }
-            }
         }
 
         $scope.addCategory = function () {
-            $scope.validateCategory();
-            if ($scope.categoryValidation) {
                 DataService.create("skillscategories", $scope.categoryItem, function (data) {
                     if (data != false) {
                         fetchCategories();
@@ -130,7 +121,6 @@
                         toaster.pop('error', $scope.categoryItem.name + " could not be added!");
                     }
                 })
-            }
         }
 
         $scope.editSkill = function (tool) {
@@ -183,60 +173,154 @@
         }
 
         $scope.clearSkill = function () {
+            $scope.skillItem.category = 0
             $scope.skillItem = {
                 id: 0,
                 name: "",
                 category: 0,
                 numOfEmployees: 0
             };
-
-            $scope.skillItem.category = $scope.category.id;
+            $scope.errorEmptySkillName = false;
+            $scope.errorExistSkillName = false;
+            $scope.errorNoCategory = false;
         }
 
-        function nameCheckCategory(name) {
-            if (name != "") {
-                DataService.nameCheck("skillscategories", name, function (data) {
-                    $scope.name = data.length != 0;
-                })
-            }
-        };
-
-        function nameCheckTool(name) {
-            if (name != "") {
-                DataService.nameCheck("tools", name, function (data) {
-                    $scope.name = data.length != 0;
-                })
-            }
-        };
+        $scope.clearCategory = function () {
+            $scope.categoryItem = {
+                id: 0,
+                name: ""
+            };
+            $scope.errorEmptyCategory = false;
+            $scope.errorExistSCategory = false;
+        }
 
 
-        $scope.validateCategory = function () {
-            if (!$scope.categoryItem.name || !scope.skillItem.category.name) {
-                $scope.categoryValidation = false;
-                $scope.errorEmptyCategory = true;
-            }
-            else $scope.categoryValidation = true;
-        };
+        $scope.validateCategory = function (name) {
+            DataService.nameCheck("skillscategories", name, function (data) {
+                $scope.name = data.length != 0;
+                $scope.setParametarCategory(!$scope.name);
+            });
+        }
 
-        $scope.validateSkill = function () {
+        $scope.setParametarCategory = function (parametar) {
+            $scope.isValid = parametar;
+            if ($scope.isValid && $scope.categoryItem.name) {
+                $scope.addCategory();
+            }
+            else {
+                if (!$scope.categoryItem.name) {
+                    $scope.errorEmptyCategory = true;
+                }
+                else if (!$scope.isValid) {
+                    $scope.errorExistsCategory = true;
+                    $scope.errorEmptyCategory = false;
+                }
+            }
+        }
 
-            if (!$scope.skillItem.name && !$scope.skillItem.category) {
-                $scope.skillValidation = false;
-                $scope.errorNoCategory = true;
-                $scope.errorEmptySkillName = true;
-            }
-            else if (!$scope.skillItem.category) {
-                $scope.skillValidation = false;
-                $scope.errorNoCategory = true;
-                $scope.errorEmptySkillName = false;
-            }
-            else if (!$scope.skillItem.name) {
-                $scope.skillValidation = false;
-                $scope.errorEmptySkillName = true;
-                $scope.errorNoCategory = false;
-            }
-            else $scope.skillValidation = true;
-        };
+        $scope.validateCategoryUpdate = function (name) {
+            DataService.nameCheck("skillscategories", name, function (data) {
+                $scope.name = data.length != 0;
+                $scope.setParametarCategoryUpdate(!$scope.name);
+            });
+        }
 
+        $scope.setParametarCategoryUpdate = function (parametar) {
+            $scope.isValid = parametar;
+            if ($scope.isValid && $scope.category.name) {
+                $scope.updateCategory();
+            }
+            else {
+                if (!$scope.category.name) {
+                    $scope.errorEmptyCategory = true;
+                }
+                else if (!$scope.isValid) {
+                    $scope.errorExistsCategory = true;
+                    $scope.errorEmptyCategory = false;
+                }
+            }
+        }
+
+        $scope.clearCategoryUpdateError = function () {
+            $scope.errorExistsCategory = false;
+            $scope.errorEmptyCategory = false;
+        }
+
+        $scope.validateSkill = function (name) {
+            if (name) {
+                DataService.nameCheck("tools", encode(name), function (data) {
+                $scope.name = data.length != 0;
+                $scope.setParametarSkill(!$scope.name);
+            });
+            }
+            else {
+                if (!$scope.skillItem.name && !$scope.skillItem.category) {
+                    $scope.errorEmptySkillName = true;
+                    $scope.errorNoCategory = true;
+                    $scope.errorExistSkillName = false;
+                }
+                else if (!$scope.skillItem.name) {
+                    $scope.errorEmptySkillName = true;
+                    $scope.errorNoCategory = false;
+                    $scope.errorExistSkillName = false;
+                }
+            }
+        }
+
+        $scope.setParametarSkill = function (parametar) {
+            $scope.isValid = parametar;
+            if ($scope.isValid && $scope.skillItem.name && $scope.skillItem.category) {
+                $scope.addSkill();
+            }
+            else {
+                if (!$scope.skillItem.category) {
+                    $scope.errorEmptySkillName = false;
+                    $scope.errorNoCategory = true;
+                    $scope.errorExistSkillName = false;
+                }
+                else if (!$scope.isValid) {
+                    $scope.errorEmptySkillName = false;
+                    $scope.errorExistSkillName = true;
+                    $scope.errorNoCategory = false;
+                }
+            }
+        }
+
+        function encode(input) {
+
+            var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+            var output = "";
+            var chr1, chr2, chr3 = "";
+            var enc1, enc2, enc3, enc4 = "";
+            var i = 0;
+
+            do {
+                chr1 = input.charCodeAt(i++);
+                chr2 = input.charCodeAt(i++);
+                chr3 = input.charCodeAt(i++);
+
+                enc1 = chr1 >> 2;
+                enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+                enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+                enc4 = chr3 & 63;
+
+                if (isNaN(chr2)) {
+                    enc3 = enc4 = 64;
+                } else if (isNaN(chr3)) {
+                    enc4 = 64;
+                }
+
+                output = output +
+                    keyStr.charAt(enc1) +
+                    keyStr.charAt(enc2) +
+                    keyStr.charAt(enc3) +
+                    keyStr.charAt(enc4);
+                chr1 = chr2 = chr3 = "";
+                enc1 = enc2 = enc3 = enc4 = "";
+            } while (i < input.length);
+
+            return output;
+        }
     });
 }());

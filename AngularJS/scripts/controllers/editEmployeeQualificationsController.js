@@ -143,5 +143,16 @@
             else $scope.validation = true;
         };
 
+        $scope.clearEmployeeQualification = function () {
+            $scope.eduItem = {
+                id: 0,
+                employee: $scope.employeeId,
+                education: 0,
+                reference: "",
+                type: "1"
+            };
+            $scope.errorEmpty = false;
+        }
+
     });
 }());

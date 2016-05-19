@@ -48,11 +48,9 @@
         }
 
         $scope.addQualification = function () {
-            console.log("add", $scope.isValid);
-            //if ($scope.isValid) {
-                if ($scope.qualificationItem.id == 0) {
-                    DataService.create("educations", $scope.qualificationItem, function (data) {
-                        if (data != false) {
+            if ($scope.qualificationItem.id == 0) {
+                DataService.create("educations", $scope.qualificationItem, function (data) {
+                    if (data != false) {
                             fetchQualifications();
                             getQualification($scope.qualificationItem.type);
                             toaster.pop('note', $scope.qualificationItem.name + " added!");
@@ -81,7 +79,7 @@
                             }
                         })
                 }
-            //}
+
         }
 
         $scope.editEducation = function (education) {
@@ -123,37 +121,19 @@
                 type: 0,
                 numOfEmployees: 0
             };
+            $scope.errorExists = false;
+            $scope.errorEmpty = false;
+            $scope.errorTypeEmpty = false;
         };
 
-        //function nameCheck(name) {
-        //    if (name != "") {
-        //        DataService.nameCheck("educations", name, function (data) {
-        //            var name = data.length != 0;
-        //            console.log(name);
-        //        })
-        //    }
-        //};
-
-        //$scope.validate = function () {
-        //    $scope.errorEmpty = false;
-        //    //nameCheck($scope.qualificationItem.name);
-        //    //nameCheck($scope.qualificationItem.name);
-        //    if (!$scope.qualificationItem.name || $scope.name  || !$scope.qualificationItem.type) {
-        //        $scope.validation = false;
-        //        console.log($scope.qualificationItem.name);
-        //    }
-        //    else $scope.validation = true;
-        //};
         $scope.validate = function (name) {
             DataService.nameCheck("educations", name, function (data) {
                 $scope.name = data.length != 0;
-                console.log("scope.name",$scope.name);
                 $scope.setParametar(!$scope.name);
             });    
         }
         $scope.setParametar=function(parametar){
             $scope.isValid = parametar;
-            console.log("set param", $scope.isValid);
             if ($scope.isValid && $scope.qualificationItem.name && $scope.qualificationItem.type) {
                 $scope.addQualification();
             }
