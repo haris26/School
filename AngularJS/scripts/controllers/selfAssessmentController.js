@@ -121,7 +121,6 @@
             }; 
 
             angular.forEach($scope.newSkills, function (tool) {
-                if ($scope.newSkills.length > 0) {
                     if (tool) {
                         var newEmployeeSkill = {
                             employee: $scope.employeeId,
@@ -135,7 +134,6 @@
                         newCategory.skills.push(newEmployeeSkill);
                         $scope.currentLength = newCategory.skills.length;
                     }
-                }
             });
             if ($scope.currentLength != null) {
                 console.log($scope.currentLength);
