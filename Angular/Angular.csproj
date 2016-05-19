@@ -135,6 +135,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scripts\controllers\AddCharacteristicController.js" />
     <Content Include="scripts\controllers\AdminDashboardController.js" />
     <Content Include="scripts\controllers\AdminOfficeController.js" />
     <Content Include="scripts\controllers\AssetsController.js" />
@@ -179,7 +180,8 @@
     <Content Include="views\AddNewAsset.html" />
     <Content Include="views\AdminDashboard.html" />
     <Content Include="views\AdminRequests.html" />
-    <Content Include="views\AllAssets.html" />
+    <Content Include="views\AllDeviceAssets.html" />
+    <Content Include="views\DeviceAssets.html" />
     <Content Include="views\cancelRequestModal.html" />
     <Content Include="views\CompletedRequestsForUser.html" />
     <Content Include="views\engagements.html" />

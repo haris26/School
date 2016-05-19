@@ -40,6 +40,14 @@ namespace WebAPI.Controllers
 
             IList<AssetsModel> deviceassets =
                 query.Skip(PageSize * page).Take(PageSize).ToList().Where(x =>x.Status == AssetStatus.Assigned && x.AssetCategory.assetType == AssetType.Device).Select(x => Factory.Create(x)).ToList();
+
+            IList<AssetsModel> allofficeassets =
+             query.Skip(PageSize * page).Take(PageSize).ToList().Where(x =>x.AssetCategory.assetType == AssetType.Office).Select(x => Factory.Create(x)).ToList();
+
+            IList<AssetsModel> alldeviceassets =
+                query.Skip(PageSize * page).Take(PageSize).ToList().Where(x =>x.AssetCategory.assetType == AssetType.Device).Select(x => Factory.Create(x)).ToList();
+
+
             return new
             {
                 pageSize = PageSize,
@@ -49,7 +57,9 @@ namespace WebAPI.Controllers
                 freeAssets=freeassets,
                 officeFreeAssets=freeofficeassets,
                 officeAssets=officeassets,
-                deviceAssets=deviceassets
+                deviceAssets=deviceassets,
+                allOfficeAssets=allofficeassets,
+                allDeviceAssets=alldeviceassets
             };
         }
 

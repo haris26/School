@@ -43,11 +43,11 @@
             //User-request manipulation
             //send new
             .when("/makenewrequest", { templateUrl: "views/SendNewRequest.html", controller: "NewRequestsController" })
-             .when("/assets", { templateUrl: "views/AllAssets.html", controller: "AssetsController" })
+             .when("/assets", { templateUrl: "views/DeviceAssets.html", controller: "AssetsController" })
              .when("/officeassets", { templateUrl: "views/OfficeAssignedAssets.html", controller: "AssetsController" })
              .when("/servicemyassets", { templateUrl: "views/UserAssetsForService.html", controller: "UserDashboardController" })
             .when("/newservicerequests", { templateUrl: "views/SendServiceRequest.html", controller: "NewServiceRequestController" })
-  
+              .when("/deviceassets", { templateUrl: "views/AllDeviceAssets.html", controller: "AddCharacteristicController" })
 
         //Free assets(admin) 
         .when("/free", { templateUrl: "views/FreeAssets.html", controller: "AssetsController" })
@@ -63,7 +63,7 @@
           
            
             
-            //.when("/people", { templateUrl: "views/people.html", controller: "PeopleController", resolve: { factory: userRouting } })
+            .when("/people", { templateUrl: "views/people.html", controller: "PeopleController" })
             //.when("/teams", { templateUrl: "views/teams.html", controller: "TeamsController", resolve: { factory: userRouting } })
             //.when("/roles", { templateUrl: "views/roles.html", controller: "RolesController", resolve: { factory: userRouting } })
             // .when("/engagements", { templateUrl: "views/engagements.html", controller: "EngagementsController", resolve: { factory: userRouting } })

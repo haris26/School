@@ -115,23 +115,37 @@ namespace WebAPI.Models
                     model.Assets.Add(new AssetsModel
                     {
                         Id = asset.Id,
-                      
-                      
+                        Name = asset.Name,
+                        //User = asset.User.Id,
+                        //UserName = asset.User.FullName,
+                        Model = asset.Model,
+                        SerialNumber = asset.SerialNumber,
+                        Vendor = asset.Vendor,
+                        Price = asset.Price,
+                        DateOfTrade = asset.DateOfTrade,
                         Status = asset.Status.ToString(),
-                      
+                        Category = asset.AssetCategory.Id,
+                        CategoryName = asset.AssetCategory.CategoryName
+
                     });
                 }
                 else
                     model.Assets.Add(new AssetsModel
                     {
                         Id = asset.Id,
-                       
+                        Name = asset.Name,
                         User = asset.User.Id,
                         UserName = asset.User.FullName.ToString(),
-                       
+                        Model = asset.Model,
+                        SerialNumber = asset.SerialNumber,
+                        Vendor = asset.Vendor,
+                        Price = asset.Price,
+                        DateOfTrade = asset.DateOfTrade,
                         Status = asset.Status.ToString(),
-                      
-                     
+                        Category = asset.AssetCategory.Id,
+                        CategoryName = asset.AssetCategory.CategoryName
+
+
                     });
             }
 
@@ -142,8 +156,9 @@ namespace WebAPI.Models
                     {
                         Id = characteristic.Id,
                         Name = characteristic.Name,
-                      
-                       
+
+                        CategoryName = characteristic.AssetCategory.CategoryName.ToString(),
+                        Category = characteristic.AssetCategory.Id
                     });
             }
 

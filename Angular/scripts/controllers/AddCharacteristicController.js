@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("AssetsController", function ($scope, $rootScope, toaster, DataService, $route) {
+    app.controller("AddCharacteristicController", function ($scope, $rootScope, toaster, DataService, $route) {
 
         $scope.modal = false;
         var dataSet = "assets";
@@ -14,22 +14,33 @@
         getAssets();
         getDeviceAssets();
         getOfficeAssets();
-       
+        getAllDeviceAssets();
+        getAllOfficeAssets();
         getFreeAssets();
-       getFreeOfficeAssets();
-        
+        getFreeOfficeAssets();
+
         function getAssets() {
             DataService.list("assets", function (data) {
                 $scope.assets = data.allAssets;
             });
         };
 
-     
+        function getAllDeviceAssets() {
+            DataService.list("assets", function (data) {
+                $scope.alldeviceassets = data.allDeviceAssets;
+            });
+        };
+
+        function getAllOfficeAssets() {
+            DataService.list("assets", function (data) {
+                $scope.allofficeassets = data.allOfficeAssets;
+            });
+        };
 
         function getFreeOfficeAssets() {
             DataService.list("assets", function (data) {
                 $scope.freeofficeassets = data.officeFreeAssets;
-               
+
             });
         };
 
@@ -66,7 +77,7 @@
         pop = function () {
             toaster.pop('success', "Success", " You assigned this asset!");
         };
-        
+
 
         $scope.assignDevice = function (item, selectedUser) {
             $scope.selectedUser = selectedUser;

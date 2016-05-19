@@ -36,6 +36,8 @@ namespace WebAPI.Controllers
             IList<AssetCategoriesModel> allCategories =
                           query.Skip(PageSize * page).Take(PageSize).Select(x => Factory.Create(x)).ToList();
 
+           
+
 
 
             return new
