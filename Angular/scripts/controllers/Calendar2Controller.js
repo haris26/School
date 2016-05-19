@@ -95,8 +95,8 @@
             // fetchData();
         }
 
-        $scope.saveData = function (selectedDate) {
-            $scope.detail.date = new Date(selectedDate).toISOString();
+        $scope.saveData = function () {
+           // $scope.detail.date = new Date(selectedDate).toISOString();
             var promise;
             if ($scope.detail.id == 0) {
                 DataService.create(dataSet, $scope.detail, function (data) { fetchData() });

@@ -116,6 +116,16 @@
                 });
             },
 
+            getMonth: function (id, page, pageSize) {
+                var resourceUrl = "";
+                resourceUrl = source + "month" + "/" + id + "&page=" + page + "&pagesize=" + pageSize
+
+                return $http({
+                    method: 'GET',
+                    url: resourceUrl
+                });
+            },
+
         };
     });
 }());
