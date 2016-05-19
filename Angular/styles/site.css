@@ -159,7 +159,7 @@ input[type=number] {-moz-appearance: textfield;}
 }
 
 .form{
-    //margin-top:-300px;
+    /*margin-top:-300px;*/
     color: rgba(229, 103, 23, 0.6);
 }
 
@@ -332,4 +332,52 @@ color: rgba(229, 103, 23, 0.6);
 }
 .social-login span:last-child{
   background-color: #DF4A32;
+}
+.mjesec {
+    /*border: 2px solid white;*/
+    background-color:white;
+    width: 1028px;
+    display: table;
+    opacity:0.8;
+}
+.dan {
+    border: 1px solid white;
+    border-right-width:0px;
+    background-color: white;
+    color: #37ADE7;
+    /*margin: 2px;*/
+    width: 146px;
+    height: 70px;  
+    float: left;
+    font-size:30px;
+    text-align:center;
+    text-shadow: 5px black;
+    display: table-cell;
+    line-height:2.2em;
+    cursor:pointer;
+    
+}
+
+.dan:hover{
+    background-color:#37ADE7;
+    color:white;
+}
+.skip{   
+    background-color: transparent;
+    /*margin: 2px;*/
+    width: 146px;
+    height: 70px;  
+    float: left;
+}
+
+.weekdays{
+    background-color: white;
+    color: #37ADE7;
+    /*margin: 2px;*/
+    width: 146.9px;
+    height: 50px;  
+    float: left;
+    font-size:30px;
+    text-align:center;
+    opacity:0.8;	
 }

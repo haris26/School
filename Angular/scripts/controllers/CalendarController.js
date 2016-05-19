@@ -13,12 +13,18 @@
         $scope.sortOrder = "team";
         fetchData();
         getTeams();
+        $scope.merge = function () {
+            var skip = [];
+            var days = [];
+            var setDane = skip.concat(days);
+        }
         function getTeams() {
             DataService.list("teams", function (data) {
                 $scope.teams = data;
             });
         };
         $scope.transfer = function (item) {
+
             $scope.dayD = item.date;
             $scope.colection = item.details;
 
@@ -77,7 +83,7 @@
             $scope.detail = {
                 id: 0,
                 day: 0,
-                date: $scope.dayD,
+                date: $scope.datum,
                 person: currentUser.id,
                 personName: currentUser.personName,
                 workTime: "",
@@ -87,6 +93,18 @@
             }
 
         };
+        $scope.saveData = function () {
+            $scope.detail.date = new Date($scope.datum).toISOString();
+            var promise;
+            if ($scope.detail.id == 0) {
+                DataService.create(dataSet, $scope.detail, function (data) { fetchData() });
+            }
+            else {
+                DataService.update(dataSet, $scope.detail.id, $scope.detail, function (data) { fetchData() });
+            }
+
+            //fetchData();
+        }
     });
     app.filter('monthName', [function () {
         return function (monthNumber) { //1 = January
