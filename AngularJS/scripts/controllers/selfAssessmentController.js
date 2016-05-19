@@ -135,6 +135,7 @@
                         $scope.currentLength = newCategory.skills.length;
                     }
             });
+
             if ($scope.currentLength != null) {
                 console.log($scope.currentLength);
                 $scope.assessments.skills.pop(newCategory);
@@ -143,6 +144,13 @@
                 $scope.assessed[$scope.assessments.skills[$scope.assessments.skills.length - 1].skills[j].skillId] = false;
             }
             }
+        }
+
+        $scope.goToAssessment = function () {
+            $location.path('/employeeAssessments/' + $scope.employeeId);
+            $('#finishAssessmentModal').modal('hide');
+            $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
         }
     });
 }());
