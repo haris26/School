@@ -65,7 +65,7 @@
             pop();
             //$location.path("/servicerequests");
             console.log($scope.request);
-            pop();
+        
             $route.reload();
             getRequests();
             $location.path("/requests")

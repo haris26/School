@@ -48,7 +48,7 @@
                             </thead>
                             <tbody>
 
-                                    <tr ng-repeat="item in serviceRequests| orderBy: sortOrder | filter: selString" class="request-table">
+                                    <tr dir-paginate="item in serviceRequests | itemsPerPage:5 | orderBy: sortOrder | filter: selString" class="request-table">
 
                                         <td>{{item.personName}} </td>
                                         <td>{{item.categoryName}}</td>
@@ -70,6 +70,10 @@
                                     </tr>
 </tbody>
                         </table>
+                        <dir-pagination-controls [max-size="5"
+                                                 [direction-links="true"
+                                                 [boundary-links="true">
+                        </dir-pagination-controls>
                     </div>
                     <!-- /.table-responsive -->
                 </div>

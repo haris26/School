@@ -40,7 +40,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="item in officerequests" class="request-table">
+                            <tr dir-paginate="item in officerequests | itemsPerPage:5" class="request-table">
                                 <td>{{item.personName}} </td>
                                 <td>{{item.categoryName}}</td>
                                 <td>{{item.requestDate|date}}</td>
@@ -61,6 +61,10 @@
                             </tr>
                         </tbody>
                     </table>
+                    <dir-pagination-controls [max-size="5"
+                                             [direction-links="true"
+                                             [boundary-links="true">
+                    </dir-pagination-controls>
                 </div>
                 <!-- /.table-responsive -->
             </div>

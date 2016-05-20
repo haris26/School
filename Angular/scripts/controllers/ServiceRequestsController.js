@@ -59,8 +59,7 @@
             DataService.update("servicerequests", $scope.request.id, $scope.request, function (data) { });
             pop();
             //$location.path("/servicerequests");
-            console.log($scope.request)
-           
+            console.log($scope.request)          
             pop();
              $route.reload();         
              getRequests();
