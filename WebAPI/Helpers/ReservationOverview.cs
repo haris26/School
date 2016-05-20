@@ -96,9 +96,10 @@ namespace WebAPI.Helpers
                     };
                     table.Add(day, hour, deviceCell);
                 }
-                model.DeviceTable = table;
-            }
                 
+            }
+            model.DeviceTable = table;
+
             return model;
         }
 

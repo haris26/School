@@ -4,6 +4,7 @@
 
     app.controller("LoginController", function ($scope, $rootScope, $location, LoginService) {
         $rootScope.showNav = false;
+        $rootScope.showAddResource = false;
         $scope.wait = true;
         promise = LoginService.getCredentials();
         if (promise) {
@@ -33,6 +34,9 @@
                     authenticated = true;
                     currentUser = response.data;
                     $rootScope.userName = currentUser.name;
+                    if (currentUser.roles.indexOf("Admin") > -1) {
+                        $rootScope.showAddResource = true;
+                    }
                     //console.log($scope.user.remember);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
                     $scope.wait = false;
