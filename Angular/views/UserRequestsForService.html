@@ -41,7 +41,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="item in dashboard.serviceRequests | orderBy: sortOrder" class="request-table">
+                                <tr dir-paginate="item in dashboard.serviceRequests |itemsPerPage:5| orderBy: sortOrder" class="request-table">
                                     <td>{{item.type}} </td>
                                     <td>{{item.categoryName}}</td>
                                     <td>{{item.assetType}}</td>
@@ -55,6 +55,10 @@
                               </tr>
                             </tbody>
                         </table>
+                        <dir-pagination-controls [max-size="5"
+                                                 [direction-links="true"
+                                                 [boundary-links="true">
+                        </dir-pagination-controls>
                     </div>
                     <!-- /.table-responsive -->
                 </div>

@@ -17,7 +17,7 @@
         getOfficeAssets();
         getAllDeviceAssets();
         getFreeAssets();
-       getFreeOfficeAssets();
+        getFreeOfficeAssets();
         
         function getAssets() {
             DataService.list("assets", function (data) {
@@ -53,6 +53,7 @@
         function getFreeAssets() {
             DataService.list("assets", function (data) {
                 $scope.freeassets = data.freeAssets;
+                console.log($scope.freeassets);
             });
         };
 
