@@ -69,7 +69,7 @@
                                     <div ng-repeat="item in dayDetails">
                                         <div ng-repeat="detail in item.details">
                                             <table class="table table-bordered">
-                                                <tr><td width="30%"><a href="#/details" ng-click="transfer(detail)">{{ detail.description }}</a> </td><td width="30%"> {{ detail.date | date:shortDate}}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{detail.workTime}}</b></td><td width="20%"> {{detail.teamName}}</td><td width="20%"><button ng-click="transfer(detail); deleteData()">Delete</button>  </td></tr>
+                                                <tr><td width="30%"><a href="#/details" ng-click="transfer(detail)">{{ detail.description }}</a> </td><td width="30%"> {{ detail.date | date:shortDate}}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{detail.workTime}}</b></td><td width="20%"> {{detail.teamName}}</td><td width="20%"><button ng-click="transfer1(detail); deleteData()">Delete</button>  </td></tr>
                                             </table>
                                         </div>
                                     </div>

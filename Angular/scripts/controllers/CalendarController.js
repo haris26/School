@@ -83,6 +83,10 @@
             }
 
         };
+        $scope.transfer1 = function(detail)
+        {
+            $scope.detail = detail;
+        }
         $scope.deleteData = function () {
             DataService.delete(dataSet2, $scope.detail.id, function (data) { fetchDataByDay(d); });
             // fetchData();
