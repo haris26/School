@@ -18,6 +18,10 @@
             true: "btn btn-success btn-sm",
             false: "btn btn-primary btn-sm"
         }
+        $scope.permissions = {
+            showAdmin: currentUser.roles.indexOf("Admin") > -1,
+            showUser: currentUser.id == $scope.employeeId
+        }
 
         function fetchCategories() {
             DataService.list("skillscategories", function (data) {
