@@ -2,19 +2,20 @@
 
     var app = angular.module("school");
 
-    app.controller("AssetsController", function ($scope, $rootScope, toaster, DataService, $route) {
+    app.controller("AssetsController", function ($scope, $rootScope, $location,toaster, DataService, $route) {
 
         $scope.modal = false;
         var dataSet = "assets";
         $scope.selString = "";
         $scope.sortOrder = "userName";
         $rootScope.model = {};
+       
         fetchData();
         getPeople();
         getAssets();
         getDeviceAssets();
         getOfficeAssets();
-       
+        getAllDeviceAssets();
         getFreeAssets();
        getFreeOfficeAssets();
         
@@ -24,7 +25,11 @@
             });
         };
 
-     
+        function getAllDeviceAssets() {
+            DataService.list("assets", function (data) {
+                $scope.alldeviceassets = data.allDeviceAssets;
+            });
+        };
 
         function getFreeOfficeAssets() {
             DataService.list("assets", function (data) {
@@ -66,7 +71,22 @@
         pop = function () {
             toaster.pop('success', "Success", " You assigned this asset!");
         };
-        
+
+        $scope.asset = {
+            id: 0,
+            name: "",
+            user: 0,
+            userName: "",
+            model: "",
+            serialNumber: "",
+            vendor: "",
+            price: "",
+            dateOfTrade: new Date(),
+            status: "",
+            category: 0,
+            categoryName: ""
+        }
+
 
         $scope.assignDevice = function (item, selectedUser) {
             $scope.selectedUser = selectedUser;
@@ -92,8 +112,57 @@
             getAssets();
         }
 
-        $scope.transfer = function transfer(item) {
+        $scope.transfer = function(item) {
             $rootScope.model = item;
+            $scope.asset = item;
+            console.log($scope.asset);
+        }
+
+        $scope.transferasset = function(item) {
+        
+            $rootScope.asset = item;
+           
         }
     });
+
+    app.controller("EditAssetController", function ($scope, $rootScope, toaster, DataService, $route) {
+     
+
+        pop = function () {
+            toaster.pop('success', "Success", " You edited asset!");
+        };
+
+       
+
+        $scope.saveData = function (item) {
+            
+            console.log($scope.item);
+            $scope.asset = {
+                id: item.id,
+                name: item.name,
+                user:item.user,
+                userName:item.userName,
+                model: item.model,
+                serialNumber: item.serialNumber,
+                vendor: item.vendor,
+                price: item.price,
+                dateOfTrade: new Date(),
+                status: 1,
+                category: item.category,
+                categoryName: item.categoryName
+            }
+
+           
+            DataService.update("assets", $scope.asset.id, $scope.asset, function (data) { });
+            pop();
+          
+        }
+        $scope.save = function (item) {
+            console.log(item);
+            DataService.update("assetchars", item.id, item, function (data) {
+                pop();
+            });
+        }
+    });
+
 }());

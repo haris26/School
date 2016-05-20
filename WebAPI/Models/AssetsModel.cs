@@ -8,6 +8,10 @@ namespace WebAPI.Models
 {
     public class AssetsModel
     {
+        public AssetsModel()
+        {
+            assetCharacteristics = new List<AssetCharsModel>();
+        }
         public int Id { get; set; }
         public string Name { get; set; }
         public int? User { get; set; }
@@ -20,7 +24,8 @@ namespace WebAPI.Models
         public string Status { get; set; }
         public int Category { get; set; }
         public string CategoryName { get; set; }
-       
+        public IList<AssetCharsModel> assetCharacteristics { get; set; }
+
 
     }
 

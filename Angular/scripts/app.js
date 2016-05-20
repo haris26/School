@@ -52,7 +52,7 @@
         //Free assets(admin) 
         .when("/free", { templateUrl: "views/FreeAssets.html", controller: "AssetsController" })
        .when("/freeoffice", { templateUrl: "views/FreeOfficeAssets.html", controller: "AssetsController" })
-
+        .when("/editasset", { templateUrl: "views/EditAssetView.html", controller: "EditAssetController" })
            
 
             //login and logout controller

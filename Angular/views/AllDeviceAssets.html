@@ -12,7 +12,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default" id="table-panel">
                 <div class="panel-heading" id="table-heading">
-                    Free equipment
+                    All assets 
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -28,7 +28,7 @@
                                     <th>Vendor</th>
                                     <th>Status</th>
                                     <th>Category</th>
-                                    <th>Users</th>
+                                    
                                     <th>Action</th>
                                     <!--<th>Details</th>-->
 
@@ -36,14 +36,16 @@
                             </thead>
                             <tbody>
 
-                                <tr ng-repeat="item in alldeviceassets  | orderBy: sortOrder" class="request-table">
-                                    <td>{{item.name}} </td>
+                                <tr ng-repeat="item in alldeviceassets" class="request-table">
+                                    <td>{{item.name}}</td>
                                     <td>{{item.model}}</td>
                                     <td>{{item.vendor}}</td>
                                     <td>{{item.status}}</td>
                                     <td>{{item.categoryName }}</td>
                                     <!--<td><select ng-options="person as (person.firstName + ' ' + person.lastName) for person in users" ng-model="selectedUser" id="status-select"></select></td>-->
-                                    <td><button class="btn btn-success" ng-click="addCharacteristic(item)">Assign</button></td>
+                             
+                                    <td><a href="#/editasset" ng-click="transferasset(item)">Edit</a> </td>
+                             
                                 </tr>
                             </tbody>
                         </table>

@@ -10,6 +10,10 @@ namespace Database
     //  Basic assets data
     public class Asset
     {
+        public Asset()
+        {
+            assetCharacteristics = new List<AssetChar>();
+        }
 
         public int Id { get; set; }
         public string Name { get; set; }
@@ -21,7 +25,8 @@ namespace Database
         public DateTime DateOfTrade { get; set; } //Date of trade in
         public virtual Person User { get; set; }            // person who use particular asset 
         public AssetStatus Status { get; set; } // Assigned = 1,Free = 2, OutOfStock = 3
-       
+        public virtual List<AssetChar> assetCharacteristics { get; set; }
+
 
 
     }

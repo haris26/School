@@ -184,6 +184,7 @@
     <Content Include="views\DeviceAssets.html" />
     <Content Include="views\cancelRequestModal.html" />
     <Content Include="views\CompletedRequestsForUser.html" />
+    <Content Include="views\EditAssetView.html" />
     <Content Include="views\engagements.html" />
     <Content Include="views\FreeAssets.html" />
     <Content Include="views\FreeOfficeAssets.html" />
