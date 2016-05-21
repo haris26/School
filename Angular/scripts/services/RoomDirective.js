@@ -37,6 +37,7 @@
                 elem.bind('click', function() {
                 
                     if (scope.timeSlot.isReserved == false && scope.timeSlot.isPast == false) {
+                        console.log("slot", scope.timeSlot);
                         scope.newEvent = {
                             id: 0,
                             eventTitle: "",

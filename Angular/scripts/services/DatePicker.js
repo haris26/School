@@ -29,13 +29,21 @@
                    });
                }
                    getDay();
-                   
-               scope.goNext = function () {
+                  
+                   scope.goNext = function () {
+                       var skip = 1;
+                       if (attrs.type == "daily") {
+                           var dayOftheWeek = new Date($rootScope.currentDay.today).getDay();
+                           
+                           if (dayOftheWeek == 5) skip = 3;
+                           if (dayOftheWeek == 6) skip = 2;
+                       }                                          
                    scope.day = {
                        today: "",
                        type: scope.day.type,
-                       step: scope.day.step+1                      
+                       step: scope.day.step+skip                     
                    }
+                   console.log(scope.day.step, "step");
                    scope.status = 1;
                    DataService.create("datepicker", scope.day, function (data) {
                        scope.newDay = data;
@@ -61,11 +69,18 @@
                }
                scope.goPrevious = function () {     
                    if (count != 0) {
+                       var skip = 1;
+                       if (attrs.type == "daily") {
+                           var dayOftheWeek = new Date($rootScope.currentDay.today).getDay();
+                           if (dayOftheWeek == 1) skip = 3;
+                           if (scope.day.step == 2) skip = 2;
+                       }
                        scope.day = {
                            today: "",
                            type: scope.day.type,
-                           step: scope.day.step - 1
+                           step: scope.day.step - skip
                        }
+                       console.log(scope.day.step, "step");
                        scope.status = 1;
                        DataService.create("datepicker", scope.day, function (data) {
                            scope.newDay = data;
