@@ -19,8 +19,10 @@ namespace WebAPI.Controllers
             {
                 if (model.OsType != "" && model.ResourceName != "")
                     return Ok(ReservationOverview.FindDeviceReservations(model));
-                else if (model.CategoryName == "Room") 
-                    return Ok(ReservationOverview.FindRoomReservations(model)); 
+                else if (model.CategoryName == "Room" && model.FromDate.Date==model.ToDate.Date) 
+                    return Ok(ReservationOverview.FindRoomReservations(model));
+                else if (model.CategoryName == "Room" && model.FromDate.Date != model.ToDate.Date)
+                    return Ok(ReservationOverview.FindWeeklyRoomReservations(model));
                 else
                     return NotFound();
             }
