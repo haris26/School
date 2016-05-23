@@ -15,5 +15,6 @@ namespace Database
         public string EventTitle { get; set; }              // Description of the event
         public DateTime EventStart { get; set; }            // Reservation from...
         public DateTime EventEnd { get; set; }              // Reservation to...
+        public bool isExtended { get; set; }
     }
 }

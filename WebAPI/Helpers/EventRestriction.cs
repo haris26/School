@@ -18,6 +18,7 @@ namespace WebAPI.Helpers
                 EventTitle = model.EventTitle,
                 User = context.People.Find(AppGlobals.currentUser.Id),
                 Resource = context.Resources.Find(model.Resource),
+                isExtended=model.isExtended,
                 EventEnd=Convert.ToDateTime(model.EndDate),
                 EventStart=Convert.ToDateTime(model.StartDate)
 

@@ -39,6 +39,7 @@
            }).result.then(function(result) {
                $scope.isConfirmed = result;
                if ($scope.reservationEvent != undefined && $scope.isConfirmed) {
+                   console.log($scope.reservationEvent.id);
                    DataService.remove("events", $scope.reservationEvent.id, function (data) { });
                    $scope.dashboard.activeReservations.splice(index, 1);
                }
@@ -53,6 +54,10 @@
                repeatingType: $scope.repeatingTypes.indexOf(0),
                frequency: 0
            }
+           $scope.newEvent = item;
+              
+           $scope.newEvent.isExtended = true;
+           console.log($scope.newEvent);
            var modalInstance = $modal.open({
                 templateUrl: 'views/modals/extendModal.html',
                 controller:'ExtendModalCtrl',

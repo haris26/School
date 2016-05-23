@@ -85,6 +85,7 @@ namespace WebAPI.Models
                 EventTitle = ev.EventTitle,
                 StartDate = ev.EventStart.ToString(),
                 EndDate = ev.EventEnd.ToString(),
+                isExtended=ev.isExtended,
                 Person = ev.User.Id,
                 PersonName = ev.User.FirstName + " " + ev.User.LastName,
                 Resource = ev.Resource.Id,

@@ -44,11 +44,13 @@ namespace WebAPI.Models
             return new Event()
             {
                 Id = model.Id,
+                isExtended=model.isExtended,
                 EventTitle = model.EventTitle,
                 EventStart = Convert.ToDateTime(model.StartDate),
                 EventEnd = Convert.ToDateTime(model.EndDate),
                 User = context.People.Find(model.Person),
                 Resource = context.Resources.Find(model.Resource)
+                
             };
         }
 

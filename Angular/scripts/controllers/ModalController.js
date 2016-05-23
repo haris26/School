@@ -5,7 +5,11 @@
     app.controller("ExtendModalCtrl", function($scope, $modalInstance, DataService, schConfig, toaster) {
 
         $scope.saveData = function () {
-            DataService.create("eventextends", $scope.eventExtend, function (data) { });
+         
+           
+            DataService.create("eventextends", $scope.eventExtend, function (data) {
+                DataService.update("events", $scope.newEvent.id, $scope.newEvent, function (data) { });
+            });
             $modalInstance.close();
             pop();
         };

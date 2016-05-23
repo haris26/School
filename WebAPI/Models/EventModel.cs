@@ -19,5 +19,6 @@ namespace WebAPI.Models
         public string CategoryName { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
+        public bool isExtended { get; set; }
     }
 }

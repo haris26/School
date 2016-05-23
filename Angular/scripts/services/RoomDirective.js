@@ -21,19 +21,20 @@
                         elem.css('background-color', '#01AB8E');
                     }
                 }
-                var step = 10;
-                do {
-                    if (scope.timeSlot.$id == step) {
-                        elem.css('border-right-color', '#2E2E2E');
-                    }
-                    
-                    step = step + 4;
-                    if(step == 38 || step == 76 || step == 114 || step == 152 || step == 190 || step == 228){
-                        step = step + 6;
-                    }
-
-                } while (step < 266)
                
+
+                
+                if (scope.timeSlot.endTime == "10:00" || scope.timeSlot.endTime == "11:00" ||
+                        scope.timeSlot.endTime == "12:00" || scope.timeSlot.endTime == "13:00" ||
+                        scope.timeSlot.endTime == "14:00" || scope.timeSlot.endTime == "15:00" ||
+                        scope.timeSlot.endTime == "16:00" || scope.timeSlot.endTime == "17:00") {
+                   
+                        elem.css('border-right-color', '#2E2E2E')
+                }
+                if (scope.timeSlot.isReserved == true) {
+                    elem.css('border-color', '#01AB8E')
+
+                }
                 elem.bind('click', function() {
                 
                     if (scope.timeSlot.isReserved == false && scope.timeSlot.isPast == false) {

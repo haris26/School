@@ -100,7 +100,7 @@ namespace WebAPI.Helpers
             model.DeviceTable = table;
             return model;
         }
-       
+
 
         public static IList<RoomTableModel> FindRoomReservations(SearchModel modelParameters)
         {
@@ -116,7 +116,7 @@ namespace WebAPI.Helpers
                 IList<Event> RoomEvents = new List<Event>();
                 foreach (var ev in events)
                 {
-                   
+
 
                     while (ev.EventStart != ev.EventEnd)
                     {
@@ -140,7 +140,8 @@ namespace WebAPI.Helpers
                     }
                 }
 
-                    foreach (var roomEv in RoomEvents){
+                foreach (var roomEv in RoomEvents)
+                {
                     foreach (var timeSlot in roomModel.Room.TimeSlots)
                     {
                         if (roomEv.EventStart == Convert.ToDateTime(timeSlot.EventStart))
@@ -163,8 +164,8 @@ namespace WebAPI.Helpers
         public static IList<List<RoomTableModel>> FindWeeklyRoomReservations(SearchModel modelParameters)
         {
             SchoolContext context = new SchoolContext();
-           
-            IList <List<RoomTableModel>> weekModels= new List<List<RoomTableModel>>();
+
+            IList<List<RoomTableModel>> weekModels = new List<List<RoomTableModel>>();
             var rooms = new ResourceUnit(context).Get().Where(x => x.ResourceCategory.CategoryName == modelParameters.CategoryName).ToList();
             while (modelParameters.FromDate.Date <= modelParameters.ToDate.Date)
             {
@@ -223,11 +224,11 @@ namespace WebAPI.Helpers
                 modelParameters.FromDate = modelParameters.FromDate.AddDays(1);
                 weekModels.Add(models);
             }
-           
+
 
             return weekModels;
         }
-      
+
         public static void SetWeeklyInterval(DateTime date, SearchModel model)
         {
             DayOfWeek Day = date.DayOfWeek;
