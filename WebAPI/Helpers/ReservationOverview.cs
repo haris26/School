@@ -96,9 +96,8 @@ namespace WebAPI.Helpers
                     };
                     table.Add(day, hour, deviceCell);
                 }
-                model.DeviceTable = table;
             }
-
+            model.DeviceTable = table;
             return model;
         }
        
@@ -228,82 +227,7 @@ namespace WebAPI.Helpers
 
             return weekModels;
         }
-        //public static IList<ReservationOverviewModel> Create(SearchModel modelParameters)
-        //{
-        //    SchoolContext context = new SchoolContext();
-        //    IList<ReservationOverviewModel> models = new List<ReservationOverviewModel>();
-
-        //    var resources =
-        //        new ResourceUnit(context).Get()
-        //            .ToList()
-        //            .Where(x => (x.ResourceCategory.CategoryName == modelParameters.CategoryName));
-        //    foreach (var res in resources)
-        //    {
-        //        ReservationOverviewModel model = new ReservationOverviewModel()
-        //        {
-        //            Id = res.Id,
-        //            Name = res.Name
-        //        };
-
-        //        foreach (var ch in res.Characteristics)
-        //        {
-        //            model.Characteristics.Add(new CharacteristicsListModel()
-        //            {
-        //                Name = ch.Name,
-        //                Value = ch.Value,
-        //            });
-        //            model.Quantity = CheckQuantity(res, context);
-        //        }
-
-        //        foreach (var ev in res.Events)
-        //        {
-        //            if (modelParameters.ToDate != System.DateTime.Today)
-        //            {
-        //                SetWeeklyInterval(modelParameters.FromDate, modelParameters);
-        //                if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
-        //                    modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
-        //                {
-        //                    if (ev.EventStart >= modelParameters.FromDate && ev.EventStart <= modelParameters.ToDate)
-        //                    {
-        //                        model.Events.Add(new EventsListModel()
-        //                        {
-        //                            Id = ev.Id,
-        //                            EventTitle = ev.EventTitle,
-        //                            FromDate = ev.EventStart.ToShortDateString(),
-        //                            ToDate = ev.EventEnd.ToShortDateString(),
-        //                            Person = ev.User.Id,
-        //                            PersonName = ev.User.FullName,
-        //                            Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
-        //                        });
-        //                    }
-        //                }
-        //            }
-        //            else
-        //            {
-        //                if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
-        //                    modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
-        //                {
-        //                    if (ev.EventStart == modelParameters.FromDate)
-        //                    {
-        //                        model.Events.Add(new EventsListModel()
-        //                        {
-        //                            Id = ev.Id,
-        //                            EventTitle = ev.EventTitle,
-        //                            FromDate = ev.EventStart.ToShortDateString(),
-        //                            ToDate = ev.EventEnd.ToShortDateString(),
-        //                            Person = ev.User.Id,
-        //                            PersonName = ev.User.FullName,
-        //                            Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
-        //                        });
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        models.Add(model);
-        //    }
-        //    return models;
-        //}
-
+      
         public static void SetWeeklyInterval(DateTime date, SearchModel model)
         {
             DayOfWeek Day = date.DayOfWeek;

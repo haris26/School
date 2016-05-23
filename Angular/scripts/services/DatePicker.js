@@ -18,26 +18,18 @@
                     step: 0
                 };
                 scope.count = 0;
-                getDay = function () {
-                    //if (attrs.type = "daily") {
-                    //    var todayDay = new Date().toDateString().substring(0, 3);
-                    //    if (todayDay == "Sun") scope.day.step = scope.day.step + 1;
-                    //    if (todayDay == "Sat") scope.day.step = scope.day.step + 1;
-                    //}
-                   
+                getDay = function () {                   
                    DataService.create("datepicker", scope.day, function (data) {
                        scope.newDay = data;
                        $rootScope.currentDay = scope.newDay;
-                       if (attrs.view == "weekly") {
-                           
+                       if (attrs.view == "weekly") {                   
                            scope.searchWeekParameters.fromDate = scope.newDay.weekStart;
                            scope.searchWeekParameters.toDate = scope.newDay.weekEnd;
                            scope.getWeekReservations();
                        }                      
                    });
                }
-                   getDay();
-                  
+                   getDay();                  
                    scope.goNext = function () {
                        var skip = 1;
                        if (attrs.type == "daily") {
