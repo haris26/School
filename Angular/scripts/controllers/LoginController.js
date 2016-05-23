@@ -74,7 +74,11 @@
                             currentUser = response.data;
                             authenticated = true;
                             $rootScope.userName = currentUser.name;
+                            if (currentUser.roles.indexOf("Admin") > -1) {
+                                $rootScope.showAddResource = true;
+                            }
                             $rootScope.message = "";
+                            $rootScope.showNav = true;
                             $location.path("/home");
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);
                             $scope.wait = false;
