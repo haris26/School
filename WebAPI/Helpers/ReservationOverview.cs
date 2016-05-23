@@ -96,13 +96,11 @@ namespace WebAPI.Helpers
                     };
                     table.Add(day, hour, deviceCell);
                 }
-                
             }
             model.DeviceTable = table;
-
             return model;
         }
-       
+
 
         public static IList<RoomTableModel> FindRoomReservations(SearchModel modelParameters)
         {
@@ -118,7 +116,7 @@ namespace WebAPI.Helpers
                 IList<Event> RoomEvents = new List<Event>();
                 foreach (var ev in events)
                 {
-                   
+
 
                     while (ev.EventStart != ev.EventEnd)
                     {
@@ -142,7 +140,8 @@ namespace WebAPI.Helpers
                     }
                 }
 
-                    foreach (var roomEv in RoomEvents){
+                foreach (var roomEv in RoomEvents)
+                {
                     foreach (var timeSlot in roomModel.Room.TimeSlots)
                     {
                         if (roomEv.EventStart == Convert.ToDateTime(timeSlot.EventStart))
@@ -165,8 +164,8 @@ namespace WebAPI.Helpers
         public static IList<List<RoomTableModel>> FindWeeklyRoomReservations(SearchModel modelParameters)
         {
             SchoolContext context = new SchoolContext();
-           
-            IList <List<RoomTableModel>> weekModels= new List<List<RoomTableModel>>();
+
+            IList<List<RoomTableModel>> weekModels = new List<List<RoomTableModel>>();
             var rooms = new ResourceUnit(context).Get().Where(x => x.ResourceCategory.CategoryName == modelParameters.CategoryName).ToList();
             while (modelParameters.FromDate.Date <= modelParameters.ToDate.Date)
             {
@@ -225,85 +224,10 @@ namespace WebAPI.Helpers
                 modelParameters.FromDate = modelParameters.FromDate.AddDays(1);
                 weekModels.Add(models);
             }
-           
+
 
             return weekModels;
         }
-        //public static IList<ReservationOverviewModel> Create(SearchModel modelParameters)
-        //{
-        //    SchoolContext context = new SchoolContext();
-        //    IList<ReservationOverviewModel> models = new List<ReservationOverviewModel>();
-
-        //    var resources =
-        //        new ResourceUnit(context).Get()
-        //            .ToList()
-        //            .Where(x => (x.ResourceCategory.CategoryName == modelParameters.CategoryName));
-        //    foreach (var res in resources)
-        //    {
-        //        ReservationOverviewModel model = new ReservationOverviewModel()
-        //        {
-        //            Id = res.Id,
-        //            Name = res.Name
-        //        };
-
-        //        foreach (var ch in res.Characteristics)
-        //        {
-        //            model.Characteristics.Add(new CharacteristicsListModel()
-        //            {
-        //                Name = ch.Name,
-        //                Value = ch.Value,
-        //            });
-        //            model.Quantity = CheckQuantity(res, context);
-        //        }
-
-        //        foreach (var ev in res.Events)
-        //        {
-        //            if (modelParameters.ToDate != System.DateTime.Today)
-        //            {
-        //                SetWeeklyInterval(modelParameters.FromDate, modelParameters);
-        //                if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
-        //                    modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
-        //                {
-        //                    if (ev.EventStart >= modelParameters.FromDate && ev.EventStart <= modelParameters.ToDate)
-        //                    {
-        //                        model.Events.Add(new EventsListModel()
-        //                        {
-        //                            Id = ev.Id,
-        //                            EventTitle = ev.EventTitle,
-        //                            FromDate = ev.EventStart.ToShortDateString(),
-        //                            ToDate = ev.EventEnd.ToShortDateString(),
-        //                            Person = ev.User.Id,
-        //                            PersonName = ev.User.FullName,
-        //                            Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
-        //                        });
-        //                    }
-        //                }
-        //            }
-        //            else
-        //            {
-        //                if (modelParameters.FromDate.DayOfWeek != DayOfWeek.Saturday &&
-        //                    modelParameters.FromDate.DayOfWeek != DayOfWeek.Sunday)
-        //                {
-        //                    if (ev.EventStart == modelParameters.FromDate)
-        //                    {
-        //                        model.Events.Add(new EventsListModel()
-        //                        {
-        //                            Id = ev.Id,
-        //                            EventTitle = ev.EventTitle,
-        //                            FromDate = ev.EventStart.ToShortDateString(),
-        //                            ToDate = ev.EventEnd.ToShortDateString(),
-        //                            Person = ev.User.Id,
-        //                            PersonName = ev.User.FullName,
-        //                            Time = ev.EventStart.ToShortTimeString() + " - " + ev.EventEnd.ToShortTimeString()
-        //                        });
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        models.Add(model);
-        //    }
-        //    return models;
-        //}
 
         public static void SetWeeklyInterval(DateTime date, SearchModel model)
         {

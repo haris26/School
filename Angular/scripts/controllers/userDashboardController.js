@@ -39,6 +39,7 @@
            }).result.then(function(result) {
                $scope.isConfirmed = result;
                if ($scope.reservationEvent != undefined && $scope.isConfirmed) {
+                   console.log($scope.reservationEvent.id);
                    DataService.remove("events", $scope.reservationEvent.id, function (data) { });
                    $scope.dashboard.activeReservations.splice(index, 1);
                }

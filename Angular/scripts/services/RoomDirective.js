@@ -31,7 +31,10 @@
                    
                         elem.css('border-right-color', '#2E2E2E')
                 }
+                if (scope.timeSlot.isReserved == true) {
+                    elem.css('border-color', '#01AB8E')
 
+                }
                 elem.bind('click', function() {
                 
                     if (scope.timeSlot.isReserved == false && scope.timeSlot.isPast == false) {
