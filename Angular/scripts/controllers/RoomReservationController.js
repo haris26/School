@@ -14,11 +14,17 @@
             resourceName: "",
             osType: ""
         };
+        $scope.searchWeekParameters = {
+            fromDate: new Date(),
+            toDate: new Date(),
+            categoryName: "Room",
+            resourceName: "",
+            osType: ""
+        };
 
         $scope.getReservations = function () {
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
                 $scope.reservations = data;
-                console.log($scope.reservations);
             });
         };
         $scope.getReservations();
@@ -62,8 +68,7 @@
                 scope: $scope
             });
         }
-        //$scope.getWeekReservations =function(){}
-        $scope.getReservations();
+    
         $scope.setAccordion = {
             modayOpen: false,
             tuesdayOpen: false,
@@ -76,127 +81,46 @@
             thursdayDisabled:false,
             fridayDisabled:false
         };
-        $scope.disable = true;
-        //TODO
-        //$scope.getReservations=function(){}
+        $scope.resetAccordion = {
+            modayOpen: false,
+            tuesdayOpen: false,
+            wednesdayOpen: false,
+            thursdayOpen: false,
+            fridayOpen: false,
+            mondayDisabled: false,
+            tuesdayDisabled: false,
+            wednesdayDisabled: false,
+            thursdayDisabled: false,
+            fridayDisabled: false
+        };
+
+        $scope.count = 0;
+        
         $rootScope.refreshWeek = function () {
-            console.log("ref");
+            
             $scope.getWeekReservations($rootScope.currentDay);
         }
-        $scope.status = 0;
-        $scope.getWeekReservations = function (item) {
            
-            if (item.weekStart < item.today && $scope.status == 0) {
-                
-                $scope.setAccordion.mondayDisabled = true;
-            }
-            if (item.weekStart >= item.today || $scope.status != 0) {
-                $scope.setAccordion.mondayDisabled = $scope.disable;
-                if (item.weekStart == item.today  && $scope.status==0) {
-                    $scope.setAccordion.modayOpen = true;
+        $scope.getWeekReservations = function () {
+            DataService.create("reservationoverview", $scope.searchWeekParameters, function (data) {
+                $scope.weekReservations = data;
+                $scope.mondayReservations = $scope.weekReservations[0];
+                $scope.tuesdayReservations = $scope.weekReservations[1];
+                $scope.wednesdayReservations = $scope.weekReservations[2];
+                $scope.thursdayReservations = $scope.weekReservations[3];
+                $scope.fridayReservations = $scope.weekReservations[4];
+                console.log($scope.count);
+                if ($scope.count == 0) {
+                    
+                   
+                    if ($rootScope.currentDay.weekStart = $rootScope.currentDay.today) $scope.setAccordion.mondayOpen= true;
+                    if ($rootScope.currentDay.tuesday = $rootScope.currentDay.today) $scope.setAccordion.tuesdayOpen = true;
+                    if ($rootScope.currentDay.wednesday = $rootScope.currentDay.today) $scope.setAccordion.wednesdayOpen = true;
+                    if ($rootScope.currentDay.thursday = $rootScope.currentDay.today) $scope.setAccordion.thursdayOpen= true;
+                    if ($rootScope.currentDay.weekEnd = $rootScope.currentDay.today) $scope.setAccordion.fridayOpen = true;    
                 }
-                $scope.mondayParameters = {
-                    fromDate: item.weekStart,
-                    toDate: item.weekStart,
-                    categoryName: "Room",
-                    resourceName: "",
-                    osType: ""
-                };
-                
-                DataService.create("reservationoverview", $scope.mondayParameters, function (data) {
-                    $scope.mondayReservations = data;
-                });
-
-            }
-
-            if (item.tuesday < item.today && $scope.status == 0) {
-
-                $scope.setAccordion.tuesdayDisabled = true;
-            }
-            if (item.tuesday >= item.today || $scope.status != 0) {
-                $scope.setAccordion.tuesdayDisabled = $scope.disable;
-                if (item.tuesday == item.today && $scope.status == 0) {
-                    $scope.setAccordion.tuesdayOpen = true;
-                }
-                $scope.tuesdayParameters = {
-                    fromDate: item.tuesday,
-                    toDate: item.tuesday,
-                    categoryName: "Room",
-                    resourceName: "",
-                    osType: ""
-                };
-
-                DataService.create("reservationoverview", $scope.tuesdayParameters, function (data) {
-                    $scope.tuesdayReservations = data;
-                });
-
-            }
-            
-            if (item.wednesday < item.today && $scope.status == 0) {
-
-                $scope.setAccordion.wednesdayDisabled = true;
-            }
-            if (item.wednesday >= item.today || $scope.status != 0) {
-                $scope.setAccordion.wednesdayDisabled = false;
-                if (item.wednesday == item.today && $scope.status == 0) {
-                    $scope.setAccordion.wednesdayOpen = true;
-                }
-                $scope.wednesdayParameters = {
-                    fromDate: item.wednesday,
-                    toDate: item.wednesday,
-                    categoryName: "Room",
-                    resourceName: "",
-                    osType: ""
-                };
-                DataService.create("reservationoverview", $scope.wednesdayParameters, function (data) {
-                    $scope.wednesdayReservations = data;
-                });
-
-            }
-
-            if (item.thursday < item.today && $scope.status == 0) {
-
-                $scope.setAccordion.thursdayDisabled = true;
-            }
-            if (item.thursday >= item.today || $scope.status != 0) {
-                $scope.setAccordion.thursdayDisabled = false;
-                if (item.thursday == item.today && $scope.status == 0) {
-                    $scope.setAccordion.thurdayOpen = true;
-                }
-                $scope.thursdayParameters = {
-                    fromDate: item.thursday,
-                    toDate: item.thursday,
-                    categoryName: "Room",
-                    resourceName: "",
-                    osType: ""
-                };
-                DataService.create("reservationoverview", $scope.thursdayParameters, function (data) {
-                    $scope.thursdayReservations = data;
-                });
-
-            }
-
-            if (item.weekEnd < item.today && $scope.status == 0) {
-
-                $scope.setAccordion.fridayDisabled = true;
-            }
-            if (item.weekEnd >= item.today || $scope.status != 0) {
-                $scope.setAccordion.fridayDisabled = false;
-                if (item.weekEnd == item.today && $scope.status == 0) {
-                    $scope.setAccordion.fridayOpen = true;
-                }
-                $scope.fridayParameters = {
-                    fromDate: item.weekEnd,
-                    toDate: item.weekEnd,
-                    categoryName: "Room",
-                    resourceName: "",
-                    osType: ""
-                };
-                DataService.create("reservationoverview", $scope.fridayParameters, function (data) {
-                    $scope.fridayReservations = data;
-                });
-
-            }
+               
+            });
         }
     });
 }());

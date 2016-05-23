@@ -20,11 +20,7 @@ namespace WebAPI.Controllers
                     TimeSpan ts = new TimeSpan(9, 0, 0);
                     var date = DateTime.Now.Date + ts;
                     day.today = date.AddDays(model.step);
-                    if (day.today.DayOfWeek == DayOfWeek.Saturday && model.step >=0) day.today = day.today.AddDays(2);
-                    if (day.today.DayOfWeek == DayOfWeek.Sunday && model.step >= 0) day.today = day.today.AddDays(2);
-                    if (day.today.DayOfWeek == DayOfWeek.Monday && model.step <= 0) day.today = day.today.AddDays(-2);
                     day.todayDay = String.Format("{0:m}", day.today);
-
                     return Ok(day);
                 }
                 if (model.type == "weekly")

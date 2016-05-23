@@ -53,19 +53,19 @@ namespace WebAPI.Helpers
                     Event newEvent = new Event()
                     {
                         Id = ev.Id,
-                        User=ev.User,
+                        User = ev.User,
                         Resource = ev.Resource,
                         EventTitle = ev.EventTitle,
-                        EventStart=ev.EventStart,
-                        EventEnd=ev.EventEnd,
-                        
+                        EventStart = ev.EventStart,
+                        EventEnd = ev.EventEnd,
+
                     };
 
                     ev.EventStart = newEnd;
 
                     DeviceEvents.Add(newEvent);
                 }
-                foreach(var deviceEv in DeviceEvents)
+                foreach (var deviceEv in DeviceEvents)
                 {
                     int day = 0;
                     int hour = 0;
@@ -102,12 +102,12 @@ namespace WebAPI.Helpers
 
             return model;
         }
+       
 
         public static IList<RoomTableModel> FindRoomReservations(SearchModel modelParameters)
         {
             SchoolContext context = new SchoolContext();
             List<RoomTableModel> models = new List<RoomTableModel>();
-
             var rooms = new ResourceUnit(context).Get().Where(x => x.ResourceCategory.CategoryName == modelParameters.CategoryName).ToList();
             foreach (var room in rooms)
             {
@@ -161,7 +161,74 @@ namespace WebAPI.Helpers
             }
 
             return models;
-        } 
+        }
+        public static IList<List<RoomTableModel>> FindWeeklyRoomReservations(SearchModel modelParameters)
+        {
+            SchoolContext context = new SchoolContext();
+           
+            IList <List<RoomTableModel>> weekModels= new List<List<RoomTableModel>>();
+            var rooms = new ResourceUnit(context).Get().Where(x => x.ResourceCategory.CategoryName == modelParameters.CategoryName).ToList();
+            while (modelParameters.FromDate.Date <= modelParameters.ToDate.Date)
+            {
+                List<RoomTableModel> models = new List<RoomTableModel>();
+                foreach (var room in rooms)
+                {
+                    RoomTableModel roomModel = new RoomTableModel(modelParameters.FromDate, room);
+                    var events = new EventUnit(context).Get()
+                    .Where(x => (x.Resource.ResourceCategory.CategoryName == modelParameters.CategoryName && x.Resource.Name == room.Name) &&
+                    (DbFunctions.TruncateTime(x.EventStart) >= DbFunctions.TruncateTime(modelParameters.FromDate) && DbFunctions.TruncateTime(x.EventStart) <= DbFunctions.TruncateTime(modelParameters.FromDate))).ToList();
+                    IList<Event> RoomEvents = new List<Event>();
+                    foreach (var ev in events)
+                    {
+
+
+                        while (ev.EventStart != ev.EventEnd)
+                        {
+                            var newStart = Convert.ToDateTime(ev.EventStart);
+                            var newEnd = newStart.AddMinutes(15);
+
+                            Event newEvent = new Event()
+                            {
+                                Id = ev.Id,
+                                User = ev.User,
+                                Resource = ev.Resource,
+                                EventTitle = ev.EventTitle,
+                                EventStart = ev.EventStart,
+                                EventEnd = ev.EventEnd,
+
+                            };
+
+                            ev.EventStart = newEnd;
+
+                            RoomEvents.Add(newEvent);
+                        }
+                    }
+
+                    foreach (var roomEv in RoomEvents)
+                    {
+                        foreach (var timeSlot in roomModel.Room.TimeSlots)
+                        {
+                            if (roomEv.EventStart == Convert.ToDateTime(timeSlot.EventStart))
+                            {
+                                timeSlot.EventTitle = roomEv.EventTitle;
+                                timeSlot.EventStart = roomEv.EventStart.ToString();
+                                timeSlot.EventEnd = roomEv.EventEnd.ToString();
+                                timeSlot.StartTime = roomEv.EventStart.ToShortTimeString();
+                                timeSlot.EndTime = roomEv.EventEnd.ToShortTimeString();
+                                timeSlot.PersonName = roomEv.User.FullName;
+                                timeSlot.IsReserved = true;
+                            }
+                        }
+                    }
+                    models.Add(roomModel);
+                }
+                modelParameters.FromDate = modelParameters.FromDate.AddDays(1);
+                weekModels.Add(models);
+            }
+           
+
+            return weekModels;
+        }
         //public static IList<ReservationOverviewModel> Create(SearchModel modelParameters)
         //{
         //    SchoolContext context = new SchoolContext();

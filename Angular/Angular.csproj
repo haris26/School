@@ -163,6 +163,7 @@
     <Content Include="views\addResources.html" />
     <Content Include="views\datePicker.html" />
     <Content Include="views\deviceReservation.html" />
+    <Content Include="favicon.ico" />
     <Content Include="views\login.html" />
     <Content Include="views\modals\cancelExtendedModal.html" />
     <Content Include="views\modals\cancelResModal.html" />
