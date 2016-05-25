@@ -39,7 +39,6 @@
            }).result.then(function(result) {
                $scope.isConfirmed = result;
                if ($scope.reservationEvent != undefined && $scope.isConfirmed) {
-                   console.log($scope.reservationEvent.id);
                    DataService.remove("events", $scope.reservationEvent.id, function (data) { });
                    $scope.dashboard.activeReservations.splice(index, 1);
                }
@@ -66,32 +65,6 @@
                category: item.category,
                person: item.person
 
-           }
-           if (item.categoryName == "Room") {
-               $scope.editNewEvent = {
-                   id: item.id,
-                   eventTitle: item.eventTitle,
-                   eventStart: item.eventStart,
-                   eventEnd: item.eventEnd,
-                   resource: item.resource,
-                   resourceName: item.resourceName,
-                   startTime: item.startTime,
-                   endTime: item.endTime,
-                   category: item.category,
-                   person: item.person
-
-               }
-           }
-           
-           console.log(item,"+++",$scope.editEvent,$scope.editNewEvent);
-           if (item.categoryName == "Room") {
-               $scope.newRoomEvent = item;
-               $scope.newRoomEvent.isExtended = true;
-
-           }
-           if (item.categoryName == "Device") {
-               $scope.newDeviceEvent = item;
-               $scope.newDeviceEvent.isExtended = true;
            }
           
            var modalInstance = $modal.open({

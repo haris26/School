@@ -25,6 +25,7 @@
         $scope.getReservations = function () {
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
                 $scope.reservations = data;
+                console.log($scope.reservations);
             });
         };
         $scope.getReservations();
@@ -108,18 +109,7 @@
                 $scope.tuesdayReservations = $scope.weekReservations[1];
                 $scope.wednesdayReservations = $scope.weekReservations[2];
                 $scope.thursdayReservations = $scope.weekReservations[3];
-                $scope.fridayReservations = $scope.weekReservations[4];
-
-                if ($scope.count == 0) {
-                    var dayOftheWeek = new Date($rootScope.currentDay.today).toDateString().substring(0, 3);
-                    if (dayOftheWeek="Mon") $scope.setAccordion.mondayOpen= true;
-                    if (dayOftheWeek="Tue") $scope.setAccordion.tuesdayOpen = true;
-                    if (dayOftheWeek="Wed") $scope.setAccordion.wednesdayOpen = true;
-                    if (dayOftheWeek="Thu") $scope.setAccordion.thursdayOpen= true;
-                    if (dayOftheWeek="Fri") $scope.setAccordion.fridayOpen = true;
-                    console.log($scope.setAccordion, "sdada",dayOftheWeek);
-                }
-               
+                $scope.fridayReservations = $scope.weekReservations[4];    
             });
         }
     });

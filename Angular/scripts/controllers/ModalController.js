@@ -5,12 +5,8 @@
     app.controller("ExtendModalCtrl", function($scope, $modalInstance, DataService, schConfig, toaster) {
 
         $scope.saveData = function () {
-            if ($scope.newRoomEvent != undefined) $scope.newEvent = $scope.newRoomEvent;
-            if ($scope.newDeviceEvent != undefined) $scope.newEvent = $scope.newDeviceEvent;
-            console.log("newEvent", $scope.newEvent,$scope.newDeviceEvent,$scope.newRoomEvent);
-            DataService.create("eventextends", $scope.eventExtend, function (data) {
-                DataService.update("events", $scope.newEvent.id, $scope.newEvent, function (data) { });
-            });
+            $scope.eventExtend.repeatingType = $scope.eventExtend.repeatingType + 1;
+            DataService.create("eventextends", $scope.eventExtend, function (data) { });
             $modalInstance.close();
             pop();
         };

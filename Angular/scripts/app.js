@@ -20,7 +20,7 @@
             year: 2016,
             signature: "gC0xdV8gLD2cU0lzeDxFGZoZhxd78iz+6KojPZR5Wh4=",
             apiKey: "R2lnaVNjaG9vbA==",
-            repeatingType: ['Undefined','Daily', 'Weekly', 'Monthly']
+            repeatingType: ['Daily', 'Weekly', 'Monthly']
         });
 
     app.config(function ($routeProvider) {

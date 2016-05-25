@@ -30,8 +30,8 @@
         </div>
         
         <div class="room-row" ng-repeat="room in reservations">            
-            <div class="room-name" tooltip-directive tooltip-html-unsafe="{{tooltipContent}}" data-toggle="tooltip" data-placement="top">{{room.room.roomName}}<i ng-show="permission.showAdmin" class="glyphicon glyphicon-pencil edit" style="color:aliceblue; float:right" ng-click="editRoom(room.room)"></i></div>
-            <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" popover-placement="right" popover-trigger="mouseenter" popover="{{timeSlot.personName}}">&nbsp;</div>
+            <div class="room-name" tooltip-directive type="characteristics" tooltip-html-unsafe="{{tooltipContent}}" data-toggle="tooltip" data-placement="top">{{room.room.roomName}}<i ng-show="permission.showAdmin" class="glyphicon glyphicon-pencil edit" style="color:aliceblue; float:right" ng-click="editRoom(room.room)"></i></div>
+            <div room-res class="room-cell" ng-repeat="timeSlot in room.room.timeSlots" tooltip-directive type="event" data-toggle="tooltip" tooltip-html-unsafe="{{tooltipRoomEvent}}">&nbsp;</div>
         </div>
     </div>
 </div>

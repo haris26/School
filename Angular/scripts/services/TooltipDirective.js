@@ -8,6 +8,7 @@
             replace: true,
                 link: function (scope,elem, attrs) {
                     elem.bind('mouseenter', function () {
+                        if(attrs.type == "characteristics"){
                         $rootScope.chair = "images/chairYes.png";
                         if (scope.room.room.characteristics[0].name == "NumberOfChairs") {
                             $rootScope.chairsNum = scope.room.room.characteristics[0].value;
@@ -31,10 +32,20 @@
                             $rootScope.board = "images/whiteboardNo.png";
                         }
                         $rootScope.tooltipContent = '<span><img src="' + $rootScope.chair + '"/></span><span style="color:black;"">' + $rootScope.chairsNum + '</span>' +
-                                '<span style="padding-left:8px"><img src="' + $rootScope.speaker + '"/></span>' +
-                                '<span style="padding-left:8px"><img src="' + $rootScope.tv + '"/></span>' +
-                                '<span style="padding-left:8px"><img src="' + $rootScope.board + '"/></span>';
+                                                    '<span style="padding-left:8px"><img src="' + $rootScope.speaker + '"/></span>' +
+                                                    '<span style="padding-left:8px"><img src="' + $rootScope.tv + '"/></span>' +
+                                                    '<span style="padding-left:8px"><img src="' + $rootScope.board + '"/></span>';
+                    }
+                        if (attrs.type == "event" && scope.timeSlot.isReserved == true) {
+                            scope.tooltipRoomEvent = '<div class="eventTitleTooltip">' + scope.timeSlot.eventTitle + '</div><hr />' +
+                                                     '<div class="eventPersonTooltip">By: ' + scope.timeSlot.personName + '</div>';
+                        }
+                        if (attrs.type == "device" && scope.hour.isReserved == true) {
+                            scope.tooltipDeviceEvent = '<div class="eventTitleTooltip">' + scope.hour.eventTitle + '</div><hr />' +
+                                                       '<div class="eventPersonTooltip">By: ' + scope.hour.personName + '</div>';
+                        }
                     });
+
                 }
             }
     });
