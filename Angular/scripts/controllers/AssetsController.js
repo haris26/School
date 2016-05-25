@@ -118,6 +118,7 @@
             console.log($scope.asset);
         }
 
+
         $scope.transferasset = function(item) {
         
             $rootScope.asset = item;
@@ -125,11 +126,20 @@
         }
     });
 
+
+
     app.controller("EditAssetController", function ($scope, $rootScope, toaster, DataService, $route) {
      
+       
+        getCharacteristicNames();
 
         pop = function () {
             toaster.pop('success', "Success", " You edited asset!");
+        };
+
+
+        popchar = function () {
+            toaster.pop('success', "Success", " You edited characteristic for this asset!");
         };
 
        
@@ -157,12 +167,43 @@
             pop();
           
         }
-        $scope.save = function (item) {
+
+        function getCharacteristicNames() {
+            DataService.read("assetcategories", $scope.asset.id, function (data) {
+              
+           $scope.assetCharacteristics= data;
+            });
+        };
+
+
+        //$scope.save = function (item) {
+        //    console.log(item);
+        //    DataService.update("assetchars", item.id, item, function (data) {
+        //        popchar();
+        //    }); }
+
+
+
+        $scope.saveNew = function (item) {
+            $scope.char= {
+                id: 0,
+                name: item.name,
+                value:item.value,
+                asset:$scope.asset.id,
+                assetName:""
+            }
+           
+           
             console.log(item);
-            DataService.update("assetchars", item.id, item, function (data) {
-                pop();
+            DataService.create("assetchars", $scope.char, function (data) {
+                popchar();
+
             });
         }
+
     });
 
 }());
+
+
+

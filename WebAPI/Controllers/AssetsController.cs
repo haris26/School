@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
 
         public Object GetAll(int page = 0)
         {
-            int PageSize = 15;
+            int PageSize = 30;
             var query =
                Repository.Get()
                    .OrderBy(x => x.Status)

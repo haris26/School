@@ -13,6 +13,14 @@ namespace WebAPI.Controllers
     public class AssetCategoriesController : BaseController<AssetCategory>
     {
         SchoolContext context = new SchoolContext();
+
+        public class CharValueModel
+        {
+            public string Name { get; set; }
+            public string Value { get; set; }
+
+
+        }
         public AssetCategoriesController(Repository<AssetCategory> depo) : base(depo)
         { }
 
@@ -38,8 +46,6 @@ namespace WebAPI.Controllers
 
            
 
-
-
             return new
             {
                 pageSize = PageSize,
@@ -51,19 +57,37 @@ namespace WebAPI.Controllers
             
             };
         }
+
         public IHttpActionResult Get(int id)
         {
             try
             {
-                AssetCategory assetCat = Repository.Get(id);
+                Asset asset = context.Assets.Find(id);
+                AssetCategory assetCat = asset.AssetCategory;
                 if (assetCat == null)
                 {
                     return NotFound();
 
                 }
                 else
+                {
+                   IList<CharValueModel> listchars = new List<CharValueModel>();
+                    foreach(var chName in assetCat.AssetCharacteristicNames)
+                    {
+                       var ch=context.AssetCharacteristics.Where(x => x.Asset.Id == asset.Id && x.Name == chName.Name).FirstOrDefault();
+                        string val = (ch == null) ? "" : ch.Value;
 
-                    return Ok(Factory.Create(assetCat));
+                        listchars.Add(new CharValueModel()
+                        {
+                            Name = ch.Name,
+                            Value=val
+                        });
+                    }
+
+                    return Ok(listchars);
+                }
+
+                   
 
             }
             catch (Exception ex)
