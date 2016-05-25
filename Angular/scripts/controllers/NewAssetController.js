@@ -53,15 +53,7 @@
                 categoryName:""
             }
 
-            $scope.chars = {
-                id: 0,
-                name: "",
-                value: "",
-                asset:0,
-                assetName:""
-            }
-
-
+          
             $scope.transfer = function transfer(item) {
                 $rootScope.model = item;
                 $scope.asset= item;
@@ -76,15 +68,22 @@
                 DataService.create(dataSet, $scope.asset, function (data) {
                     $scope.savedasset = data;
                     console.log($scope.savedasset);
-                });
-                
-                $scope.transfer($scope.asset);
- 
+                    $scope.chars = {
+                        id: 0,
+                        name: $scope.name,
+                        value: $scope.value,
+                        asset: $scope.savedasset,
+                        assetName:$scope.savedasset.name
+                    }
+
+                });                
+                $scope.transfer($scope.asset); 
                 pop();     
                 }    
         }
+        console.log($scope.savedasset);
 
-
+       
         $scope.addChars = function () {
             //if ($scope.asset.serialNumber == "") {
             //    errorPop();
@@ -93,9 +92,6 @@
         
             DataService.create("assetchars", $scope.chars, function (data) { });
             console.log($scope.chars);
-            console.log($scope.asset);
-              
-
                 pop();
             //}
         }

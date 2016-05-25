@@ -30,7 +30,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="item in dashboard.requests" class="request-table">
+                                <tr dir-paginate="item in dashboard.requests | itemsPerPage:5" class="request-table">
                                     <td>{{item.user}} </td>
                                     <td>{{item.category}}</td>
                                     <td>{{item.Date|date}}</td>
@@ -51,6 +51,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <dir-pagination-controls [max-size="5"
+                                                 [direction-links="true"
+                                                 [boundary-links="true">
+                        </dir-pagination-controls>
                     </div>
                     <!-- /.table-responsive -->
                 </div>
