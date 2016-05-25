@@ -70,8 +70,8 @@ namespace WebAPI.Helpers
                 {
                     Id = activeReservation.Id,
                     EventTitle = activeReservation.EventTitle,
-                    StartDate = activeReservation.EventStart.ToShortDateString(),
-                    EndDate = activeReservation.EventEnd.ToShortDateString(),
+                    StartDate = activeReservation.EventStart.ToString(),
+                    EndDate = activeReservation.EventEnd.ToString(),
                     PersonName = AppGlobals.currentUser.FullName,
                     ResourceName = activeReservation.Resource.Name,
                     CategoryName = activeReservation.Resource.ResourceCategory.CategoryName,

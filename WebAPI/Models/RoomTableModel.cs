@@ -8,7 +8,7 @@ using System.Web;
 namespace WebAPI.Models
 {
     public class RoomCellModel
-    {
+    {   public int Id { get; set; }
         public string EventTitle { get; set; }
         public string PersonName { get; set; }
         public string EventStart { get; set; }
@@ -17,6 +17,7 @@ namespace WebAPI.Models
         public string EndTime { get; set; }
         public bool IsReserved { get; set; }
         public bool IsPast { get; set; }
+        public bool IsExtended { get; set; }
     }
 
     public class RoomRowModel
@@ -70,7 +71,8 @@ namespace WebAPI.Models
                     StartTime = date.AddMinutes(i * 15).ToShortTimeString(),
                     EndTime = date.AddMinutes((i * 15)+15).ToShortTimeString(),
                     IsReserved = false,
-                    IsPast = false
+                    IsPast = false,
+                    IsExtended=false
                 });
             }
         }

@@ -17,10 +17,20 @@
                     type: attrs.type,
                     step: 0
                 };
+                $rootScope.currentDay = {
+                    today: "",
+                    weekStart: "",
+                    weekEnd: "",
+                    tuesday: "",
+                    wednesday: "",
+                    thursday:""
+                }
                 scope.count = 0;
-                getDay = function () {                   
+                getDay = function () {
+                    console.log(scope.day, "dan");
                    DataService.create("datepicker", scope.day, function (data) {
                        scope.newDay = data;
+                       console.log("scopopeeppe", scope.newDay);
                        $rootScope.currentDay = scope.newDay;
                        if (attrs.view == "weekly") {                   
                            scope.searchWeekParameters.fromDate = scope.newDay.weekStart;

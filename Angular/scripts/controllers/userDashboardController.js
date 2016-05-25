@@ -54,10 +54,46 @@
                repeatingType: $scope.repeatingTypes.indexOf(0),
                frequency: 0
            }
-           $scope.newEvent = item;
-              
-           $scope.newEvent.isExtended = true;
-           console.log($scope.newEvent);
+           $scope.editEvent = {
+               id: item.id,
+               eventTitle: item.eventTitle,
+               startDate: item.startDate,
+               endDate: item.endDate,
+               resource: item.resource,
+               resourceName: item.resourceName,
+               startTime: item.startTime,
+               endTime: item.endTime,
+               category: item.category,
+               person: item.person
+
+           }
+           if (item.categoryName == "Room") {
+               $scope.editNewEvent = {
+                   id: item.id,
+                   eventTitle: item.eventTitle,
+                   eventStart: item.eventStart,
+                   eventEnd: item.eventEnd,
+                   resource: item.resource,
+                   resourceName: item.resourceName,
+                   startTime: item.startTime,
+                   endTime: item.endTime,
+                   category: item.category,
+                   person: item.person
+
+               }
+           }
+           
+           console.log(item,"+++",$scope.editEvent,$scope.editNewEvent);
+           if (item.categoryName == "Room") {
+               $scope.newRoomEvent = item;
+               $scope.newRoomEvent.isExtended = true;
+
+           }
+           if (item.categoryName == "Device") {
+               $scope.newDeviceEvent = item;
+               $scope.newDeviceEvent.isExtended = true;
+           }
+          
            var modalInstance = $modal.open({
                 templateUrl: 'views/modals/extendModal.html',
                 controller:'ExtendModalCtrl',

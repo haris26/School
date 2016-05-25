@@ -16,5 +16,6 @@ namespace Database
         public DateTime EventStart { get; set; }            // Reservation from...
         public DateTime EventEnd { get; set; }              // Reservation to...
         public bool isExtended { get; set; }
+        public virtual ExtendedEvent ParentEvent { get; set; }
     }
 }

@@ -87,12 +87,13 @@ namespace WebAPI.Helpers
                     if (deviceEv.EventStart.ToShortTimeString() == "16:00") { hour = 7; hourValue = 16; }
                     // set device cell model
                     var deviceCell = new DeviceCellModel
-                    {
+                    {   Id=deviceEv.Id,
                         EventTitle = deviceEv.EventTitle,
                         PersonName = deviceEv.User.FullName,
                         Hour = hourValue,
                         IsPast = false,
-                        IsReserved = true
+                        IsReserved = true,
+                        IsExtended=deviceEv.isExtended
                     };
                     table.Add(day, hour, deviceCell);
                 }
@@ -107,6 +108,7 @@ namespace WebAPI.Helpers
             SchoolContext context = new SchoolContext();
             List<RoomTableModel> models = new List<RoomTableModel>();
             var rooms = new ResourceUnit(context).Get().Where(x => x.ResourceCategory.CategoryName == modelParameters.CategoryName).ToList();
+            var extendedRooms = new Repository<ExtendedEvent>(context).Get().Where(x => x.ParentEvent.Resource.ResourceCategory.CategoryName == modelParameters.CategoryName).ToList();
             foreach (var room in rooms)
             {
                 RoomTableModel roomModel = new RoomTableModel(modelParameters.FromDate, room);
@@ -114,10 +116,67 @@ namespace WebAPI.Helpers
                 .Where(x => (x.Resource.ResourceCategory.CategoryName == modelParameters.CategoryName && x.Resource.Name == room.Name) &&
                 (DbFunctions.TruncateTime(x.EventStart) >= DbFunctions.TruncateTime(modelParameters.FromDate) && DbFunctions.TruncateTime(x.EventStart) <= DbFunctions.TruncateTime(modelParameters.ToDate))).ToList();
                 IList<Event> RoomEvents = new List<Event>();
+                IList<Event> TempEvents = new List<Event>();
                 foreach (var ev in events)
                 {
+                    foreach (var ext in extendedRooms)
+                    {
+                        if (ext.ParentEvent.Id == ev.Id)
+                        {
+                            while (ev.EventStart <= ext.RepeatUntil)
+                            {
+                                if (ext.RepeatingType == RepeatType.Daily)
+                                {
+                                    TempEvents.Add(new Event
+                                    {
+                                        EventEnd = ev.EventEnd,
+                                        EventStart = ev.EventStart,
+                                        Id = ev.Id,
+                                        User = ev.User,
+                                        Resource = ev.Resource,
+                                        EventTitle = ev.EventTitle,
+                                        isExtended = ev.isExtended
 
+                                    });
+                                    ev.EventStart = ev.EventStart.AddDays(1);
+                                }
+                                if (ext.RepeatingType == RepeatType.Weekly)
+                                {
+                                    TempEvents.Add(new Event
+                                    {
+                                        EventEnd = ev.EventEnd,
+                                        EventStart = ev.EventStart,
+                                        Id = ev.Id,
+                                        User = ev.User,
+                                        Resource = ev.Resource,
+                                        EventTitle = ev.EventTitle,
+                                        isExtended = ev.isExtended
 
+                                    });
+                                    ev.EventStart = ev.EventStart.AddDays(7);
+                                }
+                                if (ext.RepeatingType == RepeatType.Monthly)
+                                {
+                                    TempEvents.Add(new Event
+                                    {
+                                        EventEnd = ev.EventEnd,
+                                        EventStart = ev.EventStart,
+                                        Id = ev.Id,
+                                        User = ev.User,
+                                        Resource = ev.Resource,
+                                        EventTitle = ev.EventTitle,
+                                        isExtended = ev.isExtended
+
+                                    });
+                                    ev.EventStart = ev.EventStart.AddMonths(1);
+                                }
+                            }
+                        }
+                    }
+                }
+                events.AddRange(TempEvents);
+                foreach (var ev in events)
+                {
                     while (ev.EventStart != ev.EventEnd)
                     {
                         var newStart = Convert.ToDateTime(ev.EventStart);
@@ -146,6 +205,7 @@ namespace WebAPI.Helpers
                     {
                         if (roomEv.EventStart == Convert.ToDateTime(timeSlot.EventStart))
                         {
+                            timeSlot.Id = roomEv.Id;
                             timeSlot.EventTitle = roomEv.EventTitle;
                             timeSlot.EventStart = roomEv.EventStart.ToString();
                             timeSlot.EventEnd = roomEv.EventEnd.ToString();
@@ -153,10 +213,12 @@ namespace WebAPI.Helpers
                             timeSlot.EndTime = roomEv.EventEnd.ToShortTimeString();
                             timeSlot.PersonName = roomEv.User.FullName;
                             timeSlot.IsReserved = true;
+                            timeSlot.IsExtended = roomEv.isExtended;
                         }
                     }
                 }
                 models.Add(roomModel);
+
             }
 
             return models;
@@ -196,9 +258,7 @@ namespace WebAPI.Helpers
                                 EventEnd = ev.EventEnd,
 
                             };
-
                             ev.EventStart = newEnd;
-
                             RoomEvents.Add(newEvent);
                         }
                     }
@@ -209,6 +269,7 @@ namespace WebAPI.Helpers
                         {
                             if (roomEv.EventStart == Convert.ToDateTime(timeSlot.EventStart))
                             {
+                                timeSlot.Id = roomEv.Id;
                                 timeSlot.EventTitle = roomEv.EventTitle;
                                 timeSlot.EventStart = roomEv.EventStart.ToString();
                                 timeSlot.EventEnd = roomEv.EventEnd.ToString();
@@ -216,6 +277,7 @@ namespace WebAPI.Helpers
                                 timeSlot.EndTime = roomEv.EventEnd.ToShortTimeString();
                                 timeSlot.PersonName = roomEv.User.FullName;
                                 timeSlot.IsReserved = true;
+                                timeSlot.IsExtended = roomEv.isExtended;
                             }
                         }
                     }

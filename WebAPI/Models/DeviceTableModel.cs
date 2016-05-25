@@ -7,10 +7,12 @@ namespace WebAPI.Models
 {
     public class DeviceCellModel
     {
+        public int Id { get; set; }
         public string EventTitle { get; set; }
         public string PersonName { get; set; }
         public bool IsReserved { get; set; }
         public bool IsPast { get; set; }
+        public bool IsExtended { get; set; }
         public int Hour { get; set; }
     }
 
