@@ -25,6 +25,7 @@
         $scope.getReservations = function () {
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
                 $scope.reservations = data;
+                console.log($scope.reservations);
             });
         };
         $scope.getReservations();
@@ -109,7 +110,6 @@
                 $scope.wednesdayReservations = $scope.weekReservations[2];
                 $scope.thursdayReservations = $scope.weekReservations[3];
                 $scope.fridayReservations = $scope.weekReservations[4];
-                console.log($scope.count);
                 if ($scope.count == 0) {
                     
                    

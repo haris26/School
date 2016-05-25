@@ -71,7 +71,7 @@ namespace WebAPI.Controllers
                     return NotFound();
                 else
                 {
-                    Repository.Update(EventRestriction.Create(model, Repository.BaseContext()), e.Id);
+                    Repository.Update(Parser.Create(model, Repository.BaseContext()), e.Id);
                     return Ok(model);
                 }       
             }

@@ -5,6 +5,7 @@
     app.controller("ExtendModalCtrl", function($scope, $modalInstance, DataService, schConfig, toaster) {
 
         $scope.saveData = function () {
+            $scope.eventExtend.repeatingType = $scope.eventExtend.repeatingType + 1;
             DataService.create("eventextends", $scope.eventExtend, function (data) { });
             $modalInstance.close();
             pop();

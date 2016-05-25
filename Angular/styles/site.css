@@ -465,6 +465,8 @@ font-weight: bold;
 .tooltip-inner{
     background:white;
     border-style:ridge;
+    border-color: #01AB8E;
+    opacity:1;
 }
 
 .tooltip.top .tooltip-arrow{
@@ -474,5 +476,16 @@ font-weight: bold;
     border-left:5px solid transparent;
     border-right:5px solid transparent;
     border-top:5px solid white;
+}
+
+.eventPersonTooltip{
+    color: black;
+    font-weight:bold;
+}
+
+.eventTitleTooltip{
+    color: black;
+    font-style:italic;
+    font-size:120%;
 }
 

@@ -70,15 +70,13 @@ namespace WebAPI.Helpers
                 {
                     Id = activeReservation.Id,
                     EventTitle = activeReservation.EventTitle,
-                    StartDate = activeReservation.EventStart.ToShortDateString(),
-                    EndDate = activeReservation.EventEnd.ToShortDateString(),
+                    StartDate = activeReservation.EventStart.ToString(),
+                    EndDate = activeReservation.EventEnd.ToString(),
                     PersonName = AppGlobals.currentUser.FullName,
                     ResourceName = activeReservation.Resource.Name,
                     CategoryName = activeReservation.Resource.ResourceCategory.CategoryName,
                     Time = activeReservation.EventStart.ToShortTimeString() + " - " + activeReservation.EventEnd.ToShortTimeString(),
                     Resource = activeReservation.Resource.Id,
-                    StartTime = Int32.Parse(activeReservation.EventStart.ToShortTimeString().Split(':')[0]),
-                    EndTime = Int32.Parse(activeReservation.EventEnd.ToShortTimeString().Split(':')[0]),
                     Person = activeReservation.User.Id,
                     Category = activeReservation.Resource.ResourceCategory.Id
                 });
