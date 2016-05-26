@@ -6,7 +6,9 @@
 
         $scope.saveData = function () {
             $scope.eventExtend.repeatingType = $scope.eventExtend.repeatingType + 1;
-            DataService.create("eventextends", $scope.eventExtend, function (data) { });
+            DataService.create("eventextends", $scope.eventExtend, function (data) {
+                DataService.update("events", $scope.editEvent.id, $scope.editEvent, function (data) { });
+            });
             $modalInstance.close();
             pop();
         };

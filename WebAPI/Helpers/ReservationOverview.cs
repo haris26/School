@@ -38,7 +38,7 @@ namespace WebAPI.Helpers
                     Name = ch.Name,
                     Value = ch.Value
                 });
-                model.Quantity = CheckQuantity(resource, context);
+               
             }
 
             foreach (var ev in events)
@@ -108,69 +108,89 @@ namespace WebAPI.Helpers
             SchoolContext context = new SchoolContext();
             List<RoomTableModel> models = new List<RoomTableModel>();
             var rooms = new ResourceUnit(context).Get().Where(x => x.ResourceCategory.CategoryName == modelParameters.CategoryName).ToList();
-            var extendedRooms = new Repository<ExtendedEvent>(context).Get().Where(x => x.ParentEvent.Resource.ResourceCategory.CategoryName == modelParameters.CategoryName).ToList();
+            
             foreach (var room in rooms)
             {
                 RoomTableModel roomModel = new RoomTableModel(modelParameters.FromDate, room);
                 var events = new EventUnit(context).Get()
                 .Where(x => (x.Resource.ResourceCategory.CategoryName == modelParameters.CategoryName && x.Resource.Name == room.Name) &&
                 (DbFunctions.TruncateTime(x.EventStart) >= DbFunctions.TruncateTime(modelParameters.FromDate) && DbFunctions.TruncateTime(x.EventStart) <= DbFunctions.TruncateTime(modelParameters.ToDate))).ToList();
+                var tmpEvents = new EventUnit(context).Get()
+                .Where(x => (x.Resource.ResourceCategory.CategoryName == modelParameters.CategoryName && x.Resource.Name == room.Name && x.isExtended==true) &&
+                (DbFunctions.TruncateTime(x.EventStart) <= DbFunctions.TruncateTime(modelParameters.FromDate) && DbFunctions.TruncateTime(x.EventStart) <= DbFunctions.TruncateTime(modelParameters.ToDate))).ToList();
+                var extendedEvents = new ExtendedEventUnit(context).Get().Where(x => x.RepeatUntil >= modelParameters.FromDate.Date).ToList();
                 IList<Event> RoomEvents = new List<Event>();
                 IList<Event> TempEvents = new List<Event>();
-                foreach (var ev in events)
+                foreach (var tempEv in tmpEvents)
                 {
-                    foreach (var ext in extendedRooms)
+                    foreach (var extendedEvent in extendedEvents)
                     {
-                        if (ext.ParentEvent.Id == ev.Id)
+                        if (tempEv.Id == extendedEvent.ParentEvent.Id)
                         {
-                            while (ev.EventStart <= ext.RepeatUntil)
+                            if (extendedEvent.RepeatingType == RepeatType.Daily)
                             {
-                                if (ext.RepeatingType == RepeatType.Daily)
+                                while (tempEv.EventStart.Date <= modelParameters.FromDate.Date)
                                 {
-                                    TempEvents.Add(new Event
+                                    tempEv.EventStart = tempEv.EventStart.AddDays(1);
+                                    tempEv.EventEnd = tempEv.EventEnd.AddDays(1);
+                                    if (tempEv.EventStart.Date == modelParameters.FromDate.Date)
                                     {
-                                        EventEnd = ev.EventEnd,
-                                        EventStart = ev.EventStart,
-                                        Id = ev.Id,
-                                        User = ev.User,
-                                        Resource = ev.Resource,
-                                        EventTitle = ev.EventTitle,
-                                        isExtended = ev.isExtended
-
-                                    });
-                                    ev.EventStart = ev.EventStart.AddDays(1);
-                                }
-                                if (ext.RepeatingType == RepeatType.Weekly)
-                                {
-                                    TempEvents.Add(new Event
-                                    {
-                                        EventEnd = ev.EventEnd,
-                                        EventStart = ev.EventStart,
-                                        Id = ev.Id,
-                                        User = ev.User,
-                                        Resource = ev.Resource,
-                                        EventTitle = ev.EventTitle,
-                                        isExtended = ev.isExtended
-
-                                    });
-                                    ev.EventStart = ev.EventStart.AddDays(7);
-                                }
-                                if (ext.RepeatingType == RepeatType.Monthly)
-                                {
-                                    TempEvents.Add(new Event
-                                    {
-                                        EventEnd = ev.EventEnd,
-                                        EventStart = ev.EventStart,
-                                        Id = ev.Id,
-                                        User = ev.User,
-                                        Resource = ev.Resource,
-                                        EventTitle = ev.EventTitle,
-                                        isExtended = ev.isExtended
-
-                                    });
-                                    ev.EventStart = ev.EventStart.AddMonths(1);
+                                        TempEvents.Add(new Event
+                                        {
+                                            Id = tempEv.Id,
+                                            EventTitle = tempEv.EventTitle,
+                                            Resource = tempEv.Resource,
+                                            EventEnd = tempEv.EventEnd,
+                                            EventStart = tempEv.EventStart,
+                                            isExtended = tempEv.isExtended,
+                                            User = tempEv.User
+                                        });
+                                    }
                                 }
                             }
+                            if (extendedEvent.RepeatingType == RepeatType.Weekly)
+                            {
+                                while (tempEv.EventStart.Date <= modelParameters.FromDate.Date)
+                                {
+                                    tempEv.EventStart = tempEv.EventStart.AddDays(7);
+                                    tempEv.EventEnd = tempEv.EventEnd.AddDays(7);
+                                    if (tempEv.EventStart.Date == modelParameters.FromDate.Date)
+                                    {
+                                        TempEvents.Add(new Event
+                                        {
+                                            Id = tempEv.Id,
+                                            EventTitle = tempEv.EventTitle,
+                                            Resource = tempEv.Resource,
+                                            EventEnd = tempEv.EventEnd,
+                                            EventStart = tempEv.EventStart,
+                                            isExtended = tempEv.isExtended,
+                                            User = tempEv.User
+                                        });
+                                    }
+                                }
+                            }
+                            if (extendedEvent.RepeatingType == RepeatType.Monthly)
+                            {
+                                while (tempEv.EventStart.Date <= modelParameters.FromDate.Date)
+                                {
+                                    tempEv.EventStart = tempEv.EventStart.AddMonths(1);
+                                    tempEv.EventEnd = tempEv.EventEnd.AddMonths(1);
+                                    if (tempEv.EventStart.Date == modelParameters.FromDate.Date)
+                                    {
+                                        TempEvents.Add(new Event
+                                        {
+                                            Id = tempEv.Id,
+                                            EventTitle = tempEv.EventTitle,
+                                            Resource = tempEv.Resource,
+                                            EventEnd = tempEv.EventEnd,
+                                            EventStart = tempEv.EventStart,
+                                            isExtended = tempEv.isExtended,
+                                            User = tempEv.User
+                                        });
+                                    }
+                                }
+                            }
+
                         }
                     }
                 }

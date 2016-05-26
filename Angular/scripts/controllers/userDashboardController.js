@@ -63,7 +63,8 @@
                startTime: item.startTime,
                endTime: item.endTime,
                category: item.category,
-               person: item.person
+               person: item.person,
+               isExtended:true,
 
            }
           
