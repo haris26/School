@@ -61,7 +61,7 @@ namespace WebAPI.Models
             };
             foreach (var detail in day.Details)
             {
-                model.Details.Add(new DetailModel() { Id = detail.Id, WorkTime = detail.WorkTime, Description = detail.Description, TeamName = detail.Team.Name, Date = detail.Day.Date });
+                model.Details.Add(new DetailModel() {Id= detail.Id, WorkTime = detail.WorkTime, Description = detail.Description, TeamName = detail.Team.Name, Date = detail.Day.Date });
             }
             return model;
         }
