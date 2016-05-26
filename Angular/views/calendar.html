@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-3 col-xs-12" style="margin-top:-11%; position:sticky; left:-1%; top:10px">
             <span class="col-xs-push-1" style="box-shadow: 8px 8px 100px #2E455C">
-                <span><button class="btn btn-info col-md-2 col-xs-3" style="border-top: hidden; border-bottom:hidden;" value="Previous" ng-click="previous()">Previous</button></span>
+                <span><button class="{{class}} btn btn-info col-md-2 col-xs-3" style="border-top: hidden; border-bottom:hidden;" value="Previous" ng-click="previous()">Previous</button></span>
                 <span class="btn btn-info col-md-7 col-xs-5" style="border-top: hidden; border-bottom:hidden; border-color: white" ng-click="thisMonth()"> {{mont | monthName}}, {{year}} </span>
                 <button class="btn btn-info col-xs-2" value="Next" ng-click="next()" style="width:195px; border-top: hidden; border-bottom:hidden;">Next</button>
             </span>

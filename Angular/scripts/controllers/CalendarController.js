@@ -2,11 +2,12 @@
 
     var app = angular.module("school");
 
-    app.controller("CalendarController", function ($scope, $rootScope, DataService) {
+    app.controller("CalendarController", function ($scope, $rootScope, DataService, schConfig) {
 
-        var d = new Date();
-        var n = d.getMonth() + 1;
-        var y = d.getFullYear();
+        var p = new Date();
+        var d = p.getDate();
+        var n = p.getMonth() + 1;
+        var y = p.getFullYear();
         $scope.mont = new Date().getMonth() + 1;
         $scope.year = new Date().getFullYear();
         $scope.day = new Date().getDate();
@@ -30,30 +31,53 @@
         function fetchDataByDay(d) {
             DataService.readD(dataSet1, currentUser.id, n, y, d, function (data) {
                 $scope.dayDetails = data;
-                console.log(d, n, y);
-                console.log($scope.dayDetails);
+                //console.log(d, n, y);
+                //console.log($scope.dayDetails);
             });
         }
         fetchDataByDay(d);
 
         function fetchData() {
-            console.log(n, y);
+            //console.log(n, y);
             DataService.readDd(dataSet, currentUser.id, n, y, function (data) {
                 $scope.mjesec = data;                
                 $scope.days = $scope.mjesec.lista[0].days;
-                console.log($scope.mjesec.lista[0].days);
-                console.log($scope.mjesec.month);
+                //console.log($scope.mjesec.lista[0].days);
+                //console.log($scope.mjesec.month);
                 var month = new Date().getMonth() + 1;
-                console.log(month);
+                var year = new Date().getFullYear();
+                //console.log(month);
                 for (i = 0; i < $scope.days.length; i++) {
-                    if ($scope.days[i].day == $scope.day && $scope.mjesec.month == month) {
-                        $scope.days[i].class = 'today';
+                    if ($scope.days[i].day == $scope.day && $scope.mjesec.month == month && $scope.mjesec.year == year) {
+                        $scope.days[i].class = 'today'
                     }
                     if ($scope.days[i].class == 'weekend') {
                         $scope.days[i].class = 'weekends'
                     }
                     if ($scope.days[i].details.length != 0) {
                         $scope.days[i].class = 'hasData'
+                    }
+                    //if ($scope.mjesec.month == month - 1 && $scope.days[$scope.day].day > schConfig.deadline) {
+                    //    console.log(schConfig.deadline);
+                    //    $scope.days[i].class = 'disabled'
+                    //}
+
+                    if (n == month && d > schConfig.deadline && y == year) {
+                        $scope.previous = null;
+                        $scope.class = 'colored'
+                    } else {
+                        $scope.previous = function () {
+                            n = n - 1;
+                            $scope.mont--;
+                            if ($scope.mont == 0) {
+                                n = 12;
+                                y -= 1;
+                                $scope.mont = 12;
+                                $scope.year -= 1;
+                            }
+                            fetchData(n, y);
+                        }
+                        $scope.class = '';
                     }
                 }
             });
@@ -91,14 +115,13 @@
                 $scope.mont = 1;
             }
             fetchData(n, y);
-            console.log(n);
         }
 
         $scope.today = function () {
             d = new Date().getDate();
             n = new Date().getMonth() + 1;
             y = new Date().getFullYear();
-            console.log(d);
+            //console.log(d);
             $scope.transfer(d);
         }
 
@@ -120,11 +143,10 @@
                 $scope.year -= 1;
             }
             fetchData(n, y);
-            console.log(n);
+            //console.log(n);
         }
-        //$scope.details = [];
+
         $scope.datum = new Date();
-        $scope.date = new Date();
 
         $scope.transfer = function (d) {
             fetchDataByDay(d);

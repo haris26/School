@@ -6,7 +6,7 @@
 
 .weekends{
    color: #A3B9C4 !important;
-   background: rgba(92,14,10, 0.0299) !important;
+   background: rgba(92,14,10, 0.0699) !important;
 }
 
 .weekends:hover{
@@ -19,6 +19,15 @@
 
 .hasData:hover{
     background-color: #60B72C !important;
+}
+
+.disabled{
+    pointer-events: none !important;    
+}
+
+.colored{
+background: rgba(91, 192, 222, .4) !important;
+border: none;
 }
 
 .label {
