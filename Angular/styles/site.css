@@ -1,5 +1,24 @@
-.body{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/*CALENDAR STYLE*/
+.today {
+  background: #37ADE7 !important;
+  color: white !important;
+}
+
+.weekends{
+   color: #A3B9C4 !important;
+   background: rgba(92,14,10, 0.0299) !important;
+}
+
+.weekends:hover{
+    color: #37ADE7 !important;
+}
+
+.hasData{   
+   background-color: rgba(55,173,231, 0.09999) !important;
+}
+
+.hasData:hover{
+    background-color: #60B72C !important;
 }
 
 .label {
@@ -8,10 +27,6 @@
     width: 45%;
     margin: 6px;
 }
-
-/*.cootabela{
-    background-color: #2E455C;
-}*/
 
 tr.spaceUnder > td
 {
@@ -40,6 +55,7 @@ body {
     background-image: url('../images/photo1.jpg');
     /*background-image: url('../images/buildings.jpg');*/
     background-size: cover;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -66,51 +82,12 @@ textarea {
     margin-top: -700px;
 }
 
-
-.navbar-default {
-    background-color: #273547;
-    margin-bottom: 0;
-    
-}
-
-.navbar-nav li:hover {
-    background-color: white;
-    color:white;    
-}
-
 .unos{
     margin-top:-7%;
 }
 
 .dashboard{
     margin-top:-7%;
-}
-
-.navbar-nav li:active {
-    background-color: #04c4bb;
-    
-}
-
-
-.dropdown-menu li:hover{
-    height: 26px;
-} 
-
-
-.navbar-default .navbar-nav > li > a {
-   color:#F2AE75;
-}
-
-
-
-.navbar-nav {
-   font-family: 'Oswald', sans-serif;
-   font-size: 16px;
-   text-transform: uppercase;
-   color:white; 
-   letter-spacing: 1px;
-   margin-bottom: 0;
-    
 }
 
 .title{
@@ -214,98 +191,30 @@ color: rgba(229, 103, 23, 0.6);
     margin-top: -150px;
 }
 
-.date-picker {
-    float: right;
-    padding-right: 270px;
-    display:inline-block;
-    min-height:290px;  
-    color: #37ADE7;
-    margin-top: 170px;
-}
-
-.date-picker .btn-default {
-    width:100px;
-    height: 60px;
-    font-size: 18px;    
-    background-color: white;
-     color: #37ADE7;
-}
-
-.date-picker .uib-title {
-    width: 600px;
-    font-size: 25px;
-    background-color: white;
-    color:#37ADE7;
-}
-
-.uib-weeks{
-    color:#37ADE7;
-    font-size: 14px;
-    font-weight:bold;
-    background-color:white;
-}
-
-.day-modal-content .row {
-    margin: 0;
-}
-
-.day-modal-content .row:first-child {
-    margin-top: 11px;
-    text-align: center;
-}
-.day-modal-content .row:nth-child(n+1){
-    margin-top: 7px;
-}
-    .day-modal-content .row:nth-child(n+1) .form-group >label {
-        width: 125px;
-        line-height: 35px;
-        margin-left: 135px;
-    }
-
-.day-modal-content .row:first-child >span {
-    font-size: 18px;
-    font-weight: bold
-}
-
-.day-modal-content .row .form-group >label {
-    font-size: 16px;
-    float: left;
-}
-
-.day-modal-content .row .form-group >input,
- ay-modal-content .row .form-group >select {
-    float: left;
-}
-
-/*textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus .dropdown-menu:focus {   
-    border-color: rgba(229, 103, 23, 0.8);
-    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
-    outline: 0 none;
-}
-.select:active, .select:hover {
-  outline-color: rgba(229, 103, 23, 0.8);
-}*/
-
 ::-webkit-input-placeholder {
    color: #37ADE7;
-   font-weight:bold;
-   text-transform:uppercase;
+   font-size:14px;
+   font-family:sans-serif;
 }
 
-:-moz-placeholder { /* Firefox 18- */
+:-moz-placeholder { 
    color: #37ADE7;  
    font-weight:bold;
+   font-family:sans-serif;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
+::-moz-placeholder {  
    color: #37ADE7; 
    font-weight:bold; 
+   font-family:sans-serif;
 }
 
 :-ms-input-placeholder {  
    color: #37ADE7;  
    font-weight:bold;
+   font-family:sans-serif;
 }
+
 .social-login{
   width: 150%;
   padding: 10px 0 15px 0;
@@ -333,6 +242,8 @@ color: rgba(229, 103, 23, 0.6);
 .social-login span:last-child{
   background-color: #DF4A32;
 }
+
+/*CALENDAR CELL SYTLE*/
 .mjesec {
     /*border: 2px solid white;*/
     background-color:white;
@@ -353,8 +264,7 @@ color: rgba(229, 103, 23, 0.6);
     text-shadow: 5px black;
     display: table-cell;
     line-height:2.7em;
-    cursor:pointer;
-    
+    cursor:pointer;    
 }
 
 .dan:hover{
@@ -380,4 +290,5 @@ color: rgba(229, 103, 23, 0.6);
     text-align:center;
     opacity:0.8;
     border-bottom: 1px solid #37ADE7;	
+    line-height:2.5em;
 }

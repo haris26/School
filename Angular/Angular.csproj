@@ -127,9 +127,7 @@
     <Content Include="images\spinner.gif" />
     <Content Include="images\toggle.png" />
     <Content Include="library\angular-animate.js" />
-    <Content Include="library\bootstrap.css" />
-    <Content Include="library\bootstrap.min.css" />
-    <Content Include="library\d3.min.js" />
+    <Content Include="styles\bootstrap.min.css" />
     <Content Include="library\dirPagination.js" />
     <Content Include="library\jquery.min.js" />
     <Content Include="library\moment.js" />
@@ -138,11 +136,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="scripts\angular.js" />
-    <Content Include="scripts\bootstrap.js" />
-    <Content Include="scripts\bootstrap.min.js" />
-    <Content Include="scripts\calendar.js" />
-    <Content Include="scripts\controllers\Calendar2Controller.js" />
     <Content Include="scripts\controllers\CalendarController.js" />
     <Content Include="scripts\controllers\ModalController.js" />
     <Content Include="scripts\controllers\NotificationController.js" />
@@ -161,6 +154,9 @@
     <Content Include="font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="fonts\Ailerons-Typeface.otf" />
+    <Content Include="fonts\Borg.ttf" />
+    <Content Include="fonts\ELIXIA.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -188,10 +184,7 @@
     <Content Include="scripts\services\DataService.js" />
     <Content Include="scripts\services\LoginService.js" />
     <Content Include="scripts\services\Permission.js" />
-    <Content Include="scripts\toaster.js" />
-    <Content Include="styles\bootstrap.css" />
-    <Content Include="styles\bootstrap.min.css" />
-    <Content Include="styles\calendar.css" />
+    <Content Include="library\toaster.js" />
     <Content Include="styles\modal.css" />
     <Content Include="styles\notification.css" />
     <Content Include="styles\sidebar.css" />

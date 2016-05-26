@@ -31,22 +31,20 @@ namespace WebAPI.Models
                 Count = role.Roles.Count
             };
         }
-        //public EngagementModel Create(Engagement engagement)
-        //{
-        //    return new EngagementModel()
-        //    {
-        //        Id = engagement.Id,
-        //        StartDate = engagement.StartDate,
-        //        EndDate = engagement.EndDate,
-        //        Time = engagement.Time,
-        //        Person = engagement.Person.Id,
-        //        PersonName = engagement.Person.FirstName + " " + engagement.Person.LastName,
-        //        Team = engagement.Team.Id,
-        //        TeamName = engagement.Team.Name,
-        //        Role = engagement.Role.Id,
-        //        RoleName = engagement.Role.Name
-        //    };
-        //}
+
+        public EngagementModel Create(Engagement engagement)
+        {
+            return new EngagementModel()
+            {
+                Id = engagement.Id,              
+                Person = engagement.Person.Id,
+                PersonName = engagement.Person.FirstName + " " + engagement.Person.LastName,
+                Team = engagement.Team.Id,
+                TeamName = engagement.Team.Name,
+                Role = engagement.Role.Id,
+                RoleName = engagement.Role.Name
+            };
+        }
 
 
         public DayModel Create(Day day)
@@ -63,7 +61,7 @@ namespace WebAPI.Models
             };
             foreach (var detail in day.Details)
             {
-                model.Details.Add(new DetailModel() { WorkTime = detail.WorkTime, Description = detail.Description, TeamName = detail.Team.Name, Date = detail.Day.Date });
+                model.Details.Add(new DetailModel() { Id = detail.Id, WorkTime = detail.WorkTime, Description = detail.Description, TeamName = detail.Team.Name, Date = detail.Day.Date });
             }
             return model;
         }
@@ -96,7 +94,7 @@ namespace WebAPI.Models
                 LastName = person.LastName,
                 Category = person.Category,
                 Status = person.Status,
-                Email = person.Email
+                Email = person.Email,               
             };
         }
         public TokenModel Create(AuthToken token)

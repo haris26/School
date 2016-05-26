@@ -11,7 +11,7 @@
                 function (response) {
                     authenticated = true;
                     currentUser = response.data;
-                    $rootScope.role = currentUser.roles;
+                    $rootScope.role = currentUser.roles.toString();
                     $rootScope.userName = currentUser.name;
                     if(currentUser.roles == "admin"){
                         $location.path("/months");
@@ -39,7 +39,7 @@
                 function (response) {
                     authenticated = true;
                     currentUser = response.data;
-                    $rootScope.role = currentUser.roles;
+                    $rootScope.role = currentUser.roles.toString();
                     $rootScope.userName = currentUser.name;
                     console.log($scope.userName);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
@@ -84,6 +84,7 @@
                         function (response) {
                             currentUser = response.data;
                             authenticated = true;
+                            $rootScope.role = currentUser.roles.toString();
                             $rootScope.userName = currentUser.name;
                             $rootScope.message = "";
                             if ($scope.user.remember) LoginService.setCredentials("google", userEmail);

@@ -27,6 +27,7 @@
                      })
                      .error(function (error) {
                          $rootScope.message = error.message;
+                         console.log($rootScope.message);
                          callback(false);
                      })
             },
@@ -40,6 +41,7 @@
                          callback(false);
                      })
             },
+
             read1: function (dataSet, id, m, callback) {
                 $http.get(source + dataSet + "/" + id + "/" + m )
                      .success(function (data) {
