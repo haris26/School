@@ -8,6 +8,11 @@
     width: 45%;
     margin: 6px;
 }
+.print-area {
+    border:1px none;
+    padding:1em;
+    margin:0 0 1em
+}
 
 /*.cootabela{
     background-color: #2E455C;

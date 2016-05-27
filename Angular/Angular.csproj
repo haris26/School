@@ -127,6 +127,8 @@
     <Content Include="images\spinner.gif" />
     <Content Include="images\toggle.png" />
     <Content Include="library\angular-animate.js" />
+    <Content Include="library\angular-charts.min.js" />
+    <Content Include="library\angular-cookies.js" />
     <Content Include="library\bootstrap.css" />
     <Content Include="library\bootstrap.min.css" />
     <Content Include="library\d3.min.js" />
@@ -180,6 +182,7 @@
     <Content Include="scripts\controllers\MenuController.js" />
     <Content Include="scripts\controllers\MonthController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
+    <Content Include="scripts\controllers\ReportController.js" />
     <Content Include="scripts\services\PaginationService.js" />
     <Content Include="scripts\services\Permission.js" />
     <Content Include="scripts\controllers\RolesController.js" />
@@ -194,6 +197,7 @@
     <Content Include="styles\calendar.css" />
     <Content Include="styles\modal.css" />
     <Content Include="styles\notification.css" />
+    <Content Include="styles\printing-css.css" />
     <Content Include="styles\sidebar.css" />
     <Content Include="styles\site.css" />
     <Content Include="styles\details-table.css" />
@@ -208,6 +212,7 @@
     <Content Include="views\month.html" />
     <Content Include="views\modals\loginModal.html" />
     <Content Include="views\people.html" />
+    <Content Include="views\reports.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

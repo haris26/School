@@ -65,7 +65,6 @@
        $scope.transfer = function (d) {
             fetchDataByDay(d);
             $scope.datum.setMonth(n-1,d);
-            $scope.dayD = $scope.datum;
             console.log($scope.datum);
         };
 
@@ -83,6 +82,23 @@
             }
 
         };
+        $scope.nextDay = function()
+        {
+            //day = day.getDate() + 1;
+            var mj = new Date(y, n, 0).getDate();
+            var dand = $scope.datum.getDate();
+            for (var i = dand; i <= mj; i++) {
+                dand++;
+            }
+          //  console.log(day);
+            console.log(dand);
+            
+        }
+        $scope.previousDay = function()
+        {
+
+        }
+
         $scope.transfer1 = function(detail)
         {
             $scope.detail = detail;

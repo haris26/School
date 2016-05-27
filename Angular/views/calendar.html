@@ -38,7 +38,9 @@
                             <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
                                 <div class="panel-heading">
                                     <div class="row" style="color:#37ADE7; height:50px; vertical-align:central">
+                                        <button ng-click="nextDay(detail.date)"></button>
                                         <span>Date : {{detail.date | date:'dd MMMM yyyy'}}</span>
+                                        <button ng-click="previousDay(detail.date)"></button>
                                     </div>
                                     <div class="row ">
                                         <div class="col-md-4 col-sm-4 col-xs-4">
