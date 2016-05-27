@@ -1,14 +1,15 @@
 ﻿(function () {
 
     var app = angular.module("school");
-    
-    app.controller("MonthController", function ($scope, $rootScope, DataService, toaster, $window, $timeout) {
 
-        var d = new Date();
-        var n = d.getMonth() + 1;
-        var y = d.getFullYear();
+    app.controller("MonthController", function ($scope, $rootScope, DataService, $window, $timeout, toaster) {
+
+        var p = new Date();
+        var d = p.getDate();
+        var n = p.getMonth() + 1;
+        var y = p.getFullYear();
         var current = "month";
-        var dataSet = "month";  
+        var dataSet = "month";
         $scope.dataSetD = "details";
         var n1 = 0;
         var mailSet = "sendmail/sendmailnotification";
@@ -20,7 +21,7 @@
         $scope.sortOrder = "name";
         fetchData();
         var recepient = "";
-        function newEmail () {
+        function newEmail() {
             $scope.email = {
                 emailId: recepient
             }
@@ -44,7 +45,7 @@
                 if ($scope.detailsP.length == 0) {
                     $scope.warning = "There are no entries in this month for " + $rootScope.month.name;
                 };
-                console.log($scope.detailsP.length);               
+                console.log($scope.detailsP.length);
                 $scope.pagination = JSON.parse(response.headers("pagination"));
                 for (var i = 1; i <= $scope.pagination.pageCount ; i++) {
                     $scope.pages.push(i);
@@ -60,14 +61,32 @@
                 $scope.message = reason;
             })
         }
-        $scope.fetchDetails();        
-       
-        $scope.sendEmail = function()
-        {
+        $scope.fetchDetails();
+
+        $scope.sendEmail = function () {
             DataService.create(mailSet, $scope.email, function (data) { });
             //console.log($scope.email.emailId);
         };
-       $scope.transfer = function (item) {
+
+        $scope.$on('$viewContentLoaded', function ($evt, data) {
+            if (currentUser.roles.indexOf("admin") > -1) {
+                if (d >= 26 && d <= 31) {
+                    $scope.pop();
+                    $scope.left = 31 - d;
+                    console.log($scope.left);
+                }
+            }
+        });
+
+        $scope.info = function () {
+            toaster.pop('info', "Success!", "email.html", null, 'template')
+        }
+
+        $scope.pop = function () {
+            toaster.pop('info', "Please complete your time log", "myTemplate.html", null, 'template');
+        };
+
+        $scope.transfer = function (item) {
             $rootScope.month = item;
             $scope.colection = item.details;
             recepient = item.email;
@@ -76,13 +95,13 @@
             console.log($scope.month.details);
             console.log(recepient);
             $scope.warning = "";
-       };
+        };
 
         $scope.transfer1 = function (item1) {
-            $rootScope.n1 = item1.id;            
+            $rootScope.n1 = item1.id;
             //console.log(n1,n);
             //fetchDataByUser(n1);
-            $scope.fetchDetails(n1);            
+            $scope.fetchDetails(n1);
         };
 
         function fetchDataByUser(n1) {
@@ -132,13 +151,13 @@
             fetchMonth(n);
             console.log(n);
         }
-       
+
         $scope.details = [];
 
         function fetchData() {
             DataService.list(dataSet, function (data) {
                 $scope.months = data;
-               // console.log(data);
+                // console.log(data);
             });
         }
     });

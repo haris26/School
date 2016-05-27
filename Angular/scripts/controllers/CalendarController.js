@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("CalendarController", function ($scope, $rootScope, DataService, schConfig) {
+    app.controller("CalendarController", function ($scope, $rootScope, DataService, schConfig, toaster) {
 
         var p = new Date();
         var d = p.getDate();
@@ -24,10 +24,7 @@
                 $scope.teams = data;
             });
         };
-        //$scope.transfer = function (item) {
-        //    $scope.dayD = item.date;
-        //    $scope.colection = item.details;
-        //};
+
         function fetchDataByDay(d) {
             DataService.readD(dataSet1, currentUser.id, n, y, d, function (data) {
                 $scope.dayDetails = data;
@@ -63,8 +60,9 @@
                     //}
 
                     if (n == month && d > schConfig.deadline && y == year) {
-                        $scope.previous = null;
+                        $scope.previous = function () { $scope.warning() }
                         $scope.class = 'colored'
+                        //sweetAlert({ title: "Deadline is over", text: "The deadline for entering data for previous month has passed.", timer: 2000 });
                     } else {
                         $scope.previous = function () {
                             n = n - 1;
@@ -81,6 +79,24 @@
                     }
                 }
             });
+        }
+
+        $scope.$on('$viewContentLoaded', function ($evt, data) {
+            if (currentUser.roles.indexOf("user") > -1) {
+                if (d >= 26 && d <= 31) {
+                    $scope.pop();
+                    $scope.left = 31 - d;
+                    console.log($scope.left);
+                }
+            }
+        });
+
+        $scope.pop = function () {
+            toaster.pop('info', "Please complete your time log", "myTemplate.html", null, 'template');
+        };
+
+        $scope.warning = function () {
+            toaster.pop('error', "Notice!", "scroll.html", null, 'template')
         }
 
         $scope.nextD = function () {
@@ -154,6 +170,7 @@
             //$rootScope.dayD = $scope.datum;
             //console.log($scope.datum);
         };
+
         $scope.transfer1 = function (detail) {
             $scope.detail = detail;
         }
@@ -170,12 +187,8 @@
                 team: 0,
                 teamName: ""
             }
-
         };
-        $scope.transfer1 = function(detail)
-        {
-            $scope.detail = detail;
-        }
+
         $scope.deleteData = function () {
             DataService.delete(dataSet2, $scope.detail.id, function (data) { fetchDataByDay(d); });
         }

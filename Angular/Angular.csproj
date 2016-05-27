@@ -137,8 +137,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="scripts\controllers\CalendarController.js" />
-    <Content Include="scripts\controllers\ModalController.js" />
-    <Content Include="scripts\controllers\NotificationController.js" />
     <Content Include="library\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -169,7 +167,6 @@
     <Content Include="library\angular-route.js" />
     <Content Include="library\angular.js" />
     <Content Include="scripts\app.js" />
-    <Content Include="scripts\controllers\DayModalController.js" />
     <Content Include="scripts\controllers\DetailsController.js" />
     <Content Include="scripts\controllers\EngagementsController.js" />
     <Content Include="scripts\controllers\LoginController.js" />

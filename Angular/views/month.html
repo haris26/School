@@ -1,5 +1,8 @@
-﻿<script type="text/ng-template" id="myTemplate.html">
+﻿<script type="text/ng-template" id="email.html">
     <span>An email has been sent to {{month.name}}.</span>
+</script>
+<script type="text/ng-template" id="myTemplate.html">
+    <span>You have {{left}} days left</span>
 </script>
 <toaster-container toaster-options="{'time-out': 6000, 'close-button':true, 'position-class':'toast-bottom-right'}"></toaster-container>
 
@@ -69,7 +72,7 @@
                                         <div style="text-align:center">
                                             <div>
                                                 <ul class="pagination">
-                                                    <li ng-class="{ active : page == currentPage + 1 }" ng-click="changePage(page)" ng-repeat="page in pages"><a style="background-color:#37ADE7; color:white;">{{page}}</a></li>
+                                                    <li ng-class="{ active : page == currentPage + 1 }" ng-click="changePage(page)" ng-repeat="page in pages"><a style="background-color:#37ADE7; color:white; cursor:pointer">{{page}}</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -109,7 +112,7 @@
                     <div dir-paginate="item in months | filter: selDetail | itemsPerPage:10">
                         <ul class="list-group">
                             <li class="list-group-item col-md-6">
-                                <span class="badge" style="background-color:#60B72C">{{ item.totalHours }} </span><span style="background-color:#5BC0DE" class="badge">{{item.emptyDays}}</span><a ng-controller="NotificationController" class="glyphicon glyphicon-envelope" ng-click="transfer(item); sendEmail(); info();"></a>
+                                <span class="badge" style="background-color:#60B72C">{{ item.totalHours }} </span><span style="background-color:#5BC0DE" class="badge">{{item.emptyDays}}</span><a class="glyphicon glyphicon-envelope" ng-click="transfer(item); sendEmail(); info();"></a>
                                 <a ng-click="transfer(item); transfer1(item);">{{item.name}}</a>
                             </li>
                         </ul>
