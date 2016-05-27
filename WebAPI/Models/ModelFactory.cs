@@ -184,84 +184,7 @@ namespace WebAPI.Models
 
 
 
-        //public AssetsModel Create(Asset asset)
-        //{
-        //    if (asset.User == null)
-        //    {
-        //        AssetsModel am = new AssetsModel()
-        //        {
-
-        //            Id = asset.Id,
-        //            Name = asset.Name,
-        //            Model = asset.Model,
-        //            //User = asset.User.Id,
-        //            //UserName = asset.User.FirstName,
-        //            Vendor = asset.Vendor,
-        //            Price = asset.Price,
-        //            Status = asset.Status.ToString(),
-        //            Category = asset.AssetCategory.Id,
-        //            CategoryName = asset.AssetCategory.CategoryName,
-        //            DateOfTrade = asset.DateOfTrade,
-        //            SerialNumber = asset.SerialNumber
-
-        //        };
-
-        //        foreach (var chars in asset.assetCharacteristics)
-        //        {
-        //            am.assetCharacteristics.Add
-        //                (
-        //                new AssetCharsModel()
-        //                {
-        //                    Id = chars.Id,
-        //                    Name = chars.Name,
-        //                    Asset = chars.Asset.Id,
-        //                    AssetName = chars.Asset.Name,
-        //                    Value = chars.Value
-        //                }
-        //                );
-
-        //        }
-
-        //        return am;
-        //    }
-        //    else
-        //    {
-        //        AssetsModel amod = new AssetsModel()
-        //        {
-        //            Id = asset.Id,
-        //            Name = asset.Name,
-        //            Model = asset.Model,
-        //            User = asset.User.Id,
-        //            UserName = asset.User.FirstName + ' ' + asset.User.LastName,
-        //            Vendor = asset.Vendor,
-        //            Price = asset.Price,
-        //            Status = asset.Status.ToString(),
-        //            Category = asset.AssetCategory.Id,
-        //            CategoryName = asset.AssetCategory.CategoryName,
-        //            DateOfTrade = asset.DateOfTrade,
-        //            SerialNumber = asset.SerialNumber
-
-        //        };
-
-        //        foreach (var chars in asset.assetCharacteristics)
-        //        {
-        //            amod.assetCharacteristics.Add
-        //                (
-        //                new AssetCharsModel()
-        //                {
-        //                    Id = chars.Id,
-        //                    Name = chars.Name,
-        //                    Asset = chars.Asset.Id,
-        //                    AssetName = chars.Asset.Name,
-        //                    Value = chars.Value
-        //                }
-        //                );
-
-        //            return amod;
-        //        }
-        //  };
-        //    return new AssetsModel();
-        //}
+       
 
         public AssetsModel Create(Asset asset)
         {
@@ -272,8 +195,7 @@ namespace WebAPI.Models
                     Id = asset.Id,
                     Name = asset.Name,
                     Model = asset.Model,
-                    //User = asset.User.Id,
-                    //UserName = asset.User.FirstName,
+                   
                     Vendor = asset.Vendor,
                     Price = asset.Price,
                     Status = asset.Status.ToString(),
@@ -286,6 +208,21 @@ namespace WebAPI.Models
                 };
                 foreach (var chars in asset.assetCharacteristics)
                 {
+                    if (chars==null)
+                    {
+
+                        model.assetCharacteristics.Add
+                        (
+                        new AssetCharsModel()
+                        {
+                            Id = chars.Id,
+                            Name =chars.Name,
+                            Asset = asset.Id,
+                            AssetName = asset.Name,
+                            Value = ""
+                        });
+                    }
+                    else{ 
                     model.assetCharacteristics.Add
                         (
                         new AssetCharsModel()
@@ -296,7 +233,7 @@ namespace WebAPI.Models
                             AssetName = chars.Asset.Name,
                             Value = chars.Value
                         });
-
+                }
                 }
                 return model;
 

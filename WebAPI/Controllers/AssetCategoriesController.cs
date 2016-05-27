@@ -16,11 +16,12 @@ namespace WebAPI.Controllers
 
         public class CharValueModel
         {
+            public int Id { get; set; }
             public string Name { get; set; }
             public string Value { get; set; }
-
-
+            public int AssetId { get; set; }
         }
+
         public AssetCategoriesController(Repository<AssetCategory> depo) : base(depo)
         { }
 
@@ -35,7 +36,7 @@ namespace WebAPI.Controllers
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
 
             IList<AssetCategoriesModel> officeCategories =
-                query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.assetType==AssetType.Office).Select(x => Factory.Create(x)).ToList();
+                query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.assetType == AssetType.Office).Select(x => Factory.Create(x)).ToList();
 
             IList<AssetCategoriesModel> deviceCategories =
                 query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.assetType == AssetType.Device).Select(x => Factory.Create(x)).ToList();
@@ -44,7 +45,7 @@ namespace WebAPI.Controllers
             IList<AssetCategoriesModel> allCategories =
                           query.Skip(PageSize * page).Take(PageSize).Select(x => Factory.Create(x)).ToList();
 
-           
+
 
             return new
             {
@@ -53,8 +54,8 @@ namespace WebAPI.Controllers
                 pageCount = TotalPages,
                 deviceCategories = deviceCategories,
                 officeCategories = officeCategories,
-                allCategories=allCategories
-            
+                allCategories = allCategories
+
             };
         }
 
@@ -71,23 +72,23 @@ namespace WebAPI.Controllers
                 }
                 else
                 {
-                   IList<CharValueModel> listchars = new List<CharValueModel>();
-                    foreach(var chName in assetCat.AssetCharacteristicNames)
+                    IList<CharValueModel> listchars = new List<CharValueModel>();
+                    foreach (var chName in assetCat.AssetCharacteristicNames)
                     {
-                       var ch=context.AssetCharacteristics.Where(x => x.Asset.Id == asset.Id && x.Name == chName.Name).FirstOrDefault();
-                        string val = (ch == null) ? "" : ch.Value;
-
+                        var ch = context.AssetCharacteristics.Where(x => x.Asset.Id == asset.Id && x.Name == chName.Name).FirstOrDefault();
                         listchars.Add(new CharValueModel()
                         {
-                            Name = ch.Name,
-                            Value=val
+                            Id = (ch == null) ? 0 : chName.Id,
+                            Name = chName.Name,
+                            Value = (ch == null) ? "" : ch.Value,
+                            AssetId = id
                         });
                     }
 
                     return Ok(listchars);
                 }
 
-                   
+
 
             }
             catch (Exception ex)
@@ -128,22 +129,22 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Delete(int id)
         {
-            
-                try
+
+            try
+            {
+                AssetCategory assetCat = Repository.Get(id);
+                if (assetCat == null)
+                    return NotFound();
+                else
                 {
-                    AssetCategory assetCat = Repository.Get(id);
-                    if (assetCat == null)
-                        return NotFound();
-                    else
-                    {
-                        Repository.Delete(id);
-                        return Ok();
-                    }
+                    Repository.Delete(id);
+                    return Ok();
                 }
-                catch (Exception ex)
-                {
-                    return BadRequest();
-                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
             }
         }
     }
+}

@@ -191,6 +191,7 @@
     <Content Include="views\History.html" />
     <Content Include="views\loginModal.html" />
     <Content Include="views\NewOfficeRequests.html" />
+    <Content Include="views\OfficeAssets.html" />
     <Content Include="views\OfficeAssignedAssets.html" />
     <Content Include="views\ServiceOfficeRequests.html" />
     <Content Include="views\UserAssetsForService.html" />

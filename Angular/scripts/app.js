@@ -47,7 +47,9 @@
              .when("/officeassets", { templateUrl: "views/OfficeAssignedAssets.html", controller: "AssetsController" })
              .when("/servicemyassets", { templateUrl: "views/UserAssetsForService.html", controller: "UserDashboardController" })
             .when("/newservicerequests", { templateUrl: "views/SendServiceRequest.html", controller: "NewServiceRequestController" })
-              .when("/deviceassets", { templateUrl: "views/AllDeviceAssets.html", controller: "AddCharacteristicController" })
+              .when("/deviceassets", { templateUrl: "views/AllDeviceAssets.html", controller: "AssetsController" })
+                 .when("/officeassets", { templateUrl: "views/OfficeAssets.html", controller: "AssetsController" })
+            
 
         //Free assets(admin) 
         .when("/free", { templateUrl: "views/FreeAssets.html", controller: "AssetsController" })

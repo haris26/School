@@ -16,10 +16,10 @@
              $rootScope.menuItems.push({ text: "Inventory" });
              $rootScope.menuItems.push({ link: "addasset", text: "Add new equipment" });
              $rootScope.menuItems.push({ link: "assets", text: "Assigned equipment" });
-             
-                 $rootScope.menuItems.push({ link: "admindashboard" });
-                 $rootScope.menuItems.push({ link: "free", text: "Reports" });
+             $rootScope.menuItems.push({ link: "admindashboard" });
+             $rootScope.menuItems.push({ link: "free", text: "Reports" });
              $rootScope.menuItems.push({ link: "free", text: "Free equipment" });
+             $rootScope.menuItems.push({ link: "deviceassets", text: "All assets" });
             };
 
 
@@ -30,11 +30,10 @@
             $rootScope.menuItems.push({ text: "Inventory" });
             $rootScope.menuItems.push({ link: "addasset", text: "Add new equipment" });
             $rootScope.menuItems.push({ link: "officeassets", text: "Assigned equipment" });
-        
-           
              $rootScope.menuItems.push({ link: "officer" });
              $rootScope.menuItems.push({ link: "free", text: "Reports" });
              $rootScope.menuItems.push({ link: "freeoffice", text: "Free equipment" });
+             $rootScope.menuItems.push({ link: "officeassets", text: "All assets" });
          };
 
         if (currentUser.roles.indexOf("User") > -1) {

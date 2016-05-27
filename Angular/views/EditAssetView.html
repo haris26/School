@@ -47,6 +47,8 @@
                                 <input class="form-control" rows="1" id="comment" ng-model="asset.price" />
 
                             </div>
+                            <button type="submit" class="btn btn-primary" value="Send" ng-click="saveData(asset)">Save Data</button>
+                            <button type="submit" class="btn btn-primary" value="Send" ng-click="showChars()">Edit Characteristics</button>
                       <hr />
                           
                                 <!--<span ng-repeat="item in asset.assetCharacteristics">
@@ -54,16 +56,16 @@
                                     <a href="#/editasset" ng-click="save(item)"><span class="glyphicon glyphicon-ok"></span></a>
                                     <input class="form-control" rows="1" id="comment" ng-model="item.value" />
                                    </span>-->
-                            <hr />
+                      
                     
-                            <span ng-repeat="item in assetCharacteristics">
+                            <span ng-show="showcharacteristic" ng-repeat="item in assetCharacteristics">
                                 <label>{{ item.name }}</label>
                                 <a href="#/editasset" ng-click="saveNew(item)"><span class="glyphicon glyphicon-ok"></span></a>
                                 <input class="form-control" rows="1" id="comment" ng-model="item.value" />
                          
                             </span>
 
-                            <button type="submit" class="btn btn-primary" value="Send" ng-click="saveData(asset)">Save Data</button>
+                        
                            
                         </div>
 

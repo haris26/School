@@ -13,6 +13,7 @@
         fetchData();
         getPeople();
         getAssets();
+      
         getDeviceAssets();
         getOfficeAssets();
         getAllDeviceAssets();
@@ -50,6 +51,8 @@
 
             });
         };
+
+      
         function getFreeAssets() {
             DataService.list("assets", function (data) {
                 $scope.freeassets = data.freeAssets;
@@ -69,9 +72,20 @@
             });
         }
 
+        $scope.permissions = {
+            showAdminIT: currentUser.roles.indexOf("ITOfficer") > -1,
+            showAdminOfficer: currentUser.roles.indexOf("OfficeManager") > -1
+
+        }
+
+
+
+
         pop = function () {
             toaster.pop('success', "Success", " You assigned this asset!");
         };
+
+
 
         $scope.asset = {
             id: 0,
@@ -131,7 +145,7 @@
 
     app.controller("EditAssetController", function ($scope, $rootScope, toaster, DataService, $route) {
      
-       
+        $scope.showcharacteristic = false;
         getCharacteristicNames();
 
         pop = function () {
@@ -144,6 +158,11 @@
         };
 
        
+        $scope.showChars = function () {
+
+            $scope.showcharacteristic = !$scope.showcharacteristic;
+        }
+
 
         $scope.saveData = function (item) {
             
@@ -175,6 +194,7 @@
            $scope.assetCharacteristics= data;
             });
         };
+       
 
 
         //$scope.save = function (item) {
@@ -183,24 +203,42 @@
         //        popchar();
         //    }); }
 
-
-
         $scope.saveNew = function (item) {
-            $scope.char= {
+
+            $scope.char = {
                 id: 0,
                 name: item.name,
-                value:item.value,
-                asset:$scope.asset.id,
-                assetName:""
+                value: item.value,
+                asset: $scope.asset.id,
+                assetName: ""
+            }
+            if ($scope.char.id == 0) {
+                DataService.create("assetchars", $scope.char, function (data) { pop();});
+
+            }
+            else {
+                DataService.update("assetchars", item.id, item, function (data) { popchar(); });
+            
             }
            
-           
-            console.log(item);
-            DataService.create("assetchars", $scope.char, function (data) {
-                popchar();
-
-            });
         }
+
+        //$scope.saveNew = function (item) {
+        //    $scope.char= {
+        //        id: 0,
+        //        name: item.name,
+        //        value:item.value,
+        //        asset:$scope.asset.id,
+        //        assetName:""
+        //    }
+           
+           
+        //    console.log(item);
+        //    DataService.create("assetchars", $scope.char, function (data) {
+        //        popchar();
+
+        //    });
+        //}
 
     });
 

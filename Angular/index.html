@@ -2,6 +2,14 @@
 <html ng-app="school">
 
 <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
     <script src="library/jquery.min.js"></script>
     <script src="library/angular.js"></script>
     <script src="library/angular-route.js"></script>
@@ -60,7 +68,7 @@
 </head>
 <body>
     <toaster-container toaster-options="{'time-out':4000,'close-button':true,'position-class':'toast-bottom-right'}"></toaster-container>
-    <div>    
+    <div id="wrapper">    
             <!-- Navigation -->
             <div class="navbar navbar-inverse navbar-fixed-top"  ng-show="userName">
                 <div class="navbar-header">
@@ -146,6 +154,9 @@
                                    
                                     <li>
                                         <a href="#/{{menuItems[8].link}}"><span class="glyphicon glyphicon-plus-sign"></span> {{menuItems[8].text}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="#/{{menuItems[9].link}}"><span class="glyphicon glyphicon-plus-sign"></span> {{menuItems[9].text}}</a>
                                     </li>
 
                                 </ul>
