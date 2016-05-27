@@ -13,6 +13,8 @@ namespace Database
         public DbSet<ProjectSkill> ProjectSkills { get; set; }
         public DbSet<SkillCategory> SkillCategories { get; set; }
         public DbSet<Tool> Tools { get; set; }
+        public DbSet <EmployeeNotification> EmployeeNotifications { get; set; }
+
         // BETA
         public DbSet<Characteristic> CategoryCharacteristics { get; set; }
         public DbSet<CharacteristicName> CharacteristicNames { get; set; }

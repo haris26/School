@@ -3,14 +3,18 @@
     <div class="db-header-extra"></div>
 </div>
 
-
 <div id="content">
     {{ message }}
-    <br>
         <div ng-hide="message" class="row">
+            <div ng-show="permissions.showUser"ng-if="notification.assessedBySupervisor" class="col-md-5">
+                <div id="notification" class="alert alert-dismissible notification">
+                    <button type="button" class="close" data-dismiss="alert" ng-click="updateNotification()">&times;</button>
+                    <strong id="alertMessage">Supervisor has completed the assessment of your skills.</strong><br>
+                </div>
+            </div>
             <div class="col-sm-offset-8 col-sm-4">
                 <div class="btn-group" style="width:100%">
-                    <button type="button" class="btn btn-primary" style="width:50%">Summary</button>
+                        <button type="button" class="btn btn-primary" style="width:50%">Summary</button>
                     <button ng-click="goToAssessment()" type="button" class="btn btn-primary" style="width:50%">Assessments</button>
                 </div>
             </div>

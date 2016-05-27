@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alpha\EmployeeNotification.cs" />
     <Compile Include="ApiUser.cs" />
     <Compile Include="AuthToken.cs" />
     <Compile Include="Beta\DateTimeFormat.cs" />

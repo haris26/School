@@ -166,6 +166,7 @@
     <Content Include="views\modals\deleteQualificationModal.html" />
     <Content Include="views\modals\addEmployeeEducationModal.html" />
     <Content Include="views\findPeople.html" />
+    <Content Include="views\modals\notificationModal.html" />
     <Content Include="views\pendingAssessments.html" />
     <Content Include="views\people.html" />
     <Content Include="views\qualifications.html" />

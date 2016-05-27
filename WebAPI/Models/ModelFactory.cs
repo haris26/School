@@ -123,5 +123,14 @@ namespace WebAPI.Models
 
             return model;
         }
+        public EmployeeNotificationModel Create(EmployeeNotification employeeNotification)
+        {
+            return new EmployeeNotificationModel()
+            {
+                Id = employeeNotification.Id,
+                EmployeeId = employeeNotification.Employee.Id,
+                AssessedBySupervisor = employeeNotification.AssessedBySupervisor,
+            };
+        }
     }
 }

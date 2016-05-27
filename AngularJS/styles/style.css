@@ -86,3 +86,7 @@ svg text { fill: white; }
                      filter:alpha(opacity=80)}
 
 .legend { z-index: 10; position: fixed; right: 10px; top: 200px; background:#668caf; color:white; font-size:10px; padding:10px ;}
+.notification { background:#21b13b; color:white; font-size:12px; padding:10px;}
+#alertMessage {
+    margin:5%;
+}

@@ -55,5 +55,14 @@ namespace WebAPI.Models
                 Reference = model.Reference
             };
         }
+        public EmployeeNotification Create(EmployeeNotificationModel model, SchoolContext context)
+        {
+            return new EmployeeNotification()
+            {
+                Id = model.Id,
+                Employee = context.People.Find(model.EmployeeId),
+                AssessedBySupervisor=model.AssessedBySupervisor
+            };
+        }
     }
 }

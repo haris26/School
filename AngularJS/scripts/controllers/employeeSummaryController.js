@@ -2,12 +2,22 @@
 
     var app = angular.module("school");
 
-    app.controller("EmployeeSummaryCtrl", function ($scope, $routeParams, $log, $location, DataService, toaster) {
+    app.controller("EmployeeSummaryCtrl", function ($scope, $rootScope, $routeParams, $log, $location, DataService, toaster) {
 
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
 
         getEmployee($scope.employeeId);
+        showNotification($scope.employeeId);
+        $scope.permissions = {
+            showAdmin: currentUser.roles.indexOf("Admin") > -1,
+            showUser: currentUser.id == $scope.employeeId
+        }
+        $scope.newNotificationItem = {
+            id: 0,
+            employeeId: $scope.employeeId,
+            assessedBySupervisor: false
+        }
 
         function getEmployee(id) {
             DataService.read("employeesummaries", id, function (data) {
@@ -53,6 +63,25 @@
 
         $scope.editQualifications = function (employeeId) {
             $location.path('/editEmployeeQualifications/' + employeeId);
+        }
+
+        function showNotification(employeeId) {
+            DataService.read("employeenotifications", employeeId, function (data) {
+                $scope.notification = data;
+                if ($scope.notification ==false) {
+                    DataService.create("employeenotifications", $scope.newNotificationItem, function (data) {
+                    })
+                }
+            });
+        }
+        $scope.updateNotification = function () {
+            $scope.newNotificationItem = {
+                id: $scope.notification.id,
+                employeeId: $scope.notification.employeeId,
+                assessedBySupervisor: false
+            }
+                DataService.update("employeenotifications", $scope.notification.id, $scope.newNotificationItem, function (data) {
+                })
         }
     });
 }());
