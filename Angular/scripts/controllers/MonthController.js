@@ -6,6 +6,7 @@
 
         var d = new Date();
         var n = d.getMonth() + 1;
+        var y = d.getFullYear();
         var current = "month";
         var dataSet = "month";  
         $scope.dataSetD = "details";
@@ -13,6 +14,8 @@
         var mailSet = "sendmail/sendmailnotification";
 
         $scope.mont = new Date().getMonth() + 1;
+        $scope.year = new Date().getFullYear();
+        $scope.day = new Date();
         $scope.selMonth = "";
         $scope.sortOrder = "name";
         fetchData();
@@ -73,7 +76,7 @@
             console.log($scope.month.details);
             console.log(recepient);
             $scope.warning = "";
-        };
+       };
 
         $scope.transfer1 = function (item1) {
             $rootScope.n1 = item1.id;            
@@ -98,18 +101,38 @@
             });
         }
 
-        $scope.next = function () {
-            n = n + 1;
-            $scope.mont++;
-            fetchMonth(n);
-            //console.log(n);
+        $scope.thisMonth = function () {
+            n = new Date().getMonth() + 1;
+            y = new Date().getFullYear();
+            fetchData(n, y);
+            $scope.mont = new Date().getMonth() + 1;
+            $scope.year = new Date().getFullYear();
         }
+
         $scope.previous = function () {
             n = n - 1;
             $scope.mont--;
+            if ($scope.mont == 0) {
+                n = 12;
+                $scope.mont = 12;
+                $scope.year -= 1;
+            }
             fetchMonth(n);
-            //console.log(n);
+            console.log(n);
         }
+
+        $scope.next = function () {
+            n = n + 1;
+            $scope.mont++;
+            if ($scope.mont == 13) {
+                n = 1;
+                $scope.year += 1;
+                $scope.mont = 1;
+            }
+            fetchMonth(n);
+            console.log(n);
+        }
+       
         $scope.details = [];
 
         function fetchData() {

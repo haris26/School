@@ -1,94 +1,96 @@
 ﻿<script type="text/ng-template" id="myTemplate.html">
     <span>You have {{dayL}} days left</span>
 </script>
+
 <div class="container-fluid">
-    <div ng-controller="ModalController">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-3 col-xs-12" style="margin-top:-11%; position:sticky; left:-1%; top:10px">
-                <span class="col-xs-push-1" style="box-shadow: 8px 8px 100px #2E455C">
-                    <span><button class="btn btn-info col-md-2 col-xs-3" style="border-top: hidden; border-bottom:hidden;" value="Previous" ng-click="previous()">Previous</button></span>
-                    <span class="btn btn-info col-md-7 col-xs-5" style="border-top: hidden; border-bottom:hidden; border-color: white"> {{mont| monthName}} </span>
-                    <button class="btn btn-info col-xs-2" value="Next" ng-click="next()" style="width:195px; border-top: hidden; border-bottom:hidden;">Next</button>
-                </span>
-                <br />
-                <br />
-                <div ng-repeat="item in mjesec.lista" style="margin:0">
-                    <div><span class="weekdays">Mon</span><span class="weekdays">Tue</span><span class="weekdays">Wen</span><span class="weekdays">Thu</span><span class="weekdays">Fri</span><span class="weekdays">Sat</span><span class="weekdays">Sun</span></div>
-                 
-                    <div class="mjesec">
-                        <div ng-repeat="s in item.skip">
-                            <div class="skip">
-                            </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-3 col-xs-12" style="margin-top:-11%; position:sticky; left:-1%; top:10px">
+            <span class="col-xs-push-1" style="box-shadow: 8px 8px 100px #2E455C">
+                <span><button class="{{class}} btn btn-info col-md-2 col-xs-3" style="border-top: hidden; border-bottom:hidden;" value="Previous" ng-click="previous()">Previous</button></span>
+                <span class="btn btn-info col-md-7 col-xs-5" style="border-top: hidden; border-bottom:hidden; border-color: white" ng-click="thisMonth()"> {{mont | monthName}}, {{year}} </span>
+                <button class="btn btn-info col-xs-2" value="Next" ng-click="next()" style="width:195px; border-top: hidden; border-bottom:hidden;">Next</button>
+            </span>
+            <br />
+            <br />
+            <div ng-repeat="item in mjesec.lista" style="margin:0">
+                <div><span class="weekdays">Mon</span><span class="weekdays">Tue</span><span class="weekdays">Wen</span><span class="weekdays">Thu</span><span class="weekdays">Fri</span><span class="weekdays">Sat</span><span class="weekdays">Sun</span></div>
+
+                <div class="mjesec">
+                    <div ng-repeat="s in item.skip">
+                        <div class="skip">
                         </div>
-                        <div ng-repeat="d in item.days">
-                            <div class="dan">
-                                <span ng-click="toggleModal(datum); newDetail();transfer(d.day)">{{d.day}}</span>
-                            </div>
+                    </div>
+                    <div ng-repeat="d in item.days">
+                        <div id="dan" class="{{d.class}} dan" data-toggle="modal" data-target="#detModal" ng-click="newDetail(); transfer(d.day)">
+                            <span>{{d.day}}</span>
                         </div>
                     </div>
                 </div>
-            </div>            
+            </div>
         </div>
+    </div>
 
-        <modal-dialog show='modalShow' class="col-md-4 col-md-offset-3 col-xs-11" style="top:-500px">
-            <div class="day-modal-content">
-                <div class="unos form-horizontal">
-                    <div class="row">
-                        <div class="credit-card-div col-xs-offset-1">
-                            <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
-                                <div class="panel-heading">
-                                    <div class="row" style="color:#37ADE7; height:50px; vertical-align:central">
-                                        <button ng-click="nextDay(detail.date)"></button>
-                                        <span>Date : {{detail.date | date:'dd MMMM yyyy'}}</span>
-                                        <button ng-click="previousDay(detail.date)"></button>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-md-4 col-sm-4 col-xs-4">
-                                            <span class="help-block text-muted small-font" style="color:#2E455C; margin-left: -68px;"><b> Work Time</b></span>
-                                            <input class="form-control" type="text" ng-model="detail.workTime">
-                                        </div>
-                                        <div class="col-md-7 col-sm-7 col-xs-6 col-xs-push-1">
-                                            <span class="help-block text-muted small-font" style="color:#2E455C; margin-left: -174px;"><b>  Description</b></span>
-                                            <input class="form-control" type="text" ng-model="detail.description">
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <span class="help-block text-muted small-font" style="color:#2E455C; margin-left: -176px;"><b>  Team</b></span>
-                                            <select class="form-control" ng-model="detail.team" placeholder="Team"
-                                                    ng-options="team.id as team.name for team in teams"></select>
-                                        </div>
-                                        <div class="col-md-3 col-sm-3 col-xs-3">
-                                            <img class="glyphicon glyphicon-calendar" />
-                                        </div>
-                                    </div>
-                                    <br />
-
-                                    <div class="row">
-                                        <div class="col-md-5 col-sm-6 col-xs-6 pad-adjust col-md-offset-7">
-                                            <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData()" />
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div ng-repeat="item in dayDetails">
-                                        <div ng-repeat="detail in item.details">
-                                            <table class="table table-bordered">
-                                                <tr><td width="30%"><a href="#/details" ng-click="transfer(detail)">{{ detail.description }}</a> </td><td width="30%"> {{ detail.date | date:shortDate}}</td><td width="20%" style="color:#F2AE75; font-size:medium"> <b>{{detail.workTime}}</b></td><td width="20%"> {{detail.teamName}}</td><td width="20%"><button ng-click="transfer1(detail); deleteData()">Delete</button>  </td></tr>
-                                            </table>
-                                        </div>
+    <!--ENTER NEW DATA MODAL-->
+    <div class="container">
+        <div class="row">
+            <div id="detModal" class="modal fade" role="dialog" style="top:0%">
+                <div class="modal-dialog">
+                    <div class="modal-body">
+                        <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
+                            <div class="panel-heading">
+                                <div class="row" style="color:#5BC0DE; font-size:26px; height:50px; text-align:center; vertical-align:central">                                   
+                                    <span class="fa fa-angle-double-left fa-lg" style="cursor:pointer" ng-click="previousD()"></span>
+                                    <span ng-click="today(); thisMonth();" style="cursor:pointer; color:#60B72C">Date : {{detail.date | date:'dd MMMM yyyy'}}</span>
+                                    <span class="fa fa-angle-double-right fa-lg" style="cursor:pointer" ng-click="nextD()"></span>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-md-4 col-sm-4 col-xs-4">
+                                        <span class="help-block text-muted small-font"> Work Time</span>
+                                        <input class="form-control" type="text" placeholder="Work Time" ng-model="detail.workTime">
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <span class="help-block text-muted small-font">  Description</span>
+                                        <input class="form-control" type="text" placeholder="Description" ng-model="detail.description">
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-xs-4">
+                                        <span class="help-block text-muted small-font">  Team</span>
+                                        <select class="form-control" ng-model="detail.team" placeholder="Team"
+                                                ng-options="team.id as team.name for team in teams"></select>
+                                    </div>                                    
+                                </div>
+                                <br />
+
+                                <div class="row">
+                                    <div class="col-md-5 col-sm-6 col-xs-6 pad-adjust col-md-offset-7">
+                                        <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData()" />
+                                    </div>
+                                </div>
+                                <hr />
+
+                                <div ng-repeat="item in dayDetails">
+                                    <div ng-repeat="detail in item.details">
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <td width="60%">{{ detail.description }}</td>
+                                                <td width="30%"> {{ detail.date | date:shortDate}}</td>
+                                                <td width="10%" style="color:#37ADE7; font-size:medium"><b>{{detail.workTime}}</b></td>
+                                                <td width="20%"> {{detail.teamName}}</td>
+                                                <td width="10%"><span value="Delete" class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#deleteModal" style="color:#37ADE7; cursor:pointer; text-align:center;" ng-click="transfer1(detail); deleteData();"></span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-        </modal-dialog>
+        </div>
     </div>
     <toaster-container toaster-options="{'time-out': 6000, 'close-button':true, 'position-class':'toast-bottom-right'}"></toaster-container>
-
-
-
-
 </div>
 

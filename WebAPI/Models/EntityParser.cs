@@ -8,26 +8,23 @@ namespace WebAPI.Models
 {
     public class EntityParser
     {
-      
+
 
         //public EntityParser(SchoolContext ctx)
         //{
         //    context = ctx;
         //}
 
-        //public Engagement Create(EngagementModel model)
-        //{
-        //    return new Engagement()
-        //    {
-        //        Id = model.Id,
-        //        StartDate = model.StartDate,
-        //        EndDate = model.EndDate,
-        //        Time = model.Time,
-        //        Person = context.People.Find(model.Person),
-        //        Team = context.Teams.Find(model.Team),
-        //        Role = context.Roles.Find(model.Role)
-        //    };
-        //}
+        public Engagement Create(EngagementModel model, SchoolContext context)
+        {
+            return new Engagement()
+            {
+                Id = model.Id,
+                Person = context.People.Find(model.Person),
+                Team = context.Teams.Find(model.Team),
+                Role = context.Roles.Find(model.Role)
+            };
+        }
 
         public Day Create(DayModel model, SchoolContext context)
         {
@@ -52,7 +49,7 @@ namespace WebAPI.Models
                 LastName = model.LastName,
                 Category = model.Category,
                 Status = model.Status,
-                Email = model.Email
+                Email = model.Email,
             };
         }
 

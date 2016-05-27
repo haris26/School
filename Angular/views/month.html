@@ -23,7 +23,7 @@
                                 
                                 <span class="col-md-13 col-sm-13">
                                     <span class="col-md-6 col-sm-6">
-                                        <label class="col-xs-6 col-md-5 badge" style="background-color:#37ADE7">{{ detail.category }}</label>
+                                        <label class="col-xs-6 col-md-5 badge" style="background-color:#5BC0DE">{{ detail.category }}</label>
                                          <label class="badge" style="background-color:#60B72C; margin-top:0">
                                             {{detail.count}} hours logged
                                         </label>
@@ -85,15 +85,15 @@
                 <div class="col-md-6">
                     <span style="box-shadow: 8px 8px 100px #2E455C; align-items:center">
                         <span><button class="btn btn-info col-md-3 col-xs-3" style="border-top: hidden; border-bottom:hidden;" value="Previous" ng-click="previous()">Previous</button></span>
-                        <span class="btn btn-info col-md-6 col-xs-6 col-sm-6" style="border-top: hidden; border-bottom:hidden; border-color: white">{{mont| monthName}}</span>
+                        <span class="btn btn-info col-md-6 col-xs-6 col-sm-6" style="border-top: hidden; border-bottom:hidden; border-color: white" ng-click="thisMonth()">{{mont| monthName}}, {{year}}</span>
                         <button class="btn btn-info col-md-3 col-sm-3 col-xs-3" value="Next" ng-click="next()" style="border-top: hidden; border-bottom:hidden;">Next</button>
                     </span>
                     <div class="row">
                         <span class="col-md-7">
-                            <span><h class="badge" style="margin-top:10px; margin-right:5px">EMPTY DAYS</h><h class="badge" style="background-color:#60B72C; margin-top:10px">HOURS WORKED</h></span>
+                            <span><h class="badge" style="margin-top:10px; margin-right:5px; background-color:#5BC0DE">EMPTY DAYS</h><h class="badge" style="background-color:#60B72C; margin-top:10px">HOURS WORKED</h></span>
                         </span>
                         <span class="col-md-5 col-xs-5">
-                            <input style="max-height:20px; background:transparent; border-color:#37ADE7; border:hidden; margin-top:10px; color:white" placeholder="Filter" class="input-sm" type="search" ng-model="selMonth">
+                            <input style="max-height:20px; background:transparent; border-color:#5BC0DE; border:hidden; margin-top:10px; color:white" placeholder="Filter" class="input-sm" type="search" ng-model="selMonth">
                         </span>
                     </div>
 
@@ -106,10 +106,10 @@
                     <!--<span class="col-md-4">
                         <input style="max-height:30px; background:transparent; border-color:#37ADE7; border:hidden; color:white" placeholder="Filter" class="input-sm" type="search" ng-model="selMonth">
                     </span>-->
-                    <div dir-paginate="item in months | itemsPerPage:10">
+                    <div dir-paginate="item in months | filter: selDetail | itemsPerPage:10">
                         <ul class="list-group">
                             <li class="list-group-item col-md-6">
-                                <span class="badge" style="background-color:#60B72C">{{ item.totalHours }} </span><span class="badge">{{item.emptyDays}}</span><a ng-controller="NotificationController" class="glyphicon glyphicon-envelope" ng-click="transfer(item); sendEmail(); info();"></a>
+                                <span class="badge" style="background-color:#60B72C">{{ item.totalHours }} </span><span style="background-color:#5BC0DE" class="badge">{{item.emptyDays}}</span><a ng-controller="NotificationController" class="glyphicon glyphicon-envelope" ng-click="transfer(item); sendEmail(); info();"></a>
                                 <a ng-click="transfer(item); transfer1(item);">{{item.name}}</a>
                             </li>
                         </ul>
