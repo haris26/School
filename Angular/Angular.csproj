@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6E187CB3-DD09-41E7-B0B1-1AD88BDE388C}</ProjectGuid>
+    <ProjectGuid>{33243B7D-AA8A-49F5-A5EC-414E6CC6686F}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -173,6 +173,7 @@
     <Content Include="scripts\controllers\MenuController.js" />
     <Content Include="scripts\controllers\MonthController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
+    <Content Include="scripts\controllers\ReportController.js" />
     <Content Include="scripts\services\PaginationService.js" />
     <Content Include="scripts\services\Permission.js" />
     <Content Include="scripts\controllers\RolesController.js" />
@@ -184,6 +185,7 @@
     <Content Include="library\toaster.js" />
     <Content Include="styles\modal.css" />
     <Content Include="styles\notification.css" />
+    <Content Include="styles\printing-css.css" />
     <Content Include="styles\sidebar.css" />
     <Content Include="styles\site.css" />
     <Content Include="styles\details-table.css" />
@@ -198,6 +200,7 @@
     <Content Include="views\month.html" />
     <Content Include="views\modals\loginModal.html" />
     <Content Include="views\people.html" />
+    <Content Include="views\reports.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

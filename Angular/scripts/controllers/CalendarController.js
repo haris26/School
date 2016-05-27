@@ -167,8 +167,6 @@
         $scope.transfer = function (d) {
             fetchDataByDay(d);
             $scope.datum.setMonth(n - 1, d, y);
-            //$rootScope.dayD = $scope.datum;
-            //console.log($scope.datum);
         };
 
         $scope.transfer1 = function (detail) {

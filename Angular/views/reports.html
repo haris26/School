@@ -1,0 +1,52 @@
+﻿<div class="container" style="margin-top:-11%">
+    <div class="row">
+        <div class="col-md-offset-2">
+            <br />
+
+            <select ng-options="team as team.name for team in teams"
+                    ng-model="item" ng-change="update()">
+            </select>
+
+            <select ng-options="y as y for y in years"
+                    ng-model="item1" ng-change="updateYear()">
+            </select>
+            <select ng-model="month" ng-change="updateMonth()" ng-options="currMonth.key as currMonth.value for currMonth in months">
+            </select>
+            <button ng-click="fetchData()">Generate report</button>
+            <hr />
+            <div>
+                <h3>Team: {{item.name}}</h3>
+                <h3>Period: {{month}} {{item1}}</h3>
+            </div>
+            
+            <div id="print-area-1" class="print-area">
+                <div style="text-align:right;"><button class="no-print" ng-click="printDiv('print-area-1');">Print</button></div>
+                    <div class="row">
+                    <div class="row-md-12 row-sm-12 row-xs-8">
+                        <table class="table-fill" style="box-shadow: 8px 8px 100px #2E455C;">
+                            <thead>
+                                <tr>
+                                    <th width="30%">Person</th>
+                                    <th width="15%">Work Time</th>
+                                    <th width="20%">Bill time</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody class="table-hover" ng-repeat="item in reports.lista">
+                                <tr>
+                                    <td width="30%"> {{ item.name}}</td>
+                                    <td width="15%" style="color:#37ADE7; font-size:medium">
+                                        <b>{{item.hours}}</b>
+                                    </td>
+                                    <td width="20%"> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>
+</div>
+<textarea id="printing-css" style="display:none;">html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,a,strong,center,ul,li,form,label,table,tbody,tfoot,thead,tr,th,td,footer,header,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,figure,footer,header,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none},table{border-collapse:collapse;border-spacing:0}body{font:normal normal .8125em/1.4 Arial,Sans-Serif;background-color:#FFF;color:#333}strong,em,i{font-style:italic}a{text-decoration:none}a:hover{text-decoration:underline}a,acronym{border-bottom:1px dotted;cursor:help}sup,sub{vertical-align:baseline;position:relative;top:-.4em;font-size:86%}sub{top:.4em}small{font-size:86%}kbd{font-size:80%;border:1px solid #999;padding:2px 5px;border-bottom-width:2px;border-radius:3px},blockquote,pre,table,figure,hr,form,ol,ul,dl{margin:1.5em 0}hr{height:1px;border:none;background-color:#666}h1,h2,h3,h4,h5,h6{font-weight:bold;line-height:normal;margin:1.5em 0 0}h1{font-size:200%}h2{font-size:180%}h3{font-size:160%}h4{font-size:140%}h5{font-size:120%}h6{font-size:100%}ol,ul,dl{margin-left:3em}ol{list-style:decimal outside}ul{list-style:disc outside}li{margin:.5em 0}dt{font-weight:bold}dd{margin:0 0 .5em 2em}input,button,select,textarea{font:inherit;font-size:100%;line-height:normal;vertical-align:baseline}textarea{display:block;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}pre,code{font-family:"Courier New",Courier,Monospace;color:inherit}pre{white-space:pre;word-wrap:normal;overflow:auto}blockquote{margin-left:2em;margin-right:2em;border-left:4px solid #ccc;padding-left:1em;font-style:italic}table[border="1"] th,table[border="1"] td,table[border="1"] caption{border:1px solid;padding:.5em 1em;text-align:left;vertical-align:top}th{font-weight:bold}table[border="1"] caption{border:none;font-style:italic}.no-print{display:none}</textarea>
+<iframe id="printing-frame" name="print_frame" src="about:blank" style="display:none;"></iframe>
