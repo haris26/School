@@ -33,6 +33,10 @@ body {
   margin-bottom: 10px;
  color:#2e6da4;
 }
+#lblDashboard{
+margin-left:20px;
+}
+
 
 #requesttable_irma{
  border-top:solid 1px;
@@ -149,7 +153,10 @@ color:black;
 .sidebar .active>a>.fa.arrow:before {
     content: "\f107";
 }
-
+#irmaNav{
+    background-color: transparent; 
+    border-color: #337ab7;
+}
 .sidebar .nav-second-level li,
 .sidebar .nav-third-level li {
     border-bottom: 0!important;
@@ -388,3 +395,82 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+
+
+
+table#dataTables-example td {
+   word-wrap: break-word;
+   min-width: 100px;
+   max-width: 100px;
+   white-space:normal;
+}
+
+table#dataTables-example th {
+    background-color:#92C8D8;
+    color:#292929;
+}
+
+#table-panel{
+    border:0.5px solid grey;
+}
+
+#table-heading{
+    font:bold 16px arial, verdana;
+    color: black;
+}
+
+#nedimModal{
+    position:relative;
+ 
+    background-color:#1F2F3E;
+        border-style: solid;
+    border-color: #59B3D2
+    
+}
+
+#irmaModal{
+    position:relative;
+    right:110%;
+    background-color:floralwhite;
+        border-style: solid;
+    border-color: #59B3D2
+    
+}
+
+.modal-title{
+    color:#428bca;
+}
+
+.text-center{
+    padding:10px;
+    font:18px arial, verdana;
+}
+
+#irmapanel{
+  
+    background-color:#1F2F3E;
+    
+}
+
+
+.irmalabel{
+  
+    color:white;
+        font-weight: normal;
+    
+}
+
+#irmalabel{
+    color:white;
+        margin-left: -15px;
+}
+
+#irmaimg{
+
+  vertical-align: middle;
+    margin-left: 40px;
+}
+#status-select{
+    width:95px;
+}
+

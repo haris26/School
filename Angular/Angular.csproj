@@ -172,9 +172,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="styles\jquery-ui.css" />
-    <Content Include="styles\Site.css" />
     <Content Include="styles\startmin.css" />
-    <Content Include="styles\Style.css" />
     <Content Include="styles\tables.css" />
     <Content Include="styles\toaster.min.css" />
     <Content Include="views\AddNewAsset.html" />

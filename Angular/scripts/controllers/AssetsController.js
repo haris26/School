@@ -25,6 +25,9 @@
                 $scope.assets = data.allAssets;
             });
         };
+        
+      
+
 
         function getAllDeviceAssets() {
             DataService.list("assets", function (data) {
@@ -197,11 +200,7 @@
        
 
 
-        //$scope.save = function (item) {
-        //    console.log(item);
-        //    DataService.update("assetchars", item.id, item, function (data) {
-        //        popchar();
-        //    }); }
+  
 
         $scope.saveNew = function (item) {
 
@@ -223,23 +222,7 @@
            
         }
 
-        //$scope.saveNew = function (item) {
-        //    $scope.char= {
-        //        id: 0,
-        //        name: item.name,
-        //        value:item.value,
-        //        asset:$scope.asset.id,
-        //        assetName:""
-        //    }
-           
-           
-        //    console.log(item);
-        //    DataService.create("assetchars", $scope.char, function (data) {
-        //        popchar();
-
-        //    });
-        //}
-
+        
     });
 
 }());

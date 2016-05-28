@@ -1,29 +1,153 @@
 ﻿
     <div class="container-fluid">
-        <div class="row">
-            <div  ng-show="permissions.showAdminIT" class="col-lg-12">
-                <h1 class="page-header">Welcome, {{userName}}</h1>
-                <hr />
-                    <h4> You have <span class="badge">{{dashboard.countNewRequests}}</span> <a href="#/requests">requests </a>for <span class="label label-primary"> NEW</span> equipment.</h4>
-                    <hr>
-          
-                    <h4> You have <span class="badge">{{dashboard.countServiceRequests}}</span><a href="#/servicerequests"> requests</a> for <span class="label label-warning"> SERVICE </span> equipment. </h4>
-                    <hr>
-                    <h4><span class="badge">{{dashboard.countOutOfStockAssets}}</span> <a href="Taken.html">assets</a> are out of stock. You should make an order. </h4>
-                <hr />
-              </div>
+    
+            <h1 class="page-header">Welcome, {{userName}}</h1>
+            <div class="row">
+                <div ng-show="permissions.showAdminIT" class="col-lg-12">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{dashboard.countNewRequests}}</div>
 
-            <div ng-show="permissions.showAdminOfficer" class="col-lg-12" >
-                <h1 class="page-header">Welcome, {{userName}}</h1>
-                <hr />
-                <h4> You have <span class="badge">{{dashboard.countNewRequests}}</span> <a href="#/officerequests">requests </a>for <span class="label label-primary"> NEW</span> equipment.</h4>
-                <hr>
+                                    </div>
+                                    <div id="lblDashboard">New requests for equipment!</div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left"><a href="#/requests">View Details</a></span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
 
-                <h4> You have <span class="badge">{{dashboard.countServiceRequests}}</span><a href="#/officeservicerequests"> requests</a> for <span class="label label-warning"> SERVICE </span> equipment. </h4>
-                <hr>
-                <h4><span class="badge">{{dashboard.countOutOfStockAssets}}</span> <a href="Taken.html">assets</a> are out of stock. You should make an order. </h4>
-                <hr />
-            </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{dashboard.countServiceRequests}}</div>
+                                        <div>Requests for service!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{dashboard.countOutOfStockAssets}}</div>
+                                        <div>Out of stock assets!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div ng-show="permissions.showAdminOfficer" class="col-lg-12">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{dashboard.countNewRequests}}</div>
+
+                                    </div>
+                                    <div id="lblDashboard">New requests for equipment!</div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left"><a href="#/requests">View Details</a></span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{dashboard.countServiceRequests}}</div>
+                                        <div>Requests for service!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{dashboard.countOutOfStockAssets}}</div>
+                                        <div>Out of stock assets!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->

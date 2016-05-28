@@ -54,21 +54,15 @@
             {
                 errorPop();
                 return
-            }else{
-                //if ($scope.request.id == 0) {
+            } else
+            {
+                
                     DataService.create(dataSet, $scope.request, function (data) { });
                     pop();
                     console.log($scope.request);
                     $route.reload();             
                     $location.path("/usernewrequests")
-                //}else {
-                //    DataService.update(dataSet, $scope.request.id, $scope.request, function (data) { });
-                //    pop();
-                //    console.log($scope.request);
-                //    $route.reload();
-                //    fetchData();
-                //    $location.path("/usernewrequests")
-                //}
+                
                 
             }
         }
