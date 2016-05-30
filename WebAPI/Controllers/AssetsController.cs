@@ -30,7 +30,7 @@ namespace WebAPI.Controllers
                 query.Skip(PageSize * page).Take(PageSize).ToList().Where(x=>x.Status==AssetStatus.Assigned).Select(x => Factory.Create(x)).ToList();
 
             IList<AssetsModel> freeassets =
-                query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.Status==AssetStatus.Free && x.AssetCategory.assetType==AssetType.Device).Select(x => Factory.Create(x)).ToList();
+                query.ToList().Where(x => x.Status==AssetStatus.Free && x.AssetCategory.assetType==AssetType.Device).Select(x => Factory.Create(x)).ToList();
 
             IList<AssetsModel> freeofficeassets =
                 query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.User == null && x.Status == AssetStatus.Free && x.AssetCategory.assetType==AssetType.Office).Select(x => Factory.Create(x)).ToList();

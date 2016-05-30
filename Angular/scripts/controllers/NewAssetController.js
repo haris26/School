@@ -78,7 +78,8 @@
 
                 });                
                 $scope.transfer($scope.asset); 
-                pop();     
+                pop();
+                $location.path("/free");
                 }    
         }
         console.log($scope.savedasset);

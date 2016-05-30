@@ -138,6 +138,7 @@
     <Content Include="scripts\controllers\AddCharacteristicController.js" />
     <Content Include="scripts\controllers\AdminDashboardController.js" />
     <Content Include="scripts\controllers\AdminOfficeController.js" />
+    <Content Include="scripts\controllers\AssetReportsController.js" />
     <Content Include="scripts\controllers\AssetsController.js" />
     <Content Include="scripts\controllers\EngagementsController.js" />
     <Content Include="scripts\controllers\HistoryController.js" />
@@ -148,6 +149,7 @@
     <Content Include="scripts\controllers\NewRequestsController.js" />
     <Content Include="scripts\controllers\NewServiceRequestController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
+    <Content Include="scripts\controllers\ReportsController.js" />
     <Content Include="scripts\controllers\RolesController.js" />
     <Content Include="scripts\controllers\ServiceRequestsController.js" />
     <Content Include="index.html" />
@@ -181,6 +183,7 @@
     <Content Include="views\AdminDashboard.html" />
     <Content Include="views\AdminRequests.html" />
     <Content Include="views\AllDeviceAssets.html" />
+    <Content Include="views\AssetReports.html" />
     <Content Include="views\DeviceAssets.html" />
     <Content Include="views\cancelRequestModal.html" />
     <Content Include="views\CompletedRequestsForUser.html" />
@@ -192,6 +195,7 @@
     <Content Include="views\loginModal.html" />
     <Content Include="views\NewOfficeRequests.html" />
     <Content Include="views\OfficeAssignedAssets.html" />
+    <Content Include="views\Reports.html" />
     <Content Include="views\ServiceOfficeRequests.html" />
     <Content Include="views\UserAssetsForService.html" />
     <Content Include="views\login.html" />

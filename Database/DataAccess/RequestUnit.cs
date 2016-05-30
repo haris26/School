@@ -16,7 +16,6 @@ namespace Database
         public override void Insert(Request request)
         {
             context.Requests.Add(request);
-
             context.SaveChanges();
         }
     }

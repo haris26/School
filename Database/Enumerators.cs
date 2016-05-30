@@ -92,7 +92,10 @@ namespace Database
         Cancelled = 5,
         Approved = 3,
         Completed = 4,
-        InProccess = 1
+        New = 1,
+        InProccess = 6,
+        WaitingForUser = 7,
+        WaitingForThirdParty = 8
     }
 
     public enum RequestType
