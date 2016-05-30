@@ -17,10 +17,10 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="dataTable_wrapper">
-                        Filter: <input type="search" ng-model="selString">
+                        Filter: <input type="search" ng-model="selRequest">
                         Order:
                         <select ng-model="sortOrder">
-                            <option value="+status">Status</option>
+                            <option value="+personName">User name</option>
                             <option value="+serviceType">ServiceType</option>
 
                         </select>
@@ -32,17 +32,19 @@
                                     <th>Asset Category</th>
                                      <th>Person</th>
                                     <th>Date</th>
+                                    <th>Date</th>
                                     <th>Status</th>
                            
 
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="item in completedrequests | orderBy: sortOrder" class="request-table">
+                                <tr ng-repeat="item in completedrequests | orderBy: sortOrder | filter: selRequest" class="request-table">
                                     <td>{{item.requestType}} </td>
                                     <td>{{item.categoryName}}</td>
                                     <td>{{item.personName}}</td>
                                     <td>{{item.requestDate|date}}</td>
+                                    <td>{{item.completedRequestDate|date}}</td>
                                     <td>{{item.status}}</td>
                                 </tr>
 

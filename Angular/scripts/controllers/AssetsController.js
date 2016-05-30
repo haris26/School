@@ -100,6 +100,7 @@
             vendor: "",
             price: "",
             dateOfTrade: new Date(),
+            
             status: "",
             category: 0,
             categoryName: ""
@@ -118,7 +119,8 @@
                 serialNumber: item.serialNumber,
                 vendor: item.vendor,
                 price: item.price,
-                dateOfTrade: new Date(),
+                dateOfTrade: item.dateOfTrade,
+                dateOfAssign:new Date(),
                 status: 1,
                 category: item.category,
                 categoryName: item.categoryName
@@ -179,7 +181,8 @@
                 serialNumber: item.serialNumber,
                 vendor: item.vendor,
                 price: item.price,
-                dateOfTrade: new Date(),
+                dateOfTrade: item.dateOfTrade,
+                dateOfAssign: item.dateOfAssign,
                 status: 1,
                 category: item.category,
                 categoryName: item.categoryName

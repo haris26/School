@@ -94,7 +94,8 @@ namespace DataSeed
                     Price = Utility.getDouble(row, 5),
                     Status = (AssetStatus)Enum.Parse(typeof(AssetStatus), row.ItemArray.GetValue(6).ToString()),  
                     User = person,
-                   
+                    DateOfAssign= Utility.getDate(row, 9),
+
                     DateOfTrade = Utility.getDate(row,8),
                    
                     
@@ -157,7 +158,7 @@ namespace DataSeed
                     User = user,
                     Asset = asset,
                     AssetCategory=category,
-               
+                    CompletedRequestDate= Utility.getDate(row, 10),
                     AssetType = (AssetType)Enum.Parse(typeof(AssetType), row.ItemArray.GetValue(4).ToString()),
                     requestType = (RequestType)Enum.Parse(typeof(RequestType), row.ItemArray.GetValue(0).ToString()),
                     RequestMessage = Utility.getString(row, 1),

@@ -17,7 +17,7 @@
         fetchData();
         getDeviceRequests();
         getOfficeRequests();
-        getCompleted();
+        
 
         function getRequests() {
             DataService.list(dataSet, function (data) {
@@ -53,7 +53,8 @@
                 requestMessage: item.requestMessage,
                 requestDescription: item.requestDescription,
                 requestType: 1,
-                requestDate: Date.now(),
+                requestDate: item.requestDate,
+                completedRequestDate:new Date(),
                 quantity: item.quantity,              
                 assetType: item.assetType,
                 category: item.category,

@@ -23,7 +23,8 @@ namespace WebAPI.Models
         public string SerialNumber { get; set; }
         public string Vendor { get; set; }
         public double Price { get; set; }
-        public DateTime? DateOfTrade { get; set; }
+        public DateTime DateOfTrade { get; set; }
+        public DateTime? DateOfAssign { get; set; }
         public string Status { get; set; }
         public int Category { get; set; }
         public string CategoryName { get; set; }

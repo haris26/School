@@ -11,7 +11,8 @@ namespace Database
         public RequestType requestType { get; set; }                // Request type (procuration ot service)
         public string RequestMessage { get; set; }                  // Message(detailed description) of the request
         public string RequestDescription { get; set; }              //Short description(like subject in messages) 
-        public DateTime RequestDate { get; set; }                   // Date of the request
+        public DateTime RequestDate { get; set; }
+        public DateTime? CompletedRequestDate { get; set; }  // Date of the request
         public RequestStatus Status { get; set; }                   // Status
         public int Quantity { get; set; }
         public virtual AssetCategory AssetCategory { get; set; }

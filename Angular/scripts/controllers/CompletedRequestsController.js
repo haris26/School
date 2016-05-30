@@ -5,17 +5,14 @@
     app.controller("CompletedRequestsController", function ($scope, $rootScope, DataService, $route, $location) {
 
 
-        var dataSet = "requests";
-      
+        var dataSet = "allrequests";
+        $scope.selRequest = "";
+        $scope.sortOrder = "requestType";
         getOfficerequests();
         getDevicerequests();
-        fetchData();
 
-        function fetchData() {
-            DataService.list(dataSet, function (data) {
-                $scope.requests = data.allRequests;
-            });
-        }
+
+       
         function getOfficerequests() {
             DataService.list(dataSet, function (data) {
                 $scope.completedOfficerequests= data.completedOfficeRequests;

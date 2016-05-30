@@ -44,7 +44,8 @@ namespace WebAPI.Models
                     Status = request.Status.ToString(),
                     AssetType = request.AssetType.ToString(),
                     Email = request.User.Email.ToString(),
-                    ServiceType = request.ServiceType.ToString()
+                    ServiceType = request.ServiceType.ToString(),
+                    CompletedRequestDate=Convert.ToDateTime(request.CompletedRequestDate)
                 };
             }
             else
@@ -65,7 +66,8 @@ namespace WebAPI.Models
                     Status = request.Status.ToString(),
                     AssetType = request.AssetType.ToString(),
                     Email = request.User.Email.ToString(),
-                    ServiceType=request.ServiceType.ToString()
+                    ServiceType=request.ServiceType.ToString(),
+                    CompletedRequestDate = Convert.ToDateTime(request.CompletedRequestDate)
                 };
 
         }
@@ -125,7 +127,8 @@ namespace WebAPI.Models
                         DateOfTrade = asset.DateOfTrade,
                         Status = asset.Status.ToString(),
                         Category = asset.AssetCategory.Id,
-                        CategoryName = asset.AssetCategory.CategoryName
+                        CategoryName = asset.AssetCategory.CategoryName,
+                        DateOfAssign=Convert.ToDateTime(asset.DateOfAssign)
 
                     });
 
@@ -145,7 +148,8 @@ namespace WebAPI.Models
                         DateOfTrade = asset.DateOfTrade,
                         Status = asset.Status.ToString(),
                         Category = asset.AssetCategory.Id,
-                        CategoryName = asset.AssetCategory.CategoryName
+                        CategoryName = asset.AssetCategory.CategoryName,
+                        DateOfAssign = Convert.ToDateTime(asset.DateOfAssign)
 
 
                     });
@@ -203,7 +207,8 @@ namespace WebAPI.Models
                     CategoryName = asset.AssetCategory.CategoryName,
                     DateOfTrade = asset.DateOfTrade,
                     SerialNumber = asset.SerialNumber,
-                    assetCharacteristics = new List<AssetCharsModel>()
+                    assetCharacteristics = new List<AssetCharsModel>(),
+                    DateOfAssign = Convert.ToDateTime(asset.DateOfAssign)
 
                 };
                 foreach (var chars in asset.assetCharacteristics)
@@ -254,7 +259,8 @@ namespace WebAPI.Models
                     CategoryName = asset.AssetCategory.CategoryName,
                     DateOfTrade = asset.DateOfTrade,
                     SerialNumber = asset.SerialNumber,
-                    assetCharacteristics = new List<AssetCharsModel>()
+                    assetCharacteristics = new List<AssetCharsModel>(),
+                    DateOfAssign = Convert.ToDateTime(asset.DateOfAssign)
 
                 };
                 foreach (var chars in asset.assetCharacteristics)

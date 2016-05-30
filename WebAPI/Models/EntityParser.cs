@@ -25,7 +25,8 @@ namespace WebAPI.Models
                 Quantity = model.Quantity,
                 Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), model.Status),
                 AssetType = (AssetType)Enum.Parse(typeof(AssetType), model.AssetType),
-                ServiceType=(ServiceType)Enum.Parse(typeof(ServiceType),model.ServiceType)
+                ServiceType=(ServiceType)Enum.Parse(typeof(ServiceType),model.ServiceType),
+                CompletedRequestDate = Convert.ToDateTime(model.CompletedRequestDate)
 
 
             };
@@ -46,7 +47,8 @@ namespace WebAPI.Models
                 AssetCategory = context.AssetCategories.Find(model.Category),
                 DateOfTrade = Convert.ToDateTime(model.DateOfTrade),
                 SerialNumber = model.SerialNumber,
-                Price = model.Price
+                Price = model.Price,
+                DateOfAssign=Convert.ToDateTime(model.DateOfAssign)
  };
         }
 

@@ -32,6 +32,7 @@ namespace WebAPI.Models
         public int Quantity { get; set; }
         public string AssetType { get; set; }
         public string Email { get; set; }
-        public string ServiceType { get; set; }        
+        public string ServiceType { get; set; }
+        public DateTime CompletedRequestDate { get; set; }
     }
 }
