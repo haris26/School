@@ -140,6 +140,7 @@
     <Content Include="scripts\controllers\AdminOfficeController.js" />
     <Content Include="scripts\controllers\AssetReportsController.js" />
     <Content Include="scripts\controllers\AssetsController.js" />
+    <Content Include="scripts\controllers\CompletedRequestsController.js" />
     <Content Include="scripts\controllers\EngagementsController.js" />
     <Content Include="scripts\controllers\HistoryController.js" />
     <Content Include="scripts\controllers\LoginController.js" />
@@ -182,6 +183,7 @@
     <Content Include="views\AdminRequests.html" />
     <Content Include="views\AllDeviceAssets.html" />
     <Content Include="views\AssetReports.html" />
+   <Content Include="views\CompletedDeviceRequestsView.html" />
     <Content Include="views\DeviceAssets.html" />
     <Content Include="views\cancelRequestModal.html" />
     <Content Include="views\CompletedRequestsForUser.html" />
