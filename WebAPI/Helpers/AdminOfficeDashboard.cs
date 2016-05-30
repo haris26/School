@@ -21,7 +21,7 @@ namespace WebAPI.Helpers
 
 
             var requests = new RequestUnit(context).Get().
-                Where(x => x.requestType == RequestType.New && x.Status == RequestStatus.InProccess && x.AssetCategory.assetType == AssetType.Office).ToList();
+                Where(x => x.requestType == RequestType.New && x.Status == RequestStatus.New && x.AssetCategory.assetType == AssetType.Office).ToList();
             foreach (var request in requests)
             {
                 dashboard.CountNewRequests++;
@@ -41,7 +41,7 @@ namespace WebAPI.Helpers
 
 
 
-            var servicerequests = new RequestUnit(context).Get().Where(x => x.requestType == RequestType.Service && x.Status == RequestStatus.InProccess && x.AssetCategory.assetType == AssetType.Office).ToList();
+            var servicerequests = new RequestUnit(context).Get().Where(x => x.requestType == RequestType.Service && x.Status == RequestStatus.New && x.AssetCategory.assetType == AssetType.Office).ToList();
             foreach (var request in servicerequests)
             {
                 dashboard.CountServiceRequests++;

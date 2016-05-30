@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
             for (int i = 0; i < requests.Count(); i++)
 
             {
-                if (requests[i].Status == (RequestStatus.InProccess).ToString())
+                if (requests[i].Status == (RequestStatus.New).ToString())
                 {
                     count++;
                 }
@@ -136,7 +136,7 @@ namespace WebAPI.Controllers
 
                     if (model.Status == "1")
                     {
-                        model.Status = "InProccess";
+                        model.Status = "New";
                     }
                     else if (model.Status == "2")
                     {
@@ -153,6 +153,15 @@ namespace WebAPI.Controllers
                     else if (model.Status == "5")
                     {
                         model.Status = "Cancelled";
+                    }else if(model.Status == "6")
+                    {
+                        model.Status = "In Proccess";
+                    }else if(model.Status == "7")
+                    {
+                        model.Status = "Waiting For User Feedback";
+                    }else if(model.Status == "8")
+                    {
+                        model.Status = "Waiting For Third Party";
                     }
                     Mail.SendMail(model.Email, "Request status", "Your request status is now: " + model.Status);
 
@@ -170,7 +179,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                Repository.Delete(id);
+                Repository.Delete(id);               
                 return Ok();
             }
             catch (Exception ex)

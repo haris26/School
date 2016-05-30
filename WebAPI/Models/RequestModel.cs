@@ -10,7 +10,7 @@ namespace WebAPI.Models
     {
         public RequestModel()
         {
-            Status = "in Process";
+            Status = "New";
             RequestDate = DateTime.Now;
             ServiceType = "Default";
 

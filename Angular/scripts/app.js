@@ -37,8 +37,10 @@
              .when("/admindashboard", { templateUrl: "views/AdminDashboard.html", controller: "AdminDashboardController", resolve: { factory: userRouting } })
              .when("/officer", { templateUrl: "views/AdminDashboard.html", controller: "AdminOfficeController", resolve: { factory: userRouting } })
              .when("/userdashboard", { templateUrl: "views/UserDashboard.html", controller: "UserDashboardController", resolve: { factory: userRouting } })
-
               .when("/addasset", { templateUrl: "views/AddNewAsset.html", controller: "NewAssetController" })
+                .when("/reports", { templateUrl: "views/Reports.html", controller: "ReportsController" })
+                 .when("/assetReports", { templateUrl: "views/AssetReports.html", controller: "AssetReportsController" })
+
 
             //User-request manipulation
             //send new
