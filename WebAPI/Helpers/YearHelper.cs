@@ -26,7 +26,7 @@ namespace WebAPI.Helpers
                             .ToList();
 
             YearModel years = new YearModel();
-        
+
             foreach (var y in query)
             {
                 years = new YearModel()
@@ -35,7 +35,7 @@ namespace WebAPI.Helpers
 
                 };
             }
-            
+
             return Ok(years);
         }
     }

@@ -215,7 +215,6 @@
     <Compile Include="Helpers\AppGlobals.cs" />
     <Compile Include="Helpers\CalendarHelper.cs" />
     <Compile Include="Helpers\Dashboard.cs" />
-    <Compile Include="Helpers\PersonHelper.cs" />
     <Compile Include="Helpers\ListDetails.cs" />
     <Compile Include="Helpers\Mail.cs" />
     <Compile Include="Helpers\MonthList.cs" />
@@ -227,7 +226,6 @@
     <Compile Include="Models\DetailModel.cs" />
     <Compile Include="Models\EngagementModel.cs" />
     <Compile Include="Models\MailModel.cs" />
-    <Compile Include="Models\PrsnModel.cs" />
     <Compile Include="Models\EntityParser.cs" />
     <Compile Include="Models\ListTeamsModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />

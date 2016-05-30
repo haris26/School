@@ -185,7 +185,6 @@
     <Content Include="library\toaster.js" />
     <Content Include="styles\modal.css" />
     <Content Include="styles\notification.css" />
-    <Content Include="styles\printing-css.css" />
     <Content Include="styles\sidebar.css" />
     <Content Include="styles\site.css" />
     <Content Include="styles\details-table.css" />
