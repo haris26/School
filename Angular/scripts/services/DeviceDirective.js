@@ -24,9 +24,11 @@
                         elem.css('background-color', '#01AB8E');
                     }
                 }
+
+                if (scope.hour.isExtended == true && scope.hour.personName == currentUser.name) {
+                    elem.css('background-color', '#3475CD');
+                }
                 elem.bind('click', function () {
-                    console.log(scope, "daj skop");
-                    
                     if (scope.hour.isReserved == false && scope.hour.isPast != true) {
                         scope.newEvent = {
                             id: 0,
@@ -68,7 +70,6 @@
                             {
                                 $rootScope.refreshTable();
                                 elem.css('background-color', '#01AB8E');
-                                console.log(scope.newEvent);
                             }
                         });                         
                     }

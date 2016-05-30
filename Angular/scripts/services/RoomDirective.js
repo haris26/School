@@ -28,17 +28,15 @@
                         scope.timeSlot.endTime == "12:00" || scope.timeSlot.endTime == "13:00" ||
                         scope.timeSlot.endTime == "14:00" || scope.timeSlot.endTime == "15:00" ||
                         scope.timeSlot.endTime == "16:00" || scope.timeSlot.endTime == "17:00") {
-                   
                         elem.css('border-right-color', '#2E2E2E')
                 }
-                if (scope.timeSlot.isReserved == true) {
-                    elem.css('border-color', '#01AB8E')
-
+               
+                if (scope.timeSlot.isExtended == true && scope.timeSlot.personName == currentUser.name) {
+                    elem.css('background-color', '#3475CD');
                 }
                 elem.bind('click', function() {
                 
                     if (scope.timeSlot.isReserved == false && scope.timeSlot.isPast == false) {
-                        console.log("slot", scope.timeSlot);
                         scope.newEvent = {
                             id: 0,
                             eventTitle: "",
@@ -71,7 +69,6 @@
                             scope: scope
                         }).result.then(function(result) {
                             scope.timeSlot.isReserved = result;
-                            console.log("scoppe ovdje", scope);
                             if (scope.timeSlot.isReserved == true) {
                                 scope.getReservations();
                                 $rootScope.refreshWeek();

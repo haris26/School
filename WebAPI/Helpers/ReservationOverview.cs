@@ -16,8 +16,8 @@ namespace WebAPI.Helpers
             SchoolContext context = new SchoolContext();
             Resource resource = new Resource();
             DeviceOverviewModel model = new DeviceOverviewModel();
-            SetWeeklyInterval(modelParameters.FromDate, modelParameters);
-            DeviceTableModel table = new DeviceTableModel(modelParameters.FromDate);
+            var param= SetWeeklyInterval(modelParameters.FromDate, modelParameters);
+            DeviceTableModel table = new DeviceTableModel(param.FromDate);
 
             var deviceResource = new ResourceUnit(context).Get()
                 .Where(x => (x.Name == modelParameters.ResourceName) && (x.ResourceCategory.CategoryName == modelParameters.CategoryName))
@@ -29,7 +29,7 @@ namespace WebAPI.Helpers
 
             var events = new EventUnit(context).Get()
                 .Where(x => (x.Resource.Name == model.Name) &&
-                (DbFunctions.TruncateTime(x.EventStart) >= DbFunctions.TruncateTime(modelParameters.FromDate) && DbFunctions.TruncateTime(x.EventStart) <= DbFunctions.TruncateTime(modelParameters.ToDate))).ToList();
+                (DbFunctions.TruncateTime(x.EventStart) >= DbFunctions.TruncateTime(param.FromDate) && DbFunctions.TruncateTime(x.EventStart) <= DbFunctions.TruncateTime(param.ToDate))).ToList();
             foreach (var ch in resource.Characteristics)
             {
                 model.Characteristics.Add(new CharacteristicsListModel()
@@ -40,8 +40,16 @@ namespace WebAPI.Helpers
                 });
                
             }
-            var extended = getExtendedEvents(modelParameters.FromDate, modelParameters.CategoryName, resource.Name);
-            events.AddRange(extended);
+            
+            while(param.FromDate.Date <= param.ToDate.Date)
+            {
+                var extended = getExtendedEvents(param.FromDate, modelParameters.CategoryName, resource.Name);
+                events.AddRange(extended);
+                param.FromDate = param.FromDate.AddDays(1);
+            }
+
+            
+         
             foreach (var ev in events)
             {
                 IList<Event> DeviceEvents = new List<Event>();
@@ -59,6 +67,7 @@ namespace WebAPI.Helpers
                         EventTitle = ev.EventTitle,
                         EventStart = ev.EventStart,
                         EventEnd = ev.EventEnd,
+                        isExtended=ev.isExtended
 
                     };
 
@@ -135,6 +144,7 @@ namespace WebAPI.Helpers
                             EventTitle = ev.EventTitle,
                             EventStart = ev.EventStart,
                             EventEnd = ev.EventEnd,
+                            isExtended=ev.isExtended
 
                         };
 
@@ -201,6 +211,7 @@ namespace WebAPI.Helpers
                                 EventTitle = ev.EventTitle,
                                 EventStart = ev.EventStart,
                                 EventEnd = ev.EventEnd,
+                                isExtended=ev.isExtended
 
                             };
                             ev.EventStart = newEnd;
@@ -236,32 +247,35 @@ namespace WebAPI.Helpers
             return weekModels;
         }
 
-        public static void SetWeeklyInterval(DateTime date, SearchModel model)
+        public  static SearchModel SetWeeklyInterval(DateTime date, SearchModel model)
         {
+            SearchModel newModel = new SearchModel();
+            newModel.FromDate = date;
             DayOfWeek Day = date.DayOfWeek;
             if (Day == DayOfWeek.Monday)
             {
-                model.ToDate = model.FromDate.AddDays(4);
+                newModel.ToDate = model.FromDate.AddDays(4);
             }
             else if (Day == DayOfWeek.Tuesday)
             {
-                model.ToDate = model.FromDate.AddDays(3);
-                model.FromDate = model.FromDate.AddDays(-1);
+                newModel.ToDate = model.FromDate.AddDays(3);
+                newModel.FromDate = model.FromDate.AddDays(-1);
             }
             else if (Day == DayOfWeek.Wednesday)
             {
-                model.ToDate = model.FromDate.AddDays(2);
-                model.FromDate = model.FromDate.AddDays(-2);
+                newModel.ToDate = model.FromDate.AddDays(2);
+                newModel.FromDate = model.FromDate.AddDays(-2);
             }
             else if (Day == DayOfWeek.Thursday)
             {
-                model.ToDate = model.FromDate.AddDays(1);
-                model.FromDate = model.FromDate.AddDays(-3);
+                newModel.ToDate = model.FromDate.AddDays(1);
+                newModel.FromDate = model.FromDate.AddDays(-3);
             }
             else if (Day == DayOfWeek.Friday)
             {
-                model.FromDate = model.FromDate.AddDays(-4);
+                newModel.FromDate = model.FromDate.AddDays(-4);
             }
+            return newModel;
         }
 
        public static IList<Event> getExtendedEvents(DateTime date,string CategoryName,string ResourceName)
