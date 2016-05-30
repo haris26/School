@@ -67,6 +67,10 @@
             DataService.findPeople(searchModel, function (data) {
                 $scope.exactMatches = data.exactMatches;
                 $scope.closeMatches = data.closeMatches;
+                for (var i = 0; i < $scope.closeMatches.length; i++) {
+                    console.log("educations", $scope.closeMatches[i].fullName);
+                    console.log("educations", $scope.closeMatches[i].educations);
+                }              
             });
         }
     });

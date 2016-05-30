@@ -182,7 +182,13 @@ namespace WebAPI.Helpers
             employee.Skills = GetCurrentSkills(employeeSkills.ToList());
             employee.Engagements = employeeSkills.Key.Roles.Where(x => x.EndDate == null && x.Time > 0).ToList()
                                    .Select(x => EmployeeSummary.CreateEngagementDetail(x)).ToList();
-
+            employee.Educations = employeeSkills.Key.EmployeeEducations.ToList()
+                                                          .Select(x => new EmployeeEducationDetail()
+                                                          {
+                                                              Qualification = x.Education.Name,
+                                                              Reference = x.Reference
+                                                          })
+                                                          .ToList();
             return employee;
         }
 
