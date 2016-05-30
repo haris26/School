@@ -32,9 +32,10 @@ namespace WebAPI.Controllers
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
             IList<RequestModel> requests =
                query.Skip(PageSize * page).Take(PageSize).ToList().Select(x => Factory.Create(x)).ToList();
-            IList<RequestModel> completedrequests =
-              query.Skip(PageSize * page).Take(PageSize).ToList().Where(x=>x.Status==RequestStatus.Completed).Select(x => Factory.Create(x)).ToList();
-
+            IList<RequestModel> completeddevicerequests =
+              query.Skip(PageSize * page).Take(PageSize).ToList().Where(x=>x.AssetCategory.assetType==AssetType.Device && x.Status==RequestStatus.Completed).Select(x => Factory.Create(x)).ToList();
+            IList<RequestModel> completedofficerequests =
+              query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.AssetCategory.assetType == AssetType.Office && x.Status == RequestStatus.Completed).Select(x => Factory.Create(x)).ToList();
             int count = 0;
 
             for (int i = 0; i < requests.Count(); i++)
@@ -61,7 +62,8 @@ namespace WebAPI.Controllers
                 deviceRequests = devicerequests,
                 officeRequests = officerequests,
 
-                completedRequests=completedrequests,
+                completedDeviceRequests=completeddevicerequests,
+                completedOfficeRequests = completedofficerequests,
                 count
             };
         }

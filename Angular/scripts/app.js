@@ -55,7 +55,7 @@
         .when("/free", { templateUrl: "views/FreeAssets.html", controller: "AssetsController" })
        .when("/freeoffice", { templateUrl: "views/FreeOfficeAssets.html", controller: "AssetsController" })
         .when("/editasset", { templateUrl: "views/EditAssetView.html", controller: "EditAssetController" })
-           
+           .when("/completeddevicerequests", { templateUrl: "views/CompletedDeviceRequestsView.html", controller: "CompletedRequestsController" })
 
             //login and logout controller
             .when("/login", { templateUrl: "views/login.html", controller: "LoginController", resolve: { factory: userRouting } })

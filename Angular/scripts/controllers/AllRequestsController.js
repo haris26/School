@@ -13,14 +13,16 @@
         $scope.pageSize = 10;
 
         getRequests();
-        getCompletedRequests();
+
         fetchData();
         getDeviceRequests();
         getOfficeRequests();
+        getCompleted();
 
         function getRequests() {
             DataService.list(dataSet, function (data) {
                 $scope.requests = data.allRequests;
+               
             });
         };
 
@@ -29,6 +31,8 @@
                 $scope.officerequests = data.officeRequests;
             });
         };
+
+       
 
         function getDeviceRequests() {
             DataService.list(dataSet, function (data) {
@@ -77,12 +81,7 @@
             });
         }
 
-        function getCompletedRequests() {
-            DataService.list(dataSet, function (data) {
-                $scope.completedrequests = data.completedRequests;
-                console.log($scope.completedrequests);
-            });
-        }
+      
 
         $scope.transfer = function (item) {
             $scope.requests = item;
