@@ -28,7 +28,7 @@ namespace WebAPI.Helpers
 
              var closeMatches = context.EmployeeSkills.Where(x => searchedSkills.Contains(x.Tool.Id) && !exactMatches.Contains(x.Employee.Id)).ToList()
                                              .GroupBy(x => x.Employee)
-                                             .Select(x => CreateEmployeeResultModel(x))
+                                             .Select(x => CreateEmployeeResultModel(x, search.QueriedEducations.Count()))
                                              .OrderByDescending(x => x.Skills.Count())
                                              .ThenByDescending(x => x.Skills[0].Level)
                                              .ToList();
@@ -171,7 +171,7 @@ namespace WebAPI.Helpers
         }
 
         //for close matches
-        public static EmployeeResultModel CreateEmployeeResultModel(IGrouping<Person, EmployeeSkill> employeeSkills)
+        public static EmployeeResultModel CreateEmployeeResultModel(IGrouping<Person, EmployeeSkill> employeeSkills, int queriedEducations)
         {
             EmployeeResultModel employee = new EmployeeResultModel()
             {
@@ -182,13 +182,16 @@ namespace WebAPI.Helpers
             employee.Skills = GetCurrentSkills(employeeSkills.ToList());
             employee.Engagements = employeeSkills.Key.Roles.Where(x => x.EndDate == null && x.Time > 0).ToList()
                                    .Select(x => EmployeeSummary.CreateEngagementDetail(x)).ToList();
-            employee.Educations = employeeSkills.Key.EmployeeEducations.ToList()
-                                                          .Select(x => new EmployeeEducationDetail()
-                                                          {
-                                                              Qualification = x.Education.Name,
-                                                              Reference = x.Reference
-                                                          })
-                                                          .ToList();
+            if (queriedEducations != 0)
+            {
+                employee.Educations = employeeSkills.Key.EmployeeEducations.ToList()
+                                                              .Select(x => new EmployeeEducationDetail()
+                                                              {
+                                                                  Qualification = x.Education.Name,
+                                                                  Reference = x.Reference
+                                                              })
+                                                              .ToList();
+            }
             return employee;
         }
 
