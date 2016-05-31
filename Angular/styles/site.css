@@ -1,33 +1,33 @@
 /*CALENDAR STYLE*/
 .today {
-  background: #37ADE7 !important;
-  color: white !important;
+    background: #37ADE7 !important;
+    color: white !important;
 }
 
-.weekends{
-   color: #A3B9C4 !important;
-   background: rgba(92,14,10, 0.0699) !important;
+.weekends {
+    color: #A3B9C4 !important;
+    background: rgba(92,14,10, 0.0699) !important;
 }
 
-.weekends:hover{
-    color: #37ADE7 !important;
+    .weekends:hover {
+        color: red !important;
+    }
+
+div.hasData {
+    background-color: rgba(55,173,231, 0.09999);
 }
 
-.hasData{   
-   background-color: rgba(55,173,231, 0.09999) !important;
+    div.hasData:hover {
+        background-color: #60B72C;
+    }
+
+.disabled {
+    pointer-events: none !important;
 }
 
-.hasData:hover{
-    background-color: #60B72C !important;
-}
-
-.disabled{
-    pointer-events: none !important;    
-}
-
-.colored{
-background: rgba(91, 192, 222, .4) !important;
-border: none;
+.colored {
+    background: rgba(91, 192, 222, .4) !important;
+    border: none !important;
 }
 
 .label {
@@ -36,15 +36,15 @@ border: none;
     width: 45%;
     margin: 6px;
 }
+
 .print-area {
-    border:1px none;
-    padding:1em;
-    margin:0 0 1em
+    border: 1px none;
+    padding: 1em;
+    margin: 0 0 1em;
 }
 
-tr.spaceUnder > td
-{
-  padding-bottom: 2px;
+tr.spaceUnder > td {
+    padding-bottom: 2px;
 }
 
 .text {
@@ -55,21 +55,20 @@ tr.spaceUnder > td
 }
 
 .panel {
-    width:100%;
-    float:left;
-    margin:6px;
-    padding:10px;
-    
+    width: 100%;
+    float: left;
+    margin: 6px;
+    padding: 10px;
 }
 
 body {
-    background:no-repeat fixed;
+    background: no-repeat fixed;
     padding-top: 150px;
     padding-bottom: 20px;
     background-image: url('../images/photo1.jpg');
     /*background-image: url('../images/buildings.jpg');*/
     background-size: cover;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -92,217 +91,284 @@ textarea {
     max-width: 280px;
 }
 
-.tabela{
+.tabela {
     margin-top: -700px;
 }
 
-.unos{
-    margin-top:-7%;
+.unos {
+    margin-top: -7%;
 }
 
-.dashboard{
-    margin-top:-7%;
+.dashboard {
+    margin-top: -7%;
 }
 
-.title{
+.title {
     font-size: 24px;
-    padding-top:9px;
-    position:fixed;
-    right:50px;
+    padding-top: 9px;
+    position: fixed;
+    right: 50px;
     letter-spacing: 2px;
-    text-transform:lowercase;
+    text-transform: lowercase;
 }
 
-#img_logo{
+#img_logo {
     margin-top: -12px;
 }
 
 .table-content .form-control {
-        height: 30px;
-        padding: 2px;
-        padding-left: 5px;
-        overflow:auto;
-    }
-
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    
-    margin: 0; 
+    height: 30px;
+    padding: 2px;
+    padding-left: 5px;
+    overflow: auto;
 }
 
-input[type=number] {-moz-appearance: textfield;}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+}
 
-.btn-info{
-    background-color:#273547;
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.btn-info {
+    background-color: #273547;
     font-family: 'Oswald', sans-serif;
 }
 
-.row{
-    margin-top:3px;
+.row {
+    margin-top: 3px;
 }
 
-#footer{
-    position:fixed;
+#footer {
+    position: fixed;
     bottom: 0px;
-    color: #F2AE75;   
+    color: #F2AE75;
 }
 
-.form{
+.form {
     /*margin-top:-300px;*/
     color: rgba(229, 103, 23, 0.6);
 }
 
 
-.form1{
-   margin-top:-260px;
-   margin-left: 400px;
-    
+.form1 {
+    margin-top: -260px;
+    margin-left: 400px;
 }
 
-.username{
-color: rgba(229, 103, 23, 0.6);
+.username {
+    color: rgba(229, 103, 23, 0.6);
 }
 
-.btn-default{
-    background-color:#273547;
-    color:white;
+.btn-default {
+    background-color: #273547;
+    color: white;
     font-family: 'Oswald', sans-serif;
+}
+
+    .btn-default:hover {
+        background-color: #04c4bb;
     }
 
-.btn-default:hover{
-    background-color:#04c4bb;
+.name {
+    text-align: center;
+    display: block;
 }
 
-.name{
-    text-align:center;
-    display:block;
+.a:link {
+    color: #273547;
 }
 
-.a:link{
-    color:#273547;
-}
-
-.welcome{
+.welcome {
     margin-top: -200px;
 }
 
-.logo{
-    margin-top:-130px;
+.logo {
+    margin-top: -130px;
     /*margin-left: 600px;*/
 }
 
-.links{
+.links {
     color: rgba(229, 103, 23, 0.8);
 }
 
-.landing{
-    margin-top:-170px;
+.landing {
+    margin-top: -170px;
 }
 
-.create{
+.create {
     margin-top: -150px;
 }
 
 ::-webkit-input-placeholder {
-   color: #37ADE7;
-   font-size:14px;
-   font-family:sans-serif;
+    color: #37ADE7;
+    font-size: 14px;
+    font-family: sans-serif;
 }
 
-:-moz-placeholder { 
-   color: #37ADE7;  
-   font-weight:bold;
-   font-family:sans-serif;
+:-moz-placeholder {
+    color: #37ADE7;
+    font-weight: bold;
+    font-family: sans-serif;
 }
 
-::-moz-placeholder {  
-   color: #37ADE7; 
-   font-weight:bold; 
-   font-family:sans-serif;
+::-moz-placeholder {
+    color: #37ADE7;
+    font-weight: bold;
+    font-family: sans-serif;
 }
 
-:-ms-input-placeholder {  
-   color: #37ADE7;  
-   font-weight:bold;
-   font-family:sans-serif;
+:-ms-input-placeholder {
+    color: #37ADE7;
+    font-weight: bold;
+    font-family: sans-serif;
 }
 
-.social-login{
-  width: 150%;
-  padding: 10px 0 15px 0;
-  
+.social-login {
+    width: 150%;
+    padding: 10px 0 15px 0;
 }
-.social-login span{
-  width:calc(40% - 8px);
-  color: #fff;
-  border: 1px solid rgba(0,0,0,0.05);
-  padding: 12px;
-  border-radius: 2px;
-  font-size: 12px;
-  text-transform: uppercase;
-  margin: 0 3%;
-  text-align:center;
-  cursor:pointer;
-}
-.social-login span i{
-  width: 20px;
-  top: 2px;
-}
-.social-login span:first-child{
-  background-color: #49639F;
-}
-.social-login span:last-child{
-  background-color: #DF4A32;
-}
+
+    .social-login span {
+        width: calc(40% - 8px);
+        color: #fff;
+        border: 1px solid rgba(0,0,0,0.05);
+        padding: 12px;
+        border-radius: 2px;
+        font-size: 12px;
+        text-transform: uppercase;
+        margin: 0 3%;
+        text-align: center;
+        cursor: pointer;
+    }
+
+        .social-login span i {
+            width: 20px;
+            top: 2px;
+        }
+
+        .social-login span:first-child {
+            background-color: #49639F;
+        }
+
+        .social-login span:last-child {
+            background-color: #DF4A32;
+        }
 
 /*CALENDAR CELL SYTLE*/
 .mjesec {
     /*border: 2px solid white;*/
-    background-color:white;
-    width: 883px;
+    background-color: white;
+    width: 919px;
     display: table;
-    opacity:0.8;
+    opacity: 0.8;
 }
+
 .dan {
     border: 1px solid white;
-    border-right-width:0px;
+    border-right-width: 0px;
     background-color: white;
     color: #37ADE7;
-    width: 126px;
-    height: 70px;  
+    width: 131px;
+    height: 70px;
     float: left;
-    font-size:24px;
-    text-align:center;
+    font-size: 24px;
+    text-align: center;
     text-shadow: 5px black;
     display: table-cell;
-    line-height:2.7em;
-    cursor:pointer;    
+    line-height: 2.7em;
+    cursor: pointer;
 }
 
-.dan:hover{
-    background-color:#37ADE7;
-    color:white;
-}
-.skip{   
+    .dan:hover {
+        background-color: #37ADE7;
+        color: white;
+    }
+
+.skip {
     background-color: transparent;
     /*margin: 2px;*/
-    width: 126px;
-    height: 70px;  
+    width: 131px;
+    height: 70px;
     float: left;
 }
 
-.weekdays{
+.weekdays {
     background-color: white;
     color: #37ADE7;
     /*margin: 2px;*/
-    width: 126.2px;
-    height: 50px;  
+    width: 131.4px;
+    height: 50px;
     float: left;
-    font-size:24px;
-    text-align:center;
-    opacity:0.8;
-    border-bottom: 1px solid #37ADE7;	
-    line-height:2.5em;
+    font-size: 24px;
+    text-align: center;
+    opacity: 0.8;
+    border-bottom: 1px solid #37ADE7;
+    line-height: 2.5em;
+}
+
+/*.slijedeci {
+    width: 195px;
+}*/
+
+@media screen and (max-width: 480px) {
+    .mjesec {
+        background-color: white;
+        width: 350px;
+        display: table;
+        opacity: 0.8;
+    }
+
+    .dan {
+        margin: 1px;
+        width: 48px;
+        height: 46px;
+        float: left;
+        border: 1px solid white;
+        border-right-width: 0px;
+        background-color: white;
+        color: #37ADE7;
+        font-size: 24px;
+        text-align: center;
+        text-shadow: 5px black;
+        display: table-cell;
+        line-height: 1.5em;
+        cursor: pointer;
+    }
+
+        .dan:hover {
+            background-color: #37ADE7;
+            color: white;
+        }
+
+    .skip {
+        margin: 1px;
+        background-color: transparent;
+        width: 48px;
+        height: 46px;
+        float: left;
+    }
+
+    .weekdays {
+        margin: 1px;
+        background-color: white;
+        color: #37ADE7;
+        /*margin: 2px;*/
+        width: 48px;
+        height: 46px;
+        float: left;
+        font-size: 16px;
+        text-align: center;
+        opacity: 0.8;
+        border-bottom: 1px solid #37ADE7;
+        line-height: 1.5em;
+    }
+
+    .slijedeci {
+        width: 135px;
+    }
 }

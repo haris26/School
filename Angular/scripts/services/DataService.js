@@ -128,6 +128,15 @@
                 });
             },
 
+            getDetailsD: function (dataSet, id, m, y, d) {
+                var resourceUrl = "";
+                resourceUrl = source + dataSet + "/" + id + "/" + m + "/" + y + "/" + d
+
+                return $http({
+                    method: 'GET',
+                    url: resourceUrl
+                });
+            },
         };
     });
 }());
