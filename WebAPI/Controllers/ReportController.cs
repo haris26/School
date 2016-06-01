@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
                 };
                 var query = context.Details.Where(x => x.Team.Id == team && x.Day.Date.Month == month && x.Day.Date.Year == year)
                                            .GroupBy(x => x.Day.Person)
-                                           .Select(x => new { id = x.Key.Id, name = x.Key.FirstName, hours = x.Sum(y => y.WorkTime) }).ToList();
+                                           .Select(x => new { id = x.Key.Id, name = x.Key.FirstName +" " + x.Key.LastName, hours = x.Sum(y => y.WorkTime) }).ToList();
                 foreach (var item in query)
                 {
                     MonthWork work = new MonthWork(year, month)
@@ -60,7 +60,7 @@ namespace WebAPI.Controllers
                     };
                     var query = context.Details.Where(x => x.Team.Id == team && x.Day.Date.Year == year)
                                                .GroupBy(x => x.Day.Person)
-                                               .Select(x => new { id = x.Key.Id, name = x.Key.FirstName, hours = x.Sum(y => y.WorkTime)}).ToList();
+                                               .Select(x => new { id = x.Key.Id, name = x.Key.FirstName +" " + x.Key.LastName, hours = x.Sum(y => y.WorkTime)}).ToList();
                     foreach (var item in query)
                     {
                     MonthWork work = new MonthWork(year, 1)
