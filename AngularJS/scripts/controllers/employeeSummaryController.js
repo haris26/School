@@ -7,6 +7,10 @@
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
 
+        $scope.permissions = {
+            showAdmin: currentUser.roles.indexOf("Admin") > -1,
+        }
+
         getEmployee($scope.employeeId);
         showNotification($scope.employeeId);
         $scope.permissions = {
