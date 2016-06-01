@@ -70,10 +70,13 @@
 
         $scope.$on('$viewContentLoaded', function ($evt, data) {
             if (currentUser.roles.indexOf("admin") > -1) {
-                if (d >= 26 && d <= 31) {
+                if (d >= 1 && d < 5) {
                     $scope.pop();
-                    $scope.left = 31 - d;
-                    console.log($scope.left);
+                    $scope.left = 5 - d;
+                    console.log($scope.left);                   
+                }
+                if (d == 5) {
+                    $scope.lastDay();
                 }
             }
         });
@@ -84,6 +87,10 @@
 
         $scope.pop = function () {
             toaster.pop('info', "Please complete your time log", "myTemplate.html", null, 'template');
+        };
+
+        $scope.lastDay = function () {
+            toaster.pop('info', "Please complete your time log", "lastday.html", null, 'template');
         };
 
         $scope.transfer = function (item) {

@@ -6,13 +6,17 @@
     <span>The deadline for entering data for previous month has passed. You cannot scroll back!</span>
 </script>
 
+<script type="text/ng-template" id="upozorenje.html">
+    <span>This is the last day to complete your time logs. Deadline expires today!</span>
+</script>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-10 col-md-offset-3 col-xs-12" style="margin-top:-11%; position:sticky; left:-1%; top:10px">
             <span class="col-xs-push-1" style="box-shadow: 8px 8px 100px #2E455C">
                 <span><button class="{{class}} btn btn-info col-md-2 col-xs-3" ng-model="tooltip" style="border-top: hidden; border-bottom:hidden;" value="Previous" ng-click="previous()">Previous</button></span>
-                <span class="btn btn-info col-md-7 col-xs-5" style="border-top: hidden; border-bottom:hidden; border-color: white" ng-click="thisMonth()"> {{mont | monthName}}, {{year}} </span>
-                <button class="btn btn-info col-xs-2" value="Next" ng-click="next()" style="width:195px; border-top: hidden; border-bottom:hidden;">Next</button>
+                <span class="btn btn-info col-md-8 col-xs-6" style="border-top: hidden; border-bottom:hidden; border-color: white" ng-click="thisMonth()"> {{mont | monthName}}, {{year}} </span>
+                <button class="slijedeci btn btn-info col-md-2 col-xs-3" value="Next" ng-click="next()" style="border-top: hidden; border-bottom:hidden;">Next</button>
             </span>
             <br />
             <br />
@@ -69,7 +73,7 @@
 
                                 <div class="row">
                                     <div class="col-md-5 col-sm-6 col-xs-6 pad-adjust col-md-offset-7">
-                                        <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData()" />
+                                        <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData(); fetchDataByDay(d);" />
                                     </div>
                                 </div>
                                 <hr />
@@ -82,7 +86,7 @@
                                                 <td width="30%"> {{ detail.date | date:shortDate}}</td>
                                                 <td width="10%" style="color:#37ADE7; font-size:medium"><b>{{detail.workTime}}</b></td>
                                                 <td width="20%"> {{detail.teamName}}</td>
-                                                <td width="10%"><span value="Delete" class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#deleteModal" style="color:#37ADE7; cursor:pointer; text-align:center;" ng-click="transfer1(detail); deleteData();"></span></td>
+                                                <td width="10%"><span value="Delete" class="glyphicon glyphicon-trash" style="color:#37ADE7; cursor:pointer; text-align:center;" ng-click="transfer1(detail); deleteData();"></span></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -95,6 +99,6 @@
             </div>
         </div>
     </div>
-    <toaster-container toaster-options="{'time-out': 6000, 'close-button':true, 'position-class':'toast-bottom-right'}"></toaster-container>
+    <toaster-container toaster-options="{'time-out': 6000, 'close-button':true, 'position-class':'toast-bottom-right', 'limit':1}"></toaster-container>
 </div>
 

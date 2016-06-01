@@ -25,27 +25,27 @@
                 $scope.reports = data;
             });
         }
+
         $scope.updateYear = function()
         {
             $scope.yearD = $scope.item1;
             console.log($scope.yearD);
         }
+
         $scope.updateMonth = function () {
             $scope.monthD = $scope.month;
             console.log($scope.monthD);
         }
+
         $scope.update = function () {  
             $scope.teamId = $scope.item.id;
             console.log($scope.teamId);
         }
-        $scope.printDiv = function(elementId) {
-            var a = document.getElementById('printing-css').value;
-            var b = document.getElementById(elementId).innerHTML;
-            window.frames["print_frame"].document.title = document.title;
-            window.frames["print_frame"].document.body.innerHTML = '<style>' + a + '</style>' + b;
-            window.frames["print_frame"].window.focus();
-            window.frames["print_frame"].window.print();
+
+        $scope.printDiv = function(elementId) {            
+            window.print();
         }
+
         $scope.months = [
       {
           "key": "0",
@@ -100,6 +100,6 @@
           "value": "Dec"
       }
         ];
-        $scope.month = 'null';
+        $scope.month = '';
     });
 }());
