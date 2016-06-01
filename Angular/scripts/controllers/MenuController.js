@@ -13,6 +13,7 @@
                 $rootScope.menuItems.push({ link: "months", class: "fa fa-home fa-lg", text: "Dashboard" });
                 $rootScope.menuItems.push({ link: "calendar", class: "fa fa-calendar-o fa-lg", text: "Log Time" });
                 $rootScope.menuItems.push({ link: "details", class: "fa fa-tasks fa-lg", text: "Entries" });
+                $rootScope.menuItems.push({ link: "report", class: "fa fa-file-text fa-lg", text: "Reports" });
                 $rootScope.menuItems.push({ link: "logout", class: "fa fa-sign-out fa-lg", text: "Log Out" });
               
             };
