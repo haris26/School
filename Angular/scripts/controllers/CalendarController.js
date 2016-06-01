@@ -87,11 +87,11 @@
 
         $scope.$on('$viewContentLoaded', function ($evt, data) {
             if (currentUser.roles.indexOf("user") > -1) {
-                if (d >= 26 && d < 31) {
+                if (d >= 1 && d < 5) {
                     $scope.pop();
-                    $scope.left = 31 - d;                    
+                    $scope.left = 5 - d;                    
                 }
-                if (d == 31) {
+                if (d == 5) {
                     $scope.lastDay();
                 }
             }

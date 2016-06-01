@@ -126,6 +126,7 @@
     <Content Include="images\photo1.jpg" />
     <Content Include="images\spinner.gif" />
     <Content Include="images\toggle.png" />
+    <Content Include="images\unnamed.png" />
     <Content Include="library\angular-animate.js" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="library\dirPagination.js" />

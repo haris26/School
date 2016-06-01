@@ -35,7 +35,7 @@
             .when("/months", { templateUrl: "views/month.html", controller: "MonthController", resolve: { factory: userRouting } })
             .when("/engagements", { templateUrl: "views/engagements.html", controller: "EngagementsController" })
             .when("/calendar1", { templateUrl: "views/calendar.html", controller: "CalendarController" })
-            .when("/report", { templateUrl: "views/reports.html", controller: "ReportController" })
+            .when("/report", { templateUrl: "views/reports.html", controller: "ReportController", resolve: { factory: userRouting } })
             .otherwise({redirectTo: "/calendar"});
     }).run(function ($rootScope, $location) {
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
@@ -48,7 +48,7 @@
     var userRouting = function ($location) {
         if (currentUser.roles.indexOf("admin") > -1) {
             return true;
-        } else if (currentUser.roles.indexOf("developer") > -1)
+        } else if (currentUser.roles.indexOf("user") > -1)
         {
             return $location.path("calendar");
         }
