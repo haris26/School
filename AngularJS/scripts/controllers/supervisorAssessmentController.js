@@ -7,7 +7,7 @@
         $scope.message = "Loading data...";
         $scope.employeeId = $routeParams.employeeId;
         $scope.assessed = {};
-        $scope.leftToAssess = {};
+        $scope.leftToAssess = 0;
 
         $scope.assessmentClass = {
             true: "btn btn-success btn-sm",
@@ -22,24 +22,25 @@
         function getEmployee(id) {
             DataService.read("supervisorassessments", id, function (data) {
                 $scope.assessments = data;
-                for(var i=0; i<$scope.assessments.skills.length; i++){
+                for (var i = 0; i < $scope.assessments.skills.length; i++) {
                     for (var j = 0; j < $scope.assessments.skills[i].skills.length; j++) {
                         $scope.assessed[$scope.assessments.skills[i].skills[j].skillId] = false;
-                }
+                        $scope.leftToAssess++;
+                    }
                 }
                 $scope.message = "";
                 $scope.data = [];
             })
         }
 
-        $scope.updateEmployeeSkill = function (skill, dateOfSelfAssessment ) {
+        $scope.updateEmployeeSkill = function (skill, dateOfSelfAssessment) {
             var employeeSkill = {
                 id: skill.employeeSkillId,
                 employee: $scope.employeeId,
                 tool: skill.skillId,
                 level: skill.level,
                 experience: skill.experience,
-                skill:skill.skill,
+                skill: skill.skill,
                 dateOfSelfAssessment: dateOfSelfAssessment,
                 dateOfSupervisorAssessment: new Date(),
                 assessedBy: 1,
@@ -47,8 +48,14 @@
 
             DataService.update("employeeskills", skill.employeeSkillId, employeeSkill, function (data) {
                 if (data != false) {
-                    toaster.pop('note', skill.skill + " assessed");
-                    $scope.assessed[skill.skillId] = true;
+                    if ($scope.assessed[skill.skillId] == false) {
+                        $scope.leftToAssess--;
+                        toaster.pop('note', skill.skill + " assessed");
+                        $scope.assessed[skill.skillId] = true;
+                    }
+                    else {
+                        toaster.pop('note', skill.skill + " assessed");
+                    }
                 }
                 else {
                     toaster.pop('error', skill.skill + " could not be assessed!");
@@ -62,5 +69,6 @@
             $('.modal-backdrop').remove();
             $('body').removeClass('modal-open');
         }
+
     });
 }());

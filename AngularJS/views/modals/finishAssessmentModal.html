@@ -8,14 +8,20 @@
         <div class="modal-body">
             <div class="form-horizontal">
                 <div class="form-group">
-                    <p ng-if="permissions.showAdmin" class="text-center">
-                        <br>
-                        <label>Are you sure you want to finish this assessment for {{assessments.fullName}}?</label>
-                    </p>
-                    <p ng-if="permissions.showUser" class="text-center">
-                        <br>
-                        <label>Are you sure you want to finish this assessment?</label>
-                    </p>
+                    <div>
+                        <div ng-if="permissions.showAdmin" class="text-center">
+                            <br ng-if="leftToAssess>0">
+                            <label ng-if="leftToAssess>0">There are {{leftToAssess}} skills left to assess.</label>
+                            <br>
+                            <label>Are you sure you want to finish this assessment for {{assessments.fullName}}?</label>
+                        </div>
+                        <div ng-if="permissions.showUser" class="text-center">
+                            <br>
+                            <label>There are {{leftToAssessEmployee}} skills left to assess.</label>
+                            <br>
+                            <label>Are you sure you want to finish this assessment?</label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

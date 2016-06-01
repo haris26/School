@@ -13,6 +13,8 @@
         $scope.newSkills = {};
         $scope.showAdd = true;
         $scope.showUpdate = false;
+        $scope.leftToAssessEmployee = 0;
+        $scope.leftToAssessOriginal = 0;
 
         $scope.assessmentClass = {
             true: "btn btn-success btn-sm",
@@ -49,6 +51,8 @@
                     for (j = 0; j < $scope.assessments.skills[i].skills.length; j++) {
                         $scope.assessed[$scope.assessments.skills[i].skills[j].skillId] = false;
                         categories[$scope.assessments.skills[i].categoryName][$scope.assessments.skills[i].skills[j].skillId] = $scope.assessments.skills[i].skills[j];
+                        $scope.leftToAssessEmployee++;
+                        $scope.leftToAssessOriginal++;
                     }
                 }
                 fetchCategories();
@@ -58,8 +62,6 @@
         }
 
         $scope.createEmployeeSkill = function (skill) {
-
-            console.log(skill);
 
                 var employeeSkill = {
                     employee: $scope.employeeId,
@@ -73,8 +75,16 @@
 
                 DataService.create("employeeskills", employeeSkill, function (data) {
                     if (data != false) {
-                        $scope.assessed[skill.skillId] = true;
-                        toaster.pop('note', skill.skill + " assessed");
+                        if ($scope.assessed[skill.skillId] == false) {
+                            $scope.leftToAssessEmployee--;
+                            $scope.leftToAssessOriginal--;
+                            $scope.assessed[skill.skillId] = true;
+                            toaster.pop('note', skill.skill + " assessed");
+                        }
+                        else {
+                            $scope.assessed[skill.skillId] = true;
+                            toaster.pop('note', skill.skill + " assessed");
+                        }
                     }
                     else {
                         toaster.pop('error', skill.skill + " could not be assessed!");
@@ -105,9 +115,8 @@
                 newCategory.skills.push(newEmployeeSkill);
                 $scope.currentLength = newCategory.skills.length;
             });
-            console.log($scope.newSkills);
+
             if ($scope.currentLength != null) {
-                console.log($scope.currentLength);
                 $scope.assessments.skills.push(newCategory);
                 for (j = 0; j < $scope.assessments.skills[$scope.assessments.skills.length - 1].skills.length; j++) {
                     $scope.assessed[$scope.assessments.skills[$scope.assessments.skills.length - 1].skills[j].skillId] = false;
@@ -115,6 +124,7 @@
                 $scope.showAdd = false;
                 $scope.showUpdate = true;
             }
+            $scope.leftToAssessEmployee += $scope.currentLength;
         }
 
         $scope.updateEmployeeSkill = function () {
@@ -122,7 +132,7 @@
             var newCategory = {
                 categoryName: "New Skills",
                 skills: []
-            }; 
+            };
 
             angular.forEach($scope.newSkills, function (tool) {
                     if (tool) {
@@ -137,17 +147,22 @@
                         }
                         newCategory.skills.push(newEmployeeSkill);
                         $scope.currentLength = newCategory.skills.length;
+                        $scope.leftToAssessEmployee = $scope.leftToAssessOriginal + $scope.currentLength;
+                    }
+                    else if (!tool) {
+                        $scope.leftToAssessEmployee = $scope.leftToAssessOriginal + newCategory.skills.length;
                     }
             });
 
             if ($scope.currentLength != null) {
                 console.log($scope.currentLength);
                 $scope.assessments.skills.pop(newCategory);
-            $scope.assessments.skills.push(newCategory);
-            for (j = 0; j < $scope.assessments.skills[$scope.assessments.skills.length - 1].skills.length; j++) {
-                $scope.assessed[$scope.assessments.skills[$scope.assessments.skills.length - 1].skills[j].skillId] = false;
+                $scope.assessments.skills.push(newCategory);
+                for (j = 0; j < $scope.assessments.skills[$scope.assessments.skills.length - 1].skills.length; j++) {
+                    $scope.assessed[$scope.assessments.skills[$scope.assessments.skills.length - 1].skills[j].skillId] = false;
+                }
             }
-            }
+            console.log("KONACNO:", $scope.leftToAssessEmployee);
         }
 
         $scope.goToAssessment = function () {
