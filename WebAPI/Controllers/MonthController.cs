@@ -26,8 +26,8 @@ namespace WebAPI.Controllers
             {
                 string deadline = System.Configuration.ConfigurationManager.AppSettings["deadline"];
                 if (DateTime.Now.Day <= Convert.ToInt32(deadline))
-                    month = DateTime.Now.Month - 1;
-                else month = DateTime.Now.Month;
+                    month = DateTime.Now.Month;
+                //else month = DateTime.Now.Month;
             }
             var people = Repository.Get().OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList();
 
