@@ -25,18 +25,16 @@ namespace WebAPI.Helpers
                             .Distinct()
                             .ToList();
 
-            YearModel years = new YearModel();
+            //List<YearModel> years = new List<YearModel>();
 
-            foreach (var y in query)
-            {
-                years = new YearModel()
-                {
-                    year = y.ToString()
+            //foreach (var y in query)
+            //{
 
-                };
-            }
+            //    //new YearModel()
+                
+            //}
 
-            return Ok(years);
+            return Ok(query);
         }
     }
 }
