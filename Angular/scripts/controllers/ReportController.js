@@ -48,7 +48,7 @@
 
         $scope.months = [
       {
-          "key": "0",
+          "key": "1-12",
           "value": "All"
       },
       {
