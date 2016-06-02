@@ -12,6 +12,7 @@
         expiration: null
     };
 
+    adminPermission = true;
 
 
     app.constant("schConfig",
@@ -28,7 +29,7 @@
     app.config(function ($routeProvider) {
 
         $routeProvider
-
+            
               .when("/requests", { templateUrl: "views/NewRequests.html", controller: "AllRequestsController" })
             .when("/servicerequests", { templateUrl: "views/ServiceRequests.html", controller: "ServiceRequestsController" })
               .when("/officeservicerequests", { templateUrl: "views/ServiceOfficeRequests.html", controller: "ServiceRequestsController" })
@@ -38,6 +39,7 @@
              .when("/officer", { templateUrl: "views/AdminDashboard.html", controller: "AdminOfficeController", resolve: { factory: userRouting } })
              .when("/userdashboard", { templateUrl: "views/UserDashboard.html", controller: "UserDashboardController", resolve: { factory: userRouting } })
               .when("/addasset", { templateUrl: "views/AddNewAsset.html", controller: "NewAssetController" })
+                          .when("/addofficeasset", { templateUrl: "views/AddNewOfficeAsset.html", controller: "NewAssetController" })
                 .when("/reports", { templateUrl: "views/Reports.html", controller: "ReportsController" })
                  .when("/assetReports", { templateUrl: "views/AssetReports.html", controller: "AssetReportsController" })
 
@@ -46,7 +48,7 @@
             //send new
             .when("/makenewrequest", { templateUrl: "views/SendNewRequest.html", controller: "NewRequestsController" })
              .when("/assets", { templateUrl: "views/DeviceAssets.html", controller: "AssetsController" })
-             .when("/officeassets", { templateUrl: "views/OfficeAssignedAssets.html", controller: "AssetsController" })
+             .when("/allofficeassets", { templateUrl: "views/AllOfficeAssets.html", controller: "AssetsController" })
              .when("/servicemyassets", { templateUrl: "views/UserAssetsForService.html", controller: "UserDashboardController" })
             .when("/newservicerequests", { templateUrl: "views/SendServiceRequest.html", controller: "NewServiceRequestController" })
               .when("/deviceassets", { templateUrl: "views/AllDeviceAssets.html", controller: "AssetsController" })
@@ -58,6 +60,9 @@
        .when("/freeoffice", { templateUrl: "views/FreeOfficeAssets.html", controller: "AssetsController" })
         .when("/editasset", { templateUrl: "views/EditAssetView.html", controller: "EditAssetController" })
            .when("/completeddevicerequests", { templateUrl: "views/CompletedDeviceRequestsView.html", controller: "CompletedRequestsController" })
+             .when("/completeddevicerequests", { templateUrl: "views/CompletedDeviceRequestsView.html", controller: "CompletedRequestsController" })
+             .when("/completedofficerequests", { templateUrl: "views/CompletedOfficeRequestsView.html", controller: "CompletedRequestsController" })
+             .when("/outofstockassets", { templateUrl: "views/OutOfStockAssetsView.html", controller: "AssetsController" })
 
             //login and logout controller
             .when("/login", { templateUrl: "views/login.html", controller: "LoginController", resolve: { factory: userRouting } })
@@ -96,15 +101,25 @@
 
     var userRouting = function ($location) {
         if (currentUser.roles.indexOf("ITOfficer") > -1) {
-            return    $location.path("/admindashboard");
+            adminPermission = true;
+            return  $location.path("/admindashboard");
         }
         else if (currentUser.roles.indexOf("OfficeManager") > -1) {
+            adminPermission = true;
                 return $location.path("/officer");
 
             }
         
         else {
+            adminPermission = false;
             return $location.path("/userdashboard");
+
         }
     };
+
+   
+   
+
+
+    
 }());

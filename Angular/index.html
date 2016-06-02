@@ -98,7 +98,7 @@
             <!-- /.navbar-top-links -->
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse" ng-controller="MenuController">
-                    <ul class="nav" id="side-menu">
+                    <ul class="nav" id="side-menu" ng-init="showElement()">
 
                         <li>
                             <a href="#/{{menuItems[0].link}}"><span class="glyphicon glyphicon-menu-hamburger"></span>{{menuItems[0].text}} <span class="glyphicon glyphicon-menu-down"></span></a>
@@ -109,6 +109,9 @@
                                 </li>
                                 <li>
                                     <a href="#/{{menuItems[2].link}}"><span class="glyphicon glyphicon-plus-sign"></span> {{menuItems[2].text}}</a>
+                                </li>
+                                <li ng-show="showelement">
+                                    <a href="#/{{menuItems[10].link}}"><span class="glyphicon glyphicon-plus-sign"></span> {{menuItems[10].text}}</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -122,17 +125,31 @@
                                 <li>
                                     <a href="#/{{menuItems[5].link}}"><span class="glyphicon glyphicon-plus-sign"></span> {{menuItems[5].text}}</a>
                                 </li>
-                                <li>
-                                    <a href="#/{{menuItems[8].link}}"><span class="glyphicon glyphicon-plus-sign"></span> {{menuItems[8].text}}</a>
-                                </li>
-                                <li>
+                             
+                                    <li ng-show="showelement">
+                                        <a href="#/{{menuItems[8].link}}"><span class="glyphicon glyphicon-plus-sign"></span> {{menuItems[8].text}}</a>
+                                    </li>
+                              
+                                <li ng-show="showelement">
                                     <a href="#/{{menuItems[9].link}}"><span class="glyphicon glyphicon-plus-sign"></span> {{menuItems[9].text}}</a>
                                 </li>
+                                
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#/{{menuItems[7].link}}"><span class="glyphicon glyphicon-modal-window"></span> {{menuItems[7].text}}</a>
+                            <a href="#/{{menuItems[7].link}}"><span class="glyphicon glyphicon-list"></span> {{menuItems[7].text}}<span class="glyphicon glyphicon-menu-down"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#/{{menuItems[11].link}}"><span class="glyphicon glyphicon-plus-sign"></span> {{menuItems[11].text}}</a>
+                                </li>
+                                <li ng-show="showelement">
+                                    <a href="#/{{menuItems[12].link}}"><span class="glyphicon glyphicon-plus-sign"></span> {{menuItems[12].text}}</a>
+                                </li>
+                               
+                               
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                      
                     

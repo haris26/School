@@ -7,6 +7,7 @@
 
         var dataSet = "assets";
         getCategories();
+        getOfficeCategories();
         fetchData();
         $scope.asset = {};
         $scope.chars = {};
@@ -17,6 +18,11 @@
             });
         };
 
+        function getOfficeCategories() {
+            DataService.list("assetcategories", function (data) {
+                $scope.officecategories = data.officeCategories;
+            });
+        };
 
         
 
@@ -86,15 +92,11 @@
 
        
         $scope.addChars = function () {
-            //if ($scope.asset.serialNumber == "") {
-            //    errorPop();
-            //    return
-            //} else {
-        
-            DataService.create("assetchars", $scope.chars, function (data) { });
+           
+         DataService.create("assetchars", $scope.chars, function (data) { });
             console.log($scope.chars);
                 pop();
-            //}
+           
         }
 
 

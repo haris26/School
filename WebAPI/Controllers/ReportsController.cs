@@ -16,6 +16,7 @@ namespace WebAPI.Controllers
 
         public ReportsController(Repository<Request> depo) : base(depo) { }
 
+
         public IList<RequestModel> Get(int id = 0, string y = "", string t = "" )
         {
             int user = id;
@@ -66,7 +67,6 @@ namespace WebAPI.Controllers
             return list;
 
         }
-
 
     }
 }

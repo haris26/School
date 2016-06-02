@@ -18,7 +18,14 @@
                 <div class="panel-body">
 
                     <div class="dataTable_wrapper" ng-controller="AssetsController">
+                     
+                        Order:
+                        <select ng-model="sortOrder">
+                            <option value="+vendor">Vendor</option>
+                            <option value="+categoryName">Category</option>
 
+                        </select>
+                        <hr />
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
 
                             <thead>
@@ -26,7 +33,7 @@
                                     <th>Name</th>
                                     <th>Model</th>
                                     <th>Vendor</th>
-                                    <th>Status</th>
+                                  
                                     <th>Category</th>
                                     <th>Users</th>
                                     <th>Assign</th>
@@ -40,7 +47,7 @@
                                     <td>{{item.name}} </td>
                                     <td>{{item.model}}</td>
                                     <td>{{item.vendor}}</td>
-                                    <td>{{item.status}}</td>
+                                  
                                     <td>{{item.categoryName }}</td>
                                     <td><select ng-options="person as (person.firstName + ' ' + person.lastName) for person in users"  ng-model="selectedUser" id="status-select"></select></td>                                 
                                     <td><button class="btn btn-success" ng-click="assignDevice(item, selectedUser)">Assign</button></td>

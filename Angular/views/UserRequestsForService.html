@@ -41,7 +41,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr dir-paginate="item in dashboard.serviceRequests |itemsPerPage:5| orderBy: sortOrder" class="request-table">
+                                <tr dir-paginate="item in dashboard.serviceRequests |itemsPerPage:10| orderBy: sortOrder|filter: selRequest" class="request-table">
                                     <td>{{item.type}} </td>
                                     <td>{{item.categoryName}}</td>
                                     <td>{{item.assetType}}</td>

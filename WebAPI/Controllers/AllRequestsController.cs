@@ -15,10 +15,7 @@ namespace WebAPI.Controllers
     {
         public AllRequestsController(Repository<Request> depo) : base(depo) { }
 
-
-
-
-        public Object GetAll(int page = 0)
+     public Object GetAll(int page = 0)
         {
             int PageSize = 15;
             var query =

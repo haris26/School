@@ -22,8 +22,8 @@
                         Filter: <input type="search" ng-model="selString">
                         Order:
                         <select ng-model="sortOrder">
-                            <option value="+userName">User Name</option>
-                            <option value="+date">Date</option>
+                            <option value="+personName">User Name</option>
+                            <option value="+requestDate">Date</option>
 
                         </select>
                         <hr />
@@ -42,7 +42,7 @@
                             </thead>
                             <tbody>
                           
-                                <tr dir-paginate="item in devicerequests| itemsPerPage:5" class="request-table">
+                                <tr dir-paginate="item in devicerequests| itemsPerPage:10 | orderBy: sortOrder |filter: selString" class="request-table">
                                     <td>{{item.personName}} </td>
                                     <td>{{item.categoryName}}</td>
                                     <td>{{item.requestDate|date}}</td>

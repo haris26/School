@@ -35,14 +35,14 @@ namespace WebAPI.Controllers
 
             int TotalPages = (int)Math.Ceiling((double)query.Count() / PageSize);
 
-            IList<AssetCategoriesModel> officeCategories =
+            IList<AssetCategoriesModel> officecategories =
                 query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.assetType == AssetType.Office).Select(x => Factory.Create(x)).ToList();
 
-            IList<AssetCategoriesModel> deviceCategories =
+            IList<AssetCategoriesModel> devicecategories =
                 query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.assetType == AssetType.Device).Select(x => Factory.Create(x)).ToList();
 
 
-            IList<AssetCategoriesModel> allCategories =
+            IList<AssetCategoriesModel> allcategories =
                           query.Skip(PageSize * page).Take(PageSize).Select(x => Factory.Create(x)).ToList();
 
 
@@ -52,9 +52,9 @@ namespace WebAPI.Controllers
                 pageSize = PageSize,
                 currentPage = page,
                 pageCount = TotalPages,
-                deviceCategories = deviceCategories,
-                officeCategories = officeCategories,
-                allCategories = allCategories
+                deviceCategories = devicecategories,
+                officeCategories = officecategories,
+                allCategories = allcategories
 
             };
         }
