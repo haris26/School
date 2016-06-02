@@ -23,6 +23,7 @@
         $scope.fetchData = function() {
             DataService.readDd(dataSet, $scope.teamId, $scope.monthD, $scope.yearD, function (data) {
                 $scope.reports = data;
+                $scope.dummy = "trigger";
             });
         }
 

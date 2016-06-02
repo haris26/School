@@ -142,6 +142,7 @@
                 n = 12;
                 $scope.mont = 12;
                 $scope.year -= 1;
+                y -= 1;
             }
             fetchMonth(n);
             console.log(n);
@@ -153,6 +154,7 @@
             if ($scope.mont == 13) {
                 n = 1;
                 $scope.year += 1;
+                y += 1;
                 $scope.mont = 1;
             }
             fetchMonth(n);

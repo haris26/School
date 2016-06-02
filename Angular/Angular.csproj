@@ -175,7 +175,6 @@
     <Content Include="scripts\controllers\MonthController.js" />
     <Content Include="scripts\controllers\PeopleController.js" />
     <Content Include="scripts\controllers\ReportController.js" />
-    <Content Include="scripts\services\PaginationService.js" />
     <Content Include="scripts\services\Permission.js" />
     <Content Include="scripts\controllers\RolesController.js" />
     <Content Include="scripts\controllers\TeamsController.js" />

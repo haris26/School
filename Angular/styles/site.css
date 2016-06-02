@@ -1,12 +1,12 @@
 /*CALENDAR STYLE*/
 .today {
-    background: #37ADE7 !important;
+    background: #60B72C !important;
     color: white !important;
 }
 
 .weekends {
     color: #A3B9C4 !important;
-    background: rgba(92,14,10, 0.0699) !important;
+    background: rgba(78, 78, 81, 0.0799) !important;
 }
 
     .weekends:hover {
@@ -26,8 +26,19 @@ div.hasData {
 }
 
 .colored {
-    background: rgba(91, 192, 222, .4) !important;
+    background: rgba(78, 78, 81, .4) !important;
     border: none !important;
+}
+
+button,
+button:active,
+button:focus, 
+button:hover,
+.btn,
+.btn:active, 
+.btn:focus, 
+.btn:hover{   
+    outline:none !important;
 }
 
 .label {
@@ -71,20 +82,15 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
@@ -132,6 +138,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+input{
+    border-color:#60B72C;
 }
 
 .btn-info {
@@ -205,25 +215,25 @@ input[type=number] {
 }
 
 ::-webkit-input-placeholder {
-    color: #37ADE7;
+    color: #60B72C;
     font-size: 14px;
     font-family: sans-serif;
 }
 
 :-moz-placeholder {
-    color: #37ADE7;
+    color: #60B72C;
     font-weight: bold;
     font-family: sans-serif;
 }
 
 ::-moz-placeholder {
-    color: #37ADE7;
+    color: #60B72C;
     font-weight: bold;
     font-family: sans-serif;
 }
 
 :-ms-input-placeholder {
-    color: #37ADE7;
+    color: #60B72C;
     font-weight: bold;
     font-family: sans-serif;
 }
@@ -272,7 +282,7 @@ input[type=number] {
     border: 1px solid white;
     border-right-width: 0px;
     background-color: white;
-    color: #37ADE7;
+    color: #4e4e51;
     width: 131px;
     height: 70px;
     float: left;
@@ -285,7 +295,7 @@ input[type=number] {
 }
 
     .dan:hover {
-        background-color: #37ADE7;
+        background-color: #60B72C;
         color: white;
     }
 
@@ -299,7 +309,7 @@ input[type=number] {
 
 .weekdays {
     background-color: white;
-    color: #37ADE7;
+    color: #60B72C;
     /*margin: 2px;*/
     width: 131.4px;
     height: 50px;
@@ -331,7 +341,7 @@ input[type=number] {
         border: 1px solid white;
         border-right-width: 0px;
         background-color: white;
-        color: #37ADE7;
+        color: #4e4e51;
         font-size: 24px;
         text-align: center;
         text-shadow: 5px black;
@@ -341,7 +351,7 @@ input[type=number] {
     }
 
         .dan:hover {
-            background-color: #37ADE7;
+            background-color: #60B72C;
             color: white;
         }
 
@@ -356,7 +366,7 @@ input[type=number] {
     .weekdays {
         margin: 1px;
         background-color: white;
-        color: #37ADE7;
+        color: #60B72C;
         /*margin: 2px;*/
         width: 48px;
         height: 46px;

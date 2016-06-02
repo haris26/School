@@ -14,9 +14,9 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-3 col-xs-12" style="margin-top:-11%; position:sticky; left:-1%; top:10px">
             <span class="col-xs-push-1" style="box-shadow: 8px 8px 100px #2E455C">
-                <span><button class="{{class}} btn btn-info col-md-2 col-xs-3" ng-model="tooltip" style="border-top: hidden; border-bottom:hidden;" value="Previous" ng-click="previous()">Previous</button></span>
-                <span class="btn btn-info col-md-8 col-xs-6" style="border-top: hidden; border-bottom:hidden; border-color: white" ng-click="thisMonth()"> {{mont | monthName}}, {{year}} </span>
-                <button class="slijedeci btn btn-info col-md-2 col-xs-3" value="Next" ng-click="next()" style="border-top: hidden; border-bottom:hidden;">Next</button>
+                <span><button class="{{class}} btn col-md-2 col-xs-3" ng-model="tooltip" style="border-top: hidden; background-color:#4e4e51; color:white; border-bottom:hidden;" value="Previous" ng-click="previous()">Previous</button></span>
+                <span class="btn col-md-8 col-xs-6" style="border-top: hidden; border-bottom:hidden; background-color:#4e4e51;  color:white; border-color: white" ng-click="thisMonth()"> {{mont | monthName}}, {{year}} </span>
+                <button class="slijedeci btn col-md-2 col-xs-3" value="Next" ng-click="next()" style="border-top: hidden; color:white; background-color:#4e4e51; border-bottom:hidden;">Next</button>
             </span>
             <br />
             <br />
@@ -47,9 +47,9 @@
                         <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C;">
                             <div class="panel-heading">
                                 <div class="row" style="color:#5BC0DE; font-size:26px; height:50px; text-align:center; vertical-align:central">                                   
-                                    <span class="fa fa-angle-double-left fa-lg" style="cursor:pointer" ng-click="previousD()"></span>
+                                    <span class="fa fa-angle-double-left fa-lg" style="cursor:pointer; color:#4e4e51" ng-click="previousD()"></span>
                                     <span ng-click="today(); thisMonth();" style="cursor:pointer; color:#60B72C">Date : {{detail.date | date:'dd MMMM yyyy'}}</span>
-                                    <span class="fa fa-angle-double-right fa-lg" style="cursor:pointer" ng-click="nextD()"></span>
+                                    <span class="fa fa-angle-double-right fa-lg" style="cursor:pointer; color:#4e4e51" ng-click="nextD()"></span>
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-4 col-sm-4 col-xs-4">
@@ -73,7 +73,7 @@
 
                                 <div class="row">
                                     <div class="col-md-5 col-sm-6 col-xs-6 pad-adjust col-md-offset-7">
-                                        <input type="submit" class="btn btn-info btn-block" value="Save data" ng-click="saveData(); fetchDataByDay(d);" />
+                                        <input style="background-color:#60B72C; color:white" type="submit" class="btn btn-block" value="Save data" ng-click="saveData(); fetchDataByDay(d);" />
                                     </div>
                                 </div>
                                 <hr />
@@ -84,9 +84,9 @@
                                             <tr>
                                                 <td width="60%">{{ detail.description }}</td>
                                                 <td width="30%"> {{ detail.date | date:shortDate}}</td>
-                                                <td width="10%" style="color:#37ADE7; font-size:medium"><b>{{detail.workTime}}</b></td>
+                                                <td width="10%" style="color:#60B72C; font-size:medium"><b>{{detail.workTime}}</b></td>
                                                 <td width="20%"> {{detail.teamName}}</td>
-                                                <td width="10%"><span value="Delete" class="glyphicon glyphicon-trash" style="color:#37ADE7; cursor:pointer; text-align:center;" ng-click="transfer1(detail); deleteData();"></span></td>
+                                                <td width="10%"><span value="Delete" class="glyphicon glyphicon-trash" style="color:#60B72C; cursor:pointer; text-align:center;" ng-click="transfer1(detail); deleteData();"></span></td>
                                             </tr>
                                         </table>
                                     </div>

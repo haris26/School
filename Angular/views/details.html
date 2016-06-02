@@ -13,17 +13,17 @@
                         </select>-->
 
                         <span>
-                            <a class="col-md-2 col-sm-4 col-xs-5 label" ng-click="selDetail='PTO'" style="background-color:#37ADE7">PTOs</a>
-                            <a class="col-md-2 col-sm-4 col-xs-6 label" ng-click="selDetail=''" style="background-color:#37ADE7">CLEAR FILTER</a>
+                            <a class="col-md-2 col-sm-4 col-xs-5 label" ng-click="selDetail='PTO'" style="background-color:#4e4e51">PTOs</a>
+                            <a class="col-md-2 col-sm-4 col-xs-6 label" ng-click="selDetail=''" style="background-color:#4e4e51">CLEAR FILTER</a>
                         </span>
                         <span class="col-md-4 col-xs-3">
-                            <input style="max-height:30px; background:transparent; border-color:#37ADE7; border:hidden; color:white" placeholder="Filter" class="input-sm" type="search" ng-model="selDetail">
+                            <input style="max-height:30px; background:transparent; border-color:#60B72C; border:hidden; color:white" placeholder="Filter" class="input-sm" type="search" ng-model="selDetail">
                         </span>
                         <!--SELECT NUMBER OF LISTED DETAILS-->
-                        <span class="col-md-3 col-md-push-2">
-                            <button style="background-color:#37ADE7; color:white" class="btn" ng-click="setSize(10)">10</button>
-                            <button style="background-color:#37ADE7; color:white" class="btn" ng-click="setSize(20)">20</button>
-                            <button style="background-color:#37ADE7; color:white" class="btn" ng-click="setSize(30)">30</button>
+                        <span class="col-md-3 col-md-push-1">
+                            <button style="background-color:#4e4e51; color:white" class="btn" ng-click="setSize(10)">10</button>
+                            <button style="background-color:#4e4e51; color:white" class="btn" ng-click="setSize(20)">20</button>
+                            <button style="background-color:#4e4e51; color:white" class="btn" ng-click="setSize(30)">30</button>
                             
                         </span>    
                         <br />
@@ -34,7 +34,7 @@
 
             <!--TABLE OF DETAILS SEEDED THROUGH NG-REPEAT-->
             <div class="row">
-                <div class="row-md-12 row-sm-12 row-xs-8">
+                <div class="col-md-12 col-sm-12 col-xs-8">
                     <table class="table-fill" style="box-shadow: 8px 8px 100px #2E455C;">
                         <thead>
                             <tr>
@@ -48,14 +48,14 @@
                         <tbody class="table-hover" ng-repeat="item in details | filter: selDetail track by $index">
                             <tr>
                                 <td width="30%">
-                                    <a href="#/details" style="color:#37ADE7"><span data-toggle="modal" data-target="#editModal" ng-click="transfer(item)">{{ item.description }}</span></a>
+                                    <a href="#/details" style="color:#4E4E51"><span data-toggle="modal" data-target="#editModal" ng-click="transfer(item)">{{ item.description }}</span></a>
                                 </td>
                                 <td width="30%"> {{ item.date | date:shortDate }}</td>
-                                <td width="15%" style="color:#37ADE7; font-size:medium">
+                                <td width="15%" style="color:#60B72C; font-size:medium">
                                     <b>{{item.workTime}}</b>
                                 </td>
                                 <td width="20%"> {{item.teamName}}</td>
-                                <td><span value="Delete" class="glyphicon glyphicon-trash col-md-push-3" data-toggle="modal" data-target="#deleteModal" style="color:#37ADE7; cursor:pointer;" ng-click="transfer(item);"></span></td>
+                                <td><span value="Delete" class="glyphicon glyphicon-trash col-md-push-3" data-toggle="modal" data-target="#deleteModal" style="color:#60B72C; cursor:pointer;" ng-click="transfer(item);"></span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -67,7 +67,7 @@
                 <div style="text-align:center">
                     <div>
                         <ul class="pagination">
-                            <li ng-class="{ active : page == currentPage + 1 }" ng-click="changePage(page)" ng-repeat="page in pages"><a style="background-color:#37ADE7">{{page}}</a></li>
+                            <li ng-class="{ active : page == currentPage + 1 }" ng-click="changePage(page)" ng-repeat="page in pages"><a style="background-color:#4e4e51; cursor:pointer">{{page}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                             <br />
                             <div class="row">
                                <div class="col-md-4 col-sm-4 col-xs-4 pad-adjust col-md-offset-6" >
-                                    <input style="background-color:#4B627A; color:white" type="submit" class="btn btn-block" value="Save data" ng-click="saveData()" data-dismiss="modal" />
+                                    <input style="background-color:#60B72C; color:white" type="submit" class="btn btn-block" value="Save data" ng-click="saveData()" data-dismiss="modal" />
                                 </div>
                             </div>
                         </div>
