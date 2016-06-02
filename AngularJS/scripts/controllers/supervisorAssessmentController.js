@@ -51,7 +51,6 @@
                 if (data != false) {
                     toaster.pop('note', skill.skill + " assessed");
                     $scope.assessed[skill.skillId] = true;
-
                     DataService.read("employeenotifications", $scope.employeeId, function (data) {
                         $scope.notification = data;
                         $scope.newNotificationItem = {
@@ -59,13 +58,12 @@
                             employeeId: $scope.notification.employeeId,
                             assessedBySupervisor: true
                         }
-                        console.log($scope.notification.id);
                         if ($scope.notification.assessedBySupervisor!=true) {
-                            console.log("pozvao update");
                             DataService.update("employeenotifications", $scope.notification.id, $scope.newNotificationItem, function (data) {
                             })
                         }
                     });
+                    $scope.leftToAssess--;
                 }
                 else {
                     toaster.pop('error', skill.skill + " could not be assessed!");

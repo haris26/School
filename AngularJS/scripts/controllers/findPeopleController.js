@@ -43,6 +43,8 @@
         $scope.resetCriteria = function () {
             $scope.searchCriteria = [];
             $scope.addCriteria();
+            $scope.exactMatches = 0;
+            $scope.closeMatches = 0;
         }
 
         $scope.findPeople = function () {
@@ -66,11 +68,7 @@
 
             DataService.findPeople(searchModel, function (data) {
                 $scope.exactMatches = data.exactMatches;
-                $scope.closeMatches = data.closeMatches;
-                for (var i = 0; i < $scope.closeMatches.length; i++) {
-                    console.log("educations", $scope.closeMatches[i].fullName);
-                    console.log("educations", $scope.closeMatches[i].educations);
-                }              
+                $scope.closeMatches = data.closeMatches;       
             });
         }
     });
