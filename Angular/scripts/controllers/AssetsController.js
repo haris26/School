@@ -17,21 +17,36 @@
         getDeviceAssets();
         getOfficeAssets();
         getAllDeviceAssets();
+        getAllOfficeAssets();
         getFreeAssets();
         getFreeOfficeAssets();
-        
+        getOutOfStockAssets();
+
         function getAssets() {
             DataService.list("assets", function (data) {
                 $scope.assets = data.allAssets;
             });
         };
         
+        function getOutOfStockAssets() {
+            DataService.list("assets", function (data) {
+                $scope.outofstockassets = data.outOfStockAssets;
+            });
+        };
+
       
 
 
         function getAllDeviceAssets() {
             DataService.list("assets", function (data) {
                 $scope.alldeviceassets = data.allDeviceAssets;
+            });
+        };
+
+
+        function getAllOfficeAssets() {
+            DataService.list("assets", function (data) {
+                $scope.allofficeassets = data.allOfficeAssets;
             });
         };
 
@@ -120,7 +135,7 @@
                 vendor: item.vendor,
                 price: item.price,
                 dateOfTrade: item.dateOfTrade,
-                dateOfAssign:new Date(),
+                dateOfAssign: item.dateOfAssign,
                 status: 1,
                 category: item.category,
                 categoryName: item.categoryName

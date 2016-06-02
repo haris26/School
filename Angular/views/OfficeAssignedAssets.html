@@ -21,8 +21,8 @@
                         Filter: <input type="search" ng-model="selString">
                         Order:
                         <select ng-model="sortOrder">
-                            <option value="+userName">User name</option>
-                            <option value="+model">Model</option>
+                            <option value="-userName">User Name</option>
+                            <option value="+dateOfAssign">Date</option>
 
                         </select>
                         <hr />
@@ -32,7 +32,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Model</th>
-                                    <th>Status</th>
+                                    <th>Date of assign</th>
                                     <th>Category</th>
                                     <th>User</th>
 
@@ -40,15 +40,19 @@
                             </thead>
                             <tbody>
 
-                                <tr ng-repeat="item in officeassets  | orderBy: sortOrder" class="request-table">
+                                <tr dir-paginate="item in officeassets| itemsPerPage:10|orderBy: sortOrder | filter: selString" class="request-table">
                                     <td>{{item.name}} </td>
                                     <td>{{item.model}}</td>
-                                    <td>{{item.status}}</td>
+                                    <td>{{item.dateOfAssign|date}}</td>
                                     <td>{{item.categoryName }}</td>
                                     <td>{{item.userName}}</td>
                                 </tr>
                             </tbody>
                         </table>
+                        <dir-pagination-controls [max-size="5"
+                                                 [direction-links="true"
+                                                 [boundary-links="true">
+                        </dir-pagination-controls>
                     </div>
                     <!-- /.table-responsive -->
                 </div>

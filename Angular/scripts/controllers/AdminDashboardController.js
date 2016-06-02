@@ -6,8 +6,8 @@
         var dataSet = "admindashboard";
         var num="1";
         fetchData();
-        $scope.selString = "";
-        $scope.sortOrder = "userName";
+        $scope.selRequest = "";
+        $scope.sortOrder = "type";
         $rootScope.model = {};
        
 

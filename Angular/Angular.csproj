@@ -179,11 +179,14 @@
     <Content Include="styles\tables.css" />
     <Content Include="styles\toaster.min.css" />
     <Content Include="views\AddNewAsset.html" />
+    <Content Include="views\AddNewOfficeAsset.html" />
     <Content Include="views\AdminDashboard.html" />
     <Content Include="views\AdminRequests.html" />
     <Content Include="views\AllDeviceAssets.html" />
+    <Content Include="views\AllOfficeAssets.html" />
     <Content Include="views\AssetReports.html" />
-   <Content Include="views\CompletedDeviceRequestsView.html" />
+    <Content Include="views\CompletedDeviceRequestsView.html" />
+    <Content Include="views\CompletedOfficeRequestsView.html" />
     <Content Include="views\DeviceAssets.html" />
     <Content Include="views\cancelRequestModal.html" />
     <Content Include="views\CompletedRequestsForUser.html" />
@@ -196,6 +199,7 @@
     <Content Include="views\NewOfficeRequests.html" />
     <Content Include="views\OfficeAssets.html" />
     <Content Include="views\OfficeAssignedAssets.html" />
+    <Content Include="views\OutOfStockAssetsView.html" />
     <Content Include="views\Reports.html" />
     <Content Include="views\ServiceOfficeRequests.html" />
     <Content Include="views\UserAssetsForService.html" />

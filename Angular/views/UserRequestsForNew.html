@@ -17,11 +17,11 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="dataTable_wrapper" ng-controller="UserDashboardController">
-                        Filter: <input type="search" ng-model="selString">
+                        Filter: <input type="search" ng-model="selRequest">
                         Order:
                         <select ng-model="sortOrder">
                             <option value="+status">Status</option>
-                            <option value="+requestType">Request Type</option>
+                            <option value="+date">Request Date</option>
 
                         </select>
                         <hr />
@@ -39,7 +39,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr dir-paginate="item in dashboard.newRequests |itemsPerPage:5| orderBy: sortOrder" class="request-table">
+                                <tr dir-paginate="item in dashboard.newRequests |itemsPerPage:10| orderBy: sortOrder |filter: selRequest" class="request-table">
                                     <td>{{item.type}} </td>
                                     <td>{{item.categoryName}}</td>
                                     <td>{{item.description}}</td>

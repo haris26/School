@@ -23,8 +23,8 @@
                         Filter: <input type="search" ng-model="selString">
                         Order:
                         <select ng-model="sortOrder">
-                            <option value="+serviceType">Service Type</option>
-                            <option value="+date">Date</option>
+                            <option value="+personName">User Name</option>
+                            <option value="+requestDate">Date</option>
 
                         </select>
                         <hr />
@@ -48,7 +48,7 @@
                             </thead>
                             <tbody>
 
-                                <tr ng-repeat="item in serviceOfficeRequests| orderBy: sortOrder | filter: selString" class="request-table">
+                                <tr dir-paginate="item in serviceOfficeRequests| itemsPerPage:10|orderBy: sortOrder | filter: selString" class="request-table">
 
                                     <td>{{item.personName}} </td>
                                     <td>{{item.categoryName}}</td>
@@ -71,6 +71,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <dir-pagination-controls [max-size="5"
+                                                 [direction-links="true"
+                                                 [boundary-links="true">
+                        </dir-pagination-controls>
                     </div>
                     <!-- /.table-responsive -->
                 </div>

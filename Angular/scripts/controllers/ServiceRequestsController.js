@@ -8,7 +8,7 @@
         $scope.modal = false;
         var dataSet = "servicerequests";
         $scope.selString = "";
-        $scope.sortOrder = "date";
+        $scope.sortOrder = "requestDate";
         getRequests();
         getOfficeRequests();
         fetchData();

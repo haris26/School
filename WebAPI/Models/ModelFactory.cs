@@ -128,7 +128,7 @@ namespace WebAPI.Models
                         Status = asset.Status.ToString(),
                         Category = asset.AssetCategory.Id,
                         CategoryName = asset.AssetCategory.CategoryName,
-                        DateOfAssign=Convert.ToDateTime(asset.DateOfAssign)
+                     
 
                     });
 

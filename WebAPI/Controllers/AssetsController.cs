@@ -47,7 +47,8 @@ namespace WebAPI.Controllers
             IList<AssetsModel> alldeviceassets =
                 query.Skip(PageSize * page).Take(PageSize).ToList().Where(x =>x.AssetCategory.assetType == AssetType.Device).Select(x => Factory.Create(x)).ToList();
 
-
+            IList<AssetsModel> outofstock =
+               query.Skip(PageSize * page).Take(PageSize).ToList().Where(x => x.Status==AssetStatus.OutOfStock).Select(x => Factory.Create(x)).ToList();
             return new
             {
                 pageSize = PageSize,
@@ -59,7 +60,8 @@ namespace WebAPI.Controllers
                 officeAssets=officeassets,
                 deviceAssets=deviceassets,
                 allOfficeAssets=allofficeassets,
-                allDeviceAssets=alldeviceassets
+                allDeviceAssets=alldeviceassets,
+                outOfStock=outofstock
             };
         }
 

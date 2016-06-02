@@ -7,7 +7,7 @@
 
         var dataSet = "requests";
         $scope.selString = "";
-        $scope.sortOrder = "";
+        $scope.sortOrder = "personName";
 
         $scope.currentPage = 1;
         $scope.pageSize = 10;

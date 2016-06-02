@@ -6,13 +6,14 @@
         var dataSet = "dashboard";
  
         $scope.buttonView = false;
-        $scope.selString = "";
-        $scope.sortOrder = "";
+        $scope.selRequest = "";
+        $scope.sortOrder = "status";
         $rootScope.model = {};
         $scope.currentPage = 1;
         $scope.pageSize = 10;
        
-     
+       
+
         function fetchData() {
             DataService.list(dataSet, function (data) {
                 $scope.dashboard = data;
@@ -20,6 +21,10 @@
         }
         fetchData();
 
+
+
+       
+       
         $scope.transfer = function transfer(item) {
             $rootScope.model = item;
         }
