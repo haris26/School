@@ -40,6 +40,16 @@
                          callback(false);
                      })
             },
+            read2: function (dataSet, user, type,status, callback) {
+                $http.get(source + dataSet + "/" + user + "/" + type + "/" + status)
+                     .success(function (data) {
+                         return callback(data);
+                     })
+                     .error(function (error) {
+                         $rootScope.message = error.message;
+                         callback(false);
+                     })
+            },
             completedService: function (dataSet, type, status, callback) {
                 $http.get(source + dataSet + "/" + type + "/" + status)
                      .success(function (data) {

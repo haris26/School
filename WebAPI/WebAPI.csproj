@@ -201,12 +201,14 @@
     <Compile Include="Controllers\AssetCategoriesController.cs" />
     <Compile Include="Controllers\AssetCharacteristicNamesController.cs" />
     <Compile Include="Controllers\AssetCharsController.cs" />
+    <Compile Include="Controllers\AssetReportsController.cs" />
     <Compile Include="Controllers\AssetsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\RequestsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\ServiceRequestsController.cs" />

@@ -8,7 +8,7 @@ namespace WebAPI.Models
 {
     public class EntityParser
     {
-     
+
 
         public Request Create(RequestModel model, SchoolContext context)
         {
@@ -25,14 +25,14 @@ namespace WebAPI.Models
                 Quantity = model.Quantity,
                 Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), model.Status),
                 AssetType = (AssetType)Enum.Parse(typeof(AssetType), model.AssetType),
-                ServiceType=(ServiceType)Enum.Parse(typeof(ServiceType),model.ServiceType),
+                ServiceType = (ServiceType)Enum.Parse(typeof(ServiceType), model.ServiceType),
                 CompletedRequestDate = Convert.ToDateTime(model.CompletedRequestDate)
 
 
             };
         }
 
-       
+
 
         public Asset Create(AssetsModel model, SchoolContext context)
         {
@@ -48,8 +48,8 @@ namespace WebAPI.Models
                 DateOfTrade = Convert.ToDateTime(model.DateOfTrade),
                 SerialNumber = model.SerialNumber,
                 Price = model.Price,
-                DateOfAssign=Convert.ToDateTime(model.DateOfAssign)
- };
+                DateOfAssign = Convert.ToDateTime(model.DateOfAssign)
+            };
         }
 
 
@@ -57,12 +57,12 @@ namespace WebAPI.Models
         {
             return new AssetCategory()
             {
-                Id=model.Id,
-                CategoryName= model.CategoryName,
+                Id = model.Id,
+                CategoryName = model.CategoryName,
                 assetType = (AssetType)Enum.Parse(typeof(AssetType), model.Type),
-       
 
-    };
+
+            };
         }
 
 
@@ -83,12 +83,12 @@ namespace WebAPI.Models
             return new History()
             {
                 Id = model.Id,
-                EventBegin=model.EventBegin,
-                EventEnd=model.EventEnd,
+                EventBegin = model.EventBegin,
+                EventEnd = model.EventEnd,
                 Person = context.People.Find(model.Person),
                 Asset = context.Assets.Find(model.Asset),
                 Description = model.Description
-                
+
             };
         }
 
@@ -97,10 +97,10 @@ namespace WebAPI.Models
             return new AssetChar()
             {
                 Id = model.Id,
-                Name=model.Name,
-                Value=model.Value,
+                Name = model.Name,
+                Value = model.Value,
                 Asset = context.Assets.Find(model.Asset),
-               
+
 
             };
 

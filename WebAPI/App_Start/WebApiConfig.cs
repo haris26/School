@@ -20,8 +20,8 @@ namespace WebAPI
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}/{y}",
-                defaults: new { id = RouteParameter.Optional,y = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{id}/{y}/{t}",
+                defaults: new { id = RouteParameter.Optional,y = RouteParameter.Optional, t = RouteParameter.Optional }
             );
 
             var json = GlobalConfiguration.Configuration;
