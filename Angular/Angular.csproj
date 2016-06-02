@@ -185,6 +185,7 @@
     <Content Include="views\AllDeviceAssets.html" />
     <Content Include="views\AllOfficeAssets.html" />
     <Content Include="views\AssetReports.html" />
+    <Content Include="views\ChangedStatusRequests.html" />
     <Content Include="views\CompletedDeviceRequestsView.html" />
     <Content Include="views\CompletedOfficeRequestsView.html" />
     <Content Include="views\DeviceAssets.html" />

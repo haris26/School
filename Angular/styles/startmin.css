@@ -431,7 +431,7 @@ table#dataTables-example th {
 
 #irmaModal{
     position:relative;
-    right:110%;
+   width:400px;
     background-color:floralwhite;
         border-style: solid;
     border-color: #59B3D2

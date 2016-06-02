@@ -49,12 +49,12 @@
             $rootScope.menuItems.push({ link: "makenewrequest", text: "New asset" });
             $rootScope.menuItems.push({ link: "servicemyassets", text: "Service" });
             $rootScope.menuItems.push({ text: "My Requests" });
-            $rootScope.menuItems.push({ link: "usernewrequests", text: "Requests(new equipment)" });
-            $rootScope.menuItems.push({ link: "userservicerequests", text: "Requests(service)" });
+            $rootScope.menuItems.push({ link: "usernewrequests", text: " New requests(new equipment)" });
+            $rootScope.menuItems.push({ link: "userservicerequests", text: "New requests(service)" });
             $rootScope.menuItems.push({ link: "userdashboard" });
             $rootScope.menuItems.push({ text: "My assets" });
             $rootScope.menuItems.push({ link: "completedrequests", text: "Completed requests" });
-            $rootScope.menuItems.push({ link: "completedrequests", text: "Completed requests" });
+            $rootScope.menuItems.push({ link: "changedrequests", text: "Pending requests" });
             $rootScope.menuItems.push({ link: "completedrequests", text: "Completed requests" });
             $rootScope.menuItems.push({ link: "myassets", text: "My Assets" });
          

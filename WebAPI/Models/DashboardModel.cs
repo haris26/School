@@ -31,7 +31,7 @@ namespace WebAPI.Models
         public string CategoryName { get; set; }
 
         public string assetType { get; set; }
-
+        public DateTime? DateOfComplete { get; set; }
         public string Description  { get; set; }
         public string Message { get; set; }
         public string Status { get; set; }
@@ -51,18 +51,19 @@ namespace WebAPI.Models
             NewRequests = new List<ListRequestsModel>();
             ServiceRequests = new List<ListRequestsModel>();
             CompletedRequests = new List<ListRequestsModel>();
+            ChangedStatusRequests = new List<ListRequestsModel>();
             countStatusChange = 0;
-           
-
-        }
+            countStatusCompletedChange = 0;        }
 
         public int Id { get; set; }
         public string Name { get; set; }
         public int countStatusChange { get; set; }
-      
+        public int countStatusCompletedChange { get; set; }
+
         public IList<ListModel> Assets { get; set; }
         public IList<ListRequestsModel> NewRequests { get; set; }
         public IList <ListRequestsModel> CompletedRequests { get; set; }
         public IList<ListRequestsModel> ServiceRequests { get; set; }
+        public IList<ListRequestsModel> ChangedStatusRequests { get; set; }
     }
 }

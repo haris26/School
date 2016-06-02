@@ -43,6 +43,9 @@
                 .when("/reports", { templateUrl: "views/Reports.html", controller: "ReportsController" })
                  .when("/assetReports", { templateUrl: "views/AssetReports.html", controller: "AssetReportsController" })
 
+             .when("/changedrequests", { templateUrl: "views/ChangedStatusRequests.html", controller: "UserDashboardController" })
+
+
 
             //User-request manipulation
             //send new

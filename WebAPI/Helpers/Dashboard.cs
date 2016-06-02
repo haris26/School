@@ -46,6 +46,7 @@ namespace WebAPI.Helpers
             new { x.Id,
                 x.Status,
                 x.RequestDate,
+                x.CompletedRequestDate,
                 x.RequestDescription,
                 x.RequestMessage,
                 x.requestType,
@@ -88,7 +89,7 @@ namespace WebAPI.Helpers
                        });
                 }
 
-                else if ((request.requestType == RequestType.Service) && (request.Status == RequestStatus.Completed))
+                else if (request.Status == RequestStatus.Completed)
                 {
                     dashboard.CompletedRequests.Add(new ListRequestsModel
                     {
@@ -101,13 +102,30 @@ namespace WebAPI.Helpers
                         Quantity = request.Quantity,
                         Status = request.Status.ToString(),
                         Date = request.RequestDate.Date,
+                        DateOfComplete=request.CompletedRequestDate,
                         ServiceType = request.ServiceType.ToString()
                     });
+                    dashboard.countStatusCompletedChange++;
                 }
 
 
-                if (request.Status != RequestStatus.InProccess)
+                if ((request.Status!= RequestStatus.New)&&(request.Status!=RequestStatus.Completed))
+                {
+                    dashboard.ChangedStatusRequests.Add(new ListRequestsModel
+                    {
+                        Id = request.Id,
+                        Category = request.AssetCategory.Id,
+                        CategoryName = request.AssetCategory.CategoryName.ToString(),
+                        Description = request.RequestDescription,
+                        Message = request.RequestMessage,
+                        Type = request.requestType.ToString(),
+                        Quantity = request.Quantity,
+                        Status = request.Status.ToString(),
+                        Date = request.RequestDate.Date,
+                        ServiceType = request.ServiceType.ToString()
+                    });
                     dashboard.countStatusChange++;
+                }
             }
 
 

@@ -11,19 +11,26 @@
         $rootScope.model = {};
         $scope.currentPage = 1;
         $scope.pageSize = 10;
+        getRequests();
        
        
+
+
+        fetchData();
+
+
 
         function fetchData() {
             DataService.list(dataSet, function (data) {
                 $scope.dashboard = data;
             });
         }
-        fetchData();
-
-
-
        
+        function getRequests() {
+            DataService.list(dataSet, function (data) {
+                $scope.changedrequestsstatus = data.changedStatusRequests;
+            });
+        }
        
         $scope.transfer = function transfer(item) {
             $rootScope.model = item;

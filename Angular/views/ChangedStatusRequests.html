@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <br />
-            <h3 class="irmatitle">History of Requests</h3>
+            <h3 class="irmatitle">Changed status requests</h3>
             <br />
         </div>
         <!-- /.col-lg-12 -->
@@ -17,11 +17,11 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="dataTable_wrapper" ng-controller="UserDashboardController">
-                        Filter: <input type="search" ng-model="selString">
+                        Filter: <input type="search" ng-model="selRequest">
                         Order:
                         <select ng-model="sortOrder">
                             <option value="+status">Status</option>
-                            <option value="+serviceType">ServiceType</option>
+                            <option value="+date">Request Date</option>
 
                         </select>
                         <hr />
@@ -30,23 +30,31 @@
                                 <tr>
                                     <th>Request Type</th>
                                     <th>Asset Category</th>
-                                    <th>Date of completing</th>
+                                    <th>Description</th>
+                                    <th>Message</th>
+                                    <th>Quantity</th>
                                     <th>Date of sending</th>
-                                
                                     <th>Status</th>
+                                  
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="item in dashboard.completedRequests | orderBy: sortOrder" class="request-table">
+                                <tr dir-paginate="item in changedrequestsstatus |itemsPerPage:10| orderBy: sortOrder |filter: selRequest" class="request-table">
                                     <td>{{item.type}} </td>
                                     <td>{{item.categoryName}}</td>
-                                    <td>{{item.dateOfComplete|date}}</td>
-                                  <td>{{item.date|date}}</td>
+                                    <td>{{item.description}}</td>
+                                    <td>{{item.message}}</td>
+                                    <td>{{item.quantity}}</td>
+                                    <td>{{item.date|date}}</td>
                                     <td>{{item.status}}</td>
+                                  
                                 </tr>
-
                             </tbody>
                         </table>
+                        <dir-pagination-controls [max-size="5"
+                                                 [direction-links="true"
+                                                 [boundary-links="true">
+                        </dir-pagination-controls>
                     </div>
                     <!-- /.table-responsive -->
                 </div>
