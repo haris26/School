@@ -196,15 +196,15 @@
         };
 
         $scope.deleteData = function () {
-            DataService.delete(dataSet2, $scope.detail.id, function (data) { fetchData(); });
+            DataService.delete(dataSet2, $scope.detail.id, function (data) { fetchDataByDay(d); fetchData(); });
         }
         $scope.saveData = function () {
             //$scope.detail.date = new Date($scope.datum).toISOString();
             if ($scope.detail.id == 0) {
-                DataService.create(dataSet2, $scope.detail, function (data) { fetchData(); });
+                DataService.create(dataSet2, $scope.detail, function (data) { fetchDataByDay(d); fetchData(); });
             }
             else {
-                DataService.update(dataSet2, $scope.detail.id, $scope.detail, function (data) { fetchData(); });
+                DataService.update(dataSet2, $scope.detail.id, $scope.detail, function (data) { fetchDataByDay(d); fetchData(); });
             }
         }
     });
