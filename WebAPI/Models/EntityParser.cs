@@ -26,7 +26,7 @@ namespace WebAPI.Models
                 Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), model.Status),
                 AssetType = (AssetType)Enum.Parse(typeof(AssetType), model.AssetType),
                 ServiceType = (ServiceType)Enum.Parse(typeof(ServiceType), model.ServiceType),
-                CompletedRequestDate = Convert.ToDateTime(model.CompletedRequestDate)
+                //CompletedRequestDate = Convert.ToDateTime(model.CompletedRequestDate)
 
 
             };
@@ -48,7 +48,7 @@ namespace WebAPI.Models
                 DateOfTrade = Convert.ToDateTime(model.DateOfTrade),
                 SerialNumber = model.SerialNumber,
                 Price = model.Price,
-                DateOfAssign = Convert.ToDateTime(model.DateOfAssign)
+               // DateOfAssign = Convert.ToDateTime(model.DateOfAssign)
             };
         }
 

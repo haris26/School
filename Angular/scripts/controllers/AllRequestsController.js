@@ -66,13 +66,9 @@
                 serviceType: item.serviceType
 
             }
-            DataService.update("requests", $scope.request.id, $scope.request, function (data) { });
-            pop();
-            //$location.path("/servicerequests");
+            DataService.update("requests", $scope.request.id, $scope.request, function (data) { $route.reload(); pop(); });
 
-            $route.reload();
-            getRequests();
-            $location.path("/requests")
+         //   $location.path("/requests")
         }
 
         function fetchData() {
