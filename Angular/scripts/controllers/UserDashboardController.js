@@ -12,13 +12,23 @@
         $scope.currentPage = 1;
         $scope.pageSize = 10;
         getRequests();
-       
+        $scope.show = true;
        
 
 
         fetchData();
 
-
+        $scope.getReports = function () {
+            
+            var type = $scope.requestType;
+            var status = $scope.requestStatus;
+            console.log(currentUser.id);
+            console.log($scope.requestType);
+        
+            DataService.read2("reports", currentUser.id, status, type, function (data) {
+                $scope.reports = data;
+            });
+        }
 
         function fetchData() {
             DataService.list(dataSet, function (data) {
@@ -31,7 +41,18 @@
                 $scope.changedrequestsstatus = data.changedStatusRequests;
             });
         }
+
+
+        $scope.Print= function () {
+          
+            $scope.show = !$scope.show;
+
+            window.print();
+        }
+
+
        
+
         $scope.transfer = function transfer(item) {
             $rootScope.model = item;
         }

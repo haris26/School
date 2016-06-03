@@ -202,6 +202,7 @@
     <Content Include="views\OfficeAssignedAssets.html" />
     <Content Include="views\OutOfStockAssetsView.html" />
     <Content Include="views\Reports.html" />
+    <Content Include="views\ReportsForCurrentUser.html" />
     <Content Include="views\ServiceOfficeRequests.html" />
     <Content Include="views\UserAssetsForService.html" />
     <Content Include="views\login.html" />

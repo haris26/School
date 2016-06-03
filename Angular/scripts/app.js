@@ -42,6 +42,7 @@
                           .when("/addofficeasset", { templateUrl: "views/AddNewOfficeAsset.html", controller: "NewAssetController" })
                 .when("/reports", { templateUrl: "views/Reports.html", controller: "ReportsController" })
                  .when("/assetReports", { templateUrl: "views/AssetReports.html", controller: "AssetReportsController" })
+             .when("/userReports", { templateUrl: "views/ReportsForCurrentUser.html", controller: "UserDashboardController" })
 
              .when("/changedrequests", { templateUrl: "views/ChangedStatusRequests.html", controller: "UserDashboardController" })
 
