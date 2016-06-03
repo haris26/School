@@ -57,6 +57,7 @@
             $rootScope.menuItems.push({ link: "changedrequests", text: "Pending requests" });
             $rootScope.menuItems.push({ link: "completedrequests", text: "Completed requests" });
             $rootScope.menuItems.push({ link: "myassets", text: "My Assets" });
+            $rootScope.menuItems.push({ link: "userReports", text: "User Reports" });
          
            
         };
