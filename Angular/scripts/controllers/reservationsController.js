@@ -22,9 +22,7 @@
                 fromDate: item.fromDate,
                 toDate: item.toDate
             };
-            console.log($scope.searchParameters);
             DataService.create(dataSet, $scope.searchParameters, function (data) {
-                console.log(data);
                 $scope.reservations = data;
             });
             $scope.showme = true;

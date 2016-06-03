@@ -37,14 +37,12 @@
                     if (currentUser.roles.indexOf("Admin") > -1) {
                         $rootScope.showAddResource = true;
                     }
-                    //console.log($scope.user.remember);
                     if ($scope.user.remember) LoginService.setCredentials("local", $scope.user.name + ":" + $scope.user.pass);
                     $scope.wait = false;
                     $rootScope.showNav = true;
                     $location.path("/home");
                 },
                 function (reason) {
-                    console.log(reason);
                     $rootScope.message = reason.status;
                     $scope.wait = false;
                 }
@@ -101,10 +99,6 @@
         currentUser = {};
         authenticated = false;
         $cookies.remove('gigiSchool');
-
-        //$rootScope.userName = "";
-        //$location.path("/login");
-
         window.location.reload();
     });
 

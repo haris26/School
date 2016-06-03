@@ -20,6 +20,7 @@ namespace WebAPI.Models
         public int Resource { get; set; }
         public int Person { get; set; }
         public int Category { get; set; }
+        public bool IsExtended { get; set; }
     }
 
     public class UserReservationsModel

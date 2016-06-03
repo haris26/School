@@ -291,12 +291,13 @@ namespace WebAPI.Helpers
                 {
                     if (tempEv.Id == extendedEvent.ParentEvent.Id)
                     {
+                        int step = extendedEvent.Frequency;
                         if (extendedEvent.RepeatingType == RepeatType.Daily)
                         {
                             while (tempEv.EventStart.Date < date.Date)
                             {
-                                tempEv.EventStart = tempEv.EventStart.AddDays(1);
-                                tempEv.EventEnd = tempEv.EventEnd.AddDays(1);
+                                tempEv.EventStart = tempEv.EventStart.AddDays(1*step);
+                                tempEv.EventEnd = tempEv.EventEnd.AddDays(1*step);
                                 if (tempEv.EventStart.Date == date.Date)
                                 {
                                     TempEvents.Add(new Event
@@ -318,8 +319,8 @@ namespace WebAPI.Helpers
                         {
                             while (tempEv.EventStart.Date < date.Date)
                             {
-                                tempEv.EventStart = tempEv.EventStart.AddDays(7);
-                                tempEv.EventEnd = tempEv.EventEnd.AddDays(7);
+                                tempEv.EventStart = tempEv.EventStart.AddDays(7*step);
+                                tempEv.EventEnd = tempEv.EventEnd.AddDays(7*step);
                                 if (tempEv.EventStart.Date == date.Date)
                                 {
                                     TempEvents.Add(new Event
@@ -339,8 +340,8 @@ namespace WebAPI.Helpers
                         {
                             while (tempEv.EventStart.Date < date.Date)
                             {
-                                tempEv.EventStart = tempEv.EventStart.AddMonths(1);
-                                tempEv.EventEnd = tempEv.EventEnd.AddMonths(1);
+                                tempEv.EventStart = tempEv.EventStart.AddMonths(1*step);
+                                tempEv.EventEnd = tempEv.EventEnd.AddMonths(1*step);
                                 if (tempEv.EventStart.Date == date.Date)
                                 {
                                     TempEvents.Add(new Event

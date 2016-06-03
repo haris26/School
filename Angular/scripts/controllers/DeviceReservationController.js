@@ -48,7 +48,6 @@
         {
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
                 $scope.reservations = data;
-                console.log($scope.reservations);
                     $scope.mobile = false;
                     $scope.tablet = false;
                     if ($scope.reservations.characteristics[0].name == "DeviceType") {

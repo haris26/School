@@ -3,8 +3,8 @@
     <br>
     <div class="row">
         <div ng-repeat="item in dashboard.activeReservations">
-            <div class="col-xs-6 col-sm-6 col-md-3">
-                <div class="thumbnail">
+            <div  class="col-xs-6 col-sm-6 col-md-3">
+                <div ng-show="!item.isExtended" class="thumbnail">
                     <img ng-if="item.categoryName=='Device'" src="images/devices.png">
                     <img ng-if="item.categoryName=='Room'" src="images/confRoom.png">
                     <div class="caption">

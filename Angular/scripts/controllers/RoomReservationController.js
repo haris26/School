@@ -25,7 +25,6 @@
         $scope.getReservations = function () {
             DataService.create("reservationoverview", $scope.searchParameters, function (data) {
                 $scope.reservations = data;
-                console.log($scope.reservations);
             });
         };
         $scope.getReservations();

@@ -11,7 +11,6 @@
         function fetchData() {
             DataService.list(dataSet, function (data) {
                 $scope.extendedEvents = data;
-                console.log($scope.extendedEvents);
             });
         }
         $rootScope.refreshRecc = function () {

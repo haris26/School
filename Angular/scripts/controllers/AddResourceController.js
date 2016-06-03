@@ -26,7 +26,6 @@
                 $scope.categories = data;
                 $scope.device = false;
                 $scope.room = false;
-                console.log($scope.categories);
             });
         };
         function getOsType() {

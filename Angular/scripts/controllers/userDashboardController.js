@@ -11,6 +11,7 @@
                 $scope.dashboard = data;
             });
         }
+        
         $rootScope.refreshActive = function () {
             fetchData();
         }

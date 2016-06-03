@@ -2,7 +2,7 @@
 
     var app = angular.module("school");
 
-    app.controller("ExtendModalCtrl", function($scope, $modalInstance, DataService, schConfig, toaster) {
+    app.controller("ExtendModalCtrl", function($scope,$rootScope, $modalInstance, DataService, schConfig, toaster) {
 
         $scope.saveData = function () {
             $scope.eventExtend.repeatingType = $scope.eventExtend.repeatingType + 1;
@@ -41,7 +41,6 @@
 
     app.controller("createEventCtrl", function ($scope, $modalInstance, DataService, schConfig, $rootScope) {
         $scope.createReservation = function () {
-            console.log($scope.newEvent,"daj event");
             DataService.create("events", $scope.newEvent, function(data) {
                 var result = true;
                 $modalInstance.close(result);
@@ -99,7 +98,6 @@
                 var result = true;
                 $rootScope.refreshActive();
                 $modalInstance.close(result);
-                console.log($scope.editEvent);
             });
         };
         $scope.cancel = function () {
