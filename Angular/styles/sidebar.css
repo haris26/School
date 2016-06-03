@@ -180,6 +180,10 @@
   margin-right: 5px;
 }
 
+.dugme:hover{
+    color:white !important;
+}
+
 .profile-userbuttons .btn:last-child {
   margin-right: 0px;
 }

@@ -8,9 +8,9 @@
         //$scope.sortOrder = "-date";
 
         getTeams();
-        fetchData();
+        //fetchData();
         getPeople();
-        getDays();
+        getDays();        
 
         $scope.message = "Fetching Details...";
         $scope.pageSizes = [5, 10, 15];
@@ -67,6 +67,7 @@
         function fetchData() {
             DataService.read(dataSet, currentUser.id, function (data) {
                 $scope.details = data;
+                console.log($scope.details);
             });
         }
 

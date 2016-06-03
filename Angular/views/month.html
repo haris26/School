@@ -8,23 +8,24 @@
 <script type="text/ng-template" id="lastday.html">
     <span>This is the last day to complete your time logs. Deadline expires today!</span>
 </script>
+
 <toaster-container toaster-options="{'time-out': 6000, 'close-button':true, 'position-class':'toast-bottom-right'}"></toaster-container>
 
 <div class="row" style="margin-top:-15%">
     <div class="row">
         <div class="col-md-offset-2">
             <div class="col-md-6">
-                <div class="row alert" style="box-shadow: 8px 8px 100px #2E455C;  background-color:#4e4e51; color:white">
+                <div class="row alert" style="box-shadow: 8px 8px 100px #2E455C; background-color:#60B72C; color:white">
                     <h1 style="font-family: Calibri; margin-left:10px">
-                        Hello <b><h style="text-shadow: 1px 1px #4E4E51; color:white">{{userName}}.</h></b><br />
+                        Hello <b><h style="text-shadow: 1px 1px #60B72C; color:white;">{{userName}}.</h></b><br />
                         Welcome to your Dashboard.
                     </h1>
                 </div>
                 <div class="row">
                     <div class="col-md-13">
-                        <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C; margin-left:-2px">
+                        <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C; border-color:#60B72C; margin-left:-2px">
                             <h1 style="font-family:Calibri; color: #4e4e51; margin-top:0">Time Logs</h1><div style="color: #4e4e51; top:-20px; font-size:60px" class="glyphicon glyphicon-dashboard col-md-push-3 col-sm-push-10 col-xs-push-9"></div>                         
-                            <h3 class="col-md-7" style="margin-top:-10px; margin-left:-10px; color:#4E4E51" disabled><b>{{month.name}}</b></h3>
+                            <h3 class="col-md-7" style="margin-top:-10px; margin-left:-10px; color:#60B72C;" disabled><b>{{month.name}}</b></h3>
                             <br />
                             <div ng-repeat="detail in month.details">
                                 
@@ -61,7 +62,7 @@
                                         <div style="text-align:center">
                                             <div>
                                                 <ul class="pagination">
-                                                    <li ng-class="{ active : page == currentPage + 1 }" ng-click="changePage(page)" ng-repeat="page in pages"><a style="background-color:#4e4e51; color:white; cursor:pointer">{{page}}</a></li>
+                                                    <li ng-class="{ active : page == currentPage + 1 }" ng-click="changePage(page)" ng-repeat="page in pages"><a style="background-color:#4e4e51; border-color:#60B72C; color:white; cursor:pointer">{{page}}</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -76,9 +77,9 @@
             <div class="row" style="margin-top:3%">
                 <div class="col-md-6">
                     <span style="box-shadow: 8px 8px 100px #2E455C; align-items:center">
-                        <span><button class="btn col-md-3 col-xs-3" style="border-top: hidden; background-color:#4e4e51; color:white; border-bottom:hidden;" value="Previous" ng-click="previous()">Previous</button></span>
-                        <span class="btn col-md-6 col-xs-6 col-sm-6" style="border-top: hidden; background-color:#4e4e51; color:white; border-bottom:hidden; border-color: white" ng-click="thisMonth()">{{mont| monthName}}, {{year}}</span>
-                        <button class="btn col-md-3 col-sm-3 col-xs-3" value="Next" ng-click="next()" style="border-top: hidden; background-color:#4e4e51; color:white; border-bottom:hidden;">Next</button>
+                        <span><button class="btn col-md-3 col-xs-3" style="border-top: hidden; background-color:#4e4e51; border-left:hidden; border-color:#60B72C; color:white; " value="Previous" ng-click="previous()">Previous</button></span>
+                        <span class="btn col-md-6 col-xs-6 col-sm-6" style="border-top: hidden; background-color:#4e4e51; color:white; border-left:hidden; border-color: #60B72C" ng-click="thisMonth()">{{mont| monthName}}, {{year}}</span>
+                        <button class="btn col-md-3 col-sm-3 col-xs-3" value="Next" ng-click="next()" style="border-top: hidden; border-left:hidden; border-color:#60B72C; background-color:#4e4e51; color:white; border-right:hidden;">Next</button>
                     </span>
                     <div class="row">
                         <span class="col-md-7">

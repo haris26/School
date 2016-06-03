@@ -33,13 +33,17 @@ div.hasData {
 button,
 button:active,
 button:focus, 
-button:hover,
 .btn,
 .btn:active, 
-.btn:focus, 
-.btn:hover{   
+.btn:focus{   
     outline:none !important;
 }
+
+button:hover,
+.btn:hover {
+    color: #60B72C !important;
+}
+
 
 .label {
     float: left;
@@ -184,6 +188,10 @@ input{
         background-color: #04c4bb;
     }
 
+    .btn:hover{
+        color:white;
+    }
+
 .name {
     text-align: center;
     display: block;
@@ -317,13 +325,9 @@ input{
     font-size: 24px;
     text-align: center;
     opacity: 0.8;
-    border-bottom: 1px solid #37ADE7;
+    border-bottom: 1px solid #60B72C;
     line-height: 2.5em;
 }
-
-/*.slijedeci {
-    width: 195px;
-}*/
 
 @media screen and (max-width: 480px) {
     .mjesec {

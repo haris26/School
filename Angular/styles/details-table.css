@@ -47,7 +47,7 @@ tr {
 
 tr:nth-child(odd):hover td {
   background: #EBF6FC;
-  color: #37ADE7;
+  color: #60B72C;
 }
 
 tr:first-child {

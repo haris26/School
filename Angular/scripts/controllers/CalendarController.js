@@ -18,7 +18,7 @@
         $scope.sortOrder = "team";
         fetchData();
         getTeams();
-
+        
         function getTeams() {
             DataService.list("teams", function (data) {
                 $scope.teams = data;

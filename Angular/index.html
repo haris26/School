@@ -6,7 +6,7 @@
             font-family: 'BorisBlackBloxx';
             src: url('fonts/BorisBlackBloxx.ttf') format('truetype');
         }
-    </style>
+    </style>    
     <title>Mistral's Time Tracking</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,18 +73,20 @@
                         <div class="profile-usertitle-job" style="margin-top:-30px; margin-left:-50px; color:white;" ng-show="userName">{{role}}</div>
                     </div>
                     <div class="profile-userbuttons" style="margin-left:-30px">
-                        <button type="button" class="btn btn-sm" style="background-color:#60B72C; color:white">Settings</button>
-                        <button type="button" class="btn btn-sm" style="background-color:#60B72C; color:white">Profile</button>
+                        <button type="button" class="dugme btn btn-sm" style="background-color:#60B72C; color:white">Settings</button>
+                        <button type="button" class="dugme btn btn-sm" style="background-color:#60B72C; color:white">Profile</button>
                     </div>
                     <br />
                 </li>
 
-                <span id="links" ng-controller="MenuController" ng-show="userName">
-                    <li ng-repeat="item in menuItems" style="font-family:Calibri; text-transform:uppercase"><a id="links" href="#/{{ item.link }}">
-                        <span class="mitems"><span id="links" class="{{ item.class }}"></span></span>
-                        <span id="links" class="col-md-offset-1"> {{ item.text }}</span></a>
+                <span id="linkss" ng-controller="MenuController" ng-show="userName">
+                    <li ng-repeat="item in menuItems" style="font-family:Calibri; text-transform:uppercase">
+                        <a id="links" href="#/{{ item.link }}">
+                            <span class="mitems"><span id="links" class="{{ item.class }}"></span></span>
+                            <span id="links" class="col-md-offset-1"> {{ item.text }}</span>
+                        </a>
                     </li>
-                    </span>
+                </span>
             </ul>
 
         </div>
