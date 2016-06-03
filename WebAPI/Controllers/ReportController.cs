@@ -46,7 +46,7 @@ namespace WebAPI.Controllers
             return Ok(result);
 
         }
-         [Route("api/report/{team}/{year}/0")]
+         [Route("api/report/{team}/{year}/1-12")]
         public IHttpActionResult GetAll(int team, int year)
         {
                 MonthModel1 result;           

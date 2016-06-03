@@ -25,8 +25,6 @@ namespace WebAPI.Helpers
                 model.Details.Add(new DetailModel() { WorkTime = detail.WorkTime, Description = detail.Description, TeamName = detail.Team.Name  });
             }
             return model;
-        }
-
-        
+        }     
     }
 }
