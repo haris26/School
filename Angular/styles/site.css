@@ -44,6 +44,9 @@ button:hover,
     color: #60B72C !important;
 }
 
+input:focus, textarea:focus{
+outline-color:#60B72C;
+}
 
 .label {
     float: left;
