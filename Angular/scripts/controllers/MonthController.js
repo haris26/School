@@ -105,7 +105,6 @@
         };
 
         $rootScope.clear = function () {
-            console.log("clear");
             $rootScope.month = null;
             $scope.collection = null;
             $rootScope.n1 = null;
