@@ -96,13 +96,15 @@
         $scope.transfer = function (item) {
             $rootScope.month = item;
             $scope.colection = item.details;
+            };
+
+        $scope.sendingMail = function (item) {
+            $rootScope.dataMail = item;
+            //$scope.colection = item.details;
             recepient = item.email;
             $scope.mail = item.email;
             newEmail();
-            console.log($scope.month.details);
-            console.log(recepient);
-            $scope.warning = "";
-        };
+        }
 
         $rootScope.clear = function () {
             $rootScope.month = null;

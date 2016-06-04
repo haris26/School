@@ -1,5 +1,5 @@
 ﻿<script type="text/ng-template" id="email.html">
-    <span>An email has been sent to {{month.name}}.</span>
+    <span>An email has been sent to {{dataMail.name}}.</span>
 </script>
 <script type="text/ng-template" id="myTemplate.html">
     <span>You have {{left}} days left</span>
@@ -94,7 +94,7 @@
                     <div dir-paginate="item in months | filter: selDetail | itemsPerPage:10">
                         <ul class="list-group">
                             <li class="list-group-item col-md-6">
-                                <span class="badge" style="background-color:#60B72C">{{ item.totalHours }} </span><span style="background-color:#4E4E51" class="badge">{{item.emptyDays}}</span><a style="color:#4e4e51;" class="glyphicon glyphicon-envelope" ng-click="transfer(item); sendEmail(); info();"></a>
+                                <span class="badge" style="background-color:#60B72C">{{ item.totalHours }} </span><span style="background-color:#4E4E51" class="badge">{{item.emptyDays}}</span><a style="color:#4e4e51;" class="glyphicon glyphicon-envelope" ng-click="sendingMail(item); sendEmail(item); info();"></a>
                                 <a style="color:#4E4E51; cursor:pointer" ng-click="transfer(item); transfer1(item);">{{item.name}}</a>
                             </li>
                         </ul>
