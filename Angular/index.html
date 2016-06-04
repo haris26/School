@@ -81,7 +81,7 @@
 
                 <span id="linkss" ng-controller="MenuController" ng-show="userName">
                     <li ng-repeat="item in menuItems" style="font-family:Calibri; text-transform:uppercase">
-                        <a id="links" href="#/{{ item.link }}">
+                        <a id="links" ng-click="clear();" href="#/{{ item.link }}">
                             <span class="mitems"><span id="links" class="{{ item.class }}"></span></span>
                             <span id="links" class="col-md-offset-1"> {{ item.text }}</span>
                         </a>

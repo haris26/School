@@ -104,6 +104,13 @@
             $scope.warning = "";
         };
 
+        $rootScope.clear = function () {
+            console.log("clear");
+            $rootScope.month = null;
+            $scope.collection = null;
+            $rootScope.n1 = null;
+        }
+
         $scope.transfer1 = function (item1) {
             $rootScope.n1 = item1.id;
             //console.log(n1,n);

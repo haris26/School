@@ -63,9 +63,24 @@
                         $scope.previous = function () { $scope.warning() }
                         $scope.class = 'colored'
                     }
-                    else if (n < month) {
+                    else if (n < month && y == year) {
                         $scope.previous = function () { $scope.warning() }
                         $scope.class = 'colored'
+                    }
+                    else if (n < month && y > year) {
+                        console.log(n);
+                        $scope.previous = function () {
+                            n = n - 1;
+                            $scope.mont--;
+                            if ($scope.mont == 0) {
+                                n = 12;
+                                y -= 1;
+                                $scope.mont = 12;
+                                $scope.year -= 1;
+                            }
+                            fetchData(n, y);
+                        }
+                        $scope.class = '';
                     }
                     else {
                         $scope.previous = function () {
@@ -201,10 +216,10 @@
         $scope.saveData = function () {
             //$scope.detail.date = new Date($scope.datum).toISOString();
             if ($scope.detail.id == 0) {
-                DataService.create(dataSet2, $scope.detail, function (data) { fetchDataByDay(d); fetchData(); });
+                DataService.create(dataSet2, $scope.detail, function (data) { fetchData(); fetchDataByDay(d); });
             }
             else {
-                DataService.update(dataSet2, $scope.detail.id, $scope.detail, function (data) { fetchDataByDay(d); fetchData(); });
+                DataService.update(dataSet2, $scope.detail.id, $scope.detail, function (data) { fetchData(); fetchDataByDay(d); });
             }
         }
     });

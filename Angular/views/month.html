@@ -26,6 +26,7 @@
                         <div class="panel panel-default" style="box-shadow: 8px 8px 100px #2E455C; border-color:#60B72C; margin-left:-2px">
                             <h1 style="font-family:Calibri; color: #4e4e51; margin-top:0">Time Logs</h1><div style="color: #4e4e51; top:-20px; font-size:60px" class="glyphicon glyphicon-dashboard col-md-push-3 col-sm-push-10 col-xs-push-9"></div>                         
                             <h3 class="col-md-7" style="margin-top:-10px; margin-left:-10px; color:#60B72C;" disabled><b>{{month.name}}</b></h3>
+                            <h2 ng-show="month.name" style="margin-top:-35px; margin-left:4px; color:#4e4e51;">{{mont| monthName}}, {{year}}</h2>
                             <br />
                             <div ng-repeat="detail in month.details">
                                 
@@ -77,9 +78,9 @@
             <div class="row" style="margin-top:3%">
                 <div class="col-md-6">
                     <span style="box-shadow: 8px 8px 100px #2E455C; align-items:center">
-                        <span><button class="btn col-md-3 col-xs-3" style="border-top: hidden; background-color:#4e4e51; border-left:hidden; border-color:#60B72C; color:white; " value="Previous" ng-click="previous()">Previous</button></span>
-                        <span class="btn col-md-6 col-xs-6 col-sm-6" style="border-top: hidden; background-color:#4e4e51; color:white; border-left:hidden; border-color: #60B72C" ng-click="thisMonth()">{{mont| monthName}}, {{year}}</span>
-                        <button class="btn col-md-3 col-sm-3 col-xs-3" value="Next" ng-click="next()" style="border-top: hidden; border-left:hidden; border-color:#60B72C; background-color:#4e4e51; color:white; border-right:hidden;">Next</button>
+                        <span><button class="btn col-md-3 col-xs-3" style="border-top: hidden; background-color:#4e4e51; border-left:hidden; border-color:#60B72C; color:white; " value="Previous" ng-click="previous(); clear();">Previous</button></span>
+                        <span class="btn col-md-6 col-xs-6 col-sm-6" style="border-top: hidden; background-color:#4e4e51; color:white; border-left:hidden; border-color: #60B72C" ng-click="thisMonth(); clear()">{{mont| monthName}}, {{year}}</span>
+                        <button class="btn col-md-3 col-sm-3 col-xs-3" value="Next" ng-click="next(); clear();" style="border-top: hidden; border-left:hidden; border-color:#60B72C; background-color:#4e4e51; color:white; border-right:hidden;">Next</button>
                     </span>
                     <div class="row">
                         <span class="col-md-7">
